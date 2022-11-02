@@ -23,6 +23,7 @@
 	テスト２
 	テスト３あああ
 	あああ
+	hometest-fech機能
 </div>
 <?php
 }
