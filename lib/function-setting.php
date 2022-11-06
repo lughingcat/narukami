@@ -75,7 +75,7 @@ function add_custom_submenu_page()
 					 5);
 	//フッダー設定
 	add_submenu_page('custom_menu_page', 
-					 'フッター設定', 
+					 'フッターテスト設定', 
 					 'フッター設定', 
 					 'manage_options', 
 					 'custom_submenu_page_6', 
