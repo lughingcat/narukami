@@ -1,0 +1,14 @@
+.e-app-export-kit {
+  padding-bottom: spacing(20); }
+  .e-app-export-kit-information {
+    margin-top: spacing(20); }
+    .e-app-export-kit-information__field-header {
+      margin-bottom: spacing(10); }
+    .e-app-export-kit-information__label {
+      margin: 0; }
+    .e-app-export-kit-information__info-icon {
+      margin-inline-start: spacing(10); }
+  .e-app-export-kit-info-modal__icon {
+    padding-inline-start: spacing(10); }
+  .e-app-export-kit-info-modal__heading {
+    margin-bottom: spacing(20); }
