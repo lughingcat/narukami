@@ -1,0 +1,29 @@
+// Scss Document
+
+#back_wrap{
+	width: 100%;
+	height: 100%;
+	background-color: #8ABBC1;
+	.metabox-holder{
+		padding-left: 20px;
+        padding-bottom: 20px
+	}
+	.postbox.bg{
+		width: 60%;
+	}
+	.hndle{
+		border-bottom: 1px solid #B2B2B2;
+		.title{
+			margin-left: 25px;
+		}
+		.title::before{
+			content: "";
+			position: absolute;
+			width: 20px;
+			height: 20px;
+			background-color:#8ABBC1;
+			border-radius: 50%;
+			margin-left: -25px;
+		}
+	}
+}

@@ -1,0 +1,21 @@
+#back_wrap {
+  width: 100%;
+  height: 100%;
+  background-color: #8ABBC1; }
+  #back_wrap .metabox-holder {
+    padding-left: 20px;
+    padding-bottom: 20px; }
+  #back_wrap .postbox.bg {
+    width: 60%; }
+  #back_wrap .hndle {
+    border-bottom: 1px solid #B2B2B2; }
+    #back_wrap .hndle .title {
+      margin-left: 25px; }
+    #back_wrap .hndle .title::before {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #8ABBC1;
+      border-radius: 50%;
+      margin-left: -25px; }
