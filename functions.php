@@ -148,6 +148,19 @@ function narukami_all_theme_item_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'narukami_all_theme_item_scripts' );
+/**
+ * 管理画面のcss/jsの読み込み
+ */
+
+function add_admin_style(){
+  $path_css = get_template_directory_uri().'/assets/css/admin.css';
+  wp_enqueue_style('admin_style', $path_css);
+  $path_js = get_template_directory_uri().'/assets/js/admin.js';
+  wp_enqueue_script('admin_script', $path_css);
+}
+add_action('admin_enqueue_scripts', 'add_admin_style');
+
+
 
 /**
  * Implement the Custom Header feature.

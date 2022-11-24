@@ -6,9 +6,11 @@
 </head>
 
 <body>
-	<h2><?php echo get_option('text'); ?></h2>
-	<h2><?php echo get_option('textbox'); ?></h2>
-	<h2><?php echo get_option('radio'); ?></h2>
-	<h2><?php echo get_option('checkbox'); ?></h2>
+	<ul class="sub_footer_main">
+		<li><?php echo get_option('text'); ?></li>
+		<li><?php echo get_option('text'); ?></li>
+		<li><?php echo get_option('text'); ?></li>
+		<li><?php echo get_option('text'); ?></li>
+	</ul>		
 </body>
 </html>

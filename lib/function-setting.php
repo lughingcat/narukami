@@ -131,6 +131,7 @@ function add_custom_menu_page_5()
     ?>
 <div class="wrap">
     <h2>サブフッター設定</h2>
+<?php include('subfooter_part.php'); ?>
 </div>
 <?php
 }
