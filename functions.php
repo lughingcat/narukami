@@ -135,10 +135,11 @@ function narukami_all_theme_item_widgets_init() {
 add_action( 'widgets_init', 'narukami_all_theme_item_widgets_init' );
 
 /**
- * Enqueue scripts and styles.
+ * サイトのcss/jsの読み込み
  */
 function narukami_all_theme_item_scripts() {
 	wp_enqueue_style( 'narukami_all_theme_item-style', get_stylesheet_uri(), array(), _S_VERSION );
+	wp_enqueue_style( 'narukami-main-style', get_template_directory_uri() . '/sass/main-style.css' );
 	wp_style_add_data( 'narukami_all_theme_item-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'narukami_all_theme_item-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );

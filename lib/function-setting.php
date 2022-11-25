@@ -19,14 +19,6 @@
 </div>
 <?php
 }
-function register_custom_setting()
-{
-    register_setting('custom-menu-group', 'text');
-    register_setting('custom-menu-group', 'textbox');
-    register_setting('custom-menu-group', 'select');
-    register_setting('custom-menu-group', 'radio');
-    register_setting('custom-menu-group', 'checkbox');
-}
 ?>
 <?php
 //サブメニュー
@@ -131,9 +123,18 @@ function add_custom_menu_page_5()
     ?>
 <div class="wrap">
     <h2>サブフッター設定</h2>
-<?php include('subfooter_part.php'); ?>
+<?php include('subfooter_adm.php'); ?>
 </div>
+
 <?php
+}
+function register_custom_setting()
+{
+    register_setting('custom-menu-group', 'text');
+    register_setting('custom-menu-group', 'text2');
+    register_setting('custom-menu-group', 'text3');
+    register_setting('custom-menu-group', 'text4');
+    register_setting('custom-menu-group', 'text5');
 }
 
 //フッター設定

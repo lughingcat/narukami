@@ -10,8 +10,12 @@
         <div class="inside">
           <div class="main">
             <p class="setting_description">サブフッターを設定すると、メニュー一覧ページ、個別商品ページに自動で差し込まれます。メニュー内でユーザー回遊が起こりやすく、サイト滞在時間が伸びますので設定する事を推奨します。</p>
-            <h4>テキスト</h4>
-            <p><input type="text" id="text" name="text" value="<?php echo get_option('text'); ?>"></p>
+			  <h4>テキスト</h4>
+                <p><input type="text" id="text" name="text" value="<?php echo get_option('text'); ?>"></p>
+                <p><input type="text" id="text" name="text2" value="<?php echo get_option('text2'); ?>"></p>
+                <p><input type="text" id="text" name="text3" value="<?php echo get_option('text3'); ?>"></p>
+                <p><input type="text" id="text" name="text4" value="<?php echo get_option('text4'); ?>"></p>
+                <p><input type="text" id="text" name="text5" value="<?php echo get_option('text5'); ?>"></p>
           </div>
         </div>
       </div>
