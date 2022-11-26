@@ -32,10 +32,17 @@
     text-align: center; }
     .sub_footer_prev .sub_footer_bg .sub_footer_main {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-evenly;
       align-items: center;
-      width: 100%;
+      width: 80%;
       height: 100%;
       margin: 2% auto; }
       .sub_footer_prev .sub_footer_bg .sub_footer_main li {
         list-style: none; }
+        .sub_footer_prev .sub_footer_bg .sub_footer_main li a {
+          text-decoration: none; }
+
+.text_wrap {
+  display: flex;
+  justify-content: space-around;
+  width: 100%; }

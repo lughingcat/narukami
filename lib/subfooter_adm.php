@@ -14,12 +14,27 @@
 				<div class="sub_footer_prev">
 					<?php get_template_part('subfooter');?>
 				</div>
-			  	<h4>テキスト</h4>
-                <p><input type="text" id="text" name="text" value="<?php echo get_option('text'); ?>"></p>
-                <p><input type="text" id="text" name="text2" value="<?php echo get_option('text2'); ?>"></p>
-                <p><input type="text" id="text" name="text3" value="<?php echo get_option('text3'); ?>"></p>
-                <p><input type="text" id="text" name="text4" value="<?php echo get_option('text4'); ?>"></p>
-                <p><input type="text" id="text" name="text5" value="<?php echo get_option('text5'); ?>"></p>
+			  	<h4>サブフッターのタイトルとリンク先URLを記載してください。</h4>
+			  	<div class="text_wrap">
+                <p>タイトル<input type="text" id="text" name="text" value="<?php echo get_option('text'); ?>"placeholder="タイトル" ></p>
+                <p>URL<input type="url" id="url" name="url" value="<?php echo get_option('url'); ?>"placeholder="https://~" ></p>
+				</div>
+			  <div class="text_wrap">
+                <p>タイトル<input type="text" id="text" name="text2" value="<?php echo get_option('text2'); ?>"placeholder="タイトル" ></p>
+                <p>URL<input type="url" id="url" name="url2" value="<?php echo get_option('url2'); ?>"placeholder="https://~" ></p>
+				</div>
+			  <div class="text_wrap">
+                <p>タイトル<input type="text" id="text" name="text3" value="<?php echo get_option('text3'); ?>"placeholder="タイトル" ></p>
+                <p>URL<input type="url" id="url" name="url3" value="<?php echo get_option('url3'); ?>"placeholder="https://~" ></p>
+				</div>
+			  <div class="text_wrap">
+                <p>タイトル<input type="text" id="text" name="text4" value="<?php echo get_option('text4'); ?>"placeholder="タイトル" ></p>
+                <p>URL<input type="url" id="url" name="url4" value="<?php echo get_option('url4'); ?>"placeholder="https://~" ></p>
+				</div>
+			  <div class="text_wrap">
+                <p>タイトル<input type="text" id="text" name="text5" value="<?php echo get_option('text5'); ?>"placeholder="タイトル" ></p>
+                <p>URL<input type="url" id="url" name="url5" value="<?php echo get_option('url5'); ?>"placeholder="https://~" ></p>
+				</div>
           </div>
         </div>
       </div>
