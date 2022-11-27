@@ -132,14 +132,6 @@ function register_custom_setting()
 {
     register_setting('custom-menu-group', 'text');
     register_setting('custom-menu-group', 'url');
-	register_setting('custom-menu-group', 'text2');
-    register_setting('custom-menu-group', 'url2');
-	register_setting('custom-menu-group', 'text3');
-    register_setting('custom-menu-group', 'url3');
-	register_setting('custom-menu-group', 'text4');
-    register_setting('custom-menu-group', 'url4');
-	register_setting('custom-menu-group', 'text5');
-    register_setting('custom-menu-group', 'url5');
 }
 
 //フッター設定

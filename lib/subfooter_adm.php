@@ -16,24 +16,12 @@
 				</div>
 			  	<h4>サブフッターのタイトルとリンク先URLを記載してください。</h4>
 			  	<div class="text_wrap">
-                <p>タイトル<input type="text" id="text" name="text" value="<?php echo get_option('text'); ?>"placeholder="タイトル" ></p>
-                <p>URL<input type="url" id="url" name="url" value="<?php echo get_option('url'); ?>"placeholder="https://~" ></p>
+                <p>タイトル<input type="text" id="text" name="text" value="<?php echo get_option('text'); ?>" onclick="addForm()" placeholder="タイトル" ></p>
+                <p>URL<input type="url" id="url" name="url" value="<?php echo get_option('url'); ?>" placeholder="https://~" ></p>
 				</div>
-			  <div class="text_wrap">
-                <p>タイトル<input type="text" id="text" name="text2" value="<?php echo get_option('text2'); ?>"placeholder="タイトル" ></p>
-                <p>URL<input type="url" id="url" name="url2" value="<?php echo get_option('url2'); ?>"placeholder="https://~" ></p>
-				</div>
-			  <div class="text_wrap">
-                <p>タイトル<input type="text" id="text" name="text3" value="<?php echo get_option('text3'); ?>"placeholder="タイトル" ></p>
-                <p>URL<input type="url" id="url" name="url3" value="<?php echo get_option('url3'); ?>"placeholder="https://~" ></p>
-				</div>
-			  <div class="text_wrap">
-                <p>タイトル<input type="text" id="text" name="text4" value="<?php echo get_option('text4'); ?>"placeholder="タイトル" ></p>
-                <p>URL<input type="url" id="url" name="url4" value="<?php echo get_option('url4'); ?>"placeholder="https://~" ></p>
-				</div>
-			  <div class="text_wrap">
-                <p>タイトル<input type="text" id="text" name="text5" value="<?php echo get_option('text5'); ?>"placeholder="タイトル" ></p>
-                <p>URL<input type="url" id="url" name="url5" value="<?php echo get_option('url5'); ?>"placeholder="https://~" ></p>
+			  	<div class="add_remove_btn_wrap">
+					<button class="add_btn">追加</button>
+					<button class="remove_btn">削除</button>
 				</div>
           </div>
         </div>
