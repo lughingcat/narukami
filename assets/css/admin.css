@@ -46,3 +46,10 @@
   display: flex;
   justify-content: space-around;
   width: 100%; }
+
+input {
+  display: block;
+  margin-top: 10px; }
+
+.add_del_btn_wrap {
+  display: flex; }

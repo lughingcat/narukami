@@ -15,14 +15,14 @@
 					<?php get_template_part('subfooter');?>
 				</div>
 			  	<h4>サブフッターのタイトルとリンク先URLを記載してください。</h4>
-			  	<div class="text_wrap">
-                <p>タイトル<input type="text" id="text" name="text" value="<?php echo get_option('text'); ?>" onclick="addForm()" placeholder="タイトル" ></p>
-                <p>URL<input type="url" id="url" name="url" value="<?php echo get_option('url'); ?>" placeholder="https://~" ></p>
-				</div>
-			  	<div class="add_remove_btn_wrap">
-					<button class="add_btn">追加</button>
-					<button class="remove_btn">削除</button>
-				</div>
+			  <div id="text_wrap">
+                <input type="text" id="text" name="text" placeholder="タイトル" >
+				<button id="0" onClick="delete_btn">削除</button>
+			  </div>
+			  <div class="add_del_btn_wrap"> 
+			  <input id="add_btn" type="button" value="追加"onclick="creatForm()">
+			  </div>
+					
           </div>
         </div>
       </div>

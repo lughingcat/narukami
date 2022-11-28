@@ -1,37 +1,23 @@
 // JavaScript Document
-
-//name属性にナンバリングする１を格納
+//ナンバリング用代入数字
 var i = 1;
-
-//ボタンクリック動作制御（追加ボタン）
-
-var add_btn = document.getElementsByClassName('add_btn');
-add_btn.addEventListener('click', (e) =>
-
-
-//inputタグを生成
-function addFrom(){
-	//タイトル入力フォーム
-	var input_date = document.createElement('input');
-	input_date.type = 'text';
-	input_date.id = 'text';
-	input_date.name = 'text + i';
-	input_date.placeholder = 'タイトル';
-	var parent = document.getElementsByClassName('text_wrap');
-	parent.appendChild(input_date);
+//inputの中身をセット
+function creatForm(){
+	var input_deta = document.createElement('input');
+	input_deta.type = 'text';
+	input_deta.id = 'text' + i;
+	input_deta.name = 'text' + i;
+	input_deta.placeholder = 'タイトル' + i;
+//出力する親要素の取得
+	var parent = document.getElementById('text_wrap');
+//出力
+	parent.appendChild(input_deta);
 	
-	//url入力フォーム
-	var input_url = document.createElement('input');
-	input_date.type = 'url';
-	input_date.id = 'url';
-	input_date.name = 'url + i';
-	input_date.placeholder = 'https://~';
-	var parent = document.getElementsByClassName('text_wrap');
-	parent.appendChild(input_url);
-});
+}
 
+//削除ボタンを生成する
 
-
-
-//クリックイベントで要素を削除
+var button_date = document.createElement('button');
+//生成したボタンの１をプラス
+button_date.id = i;
 
