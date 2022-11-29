@@ -42,10 +42,8 @@
         .sub_footer_prev .sub_footer_bg .sub_footer_main li a {
           text-decoration: none; }
 
-.text_wrap {
-  display: flex;
-  justify-content: space-around;
-  width: 100%; }
+#text_wrap {
+  display: flex; }
 
 input {
   display: block;
