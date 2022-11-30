@@ -57,17 +57,12 @@
 }
 
 //入力スタイル
-#text_wrap{
+.all_form_wrap{
+	width: 100%;
 	display: flex;
-}
-
-input {
-  display: block;
-  margin-top: 10px;
-}
-.add_del_btn_wrap{
-	display: flex;	
-    #add_btn{
-	
+	#text,
+	#url{
+		margin-top: 8%;
 	}
 }
+

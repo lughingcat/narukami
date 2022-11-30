@@ -15,17 +15,24 @@
 					<?php get_template_part('subfooter');?>
 				</div>
 			  	<h4>サブフッターのタイトルとリンク先URLを記載してください。</h4>
-			  		<div id="text_wrap">
-				      	<button id="0" class="del_btn" onClick="delete_btn(this)">削除</button>
-              		  	<input type="text" id="text" name="text" placeholder="タイトル" >
+			     <div class="all_form_wrap">
+			  		<div class="text_form_wrap">
+						<p class="form_title">タイトル</p>
+              		  	<input type="text" id="text" name="text" value="<?php echo get_option('text'); ?>">
+              		  	<input type="text" id="text" name="text2" value="<?php echo get_option('text2'); ?>" >
+              		  	<input type="text" id="text" name="text3" value="<?php echo get_option('text3'); ?>" >
+              		  	<input type="text" id="text" name="text4" value="<?php echo get_option('text4'); ?>" >
+              		  	<input type="text" id="text" name="text5" value="<?php echo get_option('text5'); ?>" >
 			  		</div>
-			        <div class="url_wrap">
-			        	<input type="url" id="url" name="url" placeholder="https://" >
+			        <div class="url_form_wrap">
+						<p class="form_title">URL</p>
+			        	<input type="url" id="url" name="url" value="<?php echo get_option('url'); ?>" >
+			        	<input type="url" id="url" name="url2" value="<?php echo get_option('url2'); ?>" >
+			        	<input type="url" id="url" name="url3" value="<?php echo get_option('url3'); ?>" >
+			        	<input type="url" id="url" name="url4" value="<?php echo get_option('url4'); ?>" >
+			        	<input type="url" id="url" name="url5" value="<?php echo get_option('url5'); ?>" >
 			        </div>
-			        <div class="add_btn_wrap"> 
-			        	<input id="add_btn" type="button" value="追加"onclick="creatForm()">
-			        </div>
-					
+			     </div>
           </div>
         </div>
       </div>

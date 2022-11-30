@@ -42,12 +42,9 @@
         .sub_footer_prev .sub_footer_bg .sub_footer_main li a {
           text-decoration: none; }
 
-#text_wrap {
+.all_form_wrap {
+  width: 100%;
   display: flex; }
-
-input {
-  display: block;
-  margin-top: 10px; }
-
-.add_del_btn_wrap {
-  display: flex; }
+  .all_form_wrap #text,
+  .all_form_wrap #url {
+    margin-top: 8%; }
