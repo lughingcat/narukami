@@ -464,15 +464,17 @@ table {
   text-align: center; }
   .sub_footer_bg .sub_footer_main {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     width: 80%;
     height: 100%;
     margin: 2% auto; }
     .sub_footer_bg .sub_footer_main li {
-      list-style: none; }
+      list-style: none;
+      margin: 0 4%; }
       .sub_footer_bg .sub_footer_main li a {
-        text-decoration: none; }
+        text-decoration: none;
+        color: #010101; }
 
 /* Links
 --------------------------------------------- */

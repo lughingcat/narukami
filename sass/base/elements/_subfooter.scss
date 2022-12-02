@@ -6,16 +6,19 @@
 	text-align: center;
 	.sub_footer_main{
 		display: flex;
-		justify-content: space-evenly;
+		justify-content: center;
 		align-items: center;
 		width: 80%;
 		height: 100%;
 		margin: 2% auto;
 		li{
 			list-style: none;
+			margin: 0 4%;
 			a{
 				text-decoration: none;
+				color: #010101;
 			}
+		
 		}
 	}
 }
