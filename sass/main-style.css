@@ -473,8 +473,7 @@ table {
       list-style: none;
       margin: 0 4%; }
       .sub_footer_bg .sub_footer_main li a {
-        text-decoration: none;
-        color: #010101; }
+        text-decoration: none; }
 
 /* Links
 --------------------------------------------- */

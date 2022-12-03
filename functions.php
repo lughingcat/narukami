@@ -161,7 +161,30 @@ function add_admin_style(){
 }
 add_action('admin_enqueue_scripts', 'add_admin_style');
 
+//カラーピッカーの生成関数
+function genelate_color_picker_tag_demo($name, $value, $label){?>
+  <p><label for="<?php echo $name; ?>"><?php echo $label; ?></label></p>
+  <p><input type="text" name="<?php echo $name; ?>" value="<?php echo $value; ?>" ></p>
+  <?php wp_enqueue_script( 'wp-color-picker' );
+  $data = '(function( $ ) {
+      var options = {
+          defaultColor: false,
+          change: function(event, ui){},
+          clear: function() {},
+          hide: true,
+          palettes: true
+      };
+      $("input:text[name='.$name.']").wpColorPicker(options);
+  })( jQuery );';
+    wp_add_inline_script( 'wp-color-picker', $data, 'after' ) ;
 
+}
+//カラーピッカー用スタイルの読み込み
+
+add_action('admin_print_styles', 'my_admin_print_styles_demo');
+function my_admin_print_styles_demo() {
+ wp_enqueue_style( 'wp-color-picker' );
+}
 
 /**
  * Implement the Custom Header feature.

@@ -140,6 +140,8 @@ function register_custom_setting()
     register_setting('custom-menu-group', 'url3');
     register_setting('custom-menu-group', 'url4');
     register_setting('custom-menu-group', 'url5');
+    register_setting('custom-menu-group', 'bgcolor');
+    register_setting('custom-menu-group', 'textcolor');
 }
 
 //フッター設定

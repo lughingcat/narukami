@@ -33,6 +33,22 @@
 			        	<input type="url" id="url" name="url5" value="<?php echo get_option('url5'); ?>" >
 			        </div>
 			     </div>
+			  <div class="color-bg-box">
+				  <?php 
+				  genelate_color_picker_tag_demo(
+                    'bgcolor', 
+                    get_option('bgcolor'), 
+                    'サブフッターの背景色を選択してください。'
+                  );
+                  ?>
+				  <?php 
+				  genelate_color_picker_tag_demo(
+                    'textcolor', 
+                    get_option('textcolor'), 
+                    'テキストの文字色を選択してください。'
+                  );
+                  ?>
+			  </div>
           </div>
         </div>
       </div>
