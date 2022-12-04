@@ -129,7 +129,7 @@ function add_custom_menu_page_5()
 <?php
 }
 function register_custom_setting()
-{
+{//サブフッターの入力項目をoptions.phpに登録
     register_setting('custom-menu-group', 'text');
     register_setting('custom-menu-group', 'text2');
     register_setting('custom-menu-group', 'text3');
@@ -140,6 +140,7 @@ function register_custom_setting()
     register_setting('custom-menu-group', 'url3');
     register_setting('custom-menu-group', 'url4');
     register_setting('custom-menu-group', 'url5');
+//サブフッターでのカラーピッカー選択色をoptions.phpに登録
     register_setting('custom-menu-group', 'bgcolor');
     register_setting('custom-menu-group', 'textcolor');
 }

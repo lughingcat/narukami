@@ -48,11 +48,22 @@
                     'テキストの文字色を選択してください。'
                   );
                   ?>
-			  </div>
+			  </div
+				
           </div>
         </div>
       </div>
 	</div>
 	<?php submit_button(); ?>
 	</form>
+		<form action="admin.php?page=custom_submenu_page_5" method="post">
+			 <?php
+             $result = "";
+                if (isset($_POST['addbtn'])) {
+                    $result = "('text')";
+                }
+                echo $result;
+             ?>
+			<button type="submit" name="addbtn">追加</button>
+		</form>
 </div>
