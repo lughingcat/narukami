@@ -131,6 +131,15 @@ function narukami_all_theme_item_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
+	register_sidebar(
+		array(
+			'name'          => 'テストウィジェットスペース',
+			'id'            => 'test-w',
+			'description'   => 'ウィジェットテストです',
+			'before_widget' => '<section><p>これはテストです</p>',
+			'after_widget'  => '</section>',
+		)
+	);
 }
 add_action( 'widgets_init', 'narukami_all_theme_item_widgets_init' );
 
@@ -186,6 +195,10 @@ function my_admin_print_styles_demo() {
  wp_enqueue_style( 'wp-color-picker' );
 }
 
+ 
+
+
+
 /**
  * Implement the Custom Header feature.
  */
@@ -210,6 +223,11 @@ require get_template_directory() . '/inc/customizer.php';
  * 管理画面に関する設定
  */
 require get_template_directory() . '/lib/function-setting.php';
+
+/**
+ * ウィジェットテスト
+ */
+require get_template_directory() . '/lib/w-test.php';
 
 
 /**

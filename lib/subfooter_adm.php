@@ -49,21 +49,29 @@
                   );
                   ?>
 			  </div
-				
           </div>
+				  <?php if(is_active_sidebar('sidebar-1')): ?>
+  　　　　　　　　　　　(<ul>)
+  　　　　　　　　　　　  <?php dynamic_sidebar('sidebar-1'); ?>
+  　　　　　　　　　　　(</ul>)
+　　　　　　　　　　　　　<?php endif; ?>
         </div>
       </div>
 	</div>
 	<?php submit_button(); ?>
 	</form>
 		<form action="admin.php?page=custom_submenu_page_5" method="post">
-			 <?php
-             $result = "";
-                if (isset($_POST['addbtn'])) {
-                    $result = "('text')";
-                }
-                echo $result;
+			<?php
+             // ファイルポインタをオープン
+             $handle = fopen("subfooter-text.txt", "r");
+             // ファイル内容を出力
+             while ($line = fgets($handle)) {
+               echo $line;
+             }
+             // ファイルポインタをクローズ
+             fclose($handle);
              ?>
+
 			<button type="submit" name="addbtn">追加</button>
 		</form>
 </div>
