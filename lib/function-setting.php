@@ -130,20 +130,17 @@ function add_custom_menu_page_5()
 }
 function register_custom_setting()
 {//サブフッターの入力項目をoptions.phpに登録
-    register_setting('custom-menu-group', 'text');
-    register_setting('custom-menu-group', 'text2');
-    register_setting('custom-menu-group', 'text3');
-    register_setting('custom-menu-group', 'text4');
-    register_setting('custom-menu-group', 'text5');
-    register_setting('custom-menu-group', 'url');
-    register_setting('custom-menu-group', 'url2');
-    register_setting('custom-menu-group', 'url3');
-    register_setting('custom-menu-group', 'url4');
-    register_setting('custom-menu-group', 'url5');
+    register_setting('custom-menu-group', 'textform' , array(
+		'type' => 'array',
+		'sanitize_callback' => 'esc_attr',
+	));
+    
 //サブフッターでのカラーピッカー選択色をoptions.phpに登録
     register_setting('custom-menu-group', 'bgcolor');
     register_setting('custom-menu-group', 'textcolor');
 }
+add_action( 'admin_init', 'register_custom_setting' );
+
 
 //フッター設定
 function add_custom_menu_page_6()

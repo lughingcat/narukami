@@ -84,6 +84,9 @@ function narukami_all_theme_item_setup() {
 
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
+	
+	// Add theme support for selective refresh for widgets.
+	add_theme_support( 'widgets' );
 
 	/**
 	 * Add support for core custom logo.
@@ -133,13 +136,16 @@ function narukami_all_theme_item_widgets_init() {
 	);
 	register_sidebar(
 		array(
-			'name'          => 'テストウィジェットスペース',
-			'id'            => 'test-w',
-			'description'   => 'ウィジェットテストです',
-			'before_widget' => '<section><p>これはテストです</p>',
+			'name'          => esc_html__( 'サブフッターリスト', 'narukami_all_theme_item' ),
+			'id'            => 'subfooter_elem',
+			'description'   => esc_html__( 'サブフッター挿入リスト', 'narukami_all_theme_item' ),
+			'before_widget' => '<section id="subfooter_list_elem" class="subfooter_2">',
 			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
 		)
 	);
+	
 }
 add_action( 'widgets_init', 'narukami_all_theme_item_widgets_init' );
 
@@ -223,11 +229,6 @@ require get_template_directory() . '/inc/customizer.php';
  * 管理画面に関する設定
  */
 require get_template_directory() . '/lib/function-setting.php';
-
-/**
- * ウィジェットテスト
- */
-require get_template_directory() . '/lib/w-test.php';
 
 
 /**
