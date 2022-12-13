@@ -21,15 +21,32 @@
               		  	<?php
  
 						$formelement = array(
-							'<input type="text" id="text" name="textform[]" value="">', 
-							'<input type="text" id="text" name="textform[]" value="">', 
-							'<input type="text" id="text" name="textform[]" value="">', 
+							'<input type="text" id="text" name="textform[]" value="">',
+							'<input type="text" id="text" name="textform[]" value="">',
+							'<input type="text" id="text" name="textform[]" value="">',
 							'<input type="text" id="text" name="textform[]" value="">'
 								   
 								  );
+							 
 						
-						foreach($formelement as $value){
-							echo $value;
+						foreach($formelement as $roorer){
+							echo $roorer;
+						}
+						
+						?>
+						<?php
+ 
+						$formelement = array(
+							'textform[]',
+							'textform[]',
+							'textform[]',
+							'textform[]'
+													   
+								  );
+							 
+						
+						foreach($formelement as $roorer){
+							echo '<input type="text" id="text" name="' . $roorer . '" value="">';
 						}
 						
 						?>
