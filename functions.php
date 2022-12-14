@@ -231,6 +231,8 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/lib/function-setting.php';
 
 
+
+
 /**
  * Load Jetpack compatibility file.
  */

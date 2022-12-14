@@ -130,13 +130,14 @@ function add_custom_menu_page_5()
 }
 function register_custom_setting()
 {//サブフッターの入力項目をoptions.phpに登録
-    register_setting('custom-menu-group', 'textform', array($formelement));
+	//配列データの格納に失敗get_potionでnullを返す
+    register_setting('custom-menu-group', 'textnew');
     
 //サブフッターでのカラーピッカー選択色をoptions.phpに登録
     register_setting('custom-menu-group', 'bgcolor');
     register_setting('custom-menu-group', 'textcolor');
 }
-add_action( 'admin_init', 'register_custom_setting' );
+
 
 
 //フッター設定

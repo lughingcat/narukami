@@ -18,38 +18,7 @@
 			     <div class="all_form_wrap">
 			  		<div class="text_form_wrap">
 						<p class="form_title">タイトル</p>
-              		  	<?php
- 
-						$formelement = array(
-							'<input type="text" id="text" name="textform[]" value="">',
-							'<input type="text" id="text" name="textform[]" value="">',
-							'<input type="text" id="text" name="textform[]" value="">',
-							'<input type="text" id="text" name="textform[]" value="">'
-								   
-								  );
-							 
-						
-						foreach($formelement as $roorer){
-							echo $roorer;
-						}
-						
-						?>
-						<?php
- 
-						$formelement = array(
-							'textform[]',
-							'textform[]',
-							'textform[]',
-							'textform[]'
-													   
-								  );
-							 
-						
-						foreach($formelement as $roorer){
-							echo '<input type="text" id="text" name="' . $roorer . '" value="">';
-						}
-						
-						?>
+						<input type="text" id="text" name="textnew" value="<?php echo get_option('textnew');?>">
 			  		</div>
 			        <div class="url_form_wrap">
 						<p class="form_title">URL</p>
@@ -79,6 +48,16 @@
 	</form>
 		<form action="admin.php?page=custom_submenu_page_5" method="post">
 			
-			<button type="submit" name="addbtn">追加</button>
+			
+			<input type="text" id="text" name="textform" value="">
+			
+			
+			
+			<button type="submit">追加</button>
+			
 		</form>
+		<?php 
+            $textname = $_POST['textfrom'];
+			var_dump($textname);
+        ?>
 </div>
