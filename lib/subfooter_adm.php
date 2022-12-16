@@ -18,7 +18,23 @@
 			     <div class="all_form_wrap">
 			  		<div class="text_form_wrap">
 						<p class="form_title">タイトル</p>
-						<input type="text" id="text" name="textnew" value="<?php echo get_option('textnew');?>">
+						<?php
+						$opt = get_option('textnew');
+							echo($opt[0]);
+							echo($opt[1]);
+						
+					    $textform = array(
+							'<input type="text" id="text" name="textnew[]" value=> echo($opt[0])',
+							'<input type="text" id="text" name="textnew[]" value=> echo($opt[1])',
+							'<input type="text" id="text" name="textnew[]" value=> echo($opt[2])'
+						);
+						
+						foreach( $textform as $roop){
+							echo $roop;
+						}
+						?>
+						
+						
 			  		</div>
 			        <div class="url_form_wrap">
 						<p class="form_title">URL</p>
@@ -57,7 +73,7 @@
 			
 		</form>
 		<?php 
-            $textname = $_POST['textfrom'];
+            $textname = get_option('textnew');
 			var_dump($textname);
         ?>
 </div>
