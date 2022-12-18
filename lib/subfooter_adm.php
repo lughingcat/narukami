@@ -19,21 +19,20 @@
 			  		<div class="text_form_wrap">
 						<p class="form_title">タイトル</p>
 						<?php
-						$opt = get_option('textnew');
-							echo($opt[0]);
-							echo($opt[1]);
+						$optionnum = get_option('textnew');
+							var_dump($optionnum);
 						
 					    $textform = array(
-							'<input type="text" id="text" name="textnew[]" value=> echo($opt[0])',
-							'<input type="text" id="text" name="textnew[]" value=> echo($opt[1])',
-							'<input type="text" id="text" name="textnew[]" value=> echo($opt[2])'
+							'<input type="text" id="text" name="textnew[]" value=',
+							'<input type="text" id="text" name="textnew[]" value=',
+							'<input type="text" id="text" name="textnew[]" value='
 						);
 						
+						
 						foreach( $textform as $roop){
-							echo $roop;
+								echo $roop . '"' . $optionnum .'">';
 						}
 						?>
-						
 						
 			  		</div>
 			        <div class="url_form_wrap">
