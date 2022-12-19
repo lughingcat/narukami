@@ -19,8 +19,9 @@
 			  		<div class="text_form_wrap">
 						<p class="form_title">タイトル</p>
 						<?php
+						
 						$optionnum = get_option('textnew');
-							var_dump($optionnum);
+					  		
 						
 					    $textform = array(
 							'<input type="text" id="text" name="textnew[]" value=',
@@ -29,8 +30,12 @@
 						);
 						
 						
+						
 						foreach( $textform as $roop){
-								echo $roop . '"' . $optionnum .'">';
+							foreach( $optionnum as $retern){
+								echo $roop . '"' . $retern .'">';
+							}
+							break;
 						}
 						?>
 						
