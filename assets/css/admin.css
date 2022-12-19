@@ -47,4 +47,5 @@
   display: flex; }
   .all_form_wrap #text,
   .all_form_wrap #url {
-    margin-top: 8%; }
+    margin-top: 8%;
+    display: block; }
