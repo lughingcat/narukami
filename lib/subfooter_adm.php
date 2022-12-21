@@ -21,24 +21,25 @@
 						<?php
 						
 						$optionnum = get_option('textnew');
-					  		
+						
+					    var_dump($optionnum);
+						
 						
 					    $textform = array(
-							'<input type="text" id="text" name="textnew[]" value=',
 							'<input type="text" id="text" name="textnew[]" value=',
 							'<input type="text" id="text" name="textnew[]" value='
 						);
 						
 						
-						
-						foreach( $textform as $roop){
-							foreach( $optionnum as $retern){
+						foreach((array) $textform as $roop){
+							foreach( (array)$optionnum as $retern){
 								echo $roop . '"' . $retern .'">';
 							}
-							break;
 						}
-						?>
 						
+						
+						
+						?>
 			  		</div>
 			        <div class="url_form_wrap">
 						<p class="form_title">URL</p>
@@ -67,9 +68,7 @@
 	<?php submit_button(); ?>
 	</form>
 		<form action="admin.php?page=custom_submenu_page_5" method="post">
-			
-			
-			<input type="text" id="text" name="textform" value="">
+		　
 			
 			
 			
