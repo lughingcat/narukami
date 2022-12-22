@@ -20,27 +20,26 @@
 						<p class="form_title">タイトル</p>
 						<?php
 						
-						$optionnum = get_option('textnew');
 						
-					    var_dump($optionnum);
+						$textform = '<input type="text" id="text" name="textfoxs[]" value=';
 						
+						$optionnum = get_option('textfoxs');
+						if( empty($optionnum)){
+							echo '値がない';
+						}else{
+							echo '値がある';
+								}
 						
-					    $textform = array(
-							'<input type="text" id="text" name="textnew[]" value=',
-							'<input type="text" id="text" name="textnew[]" value='
-						);
-						
-						
-<<<<<<< HEAD
-						
-=======
->>>>>>> 49b3ac40337fac30af97c74a259bef365650bb41
 						foreach((array) $textform as $roop){
 							foreach( (array)$optionnum as $retern){
 								echo $roop . '"' . $retern .'">';
 							}
+							break;
 						}
-						
+						//データが空の場合は１つのinputタグと追加、移動ボタンを出力
+						//設定を保存で配列をinputタグに返す
+						//追加ボタンをクリックで配列に空値をセット（input要素自動出力foreach）
+						//削除ボタンをクリックで配列の最後を削除（inputの最後が自動削除foreach）
 						
 						
 						?>
@@ -80,7 +79,7 @@
 			
 		</form>
 		<?php 
-            $textname = get_option('textnew');
+            $textname = get_option('textfoxs');
 			var_dump($textname);
         ?>
 </div>
