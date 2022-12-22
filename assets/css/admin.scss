@@ -59,9 +59,10 @@
 //入力スタイル
 .all_form_wrap{
 	width: 100%;
-	display: flex;
+	display: block;
 	#text,
 	#url{
+		display: block;
 		margin-top: 8%;
 		display: block;
 	}

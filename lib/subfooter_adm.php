@@ -18,25 +18,66 @@
 			     <div class="all_form_wrap">
 			  		<div class="text_form_wrap">
 						<p class="form_title">タイトル</p>
-              		  	<input type="text" id="text" name="text" value="<?php echo get_option('text'); ?>">
-              		  	<input type="text" id="text" name="text2" value="<?php echo get_option('text2'); ?>" >
-              		  	<input type="text" id="text" name="text3" value="<?php echo get_option('text3'); ?>" >
-              		  	<input type="text" id="text" name="text4" value="<?php echo get_option('text4'); ?>" >
-              		  	<input type="text" id="text" name="text5" value="<?php echo get_option('text5'); ?>" >
+						<?php
+						
+						$optionnum = get_option('textnew');
+					  		
+						
+					    $textform = array(
+							'<input type="text" id="text" name="textnew[]" value=',
+							'<input type="text" id="text" name="textnew[]" value=',
+							'<input type="text" id="text" name="textnew[]" value='
+						);
+						
+						
+						
+						foreach((array) $textform as $roop){
+							foreach( (array)$optionnum as $retern){
+								echo $roop . '"' . $retern .'">';
+							}
+							break;
+						}
+						?>
+						
 			  		</div>
 			        <div class="url_form_wrap">
 						<p class="form_title">URL</p>
-			        	<input type="url" id="url" name="url" value="<?php echo get_option('url'); ?>" >
-			        	<input type="url" id="url" name="url2" value="<?php echo get_option('url2'); ?>" >
-			        	<input type="url" id="url" name="url3" value="<?php echo get_option('url3'); ?>" >
-			        	<input type="url" id="url" name="url4" value="<?php echo get_option('url4'); ?>" >
-			        	<input type="url" id="url" name="url5" value="<?php echo get_option('url5'); ?>" >
 			        </div>
 			     </div>
-          </div>
+			  <div class="color-bg-box">
+				  <?php 
+				  genelate_color_picker_tag_demo(
+                    'bgcolor', 
+                    get_option('bgcolor'), 
+                    'サブフッターの背景色を選択してください。'
+                  );
+                  ?>
+				  <?php 
+				  genelate_color_picker_tag_demo(
+                    'textcolor', 
+                    get_option('textcolor'), 
+                    'テキストの文字色を選択してください。'
+                  );
+                  ?>
+			  </div
+          </div> 
         </div>
       </div>
 	</div>
 	<?php submit_button(); ?>
 	</form>
+		<form action="admin.php?page=custom_submenu_page_5" method="post">
+			
+			
+			<input type="text" id="text" name="textform" value="">
+			
+			
+			
+			<button type="submit">追加</button>
+			
+		</form>
+		<?php 
+            $textname = get_option('textnew');
+			var_dump($textname);
+        ?>
 </div>

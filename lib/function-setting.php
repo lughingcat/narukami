@@ -129,18 +129,16 @@ function add_custom_menu_page_5()
 <?php
 }
 function register_custom_setting()
-{
-    register_setting('custom-menu-group', 'text');
-    register_setting('custom-menu-group', 'text2');
-    register_setting('custom-menu-group', 'text3');
-    register_setting('custom-menu-group', 'text4');
-    register_setting('custom-menu-group', 'text5');
-    register_setting('custom-menu-group', 'url');
-    register_setting('custom-menu-group', 'url2');
-    register_setting('custom-menu-group', 'url3');
-    register_setting('custom-menu-group', 'url4');
-    register_setting('custom-menu-group', 'url5');
+{//サブフッターの入力項目をoptions.phpに登録
+	//配列データの格納に失敗get_potionでnullを返す
+    register_setting('custom-menu-group', 'textnew');
+    
+//サブフッターでのカラーピッカー選択色をoptions.phpに登録
+    register_setting('custom-menu-group', 'bgcolor');
+    register_setting('custom-menu-group', 'textcolor');
 }
+
+
 
 //フッター設定
 function add_custom_menu_page_6()
