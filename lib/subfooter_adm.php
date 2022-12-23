@@ -40,10 +40,21 @@
 						//設定を保存で配列をinputタグに返す
 						//追加ボタンをクリックで配列に空値をセット（input要素自動出力foreach）
 						//削除ボタンをクリックで配列の最後を削除（inputの最後が自動削除foreach）
+						$textform5 = '<input type="text" id="text" name="textfoxs[]" value="">';
 						
 						
+						if(isset($_POST['add'])) {
+							echo "登録ボタンが押下されました";
+						} else if(isset($_POST['remove'])) {
+							echo "削除ボタンが押下されました";
+						}
 						?>
 			  		</div>
+					 
+				       <input type="submit" name="add" formaction="admin.php?page=custom_submenu_page_5" value="登録" />
+   					   <input type="submit" name="remove" formaction="admin.php?page=custom_submenu_page_5" value="削除" />
+			
+		              
 			        <div class="url_form_wrap">
 						<p class="form_title">URL</p>
 			        </div>
@@ -70,14 +81,8 @@
 	</div>
 	<?php submit_button(); ?>
 	</form>
-		<form action="admin.php?page=custom_submenu_page_5" method="post">
-		　
-			
-			
-			
-			<button type="submit">追加</button>
-			
-		</form>
+		
+		
 		<?php 
             $textname = get_option('textfoxs');
 			var_dump($textname);
