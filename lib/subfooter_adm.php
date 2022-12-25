@@ -18,42 +18,39 @@
 			     <div class="all_form_wrap">
 			  		<div class="text_form_wrap">
 						<p class="form_title">タイトル</p>
+						
+						
+						
 						<?php
-						
-						
+						//クリックして配列を取り出す
 						$textform = '<input type="text" id="text" name="textfoxs[]" value=';
-						
 						$optionnum = get_option('textfoxs');
-						if( empty($optionnum)){
-							echo '値がない';
-						}else{
-							echo '値がある';
-								}
+						foreach( (array)$optionnum as $retern){
+                        echo $textform . '"' . $retern .'">';
+                        }	
+						$defultform = '<input type="text" id="text" name="textfoxs[]" value="テキストを入力してください">';
+						echo $defultform;
 						
-						foreach((array) $textform as $roop){
-							foreach( (array)$optionnum as $retern){
-								echo $roop . '"' . $retern .'">';
-							}
-							break;
+						
+						if(isset($_POST['add'])) {
+						
+						} else if(isset($_POST['remove'])) {
+							$textformdel = array_pop($textform , $retern);
+							var_dump($textformdel);
+							unset($textformdel);
 						}
+						
 						//データが空の場合は１つのinputタグと追加、移動ボタンを出力
 						//設定を保存で配列をinputタグに返す
 						//追加ボタンをクリックで配列に空値をセット（input要素自動出力foreach）
 						//削除ボタンをクリックで配列の最後を削除（inputの最後が自動削除foreach）
-						$textform5 = '<input type="text" id="text" name="textfoxs[]" value="">';
-						
-						
-						if(isset($_POST['add'])) {
-							echo "登録ボタンが押下されました";
-						} else if(isset($_POST['remove'])) {
-							echo "削除ボタンが押下されました";
-						}
 						?>
 			  		</div>
 					 
 				       <input type="submit" name="add" formaction="admin.php?page=custom_submenu_page_5" value="登録" />
-   					   <input type="submit" name="remove" formaction="admin.php?page=custom_submenu_page_5" value="削除" />
-			
+   					   <input type="submit" name="remove" value="削除" />
+			　　　　　　　　
+						
 		              
 			        <div class="url_form_wrap">
 						<p class="form_title">URL</p>
