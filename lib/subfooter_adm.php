@@ -31,12 +31,17 @@
 						$defultform = '<input type="text" name="textfoxs[]" placeholder="テキストを入力してください" value="">';
 						  echo $defultform;
 						
+						if(isset( $_POST['addform'] )){
+							$result = "値がはいっています";
+							echo $result . '<br>';
+							echo $result;
+						}
 						
 						?>
 			  		</div>
 					 
-				       <input type="submit" name="addform"  value="フォーム追加" />
-   					   <input type="submit" name="removeform"  value="フォーム削除" />
+				       <input type="submit" name="addform" formaction="admin.php?page=custom_submenu_page_5" value="フォー追加" />
+   					   <input type="submit" name="removeform" formaction="admin.php?page=custom_submenu_page_5" value="フォーム削除" />
 			　　　　　　　　
 						
 		              
