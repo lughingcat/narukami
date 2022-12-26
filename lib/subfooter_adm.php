@@ -23,32 +23,20 @@
 						
 						<?php
 						//クリックして配列を取り出す
-						$textform = '<input type="text" id="text" name="textfoxs[]" value=';
+						$textform = '<input type="text" name="textfoxs[]" placeholder="テキストを入力してください" value=';
 						$optionnum = get_option('textfoxs');
 						foreach( (array)$optionnum as $retern){
-                        echo $textform . '"' . $retern .'">';
-                        }	
-						$defultform = '<input type="text" id="text" name="textfoxs[]" value="テキストを入力してください">';
-						echo $defultform;
-						
-						
-						if(isset($_POST['add'])) {
-						
-						} else if(isset($_POST['remove'])) {
-							$textformdel = array_pop($textform , $retern);
-							var_dump($textformdel);
-							unset($textformdel);
+                           echo $textform . '"' . $retern .'">';
 						}
+						$defultform = '<input type="text" name="textfoxs[]" placeholder="テキストを入力してください" value="">';
+						  echo $defultform;
 						
-						//データが空の場合は１つのinputタグと追加、移動ボタンを出力
-						//設定を保存で配列をinputタグに返す
-						//追加ボタンをクリックで配列に空値をセット（input要素自動出力foreach）
-						//削除ボタンをクリックで配列の最後を削除（inputの最後が自動削除foreach）
+						
 						?>
 			  		</div>
 					 
-				       <input type="submit" name="add" formaction="admin.php?page=custom_submenu_page_5" value="登録" />
-   					   <input type="submit" name="remove" value="削除" />
+				       <input type="submit" name="addform"  value="フォーム追加" />
+   					   <input type="submit" name="removeform"  value="フォーム削除" />
 			　　　　　　　　
 						
 		              
