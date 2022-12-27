@@ -23,24 +23,23 @@
 						
 						<?php
 						//クリックして配列を取り出す
+						
 						$textform = '<input type="text" name="textfoxs[]" placeholder="テキストを入力してください" value=';
 						$optionnum = get_option('textfoxs');
 						foreach( (array)$optionnum as $retern){
                            echo $textform . '"' . $retern .'">';
 						}
-						$defultform = '<input type="text" name="textfoxs[]" placeholder="テキストを入力してください" value="">';
-						  echo $defultform;
 						
-						if(isset( $_POST['addform'] )){
-							$result = "値がはいっています";
-							echo $result . '<br>';
-							echo $result;
+						if( isset($_POST['addform']) ){
+							$defultform = '<input type="text" name="textfoxs[]" placeholder="テキストを入力してください" value="">';
+						     echo $defultform;
+						
 						}
 						
 						?>
 			  		</div>
 					 
-				       <input type="submit" name="addform" formaction="admin.php?page=custom_submenu_page_5" value="フォー追加" />
+				       <input type="submit" name="addform" formaction="admin.php?page=custom_submenu_page_5" formmethod="post" value="fo0m追加" />
    					   <input type="submit" name="removeform" formaction="admin.php?page=custom_submenu_page_5" value="フォーム削除" />
 			　　　　　　　　
 						
