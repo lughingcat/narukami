@@ -158,6 +158,7 @@ function narukami_all_theme_item_scripts() {
 	wp_style_add_data( 'narukami_all_theme_item-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'narukami_all_theme_item-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -168,13 +169,25 @@ add_action( 'wp_enqueue_scripts', 'narukami_all_theme_item_scripts' );
  * 管理画面のcss/jsの読み込み
  */
 
+
+function add_cdns(){
+	wp_enqueue_script('vue','https://cdn.jsdelivr.net/npm/vue@2.7.11/dist/vue.js');
+	wp_enqueue_script('twinMax','https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js');
+	wp_enqueue_script('sprintf','https://cdnjs.cloudflare.com/ajax/libs/sprintf/1.1.2/sprintf.min.js');
+}
+add_action( 'admin_enqueue_scripts', 'add_cdns' );
+
+
 function add_admin_style(){
   $path_css = get_template_directory_uri().'/assets/css/admin.css';
   wp_enqueue_style('admin_style', $path_css);
   $path_js = get_template_directory_uri().'/assets/js/admin.js';
-  wp_enqueue_script('admin_script', $path_js);
+  wp_enqueue_script('admin_script', $path_js, '', '', true);
 }
 add_action('admin_enqueue_scripts', 'add_admin_style');
+
+
+
 
 //カラーピッカーの生成関数
 function genelate_color_picker_tag_demo($name, $value, $label){?>

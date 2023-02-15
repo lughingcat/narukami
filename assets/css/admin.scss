@@ -68,3 +68,16 @@
 	}
 }
 
+//vueサブフッターアニメーション
+
+.v-enter-active,
+.v-leave-active{
+	transition: 0.5s;
+}
+
+.v-enter,
+.v-leave-to{
+	opacity: 0;
+	transform: translateY(20px);
+}
+

@@ -9,7 +9,7 @@
         <h3 class='hndle'><span class="title">サブフッター設定</span></h3>
         <div class="inside">
           <div class="main">
-            <p class="setting_description">サブフッターを設定すると、メニュー一覧ページ、個別商品ページに自動で差し込まれます。メニュー内でユーザー回遊が起こりやすく、サイト滞在時間が伸びますので設定する事を推奨します。</p>
+            <p class="setting_description">サブフッターを設定すると、メニュー一覧ページ、個別商品ページに自動で差し込まれます。メニュー内でユーザー回遊が起こりやすく、サイト滞在時間が伸びますので設定する事を推奨します。</p></form>　
 			  <p class="prev-adm">プレビュー</p>
 				<div class="sub_footer_prev">
 					<?php get_template_part('subfooter');?>
@@ -18,36 +18,19 @@
 			     <div class="all_form_wrap">
 			  		<div class="text_form_wrap">
 						<p class="form_title">タイトル</p>
-						
-						
-						
-						<?php
-						//クリックして配列を取り出す
-						
-						$textform = '<input type="text" name="textfoxs[]" placeholder="テキストを入力してください" value=';
-						
-						$optionnum = get_option('textfoxs');
-						foreach( (array)$optionnum as $retern){
-                           echo $textform . '"' . $retern .'">';
-						}
-						$defultform = '<input type="text" name="textfoxs[]" placeholder="テキストを入力してください" value="">';
-						echo $defultform;	
-						
-					    function hello(){
-							echo "hello";
-						}
-						     
-						if(isset($_POST['addform'])){
-						    hello();
-						}
-						?>
+						<div id="app">
+							<transition-group>
+								<li v-for="item in dataArray" v-bind:key="item">{{item}}</li>
+							</transition-group>
+							<label><input v-model="addItem" placeholder="追加するリスト"></label>
+								<button type="button" v-on:click="addList">追加</button>
+								<button type="button" v-on:click="removeLast">削除</button>
+						</div>
 			  		</div>
 					 
-				       <input type="submit" name="addform"　formaction="admin.php?page=custom_submenu_page_5" formmethod="post" value="フォーム追加" />
-   					   <input type="submit" name="removeform" formaction="admin.php?page=custom_submenu_page_5" formmethod="post" value="フォーム削除" />
-			　　　　　　　　
+			　　　　　　　
 						
-		              
+		              <button>テスト</button>
 			        <div class="url_form_wrap">
 						<p class="form_title">URL</p>
 			        </div>
@@ -73,7 +56,7 @@
       </div>
 	</div>
 	<?php submit_button(); ?>
-	</form>
+		</form>
 		
 		
 		<?php 
