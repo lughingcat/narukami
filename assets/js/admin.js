@@ -1,21 +1,22 @@
 new Vue({
 	el:'#app',
 	data:{
-		dataArray:['初期値','２番目'],
-		addItem:''
+		dataArray:['']
 	},
 	
 	methods:{
 		addList: function(){
-			this.dataArray.push(this.addItem);
-			this.addItem = '';
-			return;
+			this.dataArray.push(this);
 		},
 		
 		removeLast:function(){
 			var lastIdx = this.dataArray.length - 1;
 			this.dataArray.splice(lastIdx,1);
-			return;
+			
+		},
+		removeOne:function(){
+			var remOne = this.dataArray.item;
+			this.dataArray.splice(remOne,1);
 		}
 	}
 })

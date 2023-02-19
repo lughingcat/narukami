@@ -20,9 +20,8 @@
 						<p class="form_title">タイトル</p>
 						<div id="app">
 							<transition-group>
-								<li v-for="item in dataArray" v-bind:key="item">{{item}}</li>
+								<li v-for="item in dataArray" v-bind:key="item"><input type="text" name="textfoxs[]" placeholder="文字を入力してください"><button type="button"　v-on:click="removeOne">削除</button></li>
 							</transition-group>
-							<label><input v-model="addItem" placeholder="追加するリスト"></label>
 								<button type="button" v-on:click="addList">追加</button>
 								<button type="button" v-on:click="removeLast">削除</button>
 						</div>
