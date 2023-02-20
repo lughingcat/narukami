@@ -1,22 +1,21 @@
 new Vue({
 	el:'#app',
-	data:{
-		dataArray:['']
+	data(){
+		return{
+			subfooters:[{ text: '', url: ''}]
+		}
 	},
 	
 	methods:{
-		addList: function(){
-			this.dataArray.push(this);
+		add: function(){
+			this.subfooters.push({ text: '', url:'' })
 		},
 		
-		removeLast:function(){
-			var lastIdx = this.dataArray.length - 1;
-			this.dataArray.splice(lastIdx,1);
-			
+		del: function(index){
+			this.subfooters.splice(index,1)
 		},
-		removeOne:function(){
-			var remOne = this.dataArray.item;
-			this.dataArray.splice(remOne,1);
-		}
+		delall : function(index){
+			this.subfooters.splice(index)
+		},
 	}
 })

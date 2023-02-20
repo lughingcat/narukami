@@ -19,17 +19,24 @@
 			  		<div class="text_form_wrap">
 						<p class="form_title">タイトル</p>
 						<div id="app">
+							<table>
 							<transition-group>
-								<li v-for="item in dataArray" v-bind:key="item"><input type="text" name="textfoxs[]" placeholder="文字を入力してください"><button type="button"　v-on:click="removeOne">削除</button></li>
+								<tr v-for="(subfooter, index) in subfooters" v-bind:key="subfooter.id">
+									<td><input type="text" v-model="subfooter.text"></td>
+									<td><input type="url" v-model="subfooter.url"></td>
+									<td><button type="button" v-on:click="del(index)">削除</button></td>
+								</tr>
 							</transition-group>
-								<button type="button" v-on:click="addList">追加</button>
-								<button type="button" v-on:click="removeLast">削除</button>
+							</table>
+							<li v-for="(subfooter, index) in subfooters">{{index}}{{subfooters}}</li>
+								<button type="button" v-on:click="add">追加</button>
+								<button type="button" v-on:click="delall(index)">一括削除</button>
 						</div>
 			  		</div>
 					 
 			　　　　　　　
 						
-		              <button>テスト</button>
+		             
 			        <div class="url_form_wrap">
 						<p class="form_title">URL</p>
 			        </div>
