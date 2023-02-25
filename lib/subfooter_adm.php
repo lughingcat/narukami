@@ -20,18 +20,28 @@
 						<p class="form_title">タイトル</p>
 						<div id="app">
 							<table>
+								<draggable :list="subfooters" class="dragArea">
 								<tr v-for="(subfooter, index) in subfooters" v-bind:key="subfooter.id">
 									<td><input type="text" v-model="subfooter.text"></td>
 									<td><input type="text" v-model="subfooter.url"></td>
 									<td><button type="button" v-on:click="del(index)">削除</button></td>
 								</tr>
+								</draggable>
 							</table>
 							
 							<p>{{subfooters.length}}</p>
 								<button type="button" v-on:click="add">追加</button>
 								<button type="button" v-on:click="delall(index)">一括削除</button>
 						</div>
+						
+						
+						</div>
+						
 			  		</div>
+			
+			            <div id="dragtest">
+                               <li v-for="item in items" :key="item">{{ items }}</li>
+						</div>
 					 
 			　　　　　　　
 						

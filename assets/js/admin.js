@@ -1,3 +1,5 @@
+const draggable = window['vuedraggable'];
+
 new Vue({
 	el:'#app',
 	data(){
@@ -19,4 +21,14 @@ new Vue({
 			this.subfooters.splice(index);
 		}
 	}
+})
+
+
+
+new Vue({
+	el:'#dragtest',
+	data:{
+		items:[ 'ring','banana','frog']
+	
+  }
 })
