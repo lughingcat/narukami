@@ -38,14 +38,18 @@
 						</div>
 						
 			  		</div>
-			
-			            <div id="dragtest">
-                               <li v-for="item in items" :key="item">{{ items }}</li>
+			         
+			           <div id="drag" class="container">
+						  <div class="p-3">
+						    <draggable v-model="items" item-key="no" tag="ul">
+						      <template #item="{ element, index }">
+						        <li>{{element.name}}-(No.{{element.no}})</li>
+						      </template>
+						    </draggable>
+						  </div>
 						</div>
-					 
-			　　　　　　　
-						
-		             
+			
+			
 			        <div class="url_form_wrap">
 						<p class="form_title">URL</p>
 			        </div>
