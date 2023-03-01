@@ -40,13 +40,11 @@
 			  		</div>
 			         
 			           <div id="drag" class="container">
-						  <div class="p-3">
-						    <draggable v-model="items" item-key="no" tag="ul">
-						      <template #item="{ element, index }">
-						        <li>{{element.name}}-(No.{{element.no}})</li>
-						      </template>
-						    </draggable>
-						  </div>
+						  <draggable :list="items" class="dragarea">
+  						    <div v-for="item in items" class="item">
+  						      {{item.text}}
+  						    </div>
+  						   </draggable>
 						</div>
 			
 			

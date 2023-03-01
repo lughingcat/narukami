@@ -23,20 +23,19 @@ new Vue({
 })
 
 
-const draggable = window['vuedraggable'];
-const App = {
-    data() {
-      return {
-        items: [
-        {no:1, name:'キャベツ', categoryNo:'1'},
-        {no:2, name:'ステーキ', categoryNo:'2'},
-        {no:3, name:'リンゴ', categoryNo:'3'}
-        ]
-      }
-    },
-    components: {
-      draggable: draggable
-    },
+var main = new Vue({
+  el: '#drag',
+  data: {
+    items: [{
+      text: 'list1'
+    }, {
+      text: 'list2'
+    }, {
+      text: 'list3'
+    }, {
+      text: 'list4'
+    }, {
+      text: 'list5'
+    }, ]
   }
-
-  Vue.createApp(App).mount('drag');
+});
