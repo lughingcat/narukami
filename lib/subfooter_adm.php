@@ -18,6 +18,13 @@
 			     <div class="all_form_wrap">
 			  		<div class="text_form_wrap">
 						<p class="form_title">タイトル</p>
+						<?php 
+					    $nameList = get_option('sub_footer_text');
+						foreach($nameList as $name){
+							echo $name;
+						}
+					    ?>
+						
 						<div id="app">
 							<table>
 								<tr 
@@ -29,16 +36,18 @@
  									@dragover.prevent
  									@dragenter.prevent
 									>
-									<td><input type="text" v-model="subfooter.text"></td>
-									<td><input type="text" v-model="subfooter.url"></td>
+									<td><input type="text" name="sub_footer_text[]"　placeholder="<?php echo $name;?>" value="初期値を指定" v-model="subfooter.text"></td>
+									<td><input type="url" name="sub_footer_url[]" value="初期値を指定" v-model="subfooter.url"></td>
 									<td><button type="button" v-on:click="del(index)">削除</button></td>
+									<td><button type="button">移動</button></td>
 								</tr>
 							</table>
 							<p>{{subfooters.length}}</p>
 								<button type="button" v-on:click="add">追加</button>
 								<button type="button" v-on:click="delall(index)">一括削除</button>
+								<button>保存</button>
 						</div>
-						
+						<input type="text" name="text" value="初期値を指定">
 						
 						</div>
 						
@@ -82,7 +91,12 @@
 		
 		
 		<?php 
-            $textname = get_option('textfoxs');
+            $textname = get_option('sub_footer_text');
 			var_dump($textname);
+        ?><br>
+		<?php 
+            $urlname = get_option('sub_footer_url');
+			var_dump($urlname);
         ?>
+	
 </div>

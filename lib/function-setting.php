@@ -131,7 +131,8 @@ function add_custom_menu_page_5()
 function register_custom_setting()
 {//サブフッターの入力項目をoptions.phpに登録
 	//配列データの格納に失敗get_potionでnullを返す
-    register_setting('custom-menu-group', 'textfoxs');
+    register_setting('custom-menu-group', 'sub_footer_text');
+    register_setting('custom-menu-group', 'sub_footer_url');
     
 //サブフッターでのカラーピッカー選択色をoptions.phpに登録
     register_setting('custom-menu-group', 'bgcolor');
