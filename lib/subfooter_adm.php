@@ -36,7 +36,7 @@
  									@dragover.prevent
  									@dragenter.prevent
 									>
-									<td><input type="text" name="sub_footer_text[]"　placeholder="<?php echo $name;?>" value="初期値を指定" v-model="subfooter.text"></td>
+									<td><input type="text" name="sub_footer_text[]" v-model="subfooter.text" value="初期値"></td>
 									<td><input type="url" name="sub_footer_url[]" value="初期値を指定" v-model="subfooter.url"></td>
 									<td><button type="button" v-on:click="del(index)">削除</button></td>
 									<td><button type="button">移動</button></td>
@@ -47,8 +47,16 @@
 								<button type="button" v-on:click="delall(index)">一括削除</button>
 								<button>保存</button>
 						</div>
-						<input type="text" name="text" value="初期値を指定">
 						
+						<div id="app2">
+						  <p>
+						    My name is <input v-model="name">
+						    and I am <input v-model="age"> years old.
+						  </p>
+						  <p>
+						    <button type="button" @click="persist">Save</button>
+						  </p>
+						</div>
 						</div>
 						
 			  		</div>
