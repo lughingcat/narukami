@@ -6,7 +6,14 @@ new Vue({
 			subfooters:[{ text: '', url: ''}]
 		}
 	},
-	
+	mounted() {
+    if (localStorage.subfooters) {
+      this.subfooters = localStorage.subfooters;
+    }
+    if (localStorage.subfooters) {
+      this.subfooters = localStorage.subfooters;
+    }
+  },
 	
 	methods:{
 		add: function(){
@@ -29,9 +36,17 @@ new Vue({
         const dragIndex = event.dataTransfer.getData('drag-index')
         const deleteList = this.subfooters.splice(dragIndex, 1);
         this.subfooters.splice(dropIndex, 0, deleteList[0])
-      }
+      },
+	  tempSave(){
+	  localStorage.subfooters = this.subfooters;
+      localStorage.subfooters = this.subfooters;
+      console.log('うまく保存できましたか？');
+    }
 	}
 })
+
+
+
 const app = new Vue({
   el: '#app2',
   data: {
