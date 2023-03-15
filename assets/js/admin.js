@@ -6,15 +6,16 @@ new Vue({
 			subfooters:[{ text: '', url: ''}]
 		}
 	},
-	mounted() {
-    if (localStorage.subfooters) {
-      this.subfooters = localStorage.subfooters;
-    }
-    if (localStorage.subfooters) {
-      this.subfooters = localStorage.subfooters;
+	
+	mounted() { 
+    if (localStorage.getItem('subfooters')) { //ストレジのkeyを検索
+      try { //json -> stringに変換
+        this.subfooters = JSON.parse(localStorage.getItem('subfooters'));
+      } catch(e) { //データに問題があった場合に削除
+        localStorage.removeItem('subfooters');
+      }
     }
   },
-	
 	methods:{
 		add: function(){
 			this.subfooters.push({ text: '', url:'' })
@@ -38,8 +39,8 @@ new Vue({
         this.subfooters.splice(dropIndex, 0, deleteList[0])
       },
 	  tempSave(){
-	  localStorage.subfooters = this.subfooters;
-      localStorage.subfooters = this.subfooters;
+	  const parsed = JSON.stringify(this.subfooters);
+	  localStorage.setItem('subfooters', parsed);
       console.log('うまく保存できましたか？');
     }
 	}
