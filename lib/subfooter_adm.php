@@ -29,15 +29,15 @@
 							<table>
 								<tr 
 									v-for="(subfooter, index) in subfooters" 
-									draggable
+									draggable="false"
 									v-bind:key="subfooter.id" 
   									@dragstart="dragList($event, index)"
 									@drop="dropList($event, index)"
  									@dragover.prevent
  									@dragenter.prevent
 									>
-									<td><input type="text" name="sub_footer_text[]" v-model="subfooter.text"></td>
-									<td><input type="url" name="sub_footer_url[]" v-model="subfooter.url"></td>
+									<td><input type="text" name="sub_footer_text[]" v-model="subfooter.text" value="初期値"></td>
+									<td><input type="url" name="sub_footer_url[]" value="初期値を指定" v-model="subfooter.url"></td>
 									<td><button type="button" v-on:click="del(index)">削除</button></td>
 									<td><button type="button">移動</button></td>
 								</tr>
