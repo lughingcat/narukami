@@ -29,17 +29,19 @@
 							<table>
 								<tr 
 									v-for="(subfooter, index) in subfooters" 
-									draggable="false"
+									v-bind:draggable="active"
 									v-bind:key="subfooter.id" 
   									@dragstart="dragList($event, index)"
 									@drop="dropList($event, index)"
  									@dragover.prevent
  									@dragenter.prevent
 									>
-									<td><input type="text" name="sub_footer_text[]" v-model="subfooter.text" value="初期値"></td>
-									<td><input type="url" name="sub_footer_url[]" value="初期値を指定" v-model="subfooter.url"></td>
+									<p v-if="active">移動可能です</p>
+									<p v-else>移動不可</p>
+									<td><input type="text" name="sub_footer_text[]" v-model="subfooter.text"></td>
+									<td><input type="url" name="sub_footer_url[]" v-model="subfooter.url"></td>
 									<td><button type="button" v-on:click="del(index)">削除</button></td>
-									<td><button type="button">移動</button></td>
+									<td><button type="button" v-on:click="reactive">移動</button></td>
 								</tr>
 							</table>
 							<p>{{subfooters.length}}</p>
@@ -48,7 +50,6 @@
 								<button>保存</button>
 								<button　type="button" @click="tempSave">localStrageに保存</button>
 						</div>
-						
 						<div id="app2">
 						  <p>
 						    My name is <input v-model="name">

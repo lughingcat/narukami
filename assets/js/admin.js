@@ -3,9 +3,11 @@ new Vue({
 	el:'#app',
 	data(){
 		return{
-			subfooters:[{ text: '', url: ''}]
+			subfooters:[{ text: '', url: ''}],
+			active:false
 		}
 	},
+	
 	
 	mounted() { 
     if (localStorage.getItem('subfooters')) { //ストレジのkeyを検索
@@ -42,7 +44,10 @@ new Vue({
 	  const parsed = JSON.stringify(this.subfooters);
 	  localStorage.setItem('subfooters', parsed);
       console.log('うまく保存できましたか？');
-    }
+    },
+	  reactive: function(){
+		  this.active = !this.active;
+	  }
 	}
 })
 
