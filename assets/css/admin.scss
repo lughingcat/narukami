@@ -68,15 +68,34 @@
 	}
 }
 
-//サブフッタースタイル
+//サブフッタースタイルstart
 
-.dragArea{
-	width: 100%;
-	background-color: blue;
+.subfooterMoveBtn{
+	width: 4rem;
+	padding: 1%;
+	margin: 1%;
+	background-color: #EAEAEA;
+	border: none;
+	box-shadow: 1px 1px 1px rgba(51,51,51,0.7);
+	border-top-left-radius: 5%;
+	border-top-right-radius: 5%;
+	border-bottom-left-radius: 5%;
+	border-bottom-right-radius: 5%;
 }
 
-.trbg{
-	background-color: yellow;
-	width: 100%;
+
+
+//fontawesomeサブフッター用スタイル
+
+.fa-solid, 
+.fa-lock,
+{
+	font-size: 1.5em;
+	color: #696969;
+	padding: 1%;
+	border: 1px solid;
+}
+.moveOn{
+	color: #00cc33;
 }
 

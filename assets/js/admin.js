@@ -4,7 +4,8 @@ new Vue({
 	data(){
 		return{
 			subfooters:[{ text: '', url: ''}],
-			active:false
+			active: false,
+			ismoveOn: false
 		}
 	},
 	
@@ -47,6 +48,9 @@ new Vue({
     },
 	  reactive: function(){
 		  this.active = !this.active;
+	},
+	  moveON: function(){
+		  this.ismoveOn = !this.ismoveOn;
 	  }
 	}
 })

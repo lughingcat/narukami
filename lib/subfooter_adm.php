@@ -18,12 +18,6 @@
 			     <div class="all_form_wrap">
 			  		<div class="text_form_wrap">
 						<p class="form_title">タイトル</p>
-						<?php 
-					    $nameList = get_option('sub_footer_text');
-						foreach($nameList as $name){
-							echo $name;
-						}
-					    ?>
 						
 						<div id="app">
 							<table>
@@ -38,10 +32,12 @@
 									>
 									<p v-if="active">移動可能です</p>
 									<p v-else>移動不可</p>
+									<button type="button" class="subfooterMoveBtn" v-on:click="reactive(); moveON();">移動</button><br>
+									<i v-if="active" class="fa-solid fa-lock-open" v-bind:class="{moveOn: ismoveOn}"></i>
+									<i v-else class="fa-solid fa-lock"></i>
 									<td><input type="text" name="sub_footer_text[]" v-model="subfooter.text"></td>
 									<td><input type="url" name="sub_footer_url[]" v-model="subfooter.url"></td>
 									<td><button type="button" v-on:click="del(index)">削除</button></td>
-									<td><button type="button" v-on:click="reactive">移動</button></td>
 								</tr>
 							</table>
 							<p>{{subfooters.length}}</p>
@@ -49,32 +45,12 @@
 								<button type="button" v-on:click="delall(index)">一括削除</button>
 								<button>保存</button>
 								<button　type="button" @click="tempSave">localStrageに保存</button>
+							
 						</div>
-						<div id="app2">
-						  <p>
-						    My name is <input v-model="name">
-						    and I am <input v-model="age"> years old.
-						  </p>
-						  <p>
-						    <button type="button" @click="persist">Save</button>
-						  </p>
-						</div>
+						
 						</div>
 						
 			  		</div>
-			         
-			           <div id="drag" class="container">
-						  <draggable :list="items" class="dragarea">
-  						    <div v-for="item in items" class="item">
-  						      {{item.text}}
-  						    </div>
-  						   </draggable>
-						</div>
-			
-			
-			        <div class="url_form_wrap">
-						<p class="form_title">URL</p>
-			        </div>
 			     </div>
 			  <div class="color-bg-box">
 				  <?php 
