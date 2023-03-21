@@ -14,13 +14,12 @@
 				<div class="sub_footer_prev">
 					<?php get_template_part('subfooter');?>
 				</div>
-			  	<h4>サブフッターのタイトルとリンク先URLを記載してください。</h4>
+			  	<h2>サブフッターのタイトルとリンク先URLを記載してください。</h2>
 			     <div class="all_form_wrap">
 			  		<div class="text_form_wrap">
 						<p class="form_title">タイトル</p>
-						
 						<div id="app">
-							<table>
+							<table class="subfootersTablewrap">
 								<tr 
 									v-for="(subfooter, index) in subfooters" 
 									v-bind:draggable="active"
@@ -32,24 +31,22 @@
 									>
 									<p v-if="active">移動可能です</p>
 									<p v-else>移動不可</p>
-									<button type="button" class="subfooterMoveBtn" v-on:click="reactive(); moveON();">移動</button><br>
+									<button type="button" class="btn btn-success btn-sm" v-on:click="reactive(); moveON();">移動</button><br>
 									<i v-if="active" class="fa-solid fa-lock-open" v-bind:class="{moveOn: ismoveOn}"></i>
 									<i v-else class="fa-solid fa-lock"></i>
-									<td><input type="text" name="sub_footer_text[]" v-model="subfooter.text"></td>
-									<td><input type="url" name="sub_footer_url[]" v-model="subfooter.url"></td>
-									<td><button type="button" v-on:click="del(index)">削除</button></td>
+									<td><input type="text" class="subfootersForm" name="sub_footer_text[]" v-model="subfooter.text"></td>
+									<td><input type="url" class="subfootersForm" name="sub_footer_url[]" v-model="subfooter.url"></td>
+									<td><button type="button" class="btn btn-danger btn-sm" v-on:click="del(index)">削除</button></td>
 								</tr>
 							</table>
-							<p>{{subfooters.length}}</p>
-								<button type="button" v-on:click="add">追加</button>
-								<button type="button" v-on:click="delall(index)">一括削除</button>
-								<button>保存</button>
-								<button　type="button" @click="tempSave">localStrageに保存</button>
-							
+							<div class="subfootersBtnAllWrap">
+								<button type="button" class="btn btn-outline-success btn-sm" v-on:click="add">追加</button>
+								<button type="button" class="btn btn-outline-danger btn-sm" v-on:click="delall(index)">一括削除</button>
+								<button class="btn btn-outline-primary btn-sm">保存</button>
+								<button　type="button" class="btn btn-outline-secondary btn-sm" @click="tempSave">localStrageに保存</button>
+							</div>
 						</div>
-						
 						</div>
-						
 			  		</div>
 			     </div>
 			  <div class="color-bg-box">

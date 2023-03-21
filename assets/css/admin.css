@@ -5,8 +5,13 @@
   #back_wrap .metabox-holder {
     padding-left: 20px;
     padding-bottom: 20px; }
+    #back_wrap .metabox-holder .setting_description {
+      width: 80%;
+      max-width: 700px;
+      margin: 3% 0; }
   #back_wrap .postbox.bg {
-    width: 60%; }
+    width: 90%;
+    max-width: 1000px; }
   #back_wrap .hndle {
     border-bottom: 1px solid #B2B2B2; }
     #back_wrap .hndle .title {
@@ -51,6 +56,18 @@
     margin-top: 8%;
     display: block; }
 
+.subfootersCrudBackWrap {
+  width: 100%;
+  background-color: #C7C2C2; }
+
+.subfootersTablewrap {
+  width: 100%;
+  padding: 1%;
+  margin: 5% 0;
+  background-color: #EDEBEB; }
+  .subfootersTablewrap tbody {
+    text-align: center; }
+
 .subfooterMoveBtn {
   width: 4rem;
   padding: 1%;
@@ -62,6 +79,15 @@
   border-top-right-radius: 5%;
   border-bottom-left-radius: 5%;
   border-bottom-right-radius: 5%; }
+
+.subfootersBtnAllWrap {
+  width: 100%; }
+
+input.subfootersForm {
+  width: 100%;
+  margin: 3% 0;
+  line-height: 2.5;
+  min-height: 35px; }
 
 .fa-solid,
 .fa-lock {
