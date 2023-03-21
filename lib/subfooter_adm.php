@@ -21,6 +21,7 @@
 						<div id="app">
 							<table class="subfootersTablewrap">
 								<tr 
+									class="subfooterTr"
 									v-for="(subfooter, index) in subfooters" 
 									v-bind:draggable="active"
 									v-bind:key="subfooter.id" 

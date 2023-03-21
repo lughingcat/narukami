@@ -58,7 +58,8 @@
 
 .subfootersCrudBackWrap {
   width: 100%;
-  background-color: #C7C2C2; }
+  background-color: #C7C2C2;
+  padding: 2%; }
 
 .subfootersTablewrap {
   width: 100%;
@@ -85,7 +86,7 @@
 
 input.subfootersForm {
   width: 100%;
-  margin: 3% 0;
+  margin: 3% 5%;
   line-height: 2.5;
   min-height: 35px; }
 
