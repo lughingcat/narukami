@@ -5,7 +5,8 @@ new Vue({
 		return{
 			subfooters:[{ text: '', url: ''}],
 			active: false,
-			ismoveOn: false
+			ismoveOn: false,
+			isBgSwich: false
 		}
 	},
 	
@@ -51,7 +52,10 @@ new Vue({
 	},
 	  moveON: function(){
 		  this.ismoveOn = !this.ismoveOn;
-	  }
+	},
+	  BgSwich: function(){
+		  this.isBgSwich = !this.isBgSwich
+	}
 	}
 })
 

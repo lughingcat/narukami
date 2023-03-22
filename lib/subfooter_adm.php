@@ -19,7 +19,8 @@
 			  		<div class="text_form_wrap">
 						<p class="form_title">タイトル</p>
 						<div id="app">
-							<table class="subfootersTablewrap">
+							<article class="crudWrap" v-bind:class="{BgSwich: isBgSwich}">
+							<table class="subfootersTablewrap" v-bind:class="{subfooterTWS: isBgSwich}">
 								<tr 
 									class="subfooterTr"
 									v-for="(subfooter, index) in subfooters" 
@@ -30,16 +31,15 @@
  									@dragover.prevent
  									@dragenter.prevent
 									>
-									<p v-if="active">移動可能です</p>
-									<p v-else>移動不可</p>
-									<button type="button" class="btn btn-success btn-sm" v-on:click="reactive(); moveON();">移動</button><br>
-									<i v-if="active" class="fa-solid fa-lock-open" v-bind:class="{moveOn: ismoveOn}"></i>
-									<i v-else class="fa-solid fa-lock"></i>
+									<button type="button" class="btn btn-success btn-sm" v-on:click="reactive(); moveON(); BgSwich();">並び替え</button><br>
+									<td v-if="active"><button type="button" class="btn btn-light　btn-sm"><i class="fa-solid fa-up-down-left-right" v-bind:class="{moveOn: ismoveOn}"></i></button></td>
+									<td v-else><button type="button" class="btn btn-light　btn-sm"><i class="fa-solid fa-lock"></i></button></td>
 									<td><input type="text" class="subfootersForm" name="sub_footer_text[]" v-model="subfooter.text"></td>
 									<td><input type="url" class="subfootersForm" name="sub_footer_url[]" v-model="subfooter.url"></td>
 									<td><button type="button" class="btn btn-danger btn-sm" v-on:click="del(index)">削除</button></td>
 								</tr>
 							</table>
+							</article>
 							<div class="subfootersBtnAllWrap">
 								<button type="button" class="btn btn-outline-success btn-sm" v-on:click="add">追加</button>
 								<button type="button" class="btn btn-outline-danger btn-sm" v-on:click="delall(index)">一括削除</button>

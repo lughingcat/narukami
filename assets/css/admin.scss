@@ -75,24 +75,40 @@
 }
 
 //サブフッタースタイルstart
-.subfootersCrudBackWrap{
+.crudWrap{
+	height: 500px;
 	width: 100%;
-	background-color: #C7C2C2;
 	padding: 2%;
+	margin: 2% 0;
+	border-radius: 5px;
+	border: 0.5px solid #767676;
+	
+	overflow-x: scroll;
 }
 .subfootersTablewrap{
 	width: 100%;
 	padding: 1%;
-	margin: 5% 0;
-	background-color: #EDEBEB;
-	.subfooterTr{
-		
-	}
+	background-color: #ffffff;
+	margin: 2% 0;
+	box-shadow: 0px 8px 16px -2px rgba(10,10,10,0.1), 25px -13px 23px -17px rgba(10,10,10,0.02);
 	tbody{
 		text-align: center;
+		td{
+			border-width: 1px;
+		}
 	}
 }
-
+.subfooterTWS{
+	background-color: #FFFFFF;
+	box-shadow: 0px 8px 16px -2px rgba(10,10,10,0.1), 0px 0px 12px 1px rgba(10,10,10,0.29);
+}
+.BgSwich{
+	background-color: #fffffff;
+	box-shadow: 0px 0px 16px -6px rgba(0,0,0,0.6) inset;
+}
+.crudSwichBg{
+	background-color: #D2D2D2;
+}
 .subfooterMoveBtn{
 	width: 4rem;
 	padding: 1%;
@@ -110,8 +126,8 @@
 	width: 100%;
 }
 input.subfootersForm{
-	width: 100%;
-	margin: 3% 5%;
+	width: 90%;
+	margin: 3%;
 	line-height: 2.5;
 	min-height: 35px
 }
@@ -119,12 +135,10 @@ input.subfootersForm{
 //fontawesomeサブフッター用スタイル
 
 .fa-solid, 
-.fa-lock,
-{
+.fa-lock,{
 	font-size: 1.5em;
 	color: #696969;
 	padding: 1%;
-	border: 1px solid;
 }
 .moveOn{
 	color: #00cc33;
