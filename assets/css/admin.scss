@@ -85,12 +85,19 @@
 	
 	overflow-x: scroll;
 }
+tr,
+.subfooterTitle{
+	th{
+	border-width: 1px;
+	padding: 2%;
+	}
+}
+
 .subfootersTablewrap{
 	width: 100%;
 	padding: 1%;
 	background-color: #ffffff;
 	margin: 2% 0;
-	box-shadow: 0px 8px 16px -2px rgba(10,10,10,0.1), 25px -13px 23px -17px rgba(10,10,10,0.02);
 	tbody{
 		text-align: center;
 		td{
@@ -124,6 +131,7 @@
 
 .subfootersBtnAllWrap{
 	width: 100%;
+	text-align: right;
 }
 input.subfootersForm{
 	width: 90%;
@@ -142,5 +150,16 @@ input.subfootersForm{
 }
 .moveOn{
 	color: #00cc33;
+}
+//animationCss
+
+.v-enter-active,
+.v-leave-active{
+	transition: 0.5s;
+}
+.v-enter,
+.v-leave-to{
+	opacity: 0;
+	transform: translateX(50px);
 }
 

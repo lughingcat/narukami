@@ -9,7 +9,7 @@
         <h3 class='hndle'><span class="title">サブフッター設定</span></h3>
         <div class="inside">
           <div class="main">
-            <p class="setting_description">サブフッターを設定すると、メニュー一覧ページ、個別商品ページに自動で差し込まれます。メニュー内でユーザー回遊が起こりやすく、サイト滞在時間が伸びますので設定する事を推奨します。</p></form>　
+            <p class="setting_description">サブフッターを設定すると、メニュー一覧ページ、個別商品ページに自動で差し込まれます。メニュー内でユーザー回遊が起こりやすく、サイト滞在時間が伸びますので設定する事を推奨します。</p>
 			  <p class="prev-adm">プレビュー</p>
 				<div class="sub_footer_prev">
 					<?php get_template_part('subfooter');?>
@@ -21,6 +21,13 @@
 						<div id="app">
 							<article class="crudWrap" v-bind:class="{BgSwich: isBgSwich}">
 							<table class="subfootersTablewrap" v-bind:class="{subfooterTWS: isBgSwich}">
+								<tr　class="subfooterTitle">
+								<th>移動制御</th>
+								<th>タイトル</th>
+								<th>URL</th>
+								<th>消去</th>
+								</tr>
+								<transition-group>
 								<tr 
 									class="subfooterTr"
 									v-for="(subfooter, index) in subfooters" 
@@ -31,20 +38,22 @@
  									@dragover.prevent
  									@dragenter.prevent
 									>
-									<button type="button" class="btn btn-success btn-sm" v-on:click="reactive(); moveON(); BgSwich();">並び替え</button><br>
-									<td v-if="active"><button type="button" class="btn btn-light　btn-sm"><i class="fa-solid fa-up-down-left-right" v-bind:class="{moveOn: ismoveOn}"></i></button></td>
-									<td v-else><button type="button" class="btn btn-light　btn-sm"><i class="fa-solid fa-lock"></i></button></td>
+									<article v-if="active"><button type="button" class="btn btn-success btn-sm" v-on:click="reactive(); moveON(); BgSwich();">移動可能</button></article>
+									<article v-else><button type="button" class="btn btn-dark btn-sm" v-on:click="reactive(); moveON(); BgSwich();">移動ロック</button></article>
+									<td v-if="active"><button type="button" class="btn btn-outline-success　btn-sm"><i class="fa-solid fa-up-down-left-right" v-bind:class="{moveOn: ismoveOn}"></i></button></td>
+									<td v-else><button type="button" class="btn btn-outline-dark　btn-sm"><i class="fa-solid fa-lock"></i></button></td>
 									<td><input type="text" class="subfootersForm" name="sub_footer_text[]" v-model="subfooter.text"></td>
 									<td><input type="url" class="subfootersForm" name="sub_footer_url[]" v-model="subfooter.url"></td>
 									<td><button type="button" class="btn btn-danger btn-sm" v-on:click="del(index)">削除</button></td>
 								</tr>
+								</transition-group>
 							</table>
 							</article>
 							<div class="subfootersBtnAllWrap">
-								<button type="button" class="btn btn-outline-success btn-sm" v-on:click="add">追加</button>
+								<button class="btn btn-primary btn-sm">公開</button>
+								<button type="button" class="btn btn-outline-success btn-sm" v-on:click="add">追加＋</button>
 								<button type="button" class="btn btn-outline-danger btn-sm" v-on:click="delall(index)">一括削除</button>
-								<button class="btn btn-outline-primary btn-sm">保存</button>
-								<button　type="button" class="btn btn-outline-secondary btn-sm" @click="tempSave">localStrageに保存</button>
+								<button　type="button" class="btn btn-outline-secondary btn-sm" v-on:click="tempSave">ローカルへ保存</button>
 							</div>
 						</div>
 						</div>
@@ -65,13 +74,13 @@
                     'テキストの文字色を選択してください。'
                   );
                   ?>
-			  </div
+		  </div>
           </div> 
         </div>
       </div>
-	</div>
 	<?php submit_button(); ?>
-		</form>
+	</form>
+</div>
 		
 		
 		<?php 
@@ -82,5 +91,3 @@
             $urlname = get_option('sub_footer_url');
 			var_dump($urlname);
         ?>
-	
-</div>
