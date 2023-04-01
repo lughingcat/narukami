@@ -6,7 +6,8 @@ new Vue({
 			subfooters:[{ text: '', url: ''}],
 			active: false,
 			ismoveOn: false,
-			isBgSwich: false
+			isBgSwich: false,
+			items: [{ id: 1 }, { id: 2 } ]
 		}
 	},
 	
@@ -22,7 +23,7 @@ new Vue({
   },
 	methods:{
 		add: function(){
-			this.subfooters.push({ text: '', url:'' })
+			this.subfooters.push({ text: 'aaa', url:'ddd' })
 		},
 		
 		del: function(index){
@@ -55,48 +56,35 @@ new Vue({
 	},
 	  BgSwich: function(){
 		  this.isBgSwich = !this.isBgSwich
-	}
+	},
+	  addform: function () {
+      this.items.push({
+        id: Math.random()
+      })
+    }
 	}
 })
 
 
-
-const app = new Vue({
-  el: '#app2',
-  data: {
-    name: '',
-    age: 0
-  },
-  mounted() {
-    if (localStorage.name) {
-      this.name = localStorage.name;
-    }
-    if (localStorage.age) {
-      this.age = localStorage.age;
-    }
-  },
+new Vue({
+  el: "#app2",
   methods: {
-    persist() {
-      localStorage.name = this.name;
-      localStorage.age = this.age;
-      console.log('now pretend I did more stuff...');
+    add: function () {
+      this.items.push({
+        id: Math.random()
+      })
+    }
+  },
+  data: function () {
+    return {
+      items: [
+        {
+          id: 1
+        },
+        {
+          id: 2
+        }
+      ]
     }
   }
 })
-
-var main = new Vue({
-  el: '#drag',
-  data: {
-    items: [{
-      text: 'list1'
-    }, {
-      text: 'list2'
-    }, {
-      text: 'list3'
-    }, {
-      text: 'list4'
-    }, {
-      text: 'list5'
-    }, ]
-  }
-});

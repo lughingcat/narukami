@@ -65,20 +65,15 @@
   border: 0.5px solid #767676;
   overflow-x: scroll; }
 
-tr th,
-.subfooterTitle th {
-  border-width: 1px;
-  padding: 2%; }
+.subfooters {
+  width: 100%;
+  height: 500px; }
 
 .subfootersTablewrap {
   width: 100%;
   padding: 1%;
   background-color: #ffffff;
   margin: 2% 0; }
-  .subfootersTablewrap tbody {
-    text-align: center; }
-    .subfootersTablewrap tbody td {
-      border-width: 1px; }
 
 .subfooterTWS {
   background-color: #FFFFFF;
@@ -120,13 +115,43 @@ input.subfootersForm {
   padding: 1%; }
 
 .moveOn {
-  color: #00cc33; }
+  color: #00cc33;
+  transition: 1s; }
 
-.v-enter-active,
-.v-leave-active {
-  transition: 0.5s; }
+.list {
+  transition: all 0.5s; }
 
-.v-enter,
-.v-leave-to {
+.list-enter, .list-leave-to
+ {
   opacity: 0;
-  transform: translateX(50px); }
+  transform: scale(0); }
+
+.list-enter-to {
+  opacity: 1;
+  transform: scale(1); }
+
+.list-leave-active {
+  /*position: absolute;*/ }
+
+.list-move {
+  opacity: 1;
+  transition: all 0.5s; }
+
+.card {
+  transition: all 0.5s; }
+
+.card-enter, .card-leave-to
+ {
+  opacity: 0;
+  transform: scale(0); }
+
+.card-enter-to {
+  opacity: 1;
+  transform: scale(1); }
+
+.card-leave-active {
+  /*position: absolute;*/ }
+
+.card-move {
+  opacity: 1;
+  transition: all 0.5s; }
