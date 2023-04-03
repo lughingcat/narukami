@@ -7,7 +7,28 @@ new Vue({
 			active: false,
 			ismoveOn: false,
 			isBgSwich: false,
-			items: [{ id: 1 }, { id: 2 } ]
+			hao:[
+      {
+        name:'aaa',
+        number:0,
+      },
+            {
+        name:'bbb',
+        number:1,
+      },
+            {
+        name:'ccc',
+        number:2,
+      },
+            {
+        name:'ddd',
+        number:3,
+      },
+            {
+        name:'eee',
+        number:4,
+      }
+    ]
 		}
 	},
 	
@@ -23,7 +44,7 @@ new Vue({
   },
 	methods:{
 		add: function(){
-			this.subfooters.push({ text: 'aaa', url:'ddd' })
+			this.subfooters.push({ text: '', url:'' })
 		},
 		
 		del: function(index){
@@ -57,11 +78,15 @@ new Vue({
 	  BgSwich: function(){
 		  this.isBgSwich = !this.isBgSwich
 	},
-	  addform: function () {
-      this.items.push({
-        id: Math.random()
+	add(){
+      let num = this.hao.length;
+      this.hao.splice(3,0,{
+        name:'add',
+        number:num
       })
     }
+		
+  
 	}
 })
 

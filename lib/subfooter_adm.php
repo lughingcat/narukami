@@ -23,13 +23,12 @@
 									<article v-else key="2"><button type="button" class="btn btn-dark btn-sm" v-on:click="reactive(); moveON(); BgSwich();">移動ロック</button></article>
 							<article class="crudWrap" v-bind:class="{BgSwich: isBgSwich}">
 							<table class="subfootersTablewrap">
-								<tbody is="transition-group" name="card" class="aaa">	
-								<tr
-									v-for="(subfooter, index) in subfooters" 
+								<tbody name="card" is="transition-group">	
+								<tr v-for="subfooter,key in subfooters" 
 									:key="subfooter.id" 
 									v-bind:draggable="active"
-  									@dragstart="dragList($event, index)"
-									@drop="dropList($event, index)"
+  									@dragstart="dragList($event, array)"
+									@drop="dropList($event, array)"
  									@dragover.prevent
  									@dragenter.prevent
 									>
@@ -37,7 +36,7 @@
 									<td v-else><button type="button" class="btn btn-outline-dark　btn-sm"><i class="fa-solid fa-lock"></i></button></td>
 									<td><input type="text" class="subfootersForm" name="sub_footer_text[]" v-model="subfooter.text"></td>
 									<td><input type="url" class="subfootersForm" name="sub_footer_url[]" v-model="subfooter.url"></td>
-									<td><button type="button" class="btn btn-danger btn-sm" v-on:click="del(index)">削除</button></td>
+									<td><button type="button" class="btn btn-danger btn-sm" v-on:click="del(array)">削除</button></td>
 								</tr>
 								</tbody>
 							</table>
@@ -50,11 +49,27 @@
 							</div>
 							
 							
-							<button type="button" v-on:click="addform()">Add</button>
-							 <ul is="transition-group" name="card">
-							    <li class="card" v-for="item in items" :key="item.id">Id: {{ item.id }}</li>  
-							 </ul>
-							
+							<table>
+							    <tbody name="orderupList" is="transition-group">
+							      <tr v-for="item,key in hao" :key="item.number">
+							        <td>{{item.name}}</td>
+							        <td>{{item.number}}</td>
+							      </tr>
+							    </tbody>
+							  </table>
+							  <button type="button" v-on:click="add">add</button>
+							</div>
+							<div id="list-demo" class="demo">
+							  <button v-on:click="add">Add</button>
+							  <button v-on:click="remove">Remove</button>
+							  <button v-on:click="sort">sort</button>
+							  <table>
+							    <tbody name="list" is="transition-group">
+							      <tr v-for="item,key in items" v-bind:key="item">
+							        <td>{{ item }}</td>
+							      </tr>
+							    </tbody>
+							 </table>
 							
 						</div><!--appEnd-->
 					</div>

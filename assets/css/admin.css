@@ -155,3 +155,20 @@ input.subfootersForm {
 .card-move {
   opacity: 1;
   transition: all 0.5s; }
+
+.orderupList-enter-active, .orderupList-leave-active {
+  transition: all 1s; }
+
+.orderupList-enter, .orderupList-leave-to {
+  opacity: 0;
+  transform: translateX(30px); }
+
+.list-enter-active, .list-leave-active {
+  transition: all 1s; }
+
+.list-enter, .list-leave-to {
+  opacity: 0;
+  transform: translateX(30px); }
+
+.list-move {
+  transition: transform 1s; }
