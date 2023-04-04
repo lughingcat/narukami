@@ -7,28 +7,8 @@ new Vue({
 			active: false,
 			ismoveOn: false,
 			isBgSwich: false,
-			hao:[
-      {
-        name:'aaa',
-        number:0,
-      },
-            {
-        name:'bbb',
-        number:1,
-      },
-            {
-        name:'ccc',
-        number:2,
-      },
-            {
-        name:'ddd',
-        number:3,
-      },
-            {
-        name:'eee',
-        number:4,
-      }
-    ]
+			subfooterPlhText: 'タイトルを入力してください',
+			subfooterPlhUrl: 'URLを入力してください',
 		}
 	},
 	
@@ -78,38 +58,5 @@ new Vue({
 	  BgSwich: function(){
 		  this.isBgSwich = !this.isBgSwich
 	},
-	add(){
-      let num = this.hao.length;
-      this.hao.splice(3,0,{
-        name:'add',
-        number:num
-      })
-    }
-		
-  
 	}
-})
-
-
-new Vue({
-  el: "#app2",
-  methods: {
-    add: function () {
-      this.items.push({
-        id: Math.random()
-      })
-    }
-  },
-  data: function () {
-    return {
-      items: [
-        {
-          id: 1
-        },
-        {
-          id: 2
-        }
-      ]
-    }
-  }
 })

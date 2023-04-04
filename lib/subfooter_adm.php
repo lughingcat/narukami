@@ -22,9 +22,17 @@
 									<article v-if="active"　key="1"><button type="button" class="btn btn-success btn-sm" v-on:click="reactive(); moveON(); BgSwich();">移動可能</button></article>
 									<article v-else key="2"><button type="button" class="btn btn-dark btn-sm" v-on:click="reactive(); moveON(); BgSwich();">移動ロック</button></article>
 							<article class="crudWrap" v-bind:class="{BgSwich: isBgSwich}">
-							<table class="subfootersTablewrap">
-								<tbody name="card" is="transition-group">	
-								<tr v-for="subfooter,key in subfooters" 
+							<table class="subfootersTablewrap" v-bind:class="{BgSwich: isBgSwich}">
+								<thead>
+									<tr>
+									<th>移動制御</th>
+									<th>タイトル</th>
+									<th>URL</th>
+									<th>消去</th>
+									</tr>
+									</thead>
+								<tbody>
+								<tr v-for="subfooter,array in subfooters" 
 									:key="subfooter.id" 
 									v-bind:draggable="active"
   									@dragstart="dragList($event, array)"
@@ -34,12 +42,13 @@
 									>
 									<td v-if="active"><button type="button" class="btn btn-outline-success　btn-sm"><i class="fa-solid fa-up-down-left-right" v-bind:class="{moveOn: ismoveOn}"></i></button></td>
 									<td v-else><button type="button" class="btn btn-outline-dark　btn-sm"><i class="fa-solid fa-lock"></i></button></td>
-									<td><input type="text" class="subfootersForm" name="sub_footer_text[]" v-model="subfooter.text"></td>
-									<td><input type="url" class="subfootersForm" name="sub_footer_url[]" v-model="subfooter.url"></td>
+									<td><input type="text" class="subfootersForm" name="sub_footer_text[]" v-model="subfooter.text" v-bind:placeholder="subfooterPlhText"></td>
+									<td><input type="url" class="subfootersForm" name="sub_footer_url[]" v-model="subfooter.url" v-bind:placeholder="subfooterPlhUrl"></td>
 									<td><button type="button" class="btn btn-danger btn-sm" v-on:click="del(array)">削除</button></td>
 								</tr>
 								</tbody>
 							</table>
+								
 							</article>
 							<div class="subfootersBtnAllWrap">
 								<button class="btn btn-primary btn-sm">公開</button>
@@ -47,30 +56,6 @@
 								<button type="button" class="btn btn-outline-danger btn-sm" v-on:click="delall(index)">一括削除</button>
 								<button　type="button" class="btn btn-outline-secondary btn-sm" v-on:click="tempSave">ローカルへ保存</button>
 							</div>
-							
-							
-							<table>
-							    <tbody name="orderupList" is="transition-group">
-							      <tr v-for="item,key in hao" :key="item.number">
-							        <td>{{item.name}}</td>
-							        <td>{{item.number}}</td>
-							      </tr>
-							    </tbody>
-							  </table>
-							  <button type="button" v-on:click="add">add</button>
-							</div>
-							<div id="list-demo" class="demo">
-							  <button v-on:click="add">Add</button>
-							  <button v-on:click="remove">Remove</button>
-							  <button v-on:click="sort">sort</button>
-							  <table>
-							    <tbody name="list" is="transition-group">
-							      <tr v-for="item,key in items" v-bind:key="item">
-							        <td>{{ item }}</td>
-							      </tr>
-							    </tbody>
-							 </table>
-							
 						</div><!--appEnd-->
 					</div>
 			  	</div>

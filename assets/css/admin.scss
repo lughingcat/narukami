@@ -94,6 +94,19 @@
 	padding: 1%;
 	background-color: #ffffff;
 	margin: 2% 0;
+	th{
+		text-align: center;
+		padding: 2%;
+		border-width: 1px;
+	}
+	tr{
+		border: 1px solid;
+	}
+	td{
+		border-width: 1px;
+		padding: 2%;
+		text-align: center;
+	}
 }
 .subfooterTWS{
 	background-color: #FFFFFF;
@@ -141,72 +154,4 @@ input.subfootersForm{
 .moveOn{
 	color: #00cc33;
 	transition: 1s;
-}
-//animationCss
-
-.list {
-  transition: all 0.5s;
-
-}
-.list-enter, .list-leave-to
-/* .card-leave-active for <2.1.8 */ {
-  opacity: 0;
-  transform: scale(0);
-}
-.list-enter-to {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.list-leave-active {
-  /*position: absolute;*/
-}
-
-.list-move {
-  opacity: 1;
-  transition: all 0.5s;
-}
-
-.card {
-  transition: all 0.5s;
-
-}
-.card-enter, .card-leave-to
-/* .card-leave-active for <2.1.8 */ {
-  opacity: 0;
-  transform: scale(0);
-}
-.card-enter-to {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.card-leave-active {
-  /*position: absolute;*/
-}
-
-.card-move {
-  opacity: 1;
-  transition: all 0.5s;
-}
-
-//testcss
-
-.orderupList-enter-active,.orderupList-leave-active{
-        transition: all 1s;
-    }
-.orderupList-enter,.orderupList-leave-to{
-        opacity: 0;
-        transform: translateX(30px);
-    }
-
-.list-enter-active, .list-leave-active {
-  transition: all 1s;
-}
-.list-enter, .list-leave-to{
-  opacity: 0;
-  transform: translateX(30px);
-}
-.list-move {
-  transition: transform 1s;
 }
