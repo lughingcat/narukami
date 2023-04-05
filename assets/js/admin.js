@@ -5,6 +5,7 @@ new Vue({
 		return{
 			subfooters:[{ text: '', url: ''}],
 			active: false,
+			addActive: true,
 			ismoveOn: false,
 			isBgSwich: false,
 			subfooterPlhText: 'タイトルを入力してください',
@@ -24,14 +25,19 @@ new Vue({
   },
 	methods:{
 		add: function(){
-			this.subfooters.push({ text: '', url:'' })
+			var sfNum = this.subfooters.length;
+			if( sfNum <= 5){
+			this.subfooters.push({ text: '', url:'' });
+			}if( sfNum === 5 ){
+				this.addActive = !this.addActive;
+			}
 		},
 		
 		del: function(index){
 			this.subfooters.splice(index,1);
 		},
-		delall : function(index){
-			this.subfooters.splice(index);
+		delall : function(){
+			this.subfooters.splice(0,this.subfooters.length);
 		},
 		
 		dragList(event, dragIndex){
@@ -56,7 +62,7 @@ new Vue({
 		  this.ismoveOn = !this.ismoveOn;
 	},
 	  BgSwich: function(){
-		  this.isBgSwich = !this.isBgSwich
+		  this.isBgSwich = !this.isBgSwich;
 	},
 	}
 })
