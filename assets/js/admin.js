@@ -23,6 +23,7 @@ new Vue({
       }
     }
   },
+	
 	methods:{
 		add: function(){
 			var sfNum = this.subfooters.length;
@@ -51,7 +52,7 @@ new Vue({
 	  tempSave(){
 	  const parsed = JSON.stringify(this.subfooters);
 	  localStorage.setItem('subfooters', parsed);
-      console.log('うまく保存できましたか？');
+      alert('保存に成功しました。\n公開をクリックしてサイトへ反映してください。')
     },
 	  reactive: function(){
 		  this.active = !this.active;

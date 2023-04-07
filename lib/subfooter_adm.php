@@ -23,6 +23,7 @@
 									<article v-else key="2"><button type="button" class="btn btn-dark btn-sm" v-on:click="reactive(); moveON(); BgSwich();">移動ロック</button></article>
 							<article class="crudWrap" v-bind:class="{BgSwich: isBgSwich}">
 							<table class="subfootersTablewrap" v-bind:class="{BgSwich: isBgSwich}">
+								<p class="subfooterNumberdiscription">サブフッターに追加できる項目は最大６個です。現在数[{{subfooters.length}}個]</p>
 								<thead>
 									<tr>
 									<th>移動制御</th>

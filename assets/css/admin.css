@@ -57,13 +57,18 @@
     display: block; }
 
 .crudWrap {
-  height: 700px;
+  height: 735px;
   width: 100%;
   padding: 2%;
   margin: 2% 0;
   border-radius: 5px;
   border: 0.5px solid #767676;
   overflow-x: scroll; }
+
+.subfooterNumberdiscription {
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 1%; }
 
 .subfooters {
   width: 100%; }
