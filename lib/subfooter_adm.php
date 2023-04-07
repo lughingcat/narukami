@@ -44,18 +44,16 @@
 									<td v-else><button type="button" class="btn btn-outline-dark　btn-sm"><i class="fa-solid fa-lock"></i></button></td>
 									<td><input type="text" class="subfootersForm" name="sub_footer_text[]" v-model="subfooter.text" v-bind:placeholder="subfooterPlhText"></td>
 									<td><input type="url" class="subfootersForm" name="sub_footer_url[]" v-model="subfooter.url" v-bind:placeholder="subfooterPlhUrl"></td>
-									<td><button type="button" class="btn btn-danger btn-sm" v-on:click="del(index)">削除</button></td>
+									<td><button type="button" class="btn btn-danger btn-sm" v-on:click="del(index); changeBtnAdd();">削除</button></td>
 								</tr>
 								</tbody>
 							</table>
-								<p>{{subfooters.length}}</p>
 							</article>
 							<div class="subfootersBtnAllWrap">
 								<button class="btn btn-primary btn-sm">公開</button>
-								<article v-if="addActive"><button type="button" class="btn btn-outline-success btn-sm" v-on:click="add()">追加＋</button></article>
-								
-								<button type="button" class="btn btn-outline-success btn-sm" v-on:click="add()">追加＋</button>
-								<button type="button" class="btn btn-outline-danger btn-sm" v-on:click="delall(index)">一括削除</button>
+								<button v-if="addActive" type="button" class="btn btn-secondary btn-sm" v-on:click="add();">最大数到達</button>
+								<button v-else type="button" class="btn btn-outline-success btn-sm" v-on:click="add(); changeBtnAdd();">追加</button>
+								<button type="button" class="btn btn-outline-danger btn-sm" v-on:click="delall(index); changeBtnAdd();">一括削除</button>
 								<button　type="button" class="btn btn-outline-secondary btn-sm" v-on:click="tempSave">ローカルへ保存</button>
 							</div>
 						</div><!--appEnd-->
