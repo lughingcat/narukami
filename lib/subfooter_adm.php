@@ -19,6 +19,11 @@
 			  		<div class="text_form_wrap">
 						<p class="form_title">タイトル</p>
 						<div id="app">
+							<article>
+								<ul>
+									<li v-for="(subfooter,index) in subfooters"><a href="{{subfooter.url}}">{{subfooter.text}}</a></li>
+								</ul>
+							</article>
 									<article v-if="active"　key="1"><button type="button" class="btn btn-success btn-sm" v-on:click="reactive(); moveON(); BgSwich();">移動可能</button></article>
 									<article v-else key="2"><button type="button" class="btn btn-dark btn-sm" v-on:click="reactive(); moveON(); BgSwich();">移動ロック</button></article>
 							<article class="crudWrap" v-bind:class="{BgSwich: isBgSwich}">

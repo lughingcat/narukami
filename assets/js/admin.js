@@ -22,7 +22,16 @@ new Vue({
         localStorage.removeItem('subfooters');
       }
     }
+	 window.onload = ()=>{
+	  var sfNum = this.subfooters.length;
+	  if( sfNum <= 5 ){
+	   this.addActive = false;
+	  }if( sfNum > 5 ){
+	   this.addActive = true;
+	  }
+	}
   },
+	
 	
 	methods:{
 		add: function(){
