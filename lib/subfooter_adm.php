@@ -10,18 +10,15 @@
         <div class="inside">
           <div class="main">
             <p class="setting_description">サブフッターを設定すると、メニュー一覧ページ、個別商品ページに自動で差し込まれます。メニュー内でユーザー回遊が起こりやすく、サイト滞在時間が伸びますので設定する事を推奨します。</p>
-			  <p class="prev-adm">プレビュー</p>
-				<div class="sub_footer_prev">
-					<?php get_template_part('subfooter');?>
-				</div>
 			  	<h2>サブフッターのタイトルとリンク先URLを記載してください。</h2>
 			     <div class="all_form_wrap">
 			  		<div class="text_form_wrap">
-						<p class="form_title">タイトル</p>
 						<div id="app">
-							<article>
-								<ul>
-									<li v-for="(subfooter,index) in subfooters"><a href="{{subfooter.url}}">{{subfooter.text}}</a></li>
+							<article class="subf-prev-bg">
+								<ul class="subf-prev-wrap"  style="background-color: <?php echo get_option('bgcolor'); ?>;">
+									<li v-for="(subfooter,index) in subfooters" class="subf-prev-list">
+										<a :href="subfooter.url" style="color: <?php echo get_option('textcolor'); ?>;" >{{subfooter.text}}</a>
+								    </li>
 								</ul>
 							</article>
 									<article v-if="active"　key="1"><button type="button" class="btn btn-success btn-sm" v-on:click="reactive(); moveON(); BgSwich();">移動可能</button></article>

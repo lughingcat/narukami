@@ -56,6 +56,23 @@
     margin-top: 8%;
     display: block; }
 
+.subf-prev-bg {
+  width: 100%;
+  margin: 2% auto;
+  padding: 2%;
+  border: 0.5px solid #767676;
+  border-radius: 10px; }
+
+.subf-prev-wrap {
+  width: 100%;
+  margin: 0;
+  text-align: center; }
+  .subf-prev-wrap li {
+    display: inline-block;
+    margin: 2% 4%; }
+    .subf-prev-wrap li a {
+      text-decoration: none; }
+
 .crudWrap {
   height: 735px;
   width: 100%;
