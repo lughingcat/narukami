@@ -1,21 +1,34 @@
+@charset "UTF-8";
+.postbox .inside h2, .postbox .inside .subf-h2 {
+  color: #505050;
+  font-size: 1.3em;
+  font-weight: bold;
+  margin: 2%; }
+.postbox .inside h2, .postbox .inside .subf-h2::before {
+  content: '●';
+  color: #8ABBC1;
+  margin-right: 8px; }
+
 #back_wrap {
   width: 100%;
   height: 100%;
   background-color: #8ABBC1; }
   #back_wrap .metabox-holder {
-    padding-left: 20px;
-    padding-bottom: 20px; }
+    padding: 2%; }
     #back_wrap .metabox-holder .setting_description {
       width: 80%;
       max-width: 700px;
-      margin: 3% 0; }
+      margin: 5% 0; }
   #back_wrap .postbox.bg {
     width: 90%;
-    max-width: 1000px; }
+    max-width: 1200px;
+    padding: 4%; }
   #back_wrap .hndle {
     border-bottom: 1px solid #B2B2B2; }
     #back_wrap .hndle .title {
-      margin-left: 25px; }
+      margin-left: 25px;
+      font-size: 1.2em;
+      font-weight: bold; }
     #back_wrap .hndle .title::before {
       content: "";
       position: absolute;
@@ -24,28 +37,6 @@
       background-color: #8ABBC1;
       border-radius: 50%;
       margin-left: -25px; }
-
-.sub_footer_prev {
-  width: 90%;
-  position: relative;
-  border: 1px solid;
-  border-radius: 2px;
-  margin: 2% auto;
-  padding: 2% 2%; }
-  .sub_footer_prev .sub_footer_bg {
-    width: 100%;
-    text-align: center; }
-    .sub_footer_prev .sub_footer_bg .sub_footer_main {
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      width: 80%;
-      height: 100%;
-      margin: 2% auto; }
-      .sub_footer_prev .sub_footer_bg .sub_footer_main li {
-        list-style: none; }
-        .sub_footer_prev .sub_footer_bg .sub_footer_main li a {
-          text-decoration: none; }
 
 .all_form_wrap {
   width: 100%;
@@ -59,14 +50,15 @@
 .subf-prev-bg {
   width: 100%;
   margin: 2% auto;
-  padding: 2%;
+  padding: 5%;
   border: 0.5px solid #767676;
   border-radius: 10px; }
 
 .subf-prev-wrap {
   width: 100%;
   margin: 0;
-  text-align: center; }
+  text-align: center;
+  box-shadow: 0px -3px 14px -7px #777777; }
   .subf-prev-wrap li {
     display: inline-block;
     margin: 2% 4%; }
@@ -83,9 +75,13 @@
   overflow-x: scroll; }
 
 .subfooterNumberdiscription {
-  font-size: 1.2em;
-  font-weight: bold;
+  color: #505050;
   padding: 1%; }
+
+.subfooterNumberdiscription::before {
+  content: '●';
+  color: #8ABBC1;
+  margin-right: 8px; }
 
 .subfooters {
   width: 100%; }

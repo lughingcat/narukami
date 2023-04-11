@@ -9,8 +9,7 @@
         <h3 class='hndle'><span class="title">サブフッター設定</span></h3>
         <div class="inside">
           <div class="main">
-            <p class="setting_description">サブフッターを設定すると、メニュー一覧ページ、個別商品ページに自動で差し込まれます。メニュー内でユーザー回遊が起こりやすく、サイト滞在時間が伸びますので設定する事を推奨します。</p>
-			  	<h2>サブフッターのタイトルとリンク先URLを記載してください。</h2>
+            <p class="setting_description">サブフッターを設定すると、商品一覧ページ、個別商品ページにページリンクが自動で差し込まれます。サイトへ訪れたお客様が、目的の商品を探しやすくなりますので設定する事をおすすめします。</p>
 			     <div class="all_form_wrap">
 			  		<div class="text_form_wrap">
 						<div id="app">
@@ -21,6 +20,7 @@
 								    </li>
 								</ul>
 							</article>
+							<h2 class="subf-h2">サブフッターのタイトルとリンク先URLを記載してください。</h2>
 									<article v-if="active"　key="1"><button type="button" class="btn btn-success btn-sm" v-on:click="reactive(); moveON(); BgSwich();">移動可能</button></article>
 									<article v-else key="2"><button type="button" class="btn btn-dark btn-sm" v-on:click="reactive(); moveON(); BgSwich();">移動ロック</button></article>
 							<article class="crudWrap" v-bind:class="{BgSwich: isBgSwich}">
@@ -63,6 +63,7 @@
 					</div>
 			  	</div>
 			  </div><!--mainEnd-->
+			
 			  <div class="color-bg-box">
 				  <?php 
 				  genelate_color_picker_tag_demo(
@@ -79,9 +80,7 @@
                   );
                   ?>
 				  
-				  <div id="app2">
-					  
-				</div>
+				  
 		  </div>
           </div> 
         </div>
