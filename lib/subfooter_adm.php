@@ -13,16 +13,17 @@
 			     <div class="all_form_wrap">
 			  		<div class="text_form_wrap">
 						<div id="app">
-							<article class="subf-prev-bg">
+							<p class="subf-prev-title">PreVew</p>
+							<div class="subf-prev-bg">
 								<ul class="subf-prev-wrap"  style="background-color: <?php echo get_option('bgcolor'); ?>;">
 									<li v-for="(subfooter,index) in subfooters" class="subf-prev-list">
 										<a :href="subfooter.url" style="color: <?php echo get_option('textcolor'); ?>;" >{{subfooter.text}}</a>
 								    </li>
 								</ul>
-							</article>
+							</div>
 							<h2 class="subf-h2">サブフッターのタイトルとリンク先URLを記載してください。</h2>
-									<article v-if="active"　key="1"><button type="button" class="btn btn-success btn-sm" v-on:click="reactive(); moveON(); BgSwich();">移動可能</button></article>
-									<article v-else key="2"><button type="button" class="btn btn-dark btn-sm" v-on:click="reactive(); moveON(); BgSwich();">移動ロック</button></article>
+									<article v-if="active"　key="1"><button type="button" class="btn btn-success btn-sm" v-on:click="reactive(); moveON(); BgSwich();">並び替えON</button></article>
+									<article v-else key="2"><button type="button" class="btn btn-dark btn-sm" v-on:click="reactive(); moveON(); BgSwich();">並び替えOFF</button></article>
 							<article class="crudWrap" v-bind:class="{BgSwich: isBgSwich}">
 							<table class="subfootersTablewrap" v-bind:class="{BgSwich: isBgSwich}">
 								<p class="subfooterNumberdiscription">サブフッターに追加できる項目は最大６個です。現在数[{{subfooters.length}}個]</p>
@@ -57,14 +58,15 @@
 								<button v-if="addActive" type="button" class="btn btn-secondary btn-sm" v-on:click="add();">最大数到達</button>
 								<button v-else type="button" class="btn btn-outline-success btn-sm" v-on:click="add(); changeBtnAdd();">追加</button>
 								<button type="button" class="btn btn-outline-danger btn-sm" v-on:click="delall(index); changeBtnAdd();">一括削除</button>
-								<button　type="button" class="btn btn-outline-secondary btn-sm" v-on:click="tempSave">ローカルへ保存</button>
+								<button　type="button" class="btn btn-outline-secondary btn-sm" v-on:click="tempSave">保存</button>
 							</div>
 						</div><!--appEnd-->
 					</div>
 			  	</div>
 			  </div><!--mainEnd-->
-			
+			  <p class="subf-colorBox-title">ColorSelect</p>
 			  <div class="color-bg-box">
+				  <div class="color-box-child">
 				  <?php 
 				  genelate_color_picker_tag_demo(
                     'bgcolor', 
@@ -72,16 +74,20 @@
                     'サブフッターの背景色を選択してください。'
                   );
                   ?>
+				  </div>
+				  <div class="color-box-child">
 				  <?php 
 				  genelate_color_picker_tag_demo(
                     'textcolor', 
                     get_option('textcolor'), 
                     'テキストの文字色を選択してください。'
                   );
-                  ?>
-				  
-				  
-		  </div>
+                  ?> 
+				  </div>
+		      </div><!--color-bg-boxEnd-->
+			<div class="subfootersBtnAllWrap">
+				<button class="btn btn-primary btn-sm">公開</button>
+			</div>
           </div> 
         </div>
       </div>
