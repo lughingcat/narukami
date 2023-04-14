@@ -15,7 +15,7 @@
 						<div id="app">
 							<p class="subf-prev-title">PreVew</p>
 							<div class="subf-prev-bg">
-								<ul class="subf-prev-wrap"  style="background-color: <?php echo get_option('bgcolor'); ?>;">
+								<ul class="subf-prev-wrap" style="background-color: <?php echo get_option('bgcolor'); ?>;">
 									<li v-for="(subfooter,index) in subfooters" class="subf-prev-list">
 										<a :href="subfooter.url" style="color: <?php echo get_option('textcolor'); ?>;" >{{subfooter.text}}</a>
 								    </li>
