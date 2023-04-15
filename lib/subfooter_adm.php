@@ -10,6 +10,17 @@
         <div class="inside">
           <div class="main">
             <p class="setting_description">サブフッターを設定すると、商品一覧ページ、個別商品ページにページリンクが自動で差し込まれます。サイトへ訪れたお客様が、目的の商品を探しやすくなりますので設定する事をおすすめします。</p>
+			  <div>
+			  <input
+      			type="checkbox"
+      			id="subfooters-swich"
+      			name="subfSwich">
+   				 <label for="subfooters-swich">サブフッターを表示する</label>
+				  <?php
+				  $check = isset($_POST['subfSwich']) ? "checked" : "unchecked";
+				  echo $check;
+				  ?>
+			  </div>
 			     <div class="all_form_wrap">
 			  		<div class="text_form_wrap">
 						<div id="app">
