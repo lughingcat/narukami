@@ -41,7 +41,13 @@ get_header();
 
 		endif;
 		?>
-		<?php get_template_part('subfooter');?>
+		<?php
+			$subfooterSwich = get_option('subfSwich');
+			if( empty($subfooterSwich)){
+			}else{
+				get_template_part('subfooter');
+			}
+		?>
 	</main><!-- #main -->
 
 <?php

@@ -131,6 +131,7 @@ function add_custom_menu_page_5()
 function register_custom_setting()
 {
 //サブフッターの表示、非表示をoptions.phpに登録
+	register_setting('custom-menu-group', 'subfSwich');
 //サブフッターの入力項目をoptions.phpに登録
     register_setting('custom-menu-group', 'sub_footer_text');
     register_setting('custom-menu-group', 'sub_footer_url');

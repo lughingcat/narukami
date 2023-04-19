@@ -1,6 +1,8 @@
 
+
+
 new Vue({
-	el:'#app',
+	el:'#subfooters',
 	data(){
 		return{
 			subfooters:[{ text: '', url: ''}],

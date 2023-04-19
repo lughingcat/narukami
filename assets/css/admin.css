@@ -1,4 +1,8 @@
 @charset "UTF-8";
+/*================================
+	adimin-page 共通パーツスタイル
+=================================*/
+/*-- hタグ、見出しスタイル --*/
 .postbox .inside h2, .postbox .inside .subf-h2 {
   color: #505050;
   font-size: 1.3em;
@@ -9,6 +13,8 @@
   color: #8ABBC1;
   margin-right: 8px; }
 
+/*-- hタグ、見出しスタイルend --*/
+/*-- BG,背景スタイル --*/
 #back_wrap {
   width: 100%;
   height: 100%;
@@ -41,15 +47,91 @@
       border-radius: 50%;
       margin-left: -25px; }
 
-.all_form_wrap {
-  width: 100%;
-  display: block; }
-  .all_form_wrap #text,
-  .all_form_wrap #url {
-    display: block;
-    margin-top: 8%;
-    display: block; }
+/*-- BG,背景スタイルend --*/
+/*------　fontawesomeサブフッター用スタイル　-------*/
+.fa-solid,
+.fa-lock {
+  font-size: 1.5em;
+  color: #696969;
+  padding: 1%; }
 
+.moveOn {
+  color: #00cc33;
+  transition: 1s; }
+
+/*------　fontawesomeサブフッター用スタイルend　-------*/
+/*#################################
+	subooterスタイル
+#################################*/
+/*------　サブフッター表示、非表示切り替えbuttonスタイル　-------*/
+.toggle-area {
+  padding: 2.5em 1em;
+  margin: 4em 0;
+  font-weight: bold;
+  border: solid 2px #000000;
+  border-radius: 5px;
+  box-shadow: 10px 10px 14px -10px #777777; }
+
+div.toggle-area input[type="checkbox"] {
+  display: none; }
+
+.toggle-area label {
+  position: relative;
+  padding-left: 60px;
+  cursor: pointer; }
+
+.toggle-area label::before,
+.toggle-area label::after {
+  content: "";
+  display: block;
+  position: absolute;
+  /* 位置調整 */
+  top: 50%;
+  left: 0px;
+  /* 中央に揃える */
+  transform: translateY(-50%);
+  /* 枠線 */
+  border: 1.4px solid rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  /* アニメーションの変化時間 */
+  transition: .2s; }
+
+.toggle-area label::before {
+  /* 背景色 */
+  background-color: #7E8080;
+  /* 枠線 */
+  border: 1.4px solid rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  /* サイズ調整 */
+  height: 20px;
+  width: 40px;
+  /* 位置調整 */
+  top: 50%;
+  left: 5px; }
+
+.toggle-area label::after {
+  /* 背景色 */
+  background-color: #fff;
+  /* 枠線 */
+  border-radius: 50%;
+  /* サイズ調整 */
+  height: 23px;
+  width: 23px;
+  /* 位置調整 */
+  top: 50%;
+  left: 0px; }
+
+/* チェックありの場合 */
+input:checked + label::before {
+  /* 背景色 */
+  background-color: #00cc33; }
+
+input:checked + label::after {
+  /* トグルを右に移動させる */
+  left: 26px; }
+
+/*------　サブフッター表示、非表示切り替えbuttonスタイルend　-------*/
+/*-- サブフッタープレビュースタイル --*/
 .subf-prev-bg {
   width: 100%;
   margin: 7% auto;
@@ -91,6 +173,25 @@
   border-top: 10px solid #005276;
   border-left: 10px solid transparent; }
 
+/*-- サブフッタープレビュースタイルend --*/
+/*------　サブフッターCRUDシステムスタイル　-------*/
+/*-- input要素入力スタイル --*/
+.all_form_wrap {
+  width: 100%;
+  display: block; }
+  .all_form_wrap #text,
+  .all_form_wrap #url {
+    display: block;
+    margin-top: 8%;
+    display: block; }
+
+input.subfootersForm {
+  width: 90%;
+  margin: 3%;
+  line-height: 2.5;
+  min-height: 35px; }
+
+/*-- input要素入力スタイルend --*/
 .crudWrap {
   height: 735px;
   width: 100%;
@@ -152,16 +253,14 @@
   border-bottom-left-radius: 5%;
   border-bottom-right-radius: 5%; }
 
+/*------　サブフッターCRUDシステムbuttonスタイル　-------*/
 .subfootersBtnAllWrap {
   width: 100%;
   text-align: right; }
 
-input.subfootersForm {
-  width: 90%;
-  margin: 3%;
-  line-height: 2.5;
-  min-height: 35px; }
-
+/*------　サブフッターCRUDシステムbuttonスタイルend　-------*/
+/*------　サブフッターCRUDシステムスタイルend　-------*/
+/*------　サブフッター用カラーボックススタイル　-------*/
 .color-bg-box {
   width: 100%;
   display: flex;
@@ -195,12 +294,7 @@ input.subfootersForm {
   border-top: 10px solid #005276;
   border-left: 10px solid transparent; }
 
-.fa-solid,
-.fa-lock {
-  font-size: 1.5em;
-  color: #696969;
-  padding: 1%; }
-
-.moveOn {
-  color: #00cc33;
-  transition: 1s; }
+/*------　サブフッター用カラーボックススタイルend　-------*/
+/*#################################
+	subooterスタイル--END--
+#################################*/
