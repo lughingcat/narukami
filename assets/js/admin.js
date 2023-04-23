@@ -1,6 +1,5 @@
 
 
-
 new Vue({
 	el:'#subfooters',
 	data(){
@@ -63,7 +62,7 @@ new Vue({
 	  tempSave(){
 	  const parsed = JSON.stringify(this.subfooters);
 	  localStorage.setItem('subfooters', parsed);
-      alert('保存に成功しました。\n公開をクリックしてサイトへ反映してください。')
+      alert('保存に成功しました。\n「公開」または「全体をサイトへ反映」をクリックしてサイトへ反映してください。')
     },
 	  reactive: function(){
 		  this.active = !this.active;

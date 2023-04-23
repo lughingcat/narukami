@@ -71,6 +71,15 @@
 
 /*-- BG,背景スタイルend --*/
 
+
+/*-- wp更新ボタンスタイル --*/
+
+.wp-submitAllBtn{
+	margin: 2%;
+}
+
+/*-- wp更新ボタンスタイルend --*/
+
 /*------　fontawesomeサブフッター用スタイル　-------*/
 
 
@@ -97,10 +106,10 @@
 /*------　サブフッター表示、非表示切り替えbuttonスタイル　-------*/
 
 .toggle-area{
-	padding: 2.5em 1em;
+	padding: 2em 1em;
     margin: 4em 0;
     font-weight: bold;
-    border: solid 2px #000000;
+    border: solid 1px #767676;
 	border-radius: 5px;
 	box-shadow: 10px 10px 14px -10px #777777;
 }

@@ -9,7 +9,7 @@
         <h3 class='hndle'><span class="title">サブフッター設定</span></h3>
         <div class="inside">
           <div class="main">
-            <p class="setting_description">サブフッターを設定すると、商品一覧ページ、個別商品ページにページリンクが自動で差し込まれます。サイトへ訪れたお客様が、目的の商品を探しやすくなりますので設定する事をおすすめします。</p>
+            <p class="setting_description">サブフッターを設定をONにすると、商品一覧ページ、個別商品ページにページリンクが自動で差し込まれます。サイトへ訪れたお客様が、目的の商品を探しやすくなりますので設定する事をおすすめします。</p>
 			  <div class="toggle-area">
 			  <?php 
 				  $subfootersSwich = get_option('subfSwich');
@@ -25,9 +25,8 @@
 				value="1"
 			    <?php echo $sbfResult ;?>
 			    >
-   				 <label for="subfooters-swich">サブフッターを表示する</label>
+   				<label for="subfooters-swich">サブフッター設定ON</label>
 			 　 </div>
-		
 			     <div class="all_form_wrap">
 			  		<div class="text_form_wrap">
 						<div id="subfooters">
@@ -72,11 +71,10 @@
 							</table>
 							</article>
 							<div class="subfootersBtnAllWrap">
-								<button class="btn btn-primary btn-sm">公開</button>
 								<button v-if="addActive" type="button" class="btn btn-secondary btn-sm" v-on:click="add();">最大数到達</button>
 								<button v-else type="button" class="btn btn-outline-success btn-sm" v-on:click="add(); changeBtnAdd();">追加</button>
 								<button type="button" class="btn btn-outline-danger btn-sm" v-on:click="delall(index); changeBtnAdd();">一括削除</button>
-								<button　type="button" class="btn btn-outline-secondary btn-sm" v-on:click="tempSave">保存</button>
+								<button　type="button" class="btn btn-primary btn-sm" v-on:click="tempSave">設定を保存</button>
 							</div>
 						</div><!--appEnd-->
 					</div>
@@ -109,16 +107,8 @@
           </div> 
         </div>
       </div>
-	<?php submit_button(); ?>
+	<div class="wp-submitAllBtn">
+	<?php submit_button('全体をサイトへ反映'); ?>
+	</div>
 	</form>
 </div>
-		
-		
-		<?php 
-            $textname = get_option('sub_footer_text');
-			var_dump($textname);
-        ?><br>
-		<?php 
-            $urlname = get_option('sub_footer_url');
-			var_dump($urlname);
-        ?>
