@@ -3,12 +3,12 @@
 	adimin-page 共通パーツスタイル
 =================================*/
 /*-- hタグ、見出しスタイル --*/
-.postbox .inside h2, .postbox .inside .subf-h2 {
+.postbox .inside h2, .postbox .inside .narukami-admin-h2 {
   color: #505050;
   font-size: 1.3em;
   font-weight: bold;
   margin: 2%; }
-.postbox .inside h2, .postbox .inside .subf-h2::before {
+.postbox .inside h2, .postbox .inside .narukami-admin-h2::before {
   content: '●';
   color: #8ABBC1;
   margin-right: 8px; }

@@ -9,13 +9,13 @@
 
 .postbox{
 	.inside{
-		h2,.subf-h2{
+		h2,.narukami-admin-h2{
 			color: #505050;
 			font-size: 1.3em;
 			font-weight: bold;
 			margin: 2%;
        }
-		h2,.subf-h2::before{
+		h2,.narukami-admin-h2::before{
 			content: '●';
 			color: #8ABBC1;
   			margin-right: 8px;

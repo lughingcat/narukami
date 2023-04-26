@@ -38,7 +38,7 @@
 								    </li>
 								</ul>
 							</div>
-							<h2 class="subf-h2">サブフッターのタイトルとリンク先URLを記載してください。</h2>
+							<h2 class="narukami-admin-h2">サブフッターのタイトルとリンク先URLを記載してください。</h2>
 									<article v-if="active"　key="1"><button type="button" class="btn btn-success btn-sm" v-on:click="reactive(); moveON(); BgSwich();">並び替えON</button></article>
 									<article v-else key="2"><button type="button" class="btn btn-dark btn-sm" v-on:click="reactive(); moveON(); BgSwich();">並び替えOFF</button></article>
 							<article class="crudWrap" v-bind:class="{BgSwich: isBgSwich}">

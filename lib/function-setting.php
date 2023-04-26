@@ -27,8 +27,8 @@ function add_custom_submenu_page()
 {
 	//トップページビルダー
     add_submenu_page('custom_menu_page',
-					 'トップページビルダー', 
-					 'トップページビルダー',
+					 '鳴雷コンテンツ作成ツール一覧', 
+					 '鳴雷コンテンツ作成ツール一覧', 
 					 'manage_options', 
 					 'custom_submenu_page_1',
 					 'add_custom_menu_page_1',
@@ -80,7 +80,8 @@ function add_custom_menu_page_1()
 {
     ?>
 <div class="wrap">
-    <h2>トップページビルダー</h2>
+    <h2>鳴雷コンテンツ作成ツール一覧</h2>
+	<?php include('top-page-maker.php'); ?>
 </div>
 <?php
 }
