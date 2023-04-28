@@ -8,13 +8,18 @@
         <h3 class='hndle'><span class="title">ヘッダー設定</span></h3>
         <div class="inside">
 			<h2 class="narukami-admin-h2">トップページビルダー</h2>
+			<form method="post" name="test" action="">
           <div class="main">
 			  <select name="cmker">
-				  <option value="スライダー">page1</option>
+				  <option value="<?php include('test.php'); ?>">page1</option>
 				  <option value="ヒーロー">page2</option>
 				  <option value="コンテンツ２">page3</option>
 			  </select>
+			  <iframe src="<?php echo get_template_directory_uri(); ?>/lib/test.php"></iframe>
+			   
+			  <button type="submit">送信</button>
           </div><!--mainEnd-->
+			</form>
           </div> 
         </div>
       </div>
