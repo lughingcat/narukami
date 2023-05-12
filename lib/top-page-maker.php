@@ -10,14 +10,18 @@
 			<h2 class="narukami-admin-h2">トップページビルダー</h2>
 			<form method="post" name="test" action="">
           <div class="main">
-			  <select name="cmker">
-				  <option value="<?php include('test.php'); ?>">page1</option>
-				  <option value="ヒーロー">page2</option>
-				  <option value="コンテンツ２">page3</option>
+			  <?php
+			  $urlrink = get_template_directory_uri();'/lib/test.php"';
+				  
+			  ?>
+			  <select name="cmaker" class="cmaker-wrap" id="cmaker" onchange="cmakerChange()">
+				  <option value="select1">page1</option>
+				  <option value="select2">page2</option>
+				  <option value="select3">page3</option>
 			  </select>
-			  <iframe src="<?php echo get_template_directory_uri(); ?>/lib/test.php"></iframe>
-			   
+			  <?php get_template_part( 'lib/content1' ); ?>
 			  <button type="submit">送信</button>
+			  
           </div><!--mainEnd-->
 			</form>
           </div> 

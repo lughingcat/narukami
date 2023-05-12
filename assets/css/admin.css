@@ -53,6 +53,31 @@
   margin: 2%; }
 
 /*-- wp更新ボタンスタイルend --*/
+/*#################################
+	鳴雷コンテンツメーカースタイル
+#################################*/
+/*------　content1-allスタイル　-------*/
+#narukamiContent1 {
+  width: 100%;
+  padding: 2%;
+  display: flex; }
+
+/*------　content1-inputFormスタイル　-------*/
+.inputForm {
+  border: 1px solid;
+  width: 100%; }
+
+/*------　content1-inputformスタイルend　-------*/
+/*------　content1-narukamiContent1Prevewスタイル　-------*/
+.narukamiContent1Prevew {
+  border: 1px solid;
+  width: 100%; }
+
+/*------　content1-narukamiContent1Prevewスタイルend　-------*/
+/*------　content1-allスタイルend　-------*/
+/*#################################
+	fontawesomeスタイル
+#################################*/
 /*------　fontawesomeサブフッター用スタイル　-------*/
 .fa-solid,
 .fa-lock {
