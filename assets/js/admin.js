@@ -7,11 +7,11 @@ function cmakerChange(){
 	if(document.getElementById('cmaker')){
 		id = document.getElementById('cmaker').value;
 		if(id == 'select1'){
-			document.getElementById('narukamiContent1').style.display="";
+			document.getElementById('cmakerCild').style.display="";
 		}else if(id == 'select2'){
-			document.getElementById('narukamiContent1').style.display="none";
+			document.getElementById('cmakerCild').style.display="none";
 		}else if(id == 'select3'){
-			document.getElementById('narukamiContent1').style.display="none";
+			document.getElementById('cmakerCild').style.display="none";
 		}
 	}
 	

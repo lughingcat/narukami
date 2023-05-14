@@ -15,11 +15,14 @@
 				  
 			  ?>
 			  <select name="cmaker" class="cmaker-wrap" id="cmaker" onchange="cmakerChange()">
-				  <option value="select1">page1</option>
-				  <option value="select2">page2</option>
-				  <option value="select3">page3</option>
+				  <option hidden>選択してください。</option>
+				  <option value="select1">コンテンツ１</option>
+				  <option value="select2">スライダー</option>
+				  <option value="select3">２ブロックカラム</option>
 			  </select>
-			  <?php get_template_part( 'lib/content1' ); ?>
+			  <div id="cmakerCild" style="display: none;">
+				  <?php get_template_part('lib/content1'); ?>
+			  </div>
 			  <button type="submit">送信</button>
 			  
           </div><!--mainEnd-->
