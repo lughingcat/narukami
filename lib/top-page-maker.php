@@ -24,7 +24,6 @@
 				  <?php get_template_part('lib/content1'); ?>
 			  </div>
 			  <button type="submit">送信</button>
-			  
           </div><!--mainEnd-->
 			</form>
           </div> 

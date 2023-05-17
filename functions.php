@@ -249,6 +249,10 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/lib/function-setting.php';
 
 
+/**
+ * mysqlへのテーブル登録
+ */
+require get_template_directory() . '/inc/creat-db.php';
 
 
 /**
