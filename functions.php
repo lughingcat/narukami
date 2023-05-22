@@ -171,19 +171,28 @@ add_action( 'wp_enqueue_scripts', 'narukami_all_theme_item_scripts' );
 
 
 function add_cdns(){
-	wp_enqueue_script('vue','https://cdn.jsdelivr.net/npm/vue@2.7.11/dist/vue.js');
+	wp_enqueue_script('vue','https://cdn.jsdelivr.net/npm/vue@2.7.11');
 	wp_enqueue_script('twinMax','https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js');
 	wp_enqueue_script('sprintf','https://cdnjs.cloudflare.com/ajax/libs/sprintf/1.1.2/sprintf.min.js');
 	wp_enqueue_script('sortable','https://cdn.jsdelivr.net/npm/sortablejs@1.10.2/Sortable.min.js');
 	wp_enqueue_script('draggable','https://cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.24.3/vuedraggable.umd.js');
 	wp_enqueue_script('bootstrapJs','https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js');
 	wp_enqueue_style('fontawesome','https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css');
-	wp_enqueue_style('bootstrap','https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css');
+	
 }
 add_action( 'admin_enqueue_scripts', 'add_cdns' );
 
 
 function add_admin_style(){
+	add_filter('script_loader_tag', 'add_defer', 10, 2);
+
+	function add_defer($tag, $handle) {
+		if($handle !== 'admin_script') {
+			return $tag;
+		}
+		
+		return str_replace(' id=', ' defer id=', $tag);
+	}
   $path_css = get_template_directory_uri().'/assets/css/admin.css';
   wp_enqueue_style('admin_style', $path_css);
   $path_js = get_template_directory_uri().'/assets/js/admin.js';
@@ -209,16 +218,16 @@ function genelate_color_picker_tag_demo($name, $value, $label){?>
       };
       $("input:text[name='.$name.']").wpColorPicker(options);
   })( jQuery );';
-    wp_add_inline_script( 'wp-color-picker', $data, 'after' ) ;
+    wp_add_inline_script( 'wp-color-picker', $data, 'after' );
 
 }
 //カラーピッカー用スタイルの読み込み
 
-add_action('admin_print_styles', 'my_admin_print_styles_demo');
+
 function my_admin_print_styles_demo() {
  wp_enqueue_style( 'wp-color-picker' );
 }
-
+add_action('admin_print_styles', 'my_admin_print_styles_demo');
  
 
 
@@ -249,10 +258,7 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/lib/function-setting.php';
 
 
-/**
- * mysqlへのテーブル登録
- */
-require get_template_directory() . '/inc/creat-db.php';
+
 
 
 /**

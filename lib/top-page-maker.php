@@ -28,11 +28,10 @@
 			  require_once(dirname(dirname(dirname(dirname(dirname( __FILE__ ))))) . '/wp-load.php' );
 			  global $wpdb;
 			  $query = "SELECT * FROM wp_posts WHERE post_type = 'post' LIMIT  50;";
-			  var_dump($query);
 			  $rows = $wpdb->get_results($query);
-			  
 			  foreach($rows as $row) {
-				  echo $row->post_title . "</br>"; 
+				 echo "</br>";
+				 echo $row->post_title . "</br>"; 
 			  };
 			  ?>
           </div><!--mainEnd-->

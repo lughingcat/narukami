@@ -114,7 +114,6 @@ function add_custom_menu_page_4()
     ?>
 <div class="wrap">
     <h2>ヘッダー設定</h2>
-	<?php include('header_adm.php'); ?>
 </div>
 <?php
 }
