@@ -171,14 +171,13 @@ add_action( 'wp_enqueue_scripts', 'narukami_all_theme_item_scripts' );
 
 
 function add_cdns(){
-	wp_enqueue_script('vue','https://cdn.jsdelivr.net/npm/vue@2.7.11');
+	wp_enqueue_script('vue','https://cdn.jsdelivr.net/npm/vue@2.7.11/dist/vue.js');
 	wp_enqueue_script('twinMax','https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js');
 	wp_enqueue_script('sprintf','https://cdnjs.cloudflare.com/ajax/libs/sprintf/1.1.2/sprintf.min.js');
 	wp_enqueue_script('sortable','https://cdn.jsdelivr.net/npm/sortablejs@1.10.2/Sortable.min.js');
 	wp_enqueue_script('draggable','https://cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.24.3/vuedraggable.umd.js');
 	wp_enqueue_script('bootstrapJs','https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js');
 	wp_enqueue_style('fontawesome','https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css');
-	
 }
 add_action( 'admin_enqueue_scripts', 'add_cdns' );
 
@@ -218,7 +217,7 @@ function genelate_color_picker_tag_demo($name, $value, $label){?>
       };
       $("input:text[name='.$name.']").wpColorPicker(options);
   })( jQuery );';
-    wp_add_inline_script( 'wp-color-picker', $data, 'after' );
+    wp_add_inline_script( 'wp-color-picker', $data, 'after' ) ;
 
 }
 //カラーピッカー用スタイルの読み込み
@@ -228,9 +227,47 @@ function my_admin_print_styles_demo() {
  wp_enqueue_style( 'wp-color-picker' );
 }
 add_action('admin_print_styles', 'my_admin_print_styles_demo');
- 
 
+/**
+ * テーマ有効時、コンテンツメーカーのテーブルをdbに作成する。
+ */
 
+function narukami_theme_activate() {
+    global $pagenow;
+    if(is_admin() && $pagenow == "themes.php" && isset($_GET["activated"])) {
+        do_action('narukami_theme_activate');
+	}
+}
+add_action('init', 'narukami_theme_activate');
+
+function create_theme_tables() {
+
+	global $wpdb;
+	$table_name = $wpdb->prefix.'narukami_content_maker';
+
+    //テーブルが存在していなければ作成する
+    if ($wpdb->get_var("SHOW TABLES LIKE '{$table_name}'") != $table_name) {
+
+		if(!empty($wpdb->charset)){
+			$charset_collate = "DEFAULT CHARACTER SET {$wpdb->charset} ";
+		}
+		if(!empty($wpdb->collate)){
+			$charset_collate .= "COLLATE {$wpdb->collate}";
+		}
+		$sql = "CREATE TABLE {$table_name} (
+		  `id` int(11) NOT NULL AUTO_INCREMENT,
+		  `item_name` varchar(255) NOT NULL,
+		  `item_price` int(11) NOT NULL,
+		  `url` varchar(255) NOT NULL,
+		  PRIMARY KEY (`id`)
+		) {$charset_collate} AUTO_INCREMENT=1;";
+        require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+		dbDelta($sql);
+    }
+
+}
+
+add_action('narukami_theme_activate', 'create_theme_tables');
 
 /**
  * Implement the Custom Header feature.
@@ -257,6 +294,9 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/lib/function-setting.php';
 
+/**
+ * データ送信用ファイル
+ */
 
 
 

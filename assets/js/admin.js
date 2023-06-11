@@ -6,7 +6,7 @@
 function cmakerChange(){
 	if(document.getElementById('cmaker')){
 		id = document.getElementById('cmaker').value;
-		if(id == 'select1'){
+		if(id == 'item_1column'){
 			document.getElementById('cmakerCild').style.display="";
 		}else if(id == 'select2'){
 			document.getElementById('cmakerCild').style.display="none";
