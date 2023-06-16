@@ -25,11 +25,12 @@
 			  <?php
 			  require_once(dirname(dirname(dirname(dirname(dirname( __FILE__ ))))) . '/wp-load.php' );
 			  global $wpdb;
-			  $query = "SELECT * FROM wp_posts WHERE post_type = 'post' LIMIT  50;";
+			  $query = "SELECT item_name,  item_price FROM wp_narukami_content_maker;";
 			  $rows = $wpdb->get_results($query);
 			  foreach($rows as $row) {
 				 echo "</br>";
-				 echo $row->post_title . "</br>"; 
+				 echo $row->item_name . "</br>"; 
+				 echo $row->item_price . "</br>"; 
 			  };
 			  ?>
 			  </div><!--mainEnd-->

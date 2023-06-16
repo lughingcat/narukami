@@ -5,7 +5,9 @@
 		<p>ここにプレビューがはりいます</p>
 	</div>
 	<div class="inputForm">
-	<p>画像を選択してください</p>
+	<?php
+  	generate_upload_image_tag('home_image_url', get_option('home_image_url'));
+	?>
 	<input type="text" name="item_title">
 	<input type="text" name="item_price">
 	</div>
