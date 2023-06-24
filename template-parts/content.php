@@ -61,3 +61,5 @@
 		<?php narukami_all_theme_item_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
+
+

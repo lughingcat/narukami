@@ -258,7 +258,7 @@ function create_theme_tables() {
 		  `id` int(11) NOT NULL AUTO_INCREMENT,
 		  `item_name` varchar(255) NOT NULL,
 		  `item_price` int(11) NOT NULL,
-		  `url` varchar(255) NOT NULL,
+		  `item_img_url` varchar(255) NOT NULL,
 		  PRIMARY KEY (`id`)
 		) {$charset_collate} AUTO_INCREMENT=1;";
         require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
@@ -330,7 +330,8 @@ function generate_upload_image_tag($name, $value){?>
                   /* テキストフォームに画像の URL を表示 */
                   $("input:text[name=<?php echo $name; ?>]").val(file.attributes.sizes.full.url);
 
-                  
+                  /* プレビュー用に選択されたサムネイル画像を表示 */
+                  $("#<?php echo $name; ?>_thumbnail").append('<img src="'+file.attributes.sizes.thumbnail.url+'" />');
 
               });
           });

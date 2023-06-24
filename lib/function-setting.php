@@ -87,6 +87,7 @@ function add_custom_menu_page_1()
 }
 
 
+
 //構造化マークアップコード
 function add_custom_menu_page_2()
 {
