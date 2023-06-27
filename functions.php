@@ -256,6 +256,7 @@ function create_theme_tables() {
 		}
 		$sql = "CREATE TABLE {$table_name} (
 		  `id` int(11) NOT NULL AUTO_INCREMENT,
+		  `s_cmaker` varchar(255) NOT NULL,
 		  `item_name` varchar(255) NOT NULL,
 		  `item_price` int(11) NOT NULL,
 		  `item_img_url` varchar(255) NOT NULL,
@@ -277,7 +278,7 @@ function generate_upload_image_tag($name, $value){?>
   <input type="button" name="<?php echo $name; ?>_clear" value="クリア" />
   <div id="<?php echo $name; ?>_thumbnail" class="uploded-thumbnail">
     <?php if ($value): ?>
-      <img src="<?php echo $value; ?>" alt="選択中の画像">
+      <img src="<?php echo $value; ?>" alt="選択中の画像" width="200px;" height="200px;">
     <?php endif ?>
   </div>
 

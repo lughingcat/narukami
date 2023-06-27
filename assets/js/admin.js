@@ -2,7 +2,7 @@
 トップページメーカーjs
 ==================================*/
 
-
+//セレクトボックスの表示切り替え
 function cmakerChange(){
 	if(document.getElementById('cmaker')){
 		id = document.getElementById('cmaker').value;
@@ -18,8 +18,13 @@ function cmakerChange(){
 	window.onload = cmakerChange;
 }
 
+//選択項目の入力フォーム表示切り替え
 
+var showIvent = document.querySelector(".cmakerWrap")
 
+showIvent.addEventListener('click', function(){
+	showIvent.classList.toggle('notshow')
+}, false)
 /*==================================
 メディアアップローダーjs
 ==================================*/

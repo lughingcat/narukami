@@ -5,6 +5,7 @@ $i_title = $_POST['item_title'];
 $i_id = $_POST['item_id'];
 $i_price = $_POST['item_price'];
 $i_item_url = $_POST['item_img_url'];
+$select_content = $_POST['s_cmaker'];
 global $wpdb;
 	$tablename =  $wpdb->prefix . "narukami_content_maker";
 	// 各種データの保存
@@ -15,9 +16,11 @@ global $wpdb;
 			'item_name' => $i_title,
 			'item_price' => $i_price,
 			'item_img_url' => $i_item_url,
+			's_cmaker' => $select_content,
 		),
 		array(
 			'%d',
+			'%s',
 			'%s',
 			'%s',
 			'%s',

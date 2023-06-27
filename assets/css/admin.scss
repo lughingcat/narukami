@@ -84,7 +84,7 @@
 	鳴雷コンテンツメーカースタイル
 #################################*/
 
-/*------　content1-allスタイル　-------*/
+/*------　item_1column-allスタイル　-------*/
 
 #item_1column{
 	width: 100%;
@@ -92,23 +92,32 @@
 }
 
 
-/*------　content1-inputFormスタイル　-------*/
+/*------　item_1column-inputFormスタイル　-------*/
 
 .inputForm{
 	border: 1px solid;
 	width: 100%;
 }
-/*------　content1-inputformスタイルend　-------*/
-/*------　content1-narukamiContent1Prevewスタイル　-------*/
+/*------　item_1column-inputformスタイルend　-------*/
+/*------　item_1column-narukamiitem_1columnPrevewスタイル　-------*/
 
 .item_1column_Prevew{
 	border: 1px solid;
 	width: 100%;
 }
-/*------　content1-narukamiContent1Prevewスタイルend　-------*/
+/*------　item_1column-narukamiitem_1columnPrevewスタイルend　-------*/
 
 
-/*------　content1-allスタイルend　-------*/
+/*------　item_1column表示切り替えスタイル　-------*/
+
+.notshow{
+	display: none;
+}
+
+/*------　item_1column表示切り替えスタイルend　-------*/
+
+
+/*------　item_1column-allスタイルend　-------*/
 
 
 
