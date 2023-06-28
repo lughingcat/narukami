@@ -6,12 +6,21 @@
 function cmakerChange(){
 	if(document.getElementById('cmaker')){
 		id = document.getElementById('cmaker').value;
+		
 		if(id == 'item_1column'){
-			document.getElementById('cmakerCild').style.display="";
+			document.getElementById('cmakerChild').style.display="";
+			
+			document.addEventListener('click', (e) => {
+				if(!e.target.closest('.cmakerChildWrap')){
+					const showItem = document.getElementById('cmakerChild');
+					showItem.style.display="none";
+				}else{
+				}
+			})
 		}else if(id == 'select2'){
-			document.getElementById('cmakerCild').style.display="none";
+			document.getElementById('cmakerChild').style.display="none";
 		}else if(id == 'select3'){
-			document.getElementById('cmakerCild').style.display="none";
+			document.getElementById('cmakerChild').style.display="none";
 		}
 	}
 	
@@ -20,11 +29,9 @@ function cmakerChange(){
 
 //選択項目の入力フォーム表示切り替え
 
-var showIvent = document.querySelector(".cmakerWrap")
 
-showIvent.addEventListener('click', function(){
-	showIvent.classList.toggle('notshow')
-}, false)
+
+
 /*==================================
 メディアアップローダーjs
 ==================================*/
