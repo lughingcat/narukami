@@ -1,6 +1,6 @@
 
 
-<div id="cmaker_wrap" class="cmakerWrap">
+<div id="cmaker_wrap" class="cmakerWrap" style="display: none;">
 	<div class="item_1column_Prevew">
 		<article class="item_1colum_wrap">
 			<?php
@@ -39,5 +39,5 @@
 	<input type="text" name="item_price" value="<?php if( !empty($_POST['item_price']) ){ echo $_POST['item_price']; } else{ echo $item_price;}?>">
 	
 	</div>
-	
+	<button type="button" id="selectCloseBtn">閉じる</button>
 </div>

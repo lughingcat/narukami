@@ -10,26 +10,32 @@
 			<h2 class="narukami-admin-h2">トップページビルダー</h2>
 			<form method="post" name="test" action="">
           <div class="main">
-			  <?php
-			  require_once(dirname(dirname(dirname(dirname(dirname( __FILE__ ))))) . '/wp-load.php' );
-			  global $wpdb;
-			  $query = "SELECT item_name,  item_price , id , item_img_url , s_cmaker FROM wp_narukami_content_maker;";
-			  $rows = $wpdb->get_results($query);
-			  foreach($rows as $row) {
-				 $id = $row->id;
-				 $item_name = $row->item_name; 
-				 $item_price = $row->item_price; 
-				 $item_url = $row->item_img_url; 
-				 $select_box = $row->s_cmaker; 
-			  };
+			  <?php 
+			  $selectbox_item = '';
+			  
+			  $selectbox_item_list = array(
+			  	"選択してください",
+			  	"商品1カラム",
+			  	"スライダー",
+			  	"商品2カラム",
+			  );
+				if(isset($_POST['s_cmaker'])){
+					$selectbox_item = $_POST['s_cmaker'];
+				}
 			  ?>
 			  <select name="s_cmaker" class="cmaker-wrap" id="cmaker" onchange="cmakerChange()">
-				  <option hidden>選択してください。</option>
-				  <option value="item_1column">商品1カラム</option>
-				  <option value="select2">スライダー</option>
-				  <option value="select3">２ブロックカラム</option>
+				  <?php 
+				  foreach( $selectbox_item_list as $value){
+					  if( $value === $selectbox_item ){
+						  echo "<option value='$value' selected>".$value."</option>";
+					  }else{
+						  echo "<option value='$value'>".$value."</option>";
+					  }
+				  }
+			  ?>
 			  </select>
-			  <div id="cmakerChild" class="cmakerChildWrap" style="display: none;">
+			  
+			  <div id="cmakerChild" class="cmakerChildWrap">
 				  <?php get_template_part('lib/item_1column'); ?>
 			  </div>
 			  <button type="submit" name="submit">送信</button>

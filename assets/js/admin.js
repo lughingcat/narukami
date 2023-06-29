@@ -7,30 +7,24 @@ function cmakerChange(){
 	if(document.getElementById('cmaker')){
 		id = document.getElementById('cmaker').value;
 		
-		if(id == 'item_1column'){
-			document.getElementById('cmakerChild').style.display="";
-			
-			document.addEventListener('click', (e) => {
-				if(!e.target.closest('.cmakerChildWrap')){
-					const showItem = document.getElementById('cmakerChild');
-					showItem.style.display="none";
-				}else{
-				}
-			})
-		}else if(id == 'select2'){
-			document.getElementById('cmakerChild').style.display="none";
-		}else if(id == 'select3'){
-			document.getElementById('cmakerChild').style.display="none";
+		if(id == '商品1カラム'){
+			document.getElementById('cmaker_wrap').style.display="";
+		}else if(id == 'スライダー'){
+			document.getElementById('cmaker_wrap').style.display="none";
+		}else if(id == '商品2カラム'){
+			document.getElementById('cmaker_wrap').style.display="none";
 		}
 	}
 	
 	window.onload = cmakerChange;
 }
 
-//選択項目の入力フォーム表示切り替え
-
-
-
+//ボタン式選択項目の入力フォーム表示切り替え
+const closeItem = document.getElementById('selectCloseBtn');
+	　　closeItem.addEventListener('click' , ()=>{
+       document.getElementById('cmaker_wrap').style.display="none";
+   })
+ 
 
 /*==================================
 メディアアップローダーjs
