@@ -1,30 +1,33 @@
 /*==================================
-トップページメーカーjs
+コンテンツメーカーjs
 ==================================*/
 
 //セレクトボックスの表示切り替え
 function cmakerChange(){
 	if(document.getElementById('cmaker')){
 		id = document.getElementById('cmaker').value;
-		
 		if(id == '商品1カラム'){
-			document.getElementById('cmaker_wrap').style.display="";
+			document.getElementById('cmaker_1item_column_wrap').style.display="";
+			document.getElementById('cmaker_slider_wrap').style.display="none";
+			document.getElementById('cmaker_2item_column_wrap').style.display="none";
 		}else if(id == 'スライダー'){
-			document.getElementById('cmaker_wrap').style.display="none";
-		}else if(id == '商品2カラム'){
-			document.getElementById('cmaker_wrap').style.display="none";
+			document.getElementById('cmaker_1item_column_wrap').style.display="none";
+			document.getElementById('cmaker_slider_wrap').style.display="";
+			document.getElementById('cmaker_2item_column_wrap').style.display="none";
 		}
 	}
-	
 	window.onload = cmakerChange;
 }
 
-//ボタン式選択項目の入力フォーム表示切り替え
-const closeItem = document.getElementById('selectCloseBtn');
-	　　closeItem.addEventListener('click' , ()=>{
-       document.getElementById('cmaker_wrap').style.display="none";
-   })
- 
+//ボタン式選択項目の入力フォーム非表示
+ const closeItem1 = document.getElementById('1columnCloseBtn');
+	　　closeItem1.addEventListener('click' , ()=>{
+       document.getElementById('cmaker_1item_column_wrap').style.display="none";
+      })
+ const closeItem2 = document.getElementById('cmaker_slider_wrap');
+	　　closeItem2.addEventListener('click' , ()=>{
+       document.getElementById('cmaker_slider_wrap').style.display="none";
+      })
 
 /*==================================
 メディアアップローダーjs

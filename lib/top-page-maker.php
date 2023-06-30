@@ -37,6 +37,7 @@
 			  
 			  <div id="cmakerChild" class="cmakerChildWrap">
 				  <?php get_template_part('lib/item_1column'); ?>
+				  <?php get_template_part('lib/slider'); ?>
 			  </div>
 			  <button type="submit" name="submit">送信</button>
 			  </div><!--mainEnd-->
