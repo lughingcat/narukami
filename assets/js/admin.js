@@ -9,11 +9,9 @@ function cmakerChange(){
 		if(id == '商品1カラム'){
 			document.getElementById('cmaker_1item_column_wrap').style.display="";
 			document.getElementById('cmaker_slider_wrap').style.display="none";
-			document.getElementById('cmaker_2item_column_wrap').style.display="none";
 		}else if(id == 'スライダー'){
 			document.getElementById('cmaker_1item_column_wrap').style.display="none";
 			document.getElementById('cmaker_slider_wrap').style.display="";
-			document.getElementById('cmaker_2item_column_wrap').style.display="none";
 		}
 	}
 	window.onload = cmakerChange;
@@ -24,7 +22,7 @@ function cmakerChange(){
 	　　closeItem1.addEventListener('click' , ()=>{
        document.getElementById('cmaker_1item_column_wrap').style.display="none";
       })
- const closeItem2 = document.getElementById('cmaker_slider_wrap');
+ const closeItem2 = document.getElementById('sliderCloseBtn');
 	　　closeItem2.addEventListener('click' , ()=>{
        document.getElementById('cmaker_slider_wrap').style.display="none";
       })

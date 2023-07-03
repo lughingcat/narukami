@@ -14,7 +14,6 @@
 			  $selectbox_item = '';
 			  
 			  $selectbox_item_list = array(
-			  	"選択してください",
 			  	"商品1カラム",
 			  	"スライダー",
 			  	"商品2カラム",
@@ -24,6 +23,7 @@
 				}
 			  ?>
 			  <select name="s_cmaker" class="cmaker-wrap" id="cmaker" onchange="cmakerChange()">
+				  <option hidden>選択してください</option>
 				  <?php 
 				  foreach( $selectbox_item_list as $value){
 					  if( $value === $selectbox_item ){
@@ -39,6 +39,8 @@
 				  <?php get_template_part('lib/item_1column'); ?>
 				  <?php get_template_part('lib/slider'); ?>
 			  </div>
+			  
+			  
 			  <button type="submit" name="submit">送信</button>
 			  </div><!--mainEnd-->
 			</form>

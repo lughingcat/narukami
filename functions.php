@@ -260,6 +260,9 @@ function create_theme_tables() {
 		  `item_name` varchar(255) NOT NULL,
 		  `item_price` int(11) NOT NULL,
 		  `item_img_url` varchar(255) NOT NULL,
+		  `slider_img_url` varchar(255) NOT NULL,
+		  `slider_item_name` varchar(255) NOT NULL,
+		  `slider_item_price` varchar(255) NOT NULL,
 		  PRIMARY KEY (`id`)
 		) {$charset_collate} AUTO_INCREMENT=1;";
         require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
@@ -277,6 +280,7 @@ function generate_upload_image_tag($name, $value){?>
   <input type="button" name="<?php echo $name; ?>_slect" value="選択" />
   <input type="button" name="<?php echo $name; ?>_clear" value="クリア" />
   <div id="<?php echo $name; ?>_thumbnail" class="uploded-thumbnail">
+	  <?php var_dump($value); ?>
     <?php if ($value): ?>
       <img src="<?php echo $value; ?>" alt="選択中の画像" width="200px;" height="200px;">
     <?php endif ?>
@@ -313,7 +317,7 @@ function generate_upload_image_tag($name, $value){?>
               },
 
               /* 選択できる画像は 1 つだけにする */
-              multiple: false
+              multiple: true
 
           });
 
@@ -360,7 +364,17 @@ function my_admin_scripts() {
 }
 add_action( 'admin_print_scripts', 'my_admin_scripts' );
 
-
+/*-------------------------------------------
+メディアのキャプションを設定する
+---------------------------------------------*/
+add_filter( 'wp_get_attachment_metadata', 'my_wp_get_attachment_metadata', 10, 2 );
+function my_wp_get_attachment_metadata( $data, $id ) {
+    $image = get_post($id);
+    if(is_array($data)) {
+        $data['image_meta']['caption'] = $image->post_excerpt;
+    }
+    return $data;
+}
 /**
  * Implement the Custom Header feature.
  */
