@@ -276,14 +276,15 @@ add_action('narukami_theme_activate', 'create_theme_tables');
 
 //画像アップロード用のタグを出力する
 function generate_upload_image_tag($name, $value){?>
-  <input name="<?php echo $name; ?>" type="text" value="<?php echo $value; ?>" />
-  <input type="button" name="<?php echo $name; ?>_slect" value="選択" />
-  <input type="button" name="<?php echo $name; ?>_clear" value="クリア" />
-  <div id="<?php echo $name; ?>_thumbnail" class="uploded-thumbnail">
+　<div id="<?php echo $name; ?>_thumbnail" class="uploded-thumbnail">
     <?php if ($value): ?>
       <img src="<?php echo $value; ?>" alt="選択中の画像" width="200px;" height="200px;">
     <?php endif ?>
   </div>
+  <input name="<?php echo $name; ?>" type="text" value="<?php echo $value; ?>" />
+  <input type="button" name="<?php echo $name; ?>_slect" value="選択" />
+  <input type="button" name="<?php echo $name; ?>_clear" value="クリア" />
+  
 
 
   <script type="text/javascript">
@@ -316,7 +317,7 @@ function generate_upload_image_tag($name, $value){?>
               },
 
               /* 選択できる画像は 1 つだけにする */
-              multiple: true
+              multiple: false
 
           });
 
@@ -331,13 +332,12 @@ function generate_upload_image_tag($name, $value){?>
                   $("input:text[name=<?php echo $name; ?>]").val("");
                   $("#<?php echo $name; ?>_thumbnail").empty();
 				  
-				  
+				   
                   /* テキストフォームに画像の URL を表示 */
-                  $("input:text[name=<?php echo $name; ?>]").val(file.collection.models.attributes.url);
-
-                  /* プレビュー用に選択されたサムネイル画像を表示 */
+                  $("input:text[name=<?php echo $name; ?>]").val(file.attributes.sizes.full.url);
+				  
+				  /* プレビュー用に選択されたサムネイル画像を表示 */
                   $("#<?php echo $name; ?>_thumbnail").append('<img src="'+file.attributes.sizes.thumbnail.url+'" />');
-
               });
 			 
           });

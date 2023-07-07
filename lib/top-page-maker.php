@@ -14,7 +14,7 @@
 			  $selectbox_item = '';
 			  
 			  $selectbox_item_list = array(
-			  	"商品1カラム",
+			  	"ランキング",
 			  	"スライダー",
 			  	"商品2カラム",
 			  );

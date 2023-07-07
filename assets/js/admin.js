@@ -6,7 +6,7 @@
 function cmakerChange(){
 	if(document.getElementById('cmaker')){
 		id = document.getElementById('cmaker').value;
-		if(id == '商品1カラム'){
+		if(id == 'ランキング'){
 			document.getElementById('cmaker_1item_column_wrap').style.display="";
 			document.getElementById('cmaker_slider_wrap').style.display="none";
 		}else if(id == 'スライダー'){

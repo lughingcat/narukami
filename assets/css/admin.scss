@@ -17,13 +17,50 @@
        }
 		h2,.narukami-admin-h2::before{
 			content: '●';
-			color: #8ABBC1;
+			color: #0086AD;
   			margin-right: 8px;
 		}
 	}
 }
 
+/*------inputFormスタイル　-------*/
 
+.inputForm{
+	width: 100%;
+	border: 1px solid;
+	padding: 2%;
+	box-sizing: border-box;
+	.uploded-thumbnail{
+		border: 1px solid;
+	}
+	h3{
+		color: #00081A;
+		padding: 5px 0;
+	}
+	h3::before{
+		content: '';
+		color: #0086AD;
+		margin-right: 8px;
+  		border: 5px solid;
+	}
+	h4{
+		color: #00081A;
+		padding: 5px 0;
+	}
+	h4::before{
+		content: '';
+		color: #0086AD;
+		margin-right: 8px;
+  		border: 5px solid;
+	}
+	.inputWrap{
+		.inputItem{
+			display: block;
+		}
+	}
+}
+
+/*------ inputformスタイルend　-------*/
 /*-- hタグ、見出しスタイルend --*/
 
 /*-- BG,背景スタイル --*/
@@ -31,7 +68,7 @@
 #back_wrap{
 	width: 100%;
 	height: 100%;
-	background-color: #8ABBC1;
+	background-color: #0086AD;
 	box-shadow: 4px 4px 16px -5px #777777;
 	.metabox-holder{
 		padding: 2%;
@@ -61,7 +98,7 @@
 			position: absolute;
 			width: 20px;
 			height: 20px;
-			background-color:#8ABBC1;
+			background-color:#0086AD;
 			border-radius: 50%;
 			margin-left: -25px;
 		}
@@ -70,6 +107,13 @@
 
 
 /*-- BG,背景スタイルend --*/
+
+/*-- cmakerchildスタイル --*/
+#cmakerChild{
+	width: 100%;
+	padding: 2%;
+}
+/*-- cmakerchildスタイルend --*/
 
 
 /*-- wp更新ボタンスタイル --*/
@@ -86,24 +130,20 @@
 
 /*------　item_1column-allスタイル　-------*/
 
-#item_1column{
+#cmaker_1item_column_wrap{
 	width: 100%;
 	padding: 2%;
+	box-sizing: border-box;
 }
 
 
-/*------　item_1column-inputFormスタイル　-------*/
 
-.inputForm{
-	border: 1px solid;
-	width: 100%;
-}
-/*------　item_1column-inputformスタイルend　-------*/
 /*------　item_1column-narukamiitem_1columnPrevewスタイル　-------*/
 
 .cmakerPrevew{
 	border: 1px solid;
 	width: 100%;
+	box-sizing: border-box;
 }
 /*------　item_1column-narukamiitem_1columnPrevewスタイルend　-------*/
 

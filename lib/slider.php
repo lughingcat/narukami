@@ -17,8 +17,16 @@
 		</article>
 	</div>
 	<div class="inputForm">
+		<?php 
+			if( !empty($_POST['slider_img_url']) )
+			{ 
+				$slider_url = $_POST['slider_img_url']; 
+			} else{ 
+				$slider_url = $img_url_array;
+			}
+	;?>
 	<?php
-  	generate_upload_image_tag('slider_img_url', $url);
+  	generate_upload_image_tag('slider_img_url', $slider_url);
 	?>
 	<input type="text" name="slider_item_name" value="初期値">
 	<input type="text" name="slider_item_price" value="初期値">

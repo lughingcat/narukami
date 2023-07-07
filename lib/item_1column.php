@@ -1,4 +1,4 @@
-<div id="cmaker_1item_column_wrap" class="cmakerWrap" style="display: none;">
+<div id="cmaker_1item_column_wrap" class="cmakerWrap">
 	<div class="item_1column_Prevew">
 		<article class="cmakerPrevew">
 			<?php
@@ -20,6 +20,9 @@
 		</article>
 	</div>
 	<div class="inputForm">
+		<h3>おすすめ商品ランキング</h3>
+		<p>おすすめ商品をランキングで訴求できます。</p>
+		<p>ランキングにラインナップできる最大アイテム数は5つです。</p>
 	<?php 
 			if( !empty($_POST['item_img_url']) )
 			{ 
@@ -28,14 +31,17 @@
 				$url = $item_url;
 			}
 	;?>
-		
+		<h4>ランキング１位</h4>
 	<?php
   	generate_upload_image_tag('item_img_url',  $url);
 	?>
+	<div class="inputWrap">
 	<input type="hidden" name="item_id">
-	<input type="text" name="item_title" value="<?php if( !empty($_POST['item_title']) ){ echo $_POST['item_title']; } else{ echo $item_name;}?>">
-	<input type="text" name="item_price" value="<?php if( !empty($_POST['item_price']) ){ echo $_POST['item_price']; } else{ echo $item_price;}?>">
-	
+	<h4>商品名を入力してください。</h4>
+	<input type="text" class="inputItem" name="item_title" value="<?php if( !empty($_POST['item_title']) ){ echo $_POST['item_title']; } else{ echo $item_name;}?>">
+	<h4>商品価格を入力してください。</h4>
+	<input type="text" class="inputItem" name="item_price" value="<?php if( !empty($_POST['item_price']) ){ echo $_POST['item_price']; } else{ echo $item_price;}?>">
+	</div>
 	</div>
 	<button type="button" id="1columnCloseBtn">閉じる</button>
 </div>
