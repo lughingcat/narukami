@@ -19,8 +19,23 @@
   border: 1px solid;
   padding: 2%;
   box-sizing: border-box; }
-  .inputForm .uploded-thumbnail {
-    border: 1px solid; }
+  .inputForm .rank-prev {
+    margin-bottom: 37px; }
+  .inputForm .img-setect-url {
+    border: 2px solid;
+    padding: 0 21px; }
+  .inputForm .img-select {
+    border: 2px #007D7A solid;
+    padding: 3px 15px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #007D7A; }
+  .inputForm .img-select-clear {
+    border: 2px #AD002D solid;
+    padding: 3px 15px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #AD002D; }
   .inputForm h3 {
     color: #00081A;
     padding: 5px 0; }
@@ -37,8 +52,21 @@
     color: #0086AD;
     margin-right: 8px;
     border: 5px solid; }
-  .inputForm .inputWrap .inputItem {
-    display: block; }
+
+.uploded-thumbnail {
+  box-shadow: 1px 3px 11px -4px #c9c9c9;
+  border-radius: 8px;
+  width: 30%;
+  margin: 0 0 25px 0; }
+  .uploded-thumbnail img {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding-top: 25px; }
+
+.inputWrap .inputItem {
+  display: block; }
 
 /*------ inputformスタイルend　-------*/
 /*-- hタグ、見出しスタイルend --*/
