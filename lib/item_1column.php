@@ -23,6 +23,25 @@
 		<h3>おすすめ商品ランキング</h3>
 		<p>おすすめ商品をランキングで訴求できます。</p>
 		<p>ランキングにラインナップできる最大アイテム数は5つです。</p>
+		<h4 class="rank-prev">ランキングデザイン</h4>
+		<p>ランキングデザインを選択してください</p>
+		<div class="rank-item-all-wrap">
+			<div class="rank-wrap">
+			<div class="rank-item-wrap">
+				<div class="rank-item-bg">
+					<p class="img-p">IMG</p>
+					<div class="rank-overray">
+					<p>商品名</p>
+					<p>価格</p>
+					</div>
+				</div>
+			</div>
+				<div class="rank-radio-style">
+					<p class="rank-item-title">画像背景オーバーレイ</p>
+					<input type="radio" name="rank_style" value="overlay">
+				</div>
+			</div>
+		</div>
 	<?php 
 			if( !empty($_POST['item_img_url']) )
 			{ 

@@ -14,6 +14,7 @@ function cmakerChange(){
 			document.getElementById('cmaker_slider_wrap').style.display="";
 		}
 	}
+	
 	window.onload = cmakerChange;
 }
 

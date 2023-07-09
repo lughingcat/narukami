@@ -131,6 +131,52 @@
   box-sizing: border-box; }
 
 /*------　item_1column-narukamiitem_1columnPrevewスタイルend　-------*/
+/*------　item_1columnランキングスタイル　-------*/
+.rank-item-all-wrap {
+  width: 100%;
+  margin: 40px 0; }
+  .rank-item-all-wrap .rank-wrap {
+    width: 150px; }
+    .rank-item-all-wrap .rank-wrap .rank-item-title {
+      font-weight: bold;
+      text-align: center;
+      border-bottom: 2px #0086AD solid;
+      line-height: 27px;
+      width: 90%;
+      margin: 10px auto; }
+    .rank-item-all-wrap .rank-wrap .rank-item-wrap {
+      position: relative;
+      width: 150px;
+      height: 200px;
+      box-shadow: 0px 5px 13px -9px #b6b4b4;
+      border-radius: 0px; }
+      .rank-item-all-wrap .rank-wrap .rank-item-wrap .rank-item-bg {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(82, 78, 77, 0.8); }
+        .rank-item-all-wrap .rank-wrap .rank-item-wrap .rank-item-bg .img-p {
+          font-size: 2em;
+          color: #ffffff;
+          text-align: center;
+          transform: translate(0, 100%); }
+        .rank-item-all-wrap .rank-wrap .rank-item-wrap .rank-item-bg .rank-overray {
+          background-color: rgba(255, 255, 255, 0.9);
+          position: absolute;
+          width: 100%;
+          height: 35%;
+          bottom: 0; }
+          .rank-item-all-wrap .rank-wrap .rank-item-wrap .rank-item-bg .rank-overray p {
+            margin: 10px; }
+          .rank-item-all-wrap .rank-wrap .rank-item-wrap .rank-item-bg .rank-overray p::before {
+            content: '';
+            border: 2px #AD002D solid;
+            margin-right: 8px; }
+  .rank-item-all-wrap .rank-radio-style {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px; }
+
+/*------　item_1columnランキングスタイルend　-------*/
 /*------　item_1column表示切り替えスタイル　-------*/
 .notshow {
   display: none; }
