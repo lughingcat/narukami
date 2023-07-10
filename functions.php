@@ -276,7 +276,7 @@ add_action('narukami_theme_activate', 'create_theme_tables');
 
 //画像アップロード用のタグを出力する
 function generate_upload_image_tag($name, $value){?>
-<p class="subf-prev-title">PREVEW</p>
+<p class="subf-prev-title">選択画像PREVEW</p>
 　<div id="<?php echo $name; ?>_thumbnail" class="uploded-thumbnail">
     <?php if ($value): ?>
       <img src="<?php echo $value; ?>" alt="選択中の画像">

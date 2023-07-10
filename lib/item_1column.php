@@ -22,7 +22,24 @@
 	<div class="inputForm">
 		<h3>おすすめ商品ランキング</h3>
 		<p>おすすめ商品をランキングで訴求できます。</p>
-		<p>ランキングにラインナップできる最大アイテム数は5つです。</p>
+		<h4 class="rank-prev">ランキング文字デザイン</h4>
+		<p>ランキング文字のデザインを選択してください</p>
+		<div class="rank-font-all-wrap">
+			
+			<div class="font-wrap">
+			<div class="rank-font-1-wrap">
+				<p class="rank-font-1">No,1</p>
+			</div><!--rank-font-1-wrap-end-->
+				<div class="font-setting">
+					<p class="font-title">四角背景[cursive]</p>
+					<input type="radio" name="rank_font" value="cursive">
+				</div>
+			</div><!--font-wrap-end-->
+			
+			
+		</div><!--rank-font-all-wrap-end-->
+		
+		
 		<h4 class="rank-prev">ランキングデザイン</h4>
 		<p>ランキングデザインを選択してください</p>
 		<div class="rank-item-all-wrap">
@@ -40,8 +57,43 @@
 					<p class="rank-item-title">画像背景オーバーレイ</p>
 					<input type="radio" name="rank_style" value="overlay">
 				</div>
-			</div>
-		</div>
+			</div><!--rank-wrap-end-->
+			
+			<div class="rank-wrap-2">
+			 <div class="rank-item-wrap-2">
+			 	<div class="rank-item-bg-2">
+			 		<p class="img-p-2">IMG</p>
+			 	</div>
+				 <div class="rank-overray-2">
+			 		<p>商品名</p>
+			 		<p>価格</p>
+			 		</div>
+			 </div>
+				<div class="rank-radio-style">
+					<p class="rank-item-title-2">画像のみ背景透過</p>
+					<input type="radio" name="rank_style" value="clipping">
+				</div>
+			</div><!--ranl-wrap-2-end-->
+			
+			<div class="rank-wrap-3">
+			 <div class="rank-item-wrap-3">
+			 	<div class="rank-item-bg-3">
+			 		<p class="img-p-3">IMG</p>
+			 	</div>
+				 <div class="rank-overray-3">
+			 		<p>商品名</p>
+			 		<p>価格</p>
+			 		</div>
+			 </div>
+				<div class="rank-radio-style">
+					<p class="rank-item-title-3">画像背景丸形切り抜き</p>
+					<input type="radio" name="rank_style" value="circle">
+				</div>
+			</div><!--ranl-wrap-3-end-->
+			
+		</div><!--rank-item-all-wrap-end-->
+		
+		<p>ランキングにラインナップできる最大アイテム数は5つです。</p>
 	<?php 
 			if( !empty($_POST['item_img_url']) )
 			{ 
