@@ -22,19 +22,50 @@
 	<div class="inputForm">
 		<h3>おすすめ商品ランキング</h3>
 		<p>おすすめ商品をランキングで訴求できます。</p>
-		<h4 class="rank-prev">ランキング文字デザイン</h4>
-		<p>ランキング文字のデザインを選択してください</p>
+		<h4 class="rank-prev">ランキング背景デザイン</h4>
+		<p>ランキング背景のデザインを選択してください</p>
 		<div class="rank-font-all-wrap">
 			
 			<div class="font-wrap">
 			<div class="rank-font-1-wrap">
-				<p class="rank-font-1">No,1</p>
+				<p class="rank-font-1">1</p>
 			</div><!--rank-font-1-wrap-end-->
 				<div class="font-setting">
-					<p class="font-title">四角背景[cursive]</p>
-					<input type="radio" name="rank_font" value="cursive">
+					<p class="font-title">四角背景</p>
+					<input type="radio" name="rank_font" value="math_sq_bg">
 				</div>
 			</div><!--font-wrap-end-->
+			
+			<div class="font-wrap-2">
+			<div class="rank-font-2-wrap">
+				<p class="rank-font-2">1</p>
+			</div><!--rank-font-1-wrap-end-->
+				<div class="font-setting">
+					<p class="font-title">丸背景</p>
+					<input type="radio" name="rank_font" value="math_circle_bg">
+				</div>
+			</div><!--font-wrap-2-end-->
+			
+			<div class="font-wrap-3">
+			<div class="rank-font-3-wrap">
+				<p class="rank-font-3"><span>1</span></p>
+			</div><!--rank-font-1-wrap-end-->
+				<div class="font-setting">
+					<p class="font-title">縦帯背景</p>
+					<input type="radio" name="rank_font" value="math_band_bg">
+				</div>
+			</div><!--font-wrap-3-end-->
+			
+			
+			<div class="font-wrap-4">
+			<div class="rank-font-4-wrap">
+				<p class="rank-font-4"><span>1</span></p>
+			</div><!--rank-font-1-wrap-end-->
+				<div class="font-setting">
+					<p class="font-title">ラベル背景</p>
+					<input type="radio" name="rank_font" value="math_label_bg">
+				</div>
+			</div><!--font-wrap-4-end-->
 			
 			
 		</div><!--rank-font-all-wrap-end-->
