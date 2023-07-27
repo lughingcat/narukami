@@ -31,6 +31,8 @@
 	padding: 2%;
 	box-sizing: border-box;
 	.rank-prev{
+	}
+	.rank-prev-num{
 		margin-bottom: 37px;
 	}
 	.img-setect-url{
@@ -178,7 +180,21 @@
 	width: 100%;
 	box-sizing: border-box;
 }
-/*------　item_1column-narukamiitem_1columnPrevewスタイルend　
+
+/*------　ランキングタイトルスタイル　-------*/
+
+
+.rank-p-title-wrap{
+	margin: 70px 0;
+	.rank-primary-title{
+		width: 70%;
+		border: 2px solid;
+		height: 50px;
+		margin-top: 20px;
+	}
+}
+
+/*------　ランキングタイトルスタイルend　-------*/
 
 
 /*------　item_1columnランキングフォントスタイル　-------*/
@@ -188,6 +204,7 @@
 	width: 100%;
 	margin: 0 0 100px;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-evenly;
 	.font-wrap{
 		width: 100px;

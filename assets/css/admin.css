@@ -19,7 +19,7 @@
   border: 1px solid;
   padding: 2%;
   box-sizing: border-box; }
-  .inputForm .rank-prev {
+  .inputForm .rank-prev-num {
     margin-bottom: 37px; }
   .inputForm .img-setect-url {
     border: 2px solid;
@@ -130,14 +130,22 @@
   width: 100%;
   box-sizing: border-box; }
 
-/*------　item_1column-narukamiitem_1columnPrevewスタイルend　
+/*------　ランキングタイトルスタイル　-------*/
+.rank-p-title-wrap {
+  margin: 70px 0; }
+  .rank-p-title-wrap .rank-primary-title {
+    width: 70%;
+    border: 2px solid;
+    height: 50px;
+    margin-top: 20px; }
 
-
+/*------　ランキングタイトルスタイルend　-------*/
 /*------　item_1columnランキングフォントスタイル　-------*/
 .rank-font-all-wrap {
   width: 100%;
   margin: 0 0 100px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly; }
   .rank-font-all-wrap .font-wrap {
     width: 100px;
