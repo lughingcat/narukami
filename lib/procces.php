@@ -4,15 +4,28 @@ require_once( dirname(dirname(dirname(dirname(dirname( __FILE__ ))))) . '/wp-loa
 //ランキング
 //1
 $i_title = $_POST['item_title'];
-$i_id = $_POST['item_id'];
 $i_price = $_POST['item_price'];
 $i_item_url = $_POST['item_img_url'];
 //2
 $i_title_2 = $_POST['item_title_2'];
-$i_id_2 = $_POST['item_id_2'];
 $i_price_2 = $_POST['item_price_2'];
 $i_item_url_2 = $_POST['item_img_url_2'];
 //3
+$i_title_3 = $_POST['item_title_3'];
+$i_price_3 = $_POST['item_price_3'];
+$i_item_url_3 = $_POST['item_img_url_3'];
+//4
+$i_title_4 = $_POST['item_title_4'];
+$i_price_4 = $_POST['item_price_4'];
+$i_item_url_4 = $_POST['item_img_url_4'];
+//5
+$i_title_5 = $_POST['item_title_5'];
+$i_price_5 = $_POST['item_price_5'];
+$i_item_url_5 = $_POST['item_img_url_5'];
+//6
+$i_title_6 = $_POST['item_title_6'];
+$i_price_6 = $_POST['item_price_6'];
+$i_item_url_6 = $_POST['item_img_url_6'];
 //セレクトボックス
 $select_content = $_POST['s_cmaker'];
 //スライダー
@@ -26,10 +39,29 @@ global $wpdb;
 		$tablename,
 		array(
 			//ランキング
-			'id' => $i_id,
 			'item_name' => $i_title,
 			'item_price' => $i_price,
 			'item_img_url' => $i_item_url,
+			//2
+			'item_name_2' => $i_title_2,
+			'item_price_2' => $i_price_2,
+			'item_img_url_2' => $i_item_url_2,
+			//3
+			'item_name_3' => $i_title_3,
+			'item_price_3' => $i_price_3,
+			'item_img_url_3' => $i_item_url_3,
+			//4
+			'item_name_4' => $i_title_4,
+			'item_price_4' => $i_price_4,
+			'item_img_url_4' => $i_item_url_4,
+			//5
+			'item_name_5' => $i_title_5,
+			'item_price_5' => $i_price_5,
+			'item_img_url_5' => $i_item_url_5,
+			//6
+			'item_name_6' => $i_title_6,
+			'item_price_6' => $i_price_6,
+			'item_img_url_6' => $i_item_url_6,
 			//セレクトボックス
 			's_cmaker' => $select_content,
 			//スライダー
@@ -38,14 +70,33 @@ global $wpdb;
 			'slider_item_price' => $slider_item_price,
 		),
 		array(
-			//ランキング
-			'%d',
+		//ランキング
 			'%s',
 			'%s',
 			'%s',
-			//セレクトボックス
+		//2
 			'%s',
-			//スライダー
+			'%s',
+			'%s',
+		//3
+			'%s',
+			'%s',
+			'%s',
+		//4
+			'%s',
+			'%s',
+			'%s',
+		//5
+			'%s',
+			'%s',
+			'%s',
+		//6
+			'%s',
+			'%s',
+			'%s',
+		//セレクトボックス
+			'%s',
+		//スライダー
 			'%s',
 			'%s',
 			'%s',

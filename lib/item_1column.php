@@ -4,13 +4,49 @@
 			<?php
 			  require_once(dirname(dirname(dirname(dirname(dirname( __FILE__ ))))) . '/wp-load.php' );
 			  global $wpdb;
-			  $query = "SELECT item_name,  item_price , id , item_img_url , s_cmaker FROM wp_narukami_content_maker;";
+			  $query = "SELECT 
+			  item_name, 
+			  item_name_2, 
+			  item_name_3, 
+			  item_name_4, 
+			  item_name_5, 
+			  item_name_6, 
+			  item_price, 
+			  item_price_2, 
+			  item_price_3, 
+			  item_price_4, 
+			  item_price_5, 
+			  item_price_6, 
+			  id,
+			  item_img_url,
+			  item_img_url_2,
+			  item_img_url_3,
+			  item_img_url_4,
+			  item_img_url_5,
+			  item_img_url_6,
+			  s_cmaker
+			  FROM wp_narukami_content_maker;";
 			  $rows = $wpdb->get_results($query);
 			  foreach($rows as $row) {
 				 $id = $row->id;
 				 $item_name = $row->item_name; 
+				 $item_name_2 = $row->item_name_2; 
+				 $item_name_3 = $row->item_name_3; 
+				 $item_name_4 = $row->item_name_4; 
+				 $item_name_5 = $row->item_name_5; 
+				 $item_name_6 = $row->item_name_6; 
 				 $item_price = $row->item_price; 
+				 $item_price_2 = $row->item_price_2; 
+				 $item_price_3 = $row->item_price_3; 
+				 $item_price_4 = $row->item_price_4; 
+				 $item_price_5 = $row->item_price_5; 
+				 $item_price_6 = $row->item_price_6; 
 				 $item_url = $row->item_img_url; 
+				 $item_url_2 = $row->item_img_url_2; 
+				 $item_url_3 = $row->item_img_url_3; 
+				 $item_url_4 = $row->item_img_url_4; 
+				 $item_url_5 = $row->item_img_url_5; 
+				 $item_url_6 = $row->item_img_url_6; 
 				 $select_box = $row->s_cmaker; 
 			  };
 			  ?>
@@ -145,7 +181,6 @@
   			generate_upload_image_tag('item_img_url',  $url);
 			?>
 			<div class="inputWrap">
-			<input type="hidden" name="item_id">
 			<h4>商品名を入力してください。</h4>
 			<input type="text" class="img-setect-url" name="item_title" value="<?php if( !empty($_POST['item_title']) ){ echo $_POST['item_title']; } else{ echo $item_name;}?>">
 			<h4>商品価格を入力してください。（※半角英数で数字のみ記載してください。）</h4>
@@ -157,7 +192,7 @@
 			<?php 
 			if( !empty($_POST['item_img_url_2']) )
 			{ 
-				$url = $_POST['item_img_url_2']; 
+				$url2 = $_POST['item_img_url_2']; 
 			} else{ 
 				$url2 = $item_url_2;
 			}
@@ -167,7 +202,6 @@
   			generate_upload_image_tag('item_img_url_2',  $url2);
 			?>
 			<div class="inputWrap">
-			<input type="hidden" name="item_id_2">
 			<h4>商品名を入力してください。</h4>
 			<input type="text" class="img-setect-url" name="item_title_2" value="<?php if( !empty($_POST['item_title_2']) ){ echo $_POST['item_title_2']; } else{ echo $item_name_2;}?>">
 			<h4>商品価格を入力してください。（※半角英数で数字のみ記載してください。）</h4>
@@ -180,7 +214,7 @@
 			<?php 
 			if( !empty($_POST['item_img_url_3']) )
 			{ 
-				$url = $_POST['item_img_url_3']; 
+				$url3= $_POST['item_img_url_3']; 
 			} else{ 
 				$url3 = $item_url_3;
 			}
@@ -190,7 +224,6 @@
   			generate_upload_image_tag('item_img_url_3',  $url3);
 			?>
 			<div class="inputWrap">
-			<input type="hidden" name="item_id_3">
 			<h4>商品名を入力してください。</h4>
 			<input type="text" class="img-setect-url" name="item_title_3" value="<?php if( !empty($_POST['item_title_3']) ){ echo $_POST['item_title_3']; } else{ echo $item_name_3;}?>">
 			<h4>商品価格を入力してください。（※半角英数で数字のみ記載してください。）</h4>
@@ -203,7 +236,7 @@
 			<?php 
 			if( !empty($_POST['item_img_url_4']) )
 			{ 
-				$url = $_POST['item_img_url_4']; 
+				$url4 = $_POST['item_img_url_4']; 
 			} else{ 
 				$url4 = $item_url_4;
 			}
@@ -213,7 +246,6 @@
   			generate_upload_image_tag('item_img_url_4',  $url4);
 			?>
 			<div class="inputWrap">
-			<input type="hidden" name="item_id_4">
 			<h4>商品名を入力してください。</h4>
 			<input type="text" class="img-setect-url" name="item_title_4" value="<?php if( !empty($_POST['item_title_4']) ){ echo $_POST['item_title_4']; } else{ echo $item_name_4;}?>">
 			<h4>商品価格を入力してください。（※半角英数で数字のみ記載してください。）</h4>
@@ -226,7 +258,7 @@
 			<?php 
 			if( !empty($_POST['item_img_url_5']) )
 			{ 
-				$url = $_POST['item_img_url_5']; 
+				$url5 = $_POST['item_img_url_5']; 
 			} else{ 
 				$url5 = $item_url_5;
 			}
@@ -236,7 +268,6 @@
   			generate_upload_image_tag('item_img_url_5',  $url5);
 			?>
 			<div class="inputWrap">
-			<input type="hidden" name="item_id_5">
 			<h4>商品名を入力してください。</h4>
 			<input type="text" class="img-setect-url" name="item_title_5" value="<?php if( !empty($_POST['item_title_5']) ){ echo $_POST['item_title_5']; } else{ echo $item_name_5;}?>">
 			<h4>商品価格を入力してください。（※半角英数で数字のみ記載してください。）</h4>
@@ -249,7 +280,7 @@
 			<?php 
 			if( !empty($_POST['item_img_url_6']) )
 			{ 
-				$url = $_POST['item_img_url_6']; 
+				$url6 = $_POST['item_img_url_6']; 
 			} else{ 
 				$url6 = $item_url_6;
 			}
@@ -259,7 +290,6 @@
   			generate_upload_image_tag('item_img_url_6',  $url6);
 			?>
 			<div class="inputWrap">
-			<input type="hidden" name="item_id_6">
 			<h4>商品名を入力してください。</h4>
 			<input type="text" class="img-setect-url" name="item_title_6" value="<?php if( !empty($_POST['item_title_6']) ){ echo $_POST['item_title_6']; } else{ echo $item_name_6;}?>">
 			<h4>商品価格を入力してください。（※半角英数で数字のみ記載してください。）</h4>
