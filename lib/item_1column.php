@@ -24,6 +24,12 @@
 			  item_img_url_4,
 			  item_img_url_5,
 			  item_img_url_6,
+			  item_page_link,
+			  item_page_link_2,
+			  item_page_link_3,
+			  item_page_link_4,
+			  item_page_link_5,
+			  item_page_link_6,
 			  s_cmaker
 			  FROM wp_narukami_content_maker;";
 			  $rows = $wpdb->get_results($query);
@@ -46,13 +52,22 @@
 				 $item_url_3 = $row->item_img_url_3; 
 				 $item_url_4 = $row->item_img_url_4; 
 				 $item_url_5 = $row->item_img_url_5; 
-				 $item_url_6 = $row->item_img_url_6; 
+				 $item_url_6 = $row->item_img_url_6;
+				 $item_page_link = $row->item_page_link;
+				 $item_page_link_2 = $row->item_page_link_2;
+				 $item_page_link_3 = $row->item_page_link_3;
+				 $item_page_link_4 = $row->item_page_link_4;
+				 $item_page_link_5 = $row->item_page_link_5;
+				 $item_page_link_6 = $row->item_page_link_6;
 				 $select_box = $row->s_cmaker; 
 			  };
 			  ?>
-			<img src="<?php if( !empty($_POST['item_img_url']) ){ echo $_POST['item_img_url']; } else{ echo $item_url;}?>" width="200px" height="200px">
-			<p><?php if( !empty($_POST['item_title']) ){ echo $_POST['item_title']; } else{ echo $item_name;}?></p>
-			<p><?php if( !empty($_POST['item_price']) ){ echo $_POST['item_price']; } else{ echo $item_price;}?>円</p>
+		<div class="circle">
+			<div class="rank-pop">1</div>
+			<img src="<?php if( isset($_POST['item_img_url']) ){ echo $_POST['item_img_url']; } else{ echo $item_url;}?>" width="200px" height="200px">
+			<p><?php if( isset($_POST['item_title']) ){ echo $_POST['item_title']; } else{ echo $item_name;}?></p>
+			<p><?php if( isset($_POST['item_price']) ){ echo $_POST['item_price']; } else{ echo $item_price;}?>円</p>
+		</div>
 		</article>
 	</div>
 	<div class="inputForm">
@@ -169,7 +184,7 @@
 		
 		<div class="rank-item-detail-wrap">
 			<?php 
-			if( !empty($_POST['item_img_url']) )
+			if( isset($_POST['item_img_url']) )
 			{ 
 				$url = $_POST['item_img_url']; 
 			} else{ 
@@ -183,16 +198,16 @@
 			<div class="inputWrap">
 			<h4>商品名を入力してください。</h4>
 			<input type="text" class="img-setect-url" name="item_title" value=<?php if( isset($_POST['item_title']) ){ echo $_POST['item_title']; } else{ echo $item_name;}?>>
-				</br><?php var_dump($val);?></br>
-				<?php var_dump($item_name);?>
 			<h4>商品価格を入力してください。（※半角英数で数字のみ記載してください。）</h4>
-			<input type="text" class="img-setect-url" name="item_price" value="<?php if( !empty($_POST['item_price']) ){ echo $_POST['item_price']; } else{ echo $item_price;}?>">
+			<input type="text" class="img-setect-url" name="item_price" value=<?php if( isset($_POST['item_price']) ){ echo $_POST['item_price']; } else{ echo $item_price;}?>>
+			<h4>詳細ページリンクURL</h4>
+			<input type="text" class="img-setect-url" name="item_page_link" value=<?php if( isset($_POST['item_page_link']) ){ echo $_POST['item_page_link']; } else{ echo $item_page_link;}?>>
 			</div><!--inputWrap-end-->
 		</div><!--rank-item-detail-wrap1-end-->
 		
 		<div class="rank-item-detail-wrap">
 			<?php 
-			if( !empty($_POST['item_img_url_2']) )
+			if( isset($_POST['item_img_url_2']) )
 			{ 
 				$url2 = $_POST['item_img_url_2']; 
 			} else{ 
@@ -205,16 +220,18 @@
 			?>
 			<div class="inputWrap">
 			<h4>商品名を入力してください。</h4>
-			<input type="text" class="img-setect-url" name="item_title_2" value="<?php if( !empty($_POST['item_title_2']) ){ echo $_POST['item_title_2']; } else{ echo $item_name_2;}?>">
+			<input type="text" class="img-setect-url" name="item_title_2" value=<?php if( isset($_POST['item_title_2']) ){ echo $_POST['item_title_2']; } else{ echo $item_name_2;}?>>
 			<h4>商品価格を入力してください。（※半角英数で数字のみ記載してください。）</h4>
-			<input type="text" class="img-setect-url" name="item_price_2" value="<?php if( !empty($_POST['item_price_2']) ){ echo $_POST['item_price_2']; } else{ echo $item_price_2;}?>">
+			<input type="text" class="img-setect-url" name="item_price_2" value=<?php if( isset($_POST['item_price_2']) ){ echo $_POST['item_price_2']; } else{ echo $item_price_2;}?>>
+			<h4>詳細ページリンクURL</h4>
+			<input type="text" class="img-setect-url" name="item_page_link_2" value=<?php if( isset($_POST['item_page_link_2']) ){ echo $_POST['item_page_link_2']; } else{ echo $item_page_link_2;}?>>
 			</div><!--inputWrap-end-->
 		</div><!--rank-item-detail-wrap2-end-->
 
 
 		<div class="rank-item-detail-wrap">
 			<?php 
-			if( !empty($_POST['item_img_url_3']) )
+			if( isset($_POST['item_img_url_3']) )
 			{ 
 				$url3= $_POST['item_img_url_3']; 
 			} else{ 
@@ -227,16 +244,18 @@
 			?>
 			<div class="inputWrap">
 			<h4>商品名を入力してください。</h4>
-			<input type="text" class="img-setect-url" name="item_title_3" value="<?php if( !empty($_POST['item_title_3']) ){ echo $_POST['item_title_3']; } else{ echo $item_name_3;}?>">
+			<input type="text" class="img-setect-url" name="item_title_3" value=<?php if( isset($_POST['item_title_3']) ){ echo $_POST['item_title_3']; } else{ echo $item_name_3;}?>>
 			<h4>商品価格を入力してください。（※半角英数で数字のみ記載してください。）</h4>
-			<input type="text" class="img-setect-url" name="item_price_3" value="<?php if( !empty($_POST['item_price_3']) ){ echo $_POST['item_price_3']; } else{ echo $item_price_3;}?>">
+			<input type="text" class="img-setect-url" name="item_price_3" value=<?php if( isset($_POST['item_price_3']) ){ echo $_POST['item_price_3']; } else{ echo $item_price_3;}?>>
+			<h4>詳細ページリンクURL</h4>
+			<input type="text" class="img-setect-url" name="item_page_link_3" value=<?php if( isset($_POST['item_page_link_3']) ){ echo $_POST['item_page_link_3']; } else{ echo $item_page_link_3;}?>>
 			</div><!--inputWrap-end-->
 		</div><!--rank-item-detail-wrap3-end-->
 
 
 		<div class="rank-item-detail-wrap">
 			<?php 
-			if( !empty($_POST['item_img_url_4']) )
+			if( isset($_POST['item_img_url_4']) )
 			{ 
 				$url4 = $_POST['item_img_url_4']; 
 			} else{ 
@@ -249,16 +268,18 @@
 			?>
 			<div class="inputWrap">
 			<h4>商品名を入力してください。</h4>
-			<input type="text" class="img-setect-url" name="item_title_4" value="<?php if( !empty($_POST['item_title_4']) ){ echo $_POST['item_title_4']; } else{ echo $item_name_4;}?>">
+			<input type="text" class="img-setect-url" name="item_title_4" value=<?php if( isset($_POST['item_title_4']) ){ echo $_POST['item_title_4']; } else{ echo $item_name_4;}?>>
 			<h4>商品価格を入力してください。（※半角英数で数字のみ記載してください。）</h4>
-			<input type="text" class="img-setect-url" name="item_price_4" value="<?php if( !empty($_POST['item_price_4']) ){ echo $_POST['item_price_4']; } else{ echo $item_price_4;}?>">
+			<input type="text" class="img-setect-url" name="item_price_4" value=<?php if( isset($_POST['item_price_4']) ){ echo $_POST['item_price_4']; } else{ echo $item_price_4;}?>>
+			<h4>詳細ページリンクURL</h4>
+			<input type="text" class="img-setect-url" name="item_page_link_4" value=<?php if( isset($_POST['item_page_link_4']) ){ echo $_POST['item_page_link_4']; } else{ echo $item_page_link_4;}?>>
 			</div><!--inputWrap-end-->
 		</div><!--rank-item-detail-wrap4-end-->
 
 
 		<div class="rank-item-detail-wrap">
 			<?php 
-			if( !empty($_POST['item_img_url_5']) )
+			if( isset($_POST['item_img_url_5']) )
 			{ 
 				$url5 = $_POST['item_img_url_5']; 
 			} else{ 
@@ -271,16 +292,18 @@
 			?>
 			<div class="inputWrap">
 			<h4>商品名を入力してください。</h4>
-			<input type="text" class="img-setect-url" name="item_title_5" value="<?php if( !empty($_POST['item_title_5']) ){ echo $_POST['item_title_5']; } else{ echo $item_name_5;}?>">
+			<input type="text" class="img-setect-url" name="item_title_5" value=<?php if( isset($_POST['item_title_5']) ){ echo $_POST['item_title_5']; } else{ echo $item_name_5;}?>>
 			<h4>商品価格を入力してください。（※半角英数で数字のみ記載してください。）</h4>
-			<input type="text" class="img-setect-url" name="item_price_5" value="<?php if( !empty($_POST['item_price_5']) ){ echo $_POST['item_price_5']; } else{ echo $item_price_5;}?>">
+			<input type="text" class="img-setect-url" name="item_price_5" value=<?php if( isset($_POST['item_price_5']) ){ echo $_POST['item_price_5']; } else{ echo $item_price_5;}?>>
+			<h4>詳細ページリンクURL</h4>
+			<input type="text" class="img-setect-url" name="item_page_link_5" value=<?php if( isset($_POST['item_page_link_5']) ){ echo $_POST['item_page_link_5']; } else{ echo $item_page_link_5;}?>>
 			</div><!--inputWrap-end-->
 		</div><!--rank-item-detail-wrap5-end-->
 
 
 		<div class="rank-item-detail-wrap">
 			<?php 
-			if( !empty($_POST['item_img_url_6']) )
+			if( isset($_POST['item_img_url_6']) )
 			{ 
 				$url6 = $_POST['item_img_url_6']; 
 			} else{ 
@@ -293,9 +316,11 @@
 			?>
 			<div class="inputWrap">
 			<h4>商品名を入力してください。</h4>
-			<input type="text" class="img-setect-url" name="item_title_6" value="<?php if( !empty($_POST['item_title_6']) ){ echo $_POST['item_title_6']; } else{ echo $item_name_6;}?>">
+			<input type="text" class="img-setect-url" name="item_title_6" value=<?php if( isset($_POST['item_title_6']) ){ echo $_POST['item_title_6']; } else{ echo $item_name_6;}?>>
 			<h4>商品価格を入力してください。（※半角英数で数字のみ記載してください。）</h4>
-			<input type="text" class="img-setect-url" name="item_price_6" value="<?php if( !empty($_POST['item_price_6']) ){ echo $_POST['item_price_6']; } else{ echo $item_price_6;}?>">
+			<input type="text" class="img-setect-url" name="item_price_6" value=<?php if( isset($_POST['item_price_6']) ){ echo $_POST['item_price_6']; } else{ echo $item_price_6;}?>>
+			<h4>詳細ページリンクURL</h4>
+			<input type="text" class="img-setect-url" name="item_page_link_6" value=<?php if( isset($_POST['item_page_link_6']) ){ echo $_POST['item_page_link_6']; } else{ echo $item_page_link_6;}?>>
 			</div><!--inputWrap-end-->
 		</div><!--rank-item-detail-wrap6-end-->
 		
