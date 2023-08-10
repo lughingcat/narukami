@@ -61,12 +61,26 @@
 				 $item_page_link_6 = $row->item_page_link_6;
 				 $select_box = $row->s_cmaker; 
 			  };
-			  ?>
-		<div class="circle">
-			<div class="rank-pop">1</div>
-			<img src="<?php if( isset($_POST['item_img_url']) ){ echo $_POST['item_img_url']; } else{ echo $item_url;}?>" width="200px" height="200px">
-			<p><?php if( isset($_POST['item_title']) ){ echo $_POST['item_title']; } else{ echo $item_name;}?></p>
-			<p><?php if( isset($_POST['item_price']) ){ echo $_POST['item_price']; } else{ echo $item_price;}?>円</p>
+    	  ?>
+		    <style>
+				.overlay{
+					background-image: url(<?php if( isset($_POST['item_img_url']) ){ echo $_POST['item_img_url']; } else{ echo $item_url;}?>);
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: cover;
+				}
+			</style>
+		<div class="ranking-all-wrap">
+		<div class="overlay">
+			<div class="math_band_bg"><span>1</span></div>
+			<div class="ranking-img">
+				<img src="<?php if( isset($_POST['item_img_url']) ){ echo $_POST['item_img_url']; } else{ echo $item_url;}?>">
+			</div>
+			<div class="ranking-discription">
+				<p class="ranking-item-title"><?php if( isset($_POST['item_title']) ){ echo $_POST['item_title']; } else{ echo $item_name;}?></p>
+				<p><?php if( isset($_POST['item_price']) ){ echo $_POST['item_price']; } else{ echo $item_price;}?>円</p>
+		    </div>
+		</div>
 		</div>
 		</article>
 	</div>
