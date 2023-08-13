@@ -72,7 +72,7 @@
 			</style>
 		<div class="ranking-all-wrap">
 		<div class="overlay">
-			<div class="math_band_bg"><span>1</span></div>
+			<div class="math_label_bg"><span>1</span></div>
 			<div class="ranking-img">
 				<img src="<?php if( isset($_POST['item_img_url']) ){ echo $_POST['item_img_url']; } else{ echo $item_url;}?>">
 			</div>
