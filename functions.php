@@ -257,6 +257,8 @@ function create_theme_tables() {
 		$sql = "CREATE TABLE {$table_name} (
 		  `s_cmaker` varchar(255) NOT NULL,
 		  `id` int(11) NOT NULL AUTO_INCREMENT,
+		  `rank_pop` varchar(255) NOT NULL,
+		  `rank_style` varchar(255) NOT NULL,
 		  `item_name` varchar(255) NOT NULL,
 		  `item_name_2` varchar(255) NOT NULL,
 		  `item_name_3` varchar(255) NOT NULL,

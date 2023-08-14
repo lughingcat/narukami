@@ -4,7 +4,9 @@
 			<?php
 			  require_once(dirname(dirname(dirname(dirname(dirname( __FILE__ ))))) . '/wp-load.php' );
 			  global $wpdb;
-			  $query = "SELECT 
+			  $query = "SELECT
+			  rank_pop,
+			  rank_style,
 			  item_name, 
 			  item_name_2, 
 			  item_name_3, 
@@ -35,6 +37,8 @@
 			  $rows = $wpdb->get_results($query);
 			  foreach($rows as $row) {
 				 $id = $row->id;
+				 $rank_pop = $row->rank_pop;
+				 $rank_style = $row->rank_style;
 				 $item_name = $row->item_name; 
 				 $item_name_2 = $row->item_name_2; 
 				 $item_name_3 = $row->item_name_3; 
@@ -71,8 +75,8 @@
 				}
 			</style>
 		<div class="ranking-all-wrap">
-		<div class="overlay">
-			<div class="math_label_bg"><span>1</span></div>
+		<div class="<?php if( isset($_POST['rank_style']) ){ echo $_POST['rank_style']; } else{ echo $rank_style;}?>">
+			<div class="<?php if( isset($_POST['rank_pop']) ){ echo $_POST['rank_pop']; } else{ echo $rank_pop;}?>"><span>1</span></div>
 			<div class="ranking-img">
 				<img src="<?php if( isset($_POST['item_img_url']) ){ echo $_POST['item_img_url']; } else{ echo $item_url;}?>">
 			</div>
@@ -101,7 +105,7 @@
 			</div><!--rank-font-1-wrap-end-->
 				<div class="font-setting">
 					<p class="font-title">四角背景</p>
-					<input type="radio" name="rank_font" value="math_sq_bg">
+					<input type="radio" name="rank_pop" value="math_sq_bg">
 				</div>
 			</div><!--font-wrap-end-->
 			
@@ -111,7 +115,7 @@
 			</div><!--rank-font-1-wrap-end-->
 				<div class="font-setting">
 					<p class="font-title">丸背景</p>
-					<input type="radio" name="rank_font" value="math_circle_bg">
+					<input type="radio" name="rank_pop" value="math_circle_bg">
 				</div>
 			</div><!--font-wrap-2-end-->
 			
@@ -121,7 +125,7 @@
 			</div><!--rank-font-1-wrap-end-->
 				<div class="font-setting">
 					<p class="font-title">縦帯背景</p>
-					<input type="radio" name="rank_font" value="math_band_bg">
+					<input type="radio" name="rank_pop" value="math_band_bg">
 				</div>
 			</div><!--font-wrap-3-end-->
 			
@@ -132,7 +136,7 @@
 			</div><!--rank-font-1-wrap-end-->
 				<div class="font-setting">
 					<p class="font-title">ラベル背景</p>
-					<input type="radio" name="rank_font" value="math_label_bg">
+					<input type="radio" name="rank_pop" value="math_label_bg">
 				</div>
 			</div><!--font-wrap-4-end-->
 			

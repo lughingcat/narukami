@@ -1,6 +1,10 @@
 
 <?php
 require_once( dirname(dirname(dirname(dirname(dirname( __FILE__ ))))) . '/wp-load.php' );
+//ランキングpopスタイル
+$rank_pop = $_POST['rank_pop'];
+//ランキング背景スタイル
+$rank_style = $_POST['rank_style'];
 //ランキング
 //1
 $i_title = $_POST['item_title'];
@@ -44,6 +48,10 @@ global $wpdb;
 	$wpdb->insert(
 		$tablename,
 		array(
+			//ランキングpopスタイル
+		    'rank_pop' => $rank_pop,
+			//ランキング背景スタイル
+			'rank_style' => $rank_style,
 			//ランキング
 			'item_name' => $i_title,
 			'item_price' => $i_price,
@@ -82,6 +90,10 @@ global $wpdb;
 			'slider_item_price' => $slider_item_price,
 		),
 		array(
+		//ランキングpopスタイル
+			'%s',
+		//ランキング背景スタイル
+			'%s',
 		//ランキング
 			'%s',
 			'%s',
