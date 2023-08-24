@@ -68,14 +68,15 @@
     	  ?>
 		    <style>
 				.overlay{
-					background-image: url(<?php if( isset($_POST['item_img_url']) ){ echo $_POST['item_img_url']; } else{ echo $item_url;}?>);
 					background-position: center;
 					background-repeat: no-repeat;
 					background-size: cover;
 				}
 			</style>
 		<div class="ranking-all-wrap">
-		<div class="<?php if( isset($_POST['rank_style']) ){ echo $_POST['rank_style']; } else{ echo $rank_style;}?>">
+		<div class="<?php if( isset($_POST['rank_style']) ){ echo $_POST['rank_style']; } else{ echo $rank_style;}?>" 
+			 style="display: <?php if( isset($_POST['item_img_url'])){ echo "";} elseif( isset($item_url)) { echo ""; } else{ "none" ;}?>; background-image: url(<?php if( $_POST['rank_style'] == "overlay" ){ echo $_POST['item_img_url']; } elseif( $rank_style == "overlay" ){ echo $item_url;} else{ echo ""; }?>)"><!--ランキング１位-->
+			<a href=<?php if( isset($_POST['item_page_link']) ){ echo $_POST['item_page_link']; } else{ echo $item_page_link;}?>></a>
 			<div class="<?php if( isset($_POST['rank_pop']) ){ echo $_POST['rank_pop']; } else{ echo $rank_pop;}?>"><span>1</span></div>
 			<div class="ranking-img">
 				<img src="<?php if( isset($_POST['item_img_url']) ){ echo $_POST['item_img_url']; } else{ echo $item_url;}?>">
@@ -84,7 +85,11 @@
 				<p class="ranking-item-title"><?php if( isset($_POST['item_title']) ){ echo $_POST['item_title']; } else{ echo $item_name;}?></p>
 				<p><?php if( isset($_POST['item_price']) ){ echo $_POST['item_price']; } else{ echo $item_price;}?>円</p>
 		    </div>
-		</div>
+		</div><!--ランキング１位end-->
+			<?php var_dump($_POST['rank_style']) ;?>
+			<?php var_dump($_POST['rank_pop']) ;?>
+			<?php var_dump($rank_style) ;?>
+			<?php var_dump($rank_pop) ;?>
 		</div>
 		</article>
 	</div>
@@ -96,6 +101,15 @@
 			<p>ランキングタイトルを入力してください</p>
 			<input type="text" class="rank-primary-title" name="rank_primary-title">
 			</div>
+		<?php 
+		$math_sq_bg = "math_sq_bg";
+		$math_circle_bg = "math_circle_bg";
+		$math_band_bg = "math_band_bg";
+		$math_label_bg = "math_label_bg";
+		$overlay = "overlay";
+		$clipping = "clipping";
+		$circle = "circle";
+		?>
 		<h4 class="rank-prev">ランキング背景デザイン</h4>
 		<p>ランキング背景のデザインを選択してください</p>
 		<div class="rank-font-all-wrap">
@@ -105,7 +119,18 @@
 			</div><!--rank-font-1-wrap-end-->
 				<div class="font-setting">
 					<p class="font-title">四角背景</p>
-					<input type="radio" name="rank_pop" value="math_sq_bg">
+					<input type="radio" name="rank_pop" value="math_sq_bg" 
+						   <?php 
+						   if($_POST['rank_pop'] == "" || $_POST['rank_pop'] == "math_sq_bg" ){
+							   echo "checked";
+						   }
+						   if( $_POST['rank_pop'] == "" && $rank_pop == $math_sq_bg){
+							   echo "checked";
+						   }else{ 
+							   echo "";
+						   }
+						   ?>
+						   >
 				</div>
 			</div><!--font-wrap-end-->
 			
@@ -115,7 +140,18 @@
 			</div><!--rank-font-1-wrap-end-->
 				<div class="font-setting">
 					<p class="font-title">丸背景</p>
-					<input type="radio" name="rank_pop" value="math_circle_bg">
+					<input type="radio" name="rank_pop" value="math_circle_bg" 
+						   <?php 
+						   if($_POST['rank_pop'] == "math_circle_bg" ){
+							   echo "checked";
+						   }
+						   if( $_POST['rank_pop'] == "" && $rank_pop == $math_circle_bg){
+							   echo "checked";
+						   }else{
+							   echo "";
+						   }
+						   ?>
+						   >
 				</div>
 			</div><!--font-wrap-2-end-->
 			
@@ -125,7 +161,18 @@
 			</div><!--rank-font-1-wrap-end-->
 				<div class="font-setting">
 					<p class="font-title">縦帯背景</p>
-					<input type="radio" name="rank_pop" value="math_band_bg">
+					<input type="radio" name="rank_pop" value="math_band_bg"
+						   <?php 
+						   if($_POST['rank_pop'] == "math_band_bg" ){
+							   echo "checked";
+						   }
+						   if( $_POST['rank_pop'] == "" && $rank_pop == $math_band_bg){
+							   echo "checked";
+						   }else{
+							   echo "";
+						   }
+						   ?>
+						   >
 				</div>
 			</div><!--font-wrap-3-end-->
 			
@@ -136,7 +183,17 @@
 			</div><!--rank-font-1-wrap-end-->
 				<div class="font-setting">
 					<p class="font-title">ラベル背景</p>
-					<input type="radio" name="rank_pop" value="math_label_bg">
+					<input type="radio" name="rank_pop" value="math_label_bg"
+						   <?php
+						   if($_POST['rank_pop'] == "math_label_bg" ){
+							   echo "checked";
+						   } 
+						   if( $_POST['rank_pop'] == "" && $rank_pop == $math_label_bg){
+							   echo "checked" ;
+						   }else{ 
+							   echo "";}
+						   ?>
+						   >
 				</div>
 			</div><!--font-wrap-4-end-->
 			
@@ -159,7 +216,7 @@
 			</div>
 				<div class="rank-radio-style">
 					<p class="rank-item-title">画像背景オーバーレイ</p>
-					<input type="radio" name="rank_style" value="overlay">
+					<input type="radio" name="rank_style" value="overlay" <?php if($_POST['rank_style'] === "overlay" ){ echo "checked";} elseif( $rank_style === "overlay" ){ echo "checked";} else{ echo ""; }?>>
 				</div>
 			</div><!--rank-wrap-end-->
 			
@@ -175,7 +232,7 @@
 			 </div>
 				<div class="rank-radio-style">
 					<p class="rank-item-title-2">画像のみ背景透過</p>
-					<input type="radio" name="rank_style" value="clipping">
+					<input type="radio" name="rank_style" value="clipping" <?php if($_POST['rank_style'] === "clipping" ){ echo "checked";} elseif( $rank_style === "clipping" ){ echo "checked";} else{ echo ""; }?>>
 				</div>
 			</div><!--ranl-wrap-2-end-->
 			
@@ -191,7 +248,7 @@
 			 </div>
 				<div class="rank-radio-style">
 					<p class="rank-item-title-3">画像背景丸形切り抜き</p>
-					<input type="radio" name="rank_style" value="circle">
+					<input type="radio" name="rank_style" value="circle" <?php if($_POST['rank_style'] === "circle" ){ echo "checked";} elseif( $rank_style === "circle" ){ echo "checked";} else{ echo ""; }?>>
 				</div>
 			</div><!--ranl-wrap-3-end-->
 			
