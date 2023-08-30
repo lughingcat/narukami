@@ -283,6 +283,7 @@ function create_theme_tables() {
 		  `item_page_link_4` varchar(255) NOT NULL,
 		  `item_page_link_5` varchar(255) NOT NULL,
 		  `item_page_link_6` varchar(255) NOT NULL,
+		  `rank_on` varchar(255) NOT NULL,
 		  `slider_img_url` varchar(255) NOT NULL,
 		  `slider_item_name` varchar(255) NOT NULL,
 		  `slider_item_price` varchar(255) NOT NULL,

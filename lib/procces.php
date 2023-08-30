@@ -11,6 +11,7 @@ $i_title = $_POST['item_title'];
 $i_price = $_POST['item_price'];
 $i_item_url = $_POST['item_img_url'];
 $i_item_page_link = $_POST['item_page_link'];
+$i_rank_on = $_POST['rank_on'];
 //2
 $i_title_2 = $_POST['item_title_2'];
 $i_price_2 = $_POST['item_price_2'];
@@ -57,6 +58,7 @@ global $wpdb;
 			'item_price' => $i_price,
 			'item_img_url' => $i_item_url,
 			'item_page_link' => $i_item_page_link,
+			'rank_on' => $i_rank_on,
 			//2
 			'item_name_2' => $i_title_2,
 			'item_price_2' => $i_price_2,
@@ -99,6 +101,7 @@ global $wpdb;
 			'%s',
 			'%s',
 			'%s',
+			'%s',
 		//2
 			'%s',
 			'%s',
@@ -134,22 +137,27 @@ global $wpdb;
 		)
 	);
 
+
 global $wpdb;
 $res = null;
-$i_id = $_POST['item_id'];
-
+$narukamicmker =  $wpdb->prefix . "narukami_content_maker";
+if( $i_rank_on == "rank_not_show_1" ){
 $res = $wpdb->delete(
-    $tablename,
+    $narukamicmker,
     array(
-        'id' => $i_id
+        'rank_on' => rank_show_1,
+        'rank_on' => rank_not_show_1
     ),
     array(
         '%d'
     )
 );
+}
 
 if( 1 <= $res ) {
     //　削除に成功
+	echo "成功";
 } else {
     //　削除に失敗
+	echo "失敗";
 }

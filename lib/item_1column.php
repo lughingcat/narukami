@@ -32,6 +32,7 @@
 			  item_page_link_4,
 			  item_page_link_5,
 			  item_page_link_6,
+			  rank_on,
 			  s_cmaker
 			  FROM wp_narukami_content_maker;";
 			  $rows = $wpdb->get_results($query);
@@ -63,6 +64,7 @@
 				 $item_page_link_4 = $row->item_page_link_4;
 				 $item_page_link_5 = $row->item_page_link_5;
 				 $item_page_link_6 = $row->item_page_link_6;
+				 $item_rank_on = $row->rank_on;
 				 $select_box = $row->s_cmaker; 
 			  };
     	  ?>
@@ -75,7 +77,7 @@
 			</style>
 		<div class="ranking-all-wrap">
 		<div class="<?php if( isset($_POST['rank_style']) ){ echo $_POST['rank_style']; } else{ echo $rank_style;}?>" 
-			 style="display: <?php if( isset($_POST['item_img_url'])){ echo "";} elseif( isset($item_url)) { echo ""; } else{ "none" ;}?>; background-image: url(<?php if( $_POST['rank_style'] == "overlay" ){ echo $_POST['item_img_url']; } elseif( $rank_style == "overlay" ){ echo $item_url;} else{ echo ""; }?>)"><!--ランキング１位-->
+			 style="display: ; background-image: url(<?php if( $_POST['rank_style'] == "overlay" ){ echo $_POST['item_img_url']; } elseif( $rank_style == "overlay" ){ echo $item_url;} else{ echo ""; }?>)"><!--ランキング１位-->
 			<a href=<?php if( isset($_POST['item_page_link']) ){ echo $_POST['item_page_link']; } else{ echo $item_page_link;}?>></a>
 			<div class="<?php if( isset($_POST['rank_pop']) ){ echo $_POST['rank_pop']; } else{ echo $rank_pop;}?>"><span>1</span></div>
 			<div class="ranking-img">
@@ -86,10 +88,6 @@
 				<p><?php if( isset($_POST['item_price']) ){ echo $_POST['item_price']; } else{ echo $item_price;}?>円</p>
 		    </div>
 		</div><!--ランキング１位end-->
-			<?php var_dump($_POST['rank_style']) ;?>
-			<?php var_dump($_POST['rank_pop']) ;?>
-			<?php var_dump($rank_style) ;?>
-			<?php var_dump($rank_pop) ;?>
 		</div>
 		</article>
 	</div>
@@ -124,7 +122,7 @@
 						   if($_POST['rank_pop'] == "" || $_POST['rank_pop'] == "math_sq_bg" ){
 							   echo "checked";
 						   }
-						   if( $_POST['rank_pop'] == "" && $rank_pop == $math_sq_bg){
+						   elseif( $_POST['rank_pop'] == "" && $rank_pop == $math_sq_bg){
 							   echo "checked";
 						   }else{ 
 							   echo "";
@@ -145,7 +143,7 @@
 						   if($_POST['rank_pop'] == "math_circle_bg" ){
 							   echo "checked";
 						   }
-						   if( $_POST['rank_pop'] == "" && $rank_pop == $math_circle_bg){
+						   elseif( $_POST['rank_pop'] == "" && $rank_pop == $math_circle_bg){
 							   echo "checked";
 						   }else{
 							   echo "";
@@ -166,7 +164,7 @@
 						   if($_POST['rank_pop'] == "math_band_bg" ){
 							   echo "checked";
 						   }
-						   if( $_POST['rank_pop'] == "" && $rank_pop == $math_band_bg){
+						   elseif( $_POST['rank_pop'] == "" && $rank_pop == $math_band_bg){
 							   echo "checked";
 						   }else{
 							   echo "";
@@ -188,7 +186,7 @@
 						   if($_POST['rank_pop'] == "math_label_bg" ){
 							   echo "checked";
 						   } 
-						   if( $_POST['rank_pop'] == "" && $rank_pop == $math_label_bg){
+						   elseif( $_POST['rank_pop'] == "" && $rank_pop == $math_label_bg){
 							   echo "checked" ;
 						   }else{ 
 							   echo "";}
@@ -216,7 +214,18 @@
 			</div>
 				<div class="rank-radio-style">
 					<p class="rank-item-title">画像背景オーバーレイ</p>
-					<input type="radio" name="rank_style" value="overlay" <?php if($_POST['rank_style'] === "overlay" ){ echo "checked";} elseif( $rank_style === "overlay" ){ echo "checked";} else{ echo ""; }?>>
+					<input type="radio" name="rank_style" value="overlay"
+						   <?php
+						   if( $_POST['rank_style'] == "" || $_POST['rank_style'] == "overlay" ){
+							   echo "checked";
+						   }
+						   elseif( $_POST['rank_style'] == "" && $rank_style == $overlay ){
+							   echo "checked";
+						   } else{
+							   echo ""; 
+						   }
+						   ?>
+						   >
 				</div>
 			</div><!--rank-wrap-end-->
 			
@@ -232,7 +241,17 @@
 			 </div>
 				<div class="rank-radio-style">
 					<p class="rank-item-title-2">画像のみ背景透過</p>
-					<input type="radio" name="rank_style" value="clipping" <?php if($_POST['rank_style'] === "clipping" ){ echo "checked";} elseif( $rank_style === "clipping" ){ echo "checked";} else{ echo ""; }?>>
+					<input type="radio" name="rank_style" value="clipping" 
+						   <?php 
+						   if($_POST['rank_style'] == "clipping" ){ 
+							   echo "checked";
+						   }
+						   elseif( $_POST['rank_style'] == "" && $rank_style == $clipping ){ 
+							   echo "checked";
+						   } else{
+							   echo ""; }
+						   ?>
+						   >
 				</div>
 			</div><!--ranl-wrap-2-end-->
 			
@@ -248,13 +267,23 @@
 			 </div>
 				<div class="rank-radio-style">
 					<p class="rank-item-title-3">画像背景丸形切り抜き</p>
-					<input type="radio" name="rank_style" value="circle" <?php if($_POST['rank_style'] === "circle" ){ echo "checked";} elseif( $rank_style === "circle" ){ echo "checked";} else{ echo ""; }?>>
+					<input type="radio" name="rank_style" value="circle" 
+						   <?php 
+						   if($_POST['rank_style'] === "circle" ){ 
+							   echo "checked";
+						   }
+						   elseif( $rank_style === "circle" ){
+							   echo "checked";
+						   } else{
+							   echo ""; }
+						   ?>
+						   >
 				</div>
 			</div><!--ranl-wrap-3-end-->
 			
 		</div><!--rank-item-all-wrap-end-->
 	<h4 class="rank-prev">ランキングアイテム入力</h4>
-　　　<p>ランキングアイテムの詳細を入力してください。</br>ランキングにラインナップできる最大アイテム数は5つです。</p>
+　　　<p>ランキングアイテムの詳細を入力してください。</br>ランキングにラインナップできる最大アイテム数は6つです。</p>
 		
 		
 		<div class="rank-item-detail-wrap">
@@ -276,7 +305,13 @@
 			<h4>商品価格を入力してください。（※半角英数で数字のみ記載してください。）</h4>
 			<input type="text" class="img-setect-url" name="item_price" value=<?php if( isset($_POST['item_price']) ){ echo $_POST['item_price']; } else{ echo $item_price;}?>>
 			<h4>詳細ページリンクURL</h4>
-			<input type="text" class="img-setect-url" name="item_page_link" value=<?php if( isset($_POST['item_page_link']) ){ echo $_POST['item_page_link']; } else{ echo $item_page_link;}?>>
+			<input type="text" class="img-setect-url" name="item_page_link" value=<?php if( isset($_POST['item_page_link']) ){ echo $_POST['item_page_link']; } else{ echo $item_page_link;}?>></br>
+				<?php var_dump($_POST['rank_on']);?></br>
+				<?php var_dump($item_rank_on);?></br>
+				<?php var_dump($res);?></br>
+			<h4>ランキングを非表示にする</h4>
+			<label><input type="radio" name="rank_on" value="rank_show_1">表示</label>
+			<label><input type="radio" name="rank_on" value="rank_not_show_1">非表示</label>
 			</div><!--inputWrap-end-->
 		</div><!--rank-item-detail-wrap1-end-->
 		
