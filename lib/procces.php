@@ -156,8 +156,9 @@ $res = $wpdb->delete(
 
 if( 1 <= $res ) {
     //　削除に成功
-	echo "成功";
+	
 } else {
     //　削除に失敗
-	echo "失敗";
+	
 }
+

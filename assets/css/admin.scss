@@ -27,12 +27,12 @@
 
 .inputForm{
 	width: 100%;
-	border: 1px solid;
 	padding: 2%;
 	box-sizing: border-box;
 	.rank-prev{
 	}
 	.rank-prev-num{
+		border-bottom: 1px solid;
 		margin-bottom: 37px;
 	}
 	.img-setect-url{
@@ -196,7 +196,7 @@
 	font-size: 1.8em;
 	box-sizing: border-box;
 	text-align: center;
-	background-color: #0a4b78;
+	background-color: #dbbf4b;
 	color: #f0f0f1;
 	padding: 5px;
 	margin: -5px;
@@ -213,8 +213,8 @@
 	font-size: 1.8em;
 	box-sizing: border-box;
 	text-align: center;
-	background-color: #ECE038;
-	color: #524e4d;
+	background-color: #DBBF4B;
+	color: #ffffff;
 	border-radius: 50%;
 	padding: 4px;
 	position: absolute;
@@ -243,14 +243,14 @@
   		width: 0;
   		height: 0;
   		border-right: 10px solid transparent;
-  		border-bottom: 6px solid #75001F;
+  		border-bottom: 6px solid #9C8320;
 	}
 	span::after{
 		top: -20%;
   		left: 0;
   		display: block;
   		height: 20px;
-  		border: 2.2rem solid #AD002D;
+  		border: 2.2rem solid #DBBF4B;
   		border-bottom-width: 15px;
   		border-bottom-color: transparent;
 		z-index: -1;
@@ -286,7 +286,7 @@
 		height: 0;
 		border-style: solid;
 		border-width: 100px 100px 0 0;
-		border-color: #0086AD transparent transparent transparent;
+		border-color: #DBBF4B transparent transparent transparent;
 		z-index: -1;
 		border-top-left-radius: 5px;
 	}
@@ -300,7 +300,7 @@
 	padding: 5px;
 	background-color: #ffffff;
 	box-shadow: 2px 8px 13px -4px #b6b4b4;
-    width: 25%;
+    width: 192px;
 	position: relative;
 	a{
 		display: block;
@@ -328,6 +328,10 @@
     	margin: 10px;
 		font-size: 1.3em;
 		font-weight: bold;
+		width: 192px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
     }
     .ranking-item-title::before{
     	content: '';
@@ -349,7 +353,7 @@
 	padding: 5px;
 	background-color: #ffffff;
 	box-shadow: 2px 8px 13px -4px #b6b4b4;
-    width: 25%;
+    width: 192px;
 	position: relative;
 	a{
 		display: block;
@@ -377,6 +381,10 @@
     	margin: 10px;
 		font-size: 1.3em;
 		font-weight: bold;
+		width: 192px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
     }
     .ranking-item-title::before{
     	content: '';
@@ -389,6 +397,7 @@
 		font-weight: bold;
 		line-height: 15px;
 	}
+ 
 }
 //オーバーレイ
 .overlay{
@@ -398,7 +407,7 @@
 	padding: 5px;
 	background-color: #ffffff;
 	box-shadow: 2px 8px 13px -4px #b6b4b4;
-    width: 25%;
+    width: 192px;
 	a{
 		display: block;
 		position: absolute;
@@ -427,16 +436,16 @@
 		position: absolute;
 		left: 0;
 		bottom: 0;
-		height: 25%;
-		padding: 5px;
-		width: 100%;
 		border-bottom-right-radius: 5px;
 		border-bottom-left-radius: 5px;
     .ranking-item-title{
-    	margin: 10px;
 		font-size: 1.3em;
 		font-weight: bold;
 		color: #FFFFFF;
+		width: 192px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
     }
     .ranking-item-title::before{
     	content: '';
@@ -452,6 +461,9 @@
 	}
 	}
 }
+//テスト
+
+
 
 /*------　ランキングタイトルスタイル　-------*/
 
@@ -497,7 +509,7 @@
 		font-size: 4em;
 		box-sizing: border-box;
 		text-align: center;
-		background-color: #0a4b78;
+		background-color: #dbbf4b;
 		color: #ffffff;
 	}
 	.font-setting{
@@ -533,8 +545,8 @@
 		font-size: 4em;
 		box-sizing: border-box;
 		padding-left: 23px;
-		background-color: #ECE038;
-		color: rgba(82,78,77,1);
+		background-color: #dbbf4b;
+		color: #ffffff;
 		border-radius: 50%;
 		transform: translate(8px,8px);
 	}
@@ -584,14 +596,14 @@
   			width: 0;
   			height: 0;
   			border-right: 10px solid transparent;
-  			border-bottom: 6px solid #75001F;
+  			border-bottom: 6px solid #9C8320;
 		}
 		span::after{
 			top: -20%;
   			left: 0;
   			display: block;
   			height: 44px;
-  			border: 2.2rem solid #AD002D;
+  			border: 2.2rem solid #DBBF4B;
   			border-bottom-width: 15px;
   			border-bottom-color: transparent;
 			z-index: -1;
@@ -644,7 +656,7 @@
 			height: 0;
 			border-style: solid;
 			border-width: 100px 100px 0 0;
-			border-color: #0086AD transparent transparent transparent;
+			border-color: #DBBF4B transparent transparent transparent;
 			z-index: -1;
 		}
 	}
@@ -658,7 +670,7 @@
 			line-height: 27px;
 			width: 90%;
 			margin: 10px auto;
-			border-bottom: 2px #0086AD solid;
+			border-bottom: 2px #DBBF4B solid;
 		}	
 	}
   } //font-wrap-4-end

@@ -75,17 +75,32 @@
 					background-size: cover;
 				}
 			</style>
+			<?php 
+			if( $_POST['rank_on'] == "rank_show_1"){
+				$rank_on_1_result = "";
+			}elseif( $_POST['rank_on'] == "rank_not_show_1" && $item_rank_on == "rank_show_1"){
+				$rank_on_1_result = "none";
+			}elseif( !isset($_POST['rank_on']) && !isset($item_rank_on)){
+				$rank_on_1_result = "none";
+			}else{
+				$rank_on_1_result = "";
+			}
+			?>
 		<div class="ranking-all-wrap">
 		<div class="<?php if( isset($_POST['rank_style']) ){ echo $_POST['rank_style']; } else{ echo $rank_style;}?>" 
-			 style="display: ; background-image: url(<?php if( $_POST['rank_style'] == "overlay" ){ echo $_POST['item_img_url']; } elseif( $rank_style == "overlay" ){ echo $item_url;} else{ echo ""; }?>)"><!--ランキング１位-->
+			 style="display: <?php echo $rank_on_1_result ;?> ; background-image: url(<?php if( $_POST['rank_style'] == "overlay" ){ echo $_POST['item_img_url']; } elseif( $rank_style == "overlay" ){ echo $item_url;} else{ echo ""; }?>)"><!--ランキング１位-->
 			<a href=<?php if( isset($_POST['item_page_link']) ){ echo $_POST['item_page_link']; } else{ echo $item_page_link;}?>></a>
 			<div class="<?php if( isset($_POST['rank_pop']) ){ echo $_POST['rank_pop']; } else{ echo $rank_pop;}?>"><span>1</span></div>
 			<div class="ranking-img">
 				<img src="<?php if( isset($_POST['item_img_url']) ){ echo $_POST['item_img_url']; } else{ echo $item_url;}?>">
 			</div>
 			<div class="ranking-discription">
+				<div class="rank-dis-text">
 				<p class="ranking-item-title"><?php if( isset($_POST['item_title']) ){ echo $_POST['item_title']; } else{ echo $item_name;}?></p>
+				</div>
+				<div class="rank-dis-price">
 				<p><?php if( isset($_POST['item_price']) ){ echo $_POST['item_price']; } else{ echo $item_price;}?>円</p>
+				</div>
 		    </div>
 		</div><!--ランキング１位end-->
 		</div>
@@ -269,10 +284,10 @@
 					<p class="rank-item-title-3">画像背景丸形切り抜き</p>
 					<input type="radio" name="rank_style" value="circle" 
 						   <?php 
-						   if($_POST['rank_style'] === "circle" ){ 
+						   if( $_POST['rank_style'] == "circle" ){ 
 							   echo "checked";
 						   }
-						   elseif( $rank_style === "circle" ){
+						   elseif( $_POST['rank_style'] == "" && $rank_style == $circle ){
 							   echo "checked";
 						   } else{
 							   echo ""; }
@@ -305,13 +320,31 @@
 			<h4>商品価格を入力してください。（※半角英数で数字のみ記載してください。）</h4>
 			<input type="text" class="img-setect-url" name="item_price" value=<?php if( isset($_POST['item_price']) ){ echo $_POST['item_price']; } else{ echo $item_price;}?>>
 			<h4>詳細ページリンクURL</h4>
-			<input type="text" class="img-setect-url" name="item_page_link" value=<?php if( isset($_POST['item_page_link']) ){ echo $_POST['item_page_link']; } else{ echo $item_page_link;}?>></br>
-				<?php var_dump($_POST['rank_on']);?></br>
-				<?php var_dump($item_rank_on);?></br>
-				<?php var_dump($res);?></br>
+			<input type="text" class="img-setect-url" name="item_page_link" value=<?php if( isset($_POST['item_page_link']) ){ echo $_POST['item_page_link']; } else{ echo $item_page_link;}?>>
 			<h4>ランキングを非表示にする</h4>
-			<label><input type="radio" name="rank_on" value="rank_show_1">表示</label>
-			<label><input type="radio" name="rank_on" value="rank_not_show_1">非表示</label>
+			<label><input type="radio" name="rank_on" value="rank_show_1"
+						  <?php 
+						  if($_POST['rank_on'] == "rank_show_1" || $_POST['rank_on'] == "" || $item_rank_on == "rank_show_1"){
+							  echo "checked";
+						  }
+						  elseif( $_POST['rank_on'] == "" && $item_rank_on == "rank_show_1"){
+							   echo "checked";
+						   }else{ 
+							   echo "";
+						   }
+						  ?>
+						  >表示</label>
+			<label><input type="radio" name="rank_on" value="rank_not_show_1"
+						  <?php 
+						  if( $_POST['rank_on'] == "rank_not_show_1"){
+							  echo "checked";
+						  }
+						  elseif( $_POST['rank_on'] == "" && $item_rank_on == ""){
+							   echo "checked";
+						   }else{ 
+							   echo "";
+						   }
+						  ?>>非表示</label>
 			</div><!--inputWrap-end-->
 		</div><!--rank-item-detail-wrap1-end-->
 		
