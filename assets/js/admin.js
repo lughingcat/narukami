@@ -28,6 +28,14 @@ function cmakerChange(){
        document.getElementById('cmaker_slider_wrap').style.display="none";
       })
 
+
+const str = document.querySelectorAll("input[name=test_case]:checked");
+console.log(str);
+for( var i = 0; i< str.length; i++){
+	 if(str[i].checked) {
+        console.log("選択された値：", str[i].value);
+      }
+}
 /*==================================
 メディアアップローダーjs
 ==================================*/

@@ -345,6 +345,10 @@
 							   echo "";
 						   }
 						  ?>>非表示</label>
+				<h4>ランキング入力制御</h4>
+				<label><input type="radio" name="test_case" value="show" checked>表示</label>
+				<label><input type="radio" name="test_case" value="not_show">表示しない</label>
+				<p id="test-text1"></p>
 			</div><!--inputWrap-end-->
 		</div><!--rank-item-detail-wrap1-end-->
 		
