@@ -29,13 +29,21 @@ function cmakerChange(){
       })
 
 
-const str = document.querySelectorAll("input[name=test_case]:checked");
-console.log(str);
-for( var i = 0; i< str.length; i++){
-	 if(str[i].checked) {
-        console.log("選択された値：", str[i].value);
-      }
-}
+    const rankCheck = document.getElementsByName('rank_on');
+    const rank1ItemTitle = document.getElementById('rank1-item-title');
+    rankCheck.forEach(function(e) {
+        e.addEventListener("click", function() {           
+           rank1Value = document.querySelector("input:checked[name=rank_on]").value;
+			if( rank1Value == "rank_not_show_1"){
+				rank1ItemTitle.disabled = true;
+				localStorage.setItem("rank1TitleValue", "rank1ItemTitle.disabled = true;");
+			}else{
+				rank1ItemTitle.disabled = false;
+			}
+        });
+    });
+
+
 /*==================================
 メディアアップローダーjs
 ==================================*/

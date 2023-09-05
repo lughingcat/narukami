@@ -316,7 +316,7 @@
 			?>
 			<div class="inputWrap">
 			<h4>商品名を入力してください。</h4>
-			<input type="text" class="img-setect-url" name="item_title" value=<?php if( isset($_POST['item_title']) ){ echo $_POST['item_title']; } else{ echo $item_name;}?>>
+			<input type="text" id="rank1-item-title" class="img-setect-url" name="item_title" value=<?php if( isset($_POST['item_title']) ){ echo $_POST['item_title']; } else{ echo $item_name;}?>>
 			<h4>商品価格を入力してください。（※半角英数で数字のみ記載してください。）</h4>
 			<input type="text" class="img-setect-url" name="item_price" value=<?php if( isset($_POST['item_price']) ){ echo $_POST['item_price']; } else{ echo $item_price;}?>>
 			<h4>詳細ページリンクURL</h4>
@@ -345,10 +345,6 @@
 							   echo "";
 						   }
 						  ?>>非表示</label>
-				<h4>ランキング入力制御</h4>
-				<label><input type="radio" name="test_case" value="show" checked>表示</label>
-				<label><input type="radio" name="test_case" value="not_show">表示しない</label>
-				<p id="test-text1"></p>
 			</div><!--inputWrap-end-->
 		</div><!--rank-item-detail-wrap1-end-->
 		

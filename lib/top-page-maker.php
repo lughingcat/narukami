@@ -41,7 +41,7 @@
 			  </div>
 			  
 			  
-			  <button type="submit" name="submit">送信</button>
+			  <button type="submit" name="submit">保存</button>
 			  </div><!--mainEnd-->
 			</form>
 			<?php get_template_part('lib/procces');?>
