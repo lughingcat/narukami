@@ -345,6 +345,40 @@
 							   echo "";
 						   }
 						  ?>>非表示</label>
+				        <?php var_dump($_POST['rank_on']);?>
+						<?php var_dump($item_rank_on);?>
+						
+				<script type="text/javascript">
+					window.addEventListener("load",function(){
+						const rankOnValue = '<?php echo $item_rank_on; ?>';
+						const rankOnValueGbal = '<?php echo $_POST['rank_on']; ?>';
+						const rank1ItemText = document.getElementById('rank1-item-title');
+						if( rankOnValueGbal == 'rank_show_1'){
+							rank1ItemText.disabled = false;
+						}else if( rankOnValueGbal == 'rank_not_show_1' || rankOnValueGbal == '' && rankOnValue == '' ){
+							rank1ItemText.disabled = true;
+						}
+						
+					});
+					window.addEventListener("load",function(){
+						rankCheck = document.getElementsByName('rank_on');
+						rank1ItemTitle = document.getElementById('rank1-item-title');
+						rankCheck.forEach(function(e) {
+							e.addEventListener("click", function() {           
+								const rank1Value = document.querySelector("input:checked[name=rank_on]").value;
+								if( rank1Value == "rank_not_show_1"){
+									rank1ItemTitle.disabled = true;
+									localStorage.setItem("rank1Show", "true");
+									localStorage.removeItem("rank1NotShow");
+								}else if( rank1Value == "rank_show_1" ){
+									rank1ItemTitle.disabled = false;
+									localStorage.setItem("rank1NotShow", "false");
+									localStorage.removeItem("rank1Show");
+								}
+							});
+						});
+					});
+				</script>
 			</div><!--inputWrap-end-->
 		</div><!--rank-item-detail-wrap1-end-->
 		

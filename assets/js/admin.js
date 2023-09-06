@@ -29,20 +29,6 @@ function cmakerChange(){
       })
 
 
-    const rankCheck = document.getElementsByName('rank_on');
-    const rank1ItemTitle = document.getElementById('rank1-item-title');
-    rankCheck.forEach(function(e) {
-        e.addEventListener("click", function() {           
-           rank1Value = document.querySelector("input:checked[name=rank_on]").value;
-			if( rank1Value == "rank_not_show_1"){
-				rank1ItemTitle.disabled = true;
-				localStorage.setItem("rank1TitleValue", "rank1ItemTitle.disabled = true;");
-			}else{
-				rank1ItemTitle.disabled = false;
-			}
-        });
-    });
-
 
 /*==================================
 メディアアップローダーjs
