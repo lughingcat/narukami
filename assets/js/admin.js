@@ -28,7 +28,32 @@ function cmakerChange(){
        document.getElementById('cmaker_slider_wrap').style.display="none";
       })
 
+window.addEventListener("load", function(){
+	rank1ItemTitle = document.getElementById('rank1-item-title');
+	var rank1Show = localStorage.getItem('rank1Show');
+	if( rank1Show == "true" ){
+		rank1ItemTitle.disabled = true;
+	}else if( rank1Show == "false" ){
+		rank1ItemTitle.disabled = false;
+	}
+});
 
+window.addEventListener("load",function(){
+	rankCheck = document.getElementsByName('rank_on');
+	rank1ItemTitle = document.getElementById('rank1-item-title');
+	rankCheck.forEach(function(e) {
+		e.addEventListener("click", function() {           
+			const rank1Value = document.querySelector("input:checked[name=rank_on]").value;
+			if( rank1Value == "rank_not_show_1"){
+				rank1ItemTitle.disabled = true;
+				localStorage.setItem("rank1Show", "true");
+			}else if( rank1Value == "rank_show_1" ){
+				rank1ItemTitle.disabled = false;
+				localStorage.setItem("rank1Show", "false");
+			}
+		});
+	});
+});
 
 /*==================================
 メディアアップローダーjs
