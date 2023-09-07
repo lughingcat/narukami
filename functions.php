@@ -306,9 +306,9 @@ function generate_upload_image_tag($name, $value){?>
       <img src="<?php echo $value; ?>" alt="選択中の画像">
     <?php endif ?>
   </div>
-  <input class="img-setect-url"name="<?php echo $name; ?>" type="text" value="<?php echo $value; ?>" />
-  <input type="button" class="img-select" name="<?php echo $name; ?>_slect" value="選択" />
-  <input type="button" class="img-select-clear" name="<?php echo $name; ?>_clear" value="クリア" />
+  <input id="<?php echo $name; ?>" class="img-setect-url"name="<?php echo $name; ?>" type="text" value="<?php echo $value; ?>" />
+  <input id="<?php echo $name; ?>_btn" type="button" class="img-select" name="<?php echo $name; ?>_slect" value="選択" />
+  <input id="<?php echo $name; ?>_clear" type="button" class="img-select-clear" name="<?php echo $name; ?>_clear" value="クリア" />
   
 
 

@@ -318,9 +318,9 @@
 			<h4>商品名を入力してください。</h4>
 			<input type="text" id="rank1-item-title" class="img-setect-url" name="item_title" value=<?php if( isset($_POST['item_title']) ){ echo $_POST['item_title']; } else{ echo $item_name;}?>>
 			<h4>商品価格を入力してください。（※半角英数で数字のみ記載してください。）</h4>
-			<input type="text" class="img-setect-url" name="item_price" value=<?php if( isset($_POST['item_price']) ){ echo $_POST['item_price']; } else{ echo $item_price;}?>>
+			<input type="text" id="rank-item-price"class="img-setect-url" name="item_price" value=<?php if( isset($_POST['item_price']) ){ echo $_POST['item_price']; } else{ echo $item_price;}?>>
 			<h4>詳細ページリンクURL</h4>
-			<input type="text" class="img-setect-url" name="item_page_link" value=<?php if( isset($_POST['item_page_link']) ){ echo $_POST['item_page_link']; } else{ echo $item_page_link;}?>>
+			<input type="text" id="rank-item-url" class="img-setect-url" name="item_page_link" value=<?php if( isset($_POST['item_page_link']) ){ echo $_POST['item_page_link']; } else{ echo $item_page_link;}?>>
 			<h4>ランキングを非表示にする</h4>
 			<label><input type="radio" name="rank_on" value="rank_show_1"
 						  <?php 

@@ -29,26 +29,57 @@ function cmakerChange(){
       })
 
 window.addEventListener("load", function(){
+	rank1ItemImg = document.getElementById('item_img_url');
 	rank1ItemTitle = document.getElementById('rank1-item-title');
+	rank1ItemPrice = document.getElementById('rank-item-price');
+	rank1ItemUrl = document.getElementById('rank-item-url');
+	rank1ItemUrlBtn = document.getElementById('item_img_url_btn');
+	rank1ItemUrlClear = document.getElementById('item_img_url_clear');
+	
 	var rank1Show = localStorage.getItem('rank1Show');
 	if( rank1Show == "true" ){
+		rank1ItemImg.disabled = true;
 		rank1ItemTitle.disabled = true;
+		rank1ItemPrice.disabled = true;
+		rank1ItemUrl.disabled = true;
+		rank1ItemUrlBtn.disabled = true;
+		rank1ItemUrlClear.disabled = true;
 	}else if( rank1Show == "false" ){
+		rank1ItemImg.disabled = false;
 		rank1ItemTitle.disabled = false;
+		rank1ItemPrice.disabled = false;
+		rank1ItemUrl.disabled = false;
+		rank1ItemUrlBtn.disabled = false;
+		rank1ItemUrlClear.disabled = false;
 	}
 });
 
 window.addEventListener("load",function(){
 	rankCheck = document.getElementsByName('rank_on');
+	rank1ItemImg = document.getElementById('item_img_url');
 	rank1ItemTitle = document.getElementById('rank1-item-title');
+	rank1ItemPrice = document.getElementById('rank-item-price');
+	rank1ItemUrl = document.getElementById('rank-item-url');
+	rank1ItemUrlBtn = document.getElementById('item_img_url_btn');
+	rank1ItemUrlClear = document.getElementById('item_img_url_clear');
 	rankCheck.forEach(function(e) {
 		e.addEventListener("click", function() {           
 			const rank1Value = document.querySelector("input:checked[name=rank_on]").value;
 			if( rank1Value == "rank_not_show_1"){
+				rank1ItemImg.disabled = true;
 				rank1ItemTitle.disabled = true;
+				rank1ItemPrice.disabled = true;
+				rank1ItemUrl.disabled = true;
+				rank1ItemUrlBtn.disabled = true;
+				rank1ItemUrlClear.disabled = true;
 				localStorage.setItem("rank1Show", "true");
 			}else if( rank1Value == "rank_show_1" ){
+				rank1ItemImg.disabled = false;
 				rank1ItemTitle.disabled = false;
+				rank1ItemPrice.disabled = false;
+				rank1ItemUrl.disabled = false;
+				rank1ItemUrlBtn.disabled = false;
+				rank1ItemUrlClear.disabled = false;
 				localStorage.setItem("rank1Show", "false");
 			}
 		});
