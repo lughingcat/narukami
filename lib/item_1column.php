@@ -321,7 +321,11 @@
 			<input type="text" id="rank-item-price"class="img-setect-url" name="item_price" value=<?php if( isset($_POST['item_price']) ){ echo $_POST['item_price']; } else{ echo $item_price;}?>>
 			<h4>詳細ページリンクURL</h4>
 			<input type="text" id="rank-item-url" class="img-setect-url" name="item_page_link" value=<?php if( isset($_POST['item_page_link']) ){ echo $_POST['item_page_link']; } else{ echo $item_page_link;}?>>
-			<h4>ランキングを非表示にする</h4>
+				<div id="rank-notshow-overlay" class="rank-notinput-overlay">
+					<p class="rank-notshow-p">ランキングを非表示にしています。</p>
+					<p class="rank-notshow-p-sub">ランキングを入力、表示させるには下記のランキング表示切り替えで「表示する」をクリックして、入力をしてください。</p>
+				</div>
+			<h4>ランキング表示切り替え</h4>
 			<label><input type="radio" name="rank_on" value="rank_show_1"
 						  <?php 
 						  if($_POST['rank_on'] == "rank_show_1" || $_POST['rank_on'] == "" || $item_rank_on == "rank_show_1"){
@@ -333,7 +337,7 @@
 							   echo "";
 						   }
 						  ?>
-						  >表示</label>
+						  >表示する</label>
 			<label><input type="radio" name="rank_on" value="rank_not_show_1"
 						  <?php 
 						  if( $_POST['rank_on'] == "rank_not_show_1"){
@@ -344,7 +348,7 @@
 						   }else{ 
 							   echo "";
 						   }
-						  ?>>非表示</label>
+						  ?>>非表示にする</label>
 			</div><!--inputWrap-end-->
 		</div><!--rank-item-detail-wrap1-end-->
 		
