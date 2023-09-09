@@ -325,7 +325,9 @@
 					<p class="rank-notshow-p">ランキングを非表示にしています。</p>
 					<p class="rank-notshow-p-sub">ランキングを入力、表示させるには下記のランキング表示切り替えで「表示する」をクリックして、入力をしてください。</p>
 				</div>
-			<h4>ランキング表示切り替え</h4>
+			</div><!--inputWrap-end-->
+		</div><!--rank-item-detail-wrap1-end-->
+		<h4>ランキング表示切り替え</h4>
 			<label><input type="radio" name="rank_on" value="rank_show_1"
 						  <?php 
 						  if($_POST['rank_on'] == "rank_show_1" || $_POST['rank_on'] == "" || $item_rank_on == "rank_show_1"){
@@ -349,9 +351,6 @@
 							   echo "";
 						   }
 						  ?>>非表示にする</label>
-			</div><!--inputWrap-end-->
-		</div><!--rank-item-detail-wrap1-end-->
-		
 		<div class="rank-item-detail-wrap">
 			<?php 
 			if( isset($_POST['item_img_url_2']) )

@@ -380,21 +380,22 @@
   position: relative; }
 
 .rank-notinput-overlay {
-  width: 100%;
-  height: 86%;
+  width: 80%;
+  height: 70%;
   position: absolute;
-  top: 0;
+  top: 26%;
   left: 0;
   padding: 30px;
   box-sizing: border-box;
-  background-color: rgba(0, 0, 0, 0.6); }
+  background-color: rgba(0, 0, 0, 0.6);
+  transform: translate(15%, 0); }
   .rank-notinput-overlay p {
     color: #FFFFFF;
-    transform: translate(0, 150px); }
+    transform: translate(0, 100%); }
 
 .rank-notshow-p {
   text-align: center;
-  font-size: 2em;
+  font-size: 1.3em;
   font-weight: bold; }
 
 .rank-notshow-p-sub {
