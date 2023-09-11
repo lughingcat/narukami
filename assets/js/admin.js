@@ -91,6 +91,70 @@ window.addEventListener("load",function(){
 		});
 	});
 });
+//ランキング２
+window.addEventListener("load", function(){
+	rank2ItemImg = document.getElementById('item_img_url_2');
+	rank2ItemTitle = document.getElementById('rank2-item-title');
+	rank2ItemPrice = document.getElementById('rank2-item-price');
+	rank2ItemUrl = document.getElementById('rank2-item-url');
+	rank2ItemUrlBtn = document.getElementById('item_img_url_2_btn');
+	rank2ItemUrlClear = document.getElementById('item_img_url_2_clear');
+	rank2Overlay = document.getElementById('rank-notshow-overlay-2');
+	
+	var rank2Show = localStorage.getItem('rank2Show');
+	if( rank2Show == "true" ){
+		rank2ItemImg.disabled = true;
+		rank2ItemTitle.disabled = true;
+		rank2ItemPrice.disabled = true;
+		rank2ItemUrl.disabled = true;
+		rank2ItemUrlBtn.disabled = true;
+		rank2ItemUrlClear.disabled = true;
+		rank2Overlay.style.display = "";
+	}else if( rank2Show == "false" ){
+		rank2ItemImg.disabled = false;
+		rank2ItemTitle.disabled = false;
+		rank2ItemPrice.disabled = false;
+		rank2ItemUrl.disabled = false;
+		rank2ItemUrlBtn.disabled = false;
+		rank2ItemUrlClear.disabled = false;
+		rank2Overlay.style.display = "none";
+	}
+});
+
+window.addEventListener("load",function(){
+	rankCheck = document.getElementsByName('rank_on_2');
+	rank2ItemImg = document.getElementById('item_img_url_2');
+	rank2ItemTitle = document.getElementById('rank2-item-title');
+	rank2ItemPrice = document.getElementById('rank2-item-price');
+	rank2ItemUrl = document.getElementById('rank2-item-url');
+	rank2ItemUrlBtn = document.getElementById('item_img_url_2_btn');
+	rank2ItemUrlClear = document.getElementById('item_img_url_2_clear');
+	rank2Overlay = document.getElementById('rank-notshow-overlay-2');
+	rankCheck.forEach(function(e) {
+		e.addEventListener("click", function() {           
+			const rank2Value = document.querySelector("input:checked[name=rank_on_2]").value;
+			if( rank2Value == "rank_not_show_2"){
+				rank2ItemImg.disabled = true;
+				rank2ItemTitle.disabled = true;
+				rank2ItemPrice.disabled = true;
+				rank2ItemUrl.disabled = true;
+				rank2ItemUrlBtn.disabled = true;
+				rank2ItemUrlClear.disabled = true;
+				rank2Overlay.style.display = "";
+				localStorage.setItem("rank2Show", "true");
+			}else if( rank2Value == "rank_show_2" ){
+				rank2ItemImg.disabled = false;
+				rank2ItemTitle.disabled = false;
+				rank2ItemPrice.disabled = false;
+				rank2ItemUrl.disabled = false;
+				rank2ItemUrlBtn.disabled = false;
+				rank2ItemUrlClear.disabled = false;
+				rank2Overlay.style.display = "none";
+				localStorage.setItem("rank2Show", "false");
+			}
+		});
+	});
+});
 
 /*==================================
 メディアアップローダーjs

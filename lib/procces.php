@@ -17,6 +17,7 @@ $i_title_2 = $_POST['item_title_2'];
 $i_price_2 = $_POST['item_price_2'];
 $i_item_url_2 = $_POST['item_img_url_2'];
 $i_item_page_link_2 = $_POST['item_page_link_2'];
+$i_rank_on_2 = $_POST['rank_on_2'];
 //3
 $i_title_3 = $_POST['item_title_3'];
 $i_price_3 = $_POST['item_price_3'];
@@ -64,6 +65,7 @@ global $wpdb;
 			'item_price_2' => $i_price_2,
 			'item_img_url_2' => $i_item_url_2,
 			'item_page_link_2' => $i_item_page_link_2,
+			'rank_on_2' => $i_rank_on_2,
 			//3
 			'item_name_3' => $i_title_3,
 			'item_price_3' => $i_price_3,
@@ -107,6 +109,7 @@ global $wpdb;
 			'%s',
 			'%s',
 			'%s',
+			'%s',
 		//3
 			'%s',
 			'%s',
@@ -142,14 +145,16 @@ global $wpdb;
 $res = null;
 $narukamicmker =  $wpdb->prefix . "narukami_content_maker";
 if( $i_rank_on == "rank_not_show_1" ){
-$res = $wpdb->delete(
+$res = $wpdb->update(
     $narukamicmker,
     array(
-        'rank_on' => rank_show_1,
-        'rank_on' => rank_not_show_1
+        'item_name' => null
     ),
+	array(
+		'id' => $id
+	),
     array(
-        '%d'
+        '%d',
     )
 );
 }

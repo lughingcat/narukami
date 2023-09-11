@@ -33,6 +33,7 @@
 			  item_page_link_5,
 			  item_page_link_6,
 			  rank_on,
+			  rank_on_2,
 			  s_cmaker
 			  FROM wp_narukami_content_maker;";
 			  $rows = $wpdb->get_results($query);
@@ -65,6 +66,7 @@
 				 $item_page_link_5 = $row->item_page_link_5;
 				 $item_page_link_6 = $row->item_page_link_6;
 				 $item_rank_on = $row->rank_on;
+				 $item_rank_on_2 = $row->rank_on_2;
 				 $select_box = $row->s_cmaker; 
 			  };
     	  ?>
@@ -85,6 +87,16 @@
 			}else{
 				$rank_on_1_result = "";
 			}
+			
+			if( $_POST['rank_on_2'] == "rank_show_2"){
+				$rank_on_2_result = "";
+			}elseif( $_POST['rank_on_2'] == "rank_not_show_2" && $item_rank_on_2 == "rank_show_2"){
+				$rank_on_2_result = "none";
+			}elseif( !isset($_POST['rank_on_2']) && !isset($item_rank_on_2)){
+				$rank_on_2_result = "none";
+			}else{
+				$rank_on_2_result = "";
+			}
 			?>
 		<div class="ranking-all-wrap">
 		<div class="<?php if( isset($_POST['rank_style']) ){ echo $_POST['rank_style']; } else{ echo $rank_style;}?>" 
@@ -103,6 +115,23 @@
 				</div>
 		    </div>
 		</div><!--ランキング１位end-->
+			
+			<div class="<?php if( isset($_POST['rank_style']) ){ echo $_POST['rank_style']; } else{ echo $rank_style;}?>" 
+			 style="display: <?php echo $rank_on_2_result ;?> ; background-image: url(<?php if( $_POST['rank_style'] == "overlay" ){ echo $_POST['item_img_url_2']; } elseif( $_POST['rank_style'] == "" && $rank_style == "overlay" ){ echo $item_url_2;} else{ echo ""; }?>)"><!--ランキング2位-->
+			<a href=<?php if( isset($_POST['item_page_link']) ){ echo $_POST['item_page_link']; } else{ echo $item_page_link_2;}?>></a>
+			<div class="<?php if( isset($_POST['rank_pop']) ){ echo $_POST['rank_pop']; } else{ echo $rank_pop;}?>"><span>2</span></div>
+			<div class="ranking-img">
+				<img src="<?php if( isset($_POST['item_img_url_2']) ){ echo $_POST['item_img_url_2']; } else{ echo $item_url_2;}?>">
+			</div>
+			<div class="ranking-discription">
+				<div class="rank-dis-text">
+				<p class="ranking-item-title"><?php if( isset($_POST['item_title_2']) ){ echo $_POST['item_title_2']; } else{ echo $item_name_2;}?></p>
+				</div>
+				<div class="rank-dis-price">
+				<p><?php if( isset($_POST['item_price_2']) ){ echo $_POST['item_price_2']; } else{ echo $item_price_2;}?>円</p>
+				</div>
+		    </div>
+		</div><!--ランキング2位end-->
 		</div>
 		</article>
 	</div>
@@ -312,7 +341,7 @@
 			;?>
 		<h4 class="rank-prev rank-prev-num">ランキング１位</h4>
 			<?php
-  			generate_upload_image_tag('item_img_url',  $url);
+  			generate_upload_image_tag('item_img_url',  $url);item_name
 			?>
 			<div class="inputWrap">
 			<h4>商品名を入力してください。</h4>
@@ -366,14 +395,41 @@
 			?>
 			<div class="inputWrap">
 			<h4>商品名を入力してください。</h4>
-			<input type="text" class="img-setect-url" name="item_title_2" value=<?php if( isset($_POST['item_title_2']) ){ echo $_POST['item_title_2']; } else{ echo $item_name_2;}?>>
+			<input type="text" id="rank2-item-title" class="img-setect-url" name="item_title_2" value=<?php if( isset($_POST['item_title_2']) ){ echo $_POST['item_title_2']; } else{ echo $item_name_2;}?>>
 			<h4>商品価格を入力してください。（※半角英数で数字のみ記載してください。）</h4>
-			<input type="text" class="img-setect-url" name="item_price_2" value=<?php if( isset($_POST['item_price_2']) ){ echo $_POST['item_price_2']; } else{ echo $item_price_2;}?>>
+			<input type="text" id="rank2-item-price" class="img-setect-url" name="item_price_2" value=<?php if( isset($_POST['item_price_2']) ){ echo $_POST['item_price_2']; } else{ echo $item_price_2;}?>>
 			<h4>詳細ページリンクURL</h4>
-			<input type="text" class="img-setect-url" name="item_page_link_2" value=<?php if( isset($_POST['item_page_link_2']) ){ echo $_POST['item_page_link_2']; } else{ echo $item_page_link_2;}?>>
+			<input type="text" id="rank2-item-url" class="img-setect-url" name="item_page_link_2" value=<?php if( isset($_POST['item_page_link_2']) ){ echo $_POST['item_page_link_2']; } else{ echo $item_page_link_2;}?>>
+				<div id="rank-notshow-overlay-2" class="rank-notinput-overlay">
+					<p class="rank-notshow-p">ランキングを非表示にしています。</p>
+					<p class="rank-notshow-p-sub">ランキングを入力、表示させるには下記のランキング表示切り替えで「表示する」をクリックして、入力をしてください。</p>
+				</div>
 			</div><!--inputWrap-end-->
 		</div><!--rank-item-detail-wrap2-end-->
-
+		<h4>ランキング表示切り替え</h4>
+			<label><input type="radio" name="rank_on_2" value="rank_show_2"
+						  <?php 
+						  if($_POST['rank_on_2'] == "rank_show_2" || $_POST['rank_on_2'] == "" || $item_rank_on_2 == "rank_show_2"){
+							  echo "checked";
+						  }
+						  elseif( $_POST['rank_on_2'] == "" && $item_rank_on_2 == "rank_show_2"){
+							   echo "checked";
+						   }else{ 
+							   echo "";
+						   }
+						  ?>
+						  >表示する</label>
+			<label><input type="radio" name="rank_on_2" value="rank_not_show_2"
+						  <?php 
+						  if( $_POST['rank_on_2'] == "rank_not_show_2"){
+							  echo "checked";
+						  }
+						  elseif( $_POST['rank_on_2'] == "" && $item_rank_on_2 == ""){
+							   echo "checked";
+						   }else{ 
+							   echo "";
+						   }
+						  ?>>非表示にする</label>
 
 		<div class="rank-item-detail-wrap">
 			<?php 
