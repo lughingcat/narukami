@@ -142,28 +142,51 @@ global $wpdb;
 
 
 global $wpdb;
-$res = null;
 $narukamicmker =  $wpdb->prefix . "narukami_content_maker";
 if( $i_rank_on == "rank_not_show_1" ){
-$res = $wpdb->update(
+$wpdb->update(
     $narukamicmker,
     array(
-        'item_name' => null
+        'item_name' => null,
+		'item_price'=> null,
+		'item_img_url'=> null,
+		'item_page_link' => null,
+		'rank_on' => null
     ),
 	array(
 		'id' => $id
 	),
     array(
         '%d',
+        '%s',
+        '%d',
+        '%d',
+        '%d',
+    )
+);
+}
+if( $i_rank_on_2 == "rank_not_show_2" ){
+$wpdb->update(
+    $narukamicmker,
+    array(
+        'item_name_2' => null,
+		'item_price_2'=> null,
+		'item_img_url_2'=> null,
+		'item_page_link_2' => null,
+		'rank_on_2' => null
+    ),
+	array(
+		'id' => $id
+	),
+    array(
+        '%d',
+        '%s',
+        '%d',
+        '%d',
+        '%d',
     )
 );
 }
 
-if( 1 <= $res ) {
-    //　削除に成功
-	
-} else {
-    //　削除に失敗
-	
-}
+
 

@@ -82,20 +82,16 @@
 				$rank_on_1_result = "";
 			}elseif( $_POST['rank_on'] == "rank_not_show_1" && $item_rank_on == "rank_show_1"){
 				$rank_on_1_result = "none";
-			}elseif( !isset($_POST['rank_on']) && !isset($item_rank_on)){
+			}elseif( $_POST['rank_on'] == "" && $item_rank_on == ""){
 				$rank_on_1_result = "none";
-			}else{
-				$rank_on_1_result = "";
 			}
 			
 			if( $_POST['rank_on_2'] == "rank_show_2"){
 				$rank_on_2_result = "";
 			}elseif( $_POST['rank_on_2'] == "rank_not_show_2" && $item_rank_on_2 == "rank_show_2"){
 				$rank_on_2_result = "none";
-			}elseif( !isset($_POST['rank_on_2']) && !isset($item_rank_on_2)){
+			}elseif( $_POST['rank_on_2'] == "" && $item_rank_on_2 == ""){
 				$rank_on_2_result = "none";
-			}else{
-				$rank_on_2_result = "";
 			}
 			?>
 		<div class="ranking-all-wrap">
