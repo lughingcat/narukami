@@ -179,7 +179,16 @@
 	width: 100%;
 	box-sizing: border-box;
 }
+//ランキングプレビュースタイル
 
+.ranking-all-wrap{
+	width: 100%;
+    display: flex;
+    overflow: scroll;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
 
 //ランキング背景デザイン
 

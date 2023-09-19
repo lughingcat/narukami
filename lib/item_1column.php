@@ -34,6 +34,10 @@
 			  item_page_link_6,
 			  rank_on,
 			  rank_on_2,
+			  rank_on_3,
+			  rank_on_4,
+			  rank_on_5,
+			  rank_on_6,
 			  s_cmaker
 			  FROM wp_narukami_content_maker;";
 			  $rows = $wpdb->get_results($query);
@@ -67,6 +71,10 @@
 				 $item_page_link_6 = $row->item_page_link_6;
 				 $item_rank_on = $row->rank_on;
 				 $item_rank_on_2 = $row->rank_on_2;
+				 $item_rank_on_3 = $row->rank_on_3;
+				 $item_rank_on_4 = $row->rank_on_4;
+				 $item_rank_on_5 = $row->rank_on_5;
+				 $item_rank_on_6 = $row->rank_on_6;
 				 $select_box = $row->s_cmaker; 
 			  };
     	  ?>
@@ -93,6 +101,38 @@
 			}elseif( $_POST['rank_on_2'] == "" && $item_rank_on_2 == ""){
 				$rank_on_2_result = "none";
 			}
+			
+			if( $_POST['rank_on_3'] == "rank_show_3"){
+				$rank_on_3_result = "";
+			}elseif( $_POST['rank_on_3'] == "rank_not_show_3" && $item_rank_on_3 == "rank_show_3"){
+				$rank_on_3_result = "none";
+			}elseif( $_POST['rank_on_3'] == "" && $item_rank_on_3 == ""){
+				$rank_on_3_result = "none";
+			}
+			
+			if( $_POST['rank_on_4'] == "rank_show_4"){
+				$rank_on_4_result = "";
+			}elseif( $_POST['rank_on_4'] == "rank_not_show_4" && $item_rank_on_4 == "rank_show_4"){
+				$rank_on_4_result = "none";
+			}elseif( $_POST['rank_on_4'] == "" && $item_rank_on_4 == ""){
+				$rank_on_4_result = "none";
+			}
+			
+			if( $_POST['rank_on_5'] == "rank_show_5"){
+				$rank_on_5_result = "";
+			}elseif( $_POST['rank_on_5'] == "rank_not_show_5" && $item_rank_on_5 == "rank_show_5"){
+				$rank_on_5_result = "none";
+			}elseif( $_POST['rank_on_5'] == "" && $item_rank_on_5 == ""){
+				$rank_on_5_result = "none";
+			}
+			
+			if( $_POST['rank_on_6'] == "rank_show_6"){
+				$rank_on_6_result = "";
+			}elseif( $_POST['rank_on_6'] == "rank_not_show_6" && $item_rank_on_6 == "rank_show_6"){
+				$rank_on_6_result = "none";
+			}elseif( $_POST['rank_on_6'] == "" && $item_rank_on_6 == ""){
+				$rank_on_6_result = "none";
+			}
 			?>
 		<div class="ranking-all-wrap">
 		<div class="<?php if( isset($_POST['rank_style']) ){ echo $_POST['rank_style']; } else{ echo $rank_style;}?>" 
@@ -114,7 +154,7 @@
 			
 			<div class="<?php if( isset($_POST['rank_style']) ){ echo $_POST['rank_style']; } else{ echo $rank_style;}?>" 
 			 style="display: <?php echo $rank_on_2_result ;?> ; background-image: url(<?php if( $_POST['rank_style'] == "overlay" ){ echo $_POST['item_img_url_2']; } elseif( $_POST['rank_style'] == "" && $rank_style == "overlay" ){ echo $item_url_2;} else{ echo ""; }?>)"><!--ランキング2位-->
-			<a href=<?php if( isset($_POST['item_page_link']) ){ echo $_POST['item_page_link']; } else{ echo $item_page_link_2;}?>></a>
+			<a href=<?php if( isset($_POST['item_page_link_2']) ){ echo $_POST['item_page_link_2']; } else{ echo $item_page_link_2;}?>></a>
 			<div class="<?php if( isset($_POST['rank_pop']) ){ echo $_POST['rank_pop']; } else{ echo $rank_pop;}?>"><span>2</span></div>
 			<div class="ranking-img">
 				<img src="<?php if( isset($_POST['item_img_url_2']) ){ echo $_POST['item_img_url_2']; } else{ echo $item_url_2;}?>">
@@ -128,6 +168,74 @@
 				</div>
 		    </div>
 		</div><!--ランキング2位end-->
+			
+			<div class="<?php if( isset($_POST['rank_style']) ){ echo $_POST['rank_style']; } else{ echo $rank_style;}?>" 
+			 style="display: <?php echo $rank_on_3_result ;?> ; background-image: url(<?php if( $_POST['rank_style'] == "overlay" ){ echo $_POST['item_img_url_3']; } elseif( $_POST['rank_style'] == "" && $rank_style == "overlay" ){ echo $item_url_3;} else{ echo ""; }?>)"><!--ランキング3位-->
+			<a href=<?php if( isset($_POST['item_page_link_3']) ){ echo $_POST['item_page_link_3']; } else{ echo $item_page_link_3;}?>></a>
+			<div class="<?php if( isset($_POST['rank_pop']) ){ echo $_POST['rank_pop']; } else{ echo $rank_pop;}?>"><span>3</span></div>
+			<div class="ranking-img">
+				<img src="<?php if( isset($_POST['item_img_url_3']) ){ echo $_POST['item_img_url_3']; } else{ echo $item_url_3;}?>">
+			</div>
+			<div class="ranking-discription">
+				<div class="rank-dis-text">
+				<p class="ranking-item-title"><?php if( isset($_POST['item_title_3']) ){ echo $_POST['item_title_3']; } else{ echo $item_name_3;}?></p>
+				</div>
+				<div class="rank-dis-price">
+				<p><?php if( isset($_POST['item_price_3']) ){ echo $_POST['item_price_3']; } else{ echo $item_price_3 ;}?>円</p>
+				</div>
+		    </div>
+		</div><!--ランキング3位end-->
+			
+			<div class="<?php if( isset($_POST['rank_style']) ){ echo $_POST['rank_style']; } else{ echo $rank_style;}?>" 
+			 style="display: <?php echo $rank_on_4_result ;?> ; background-image: url(<?php if( $_POST['rank_style'] == "overlay" ){ echo $_POST['item_img_url_4']; } elseif( $_POST['rank_style'] == "" && $rank_style == "overlay" ){ echo $item_url_4;} else{ echo ""; }?>)"><!--ランキング4位-->
+			<a href=<?php if( isset($_POST['item_page_link_4']) ){ echo $_POST['item_page_link_4']; } else{ echo $item_page_link_4;}?>></a>
+			<div class="<?php if( isset($_POST['rank_pop']) ){ echo $_POST['rank_pop']; } else{ echo $rank_pop;}?>"><span>4</span></div>
+			<div class="ranking-img">
+				<img src="<?php if( isset($_POST['item_img_url_4']) ){ echo $_POST['item_img_url_4']; } else{ echo $item_url_4;}?>">
+			</div>
+			<div class="ranking-discription">
+				<div class="rank-dis-text">
+				<p class="ranking-item-title"><?php if( isset($_POST['item_title_4']) ){ echo $_POST['item_title_4']; } else{ echo $item_name_4;}?></p>
+				</div>
+				<div class="rank-dis-price">
+				<p><?php if( isset($_POST['item_price_4']) ){ echo $_POST['item_price_4']; } else{ echo $item_price_4 ;}?>円</p>
+				</div>
+		    </div>
+		</div><!--ランキング4位end-->
+			
+			<div class="<?php if( isset($_POST['rank_style']) ){ echo $_POST['rank_style']; } else{ echo $rank_style;}?>" 
+			 style="display: <?php echo $rank_on_5_result ;?> ; background-image: url(<?php if( $_POST['rank_style'] == "overlay" ){ echo $_POST['item_img_url_5']; } elseif( $_POST['rank_style'] == "" && $rank_style == "overlay" ){ echo $item_url_5;} else{ echo ""; }?>)"><!--ランキング3位-->
+			<a href=<?php if( isset($_POST['item_page_link_5']) ){ echo $_POST['item_page_link_5']; } else{ echo $item_page_link_5;}?>></a>
+			<div class="<?php if( isset($_POST['rank_pop']) ){ echo $_POST['rank_pop']; } else{ echo $rank_pop;}?>"><span>5</span></div>
+			<div class="ranking-img">
+				<img src="<?php if( isset($_POST['item_img_url_5']) ){ echo $_POST['item_img_url_5']; } else{ echo $item_url_5;}?>">
+			</div>
+			<div class="ranking-discription">
+				<div class="rank-dis-text">
+				<p class="ranking-item-title"><?php if( isset($_POST['item_title_5']) ){ echo $_POST['item_title_5']; } else{ echo $item_name_5;}?></p>
+				</div>
+				<div class="rank-dis-price">
+				<p><?php if( isset($_POST['item_price_5']) ){ echo $_POST['item_price_5']; } else{ echo $item_price_5 ;}?>円</p>
+				</div>
+		    </div>
+		</div><!--ランキング5位end-->
+			
+			<div class="<?php if( isset($_POST['rank_style']) ){ echo $_POST['rank_style']; } else{ echo $rank_style;}?>" 
+			 style="display: <?php echo $rank_on_6_result ;?> ; background-image: url(<?php if( $_POST['rank_style'] == "overlay" ){ echo $_POST['item_img_url_6']; } elseif( $_POST['rank_style'] == "" && $rank_style == "overlay" ){ echo $item_url_6;} else{ echo ""; }?>)"><!--ランキング3位-->
+			<a href=<?php if( isset($_POST['item_page_link_6']) ){ echo $_POST['item_page_link_6']; } else{ echo $item_page_link_6;}?>></a>
+			<div class="<?php if( isset($_POST['rank_pop']) ){ echo $_POST['rank_pop']; } else{ echo $rank_pop;}?>"><span>6</span></div>
+			<div class="ranking-img">
+				<img src="<?php if( isset($_POST['item_img_url_6']) ){ echo $_POST['item_img_url_6']; } else{ echo $item_url_6;}?>">
+			</div>
+			<div class="ranking-discription">
+				<div class="rank-dis-text">
+				<p class="ranking-item-title"><?php if( isset($_POST['item_title_6']) ){ echo $_POST['item_title_6']; } else{ echo $item_name_6;}?></p>
+				</div>
+				<div class="rank-dis-price">
+				<p><?php if( isset($_POST['item_price_6']) ){ echo $_POST['item_price_6']; } else{ echo $item_price_6 ;}?>円</p>
+				</div>
+		    </div>
+		</div><!--ランキング6位end-->
 		</div>
 		</article>
 	</div>
@@ -337,7 +445,7 @@
 			;?>
 		<h4 class="rank-prev rank-prev-num">ランキング１位</h4>
 			<?php
-  			generate_upload_image_tag('item_img_url',  $url);item_name
+  			generate_upload_image_tag('item_img_url',  $url);
 			?>
 			<div class="inputWrap">
 			<h4>商品名を入力してください。</h4>
@@ -442,13 +550,41 @@
 			?>
 			<div class="inputWrap">
 			<h4>商品名を入力してください。</h4>
-			<input type="text" class="img-setect-url" name="item_title_3" value=<?php if( isset($_POST['item_title_3']) ){ echo $_POST['item_title_3']; } else{ echo $item_name_3;}?>>
+			<input type="text" id="rank3-item-title" class="img-setect-url" name="item_title_3" value=<?php if( isset($_POST['item_title_3']) ){ echo $_POST['item_title_3']; } else{ echo $item_name_3;}?>>
 			<h4>商品価格を入力してください。（※半角英数で数字のみ記載してください。）</h4>
-			<input type="text" class="img-setect-url" name="item_price_3" value=<?php if( isset($_POST['item_price_3']) ){ echo $_POST['item_price_3']; } else{ echo $item_price_3;}?>>
+			<input type="text" id="rank3-item-price" class="img-setect-url" name="item_price_3" value=<?php if( isset($_POST['item_price_3']) ){ echo $_POST['item_price_3']; } else{ echo $item_price_3;}?>>
 			<h4>詳細ページリンクURL</h4>
-			<input type="text" class="img-setect-url" name="item_page_link_3" value=<?php if( isset($_POST['item_page_link_3']) ){ echo $_POST['item_page_link_3']; } else{ echo $item_page_link_3;}?>>
+			<input type="text" id="rank3-item-url" class="img-setect-url" name="item_page_link_3" value=<?php if( isset($_POST['item_page_link_3']) ){ echo $_POST['item_page_link_3']; } else{ echo $item_page_link_3;}?>>
+			<div id="rank-notshow-overlay-3" class="rank-notinput-overlay">
+					<p class="rank-notshow-p">ランキングを非表示にしています。</p>
+					<p class="rank-notshow-p-sub">ランキングを入力、表示させるには下記のランキング表示切り替えで「表示する」をクリックして、入力をしてください。</p>
+				</div>
 			</div><!--inputWrap-end-->
 		</div><!--rank-item-detail-wrap3-end-->
+		<h4>ランキング表示切り替え</h4>
+			<label><input type="radio" name="rank_on_3" value="rank_show_3"
+						  <?php 
+						  if($_POST['rank_on_3'] == "rank_show_3" || $_POST['rank_on_3'] == "" || $item_rank_on_3 == "rank_show_3"){
+							  echo "checked";
+						  }
+						  elseif( $_POST['rank_on_3'] == "" && $item_rank_on_3 == "rank_show_3"){
+							   echo "checked";
+						   }else{ 
+							   echo "";
+						   }
+						  ?>
+						  >表示する</label>
+			<label><input type="radio" name="rank_on_3" value="rank_not_show_3"
+						  <?php 
+						  if( $_POST['rank_on_3'] == "rank_not_show_3"){
+							  echo "checked";
+						  }
+						  elseif( $_POST['rank_on_3'] == "" && $item_rank_on_3 == ""){
+							   echo "checked";
+						   }else{ 
+							   echo "";
+						   }
+						  ?>>非表示にする</label>
 
 
 		<div class="rank-item-detail-wrap">
@@ -466,13 +602,41 @@
 			?>
 			<div class="inputWrap">
 			<h4>商品名を入力してください。</h4>
-			<input type="text" class="img-setect-url" name="item_title_4" value=<?php if( isset($_POST['item_title_4']) ){ echo $_POST['item_title_4']; } else{ echo $item_name_4;}?>>
+			<input type="text" id="rank4-item-title" class="img-setect-url" name="item_title_4" value=<?php if( isset($_POST['item_title_4']) ){ echo $_POST['item_title_4']; } else{ echo $item_name_4;}?>>
 			<h4>商品価格を入力してください。（※半角英数で数字のみ記載してください。）</h4>
-			<input type="text" class="img-setect-url" name="item_price_4" value=<?php if( isset($_POST['item_price_4']) ){ echo $_POST['item_price_4']; } else{ echo $item_price_4;}?>>
+			<input type="text" id="rank4-item-price" class="img-setect-url" name="item_price_4" value=<?php if( isset($_POST['item_price_4']) ){ echo $_POST['item_price_4']; } else{ echo $item_price_4;}?>>
 			<h4>詳細ページリンクURL</h4>
-			<input type="text" class="img-setect-url" name="item_page_link_4" value=<?php if( isset($_POST['item_page_link_4']) ){ echo $_POST['item_page_link_4']; } else{ echo $item_page_link_4;}?>>
+			<input type="text" id="rank4-item-url" class="img-setect-url" name="item_page_link_4" value=<?php if( isset($_POST['item_page_link_4']) ){ echo $_POST['item_page_link_4']; } else{ echo $item_page_link_4;}?>>
+			<div id="rank-notshow-overlay-4" class="rank-notinput-overlay">
+					<p class="rank-notshow-p">ランキングを非表示にしています。</p>
+					<p class="rank-notshow-p-sub">ランキングを入力、表示させるには下記のランキング表示切り替えで「表示する」をクリックして、入力をしてください。</p>
+				</div>
 			</div><!--inputWrap-end-->
 		</div><!--rank-item-detail-wrap4-end-->
+		<h4>ランキング表示切り替え</h4>
+			<label><input type="radio" name="rank_on_4" value="rank_show_4"
+						  <?php 
+						  if($_POST['rank_on_4'] == "rank_show_4" || $_POST['rank_on_4'] == "" || $item_rank_on_4 == "rank_show_4"){
+							  echo "checked";
+						  }
+						  elseif( $_POST['rank_on_4'] == "" && $item_rank_on_4 == "rank_show_4"){
+							   echo "checked";
+						   }else{ 
+							   echo "";
+						   }
+						  ?>
+						  >表示する</label>
+			<label><input type="radio" name="rank_on_4" value="rank_not_show_4"
+						  <?php 
+						  if( $_POST['rank_on_4'] == "rank_not_show_4"){
+							  echo "checked";
+						  }
+						  elseif( $_POST['rank_on_4'] == "" && $item_rank_on_4 == ""){
+							   echo "checked";
+						   }else{ 
+							   echo "";
+						   }
+						  ?>>非表示にする</label>
 
 
 		<div class="rank-item-detail-wrap">
@@ -490,13 +654,41 @@
 			?>
 			<div class="inputWrap">
 			<h4>商品名を入力してください。</h4>
-			<input type="text" class="img-setect-url" name="item_title_5" value=<?php if( isset($_POST['item_title_5']) ){ echo $_POST['item_title_5']; } else{ echo $item_name_5;}?>>
+			<input type="text" id="rank5-item-title" class="img-setect-url" name="item_title_5" value=<?php if( isset($_POST['item_title_5']) ){ echo $_POST['item_title_5']; } else{ echo $item_name_5;}?>>
 			<h4>商品価格を入力してください。（※半角英数で数字のみ記載してください。）</h4>
-			<input type="text" class="img-setect-url" name="item_price_5" value=<?php if( isset($_POST['item_price_5']) ){ echo $_POST['item_price_5']; } else{ echo $item_price_5;}?>>
+			<input type="text" id="rank5-item-price" class="img-setect-url" name="item_price_5" value=<?php if( isset($_POST['item_price_5']) ){ echo $_POST['item_price_5']; } else{ echo $item_price_5;}?>>
 			<h4>詳細ページリンクURL</h4>
-			<input type="text" class="img-setect-url" name="item_page_link_5" value=<?php if( isset($_POST['item_page_link_5']) ){ echo $_POST['item_page_link_5']; } else{ echo $item_page_link_5;}?>>
+			<input type="text" id="rank5-item-url" class="img-setect-url" name="item_page_link_5" value=<?php if( isset($_POST['item_page_link_5']) ){ echo $_POST['item_page_link_5']; } else{ echo $item_page_link_5;}?>>
+			<div id="rank-notshow-overlay-5" class="rank-notinput-overlay">
+					<p class="rank-notshow-p">ランキングを非表示にしています。</p>
+					<p class="rank-notshow-p-sub">ランキングを入力、表示させるには下記のランキング表示切り替えで「表示する」をクリックして、入力をしてください。</p>
+				</div>
 			</div><!--inputWrap-end-->
 		</div><!--rank-item-detail-wrap5-end-->
+		<h4>ランキング表示切り替え</h4>
+			<label><input type="radio" name="rank_on_5" value="rank_show_5"
+						  <?php 
+						  if($_POST['rank_on_5'] == "rank_show_5" || $_POST['rank_on_5'] == "" || $item_rank_on_5 == "rank_show_5"){
+							  echo "checked";
+						  }
+						  elseif( $_POST['rank_on_5'] == "" && $item_rank_on_5 == "rank_show_5"){
+							   echo "checked";
+						   }else{ 
+							   echo "";
+						   }
+						  ?>
+						  >表示する</label>
+			<label><input type="radio" name="rank_on_5" value="rank_not_show_5"
+						  <?php 
+						  if( $_POST['rank_on_5'] == "rank_not_show_5"){
+							  echo "checked";
+						  }
+						  elseif( $_POST['rank_on_5'] == "" && $item_rank_on_5 == ""){
+							   echo "checked";
+						   }else{ 
+							   echo "";
+						   }
+						  ?>>非表示にする</label>
 
 
 		<div class="rank-item-detail-wrap">
@@ -514,13 +706,41 @@
 			?>
 			<div class="inputWrap">
 			<h4>商品名を入力してください。</h4>
-			<input type="text" class="img-setect-url" name="item_title_6" value=<?php if( isset($_POST['item_title_6']) ){ echo $_POST['item_title_6']; } else{ echo $item_name_6;}?>>
+			<input type="text" id="rank6-item-title" class="img-setect-url" name="item_title_6" value=<?php if( isset($_POST['item_title_6']) ){ echo $_POST['item_title_6']; } else{ echo $item_name_6;}?>>
 			<h4>商品価格を入力してください。（※半角英数で数字のみ記載してください。）</h4>
-			<input type="text" class="img-setect-url" name="item_price_6" value=<?php if( isset($_POST['item_price_6']) ){ echo $_POST['item_price_6']; } else{ echo $item_price_6;}?>>
+			<input type="text" id="rank6-item-price" class="img-setect-url" name="item_price_6" value=<?php if( isset($_POST['item_price_6']) ){ echo $_POST['item_price_6']; } else{ echo $item_price_6;}?>>
 			<h4>詳細ページリンクURL</h4>
-			<input type="text" class="img-setect-url" name="item_page_link_6" value=<?php if( isset($_POST['item_page_link_6']) ){ echo $_POST['item_page_link_6']; } else{ echo $item_page_link_6;}?>>
+			<input type="text" id="rank6-item-url" class="img-setect-url" name="item_page_link_6" value=<?php if( isset($_POST['item_page_link_6']) ){ echo $_POST['item_page_link_6']; } else{ echo $item_page_link_6;}?>>
+			<div id="rank-notshow-overlay-6" class="rank-notinput-overlay">
+					<p class="rank-notshow-p">ランキングを非表示にしています。</p>
+					<p class="rank-notshow-p-sub">ランキングを入力、表示させるには下記のランキング表示切り替えで「表示する」をクリックして、入力をしてください。</p>
+				</div>
 			</div><!--inputWrap-end-->
 		</div><!--rank-item-detail-wrap6-end-->
+		<h4>ランキング表示切り替え</h4>
+			<label><input type="radio" name="rank_on_6" value="rank_show_6"
+						  <?php 
+						  if($_POST['rank_on_6'] == "rank_show_6" || $_POST['rank_on_6'] == "" || $item_rank_on_6 == "rank_show_6"){
+							  echo "checked";
+						  }
+						  elseif( $_POST['rank_on_6'] == "" && $item_rank_on_6 == "rank_show_6"){
+							   echo "checked";
+						   }else{ 
+							   echo "";
+						   }
+						  ?>
+						  >表示する</label>
+			<label><input type="radio" name="rank_on_6" value="rank_not_show_6"
+						  <?php 
+						  if( $_POST['rank_on_6'] == "rank_not_show_6"){
+							  echo "checked";
+						  }
+						  elseif( $_POST['rank_on_6'] == "" && $item_rank_on_6 == ""){
+							   echo "checked";
+						   }else{ 
+							   echo "";
+						   }
+						  ?>>非表示にする</label>
 		
 		
 	</div><!--inputForm-end-->

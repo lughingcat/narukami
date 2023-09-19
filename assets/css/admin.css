@@ -129,6 +129,14 @@
   width: 100%;
   box-sizing: border-box; }
 
+.ranking-all-wrap {
+  width: 100%;
+  display: flex;
+  overflow: scroll;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center; }
+
 .rank-pop {
   display: none; }
 

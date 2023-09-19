@@ -23,21 +23,25 @@ $i_title_3 = $_POST['item_title_3'];
 $i_price_3 = $_POST['item_price_3'];
 $i_item_url_3 = $_POST['item_img_url_3'];
 $i_item_page_link_3 = $_POST['item_page_link_3'];
+$i_rank_on_3 = $_POST['rank_on_3'];
 //4
 $i_title_4 = $_POST['item_title_4'];
 $i_price_4 = $_POST['item_price_4'];
 $i_item_url_4 = $_POST['item_img_url_4'];
 $i_item_page_link_4 = $_POST['item_page_link_4'];
+$i_rank_on_4 = $_POST['rank_on_4'];
 //5
 $i_title_5 = $_POST['item_title_5'];
 $i_price_5 = $_POST['item_price_5'];
 $i_item_url_5 = $_POST['item_img_url_5'];
 $i_item_page_link_5 = $_POST['item_page_link_5'];
+$i_rank_on_5 = $_POST['rank_on_5'];
 //6
 $i_title_6 = $_POST['item_title_6'];
 $i_price_6 = $_POST['item_price_6'];
 $i_item_url_6 = $_POST['item_img_url_6'];
 $i_item_page_link_6 = $_POST['item_page_link_6'];
+$i_rank_on_6 = $_POST['rank_on_6'];
 //セレクトボックス
 $select_content = $_POST['s_cmaker'];
 //スライダー
@@ -71,21 +75,25 @@ global $wpdb;
 			'item_price_3' => $i_price_3,
 			'item_img_url_3' => $i_item_url_3,
 			'item_page_link_3' => $i_item_page_link_3,
+			'rank_on_3' => $i_rank_on_3,
 			//4
 			'item_name_4' => $i_title_4,
 			'item_price_4' => $i_price_4,
 			'item_img_url_4' => $i_item_url_4,
 			'item_page_link_4' => $i_item_page_link_4,
+			'rank_on_4' => $i_rank_on_4,
 			//5
 			'item_name_5' => $i_title_5,
 			'item_price_5' => $i_price_5,
 			'item_img_url_5' => $i_item_url_5,
 			'item_page_link_5' => $i_item_page_link_5,
+			'rank_on_5' => $i_rank_on_5,
 			//6
 			'item_name_6' => $i_title_6,
 			'item_price_6' => $i_price_6,
 			'item_img_url_6' => $i_item_url_6,
 			'item_page_link_6' => $i_item_page_link_6,
+			'rank_on_6' => $i_rank_on_6,
 			//セレクトボックス
 			's_cmaker' => $select_content,
 			//スライダー
@@ -104,7 +112,9 @@ global $wpdb;
 			'%s',
 			'%s',
 			'%s',
+			'%s',
 		//2
+			'%s',
 			'%s',
 			'%s',
 			'%s',
@@ -115,7 +125,9 @@ global $wpdb;
 			'%s',
 			'%s',
 			'%s',
+			'%s',
 		//4
+			'%s',
 			'%s',
 			'%s',
 			'%s',
@@ -125,7 +137,9 @@ global $wpdb;
 			'%s',
 			'%s',
 			'%s',
+			'%s',
 		//6
+			'%s',
 			'%s',
 			'%s',
 			'%s',
@@ -165,6 +179,7 @@ $wpdb->update(
     )
 );
 }
+
 if( $i_rank_on_2 == "rank_not_show_2" ){
 $wpdb->update(
     $narukamicmker,
@@ -174,6 +189,98 @@ $wpdb->update(
 		'item_img_url_2'=> null,
 		'item_page_link_2' => null,
 		'rank_on_2' => null
+    ),
+	array(
+		'id' => $id
+	),
+    array(
+        '%d',
+        '%s',
+        '%d',
+        '%d',
+        '%d',
+    )
+);
+}
+
+if( $i_rank_on_3 == "rank_not_show_3" ){
+$wpdb->update(
+    $narukamicmker,
+    array(
+        'item_name_3' => null,
+		'item_price_3'=> null,
+		'item_img_url_3'=> null,
+		'item_page_link_3' => null,
+		'rank_on_3' => null
+    ),
+	array(
+		'id' => $id
+	),
+    array(
+        '%d',
+        '%s',
+        '%d',
+        '%d',
+        '%d',
+    )
+);
+}
+
+if( $i_rank_on_4 == "rank_not_show_4" ){
+$wpdb->update(
+    $narukamicmker,
+    array(
+        'item_name_4' => null,
+		'item_price_4'=> null,
+		'item_img_url_4'=> null,
+		'item_page_link_4' => null,
+		'rank_on_4' => null
+    ),
+	array(
+		'id' => $id
+	),
+    array(
+        '%d',
+        '%s',
+        '%d',
+        '%d',
+        '%d',
+    )
+);
+}
+
+if( $i_rank_on_5 == "rank_not_show_5" ){
+$wpdb->update(
+    $narukamicmker,
+    array(
+        'item_name_5' => null,
+		'item_price_5'=> null,
+		'item_img_url_5'=> null,
+		'item_page_link_5' => null,
+		'rank_on_5' => null
+    ),
+	array(
+		'id' => $id
+	),
+    array(
+        '%d',
+        '%s',
+        '%d',
+        '%d',
+        '%d',
+    )
+);
+}
+
+if( $i_rank_on_6 == "rank_not_show_6" ){
+$wpdb->update(
+    $narukamicmker,
+    array(
+        'item_name_6' => null,
+		'item_price_6'=> null,
+		'item_img_url_6'=> null,
+		'item_page_link_6' => null,
+		'rank_on_6' => null
     ),
 	array(
 		'id' => $id
