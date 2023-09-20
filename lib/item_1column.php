@@ -134,6 +134,9 @@
 				$rank_on_6_result = "none";
 			}
 			?>
+		<div class="rank-scroll">
+				<p>←→</br>SCROLL</p>	
+		</div>
 		<div class="ranking-all-wrap">
 		<div class="<?php if( isset($_POST['rank_style']) ){ echo $_POST['rank_style']; } else{ echo $rank_style;}?>" 
 			 style="display: <?php echo $rank_on_1_result ;?> ; background-image: url(<?php if( $_POST['rank_style'] == "overlay" ){ echo $_POST['item_img_url']; } elseif( $_POST['rank_style'] == "" && $rank_style == "overlay" ){ echo $item_url;} else{ echo ""; }?>)"><!--ランキング１位-->
