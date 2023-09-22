@@ -5,6 +5,8 @@ require_once( dirname(dirname(dirname(dirname(dirname( __FILE__ ))))) . '/wp-loa
 $rank_pop = $_POST['rank_pop'];
 //ランキング背景スタイル
 $rank_style = $_POST['rank_style'];
+//ランキングメインタイトル
+$rank_primary_title = $_POST['rank_primary_title'];
 //ランキング
 //1
 $i_title = $_POST['item_title'];
@@ -58,6 +60,8 @@ global $wpdb;
 		    'rank_pop' => $rank_pop,
 			//ランキング背景スタイル
 			'rank_style' => $rank_style,
+			//ランキングメインタイトル
+			'rank_primary_title' => $rank_primary_title,
 			//ランキング
 			'item_name' => $i_title,
 			'item_price' => $i_price,
@@ -105,6 +109,8 @@ global $wpdb;
 		//ランキングpopスタイル
 			'%s',
 		//ランキング背景スタイル
+			'%s',
+		//ランキングメインタイトル
 			'%s',
 		//ランキング
 			'%s',

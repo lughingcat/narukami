@@ -7,6 +7,7 @@
 			  $query = "SELECT
 			  rank_pop,
 			  rank_style,
+			  rank_primary_title,
 			  item_name, 
 			  item_name_2, 
 			  item_name_3, 
@@ -45,6 +46,7 @@
 				 $id = $row->id;
 				 $rank_pop = $row->rank_pop;
 				 $rank_style = $row->rank_style;
+				 $rank_primary_title = $row->rank_primary_title;
 				 $item_name = $row->item_name; 
 				 $item_name_2 = $row->item_name_2; 
 				 $item_name_3 = $row->item_name_3; 
@@ -86,6 +88,15 @@
 				}
 			</style>
 			<?php 
+			
+			if( isset($_POST['rank_primary_title'])){
+				$rank_p_title_value = "";
+			}elseif( $_POST['rank_primary_title'] == "" && isset($rank_primary_title)){
+				$rank_p_title_value = "";
+			}elseif( $_POST['rank_primary_title'] == "" && $rank_primary_title == ""){
+				$rank_p_title_value = "none";
+			}
+			
 			if( $_POST['rank_on'] == "rank_show_1"){
 				$rank_on_1_result = "";
 			}elseif( $_POST['rank_on'] == "rank_not_show_1" && $item_rank_on == "rank_show_1"){
@@ -134,8 +145,14 @@
 				$rank_on_6_result = "none";
 			}
 			?>
-		<div class="rank-scroll">
-				<p>←→</br>SCROLL</p>	
+		<div style="display: <?php echo $rank_p_title_value ;?>">
+			<p class="rank-primary-title">-<?php
+				if( isset( $_POST['rank_primary_title'])){
+					echo $_POST['rank_primary_title'];
+				}elseif( !isset($_POST['rank_primary_title'])){
+					echo $rank_primary_title;
+				}
+				;?>-</p>
 		</div>
 		<div class="ranking-all-wrap">
 		<div class="<?php if( isset($_POST['rank_style']) ){ echo $_POST['rank_style']; } else{ echo $rank_style;}?>" 
@@ -248,7 +265,13 @@
 			<div class="rank-p-title-wrap">
 			<h4 class="rank-prev">ランキングタイトル</h4>
 			<p>ランキングタイトルを入力してください</p>
-			<input type="text" class="rank-primary-title" name="rank_primary-title">
+			<input type="text" class="rank-primary-title" name="rank_primary_title" value="<?php
+				if( isset( $_POST['rank_primary_title'])){
+					echo $_POST['rank_primary_title'];
+				}elseif( !isset($_POST['rank_primary_title'])){
+					echo $rank_primary_title;
+				}
+				;?>">
 			</div>
 		<?php 
 		$math_sq_bg = "math_sq_bg";
