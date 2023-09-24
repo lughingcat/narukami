@@ -2,7 +2,7 @@
     <?php
     settings_fields('custom-menu-group');
     do_settings_sections('custom-menu-group'); ?>
-
+	
 	<div class="metabox-holder">
       <div class="postbox bg">
         <h3 class='hndle'><span class="title">ヘッダー設定</span></h3>
@@ -11,8 +11,16 @@
 			<form method="post" name="test" action="">
           <div class="main">
 			  <?php 
+			  require_once(dirname(dirname(dirname(dirname(dirname( __FILE__ ))))) . '/wp-load.php' );
+			  global $wpdb;
+			  $query = "SELECT
+			  s_cmaker
+			  FROM wp_narukami_content_maker;";
+			  $rows = $wpdb->get_results($query);
+			  foreach($rows as $row) {
+				 $select_box = $row->s_cmaker;
+			  }
 			  $selectbox_item = '';
-			  
 			  $selectbox_item_list = array(
 			  	"ランキング",
 			  	"スライダー",
@@ -20,6 +28,8 @@
 			  );
 				if(isset($_POST['s_cmaker'])){
 					$selectbox_item = $_POST['s_cmaker'];
+				}elseif( !isset($_POST['s_cmaker'])){
+					$selectbox_item = $select_box;
 				}
 			  ?>
 			  <select name="s_cmaker" class="cmaker-wrap" id="cmaker" onchange="cmakerChange()">
@@ -34,7 +44,6 @@
 				  }
 			  ?>
 			  </select>
-			  
 			  <div id="cmakerChild" class="cmakerChildWrap">
 				  <?php get_template_part('lib/item_1column'); ?>
 				  <?php get_template_part('lib/slider'); ?>

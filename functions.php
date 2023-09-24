@@ -303,6 +303,29 @@ function create_theme_tables() {
 
 add_action('narukami_theme_activate', 'create_theme_tables');
 
+function ranking_db_farst_insert_data(){
+	$url_path = get_theme_file_uri();
+	$rank1_img = "/admin-img/beef.jpg";
+	$rank1_img_path = $url_path.$rank1_img;
+	global $wpdb;
+	$tablename =  $wpdb->prefix . "narukami_content_maker";
+	// 各種データの保存
+	$wpdb->insert(
+		$tablename,
+		array(
+		'rank_style' => math_sq_bg,
+		'item_img_url' => $rank1_img_path,
+		'item_price' => 1800
+		),
+		array(
+		'%s',
+		'%s',
+		'%d'
+		)
+		);
+}
+
+add_action('narukami_theme_activate', 'ranking_db_farst_insert_data');
 
 //画像アップロード用のタグを出力する
 function generate_upload_image_tag($name, $value){?>
