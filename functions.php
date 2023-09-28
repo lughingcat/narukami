@@ -305,22 +305,101 @@ add_action('narukami_theme_activate', 'create_theme_tables');
 
 function ranking_db_farst_insert_data(){
 	$url_path = get_theme_file_uri();
-	$rank1_img = "/admin-img/beef.jpg";
+	$rank1_img = "/admin-img/steak.jpg";
+	$rank2_img = "/admin-img/salmon-3.jpg";
+	$rank3_img = "/admin-img/unadon.jpg";
+	$rank4_img = "/admin-img/chicken.jpg";
+	$rank5_img = "/admin-img/loaf.jpg";
+	$rank6_img = "/admin-img/beef.jpg";
 	$rank1_img_path = $url_path.$rank1_img;
+	$rank2_img_path = $url_path.$rank2_img;
+	$rank3_img_path = $url_path.$rank3_img;
+	$rank4_img_path = $url_path.$rank4_img;
+	$rank5_img_path = $url_path.$rank5_img;
+	$rank6_img_path = $url_path.$rank6_img;
 	global $wpdb;
 	$tablename =  $wpdb->prefix . "narukami_content_maker";
 	// 各種データの保存
 	$wpdb->insert(
 		$tablename,
 		array(
-		'rank_style' => math_sq_bg,
+		's_cmaker' => ランキング,
+		'rank_pop' => math_sq_bg,
+		'rank_style' => overlay,
+		'rank_primary_title' => 人気商品ランキング,
+		'item_name' => 牛フィレのステーキ赤ワインソース,
+		'item_name_2' => サーモンのグリル秋野菜のサラダ添え,
+		'item_name_3' => 鰻重,
+		'item_name_4' => ローストチキンチーズソース,
+		'item_name_5' => エッグベネディクト,
+		'item_name_6' => 牛ももの赤ワイン煮込み,
+		'item_price' => 2800,
+		'item_price_2' => 2000,
+		'item_price_3' => 3200,
+		'item_price_4' => 1800,
+		'item_price_5' => 1200,
+		'item_price_6' => 1800,
 		'item_img_url' => $rank1_img_path,
-		'item_price' => 1800
+		'item_img_url_2' => $rank2_img_path,
+		'item_img_url_3' => $rank3_img_path,
+		'item_img_url_4' => $rank4_img_path,
+		'item_img_url_5' => $rank5_img_path,
+		'item_img_url_6' => $rank6_img_path,
+		'item_page_link' => $url_path,
+		'item_page_link_2' => $url_path,
+		'item_page_link_3' => $url_path,
+		'item_page_link_4' => $url_path,
+		'item_page_link_5' => $url_path,
+		'item_page_link_6' => $url_path,
+		'rank_on' => rank_show_1,
+		'rank_on_2' => rank_show_2,
+		'rank_on_3' => rank_show_3,
+		'rank_on_4' => rank_show_4,
+		'rank_on_5' => rank_show_5,
+		'rank_on_6' => rank_show_6,
+		
 		),
 		array(
-		'%s',
-		'%s',
-		'%d'
+		//スタイル
+			'%s',
+			'%s',
+			'%s',
+			'%s',
+			//item_name
+			'%s',
+			'%s',
+			'%s',
+			'%s',
+			'%s',
+			'%s',
+			//item_price
+			'%d',
+			'%d',
+			'%d',
+			'%d',
+			'%d',
+			'%d',
+			//item_url
+			'%s',
+			'%s',
+			'%s',
+			'%s',
+			'%s',
+			'%s',
+			//item_link
+			'%s',
+			'%s',
+			'%s',
+			'%s',
+			'%s',
+			'%s',
+			//rank_on
+			'%s',
+			'%s',
+			'%s',
+			'%s',
+			'%s',
+			'%s',
 		)
 		);
 }

@@ -137,7 +137,7 @@
 				$rank_on_6_result = "none";
 			}
 			?>
-		<div style="display: <?php echo $rank_p_title_value ;?>;">
+		<div>
 			<p class="rank-primary-title">-<?php
 				if( isset( $_POST['rank_primary_title'])){
 					echo $_POST['rank_primary_title'];
@@ -251,11 +251,6 @@
 		</div>
 		</article>
 	</div>
-	<?php
-	$url_path = bloginfo('template_directory');
-	$rank1_img = "/admin-img/beef.jpg";
-	echo $url_path.$rank1_img;
-	;?>
 	<div class="inputForm">
 		<h3>おすすめ商品ランキング</h3>
 		<p>おすすめ商品をランキングで訴求できます。</p>
