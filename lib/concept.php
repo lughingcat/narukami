@@ -1,5 +1,5 @@
-<div id="cmaker_slider_wrap" class="cmakerWrapSlider" style="display: none;">
-	<div class="slider_Prevew">
+<div id="cmaker_concept_wrap" class="cmakerWrapConcept">
+	<div class="concept_Prevew">
 		<article class="cmakerPrevew">
 			<?php
 			  require_once(dirname(dirname(dirname(dirname(dirname( __FILE__ ))))) . '/wp-load.php' );
@@ -25,11 +25,14 @@
 				$slider_url = $img_url_array;
 			}
 	;?>
+	<h4>コンセプト表示の背景画像を選択してください。</h4>
 	<?php
   	generate_upload_image_tag('slider_img_url', $slider_url);
 	?>
-	<input type="text" name="slider_item_name" value="初期値">
-	<input type="text" name="slider_item_price" value="初期値">
+	<h4>コンセプトタイトルを入力してください。</h4>
+	<input type="text" name="concept_title" value="初期値">
+	<h4>コンセプト文章を入力してください。</h4>
+	<textarea name="concept_content"></textarea>
 	</div>
-	<button type="button" id="sliderCloseBtn">閉じる</button>
+	<button type="button" id="conceptCloseBtn">閉じる</button>
 </div>

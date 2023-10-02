@@ -7,11 +7,11 @@ function cmakerChange(){
 	if(document.getElementById('cmaker')){
 		id = document.getElementById('cmaker').value;
 		if(id == 'ランキング'){
-			document.getElementById('cmaker_1item_column_wrap').style.display="";
-			document.getElementById('cmaker_slider_wrap').style.display="none";
-		}else if(id == 'スライダー'){
-			document.getElementById('cmaker_1item_column_wrap').style.display="none";
-			document.getElementById('cmaker_slider_wrap').style.display="";
+			document.getElementById('cmaker_ranking_wrap').style.display="";
+			document.getElementById('cmaker_concept_wrap').style.display="none";
+		}else if(id == 'コンセプト'){
+			document.getElementById('cmaker_ranking_wrap').style.display="none";
+			document.getElementById('cmaker_concept_wrap').style.display="";
 		}
 	}
 	
@@ -19,13 +19,13 @@ function cmakerChange(){
 }
 
 //ボタン式選択項目の入力フォーム非表示
- const closeItem1 = document.getElementById('1columnCloseBtn');
+ const closeItem1 = document.getElementById('rankingCloseBtn');
 	　　closeItem1.addEventListener('click' , ()=>{
-       document.getElementById('cmaker_1item_column_wrap').style.display="none";
+       document.getElementById('cmaker_ranking_wrap').style.display="none";
       })
- const closeItem2 = document.getElementById('sliderCloseBtn');
+ const closeItem2 = document.getElementById('conceptCloseBtn');
 	　　closeItem2.addEventListener('click' , ()=>{
-       document.getElementById('cmaker_slider_wrap').style.display="none";
+       document.getElementById('cmaker_concept_wrap').style.display="none";
       })
 
 

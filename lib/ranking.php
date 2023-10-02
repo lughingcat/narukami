@@ -1,5 +1,5 @@
-<div id="cmaker_1item_column_wrap" class="cmakerWrap">
-	<div class="item_1column_Prevew">
+<div id="cmaker_ranking_wrap" class="cmakerWrap" style="display: none;">
+	<div class="ranking_Prevew">
 		<article class="cmakerPrevew">
 			<?php
 			  require_once(dirname(dirname(dirname(dirname(dirname( __FILE__ ))))) . '/wp-load.php' );
@@ -137,14 +137,14 @@
 				$rank_on_6_result = "none";
 			}
 			?>
-		<div>
-			<p class="rank-primary-title">-<?php
+		<div class="rank-primary-title-prevew">
+			<p><?php
 				if( isset( $_POST['rank_primary_title'])){
 					echo $_POST['rank_primary_title'];
 				}elseif( !isset($_POST['rank_primary_title'])){
 					echo $rank_primary_title;
 				}
-				;?>-</p>
+				;?></p>
 		</div>
 		<div class="ranking-all-wrap">
 		<div class="<?php if( isset($_POST['rank_style']) ){ echo $_POST['rank_style']; } else{ echo $rank_style;}?>" 
@@ -252,8 +252,6 @@
 		</article>
 	</div>
 	<div class="inputForm">
-		<h3>おすすめ商品ランキング</h3>
-		<p>おすすめ商品をランキングで訴求できます。</p>
 			<div class="rank-p-title-wrap">
 			<h4 class="rank-prev">ランキングタイトル</h4>
 			<p>ランキングタイトルを入力してください</p>
@@ -274,8 +272,8 @@
 		$clipping = "clipping";
 		$circle = "circle";
 		?>
-		<h4 class="rank-prev">ランキング背景デザイン</h4>
-		<p>ランキング背景のデザインを選択してください</p>
+		<h4 class="rank-prev">ランキングポップデザイン</h4>
+		<p>ランキングポップのデザインを選択してください</p>
 		<div class="rank-font-all-wrap">
 			<div class="font-wrap">
 			<div class="rank-font-1-wrap">
@@ -365,8 +363,8 @@
 		</div><!--rank-font-all-wrap-end-->
 		
 		
-		<h4 class="rank-prev">ランキングデザイン</h4>
-		<p>ランキングデザインを選択してください</p>
+		<h4 class="rank-prev">ランキングスタイルデザイン</h4>
+		<p>ランキングスタイルデザインを選択してください</p>
 		<div class="rank-item-all-wrap">
 			<div class="rank-wrap">
 			<div class="rank-item-wrap">
@@ -762,5 +760,5 @@
 		
 		
 	</div><!--inputForm-end-->
-	<button type="button" id="1columnCloseBtn">閉じる</button>
+	<button type="button" id="rankingCloseBtn">閉じる</button>
 </div>
