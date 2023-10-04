@@ -118,13 +118,13 @@
 /*#################################
 	鳴雷コンテンツメーカースタイル
 #################################*/
-/*------　item_1column-allスタイル　-------*/
-#cmaker_1item_column_wrap {
+/*------　ランキングスタイル　-------*/
+#cmaker_ranking_wrap {
   width: 100%;
   padding: 2%;
   box-sizing: border-box; }
 
-/*------　item_1columnPrevewスタイル　-------*/
+/*------　Prevewスタイル　-------*/
 .cmakerPrevew {
   width: 100%;
   box-sizing: border-box;
@@ -420,7 +420,7 @@
     margin-top: 20px; }
 
 /*------　ランキングタイトルスタイルend　-------*/
-/*------　item_1columnランキング背景スタイル　-------*/
+/*------　ランキング背景スタイル　-------*/
 .rank-item-detail-wrap {
   width: 100%;
   display: block;
@@ -610,8 +610,8 @@
       margin: 10px auto;
       border-bottom: 2px #0086AD solid; }
 
-/*------　item_1columnランキングフォントスタイルend　-------*/
-/*------　item_1columnランキングスタイル　-------*/
+/*------　ランキングフォントスタイルend　-------*/
+/*------　ランキングスタイル　-------*/
 .rank-item-all-wrap {
   width: 100%;
   margin: 40px 0;
@@ -740,13 +740,19 @@
     text-align: center;
     margin-top: 10px; }
 
-/*------　item_1columnランキングスタイルend　-------*/
-/*------　item_1column表示切り替えスタイル　-------*/
+/*------　ランキングスタイルend　-------*/
+/*------　表示切り替えスタイル　-------*/
 .notshow {
   display: none; }
 
-/*------　item_1column表示切り替えスタイルend　-------*/
-/*------　item_1column-allスタイルend　-------*/
+/*------　表示切り替えスタイルend　-------*/
+/*------　ランキングスタイルend　-------*/
+/*------　コンセプトスタイル　-------*/
+.adm-textarea {
+  width: 100%;
+  height: auto; }
+
+/*------　コンセプトスタイルend　-------*/
 /*#################################
 	fontawesomeスタイル
 #################################*/

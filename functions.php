@@ -290,9 +290,9 @@ function create_theme_tables() {
 		  `rank_on_4` varchar(255) NOT NULL,
 		  `rank_on_5` varchar(255) NOT NULL,
 		  `rank_on_6` varchar(255) NOT NULL,
-		  `slider_img_url` varchar(255) NOT NULL,
-		  `slider_item_name` varchar(255) NOT NULL,
-		  `slider_item_price` varchar(255) NOT NULL,
+		  `concept_bg_img_url` varchar(255) NOT NULL,
+		  `concept_title` varchar(255) NOT NULL,
+		  `concept_content` varchar(255) NOT NULL,
 		  PRIMARY KEY (`id`)
 		) {$charset_collate} AUTO_INCREMENT=1;";
         require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
@@ -311,12 +311,14 @@ function ranking_db_farst_insert_data(){
 	$rank4_img = "/admin-img/chicken.jpg";
 	$rank5_img = "/admin-img/loaf.jpg";
 	$rank6_img = "/admin-img/beef.jpg";
+	$concept_img = "/admin-img/concept-bg.jpg";
 	$rank1_img_path = $url_path.$rank1_img;
 	$rank2_img_path = $url_path.$rank2_img;
 	$rank3_img_path = $url_path.$rank3_img;
 	$rank4_img_path = $url_path.$rank4_img;
 	$rank5_img_path = $url_path.$rank5_img;
 	$rank6_img_path = $url_path.$rank6_img;
+	$concept_img_path = $url_path.$concept_img;
 	global $wpdb;
 	$tablename =  $wpdb->prefix . "narukami_content_maker";
 	// 各種データの保存
@@ -357,6 +359,9 @@ function ranking_db_farst_insert_data(){
 		'rank_on_4' => rank_show_4,
 		'rank_on_5' => rank_show_5,
 		'rank_on_6' => rank_show_6,
+		'concept_bg_img_url' => $concept_img_path,
+		'concept_title' => コンセプトタイトルを入力してください。,
+		'concept_content' => コンセプトコンテンツを入力してください。,
 		
 		),
 		array(
@@ -397,6 +402,10 @@ function ranking_db_farst_insert_data(){
 			'%s',
 			'%s',
 			'%s',
+			'%s',
+			'%s',
+			'%s',
+			//concept
 			'%s',
 			'%s',
 			'%s',
