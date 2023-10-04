@@ -25,7 +25,7 @@
 				$slider_url = $img_url_array;
 			}
 	;?>
-	<h4>コンセプト表示の背景画像を選択してください。</h4>
+	<h4>コンセプト表示の背景画像を選択してください。aaa</h4>
 	<?php
   	generate_upload_image_tag('slider_img_url', $slider_url);
 	?>
