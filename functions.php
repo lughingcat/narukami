@@ -312,6 +312,7 @@ function ranking_db_farst_insert_data(){
 	$rank5_img = "/admin-img/loaf.jpg";
 	$rank6_img = "/admin-img/beef.jpg";
 	$concept_img = "/admin-img/concept-bg.jpg";
+	$rank_primary_t = "RECOMMEND MENU";
 	$rank1_img_path = $url_path.$rank1_img;
 	$rank2_img_path = $url_path.$rank2_img;
 	$rank3_img_path = $url_path.$rank3_img;
@@ -328,7 +329,7 @@ function ranking_db_farst_insert_data(){
 		's_cmaker' => ランキング,
 		'rank_pop' => math_sq_bg,
 		'rank_style' => overlay,
-		'rank_primary_title' => 人気商品ランキング,
+		'rank_primary_title' => $rank_primary_t,
 		'item_name' => 牛フィレのステーキ赤ワインソース,
 		'item_name_2' => サーモンのグリル秋野菜のサラダ添え,
 		'item_name_3' => 鰻重,

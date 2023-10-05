@@ -1,4 +1,4 @@
-<div id="cmaker_ranking_wrap" class="cmakerWrap" style="display: none;">
+<div id="cmaker_ranking_wrap" class="cmakerWrap" >
 	<div class="ranking_Prevew">
 		<article class="cmakerPrevew">
 			<?php

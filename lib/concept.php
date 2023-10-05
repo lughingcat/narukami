@@ -1,4 +1,4 @@
-<div id="cmaker_concept_wrap" class="cmakerWrapConcept">
+<div id="cmaker_concept_wrap" class="cmakerWrapConcept" style="display: none;">
 	<div class="concept_Prevew">
 		<article class="cmakerPrevew">
 			<?php
