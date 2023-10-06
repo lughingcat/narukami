@@ -750,7 +750,22 @@
 /*------　コンセプトスタイル　-------*/
 .adm-textarea {
   width: 100%;
-  height: auto; }
+  height: 200px;
+  border: 2px solid;
+  padding: 10px; }
+
+.concept-back-wrap {
+  position: relative;
+  width: 100vw;
+  height: 50vh; }
+  .concept-back-wrap .concept-main-title {
+    display: block;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold; }
+  .concept-back-wrap .concept-main-content {
+    padding: 5px;
+    line-height: 10px; }
 
 /*------　コンセプトスタイルend　-------*/
 /*#################################

@@ -47,9 +47,9 @@ $i_rank_on_6 = $_POST['rank_on_6'];
 //セレクトボックス
 $select_content = $_POST['s_cmaker'];
 //スライダー
-$slider_img_url = $_POST['slider_img_url'];
-$slider_item_name = $_POST['slider_item_name'];
-$slider_item_price = $_POST['slider_item_price'];
+$i_concept_bgImg_url = $_POST['concept_bg_img_url'];
+$i_concept_title = $_POST['concept_title'];
+$i_concept_content = $_POST['concept_content'];
 global $wpdb;
 	$tablename =  $wpdb->prefix . "narukami_content_maker";
 	// 各種データの保存
@@ -101,9 +101,9 @@ global $wpdb;
 			//セレクトボックス
 			's_cmaker' => $select_content,
 			//スライダー
-			'slider_img_url' => $slider_img_url,
-			'slider_item_name' => $slider_item_name,
-			'slider_item_price' => $slider_item_price,
+			'concept_bg_img_url' => $i_concept_bgImg_url,
+			'concept_title' => $i_concept_title,
+			'concept_content' => $i_concept_content,
 		),
 		array(
 		//ランキングpopスタイル

@@ -1,4 +1,4 @@
-<div id="cmaker_concept_wrap" class="cmakerWrapConcept" style="display: none;">
+<div id="cmaker_concept_wrap" class="cmakerWrapConcept" >
 	<div class="concept_Prevew">
 		<article class="cmakerPrevew">
 			<?php
@@ -12,7 +12,10 @@
 				 $concept_content = $row->concept_content; 
 			  };
 			  ?>
-			<div>
+			<div class="concept-back-wrap" 
+				 style="background-image: url(<?php if( isset( $_POST['concept_bg_img_url'])){ echo $_POST['concept_bg_img_url']; }elseif( !isset($_POST['concept_bg_img_url']) ){ echo $concept_bgImg_url; };?> )">
+				<p class="concept-main-title"><?php if( isset( $_POST['concept_title'])){ echo $_POST['concept_title']; }elseif( !isset($_POST['concept_title'])){ echo $concept_title; };?></p>
+				<p class="concept-main-content"><?php if( isset( $_POST['concept_content'])){ echo $_POST['concept_content']; }elseif( !isset($_POST['concept_content'])){ echo $concept_content; };?></p>
 			</div>
 		</article>
 	</div>
