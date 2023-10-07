@@ -756,16 +756,47 @@
 
 .concept-back-wrap {
   position: relative;
-  width: 100vw;
-  height: 50vh; }
-  .concept-back-wrap .concept-main-title {
-    display: block;
-    text-align: center;
-    font-size: 2rem;
-    font-weight: bold; }
-  .concept-back-wrap .concept-main-content {
-    padding: 5px;
-    line-height: 10px; }
+  width: 100%;
+  height: 50vh;
+  background-size: cover;
+  background-position: center; }
+  .concept-back-wrap .concept-text-wrap {
+    width: 80%;
+    height: 80%;
+    background-color: rgba(255, 255, 255, 0.89);
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    border-radius: 5px; }
+    .concept-back-wrap .concept-text-wrap .concept-main-title {
+      position: relative;
+      display: block;
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: bold;
+      background-color: rgba(255, 255, 255, 0.4);
+      margin: 40px 0;
+      padding: 20px 0; }
+    .concept-back-wrap .concept-text-wrap .concept-main-title::before {
+      content: '';
+      position: absolute;
+      bottom: 5px;
+      display: inline-block;
+      width: 100px;
+      height: 2px;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+      background-color: #000000bf;
+      border-radius: 2px; }
+    .concept-back-wrap .concept-text-wrap .concept-main-content {
+      display: block;
+      width: 55%;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 20px;
+      white-space: pre;
+      background-color: rgba(255, 255, 255, 0.4); }
 
 /*------　コンセプトスタイルend　-------*/
 /*#################################
