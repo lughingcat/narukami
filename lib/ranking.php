@@ -138,7 +138,7 @@
 			}
 			?>
 		<div class="rank-primary-title-prevew">
-			<p><?php
+			<p class="r-p-t-prev"><?php
 				if( isset( $_POST['rank_primary_title'])){
 					echo $_POST['rank_primary_title'];
 				}elseif( !isset($_POST['rank_primary_title'])){

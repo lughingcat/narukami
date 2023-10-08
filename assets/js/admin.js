@@ -18,6 +18,35 @@ function cmakerChange(){
 	window.onload = cmakerChange;
 }
 
+
+//コンセプト文字列を時間差で表示
+const wrapCharSpan = function(str){
+    return [...str].map(char => `<span>${char}</span>`).join('');
+}
+
+const target = document.querySelector('.concept-main-title');
+target.innerHTML = wrapCharSpan(target.textContent);
+
+Array.from(target.children).forEach((char, index) => {
+    window.setTimeout(function () {
+        char.classList.add('is-animated');
+    }, 100 * index);
+});
+
+const wrapRankSpan = function(str){
+    return [...str].map(Rank => `<span>${Rank}</span>`).join('');
+}
+
+const RankTitle = document.querySelector('.r-p-t-prev');
+RankTitle.innerHTML = wrapRankSpan(RankTitle.textContent);
+
+Array.from(RankTitle.children).forEach((Rank, index) => {
+    window.setTimeout(function () {
+        Rank.classList.add('is-animated');
+    }, 100 * index);
+});
+
+
 //ボタン式選択項目の入力フォーム非表示
  const closeItem1 = document.getElementById('rankingCloseBtn');
 	　　closeItem1.addEventListener('click' , ()=>{
@@ -27,7 +56,6 @@ function cmakerChange(){
 	　　closeItem2.addEventListener('click' , ()=>{
        document.getElementById('cmaker_concept_wrap').style.display="none";
       })
-
 
 //ランキング表示非表示切り替え1
 window.addEventListener("load", function(){

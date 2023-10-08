@@ -1,4 +1,4 @@
-<div id="cmaker_concept_wrap" class="cmakerWrapConcept" >
+<div id="cmaker_concept_wrap" class="cmakerWrapConcept">
 	<div class="concept_Prevew">
 		<article class="cmakerPrevew">
 			<?php
@@ -45,6 +45,7 @@
 			   ;?>
 		   >
 	<h4>コンセプト文章を入力してください。</h4>
+		<p>※改行せずに入力すると美しく見えます(1000文字以内)</p>
 	<textarea name="concept_content" class="adm-textarea"><?php
 		if( isset($_POST['concept_content'])){
 			echo $_POST['concept_content'];

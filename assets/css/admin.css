@@ -136,13 +136,21 @@
   margin: 0 auto 5%;
   text-align: center;
   box-shadow: 0px 4px 2px -3px #b6b4b4; }
-  .rank-primary-title-prevew p {
+  .rank-primary-title-prevew .r-p-t-prev {
     font-size: 1.2em;
     position: relative;
     display: inline-block;
     margin-bottom: 3em;
     font-weight: bold; }
-  .rank-primary-title-prevew p::before {
+    .rank-primary-title-prevew .r-p-t-prev span {
+      display: inline-block;
+      transition: 1s;
+      opacity: 0;
+      transform: translateX(50px); }
+      .rank-primary-title-prevew .r-p-t-prev span.is-animated {
+        opacity: 1;
+        transform: translateX(0); }
+  .rank-primary-title-prevew .r-p-t-prev::before {
     content: '';
     position: absolute;
     bottom: -15px;
@@ -163,19 +171,6 @@
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: center; }
-
-.rank-scroll {
-  text-align: center;
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  position: absolute;
-  top: 35%;
-  right: -5%;
-  z-index: 99;
-  background-color: #FFFF44;
-  font-weight: bold;
-  line-height: 20px; }
 
 .rank-pop {
   display: none; }
@@ -772,15 +767,23 @@
       position: relative;
       display: block;
       text-align: center;
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       font-weight: bold;
       background-color: rgba(255, 255, 255, 0.4);
       margin: 40px 0;
-      padding: 20px 0; }
+      padding: 40px 0; }
+      .concept-back-wrap .concept-text-wrap .concept-main-title span {
+        display: inline-block;
+        transition: 1s;
+        opacity: 0;
+        transform: translateX(50px); }
+        .concept-back-wrap .concept-text-wrap .concept-main-title span.is-animated {
+          opacity: 1;
+          transform: translateX(0); }
     .concept-back-wrap .concept-text-wrap .concept-main-title::before {
       content: '';
       position: absolute;
-      bottom: 5px;
+      bottom: 30px;
       display: inline-block;
       width: 100px;
       height: 2px;
@@ -792,10 +795,13 @@
     .concept-back-wrap .concept-text-wrap .concept-main-content {
       display: block;
       width: 55%;
+      height: 250px;
+      box-sizing: border-box;
+      overflow: scroll;
       margin: 40px auto;
       padding: 20px;
-      line-height: 20px;
-      white-space: pre;
+      line-height: 25px;
+      white-space: pre-wrap;
       background-color: rgba(255, 255, 255, 0.4); }
 
 /*------　コンセプトスタイルend　-------*/
