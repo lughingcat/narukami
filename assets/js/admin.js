@@ -1,6 +1,18 @@
 /*==================================
 コンテンツメーカーjs
 ==================================*/
+//ロード時のセレクトボックスの制御
+window.addEventListener('load', function(){
+	selectVal = document.getElementById('cmaker').value;
+	if(selectVal == 'ランキング'){
+			document.getElementById('cmaker_ranking_wrap').style.display="";
+			document.getElementById('cmaker_concept_wrap').style.display="none";
+		}else if(selectVal == 'コンセプト'){
+			document.getElementById('cmaker_ranking_wrap').style.display="none";
+			document.getElementById('cmaker_concept_wrap').style.display="";
+		}
+});
+
 
 //セレクトボックスの表示切り替え
 function cmakerChange(){
@@ -14,8 +26,6 @@ function cmakerChange(){
 			document.getElementById('cmaker_concept_wrap').style.display="";
 		}
 	}
-	
-	window.onload = cmakerChange;
 }
 
 

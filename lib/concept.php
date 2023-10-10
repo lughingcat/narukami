@@ -30,7 +30,7 @@
 				$concept_bg_url = $concept_bgImg_url;
 			}
 	;?>
-	<h4>コンセプト表示の背景画像を選択してください。</h4>
+	<h4 class="h-admin-4-bg">コンセプト表示の背景画像を選択してください。</h4>
 	<?php
   	generate_upload_image_tag('concept_bg_img_url', $concept_bg_url);
 	?>
