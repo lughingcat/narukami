@@ -50,6 +50,9 @@ $select_content = $_POST['s_cmaker'];
 $i_concept_bgImg_url = $_POST['concept_bg_img_url'];
 $i_concept_title = $_POST['concept_title'];
 $i_concept_content = $_POST['concept_content'];
+//グランドメニュー
+$i_grandmenu_img_url = $_POST['grandmenu_img_url'];
+$i_grandmenu_title = $_POST['grandmenu_title'];
 global $wpdb;
 	$tablename =  $wpdb->prefix . "narukami_content_maker";
 	// 各種データの保存
@@ -104,6 +107,9 @@ global $wpdb;
 			'concept_bg_img_url' => $i_concept_bgImg_url,
 			'concept_title' => $i_concept_title,
 			'concept_content' => $i_concept_content,
+			//グランドメニュー
+			'grandmenu_img_url' => $i_grandmenu_img_url,
+			'grandmenu_title' => $i_grandmenu_title,
 		),
 		array(
 		//ランキングpopスタイル
@@ -156,7 +162,9 @@ global $wpdb;
 			'%s',
 			'%s',
 			'%s',
-			
+		//グランドメニュー
+			'%s',
+			'%s',
 		)
 	);
 

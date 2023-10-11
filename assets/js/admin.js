@@ -7,9 +7,15 @@ window.addEventListener('load', function(){
 	if(selectVal == 'ランキング'){
 			document.getElementById('cmaker_ranking_wrap').style.display="";
 			document.getElementById('cmaker_concept_wrap').style.display="none";
+			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
 		}else if(selectVal == 'コンセプト'){
 			document.getElementById('cmaker_ranking_wrap').style.display="none";
 			document.getElementById('cmaker_concept_wrap').style.display="";
+			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
+		}else if(selectVal == 'グランドメニュー'){
+			document.getElementById('cmaker_ranking_wrap').style.display="none";
+			document.getElementById('cmaker_concept_wrap').style.display="none";
+			document.getElementById('cmaker_grandmenu_wrap').style.display="";
 		}
 });
 
@@ -21,9 +27,15 @@ function cmakerChange(){
 		if(id == 'ランキング'){
 			document.getElementById('cmaker_ranking_wrap').style.display="";
 			document.getElementById('cmaker_concept_wrap').style.display="none";
+			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
 		}else if(id == 'コンセプト'){
 			document.getElementById('cmaker_ranking_wrap').style.display="none";
 			document.getElementById('cmaker_concept_wrap').style.display="";
+			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
+		}else if(id == 'グランドメニュー'){
+			document.getElementById('cmaker_ranking_wrap').style.display="none";
+			document.getElementById('cmaker_concept_wrap').style.display="none";
+			document.getElementById('cmaker_grandmenu_wrap').style.display="";
 		}
 	}
 }
@@ -42,7 +54,7 @@ Array.from(target.children).forEach((char, index) => {
         char.classList.add('is-animated');
     }, 100 * index);
 });
-
+//ランキング文字列を時間差で表示
 const wrapRankSpan = function(str){
     return [...str].map(Rank => `<span>${Rank}</span>`).join('');
 }

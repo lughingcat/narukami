@@ -24,7 +24,7 @@
 			  $selectbox_item_list = array(
 			  	"ランキング",
 			  	"コンセプト",
-			  	"商品2カラム",
+			  	"グランドメニュー",
 			  );
 				if(isset($_POST['s_cmaker'])){
 					$selectbox_item = $_POST['s_cmaker'];
@@ -47,6 +47,7 @@
 			  <div id="cmakerChild" class="cmakerChildWrap">
 				  <?php get_template_part('lib/ranking'); ?>
 				  <?php get_template_part('lib/concept'); ?>
+				  <?php get_template_part('lib/grandmenu'); ?>
 			  </div>
 			  
 			  

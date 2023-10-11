@@ -293,6 +293,8 @@ function create_theme_tables() {
 		  `concept_bg_img_url` varchar(255) NOT NULL,
 		  `concept_title` varchar(255) NOT NULL,
 		  `concept_content` varchar(1000) NOT NULL,
+		  `grandmenu_img_url` varchar(255) NOT NULL,
+		  `grandmenu_title` varchar(255) NOT NULL,
 		  PRIMARY KEY (`id`)
 		) {$charset_collate} AUTO_INCREMENT=1;";
         require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
