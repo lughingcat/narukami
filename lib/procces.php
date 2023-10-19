@@ -52,7 +52,7 @@ $i_concept_title = $_POST['concept_title'];
 $i_concept_content = $_POST['concept_content'];
 //グランドメニュー
 $i_grandmenu_img_url = $_POST['grandmenu_img_url'];
-$i_grandmenu_title = $_POST['grandmenu_title'];
+$i_grandmenu_title = json_encode( $_POST['grandmenu_title'], JSON_UNESCAPED_UNICODE);
 global $wpdb;
 	$tablename =  $wpdb->prefix . "narukami_content_maker";
 	// 各種データの保存

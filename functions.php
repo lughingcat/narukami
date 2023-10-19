@@ -326,6 +326,15 @@ function ranking_db_farst_insert_data(){
 	$concept_content_sample =<<< EOM
 		親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰を抜かす奴があるかと云ったから、この次は抜かさずに飛んで見せますと答えた。（青空文庫より）
 		EOM;
+	$grandmenu_img_title_path = [
+	'お弁当',
+	'どんぶり',
+	'サイドメニュー',
+	'酒肴',
+	'オードブル'
+	];
+	
+	
 	global $wpdb;
 	$tablename =  $wpdb->prefix . "narukami_content_maker";
 	// 各種データの保存
@@ -369,6 +378,8 @@ function ranking_db_farst_insert_data(){
 		'concept_bg_img_url' => $concept_img_path,
 		'concept_title' => $concept_title_path,
 		'concept_content' => $concept_content_sample,
+		'grandmenu_img_url' =>　aiueo,
+		'grandmenu_img_title' => $gmtitleval,
 		
 		),
 		array(
@@ -414,6 +425,9 @@ function ranking_db_farst_insert_data(){
 			'%s',
 			//concept
 			'%s',
+			'%s',
+			'%s',
+			//grandmenu
 			'%s',
 			'%s',
 		)
