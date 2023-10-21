@@ -6,7 +6,6 @@
 			  global $wpdb;
 			  $query = "SELECT grandmenu_img_url,  grandmenu_title FROM wp_narukami_content_maker;";
 			  $rows = $wpdb->get_results($query,OBJECT);
-			  var_dump($query);
 			  foreach($rows as $row) {
 				 $grandmenu_img_url = $row->grandmenu_img_url;
 				 $grandmenu_title = $row->grandmenu_title;
@@ -16,7 +15,7 @@
 				<div class="grandmenu-title-wrap">
 					<ul>
 						<?php
-						var_dump($grandmenu_title);
+						$grandmenu_title_dec = json_decode($grandmenu_title);
 						foreach( $grandmenu_title_dec as $grandmenu_title_decs){
 							echo "<li>". $grandmenu_title_decs . "</li>";
 						}
