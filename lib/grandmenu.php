@@ -26,7 +26,8 @@
 			</div>
 		</article>
 	</div>
-	<div class="inputForm">
+	<div id="gm-form-erea" class="inputForm">
+		<div id="gm-form">
 		<?php 
 			if( !empty($_POST['grandmenu_img_url']) )
 			{ 
@@ -40,22 +41,13 @@
   	generate_upload_image_tag('grandmenu_img_url', $grandmenu_img_bg_url);
 	?>
 	<h4>コンセプトタイトルを入力してください。</h4>
-	<input type="text" name="grandmenu_title[]" class="img-setect-url" value=
-		   <?php
-		   if( isset($_POST['grandmenu_title'])){
-			   echo $_POST['grandmenu_title'];
-		   }else{
-			   echo $grandmenu_title;
-		   }
-			   ;?>
-		   >
-		<input type="text" name="grandmenu_title[]" class="img-setect-url">
-		<input type="text" name="grandmenu_title[]" class="img-setect-url">
 		<input type="text" name="grandmenu_title[]" class="img-setect-url">
 		<?php 
 		$grandmenu_title_json = $_POST['grandmenu_title'];
 		echo json_encode($grandmenu_title_json, JSON_UNESCAPED_UNICODE);
 		;?>
+		</div>
 	</div>
+	<button type="button" id="gm-elment-add">追加</button>
 	<button type="button" id="grandmenuCloseBtn">閉じる</button>
 </div>
