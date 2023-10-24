@@ -42,10 +42,6 @@
 	?>
 	<h4>コンセプトタイトルを入力してください。</h4>
 		<input type="text" name="grandmenu_title[]" class="img-setect-url">
-		<?php 
-		$grandmenu_title_json = $_POST['grandmenu_title'];
-		echo json_encode($grandmenu_title_json, JSON_UNESCAPED_UNICODE);
-		;?>
 		</div>
 	</div>
 	<button type="button" id="gm-elment-add">追加</button>
