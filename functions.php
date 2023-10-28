@@ -331,8 +331,7 @@ function ranking_db_farst_insert_data(){
 		$rank2_img_path,
 		$rank3_img_path,
 		$rank4_img_path,
-		$rank5_img_path,
-		$rank6_img_path
+		$rank5_img_path
 	];
 	
 	$grandmenu_img_url_json = json_encode($grandmenu_img_url_path,JSON_UNESCAPED_UNICODE);
@@ -450,6 +449,7 @@ add_action('narukami_theme_activate', 'ranking_db_farst_insert_data');
 
 //画像アップロード用のタグを出力する
 function generate_upload_image_tag($name, $value){?>
+<div class="img-wrap-function">
 <p class="subf-prev-title">選択画像PREVEW</p>
 <div id="<?php echo $name; ?>_thumbnail" class="uploded-thumbnail">
     <?php if ($value): ?>
@@ -459,7 +459,7 @@ function generate_upload_image_tag($name, $value){?>
   <input id="<?php echo $name; ?>" class="img-setect-url"name="<?php echo $name; ?>" type="text" value="<?php echo $value; ?>" />
   <input id="<?php echo $name; ?>_btn" type="button" class="img-select" name="<?php echo $name; ?>_slect" value="選択" />
   <input id="<?php echo $name; ?>_clear" type="button" class="img-select-clear" name="<?php echo $name; ?>_clear" value="クリア" />
-  
+</div>
 
 
   <script type="text/javascript">
