@@ -295,6 +295,7 @@ function create_theme_tables() {
 		  `concept_content` varchar(1000) NOT NULL,
 		  `grandmenu_img_url` varchar(2000) NOT NULL,
 		  `grandmenu_title` varchar(255) NOT NULL,
+		  `grandmenu_pagelink` varchar(2000) NOT NULL,
 		  PRIMARY KEY (`id`)
 		) {$charset_collate} AUTO_INCREMENT=1;";
         require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
@@ -345,6 +346,14 @@ function ranking_db_farst_insert_data(){
 	];
 	$grandmenu_title_json = json_encode($grandmenu_img_title_path,JSON_UNESCAPED_UNICODE );
 	
+	$grandmenu_pagelink_path = [
+		$url_path,
+		$url_path,
+		$url_path,
+		$url_path,
+		$url_path
+	];
+	$grandmenu_pagelink_json = json_encode($grandmenu_pagelink_path,JSON_UNESCAPED_UNICODE);
 	
 	global $wpdb;
 	$tablename =  $wpdb->prefix . "narukami_content_maker";
@@ -391,6 +400,7 @@ function ranking_db_farst_insert_data(){
 		'concept_content' => $concept_content_sample,
 		'grandmenu_img_url' => $grandmenu_img_url_json,
 		'grandmenu_title' => $grandmenu_title_json,
+		'grandmenu_pagelink' => $grandmenu_pagelink_json,
 		
 		),
 		array(
@@ -439,6 +449,7 @@ function ranking_db_farst_insert_data(){
 			'%s',
 			'%s',
 			//grandmenu
+			'%s',
 			'%s',
 			'%s',
 		)

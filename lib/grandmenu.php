@@ -4,11 +4,12 @@
 			<?php
 			  require_once(dirname(dirname(dirname(dirname(dirname( __FILE__ ))))) . '/wp-load.php' );
 			  global $wpdb;
-			  $query = "SELECT grandmenu_img_url,  grandmenu_title FROM wp_narukami_content_maker;";
+			  $query = "SELECT grandmenu_img_url,  grandmenu_title, grandmenu_pagelink FROM wp_narukami_content_maker;";
 			  $rows = $wpdb->get_results($query,OBJECT);
 			  foreach($rows as $row) {
 				 $grandmenu_img_url = $row->grandmenu_img_url;
 				 $grandmenu_title = $row->grandmenu_title;
+				 $grandmenu_pagelink = $row->grandmenu_pagelink;
 			  };
 			  ?>
 			<div class="grandmenu-wrap" >
@@ -17,19 +18,20 @@
 						<?php
 						$grandmenu_title_dec = json_decode($grandmenu_title);
 						$grandmenu_img_url_dec = json_decode($grandmenu_img_url);
-						//空配列を作成
-						$resultArray = array();
-
-						// 配列の要素数が一致していることを確認
-						if (count($grandmenu_img_url_dec) == count($grandmenu_title_dec)) {
-							// 連想配列を構築
-							foreach ($grandmenu_img_url_dec as $index => $url) {
-								$resultArray[$url] = $grandmenu_title_dec[$index];
-							}
-						} else {
-							// 配列の要素数が一致しない場合のエラー処理
-							echo "配列の要素数が一致しません。";
+						$grandmenu_pagelink_dec = json_decode($grandmenu_pagelink);
+						// 連想配列を作成
+						$gm_item_Array = array();
+						
+						for ($i = 0; $i < count($grandmenu_title_dec); $i++) {
+							$gm_item_Array[$grandmenu_title_dec[$i]] = array(
+								'title' => $grandmenu_title_dec[$i],
+								'imgurl' => $grandmenu_img_url_dec[$i],
+								'pagelink' => $grandmenu_pagelink_dec[$i]
+							);
 						}
+						
+						// 連想配列の内容を表示
+						print_r($gm_item_Array);
 						;?>
 					
 					</ul>
@@ -47,14 +49,16 @@
 			}
 	;?>
 	<?php
-	if (isset($resultArray) && is_array($resultArray)) {
-		foreach ($resultArray as $url => $title ) {
+	if (isset($gm_item_Array) && is_array($gm_item_Array)) {
+		foreach ($gm_item_Array as $key => $values ) {
 			echo '<div id="gm-form">';
 			echo '<h4 class="h-admin-4-bg">グランドメニュージャンルの背景画像を選択してください。</h4>';
-			$result_gm = generate_upload_image_tag('grandmenu_img_url[]', $url);
+			$result_gm = generate_upload_image_tag('grandmenu_img_url[]', $values['imgurl']);
 			echo $result_gm;
 			echo "<h4>グランドメニューのジャンル名を入力してください。</h4>";
-			echo "<input type='text' name='grandmenu_title[]' class='img-setect-url' value='" . $title . "'>";
+			echo "<input type='text' name='grandmenu_title[]' class='img-setect-url' value='" . $values['title'] . "'>";
+			echo "<h4>ジャンル一覧ページへのリンクを入力してください。</h4>";
+			echo "<input type='text' name='grandmenu_pagelink[]' class='img-setect-url' value='" . $values['pagelink'] . "'>";
 			echo "</div>";
 		}
 	}
