@@ -458,7 +458,7 @@ function ranking_db_farst_insert_data(){
 
 add_action('narukami_theme_activate', 'ranking_db_farst_insert_data');
 
-//画像アップロード用のタグを出力する
+//画像アップロード用のタグを出力する(single)
 function generate_upload_image_tag($name, $value){?>
 <div class="img-wrap-function">
 <p class="subf-prev-title">選択画像PREVEW</p>
@@ -510,7 +510,7 @@ function generate_upload_image_tag($name, $value){?>
           custom_uploader.on("select", function() {
 
               var images = custom_uploader.state().get("selection");
-
+			  
               /* file の中に選択された画像の各種情報が入っている */
               images.each(function(file){
                   $(this).text("リスト" + file);
@@ -545,15 +545,75 @@ function generate_upload_image_tag($name, $value){?>
   <?php
 }
 
-function my_admin_scripts() {
-  //メディアアップローダの javascript API
-  wp_enqueue_media();
-}
-add_action( 'admin_print_scripts', 'my_admin_scripts' );
+function generate_upload_multipleimage_tag($name, $value, $index){
+    ?>
+    <div class="img-wrap-function">
+        <p class="subf-prev-title">選択画像PREVIEW</p>
+        <div id="<?php echo $name; ?>_thumbnail_<?php echo $index; ?>" class="uploded-thumbnail">
+            <?php if ($value): ?>
+                <img src="<?php echo $value; ?>" alt="選択中の画像">
+            <?php endif ?>
+        </div>
+        <input id="<?php echo $name; ?>_<?php echo $index; ?>" class="img-select-url" name="<?php echo $name; ?>[]" type="text" value="<?php echo $value; ?>" />
+        <input id="<?php echo $name; ?>_btn_<?php echo $index; ?>" type="button" class="img-select img-select-btn" name="<?php echo $name; ?>_select" data-index="<?php echo $index; ?>" value="選択" />
+<input id="<?php echo $name; ?>_clear_<?php echo $index; ?>" type="button" class="img-select-clear img-clear-btn" name="<?php echo $name; ?>_clear" data-index="<?php echo $index; ?>" value="クリア" />
+    </div>
 
-/*-------------------------------------------
-メディアのキャプションを設定する
----------------------------------------------*/
+
+  <script type="text/javascript">
+	  var custom_uploader;
+  (function ($) {
+    $(".img-select-btn").click(function (e) {
+        e.preventDefault();
+        var index = $(this).data("index");
+		if (custom_uploader) {
+            custom_uploader.close(); // 既存のアップローダーを閉じる
+        }
+        custom_uploader = wp.media({
+            title: "画像を選択してください",
+            library: {
+                type: "image"
+            },
+            button: {
+                text: "画像の選択"
+            },
+            multiple: false
+        });
+
+        custom_uploader.on("select", function () {
+            var images = custom_uploader.state().get("selection");
+            images.each(function (file) {
+                $("#<?php echo $name; ?>_" + index).val(file.attributes.sizes.full.url);
+                $("#<?php echo $name; ?>_thumbnail_" + index).empty();
+                $("#<?php echo $name; ?>_thumbnail_" + index).append('<img src="' + file.attributes.sizes.thumbnail.url + '" />');
+            });
+        });
+
+        custom_uploader.open();
+    });
+
+    $(".img-clear-btn").click(function () {
+		if (custom_uploader) {
+            custom_uploader.close(); // アップローダーを閉じる
+        }
+		
+        var index = $(this).data("index");
+        $("#<?php echo $name; ?>_" + index).val("");
+        $("#<?php echo $name; ?>_thumbnail_" + index).empty();
+    });
+})(jQuery);
+  </script>
+  <?php
+}
+
+function my_admin_scripts() {
+    wp_enqueue_media();
+}
+add_action('admin_enqueue_scripts', 'my_admin_scripts');
+/*
+*メディアのキャプションを設定する
+*/
+
 add_filter( 'wp_get_attachment_metadata', 'my_wp_get_attachment_metadata', 10, 2 );
 function my_wp_get_attachment_metadata( $data, $id ) {
     $image = get_post($id);

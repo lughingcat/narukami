@@ -35,6 +35,8 @@
 						;?>
 					
 					</ul>
+					</br>
+				<?php var_dump($_POST['grandmenu_img_url']);?>
 				</div>
 			</div>
 		</article>
@@ -50,10 +52,11 @@
 	;?>
 	<?php
 	if (isset($gm_item_Array) && is_array($gm_item_Array)) {
+		$index = 0;
 		foreach ($gm_item_Array as $key => $values ) {
-			echo '<div id="gm-form">';
+			echo '<div id="gm-form_' . $index . '">';
 			echo '<h4 class="h-admin-4-bg">グランドメニュージャンルの背景画像を選択してください。</h4>';
-			$result_gm = generate_upload_image_tag('grandmenu_img_url', $values['imgurl']);
+			$result_gm = generate_upload_multipleimage_tag('grandmenu_img_url', $values['imgurl'], $index);
 			echo $result_gm;
 			echo "<h4>グランドメニューのジャンル名を入力してください。</h4>";
 			echo "<input type='text' name='grandmenu_title[]' class='img-setect-url' value='" . $values['title'] . "'>";
@@ -61,6 +64,8 @@
 			echo "<input type='text' name='grandmenu_pagelink[]' class='img-setect-url' value='" . $values['pagelink'] . "'>";
 			echo '<button type="button" onclick="deleteParentEl(this)">削除</button>';
 			echo "</div>";
+			
+			 $index++;
 		}
 	}
 	?>
