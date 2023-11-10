@@ -72,4 +72,28 @@
 	</div>
 	<button type="button" id="gm-elment-add">追加</button>
 	<button type="button" id="grandmenuCloseBtn">閉じる</button>
+	<?php echo $index;?>
+    <script type="text/javascript">
+        var contup = <?php echo $index; ?>;
+    	
+        function addGmElement() {
+            const gmForm = document.getElementById("gm-form_" + (contup - 1));
+            const addField = gmForm.parentElement;
+            const copied = gmForm.cloneNode(true);
+            const newId = "gm-form_" + contup;
+            copied.id = newId;
+    
+            contup++;
+        }
+    
+        const gmAddBtn = document.getElementById("gm-elment-add");
+        gmAddBtn.addEventListener("click", addGmElement, false);
+    
+        function deleteParentEl(button) {
+            var parentEl = button.parentElement;
+            if (parentEl) {
+                parentEl.remove();
+            }
+        }
+    </script>
 </div>

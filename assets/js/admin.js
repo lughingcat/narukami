@@ -41,42 +41,7 @@ function cmakerChange(){
 }
 
 
-//グランドメニューの要素の追加、削除
-let contup = 1;
 
-function addGmElement() {
-    const gmForm = document.getElementById("gm-form");
-    console.log(gmForm.id);
-    const addField = document.getElementById("gm-form-erea");
-    const copied = gmForm.cloneNode(true);
-    const newId = "gm-form" + (contup + 1);
-    copied.id = newId;
-
-    const delButton = document.createElement('button');
-    delButton.type = 'button';
-    delButton.textContent = '削除';
-    delButton.onclick = function() {
-        deleteParentEl(this);
-    };
-
-    copied.appendChild(delButton);
-    addField.appendChild(copied);
-
-    contup++;
-}
-
-const gmAddBtn = document.getElementById("gm-elment-add");
-gmAddBtn.addEventListener("click", addGmElement, false);
-
-
-//グランドメニューの要素の親要素を選択して削除
-
-function deleteParentEl(button){
-	var parentEl = button.parentElement;
-	if(parentEl){
-		parentEl.remove();
-	}
-}
 
 //コンセプト文字列を時間差で表示
 const wrapCharSpan = function(str){
