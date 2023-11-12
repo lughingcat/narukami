@@ -40,7 +40,41 @@ function cmakerChange(){
 	}
 }
 
+//グランドメニューのCRAD
 
+ function addGmElement() {
+			let countEl = document.querySelectorAll('.gm-form-style').length;
+			let lastNam = countEl -1;
+			let plasNam = lastNam +1;
+            let gmForm = document.getElementById("gm-form_" + lastNam);
+            let addField = gmForm.parentElement;
+            let copied = gmForm.cloneNode(true);
+            let newId = "gm-form_" + plasNam;
+            copied.id = newId;
+    		addField.appendChild(copied);
+            plasNam++;
+        }
+    
+        const gmAddBtn = document.getElementById("gm-elment-add");
+        gmAddBtn.addEventListener("click", addGmElement, false);
+    
+        function deleteParentEl(button) {
+			let elements = document.querySelectorAll('.gm-form-style');
+			// 最後の1つの要素になった場合
+			if (elements.length === 1) {
+				alert("最後の要素は削除できません");
+				return; // 削除しない
+			}
+
+            var parentEl = button.parentElement;
+            if (parentEl) {
+                parentEl.remove();
+				let elements = document.querySelectorAll('.gm-form-style');
+   				elements.forEach((el, index) => {
+   				    el.id = "gm-form_" + index;
+                });
+            }
+        }
 
 
 //コンセプト文字列を時間差で表示
@@ -485,7 +519,7 @@ window.addEventListener("load",function(){
 
 
 new Vue({
-	el:'#subfooters',
+	el: '#subfooters',
 	data(){
 		return{
 			subfooters:[{ text: '', url: ''}],

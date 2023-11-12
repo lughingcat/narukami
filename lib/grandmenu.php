@@ -29,14 +29,10 @@
 								'pagelink' => $grandmenu_pagelink_dec[$i]
 							);
 						}
-						
-						// 連想配列の内容を表示
-						print_r($gm_item_Array);
 						;?>
 					
 					</ul>
 					</br>
-				<?php var_dump($_POST['grandmenu_img_url']);?>
 				</div>
 			</div>
 		</article>
@@ -54,7 +50,7 @@
 	if (isset($gm_item_Array) && is_array($gm_item_Array)) {
 		$index = 0;
 		foreach ($gm_item_Array as $key => $values ) {
-			echo '<div id="gm-form_' . $index . '">';
+			echo "<div id='gm-form_$index' class='gm-form-style'>";
 			echo '<h4 class="h-admin-4-bg">グランドメニュージャンルの背景画像を選択してください。</h4>';
 			$result_gm = generate_upload_multipleimage_tag('grandmenu_img_url', $values['imgurl'], $index);
 			echo $result_gm;
@@ -71,29 +67,5 @@
 	?>
 	</div>
 	<button type="button" id="gm-elment-add">追加</button>
-	<button type="button" id="grandmenuCloseBtn">閉じる</button>
-	<?php echo $index;?>
-    <script type="text/javascript">
-        var contup = <?php echo $index; ?>;
-    	
-        function addGmElement() {
-            const gmForm = document.getElementById("gm-form_" + (contup - 1));
-            const addField = gmForm.parentElement;
-            const copied = gmForm.cloneNode(true);
-            const newId = "gm-form_" + contup;
-            copied.id = newId;
-    
-            contup++;
-        }
-    
-        const gmAddBtn = document.getElementById("gm-elment-add");
-        gmAddBtn.addEventListener("click", addGmElement, false);
-    
-        function deleteParentEl(button) {
-            var parentEl = button.parentElement;
-            if (parentEl) {
-                parentEl.remove();
-            }
-        }
-    </script>
+<button type="button" id="grandmenuCloseBtn">閉じる</button>
 </div>
