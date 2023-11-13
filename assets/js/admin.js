@@ -75,7 +75,42 @@ function cmakerChange(){
                 });
             }
         }
+//グランドメニューのバリテート
 
+ 
+ document.getElementById('gmvalidate').addEventListener('click', function() {
+            validateForm();
+        });
+
+        function validateForm() {
+            var form = document.getElementById('gm-form-erea');
+            var inputElements = form.querySelectorAll('input');
+            var scrollToElement;
+            var hasEmptyInput = false;
+			const errorElement = document.querySelectorAll('.gm-error-message');
+            inputElements.forEach(function(input) {
+                if (input.value.trim() === '') {
+                    hasEmptyInput = true;
+                    scrollToElement = input;
+                    input.classList.add('gmform-error'); // 赤い枠で囲む
+					errorElement.style.display = '';
+                } else {
+                    input.classList.remove('gmform-error'); // 枠をクリア
+					errorElement.forEach(function(errorEl){
+					}); 
+                }
+            });
+
+            if (hasEmptyInput && scrollToElement) {
+                // 空の input がある場合、その要素までスクロール
+                scrollToElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+
+            if (!hasEmptyInput) {
+                // フォームが有効な場合は送信
+                form.submit();
+            }
+        }
 
 //コンセプト文字列を時間差で表示
 const wrapCharSpan = function(str){
@@ -517,7 +552,7 @@ window.addEventListener("load",function(){
 サブフッターCRUDシステムjs
 ==================================*/
 
-
+document.addEventListener('DOMContentLoaded', function() {
 new Vue({
 	el: '#subfooters',
 	data(){
@@ -602,4 +637,5 @@ new Vue({
 
 	}
 
-})
+});
+	});

@@ -16,9 +16,15 @@
 				<div class="grandmenu-title-wrap">
 					<ul>
 						<?php
+						if(isset($_POST['grandmenu_img_url'])){
+						$grandmenu_title_dec = $_POST['grandmenu_title'];
+						$grandmenu_img_url_dec = $_POST['grandmenu_img_url'];
+						$grandmenu_pagelink_dec = $_POST['grandmenu_pagelink'];
+						}else{
 						$grandmenu_title_dec = json_decode($grandmenu_title);
 						$grandmenu_img_url_dec = json_decode($grandmenu_img_url);
 						$grandmenu_pagelink_dec = json_decode($grandmenu_pagelink);
+						}
 						// 連想配列を作成
 						$gm_item_Array = array();
 						
@@ -56,6 +62,8 @@
 			echo $result_gm;
 			echo "<h4>グランドメニューのジャンル名を入力してください。</h4>";
 			echo "<input type='text' name='grandmenu_title[]' class='img-setect-url' value='" . $values['title'] . "'>";
+			$error_message = 'This field is required.';
+			echo '<div class="gm-error-message" style="display: none;">' . $error_message . '</div>';
 			echo "<h4>ジャンル一覧ページへのリンクを入力してください。</h4>";
 			echo "<input type='text' name='grandmenu_pagelink[]' class='img-setect-url' value='" . $values['pagelink'] . "'>";
 			echo '<button type="button" onclick="deleteParentEl(this)">削除</button>';
