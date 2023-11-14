@@ -87,17 +87,26 @@ function cmakerChange(){
             var inputElements = form.querySelectorAll('input');
             var scrollToElement;
             var hasEmptyInput = false;
-			const errorElement = document.querySelectorAll('.gm-error-message');
+			var erroeMseg = document.querySelectorAll('.gm-error-message')
+			
             inputElements.forEach(function(input) {
+				
                 if (input.value.trim() === '') {
                     hasEmptyInput = true;
                     scrollToElement = input;
                     input.classList.add('gmform-error'); // 赤い枠で囲む
-					errorElement.style.display = '';
+					let parentEl = input.parentNode;
+					let errorEl = parentEl.getElementsByClassName('gm-error-message');
+					if (errorEl.length > 0) {
+						errorEl[0].style.display = 'block';
+					}
                 } else {
                     input.classList.remove('gmform-error'); // 枠をクリア
-					errorElement.forEach(function(errorEl){
-					}); 
+					let errorEl = parentEl.getElementsByClassName('gm-error-message');
+					if (errorEl.length > 0) {
+						errorEl[0].style.display = 'none';
+					}
+					
                 }
             });
 
