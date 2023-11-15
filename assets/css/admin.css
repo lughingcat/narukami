@@ -76,6 +76,10 @@
 .gmform-error {
   border: 2px solid red !important; }
 
+.gm-error-message {
+  color: red;
+  margin: 2% 0 2%; }
+
 /*------ inputformスタイルend　-------*/
 /*-- hタグ、見出しスタイルend --*/
 /*-- BG,背景スタイル --*/

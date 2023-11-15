@@ -78,16 +78,17 @@ function cmakerChange(){
 //グランドメニューのバリテート
 
  
- document.getElementById('gmvalidate').addEventListener('click', function() {
+ document.getElementById('grandmenuCloseBtn').addEventListener('click', function() {
             validateForm();
         });
 
         function validateForm() {
-            var form = document.getElementById('gm-form-erea');
-            var inputElements = form.querySelectorAll('input');
+            var gmform = document.getElementById('gm-form-erea');
+            var inputElements = gmform.querySelectorAll('input');
             var scrollToElement;
             var hasEmptyInput = false;
 			var erroeMseg = document.querySelectorAll('.gm-error-message')
+			console.log(erroeMseg.length);
 			
             inputElements.forEach(function(input) {
 				
@@ -95,30 +96,26 @@ function cmakerChange(){
                     hasEmptyInput = true;
                     scrollToElement = input;
                     input.classList.add('gmform-error'); // 赤い枠で囲む
-					let parentEl = input.parentNode;
-					let errorEl = parentEl.getElementsByClassName('gm-error-message');
+					var parentEl = input.parentNode;
+					var errorEl = parentEl.getElementsByClassName('gm-error-message');
 					if (errorEl.length > 0) {
 						errorEl[0].style.display = 'block';
 					}
+					
                 } else {
                     input.classList.remove('gmform-error'); // 枠をクリア
-					let errorEl = parentEl.getElementsByClassName('gm-error-message');
-					if (errorEl.length > 0) {
-						errorEl[0].style.display = 'none';
-					}
-					
-                }
+					erroeMseg.forEach(function(erroeMsegs){
+						erroeMsegs.style.display = 'none';
+						console.log(erroeMsegs);
+					})
+				}
+                
             });
 
             if (hasEmptyInput && scrollToElement) {
                 // 空の input がある場合、その要素までスクロール
                 scrollToElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-
-            if (!hasEmptyInput) {
-                // フォームが有効な場合は送信
-                form.submit();
-            }
+			}
         }
 
 //コンセプト文字列を時間差で表示

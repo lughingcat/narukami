@@ -62,7 +62,7 @@
 			echo $result_gm;
 			echo "<h4>グランドメニューのジャンル名を入力してください。</h4>";
 			echo "<input type='text' name='grandmenu_title[]' class='img-setect-url' value='" . $values['title'] . "'>";
-			$error_message = 'This field is required.';
+			$error_message = 'グランドメニュータイトルが入力されていません';
 			echo '<div class="gm-error-message" style="display: none;">' . $error_message . '</div>';
 			echo "<h4>ジャンル一覧ページへのリンクを入力してください。</h4>";
 			echo "<input type='text' name='grandmenu_pagelink[]' class='img-setect-url' value='" . $values['pagelink'] . "'>";
@@ -75,5 +75,5 @@
 	?>
 	</div>
 	<button type="button" id="gm-elment-add">追加</button>
-<button type="button" id="grandmenuCloseBtn">閉じる</button>
+<button type="button" id="grandmenuCloseBtn">保存(閉じる)</button>
 </div>
