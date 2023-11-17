@@ -40,43 +40,83 @@ function cmakerChange(){
 	}
 }
 
+//グランドメニューのCRAD
 
-//グランドメニューの要素の追加、削除
-let contup = 1;
+ function addGmElement() {
+			let countEl = document.querySelectorAll('.gm-form-style').length;
+			let lastNam = countEl -1;
+			let plasNam = lastNam +1;
+            let gmForm = document.getElementById("gm-form_" + lastNam);
+            let addField = gmForm.parentElement;
+            let copied = gmForm.cloneNode(true);
+            let newId = "gm-form_" + plasNam;
+            copied.id = newId;
+    		addField.appendChild(copied);
+            plasNam++;
+        }
+    
+        const gmAddBtn = document.getElementById("gm-elment-add");
+        gmAddBtn.addEventListener("click", addGmElement, false);
+    
+        function deleteParentEl(button) {
+			let elements = document.querySelectorAll('.gm-form-style');
+			// 最後の1つの要素になった場合
+			if (elements.length === 1) {
+				alert("最後の要素は削除できません");
+				return; // 削除しない
+			}
 
-function addGmElement() {
-    const gmForm = document.getElementById("gm-form");
-    console.log(gmForm.id);
-    const addField = document.getElementById("gm-form-erea");
-    const copied = gmForm.cloneNode(true);
-    const newId = "gm-form" + (contup + 1);
-    copied.id = newId;
+            var parentEl = button.parentElement;
+            if (parentEl) {
+                parentEl.remove();
+				let elements = document.querySelectorAll('.gm-form-style');
+   				elements.forEach((el, index) => {
+   				    el.id = "gm-form_" + index;
+                });
+            }
+        }
+//グランドメニューのバリテート
 
-    const delButton = document.createElement('button');
-    delButton.type = 'button';
-    delButton.textContent = '削除';
-    delButton.onclick = function() {
-        deleteParentEl(this);
-    };
+ 
+ document.getElementById('grandmenuCloseBtn').addEventListener('click', function() {
+            validateForm();
+        });
 
-    copied.appendChild(delButton);
-    addField.appendChild(copied);
+        function validateForm() {
+            var gmform = document.getElementById('gm-form-erea');
+            var inputElements = gmform.querySelectorAll('input');
+            var scrollToElement;
+            var hasEmptyInput = false;
+			var erroeMseg = document.querySelectorAll('.gm-error-message')
+			console.log(erroeMseg.length);
+			
+            inputElements.forEach(function(input) {
+				
+                if (input.value.trim() === '') {
+                    hasEmptyInput = true;
+                    scrollToElement = input;
+                    input.classList.add('gmform-error'); // 赤い枠で囲む
+					var parentEl = input.parentNode;
+					var errorEl = parentEl.getElementsByClassName('gm-error-message');
+					if (errorEl.length > 0) {
+						errorEl[0].style.display = 'block';
+					}
+					
+                } else {
+                    input.classList.remove('gmform-error'); // 枠をクリア
+					erroeMseg.forEach(function(erroeMsegs){
+						erroeMsegs.style.display = 'none';
+						console.log(erroeMsegs);
+					})
+				}
+                
+            });
 
-    contup++;
-}
-
-const gmAddBtn = document.getElementById("gm-elment-add");
-gmAddBtn.addEventListener("click", addGmElement, false);
-
-
-//グランドメニューの要素の親要素を選択して削除
-
-function deleteParentEl(button){
-	var parentEl = button.parentElement;
-	if(parentEl){
-		parentEl.remove();
-	}
-}
+            if (hasEmptyInput && scrollToElement) {
+                // 空の input がある場合、その要素までスクロール
+                scrollToElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+			}
+        }
 
 //コンセプト文字列を時間差で表示
 const wrapCharSpan = function(str){
@@ -518,9 +558,9 @@ window.addEventListener("load",function(){
 サブフッターCRUDシステムjs
 ==================================*/
 
-
+document.addEventListener('DOMContentLoaded', function() {
 new Vue({
-	el:'#subfooters',
+	el: '#subfooters',
 	data(){
 		return{
 			subfooters:[{ text: '', url: ''}],
@@ -603,4 +643,5 @@ new Vue({
 
 	}
 
-})
+});
+	});
