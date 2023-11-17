@@ -29,14 +29,10 @@
 								'pagelink' => $grandmenu_pagelink_dec[$i]
 							);
 						}
-						
-						// 連想配列の内容を表示
-						print_r($gm_item_Array);
 						;?>
 					
 					</ul>
 					</br>
-				<?php var_dump($_POST['grandmenu_img_url']);?>
 				</div>
 			</div>
 		</article>
