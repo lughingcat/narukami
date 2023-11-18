@@ -60,10 +60,12 @@
 			echo '<h4 class="h-admin-4-bg">グランドメニュージャンルの背景画像を選択してください。</h4>';
 			$result_gm = generate_upload_multipleimage_tag('grandmenu_img_url', $values['imgurl'], $index);
 			echo $result_gm;
+			$error_message_img = 'グランドメニューの背景画像が選択されていません。';
+			echo '<div class="gm-error-message-img" style="display: none;">' . $error_message_img . '</div>';
 			echo "<h4>グランドメニューのジャンル名を入力してください。</h4>";
 			echo "<input type='text' name='grandmenu_title[]' class='img-setect-url' value='" . $values['title'] . "'>";
-			$error_message = 'グランドメニュータイトルが入力されていません';
-			echo '<div class="gm-error-message" style="display: none;">' . $error_message . '</div>';
+			$error_message_title = 'グランドメニュータイトルが入力されていません。';
+			echo '<div class="gm-error-message-title" style="display: none;">' . $error_message_title . '</div>';
 			echo "<h4>ジャンル一覧ページへのリンクを入力してください。</h4>";
 			echo "<input type='text' name='grandmenu_pagelink[]' class='img-setect-url' value='" . $values['pagelink'] . "'>";
 			echo '<button type="button" onclick="deleteParentEl(this)">削除</button>';

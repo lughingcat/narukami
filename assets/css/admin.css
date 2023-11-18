@@ -76,7 +76,8 @@
 .gmform-error {
   border: 2px solid red !important; }
 
-.gm-error-message {
+.gm-error-message-title,
+.gm-error-message-img {
   color: red;
   margin: 2% 0 2%; }
 

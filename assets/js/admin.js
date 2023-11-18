@@ -85,29 +85,17 @@ function cmakerChange(){
         function validateForm() {
             var gmform = document.getElementById('gm-form-erea');
             var inputElements = gmform.querySelectorAll('input');
+			var erroeMsegTitle = document.querySelectorAll('.gm-error-message-title')
             var scrollToElement;
             var hasEmptyInput = false;
-			var erroeMseg = document.querySelectorAll('.gm-error-message')
-			console.log(erroeMseg.length);
 			
             inputElements.forEach(function(input) {
-				
                 if (input.value.trim() === '') {
                     hasEmptyInput = true;
                     scrollToElement = input;
                     input.classList.add('gmform-error'); // 赤い枠で囲む
-					var parentEl = input.parentNode;
-					var errorEl = parentEl.getElementsByClassName('gm-error-message');
-					if (errorEl.length > 0) {
-						errorEl[0].style.display = 'block';
-					}
-					
                 } else {
                     input.classList.remove('gmform-error'); // 枠をクリア
-					erroeMseg.forEach(function(erroeMsegs){
-						erroeMsegs.style.display = 'none';
-						console.log(erroeMsegs);
-					})
 				}
                 
             });
@@ -115,35 +103,49 @@ function cmakerChange(){
             if (hasEmptyInput && scrollToElement) {
                 // 空の input がある場合、その要素までスクロール
                 scrollToElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-			}
-        }
+				
+				// .gm-error-message クラスの要素の style を block に変更
+        		erroeMsegTitle.forEach(function(msg) {
+					if (msg.parentElement.contains(scrollToElement)) {
+						msg.style.display = 'block';
+					} else {
+						msg.style.display = 'none';
+					}
+				});
+				
+			}else {
+        // 入力が全て非空の場合、すべての .gm-error-message を非表示にする
+   	 		    erroeMsegTitle.forEach(function(msg) {
+   	 		        msg.style.display = 'none';
+   	 		    });
+   	 		}
+		}
 
-//コンセプト文字列を時間差で表示
-const wrapCharSpan = function(str){
-    return [...str].map(char => `<span>${char}</span>`).join('');
+//トップ各項目タイトル時間差表示関数
+const animateTextWithSpans = function(selector, delay = 100) {
+    const wrapCharSpan = function(str) {
+        return [...str].map(char => `<span>${char}</span>`).join('');
+    }
+
+    const target = document.querySelector(selector);
+    if (!target) {
+        console.error(`Element with selector ${selector} not found.`);
+        return;
+    }
+
+    target.innerHTML = wrapCharSpan(target.textContent);
+
+    Array.from(target.children).forEach((char, index) => {
+        window.setTimeout(function () {
+            char.classList.add('is-animated');
+        }, delay * index);
+    });
 }
 
-const target = document.querySelector('.concept-main-title');
-target.innerHTML = wrapCharSpan(target.textContent);
-
-Array.from(target.children).forEach((char, index) => {
-    window.setTimeout(function () {
-        char.classList.add('is-animated');
-    }, 100 * index);
-});
-//ランキング文字列を時間差で表示
-const wrapRankSpan = function(str){
-    return [...str].map(Rank => `<span>${Rank}</span>`).join('');
-}
-
-const RankTitle = document.querySelector('.r-p-t-prev');
-RankTitle.innerHTML = wrapRankSpan(RankTitle.textContent);
-
-Array.from(RankTitle.children).forEach((Rank, index) => {
-    window.setTimeout(function () {
-        Rank.classList.add('is-animated');
-    }, 100 * index);
-});
+//.concept-main-title'時間差表示
+animateTextWithSpans('.concept-main-title');
+//.r-p-t-prev'時間差表示
+animateTextWithSpans('.r-p-t-prev');
 
 
 //ボタン式選択項目の入力フォーム非表示
