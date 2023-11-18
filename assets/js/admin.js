@@ -85,7 +85,8 @@ function cmakerChange(){
         function validateForm() {
             var gmform = document.getElementById('gm-form-erea');
             var inputElements = gmform.querySelectorAll('input');
-			var erroeMsegTitle = document.querySelectorAll('.gm-error-message-title')
+			var erroeMsegTitle = document.querySelectorAll('.gm-error-message-title');
+			var erroeMsegImg = document.querySelectorAll('.gm-error-message-img');
             var scrollToElement;
             var hasEmptyInput = false;
 			
@@ -112,11 +113,20 @@ function cmakerChange(){
 						msg.style.display = 'none';
 					}
 				});
-				
+				erroeMsegImg.forEach(function(msgimg) {
+					if (msgimg.parentElement.contains(scrollToElement)) {
+						msgimg.style.display = 'block';
+					} else {
+						msgimg.style.display = 'none';
+					}
+				});
 			}else {
         // 入力が全て非空の場合、すべての .gm-error-message を非表示にする
    	 		    erroeMsegTitle.forEach(function(msg) {
    	 		        msg.style.display = 'none';
+   	 		    });
+				erroeMsegImg.forEach(function(msgimg) {
+   	 		        msgimg.style.display = 'none';
    	 		    });
    	 		}
 		}
