@@ -77,7 +77,8 @@
   border: 2px solid red !important; }
 
 .gm-error-message-title,
-.gm-error-message-img {
+.gm-error-message-img,
+.gm-error-message-link {
   color: red;
   margin: 2% 0 2%; }
 

@@ -77,16 +77,25 @@ function cmakerChange(){
         }
 //グランドメニューのバリテート
 
- 
+ var emptyInputIds = [];
+　
  document.getElementById('grandmenuCloseBtn').addEventListener('click', function() {
             validateForm();
+	if (Array.isArray(emptyInputIds)) {
+  emptyInputIds.forEach(function(emptyInputId) {
+    console.log(emptyInputId);
+  });
+} else {
+  console.error("emptyInputId is not an array");
+}
         });
 
         function validateForm() {
             var gmform = document.getElementById('gm-form-erea');
             var inputElements = gmform.querySelectorAll('input');
-			var erroeMsegTitle = document.querySelectorAll('.gm-error-message-title');
-			var erroeMsegImg = document.querySelectorAll('.gm-error-message-img');
+			var erroeMsegTitle = document.querySelectorAll('[id^="gm_title_error_"]');
+			var erroeMsegImg = document.querySelectorAll('[id^="gm_img_error_"]');
+			var erroeMsegLink = document.querySelectorAll('[id^="gm_link_error_"]');
             var scrollToElement;
             var hasEmptyInput = false;
 			
@@ -94,6 +103,7 @@ function cmakerChange(){
                 if (input.value.trim() === '') {
                     hasEmptyInput = true;
                     scrollToElement = input;
+					emptyInputIds.push(input.id); // 空の input の id を保存
                     input.classList.add('gmform-error'); // 赤い枠で囲む
                 } else {
                     input.classList.remove('gmform-error'); // 枠をクリア
@@ -105,27 +115,26 @@ function cmakerChange(){
                 // 空の input がある場合、その要素までスクロール
                 scrollToElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
 				
-				// .gm-error-message クラスの要素の style を block に変更
-        		erroeMsegTitle.forEach(function(msg) {
-					if (msg.parentElement.contains(scrollToElement)) {
-						msg.style.display = 'block';
-					} else {
-						msg.style.display = 'none';
-					}
-				});
-				erroeMsegImg.forEach(function(msgimg) {
-					if (msgimg.parentElement.contains(scrollToElement)) {
-						msgimg.style.display = 'block';
-					} else {
-						msgimg.style.display = 'none';
-					}
-				});
+				 // .gm-error-message クラスの要素の style を設定
+       			erroeMsegTitle.forEach(function(msgtitle) {
+       			    var checkEl = emptyInputIds.nextElementSibling;
+					console.log(checkEl);
+       			});
+       			erroeMsegImg.forEach(function(msgimg) {
+       			    msgimg.style.display = msgimg.id === emptyInputIds ? 'block' : 'none';
+       			});
+       			erroeMsegLink.forEach(function(msglink) {
+       			    msglink.style.display = msglink.id === emptyInputIds ? 'block' : 'none';
+       			});
 			}else {
         // 入力が全て非空の場合、すべての .gm-error-message を非表示にする
-   	 		    erroeMsegTitle.forEach(function(msg) {
-   	 		        msg.style.display = 'none';
+   	 		    erroeMsegTitle.forEach(function(msgtitle) {
+   	 		        msgtitle.style.display = 'none';
    	 		    });
 				erroeMsegImg.forEach(function(msgimg) {
+   	 		        msgimg.style.display = 'none';
+   	 		    });
+				erroeMsegImg.forEach(function(msglink) {
    	 		        msgimg.style.display = 'none';
    	 		    });
    	 		}
