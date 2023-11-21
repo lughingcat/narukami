@@ -77,20 +77,15 @@ function cmakerChange(){
         }
 //グランドメニューのバリテート
 
- var emptyInputIds = [];
+ 
 　
  document.getElementById('grandmenuCloseBtn').addEventListener('click', function() {
             validateForm();
-	if (Array.isArray(emptyInputIds)) {
-  emptyInputIds.forEach(function(emptyInputId) {
-    console.log(emptyInputId);
-  });
-} else {
-  console.error("emptyInputId is not an array");
-}
-        });
+ });
+
 
         function validateForm() {
+			var emptyInputId;
             var gmform = document.getElementById('gm-form-erea');
             var inputElements = gmform.querySelectorAll('input');
 			var erroeMsegTitle = document.querySelectorAll('[id^="gm_title_error_"]');
@@ -103,29 +98,38 @@ function cmakerChange(){
                 if (input.value.trim() === '') {
                     hasEmptyInput = true;
                     scrollToElement = input;
-					emptyInputIds.push(input.id); // 空の input の id を保存
+					emptyInputId = input.id; // 空の input の id を保存
                     input.classList.add('gmform-error'); // 赤い枠で囲む
                 } else {
                     input.classList.remove('gmform-error'); // 枠をクリア
 				}
                 
             });
-
+			// emptyInputIdから最後の数字のみを抽出
+			var lastNumber = getNumberFromId(emptyInputId);
+			//取得したエラーメッセージのクラス名を除去し、id名だけを抽出し配列に格納
+			var erroeMsegTitleArray = Array.from(erroeMsegTitle).map(element => element.id);
+			//エラーメッセージの配列idナンバーを抽出
+			var errorMesTitleNum = processMultipleIds(erroeMsegTitleArray);
+			
+			
             if (hasEmptyInput && scrollToElement) {
                 // 空の input がある場合、その要素までスクロール
                 scrollToElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
 				
-				 // .gm-error-message クラスの要素の style を設定
-       			erroeMsegTitle.forEach(function(msgtitle) {
-       			    var checkEl = emptyInputIds.nextElementSibling;
-					console.log(checkEl);
-       			});
-       			erroeMsegImg.forEach(function(msgimg) {
-       			    msgimg.style.display = msgimg.id === emptyInputIds ? 'block' : 'none';
-       			});
-       			erroeMsegLink.forEach(function(msglink) {
-       			    msglink.style.display = msglink.id === emptyInputIds ? 'block' : 'none';
-       			});
+				
+				var findTextEl = errorMesTitleNum.find(function(element){
+					return element === lastNumber;
+				});
+				
+				if (findTextEl !== undefined) {
+					console.log('Matching element found:', findTextEl);
+					// ここに一致する要素が見つかった場合の処理を記述
+				} else {
+					console.log('No matching element found.');
+					// ここに一致する要素が見つからなかった場合の処理を記述
+				}
+				
 			}else {
         // 入力が全て非空の場合、すべての .gm-error-message を非表示にする
    	 		    erroeMsegTitle.forEach(function(msgtitle) {
@@ -139,6 +143,29 @@ function cmakerChange(){
    	 		    });
    	 		}
 		}
+//idのナンバーを抜き出す関数
+function getNumberFromId(id) {
+    if (!id) {
+        return null;
+    }
+    // アンダースコアで分割し、最後の部分（数字）を取得
+    var parts = id.split('_');
+
+    // 分割された部分が存在しない場合はnullを返す
+    if (!parts || parts.length === 0) {
+        return null;
+    }
+
+    var lastPart = parts[parts.length - 1];
+
+    // 数字が存在する場合は抽出された数字を返す。存在しない場合はnullを返す。
+    return lastPart.match(/\d+/) ? parseInt(lastPart, 10) : null;
+}
+//getNumberFromIdを使い配列を処理する関数
+function processMultipleIds(ids) {
+    var numbers = ids.map(getNumberFromId);
+	return numbers;
+}
 
 //トップ各項目タイトル時間差表示関数
 const animateTextWithSpans = function(selector, delay = 100) {
