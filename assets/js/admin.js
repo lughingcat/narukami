@@ -102,47 +102,85 @@ function cmakerChange(){
                     input.classList.add('gmform-error'); // 赤い枠で囲む
                 } else {
                     input.classList.remove('gmform-error'); // 枠をクリア
+					
+					 erroeMsegTitle.forEach(function(msgtitle) {
+   	 		        	msgtitle.style.display = 'none';
+   	 		    	});
+						erroeMsegImg.forEach(function(msgimg) {
+   	 		        	msgimg.style.display = 'none';
+   	 		    	});
+					erroeMsegLink.forEach(function(msglink) {
+   	 		        	msglink.style.display = 'none';
+   	 		    	});
 				}
                 
             });
 			// emptyInputIdから最後の数字のみを抽出
 			var lastNumber = getNumberFromId(emptyInputId);
+			
 			//取得したエラーメッセージのクラス名を除去し、id名だけを抽出し配列に格納
 			var erroeMsegTitleArray = Array.from(erroeMsegTitle).map(element => element.id);
+			var erroeMsegImgArray = Array.from(erroeMsegImg).map(element => element.id);
+			var erroeMsegLinkArray = Array.from(erroeMsegLink).map(element => element.id);
+			
 			//エラーメッセージの配列idナンバーを抽出
 			var errorMesTitleNum = processMultipleIds(erroeMsegTitleArray);
+			var errorMesImgNum = processMultipleIds(erroeMsegImgArray);
+			var errorMesLinkNum = processMultipleIds(erroeMsegLinkArray);
 			
+			//空のid名を取得する
+			
+			var firstResult = null;
+			
+			var searchResults = [
+				{ key: 'title', result: checkString(emptyInputId, 'title') },
+				{ key: 'img', result: checkString(emptyInputId, 'img') },
+				{ key: 'link', result: checkString(emptyInputId, 'link') }
+			];
+			searchResults.forEach(function(result) {
+				if (result.result) {
+					if (result.result && firstResult === null) {
+						firstResult = result.key;
+					}
+				}
+				
+				return firstResult;
+			});
 			
             if (hasEmptyInput && scrollToElement) {
                 // 空の input がある場合、その要素までスクロール
                 scrollToElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
 				
-				
+			}
+			if(hasEmptyInput){
 				var findTextEl = errorMesTitleNum.find(function(element){
 					return element === lastNumber;
 				});
 				
-				if (findTextEl !== undefined) {
-					console.log('Matching element found:', findTextEl);
-					// ここに一致する要素が見つかった場合の処理を記述
-				} else {
-					console.log('No matching element found.');
-					// ここに一致する要素が見つからなかった場合の処理を記述
-				}
+				var findImgEl = errorMesImgNum.find(function(element){
+					return element === lastNumber;
+				});
 				
-			}else {
-        // 入力が全て非空の場合、すべての .gm-error-message を非表示にする
-   	 		    erroeMsegTitle.forEach(function(msgtitle) {
-   	 		        msgtitle.style.display = 'none';
-   	 		    });
-				erroeMsegImg.forEach(function(msgimg) {
-   	 		        msgimg.style.display = 'none';
-   	 		    });
-				erroeMsegImg.forEach(function(msglink) {
-   	 		        msgimg.style.display = 'none';
-   	 		    });
-   	 		}
+				var findLinkEl = errorMesLinkNum.find(function(element){
+					return element === lastNumber;
+				});
+				
+				
+				if(firstResult === 'title'){
+					erroeMsegTitle[findTextEl].style.display = 'block';
+				}
+				if(firstResult === 'img'){
+					erroeMsegImg[findImgEl].style.display = 'block';
+				}
+				if(firstResult === 'link'){
+					erroeMsegLink[findLinkEl].style.display = 'block';
+				}
+			}
+		
 		}
+
+
+
 //idのナンバーを抜き出す関数
 function getNumberFromId(id) {
     if (!id) {
@@ -165,6 +203,11 @@ function getNumberFromId(id) {
 function processMultipleIds(ids) {
     var numbers = ids.map(getNumberFromId);
 	return numbers;
+}
+//空のinputタグのidを照合する関数
+
+function checkString(variable, searchString) {
+  return variable.includes(searchString);
 }
 
 //トップ各項目タイトル時間差表示関数

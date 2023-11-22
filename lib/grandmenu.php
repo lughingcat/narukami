@@ -67,9 +67,9 @@
 			$error_message_title = 'グランドメニュータイトルが入力されていません。';
 			echo '<div id="gm_title_error_' . $index . '" class="gm-error-message-title" style="display: none;">' . $error_message_title . '</div>';
 			echo "<h4>ジャンル一覧ページへのリンクを入力してください。</h4>";
-			echo "<input id='gm_pagelink_$index' type='text' name='grandmenu_pagelink[]' class='img-setect-url' value='" . $values['pagelink'] . "'>";
+			echo "<input id='gm_link_$index' type='text' name='grandmenu_pagelink[]' class='img-setect-url' value='" . $values['pagelink'] . "'>";
 			$error_message_link = 'グランドメニューのページリンクが選択されていません。';
-			echo '<div id="gm_url_error_' . $index . '" class="gm-error-message-link" style="display: none;">' . $error_message_link1 . '</div>';
+			echo '<div id="gm_link_error_' . $index . '" class="gm-error-message-link" style="display: none;">' . $error_message_link . '</div>';
 			echo '<button type="button" onclick="deleteParentEl(this)">削除</button>';
 			echo "</div>";
 			
