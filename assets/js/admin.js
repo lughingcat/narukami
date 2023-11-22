@@ -207,7 +207,8 @@ function processMultipleIds(ids) {
 //空のinputタグのidを照合する関数
 
 function checkString(variable, searchString) {
-  return variable.includes(searchString);
+	variable = variable || '';
+    return variable.includes(searchString);
 }
 
 //トップ各項目タイトル時間差表示関数
