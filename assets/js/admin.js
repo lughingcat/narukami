@@ -78,72 +78,164 @@ function cmakerChange(){
 //グランドメニューのバリテート
 
  
+　
  document.getElementById('grandmenuCloseBtn').addEventListener('click', function() {
             validateForm();
-        });
+ });
+
 
         function validateForm() {
+			var emptyInputId;
             var gmform = document.getElementById('gm-form-erea');
             var inputElements = gmform.querySelectorAll('input');
+			var erroeMsegTitle = document.querySelectorAll('[id^="gm_title_error_"]');
+			var erroeMsegImg = document.querySelectorAll('[id^="gm_img_error_"]');
+			var erroeMsegLink = document.querySelectorAll('[id^="gm_link_error_"]');
             var scrollToElement;
             var hasEmptyInput = false;
-			var erroeMseg = document.querySelectorAll('.gm-error-message')
-			console.log(erroeMseg.length);
 			
             inputElements.forEach(function(input) {
-				
                 if (input.value.trim() === '') {
                     hasEmptyInput = true;
                     scrollToElement = input;
+					emptyInputId = input.id; // 空の input の id を保存
                     input.classList.add('gmform-error'); // 赤い枠で囲む
-					var parentEl = input.parentNode;
-					var errorEl = parentEl.getElementsByClassName('gm-error-message');
-					if (errorEl.length > 0) {
-						errorEl[0].style.display = 'block';
-					}
-					
                 } else {
                     input.classList.remove('gmform-error'); // 枠をクリア
-					erroeMseg.forEach(function(erroeMsegs){
-						erroeMsegs.style.display = 'none';
-						console.log(erroeMsegs);
-					})
+					
+					 erroeMsegTitle.forEach(function(msgtitle) {
+   	 		        	msgtitle.style.display = 'none';
+   	 		    	});
+						erroeMsegImg.forEach(function(msgimg) {
+   	 		        	msgimg.style.display = 'none';
+   	 		    	});
+					erroeMsegLink.forEach(function(msglink) {
+   	 		        	msglink.style.display = 'none';
+   	 		    	});
 				}
                 
             });
-
+			// emptyInputIdから最後の数字のみを抽出
+			var lastNumber = getNumberFromId(emptyInputId);
+			
+			//取得したエラーメッセージのクラス名を除去し、id名だけを抽出し配列に格納
+			var erroeMsegTitleArray = Array.from(erroeMsegTitle).map(element => element.id);
+			var erroeMsegImgArray = Array.from(erroeMsegImg).map(element => element.id);
+			var erroeMsegLinkArray = Array.from(erroeMsegLink).map(element => element.id);
+			
+			//エラーメッセージの配列idナンバーを抽出
+			var errorMesTitleNum = processMultipleIds(erroeMsegTitleArray);
+			var errorMesImgNum = processMultipleIds(erroeMsegImgArray);
+			var errorMesLinkNum = processMultipleIds(erroeMsegLinkArray);
+			
+			//空のid名を取得する
+			
+			var firstResult = null;
+			
+			var searchResults = [
+				{ key: 'title', result: checkString(emptyInputId, 'title') },
+				{ key: 'img', result: checkString(emptyInputId, 'img') },
+				{ key: 'link', result: checkString(emptyInputId, 'link') }
+			];
+			searchResults.forEach(function(result) {
+				if (result.result) {
+					if (result.result && firstResult === null) {
+						firstResult = result.key;
+					}
+				}
+				
+				return firstResult;
+			});
+			
             if (hasEmptyInput && scrollToElement) {
                 // 空の input がある場合、その要素までスクロール
                 scrollToElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+				
 			}
-        }
+			if(hasEmptyInput){
+				var findTextEl = errorMesTitleNum.find(function(element){
+					return element === lastNumber;
+				});
+				
+				var findImgEl = errorMesImgNum.find(function(element){
+					return element === lastNumber;
+				});
+				
+				var findLinkEl = errorMesLinkNum.find(function(element){
+					return element === lastNumber;
+				});
+				
+				
+				if(firstResult === 'title'){
+					erroeMsegTitle[findTextEl].style.display = 'block';
+				}
+				if(firstResult === 'img'){
+					erroeMsegImg[findImgEl].style.display = 'block';
+				}
+				if(firstResult === 'link'){
+					erroeMsegLink[findLinkEl].style.display = 'block';
+				}
+			}
+		
+		}
 
-//コンセプト文字列を時間差で表示
-const wrapCharSpan = function(str){
-    return [...str].map(char => `<span>${char}</span>`).join('');
+
+
+//idのナンバーを抜き出す関数
+function getNumberFromId(id) {
+    if (!id) {
+        return null;
+    }
+    // アンダースコアで分割し、最後の部分（数字）を取得
+    var parts = id.split('_');
+
+    // 分割された部分が存在しない場合はnullを返す
+    if (!parts || parts.length === 0) {
+        return null;
+    }
+
+    var lastPart = parts[parts.length - 1];
+
+    // 数字が存在する場合は抽出された数字を返す。存在しない場合はnullを返す。
+    return lastPart.match(/\d+/) ? parseInt(lastPart, 10) : null;
+}
+//getNumberFromIdを使い配列を処理する関数
+function processMultipleIds(ids) {
+    var numbers = ids.map(getNumberFromId);
+	return numbers;
+}
+//空のinputタグのidを照合する関数
+
+function checkString(variable, searchString) {
+	variable = variable || '';
+    return variable.includes(searchString);
 }
 
-const target = document.querySelector('.concept-main-title');
-target.innerHTML = wrapCharSpan(target.textContent);
+//トップ各項目タイトル時間差表示関数
+const animateTextWithSpans = function(selector, delay = 100) {
+    const wrapCharSpan = function(str) {
+        return [...str].map(char => `<span>${char}</span>`).join('');
+    }
 
-Array.from(target.children).forEach((char, index) => {
-    window.setTimeout(function () {
-        char.classList.add('is-animated');
-    }, 100 * index);
-});
-//ランキング文字列を時間差で表示
-const wrapRankSpan = function(str){
-    return [...str].map(Rank => `<span>${Rank}</span>`).join('');
+    const target = document.querySelector(selector);
+    if (!target) {
+        console.error(`Element with selector ${selector} not found.`);
+        return;
+    }
+
+    target.innerHTML = wrapCharSpan(target.textContent);
+
+    Array.from(target.children).forEach((char, index) => {
+        window.setTimeout(function () {
+            char.classList.add('is-animated');
+        }, delay * index);
+    });
 }
 
-const RankTitle = document.querySelector('.r-p-t-prev');
-RankTitle.innerHTML = wrapRankSpan(RankTitle.textContent);
-
-Array.from(RankTitle.children).forEach((Rank, index) => {
-    window.setTimeout(function () {
-        Rank.classList.add('is-animated');
-    }, 100 * index);
-});
+//.concept-main-title'時間差表示
+animateTextWithSpans('.concept-main-title');
+//.r-p-t-prev'時間差表示
+animateTextWithSpans('.r-p-t-prev');
 
 
 //ボタン式選択項目の入力フォーム非表示
