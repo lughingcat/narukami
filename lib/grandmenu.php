@@ -4,38 +4,60 @@
 			<?php
 			  require_once(dirname(dirname(dirname(dirname(dirname( __FILE__ ))))) . '/wp-load.php' );
 			  global $wpdb;
-			  $query = "SELECT grandmenu_img_url,  grandmenu_title, grandmenu_pagelink FROM wp_narukami_content_maker;";
+			  $query = "SELECT gm_primary_title, grandmenu_img_url,  grandmenu_title, grandmenu_pagelink FROM wp_narukami_content_maker;";
 			  $rows = $wpdb->get_results($query,OBJECT);
 			  foreach($rows as $row) {
 				 $grandmenu_img_url = $row->grandmenu_img_url;
 				 $grandmenu_title = $row->grandmenu_title;
 				 $grandmenu_pagelink = $row->grandmenu_pagelink;
+				 $gm_primary_title = $row->gm_primary_title;
 			  };
 			  ?>
+			<?php
+			if(isset($_POST['gm_primary_title'])){
+			$grandmenu_primary_title = $_POST['gm_primary_title'];
+			}else{
+			$grandmenu_primary_title = $gm_primary_title;
+			}
+			if(isset($_POST['grandmenu_img_url'])){
+			$grandmenu_title_dec = $_POST['grandmenu_title'];
+			$grandmenu_img_url_dec = $_POST['grandmenu_img_url'];
+			$grandmenu_pagelink_dec = $_POST['grandmenu_pagelink'];
+			}else{
+			$grandmenu_title_dec = json_decode($grandmenu_title);
+			$grandmenu_img_url_dec = json_decode($grandmenu_img_url);
+			$grandmenu_pagelink_dec = json_decode($grandmenu_pagelink);
+			}
+			// 連想配列を作成
+			$gm_item_Array = array();
+			
+			for ($i = 0; $i < count($grandmenu_title_dec); $i++) {
+				$gm_item_Array[$grandmenu_title_dec[$i]] = array(
+					'title' => $grandmenu_title_dec[$i],
+					'imgurl' => $grandmenu_img_url_dec[$i],
+					'pagelink' => $grandmenu_pagelink_dec[$i]
+				);
+			}
+			;?>
 			<div class="grandmenu-wrap" >
 				<div class="grandmenu-title-wrap">
 					<ul>
-						<?php
-						if(isset($_POST['grandmenu_img_url'])){
-						$grandmenu_title_dec = $_POST['grandmenu_title'];
-						$grandmenu_img_url_dec = $_POST['grandmenu_img_url'];
-						$grandmenu_pagelink_dec = $_POST['grandmenu_pagelink'];
-						}else{
-						$grandmenu_title_dec = json_decode($grandmenu_title);
-						$grandmenu_img_url_dec = json_decode($grandmenu_img_url);
-						$grandmenu_pagelink_dec = json_decode($grandmenu_pagelink);
+					<?php
+					if (isset($gm_item_Array) && is_array($gm_item_Array)) {
+						foreach ($gm_item_Array as $key => $values ) {
+							echo "<a href='". $values['pagelink']."'>";
+							echo "<li class='gm-item-wrap' style='background-image: url('" .$values['imgurl']. "');'>";
+							echo "<p>" . $values['title'] . "</p>";
+							echo "</li>";
+							echo "</a>";
 						}
-						// 連想配列を作成
-						$gm_item_Array = array();
+																	  
+					}
+					
 						
-						for ($i = 0; $i < count($grandmenu_title_dec); $i++) {
-							$gm_item_Array[$grandmenu_title_dec[$i]] = array(
-								'title' => $grandmenu_title_dec[$i],
-								'imgurl' => $grandmenu_img_url_dec[$i],
-								'pagelink' => $grandmenu_pagelink_dec[$i]
-							);
-						}
-						;?>
+						
+						
+						;?>	
 					
 					</ul>
 					</br>
@@ -44,6 +66,11 @@
 		</article>
 	</div>
 	<div id="gm-form-erea" class="inputForm">
+		<div class="rank-p-title-wrap">
+			<h4 class="rank-prev">グランドメニュータイトル</h4>
+			<p>ランキングタイトルを入力してください</p>
+			<input type="text" class="gm-primary-title" name="gm_primary_title" value="<?php echo $grandmenu_primary_title ;?>">
+		</div>
 		<?php 
 			if( !empty($_POST['grandmenu_img_url']) )
 			{ 

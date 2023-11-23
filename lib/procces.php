@@ -54,6 +54,7 @@ $i_concept_content = $_POST['concept_content'];
 $i_grandmenu_img_url = json_encode($_POST['grandmenu_img_url'], JSON_UNESCAPED_UNICODE);
 $i_grandmenu_title = json_encode( $_POST['grandmenu_title'], JSON_UNESCAPED_UNICODE);
 $i_grandmenu_pagelink = json_encode( $_POST['grandmenu_pagelink'], JSON_UNESCAPED_UNICODE);
+$i_gm_primary_title = $_POST['gm_primary_title'];
 global $wpdb;
 	$tablename =  $wpdb->prefix . "narukami_content_maker";
 	// 各種データの保存
@@ -112,6 +113,7 @@ global $wpdb;
 			'grandmenu_img_url' => $i_grandmenu_img_url,
 			'grandmenu_title' => $i_grandmenu_title,
 			'grandmenu_pagelink' => $i_grandmenu_pagelink,
+			'gm_primary_title' => $i_gm_primary_title,
 		),
 		array(
 		//ランキングpopスタイル
@@ -165,6 +167,7 @@ global $wpdb;
 			'%s',
 			'%s',
 		//グランドメニュー
+			'%s',
 			'%s',
 			'%s',
 			'%s',
