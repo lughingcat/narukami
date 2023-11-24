@@ -211,6 +211,9 @@ function checkString(variable, searchString) {
     return variable.includes(searchString);
 }
 
+
+
+
 //トップ各項目タイトル時間差表示関数
 const animateTextWithSpans = function(selector, delay = 100) {
     const wrapCharSpan = function(str) {
@@ -223,7 +226,10 @@ const animateTextWithSpans = function(selector, delay = 100) {
         return;
     }
 
-    target.innerHTML = wrapCharSpan(target.textContent);
+    const originalText = target.textContent; // 元の文字列を保持
+
+    // 初回の呼び出しで元の文字列を span 要素で置き換える
+    target.innerHTML = wrapCharSpan(originalText);
 
     Array.from(target.children).forEach((char, index) => {
         window.setTimeout(function () {
@@ -231,11 +237,12 @@ const animateTextWithSpans = function(selector, delay = 100) {
         }, delay * index);
     });
 }
-
 //.concept-main-title'時間差表示
 animateTextWithSpans('.concept-main-title');
 //.r-p-t-prev'時間差表示
 animateTextWithSpans('.r-p-t-prev');
+//gm-primary-title時間差表示
+animateTextWithSpans('.gm-primary-title');
 
 
 //ボタン式選択項目の入力フォーム非表示

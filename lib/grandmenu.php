@@ -40,28 +40,23 @@
 			}
 			;?>
 			<div class="grandmenu-wrap" >
-				<div class="grandmenu-title-wrap">
-					<ul>
+				<div class="gm-primary-title-prevew">
+						<p class="gm-primary-title"><?php echo $grandmenu_primary_title;?></p>
+				</div>
+					<ul class="grandmenu-title-wrap">
 					<?php
 					if (isset($gm_item_Array) && is_array($gm_item_Array)) {
 						foreach ($gm_item_Array as $key => $values ) {
-							echo "<a href='". $values['pagelink']."'>";
-							echo "<li class='gm-item-wrap' style='background-image: url('" .$values['imgurl']. "');'>";
+							echo "<a class='gm-item-wrap' href='". $values['pagelink']."' style='background-image: url(\"" . $values['imgurl'] . "\");'>";
+							echo "<li>";
 							echo "<p>" . $values['title'] . "</p>";
 							echo "</li>";
 							echo "</a>";
-						}
-																	  
+						}											  
 					}
-					
-						
-						
-						
-						;?>	
+					;?>	
 					
 					</ul>
-					</br>
-				</div>
 			</div>
 		</article>
 	</div>
@@ -69,7 +64,7 @@
 		<div class="rank-p-title-wrap">
 			<h4 class="rank-prev">グランドメニュータイトル</h4>
 			<p>ランキングタイトルを入力してください</p>
-			<input type="text" class="gm-primary-title" name="gm_primary_title" value="<?php echo $grandmenu_primary_title ;?>">
+			<input type="text" class="img-setect-url" name="gm_primary_title" value="<?php echo $grandmenu_primary_title ;?>">
 		</div>
 		<?php 
 			if( !empty($_POST['grandmenu_img_url']) )
