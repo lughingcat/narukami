@@ -51,35 +51,21 @@ function cmakerChange(){
             let copied = gmForm.cloneNode(true);
             let newId = "gm-form_" + plasNam;
             copied.id = newId;
-	 
 			 // 子要素の input 要素を選択し、id を変更する
-	 	
-    		let formNewIds =[];
-	 		function incrementIds(idArray) {
-				return idArray.map((elementId) => {
-					const lastNumber = getNumberFromId(elementId);
-					if (lastNumber !== null) {
-						const newNumber = lastNumber + 1;
-						return elementId.replace(/\d+$/, newNumber);
-					}
-					return elementId;
-				});
-			}
-	 		let newFormIds = incrementIds(formNewIds);
 	 		
 				
 			copied.querySelectorAll('*[id]').forEach((childElement) => {
     		   let childElementId = childElement.id;
-				formNewIds.push(childElementId);
-				childElementId = newFormIds;
-				console.log(childElementId);
-				return;
+			   let lastNumber = parseInt(childElementId.match(/\d+$/), 10); // 末尾の数字を取得し、数値に変換
+
+			   if (!isNaN(lastNumber)) {
+			   	let newChildIds = childElementId.replace(/\d+$/, lastNumber + 1);
+			   	childElement.id = newChildIds;
+			   } else {
+			   	console.error('IDに数字が見つかりませんでした。');
+			   }
+				
     		});
-			
-			
-	 
-	 
-	 
     		addField.appendChild(copied);
             plasNam++;
         }
