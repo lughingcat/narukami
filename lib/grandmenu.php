@@ -39,6 +39,7 @@
 				);
 			}
 			;?>
+			
 			<div class="grandmenu-wrap" >
 				<div class="gm-primary-title-prevew">
 						<p class="gm-primary-title"><?php echo $grandmenu_primary_title;?></p>

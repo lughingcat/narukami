@@ -51,6 +51,35 @@ function cmakerChange(){
             let copied = gmForm.cloneNode(true);
             let newId = "gm-form_" + plasNam;
             copied.id = newId;
+	 
+			 // 子要素の input 要素を選択し、id を変更する
+	 	
+    		let formNewIds =[];
+	 		function incrementIds(idArray) {
+				return idArray.map((elementId) => {
+					const lastNumber = getNumberFromId(elementId);
+					if (lastNumber !== null) {
+						const newNumber = lastNumber + 1;
+						return elementId.replace(/\d+$/, newNumber);
+					}
+					return elementId;
+				});
+			}
+	 		let newFormIds = incrementIds(formNewIds);
+	 		
+				
+			copied.querySelectorAll('*[id]').forEach((childElement) => {
+    		   let childElementId = childElement.id;
+				formNewIds.push(childElementId);
+				childElementId = newFormIds;
+				console.log(childElementId);
+				return;
+    		});
+			
+			
+	 
+	 
+	 
     		addField.appendChild(copied);
             plasNam++;
         }

@@ -867,6 +867,7 @@
       margin: 10px 3%;
       background-position: center;
       background-size: cover;
+      background-size: 150%;
       background-repeat: no-repeat;
       transition: all .3s ease-out;
       box-shadow: 2px 8px 13px -4px #b6b4b4;
