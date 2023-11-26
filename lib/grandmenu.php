@@ -38,6 +38,10 @@
 					'pagelink' => $grandmenu_pagelink_dec[$i]
 				);
 			}
+			if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['grandmenu_title'])) {
+				$grandmenu_title_dec[] = ""; // 空文字を追加
+			}
+
 			;?>
 			
 			<div class="grandmenu-wrap" >
@@ -101,6 +105,42 @@
 	}
 	?>
 	</div>
+	<?php var_dump($grandmenu_title_dec);?></br>
 	<button type="button" id="gm-elment-add">追加</button>
-<button type="button" id="grandmenuCloseBtn">保存(閉じる)</button>
+	<button type="button" id="grandmenuCloseBtn">保存(閉じる)</button>
+<!-- ボタン -->
+<button id="addEmptyButton">空文字を追加</button>
+
+<!-- 空文字を表示する要素のコンテナ -->
+<div id="resultContainer"></div>
+
+<!-- JavaScriptのスクリプト -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // ボタンのクリックイベントリスナー
+    document.getElementById("addEmptyButton").addEventListener("click", function(event) {
+        event.preventDefault();
+
+        // ここにAjaxリクエストのコードを追加
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "../updateArray.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // サーバーから新しいデータを受け取る
+                var newData = xhr.responseText;
+
+                // 新しいデータを元のデータに追加して表示
+                var resultContainer = document.getElementById("resultContainer");
+                resultContainer.innerHTML = newData;
+            }
+        };
+
+        xhr.send("addEmpty=true");
+    });
+});
+
+</script>
+
 </div>
