@@ -105,7 +105,11 @@
 	}
 	?>
 	</div>
-	<?php var_dump($grandmenu_title_dec);?></br>
+	<?php
+	session_start();
+	$_SESSION['gm_title_array'] = $grandmenu_title_dec;
+	var_dump($_SESSION['gm_title_array']);
+	?></br>
 	<button type="button" id="gm-elment-add">追加</button>
 	<button type="button" id="grandmenuCloseBtn">保存(閉じる)</button>
 <!-- ボタン -->
