@@ -106,9 +106,7 @@
 	?>
 	</div>
 	<?php
-	session_start();
-	$_SESSION['gm_title_array'] = $grandmenu_title_dec;
-	var_dump($_SESSION['gm_title_array']);
+	var_dump($_SESSION['gmTitleArray']);
 	?></br>
 	<button type="button" id="gm-elment-add">追加</button>
 	<button type="button" id="grandmenuCloseBtn">保存(閉じる)</button>
@@ -124,24 +122,34 @@ document.addEventListener("DOMContentLoaded", function() {
     // ボタンのクリックイベントリスナー
     document.getElementById("addEmptyButton").addEventListener("click", function(event) {
         event.preventDefault();
-
+		
+		var gmTitleArray = <?php echo $grandmenu_title;?>;
+		
         // ここにAjaxリクエストのコードを追加
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", "../updateArray.php", true);
+		var url = "../updateArray.php";
+    	var params = "addEmpty=true";
+        xhr.open("POST", url , true);
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		
+		// セッションに変数を保存
+    	params += "&gmTitleArray=" + encodeURIComponent(JSON.stringify(gmTitleArray));
+    	
 
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 // サーバーから新しいデータを受け取る
                 var newData = xhr.responseText;
-
+				console.log(newData);
                 // 新しいデータを元のデータに追加して表示
                 var resultContainer = document.getElementById("resultContainer");
                 resultContainer.innerHTML = newData;
+				
             }
         };
 
-        xhr.send("addEmpty=true");
+		
+        xhr.send(params);
     });
 });
 
