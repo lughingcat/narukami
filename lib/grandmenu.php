@@ -106,8 +106,9 @@
 	?>
 	</div>
 	<?php
-	var_dump($_SESSION['gmTitleArray']);
+	var_dump($_POST['gmTitleArray']);
 	?></br>
+
 	<button type="button" id="gm-elment-add">追加</button>
 	<button type="button" id="grandmenuCloseBtn">保存(閉じる)</button>
 <!-- ボタン -->
@@ -127,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		
         // ここにAjaxリクエストのコードを追加
         var xhr = new XMLHttpRequest();
-		var url = "../updateArray.php";
+		var url = "<?php echo get_template_directory_uri(); ?>/updateArray.php";
     	var params = "addEmpty=true";
         xhr.open("POST", url , true);
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
