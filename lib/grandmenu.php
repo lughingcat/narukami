@@ -108,6 +108,9 @@
 	<?php
 	var_dump($_SESSION['gmTitleArray']);
 	?></br>
+<?php
+phpinfo();
+?>
 	<button type="button" id="gm-elment-add">追加</button>
 	<button type="button" id="grandmenuCloseBtn">保存(閉じる)</button>
 <!-- ボタン -->
