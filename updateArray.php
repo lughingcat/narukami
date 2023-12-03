@@ -1,8 +1,5 @@
 <?php
-// セッションを開始
-
 session_start();
-
 // セッション変数の初期化
 if (!isset($_SESSION['gmTitleArray'])) {
     $_SESSION['gmTitleArray'] = array();
@@ -23,6 +20,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["addEmpty"])) {
 foreach ($_SESSION['gmTitleArray'] as $gm_item) {
     echo $gm_item . "</br>";
 }
-
 
 ?>

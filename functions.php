@@ -548,7 +548,7 @@ function generate_upload_image_tag($name, $value){?>
   </script>
   <?php
 }
-
+//画像アップロード用のタグを複数出力する(multiple)
 function generate_upload_multipleimage_tag($name, $value, $index){
     ?>
     <div class="img-wrap-function">
@@ -566,11 +566,13 @@ function generate_upload_multipleimage_tag($name, $value, $index){
 
   <script type="text/javascript">
 	  var custom_uploader;
-  (function ($) {
-    $(".img-select-btn").click(function (e) {
+  // ...
+
+(function ($) {
+    $(document).on("click", ".img-select-btn", function (e) {
         e.preventDefault();
         var index = $(this).data("index");
-		if (custom_uploader) {
+        if (custom_uploader) {
             custom_uploader.close(); // 既存のアップローダーを閉じる
         }
         custom_uploader = wp.media({
@@ -587,23 +589,23 @@ function generate_upload_multipleimage_tag($name, $value, $index){
         custom_uploader.on("select", function () {
             var images = custom_uploader.state().get("selection");
             images.each(function (file) {
-                $("#<?php echo $name; ?>_" + index).val(file.attributes.sizes.full.url);
-                $("#<?php echo $name; ?>_thumbnail_" + index).empty();
-                $("#<?php echo $name; ?>_thumbnail_" + index).append('<img src="' + file.attributes.sizes.thumbnail.url + '" />');
+                $("#" + <?php echo json_encode($name); ?> + "_" + index).val(file.attributes.sizes.full.url);
+                $("#" + <?php echo json_encode($name); ?> + "_thumbnail_" + index).empty();
+                $("#" + <?php echo json_encode($name); ?> + "_thumbnail_" + index).append('<img src="' + file.attributes.sizes.thumbnail.url + '" />');
             });
         });
 
         custom_uploader.open();
     });
 
-    $(".img-clear-btn").click(function () {
-		if (custom_uploader) {
+    $(document).on("click", ".img-clear-btn", function () {
+        if (custom_uploader) {
             custom_uploader.close(); // アップローダーを閉じる
         }
-		
+
         var index = $(this).data("index");
-        $("#<?php echo $name; ?>_" + index).val("");
-        $("#<?php echo $name; ?>_thumbnail_" + index).empty();
+        $("#" + <?php echo json_encode($name); ?> + "_" + index).val("");
+        $("#" + <?php echo json_encode($name); ?> + "_thumbnail_" + index).empty();
     });
 })(jQuery);
   </script>
