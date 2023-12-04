@@ -564,50 +564,55 @@ function generate_upload_multipleimage_tag($name, $value, $index){
     </div>
 
 
-  <script type="text/javascript">
-	  var custom_uploader;
-  // ...
+<script type="text/javascript">
+   var custom_uploaders = {}; // ページ全体で1度だけ宣言
 
 (function ($) {
-    $(document).on("click", ".img-select-btn", function (e) {
+    $(document).on('click', '.img-select-btn', function (e) {
         e.preventDefault();
-        var index = $(this).data("index");
-        if (custom_uploader) {
-            custom_uploader.close(); // 既存のアップローダーを閉じる
-        }
-        custom_uploader = wp.media({
-            title: "画像を選択してください",
-            library: {
-                type: "image"
-            },
-            button: {
-                text: "画像の選択"
-            },
-            multiple: false
-        });
+        var buttonId = $(this).attr('id');
+        var index = buttonId.split('_').pop();  // ボタンのidからindexを取得
 
-        custom_uploader.on("select", function () {
-            var images = custom_uploader.state().get("selection");
-            images.each(function (file) {
-                $("#" + <?php echo json_encode($name); ?> + "_" + index).val(file.attributes.sizes.full.url);
-                $("#" + <?php echo json_encode($name); ?> + "_thumbnail_" + index).empty();
-                $("#" + <?php echo json_encode($name); ?> + "_thumbnail_" + index).append('<img src="' + file.attributes.sizes.thumbnail.url + '" />');
+        // 既にその要素に対するアップローダーが存在するか確認
+        if (!custom_uploaders[index]) {
+            // アップローダーが存在しない場合、新しいアップローダーを作成
+            custom_uploaders[index] = wp.media({
+                title: '画像を選択してください',
+                library: {
+                    type: 'image'
+                },
+                button: {
+                    text: '画像の選択'
+                },
+                multiple: false
             });
-        });
 
-        custom_uploader.open();
+            custom_uploaders[index].on('select', function () {
+                var images = custom_uploaders[index].state().get('selection');
+                images.each(function (file) {
+                    $('#' + <?php echo json_encode($name); ?> + '_' + index).val(file.attributes.url);
+                    $('#' + <?php echo json_encode($name); ?> + '_thumbnail_' + index).empty();
+                    $('#' + <?php echo json_encode($name); ?> + '_thumbnail_' + index).append('<img src="' + file.attributes.url + '" />');
+                });
+            });
+        }
+
+        // アップローダーを開く
+        custom_uploaders[index].open();
     });
 
-    $(document).on("click", ".img-clear-btn", function () {
-        if (custom_uploader) {
-            custom_uploader.close(); // アップローダーを閉じる
-        }
-
-        var index = $(this).data("index");
-        $("#" + <?php echo json_encode($name); ?> + "_" + index).val("");
-        $("#" + <?php echo json_encode($name); ?> + "_thumbnail_" + index).empty();
+    $(document).on('click', '.img-clear-btn', function () {
+        var buttonId = $(this).attr('id');
+        var index = buttonId.split('_').pop();  // ボタンのidからindexを取得
+        $('#' + <?php echo json_encode($name); ?> + '_' + index).val('');
+        $('#' + <?php echo json_encode($name); ?> + '_thumbnail_' + index).empty();
     });
 })(jQuery);
+
+
+
+
+
   </script>
   <?php
 }

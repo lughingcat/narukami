@@ -41,7 +41,19 @@ function cmakerChange(){
 }
 
 //グランドメニューのCRAD
+function updateDataIndex(element, newIndex) {
+    // data-index属性を新しい値に更新
+    element.dataset.index = newIndex;
 
+    // 子要素も再帰的に処理
+    element.querySelectorAll('[data-index]').forEach((childElement) => {
+        let childIndex = parseInt(childElement.dataset.index, 10);
+        if (!isNaN(childIndex)) {
+            let newChildIndex = childIndex + 1;
+            childElement.dataset.index = newChildIndex;
+        }
+    });
+}
  function addGmElement() {
 			let countEl = document.querySelectorAll('.gm-form-style').length;
 			let lastNam = countEl -1;
@@ -90,10 +102,8 @@ function cmakerChange(){
                 });
             }
         }
-//グランドメニューのバリテート
 
- 
-　
+//グランドメニューのバリテート
  document.getElementById('grandmenuCloseBtn').addEventListener('click', function() {
             validateForm();
  });
