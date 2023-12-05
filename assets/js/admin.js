@@ -125,13 +125,25 @@ function updateDataIndex(element, newIndex) {
                     scrollToElement = input;
 					emptyInputId = input.id; // 空の input の id を保存
                     input.classList.add('gmform-error'); // 赤い枠で囲む
+					input.addEventListener('input', function(event){
+						input.classList.remove('gmform-error');
+						erroeMsegTitle.forEach(function(msgtitle) {
+   	 		        	msgtitle.style.display = 'none';
+   	 		    		});
+						erroeMsegImg.forEach(function(msgimg) {
+   	 		        	msgimg.style.display = 'none';
+   	 		    		});
+						erroeMsegLink.forEach(function(msglink) {
+   	 		        	msglink.style.display = 'none';
+   	 		    		});
+					});
                 } else {
                     input.classList.remove('gmform-error'); // 枠をクリア
 					
-					 erroeMsegTitle.forEach(function(msgtitle) {
+					erroeMsegTitle.forEach(function(msgtitle) {
    	 		        	msgtitle.style.display = 'none';
    	 		    	});
-						erroeMsegImg.forEach(function(msgimg) {
+					erroeMsegImg.forEach(function(msgimg) {
    	 		        	msgimg.style.display = 'none';
    	 		    	});
 					erroeMsegLink.forEach(function(msglink) {
@@ -236,7 +248,17 @@ function checkString(variable, searchString) {
     return variable.includes(searchString);
 }
 
-
+//gmリスト表示の遅延処理
+document.addEventListener('DOMContentLoaded', function() {
+            // 画面が読み込まれたときに、遅延させて順番に表示
+            var items = document.getElementsByClassName('gm-item-wrap');
+			var itemsArray = Array.from(items);
+            itemsArray.forEach(function(item, index) {
+                setTimeout(function() {
+                    item.classList.add('show');
+                }, index * 300); // 各要素が0.2秒ずつ遅れて表示される
+            });
+        });
 
 
 //トップ各項目タイトル時間差表示関数

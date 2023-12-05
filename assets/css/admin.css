@@ -864,23 +864,24 @@
       width: 230px;
       height: 250px;
       box-sizing: border-box;
-      margin: 10px 3%;
       background-position: center;
-      background-size: cover;
-      background-size: 150%;
+      background-size: 190%;
       background-repeat: no-repeat;
-      transition: all .3s ease-out;
+      transition: all .6s ease-in-out;
       box-shadow: 2px 8px 13px -4px #b6b4b4;
       border-radius: 5px;
       text-decoration: none;
       /* 下線を非表示にする */
       color: inherit;
-      position: relative; }
+      position: relative;
+      margin: 2% 3%;
+      opacity: 0;
+      transform: translateY(20px); }
       .grandmenu-wrap .grandmenu-title-wrap .gm-item-wrap p {
         width: 88%;
         position: absolute;
         bottom: 0;
-        background-color: rgba(0, 0, 0, 0.65);
+        background-color: rgba(0, 0, 0, 0.42);
         padding: 6%;
         margin: 0;
         border-bottom-left-radius: 5px;
@@ -903,8 +904,11 @@
         padding: 3px;
         line-height: 20px;
         vertical-align: middle; }
+      .grandmenu-wrap .grandmenu-title-wrap .gm-item-wrap.show {
+        opacity: 1;
+        transform: translateY(0); }
     .grandmenu-wrap .grandmenu-title-wrap .gm-item-wrap:hover {
-      background-size: 170%;
+      background-size: 168%;
       opacity: .8; }
 
 /*#################################
