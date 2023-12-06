@@ -566,13 +566,11 @@ function generate_upload_multipleimage_tag($name, $value, $index){
 
 <script type="text/javascript">
    var custom_uploaders = {}; // ページ全体で1度だけ宣言
-
 (function ($) {
     $(document).on('click', '.img-select-btn', function (e) {
         e.preventDefault();
         var buttonId = $(this).attr('id');
         var index = buttonId.split('_').pop();  // ボタンのidからindexを取得
-
         // 既にその要素に対するアップローダーが存在するか確認
         if (!custom_uploaders[index]) {
             // アップローダーが存在しない場合、新しいアップローダーを作成

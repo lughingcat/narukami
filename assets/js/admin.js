@@ -125,18 +125,6 @@ function updateDataIndex(element, newIndex) {
                     scrollToElement = input;
 					emptyInputId = input.id; // 空の input の id を保存
                     input.classList.add('gmform-error'); // 赤い枠で囲む
-					input.addEventListener('input', function(event){
-						input.classList.remove('gmform-error');
-						erroeMsegTitle.forEach(function(msgtitle) {
-   	 		        	msgtitle.style.display = 'none';
-   	 		    		});
-						erroeMsegImg.forEach(function(msgimg) {
-   	 		        	msgimg.style.display = 'none';
-   	 		    		});
-						erroeMsegLink.forEach(function(msglink) {
-   	 		        	msglink.style.display = 'none';
-   	 		    		});
-					});
                 } else {
                     input.classList.remove('gmform-error'); // 枠をクリア
 					
@@ -187,13 +175,11 @@ function updateDataIndex(element, newIndex) {
             if (hasEmptyInput && scrollToElement) {
                 // 空の input がある場合、その要素までスクロール
                 scrollToElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-				
 			}
 			if(hasEmptyInput){
 				var findTextEl = errorMesTitleNum.find(function(element){
 					return element === lastNumber;
 				});
-				
 				var findImgEl = errorMesImgNum.find(function(element){
 					return element === lastNumber;
 				});
@@ -202,9 +188,9 @@ function updateDataIndex(element, newIndex) {
 					return element === lastNumber;
 				});
 				
-				
 				if(firstResult === 'title'){
 					erroeMsegTitle[findTextEl].style.display = 'block';
+					
 				}
 				if(firstResult === 'img'){
 					erroeMsegImg[findImgEl].style.display = 'block';
@@ -212,6 +198,26 @@ function updateDataIndex(element, newIndex) {
 				if(firstResult === 'link'){
 					erroeMsegLink[findLinkEl].style.display = 'block';
 				}
+				var inputElementsArray = Array.from(inputElements);
+				var emptyInputs = inputElementsArray.filter(function(input) {
+					return input.value.trim() === '';
+				});
+				emptyInputs.forEach(function(emptyInput) {
+					emptyInput.addEventListener('input', function(event) {
+						if(firstResult === 'title'){
+							erroeMsegTitle[findTextEl].style.display = 'none';
+							this.classList.remove('gmform-error');
+						}
+						if(firstResult === 'img'){
+							erroeMsegImg[findImgEl].style.display = 'none';
+							this.classList.remove('gmform-error');
+						}
+						if(firstResult === 'link'){
+							erroeMsegLink[findLinkEl].style.display = 'none';
+							this.classList.remove('gmform-error');
+						}
+					});
+				});
 			}
 		
 		}
