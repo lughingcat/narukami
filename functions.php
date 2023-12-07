@@ -590,7 +590,7 @@ function generate_upload_multipleimage_tag($name, $value, $index){
                 images.each(function (file) {
                     $('#' + <?php echo json_encode($name); ?> + '_' + index).val(file.attributes.url);
                     $('#' + <?php echo json_encode($name); ?> + '_thumbnail_' + index).empty();
-                    $('#' + <?php echo json_encode($name); ?> + '_thumbnail_' + index).append('<img src="' + file.attributes.url + '" />');
+                    $('#' + <?php echo json_encode($name); ?> + '_thumbnail_' + index).append('<img src="' + file.attributes.sizes.thumbnail.url + '" />');
                 });
             });
         }
@@ -612,7 +612,7 @@ function generate_upload_multipleimage_tag($name, $value, $index){
 
 
   </script>
-  <?php
+<?php
 }
 
 function my_admin_scripts() {
@@ -622,15 +622,24 @@ add_action('admin_enqueue_scripts', 'my_admin_scripts');
 /*
 *メディアのキャプションを設定する
 */
-
 add_filter( 'wp_get_attachment_metadata', 'my_wp_get_attachment_metadata', 10, 2 );
+
 function my_wp_get_attachment_metadata( $data, $id ) {
+    // 画像が存在することを確認
     $image = get_post($id);
-    if(is_array($data)) {
-        $data['image_meta']['caption'] = $image->post_excerpt;
+    if(!$image) {
+        return $data;
     }
+
+    // キャプションが設定されているか確認
+    $caption = $image->post_excerpt;
+    if(is_array($data) && !empty($caption)) {
+      $data['image_meta']['caption'] = $caption;
+    }
+
     return $data;
 }
+
 /**
  * Implement the Custom Header feature.
  */
