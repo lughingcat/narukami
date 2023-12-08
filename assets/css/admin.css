@@ -890,20 +890,21 @@
         font-size: 1.1rem;
         font-weight: bold; }
       .grandmenu-wrap .grandmenu-title-wrap .gm-item-wrap p::after {
-        content: '→';
+        font-family: 'Font Awesome 6 Free';
+        content: '\f08e';
         position: absolute;
-        right: 10px;
+        right: 20px;
         top: 50%;
         transform: translateY(-50%);
         width: 20px;
         height: 20px;
         border-radius: 50%;
-        background-color: #ffffff;
-        color: #000;
+        color: #ffffff;
         text-align: center;
         padding: 3px;
         line-height: 20px;
-        vertical-align: middle; }
+        vertical-align: middle;
+        font-size: 1.2rem; }
       .grandmenu-wrap .grandmenu-title-wrap .gm-item-wrap.show {
         opacity: 1;
         transform: translateY(0); }

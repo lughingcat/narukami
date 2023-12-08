@@ -105,7 +105,14 @@ function updateDataIndex(element, newIndex) {
 
 //グランドメニューのバリテート
  document.getElementById('grandmenuCloseBtn').addEventListener('click', function() {
-            validateForm();
+            var isFormValid = validateForm();
+
+   			// 処理が完了している場合、true を返しているのでログを出力
+   			if (isFormValid) {
+			   this.addEventListener('click' , ()=>{
+					document.getElementById('cmaker_grandmenu_wrap').style.display="none";
+				});
+   			}
  });
 
 
@@ -205,10 +212,12 @@ function updateDataIndex(element, newIndex) {
 				emptyInputs.forEach(function(emptyInput) {
 					emptyInput.addEventListener('input', function(event) {
 						if(firstResult === 'title'){
+							console.log('イベントのターゲット要素:', event.target);
 							erroeMsegTitle[findTextEl].style.display = 'none';
 							this.classList.remove('gmform-error');
 						}
 						if(firstResult === 'img'){
+							console.log('イベントのターゲット要素:', event.target);
 							erroeMsegImg[findImgEl].style.display = 'none';
 							this.classList.remove('gmform-error');
 						}
@@ -219,6 +228,7 @@ function updateDataIndex(element, newIndex) {
 					});
 				});
 			}
+			return !hasEmptyInput;
 		
 		}
 
