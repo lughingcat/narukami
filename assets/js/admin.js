@@ -112,7 +112,11 @@ function updateDataIndex(element, newIndex) {
 			   this.addEventListener('click' , ()=>{
 					document.getElementById('cmaker_grandmenu_wrap').style.display="none";
 				});
-   			}
+   			}else{
+				this.addEventListener('click' , ()=>{
+					document.getElementById('cmaker_grandmenu_wrap').style.display="";
+				});
+			}
  });
 
 
@@ -212,7 +216,6 @@ function updateDataIndex(element, newIndex) {
 				emptyInputs.forEach(function(emptyInput) {
 					emptyInput.addEventListener('input', function(event) {
 						if(firstResult === 'title'){
-							console.log('イベントのターゲット要素:', event.target);
 							erroeMsegTitle[findTextEl].style.display = 'none';
 							this.classList.remove('gmform-error');
 						}
