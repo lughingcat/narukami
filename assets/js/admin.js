@@ -58,7 +58,6 @@ function updateDataIndex(element, newIndex) {
 			let countEl = document.querySelectorAll('.gm-form-style').length;
 			let lastNam = countEl -1;
 			let plasNam = lastNam +1;
-	 		console.log(plasNam)
             let gmForm = document.getElementById("gm-form_" + lastNam);
             let addField = gmForm.parentElement;
             let copied = gmForm.cloneNode(true);
@@ -79,7 +78,7 @@ function updateDataIndex(element, newIndex) {
 			   }
 				
     		});
-	 		var delBtnNum = copied.querySelector('#gm-del-button_' + lastNam);
+	 		var delBtnNum = copied.querySelector('#gm-del-button_' + plasNam);
 	 		console.log(delBtnNum)
 	 		delBtnNum.innerHTML = plasNam + 1 + "番目の要素を全削除";
     		addField.appendChild(copied);
