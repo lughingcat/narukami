@@ -94,10 +94,11 @@
 			$error_message_title = 'グランドメニュータイトルが入力されていません。';
 			echo '<div id="gm_title_error_' . $index . '" class="gm-error-message-title" style="display: none;">' . $error_message_title . '</div>';
 			echo "<h4>ジャンル一覧ページへのリンクを入力してください。</h4>";
-			echo "<input id='gm_link_$index' type='text' name='grandmenu_pagelink[]' class='img-setect-url' value='" . $values['pagelink'] . "'>";
+			echo "<input id='gm_link_$index' type='text' name='grandmenu_pagelink[]' class='img-setect-url' value='" . $values['pagelink'] . "'></br>";
 			$error_message_link = 'グランドメニューのページリンクが選択されていません。';
 			echo '<div id="gm_link_error_' . $index . '" class="gm-error-message-link" style="display: none;">' . $error_message_link . '</div>';
-			echo '<button type="button" onclick="deleteParentEl(this)">削除</button>';
+			$del_btn_index = $index + 1;
+			echo '<button id="gm-del-button_'.$index.'" class="gm-item-del-btn" type="button" onclick="deleteParentEl(this)">'.$del_btn_index.'番目のメニューを全削除。</button>';
 			echo "</div>";
 			
 			 $index++;
@@ -105,9 +106,12 @@
 	}
 	?>
 	</div>
-
-	<button type="button" id="gm-elment-add">追加</button>
-	<button type="button" id="grandmenuCloseBtn">保存(閉じる)</button>
+	<div id="valitate-complete">
+    <p>バリテートは正常に完了しました。</p>
+    <button id="close-valitate-btn" type="button">閉じる</button>
+	</div>
+	<button type="button" id="gm-elment-add">新規追加</button>
+	<button type="button" id="grandmenuCloseBtn">バリテート(ページを閉じる)</button>
 
 
 </div>

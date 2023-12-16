@@ -28,7 +28,29 @@
 .img-wrap-function{
 	margin: 4% 0 4% 0;
 }
-
+//モーダルを閉じるボタンスタイル
+#grandmenuCloseBtn,
+#rankingCloseBtn,
+#conceptCloseBtn{
+	width: 50%;
+	padding: 2%;
+	margin: 2% auto;
+	font-weight: bold;
+	background-color: #6b5e5e;
+	border: none;
+	color: #ffffff;
+	border-radius: 5px;
+}
+#gm-elment-add{
+	width: 50%;
+	padding: 2%;
+	margin: 2% auto;
+	font-weight: bold;
+	background-color: #06BF28;
+	border: none;
+	color: #ffffff;
+	border-radius: 5px;
+}
 /*------inputFormスタイル　-------*/
 
 .inputForm{
@@ -1133,8 +1155,26 @@
 	}
 }
 
-
-
+#valitate-complete {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: none;
+}
+.gm-item-del-btn{
+	width: 42%;
+	background-color: #E10D10;
+	margin: 5% auto;
+	padding: 1%;
+	border: none;
+	font-weight: bold;
+	color: #FFFFFF;
+	border-radius: 5px;
+}
 /*#################################
 	fontawesomeスタイル
 #################################*/

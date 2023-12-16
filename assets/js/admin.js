@@ -58,6 +58,7 @@ function updateDataIndex(element, newIndex) {
 			let countEl = document.querySelectorAll('.gm-form-style').length;
 			let lastNam = countEl -1;
 			let plasNam = lastNam +1;
+	 		console.log(plasNam)
             let gmForm = document.getElementById("gm-form_" + lastNam);
             let addField = gmForm.parentElement;
             let copied = gmForm.cloneNode(true);
@@ -69,22 +70,25 @@ function updateDataIndex(element, newIndex) {
 			copied.querySelectorAll('*[id]').forEach((childElement) => {
     		   let childElementId = childElement.id;
 			   let lastNumber = parseInt(childElementId.match(/\d+$/), 10); // 末尾の数字を取得し、数値に変換
-
 			   if (!isNaN(lastNumber)) {
 			   	let newChildIds = childElementId.replace(/\d+$/, lastNumber + 1);
 			   	childElement.id = newChildIds;
+				console.log(childElement.id)
 			   } else {
 			   	console.error('IDに数字が見つかりませんでした。');
 			   }
 				
     		});
+	 		var delBtnNum = copied.querySelector('#gm-del-button_' + lastNam);
+	 		console.log(delBtnNum)
+	 		delBtnNum.innerHTML = plasNam + 1 + "番目の要素を全削除";
     		addField.appendChild(copied);
             plasNam++;
         }
     
         const gmAddBtn = document.getElementById("gm-elment-add");
         gmAddBtn.addEventListener("click", addGmElement, false);
-    
+
         function deleteParentEl(button) {
 			let elements = document.querySelectorAll('.gm-form-style');
 			// 最後の1つの要素になった場合
@@ -92,7 +96,6 @@ function updateDataIndex(element, newIndex) {
 				alert("最後の要素は削除できません");
 				return; // 削除しない
 			}
-
             var parentEl = button.parentElement;
             if (parentEl) {
                 parentEl.remove();
@@ -100,8 +103,26 @@ function updateDataIndex(element, newIndex) {
    				elements.forEach((el, index) => {
    				    el.id = "gm-form_" + index;
                 });
+				var delBtnNum = document.querySelectorAll('.gm-item-del-btn');
+				delBtnNum.forEach((el,index)=>{
+					el.innerHTML = index + 1 + "番目のメニューを全削除。";
+				});
+				var delRenumber = elements.forEach((element) => {
+					let parentNum = parseInt(element.id.match(/\d+$/), 10);
+					var nodesWithId = element.querySelectorAll('*[id]');
+					Array.from(nodesWithId).forEach((node, nodeIdex) => {
+						let currentId = node.id;
+						let lastNumbers = parseInt(currentId.match(/\d+$/), 10);
+						// 新しいIDを生成する例
+						let newId = `${currentId.replace(/\d+$/, parentNum)}`;
+						// 新しいIDを割り当てる
+						node.id = newId;
+					});
+				});
+				
+				}
             }
-        }
+        
 
 //グランドメニューのバリテート
  document.getElementById('grandmenuCloseBtn').addEventListener('click', function() {
@@ -109,12 +130,14 @@ function updateDataIndex(element, newIndex) {
 
    			// 処理が完了している場合、true を返しているのでログを出力
    			if (isFormValid) {
-			   this.addEventListener('click' , ()=>{
-					document.getElementById('cmaker_grandmenu_wrap').style.display="none";
-				});
+			   document.getElementById('cmaker_grandmenu_wrap').style.display="none";
    			}else{
-				this.addEventListener('click' , ()=>{
-					document.getElementById('cmaker_grandmenu_wrap').style.display="";
+				document.getElementById('valitate-complete').style.display="block";
+				document.getElementById('cmaker_grandmenu_wrap').style.display="";
+				document.getElementById('close-valitate-btn').addEventListener('click', ()=>{
+					event.preventDefault();
+					document.getElementById('valitate-complete').style.display="none";
+					document.getElementById('cmaker_grandmenu_wrap').style.display="none";
 				});
 			}
  });
@@ -148,6 +171,7 @@ function updateDataIndex(element, newIndex) {
 					erroeMsegLink.forEach(function(msglink) {
    	 		        	msglink.style.display = 'none';
    	 		    	});
+					return !hasEmptyInput;
 				}
                 
             });
@@ -231,7 +255,7 @@ function updateDataIndex(element, newIndex) {
 					});
 				});
 			}
-			return !hasEmptyInput;
+			
 		
 		}
 
