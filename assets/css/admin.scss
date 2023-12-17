@@ -1164,6 +1164,22 @@
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     display: none;
+	border: 2px #0b950b solid;
+	border-radius: 5px;
+	width: 45%;
+	p{
+		font-size: 1.2em;
+		font-weight: bold;
+	}
+}
+#close-valitate-btn{
+	background-color: red;
+	font-size: 1.2em;
+	font-weight: bold;
+	padding: 2% 6%;
+	border:  none;
+	border-radius: 5px;
+	color: #FFFFFF;
 }
 .gm-item-del-btn{
 	width: 42%;

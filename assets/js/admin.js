@@ -125,18 +125,18 @@ function updateDataIndex(element, newIndex) {
 //グランドメニューのバリテート
  document.getElementById('grandmenuCloseBtn').addEventListener('click', function() {
             var isFormValid = validateForm();
-
+	 		console.log(isFormValid)
    			// 処理が完了している場合、true を返しているのでログを出力
    			if (isFormValid) {
-			   document.getElementById('cmaker_grandmenu_wrap').style.display="none";
-   			}else{
-				document.getElementById('valitate-complete').style.display="block";
-				document.getElementById('cmaker_grandmenu_wrap').style.display="";
-				document.getElementById('close-valitate-btn').addEventListener('click', ()=>{
+			   document.getElementById('cmaker_grandmenu_wrap').style.display="";
+			   document.getElementById('valitate-complete').style.display="block";
+			   document.getElementById('close-valitate-btn').addEventListener('click', ()=>{
 					event.preventDefault();
 					document.getElementById('valitate-complete').style.display="none";
 					document.getElementById('cmaker_grandmenu_wrap').style.display="none";
-				});
+			   });
+   			}else{
+				document.getElementById('valitate-complete').style.display="none";
 			}
  });
 
@@ -169,7 +169,7 @@ function updateDataIndex(element, newIndex) {
 					erroeMsegLink.forEach(function(msglink) {
    	 		        	msglink.style.display = 'none';
    	 		    	});
-					return !hasEmptyInput;
+					
 				}
                 
             });
@@ -254,7 +254,7 @@ function updateDataIndex(element, newIndex) {
 				});
 			}
 			
-		
+		return !hasEmptyInput;
 		}
 
 
