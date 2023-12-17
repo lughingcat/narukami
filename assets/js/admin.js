@@ -72,14 +72,12 @@ function updateDataIndex(element, newIndex) {
 			   if (!isNaN(lastNumber)) {
 			   	let newChildIds = childElementId.replace(/\d+$/, lastNumber + 1);
 			   	childElement.id = newChildIds;
-				console.log(childElement.id)
 			   } else {
 			   	console.error('IDに数字が見つかりませんでした。');
 			   }
 				
     		});
 	 		var delBtnNum = copied.querySelector('#gm-del-button_' + plasNam);
-	 		console.log(delBtnNum)
 	 		delBtnNum.innerHTML = plasNam + 1 + "番目の要素を全削除";
     		addField.appendChild(copied);
             plasNam++;
@@ -105,6 +103,7 @@ function updateDataIndex(element, newIndex) {
 				var delBtnNum = document.querySelectorAll('.gm-item-del-btn');
 				delBtnNum.forEach((el,index)=>{
 					el.innerHTML = index + 1 + "番目のメニューを全削除。";
+					
 				});
 				var delRenumber = elements.forEach((element) => {
 					let parentNum = parseInt(element.id.match(/\d+$/), 10);
@@ -112,7 +111,7 @@ function updateDataIndex(element, newIndex) {
 					Array.from(nodesWithId).forEach((node, nodeIdex) => {
 						let currentId = node.id;
 						let lastNumbers = parseInt(currentId.match(/\d+$/), 10);
-						// 新しいIDを生成する例
+						// 新しいIDを生成する
 						let newId = `${currentId.replace(/\d+$/, parentNum)}`;
 						// 新しいIDを割り当てる
 						node.id = newId;
