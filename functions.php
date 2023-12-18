@@ -297,6 +297,9 @@ function create_theme_tables() {
 		  `grandmenu_title` varchar(255) NOT NULL,
 		  `grandmenu_pagelink` varchar(2000) NOT NULL,
 		  `gm_primary_title` varchar(250) NOT NULL,
+		  `column_right_1_bg_img_url` varchar(250) NOT NULL,
+		  `column_right_1_title` varchar(250) NOT NULL,
+		  `column_right_1_content` varchar(250) NOT NULL,
 		  PRIMARY KEY (`id`)
 		) {$charset_collate} AUTO_INCREMENT=1;";
         require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
@@ -316,6 +319,7 @@ function ranking_db_farst_insert_data(){
 	$rank5_img = "/admin-img/loaf.jpg";
 	$rank6_img = "/admin-img/beef.jpg";
 	$concept_img = "/admin-img/concept-bg.jpg";
+	$column_right_1_img = "/admin-img/restrant.jpg";
 	$rank_primary_t = "RECOMMEND&nbsp;MENU";
 	$rank1_img_path = $url_path.$rank1_img;
 	$rank2_img_path = $url_path.$rank2_img;
@@ -325,6 +329,11 @@ function ranking_db_farst_insert_data(){
 	$rank6_img_path = $url_path.$rank6_img;
 	$concept_img_path = $url_path.$concept_img;
 	$concept_title_path = "CONCEPT&nbsp;TITLE";
+	$column_right_1_bg_img_url_path = $url_path.$column_right_1_img;
+	$column_right_1_content_path =<<< EOM
+		親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰を抜かす奴があるかと云ったから、この次は抜かさずに飛んで見せますと答えた。（青空文庫より）
+		EOM;
+	$column_right_1_title_path = "SAMPLE&nbsp;TITLE";
 	$gm_primary_title_path = "GRAND&nbsp;MENU";
 	$concept_content_sample =<<< EOM
 		親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰を抜かす奴があるかと云ったから、この次は抜かさずに飛んで見せますと答えた。（青空文庫より）
@@ -404,6 +413,9 @@ function ranking_db_farst_insert_data(){
 		'grandmenu_title' => $grandmenu_title_json,
 		'grandmenu_pagelink' => $grandmenu_pagelink_json,
 		'gm_primary_title' => $gm_primary_title_path,
+		'column_right_1_bg_img_url' => $column_right_1_bg_img_url_path,
+		'column_right_1_content' => $column_right_1_content_path,
+		'column_right_1_title' => $column_right_1_title_path,
 		
 		),
 		array(
@@ -456,6 +468,11 @@ function ranking_db_farst_insert_data(){
 			'%s',
 			'%s',
 			'%s',
+			//rightImg1Column
+			'%s',
+			'%s',
+			'%s',
+			
 		)
 		);
 }

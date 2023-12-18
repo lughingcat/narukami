@@ -1162,7 +1162,6 @@
     transform: translate(-50%, -50%);
     background-color: #fff;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     display: none;
 	border: 2px #0b950b solid;
 	border-radius: 5px;
@@ -1174,9 +1173,8 @@
 }
 #close-valitate-btn{
 	background-color: red;
-	font-size: 1.2em;
 	font-weight: bold;
-	padding: 2% 6%;
+	padding: 3px 15px;
 	border:  none;
 	border-radius: 5px;
 	color: #FFFFFF;

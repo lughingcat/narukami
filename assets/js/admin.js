@@ -7,15 +7,23 @@ window.addEventListener('load', function(){
 	if(selectVal == 'ランキング'){
 			document.getElementById('cmaker_ranking_wrap').style.display="";
 			document.getElementById('cmaker_concept_wrap').style.display="none";
+			document.getElementById('cmaker_column_right_1_wrap').style.display="none";
 			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
 		}else if(selectVal == 'コンセプト'){
 			document.getElementById('cmaker_ranking_wrap').style.display="none";
 			document.getElementById('cmaker_concept_wrap').style.display="";
+			document.getElementById('cmaker_column_right_1_wrap').style.display="none";
 			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
 		}else if(selectVal == 'グランドメニュー'){
 			document.getElementById('cmaker_ranking_wrap').style.display="none";
 			document.getElementById('cmaker_concept_wrap').style.display="none";
+			document.getElementById('cmaker_column_right_1_wrap').style.display="none";
 			document.getElementById('cmaker_grandmenu_wrap').style.display="";
+		}else if(selectVal == '右寄せ背景１カラム'){
+			document.getElementById('cmaker_ranking_wrap').style.display="none";
+			document.getElementById('cmaker_concept_wrap').style.display="none";
+			document.getElementById('cmaker_column_right_1_wrap').style.display="";
+			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
 		}
 });
 
@@ -27,15 +35,23 @@ function cmakerChange(){
 		if(id == 'ランキング'){
 			document.getElementById('cmaker_ranking_wrap').style.display="";
 			document.getElementById('cmaker_concept_wrap').style.display="none";
+			document.getElementById('cmaker_column_right_1_wrap').style.display="none";
 			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
 		}else if(id == 'コンセプト'){
 			document.getElementById('cmaker_ranking_wrap').style.display="none";
 			document.getElementById('cmaker_concept_wrap').style.display="";
+			document.getElementById('cmaker_column_right_1_wrap').style.display="none";
 			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
 		}else if(id == 'グランドメニュー'){
 			document.getElementById('cmaker_ranking_wrap').style.display="none";
 			document.getElementById('cmaker_concept_wrap').style.display="none";
+			document.getElementById('cmaker_column_right_1_wrap').style.display="none";
 			document.getElementById('cmaker_grandmenu_wrap').style.display="";
+		}else if(id == '右寄せ背景１カラム'){
+			document.getElementById('cmaker_ranking_wrap').style.display="none";
+			document.getElementById('cmaker_concept_wrap').style.display="none";
+			document.getElementById('cmaker_column_right_1_wrap').style.display="";
+			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
 		}
 	}
 }
@@ -125,7 +141,6 @@ function updateDataIndex(element, newIndex) {
 //グランドメニューのバリテート
  document.getElementById('grandmenuCloseBtn').addEventListener('click', function() {
             var isFormValid = validateForm();
-	 		console.log(isFormValid)
    			// 処理が完了している場合、true を返しているのでログを出力
    			if (isFormValid) {
 			   document.getElementById('cmaker_grandmenu_wrap').style.display="";
