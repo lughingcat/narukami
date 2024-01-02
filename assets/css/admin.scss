@@ -1155,6 +1155,7 @@
 	}
 }
 
+
 #valitate-complete {
     position: fixed;
     top: 50%;
@@ -1189,6 +1190,50 @@
 	color: #FFFFFF;
 	border-radius: 5px;
 }
+
+/*------　右左1カラムスタイル-------*/
+
+.column_right_1-all-wrap{
+	width: 100%;
+	height: auto;
+	position: relative;
+	display: flex;
+	margin: 60px 0;
+	.column_right_1-back-wrap{
+		width: 100%;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+	.column_right_1-text-wrap{
+		width: 40%;
+		padding: 10px;
+		margin: 0 10px;
+		.column_right_1-main-title{
+			position: relative;
+			width: 100%;
+			font-size: 1.2em;
+			font-weight: bold;
+		}
+		.column_right_1-main-title::after{
+			content: '';
+  			position: absolute;
+  			bottom: -15px;
+  			display: inline-block;
+  			width: 90%;
+  			height: 2px;
+  			left: 0;
+  			-webkit-transform: translateX(-50%);
+  			transform: translateX(0%);
+  			background-color: #000000bf;
+  			border-radius: 2px;
+		}
+		.column_right_1-main-content{
+			padding: 20px 5px;
+		}
+	}
+}
+/*------　右左1カラムスタイルend-------*/
 /*#################################
 	fontawesomeスタイル
 #################################*/
