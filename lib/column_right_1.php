@@ -12,12 +12,12 @@
 				 $column_right_1_content = $row->column_right_1_content; 
 			  };
 			  ?>
-			<div class="column_right_1-back-wrap">
+			<div class="column_right_1-back-wrap"
 				 style="background-image: url(<?php if( isset( $_POST['column_right_1_bg_img_url'])){ echo $_POST['column_right_1_bg_img_url']; }elseif( !isset($_POST['column_right_1_bg_img_url']) ){ echo $column_right_1_bgImg_url; };?> )">
-				<div class="column_right_1-text-wrap">
+			</div>
+			<div class="column_right_1-text-wrap">
 				<p class="column_right_1-main-title"><?php if( isset( $_POST['column_right_1_title'])){ echo $_POST['column_right_1_title']; }elseif( !isset($_POST['column_right_1_title'])){ echo $column_right_1_title; };?></p>
 				<p class="column_right_1-main-content"><?php if( isset( $_POST['column_right_1_content'])){ echo $_POST['column_right_1_content']; }elseif( !isset($_POST['column_right_1_content'])){ echo $column_right_1_content; };?></p>
-				</div>
 			</div>
 		</article>
 	</div>
