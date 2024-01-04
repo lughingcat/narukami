@@ -25,7 +25,8 @@
 			  	"ランキング",
 			  	"コンセプト",
 			  	"グランドメニュー",
-			  	"右寄せ背景１カラム",
+			  	"右寄せ背景1カラム",
+			  	"左寄せ背景1カラム",
 			  );
 				if(isset($_POST['s_cmaker'])){
 					$selectbox_item = $_POST['s_cmaker'];
@@ -50,6 +51,7 @@
 				  <?php get_template_part('lib/concept'); ?>
 				  <?php get_template_part('lib/grandmenu'); ?>
 				  <?php get_template_part('lib/column_right_1'); ?>
+				  <?php get_template_part('lib/column_left_1'); ?>
 			  </div>
 			  
 			  

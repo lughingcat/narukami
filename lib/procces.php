@@ -59,6 +59,10 @@ $i_gm_primary_title = $_POST['gm_primary_title'];
 $i_column_right_1_img_url = $_POST['column_right_1_bg_img_url'];
 $i_column_right_1_title = $_POST['column_right_1_title'];
 $i_column_right_1_content = $_POST['column_right_1_content'];
+//左画像１カラム
+$i_column_left_1_img_url = $_POST['column_left_1_bg_img_url'];
+$i_column_left_1_title = $_POST['column_left_1_title'];
+$i_column_left_1_content = $_POST['column_left_1_content'];
 global $wpdb;
 	$tablename =  $wpdb->prefix . "narukami_content_maker";
 	// 各種データの保存
@@ -122,6 +126,10 @@ global $wpdb;
 			'column_right_1_bg_img_url' => $i_column_right_1_img_url,
 			'column_right_1_title' => $i_column_right_1_title,
 			'column_right_1_content' => $i_column_right_1_content,
+			//左画像１カラム
+			'column_left_1_bg_img_url' => $i_column_left_1_img_url,
+			'column_left_1_title' => $i_column_left_1_title,
+			'column_left_1_content' => $i_column_left_1_content,
 		),
 		array(
 		//ランキングpopスタイル
@@ -180,6 +188,10 @@ global $wpdb;
 			'%s',
 			'%s',
 		//右画像１カラム
+			'%s',
+			'%s',
+			'%s',
+		//左画像１カラム
 			'%s',
 			'%s',
 			'%s',
