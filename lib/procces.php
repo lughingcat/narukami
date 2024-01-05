@@ -64,10 +64,10 @@ $i_column_left_1_img_url = $_POST['column_left_1_bg_img_url'];
 $i_column_left_1_title = $_POST['column_left_1_title'];
 $i_column_left_1_content = $_POST['column_left_1_content'];
 //2カラム
-$i_column_2_bgImg_url = $_POST['column_2_bg_Img_url'];
+$i_column_2_bgImg_url = $_POST['column_2_bg_img_url'];
 $i_column_2_title = $_POST['column_2_title'];
 $i_column_2_content = $_POST['column_2_content'];
-$i_column_2_sec_bgImg_url = $_POST['column_2_sec_bg_Img_url'];
+$i_column_2_sec_bgImg_url = $_POST['column_2_sec_bg_img_url'];
 $i_column_2_sec_title = $_POST['column_2_sec_title'];
 $i_column_2_sec_content = $_POST['column_2_sec_content'];
 global $wpdb;
@@ -138,10 +138,10 @@ global $wpdb;
 			'column_left_1_title' => $i_column_left_1_title,
 			'column_left_1_content' => $i_column_left_1_content,
 			//2カラム
-			'column_2_bg_Img_url' => $i_column_2_bgImg_url,
+			'column_2_bg_img_url' => $i_column_2_bgImg_url,
 			'column_2_title' => $i_column_2_title,
 			'column_2_content' => $i_column_2_content,
-			'column_2_sec_bg_Img_url' => $i_column_2_sec_bgImg_url,
+			'column_2_sec_bg_img_url' => $i_column_2_sec_bgImg_url,
 			'column_2_sec_title' => $i_column_2_sec_title,
 			'column_2_sec_content' => $i_column_2_sec_content,
 		),
