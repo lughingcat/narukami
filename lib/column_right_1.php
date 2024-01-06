@@ -15,10 +15,10 @@
 			<div class="column_right_1-all-wrap">
 				<div class="column_right_1-text-wrap">
 					<p class="column_right_1-main-title"><?php if( isset( $_POST['column_right_1_title'])){ echo $_POST['column_right_1_title']; }elseif( !isset($_POST['column_right_1_title'])){ echo $column_right_1_title; };?></p>
-					<p class="column_right_1-main-content"><?php if( isset( $_POST['column_right_1_content'])){ echo $_POST['column_right_1_content']; }elseif( !isset($_POST['column_right_1_content'])){ echo $column_right_1_content; };?></p>
+					<p class="column_right_1-main-content"><?php if( isset( $_POST['column_right_1_content'])){ echo nl2br($_POST['column_right_1_content']); }elseif( !isset($_POST['column_right_1_content'])){ echo nl2br($column_right_1_content); };?></p>
 				</div>
 				<div class="column_right_1-back-wrap"
-					 style="background-image: url(<?php if( isset( $_POST['column_right_1_bg_img_url'])){ echo $_POST['column_right_1_bg_img_url']; }elseif( !isset($_POST['column_right_1_bg_img_url']) ){ echo $column_right_1_bgImg_url; };?> )">
+					 style="background-image: url(<?php if( isset( $_POST['column_right_1_bg_img_url'])){ echo nl2br($_POST['column_right_1_bg_img_url']); }elseif( !isset($_POST['column_right_1_bg_img_url']) ){ echo nl2br($column_right_1_bgImg_url); };?> )">
 				</div>
 			</div>
 		</article>

@@ -1,4 +1,3 @@
-
 <?php
 require_once( dirname(dirname(dirname(dirname(dirname( __FILE__ ))))) . '/wp-load.php' );
 //ランキングpopスタイル
@@ -46,7 +45,7 @@ $i_item_page_link_6 = $_POST['item_page_link_6'];
 $i_rank_on_6 = $_POST['rank_on_6'];
 //セレクトボックス
 $select_content = $_POST['s_cmaker'];
-//スライダー
+//コンセプト
 $i_concept_bgImg_url = $_POST['concept_bg_img_url'];
 $i_concept_title = $_POST['concept_title'];
 $i_concept_content = $_POST['concept_content'];
@@ -120,7 +119,7 @@ global $wpdb;
 			'rank_on_6' => $i_rank_on_6,
 			//セレクトボックス
 			's_cmaker' => $select_content,
-			//スライダー
+			//コンセプト
 			'concept_bg_img_url' => $i_concept_bgImg_url,
 			'concept_title' => $i_concept_title,
 			'concept_content' => $i_concept_content,

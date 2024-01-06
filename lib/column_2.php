@@ -22,7 +22,7 @@
 				</div>
 				<div class="column_2-text-wrap">
 					<p class="column_2-main-title"><?php if( isset( $_POST['column_2_title'])){ echo $_POST['column_2_title']; }elseif( !isset($_POST['column_2_title'])){ echo $column_2_title; };?></p>
-					<p class="column_2-main-content"><?php if( isset( $_POST['column_2_content'])){ echo $_POST['column_2_content']; }elseif( !isset($_POST['column_2_content'])){ echo $column_2_content; };?></p>
+					<p class="column_2-main-content"><?php if( isset( $_POST['column_2_content'])){ echo nl2br($_POST['column_2_content']); }elseif( !isset($_POST['column_2_content'])){ echo nl2br($column_2_content); };?></p>
 				</div>
 				</div>
 				<div class="column_2_item_wrap">
@@ -31,7 +31,7 @@
 				</div>
 				<div class="column_2-text-wrap">
 					<p class="column_2-main-title"><?php if( isset( $_POST['column_2_sec_title'])){ echo $_POST['column_2_sec_title']; }elseif( !isset($_POST['column_2_sec_title'])){ echo $column_2_sec_title; };?></p>
-					<p class="column_2-main-content"><?php if( isset( $_POST['column_2_sec_content'])){ echo $_POST['column_2_sec_content']; }elseif( !isset($_POST['column_2_sec_content'])){ echo $column_2_sec_content; };?></p>
+					<p class="column_2-main-content"><?php if( isset( $_POST['column_2_sec_content'])){ echo nl2br($_POST['column_2_sec_content']); }elseif( !isset($_POST['column_2_sec_content'])){ echo nl2br($column_2_sec_content); };?></p>
 				</div>
 				</div>
 			</div>

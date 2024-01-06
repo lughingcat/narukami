@@ -18,7 +18,7 @@
 				</div>
 				<div class="column_left_1-text-wrap">
 					<p class="column_left_1-main-title"><?php if( isset( $_POST['column_left_1_title'])){ echo $_POST['column_left_1_title']; }elseif( !isset($_POST['column_left_1_title'])){ echo $column_left_1_title; };?></p>
-					<p class="column_left_1-main-content"><?php if( isset( $_POST['column_left_1_content'])){ echo $_POST['column_left_1_content']; }elseif( !isset($_POST['column_left_1_content'])){ echo $column_left_1_content; };?></p>
+					<p class="column_left_1-main-content"><?php if( isset( $_POST['column_left_1_content'])){ echo nl2br($_POST['column_left_1_content']); }elseif( !isset($_POST['column_left_1_content'])){ echo nl2br($column_left_1_content); };?></p>
 				</div>
 			</div>
 		</article>
