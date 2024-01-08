@@ -28,6 +28,7 @@
 			  	"右寄せ背景1カラム",
 			  	"左寄せ背景1カラム",
 			  	"2カラム",
+			  	"3カラム",
 			  );
 				if(isset($_POST['s_cmaker'])){
 					$selectbox_item = $_POST['s_cmaker'];
@@ -54,6 +55,7 @@
 				  <?php get_template_part('lib/column_right_1'); ?>
 				  <?php get_template_part('lib/column_left_1'); ?>
 				  <?php get_template_part('lib/column_2'); ?>
+				  <?php get_template_part('lib/column_3'); ?>
 			  </div>
 			  
 			  

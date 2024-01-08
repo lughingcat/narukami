@@ -69,6 +69,16 @@ $i_column_2_content = $_POST['column_2_content'];
 $i_column_2_sec_bgImg_url = $_POST['column_2_sec_bg_img_url'];
 $i_column_2_sec_title = $_POST['column_2_sec_title'];
 $i_column_2_sec_content = $_POST['column_2_sec_content'];
+//3カラム
+$i_column_3_bgImg_url = $_POST['column_3_bg_img_url'];
+$i_column_3_title = $_POST['column_3_title'];
+$i_column_3_content = $_POST['column_3_content'];
+$i_column_3_sec_bgImg_url = $_POST['column_3_sec_bg_img_url'];
+$i_column_3_sec_title = $_POST['column_3_sec_title'];
+$i_column_3_sec_content = $_POST['column_3_sec_content'];
+$i_column_3_third_bgImg_url = $_POST['column_3_third_bg_img_url'];
+$i_column_3_third_title = $_POST['column_3_third_title'];
+$i_column_3_third_content = $_POST['column_3_third_content'];
 global $wpdb;
 	$tablename =  $wpdb->prefix . "narukami_content_maker";
 	// 各種データの保存
@@ -143,6 +153,16 @@ global $wpdb;
 			'column_2_sec_bg_img_url' => $i_column_2_sec_bgImg_url,
 			'column_2_sec_title' => $i_column_2_sec_title,
 			'column_2_sec_content' => $i_column_2_sec_content,
+			//3カラム
+			'column_3_bg_img_url' => $i_column_3_bgImg_url,
+			'column_3_title' => $i_column_3_title,
+			'column_3_content' => $i_column_3_content,
+			'column_3_sec_bg_img_url' => $i_column_3_sec_bgImg_url,
+			'column_3_sec_title' => $i_column_3_sec_title,
+			'column_3_sec_content' => $i_column_3_sec_content,
+			'column_3_third_bg_img_url' => $i_column_3_third_bgImg_url,
+			'column_3_third_title' => $i_column_3_third_title,
+			'column_3_third_content' => $i_column_3_third_content,
 		),
 		array(
 		//ランキングpopスタイル
@@ -209,6 +229,16 @@ global $wpdb;
 			'%s',
 			'%s',
 		//2カラム
+			'%s',
+			'%s',
+			'%s',
+			'%s',
+			'%s',
+			'%s',
+		//3カラム
+			'%s',
+			'%s',
+			'%s',
 			'%s',
 			'%s',
 			'%s',
