@@ -79,6 +79,13 @@ $i_column_3_sec_content = $_POST['column_3_sec_content'];
 $i_column_3_third_bgImg_url = $_POST['column_3_third_bg_img_url'];
 $i_column_3_third_title = $_POST['column_3_third_title'];
 $i_column_3_third_content = $_POST['column_3_third_content'];
+//店舗情報
+$i_store_name = $_POST['store_name'];
+$i_store_info_bg_img_url = $_POST['store_info_bg_img_url'];
+$i_store_post_number = $_POST['store_post_number'];
+$i_store_adress = $_POST['store_adress'];
+$i_store_phone_num = $_POST['store_phone_num'];
+$i_store_rg_holiday = $_POST['store_rg_holiday'];
 global $wpdb;
 	$tablename =  $wpdb->prefix . "narukami_content_maker";
 	// 各種データの保存
@@ -163,6 +170,13 @@ global $wpdb;
 			'column_3_third_bg_img_url' => $i_column_3_third_bgImg_url,
 			'column_3_third_title' => $i_column_3_third_title,
 			'column_3_third_content' => $i_column_3_third_content,
+			//店舗情報
+			'store_name' => $i_store_name,
+			'store_info_bg_img_url' => $i_store_info_bg_img_url,
+			'store_post_number' => $i_store_post_number,
+			'store_adress' => $i_store_adress,
+			'store_phone_num' => $i_store_phone_num,
+			'store_rg_holiday' => $i_store_rg_holiday,
 		),
 		array(
 		//ランキングpopスタイル
@@ -239,6 +253,13 @@ global $wpdb;
 			'%s',
 			'%s',
 			'%s',
+			'%s',
+			'%s',
+			'%s',
+			'%s',
+			'%s',
+			'%s',
+		//店舗情報
 			'%s',
 			'%s',
 			'%s',

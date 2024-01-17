@@ -12,6 +12,7 @@ window.addEventListener('load', function(){
 			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
 			document.getElementById('cmaker_column_2_wrap').style.display="none";
 			document.getElementById('cmaker_column_3_wrap').style.display="none";
+			document.getElementById('cmaker_store_info_wrap').style.display="none";
 		}else if(selectVal == 'コンセプト'){
 			document.getElementById('cmaker_ranking_wrap').style.display="none";
 			document.getElementById('cmaker_concept_wrap').style.display="";
@@ -20,6 +21,7 @@ window.addEventListener('load', function(){
 			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
 			document.getElementById('cmaker_column_2_wrap').style.display="none";
 			document.getElementById('cmaker_column_3_wrap').style.display="none";
+			document.getElementById('cmaker_store_info_wrap').style.display="none";
 		}else if(selectVal == 'グランドメニュー'){
 			document.getElementById('cmaker_ranking_wrap').style.display="none";
 			document.getElementById('cmaker_concept_wrap').style.display="none";
@@ -28,6 +30,7 @@ window.addEventListener('load', function(){
 			document.getElementById('cmaker_grandmenu_wrap').style.display="";
 			document.getElementById('cmaker_column_2_wrap').style.display="none";
 			document.getElementById('cmaker_column_3_wrap').style.display="none";
+			document.getElementById('cmaker_store_info_wrap').style.display="none";
 		}else if(selectVal == '右寄せ背景1カラム'){
 			document.getElementById('cmaker_ranking_wrap').style.display="none";
 			document.getElementById('cmaker_concept_wrap').style.display="none";
@@ -36,6 +39,7 @@ window.addEventListener('load', function(){
 			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
 			document.getElementById('cmaker_column_2_wrap').style.display="none";
 			document.getElementById('cmaker_column_3_wrap').style.display="none";
+			document.getElementById('cmaker_store_info_wrap').style.display="none";
 		}else if(selectVal == '左寄せ背景1カラム'){
 			document.getElementById('cmaker_ranking_wrap').style.display="none";
 			document.getElementById('cmaker_concept_wrap').style.display="none";
@@ -44,6 +48,7 @@ window.addEventListener('load', function(){
 			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
 			document.getElementById('cmaker_column_2_wrap').style.display="none";
 			document.getElementById('cmaker_column_3_wrap').style.display="none";
+			document.getElementById('cmaker_store_info_wrap').style.display="none";
 		}else if(selectVal == '2カラム'){
 			document.getElementById('cmaker_ranking_wrap').style.display="none";
 			document.getElementById('cmaker_concept_wrap').style.display="none";
@@ -52,6 +57,7 @@ window.addEventListener('load', function(){
 			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
 			document.getElementById('cmaker_column_2_wrap').style.display="";
 			document.getElementById('cmaker_column_3_wrap').style.display="none";
+			document.getElementById('cmaker_store_info_wrap').style.display="none";
 		}else if(selectVal == '3カラム'){
 			document.getElementById('cmaker_ranking_wrap').style.display="none";
 			document.getElementById('cmaker_concept_wrap').style.display="none";
@@ -60,6 +66,16 @@ window.addEventListener('load', function(){
 			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
 			document.getElementById('cmaker_column_2_wrap').style.display="none";
 			document.getElementById('cmaker_column_3_wrap').style.display="";
+			document.getElementById('cmaker_store_info_wrap').style.display="none";
+		}else if(selectVal == '店舗情報'){
+			document.getElementById('cmaker_ranking_wrap').style.display="none";
+			document.getElementById('cmaker_concept_wrap').style.display="none";
+			document.getElementById('cmaker_column_right_1_wrap').style.display="none";
+			document.getElementById('cmaker_column_left_1_wrap').style.display="none";
+			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
+			document.getElementById('cmaker_column_2_wrap').style.display="none";
+			document.getElementById('cmaker_column_3_wrap').style.display="none";
+			document.getElementById('cmaker_store_info_wrap').style.display="";
 		}
 });
 
@@ -76,6 +92,7 @@ function cmakerChange(){
 			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
 			document.getElementById('cmaker_column_2_wrap').style.display="none";
 			document.getElementById('cmaker_column_3_wrap').style.display="none";
+			document.getElementById('cmaker_store_info_wrap').style.display="none";
 		}else if(id == 'コンセプト'){
 			document.getElementById('cmaker_ranking_wrap').style.display="none";
 			document.getElementById('cmaker_concept_wrap').style.display="";
@@ -84,6 +101,7 @@ function cmakerChange(){
 			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
 			document.getElementById('cmaker_column_2_wrap').style.display="none";
 			document.getElementById('cmaker_column_3_wrap').style.display="none";
+			document.getElementById('cmaker_store_info_wrap').style.display="none";
 		}else if(id == 'グランドメニュー'){
 			document.getElementById('cmaker_ranking_wrap').style.display="none";
 			document.getElementById('cmaker_concept_wrap').style.display="none";
@@ -92,6 +110,7 @@ function cmakerChange(){
 			document.getElementById('cmaker_grandmenu_wrap').style.display="";
 			document.getElementById('cmaker_column_2_wrap').style.display="none";
 			document.getElementById('cmaker_column_3_wrap').style.display="none";
+			document.getElementById('cmaker_store_info_wrap').style.display="none";
 		}else if(id == '右寄せ背景1カラム'){
 			document.getElementById('cmaker_ranking_wrap').style.display="none";
 			document.getElementById('cmaker_concept_wrap').style.display="none";
@@ -100,6 +119,7 @@ function cmakerChange(){
 			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
 			document.getElementById('cmaker_column_2_wrap').style.display="none";
 			document.getElementById('cmaker_column_3_wrap').style.display="none";
+			document.getElementById('cmaker_store_info_wrap').style.display="none";
 		}else if(id == '左寄せ背景1カラム'){
 			document.getElementById('cmaker_ranking_wrap').style.display="none";
 			document.getElementById('cmaker_concept_wrap').style.display="none";
@@ -108,6 +128,7 @@ function cmakerChange(){
 			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
 			document.getElementById('cmaker_column_2_wrap').style.display="none";
 			document.getElementById('cmaker_column_3_wrap').style.display="none";
+			document.getElementById('cmaker_store_info_wrap').style.display="none";
 		}else if(id == '2カラム'){
 			document.getElementById('cmaker_ranking_wrap').style.display="none";
 			document.getElementById('cmaker_concept_wrap').style.display="none";
@@ -116,6 +137,7 @@ function cmakerChange(){
 			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
 			document.getElementById('cmaker_column_2_wrap').style.display="";
 			document.getElementById('cmaker_column_3_wrap').style.display="none";
+			document.getElementById('cmaker_store_info_wrap').style.display="none";
 		}else if(id =='3カラム'){
 			document.getElementById('cmaker_ranking_wrap').style.display="none";
 			document.getElementById('cmaker_concept_wrap').style.display="none";
@@ -124,6 +146,16 @@ function cmakerChange(){
 			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
 			document.getElementById('cmaker_column_2_wrap').style.display="none";
 			document.getElementById('cmaker_column_3_wrap').style.display="";
+			document.getElementById('cmaker_store_info_wrap').style.display="none";
+		}else if(id == '店舗情報'){
+			document.getElementById('cmaker_ranking_wrap').style.display="none";
+			document.getElementById('cmaker_concept_wrap').style.display="none";
+			document.getElementById('cmaker_column_right_1_wrap').style.display="none";
+			document.getElementById('cmaker_column_left_1_wrap').style.display="none";
+			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
+			document.getElementById('cmaker_column_2_wrap').style.display="none";
+			document.getElementById('cmaker_column_3_wrap').style.display="none";
+			document.getElementById('cmaker_store_info_wrap').style.display="";
 		}
 	}
 }
