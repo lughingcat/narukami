@@ -590,6 +590,7 @@ function ranking_db_farst_insert_data(){
 
 add_action('narukami_theme_activate', 'ranking_db_farst_insert_data');
 
+
 //画像アップロード用のタグを出力する(single)
 function generate_upload_image_tag($name, $value){?>
 <div class="img-wrap-function">

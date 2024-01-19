@@ -29,12 +29,18 @@
 					<p class="store_info-main-title"><?php if( isset( $_POST['store_rg_holiday'])){ echo nl2br($_POST['store_rg_holiday']); }elseif( !isset($_POST['store_rg_holiday'])){ echo nl2br($store_rg_holiday); };?></p>
 				</div>
 				<div class="store_info-back-wrap">
+					<?php 
+					$test_post = $_POST['store_info_bg_img_url'];
+					$test_esc_post = stripslashes($test_post);
+					$test_esc_post_db = stripslashes($store_info_bg_img_url);
+					;?>
 					 <?php if( isset( $_POST['store_info_bg_img_url'])){ 
-							echo nl2br($_POST['store_info_bg_img_url']); 
+							echo nl2br($test_esc_post); 
 						}elseif( !isset($_POST['store_info_bg_img_url']) ){ 
-							echo nl2br($store_info_bg_img_url); 
+							echo nl2br($test_esc_post_db); 
 						}
 					 ;?>
+					
 				</div>
 				
 			</div>
@@ -60,9 +66,9 @@
 		
 	<input type="text" name="store_info_bg_img_url" class="img-setect-url" value='<?php
 		   if( isset($_POST['store_info_bg_img_url'])){
-			   echo $_POST['store_info_bg_img_url'];
+			   echo $test_esc_post;
 		   }else{
-			   echo $store_info_bg_img_url;
+			   echo $test_esc_post_db;
 		   }
 			   ;?>'
 		   >
