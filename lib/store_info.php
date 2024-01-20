@@ -4,9 +4,10 @@
 			<?php
 			  require_once(dirname(dirname(dirname(dirname(dirname( __FILE__ ))))) . '/wp-load.php' );
 			  global $wpdb;
-			  $query = "SELECT store_name, store_info_bg_img_url,  store_post_number, store_adress, store_phone_num, store_rg_holiday  FROM wp_narukami_content_maker;";
+			  $query = "SELECT store_info_title, store_name, store_info_bg_img_url,  store_post_number, store_adress, store_phone_num, store_rg_holiday  FROM wp_narukami_content_maker;";
 			  $rows = $wpdb->get_results($query);
 			  foreach($rows as $row) {
+				 $store_info_title = $row->store_info_title;
 				 $store_name = $row->store_name;
 				 $store_info_bg_img_url = $row->store_info_bg_img_url;
 				 $store_post_number = $row->store_post_number; 
@@ -15,6 +16,9 @@
 				 $store_rg_holiday = $row->store_rg_holiday;
 			  };
 			  ?>
+			<div class="store-info-primary-title-prevew">
+				<p class="store-info-p_title"><?php if( isset( $_POST['store_info_title'])){ echo $_POST['store_info_title'];}elseif( !isset($_POST['store_info_title'])){ echo $store_info_title; };?></p>
+			</div>
 			<div class="store_info-all-wrap">
 				<div class="store_info-text-wrap">
 					<p class="adress-detail-title">店舗名</p>
@@ -47,6 +51,17 @@
 		</article>
 	</div>
 	<div class="inputForm">
+	<h4>店舗情報のタイトルを入力してください</h4>
+	<input type="text" name="store_info_title" class="img-setect-url" value=
+		   <?php
+		   if( isset($_POST['store_info_title'])){
+			   echo $_POST['store_info_title'];
+		   }else{
+			   echo $store_info_title;
+		   }
+			   ;?>
+		   >
+		
 	<h4>店舗名を入力してください。</h4>
 	<input type="text" name="store_name" class="img-setect-url" value=
 		   <?php
@@ -58,12 +73,13 @@
 			   ;?>
 		   >
 	<h4 class="h-admin-4-bg">GoogleMapの地図情報を入力してください</h4>
-		<p>※GoogleMapの地図情報を取得する方法</p>
-		<p>1,GoogleMapで店舗名を検索してください</p>
-		<p>2,GoogleMap左上にある　<i class="fa-solid fa-bars"></i>　このアイコンをクリックし、「地図の共有または埋め込む」をクリックします。</p>
-		<p>3,「地図を埋め込む」のタブを選択し、お好みのサイズを選択してから「HTMLをコピー」をクリックして生成されたコードをコピーしてください。</p>
-		<p>4,3でコピーしたコードを以下のフォームへペーストしてください。</p>
-		
+		<div class="map-discription">
+		<p>※ GoogleMapの地図情報を取得する方法</p>
+		<p>1, GoogleMapで店舗名を検索してください</p>
+		<p>2, GoogleMap左上にある　<i class="fa-solid fa-bars"></i>　このアイコンをクリックし、「地図の共有または埋め込む」をクリックします。</p>
+		<p>3, 「地図を埋め込む」のタブを選択し、お好みのサイズを選択してから「HTMLをコピー」をクリックして生成されたコードをコピーしてください。</p>
+		<p>4, 3でコピーしたコードを以下のフォームへペーストしてください。</p>
+		</div>
 	<input type="text" name="store_info_bg_img_url" class="img-setect-url" value='<?php
 		   if( isset($_POST['store_info_bg_img_url'])){
 			   echo $test_esc_post;

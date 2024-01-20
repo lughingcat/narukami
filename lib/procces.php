@@ -80,6 +80,7 @@ $i_column_3_third_bgImg_url = $_POST['column_3_third_bg_img_url'];
 $i_column_3_third_title = $_POST['column_3_third_title'];
 $i_column_3_third_content = $_POST['column_3_third_content'];
 //店舗情報
+$i_store_info_title = $_POST['store_info_title'];
 $i_store_name = $_POST['store_name'];
 $i_store_info_bg_img_url = $_POST['store_info_bg_img_url'];
 $i_store_post_number = $_POST['store_post_number'];
@@ -171,6 +172,7 @@ global $wpdb;
 			'column_3_third_title' => $i_column_3_third_title,
 			'column_3_third_content' => $i_column_3_third_content,
 			//店舗情報
+			'store_info_title' => $i_store_info_title,
 			'store_name' => $i_store_name,
 			'store_info_bg_img_url' => $i_store_info_bg_img_url,
 			'store_post_number' => $i_store_post_number,
@@ -260,6 +262,7 @@ global $wpdb;
 			'%s',
 			'%s',
 		//店舗情報
+			'%s',
 			'%s',
 			'%s',
 			'%s',

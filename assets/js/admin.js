@@ -450,7 +450,8 @@ animateTextWithSpans('.concept-main-title');
 animateTextWithSpans('.r-p-t-prev');
 //gm-primary-title時間差表示
 animateTextWithSpans('.gm-primary-title');
-
+//.store-info-p_title時間差表示
+animateTextWithSpans('.store-info-p_title');
 
 //ボタン式選択項目の入力フォーム非表示
  const closeItem1 = document.getElementById('rankingCloseBtn');

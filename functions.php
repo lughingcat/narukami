@@ -318,6 +318,7 @@ function create_theme_tables() {
 		  `column_3_third_bg_img_url` TEXT NOT NULL,
 		  `column_3_third_title` TEXT NOT NULL,
 		  `column_3_third_content` TEXT NOT NULL,
+		  `store_info_title` TEXT NOT NULL,
 		  `store_name` TEXT NOT NULL,
 		  `store_info_bg_img_url` TEXT NOT NULL,
 		  `store_post_number` TEXT NOT NULL,
@@ -494,6 +495,7 @@ function ranking_db_farst_insert_data(){
 		'column_3_third_bg_img_url' => $column_3_third_bg_img_url_path,
 		'column_3_third_title' => $column_3_third_title_path,
 		'column_3_third_content' => $column_3_third_content_path,
+		'store_info_title' => 'STORE&nbsp;INFORMATION',
 		'store_name' => 'Sample&nbsp;Store',
 		'store_info_bg_img_url' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.827853707379!2d139.76454987489524!3d35.681240529975085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bfbd89f700b%3A0x277c49ba34ed38!2z5p2x5Lqs6aeF!5e0!3m2!1sja!2sjp!4v1705211196872!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
 		'store_post_number' => '100-0005',
@@ -577,6 +579,7 @@ function ranking_db_farst_insert_data(){
 			'%s',
 			'%s',
 			//store-info
+			'%s',
 			'%s',
 			'%s',
 			'%s',
