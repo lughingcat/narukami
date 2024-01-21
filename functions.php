@@ -410,11 +410,11 @@ function ranking_db_farst_insert_data(){
 	$grandmenu_img_url_json = json_encode($grandmenu_img_url_path,JSON_UNESCAPED_UNICODE);
 	
 	$grandmenu_img_title_path = [
-	"お弁当",
-	"どんぶり",
-	"サイドメニュー",
-	"酒肴",
-	"オードブル"
+	"Appetizer",
+	"Fish dishes",
+	"Rice food",
+	"Sake appetizer",
+	"Course meal"
 	];
 	$grandmenu_title_json = json_encode($grandmenu_img_title_path,JSON_UNESCAPED_UNICODE );
 	

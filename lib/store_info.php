@@ -77,7 +77,7 @@
 		<p>※ GoogleMapの地図情報を取得する方法</p>
 		<p>1, GoogleMapで店舗名を検索してください</p>
 		<p>2, GoogleMap左上にある　<i class="fa-solid fa-bars"></i>　このアイコンをクリックし、「地図の共有または埋め込む」をクリックします。</p>
-		<p>3, 「地図を埋め込む」のタブを選択し、お好みのサイズを選択してから「HTMLをコピー」をクリックして生成されたコードをコピーしてください。</p>
+		<p>3, 「地図を埋め込む」のタブを選択し、「HTMLをコピー」をクリックして生成されたコードをコピーしてください。</p>
 		<p>4, 3でコピーしたコードを以下のフォームへペーストしてください。</p>
 		</div>
 	<input type="text" name="store_info_bg_img_url" class="img-setect-url" value='<?php

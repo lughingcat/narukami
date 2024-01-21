@@ -788,17 +788,20 @@
 .concept-back-wrap {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 70vh;
   background-size: cover;
-  background-position: center; }
+  background-position: center;
+  background-repeat: no-repeat; }
   .concept-back-wrap .concept-text-wrap {
     width: 80%;
-    height: 80%;
+    height: 60%;
     background-color: rgba(255, 255, 255, 0.89);
     position: absolute;
-    top: 10%;
-    left: 10%;
-    border-radius: 5px; }
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    overflow-y: scroll; }
     .concept-back-wrap .concept-text-wrap .concept-main-title {
       position: relative;
       display: block;
