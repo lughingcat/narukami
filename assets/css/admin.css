@@ -893,7 +893,6 @@
       background-repeat: no-repeat;
       transition: all .6s ease-in-out;
       box-shadow: 2px 8px 13px -4px #b6b4b4;
-      border-radius: 5px;
       text-decoration: none;
       /* 下線を非表示にする */
       color: inherit;
@@ -902,33 +901,19 @@
       opacity: 0;
       transform: translateY(20px); }
       .grandmenu-wrap .grandmenu-title-wrap .gm-item-wrap p {
-        width: 88%;
+        width: 60%;
         position: absolute;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.42);
-        padding: 6%;
-        margin: 0;
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 6px;
+        text-align: center;
+        border: 3px  solid;
         color: #ffffff;
         font-size: 1.1rem;
-        font-weight: bold; }
-      .grandmenu-wrap .grandmenu-title-wrap .gm-item-wrap p::after {
-        font-family: 'Font Awesome 6 Free';
-        content: '\f08e';
-        position: absolute;
-        right: 20px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        color: #ffffff;
-        text-align: center;
-        padding: 3px;
-        line-height: 20px;
-        vertical-align: middle;
-        font-size: 1.2rem; }
+        font-weight: bold;
+        text-shadow: 1px 1px 10px #000;
+        background-color: rgba(0, 0, 0, 0.17); }
       .grandmenu-wrap .grandmenu-title-wrap .gm-item-wrap.show {
         opacity: 1;
         transform: translateY(0); }
