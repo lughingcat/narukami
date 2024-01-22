@@ -177,7 +177,8 @@
     position: relative;
     display: inline-block;
     margin-bottom: 3em;
-    font-weight: bold; }
+    font-weight: bold;
+    letter-spacing: 5px; }
     .rank-primary-title-prevew .r-p-t-prev span {
       display: inline-block;
       transition: 1s;
@@ -810,7 +811,8 @@
       font-weight: bold;
       background-color: rgba(255, 255, 255, 0.4);
       margin: 40px 0;
-      padding: 40px 0; }
+      padding: 40px 0;
+      letter-spacing: 5px; }
       .concept-back-wrap .concept-text-wrap .concept-main-title span {
         display: inline-block;
         transition: 1s;
@@ -855,7 +857,8 @@
     position: relative;
     display: inline-block;
     margin-bottom: 3em;
-    font-weight: bold; }
+    font-weight: bold;
+    letter-spacing: 5px; }
     .gm-primary-title-prevew .gm-primary-title span {
       display: inline-block;
       transition: 1s;
@@ -971,6 +974,7 @@
     padding: 10px;
     margin: 0 10px; }
     .column_right_1-all-wrap .column_right_1-text-wrap .column_right_1-main-title {
+      letter-spacing: 5px;
       position: relative;
       width: 100%;
       font-size: 1.2em;
@@ -1011,7 +1015,8 @@
       position: relative;
       width: 100%;
       font-size: 1.2em;
-      font-weight: bold; }
+      font-weight: bold;
+      letter-spacing: 5px; }
     .column_left_1-all-wrap .column_left_1-text-wrap .column_left_1-main-title::after {
       content: '';
       position: absolute;
@@ -1046,7 +1051,8 @@
       width: 100%;
       font-size: 1.2em;
       font-weight: bold;
-      margin: 30px 0 10px; }
+      margin: 30px 0 10px;
+      letter-spacing: 5px; }
     .column_2-all-wrap .column_2_item_wrap .column_2-text-wrap .column_2-main-title::after {
       content: '';
       position: absolute;
@@ -1081,7 +1087,8 @@
       width: 100%;
       font-size: 1.2em;
       font-weight: bold;
-      margin: 30px 0 10px; }
+      margin: 30px 0 10px;
+      letter-spacing: 5px; }
     .column_3-all-wrap .column_3_item_wrap .column_3-text-wrap .column_3-main-title::after {
       content: '';
       position: absolute;
@@ -1113,7 +1120,8 @@
     position: relative;
     display: inline-block;
     margin-bottom: 3em;
-    font-weight: bold; }
+    font-weight: bold;
+    letter-spacing: 5px; }
     .store-info-primary-title-prevew .store-info-p_title span {
       display: inline-block;
       transition: 1s;
@@ -1167,6 +1175,29 @@
       width: 100%;
       height: 100%;
       box-sizing: border-box; }
+
+/*------　テキストエリアスタイル　-------*/
+.text_content-back-wrap {
+  width: 100%;
+  margin: 20px 0;
+  padding: 10px;
+  border: 1px solid; }
+  .text_content-back-wrap .text_content-text-wrap {
+    width: 100%; }
+    .text_content-back-wrap .text_content-text-wrap .text_content-main-title {
+      width: 60%;
+      font-size: 2em;
+      font-weight: bold;
+      text-align: center;
+      margin: 8% auto;
+      letter-spacing: 5px; }
+    .text_content-back-wrap .text_content-text-wrap .text_content-main-content {
+      width: 80%;
+      margin: 10% auto;
+      text-align: center;
+      line-height: 35px;
+      font-size: 1.2em;
+      letter-spacing: 3px; }
 
 /*#################################
 	fontawesomeスタイル
