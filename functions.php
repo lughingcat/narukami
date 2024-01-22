@@ -325,6 +325,10 @@ function create_theme_tables() {
 		  `store_adress` TEXT NOT NULL,
 		  `store_phone_num` TEXT NOT NULL,
 		  `store_rg_holiday` TEXT NOT NULL,
+		  `text_content_bg_color` TEXT NOT NULL,
+		  `text_content_title_color` TEXT NOT NULL,
+		  `text_content_title` TEXT NOT NULL,
+		  `text_content_content` TEXT NOT NULL, 
 		  PRIMARY KEY (`id`)
 		) {$charset_collate} AUTO_INCREMENT=1;";
         require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
@@ -502,6 +506,10 @@ function ranking_db_farst_insert_data(){
 		'store_adress' => '東京都千代田区丸の内１丁目',
 		'store_phone_num' => '000-0000-0000',
 		'store_rg_holiday' => '木曜日',
+		'text_content_bg_color' => '#ffffff',
+		'text_content_title_color' => '#000',
+		'text_content_title' => 'ABOUT',
+		'text_content_content' => $concept_content_sample,
 		),
 		array(
 			//スタイル
@@ -582,6 +590,11 @@ function ranking_db_farst_insert_data(){
 			'%s',
 			'%s',
 			'%s',
+			'%s',
+			'%s',
+			'%s',
+			'%s',
+			//text-content
 			'%s',
 			'%s',
 			'%s',

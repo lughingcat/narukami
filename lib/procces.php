@@ -87,6 +87,11 @@ $i_store_post_number = $_POST['store_post_number'];
 $i_store_adress = $_POST['store_adress'];
 $i_store_phone_num = $_POST['store_phone_num'];
 $i_store_rg_holiday = $_POST['store_rg_holiday'];
+//テキストエリア
+$i_text_content_bg_color = $_POST['text_content_bg_color'];
+$i_text_content_title = $_POST['text_content_title'];
+$i_text_content_content = $_POST['text_content_content'];
+$i_text_content_title_color = $_POST['text_content_title_color'];
 global $wpdb;
 	$tablename =  $wpdb->prefix . "narukami_content_maker";
 	// 各種データの保存
@@ -179,6 +184,11 @@ global $wpdb;
 			'store_adress' => $i_store_adress,
 			'store_phone_num' => $i_store_phone_num,
 			'store_rg_holiday' => $i_store_rg_holiday,
+			//テキストエリア
+			'text_content_bg_color' => $i_text_content_bg_color,
+			'text_content_title' => $i_text_content_title,
+			'text_content_content' => $i_text_content_content,
+			'text_content_title_color' => $i_text_content_title_color,
 		),
 		array(
 		//ランキングpopスタイル
@@ -265,6 +275,11 @@ global $wpdb;
 			'%s',
 			'%s',
 			'%s',
+			'%s',
+			'%s',
+			'%s',
+			'%s',
+		//テキストエリア
 			'%s',
 			'%s',
 			'%s',
