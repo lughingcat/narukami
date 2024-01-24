@@ -477,7 +477,7 @@
 			</div><!--inputWrap-end-->
 		</div><!--rank-item-detail-wrap1-end-->
 		<h4>ランキング表示切り替え</h4>
-			<label><input type="radio" name="rank_on" value="rank_show_1"
+			<label><input id="rank-1-show" type="radio" name="rank_on" value="rank_show_1"
 						  <?php 
 						  if($_POST['rank_on'] == "rank_show_1" || $_POST['rank_on'] == "" || $item_rank_on == "rank_show_1"){
 							  echo "checked";
@@ -489,7 +489,7 @@
 						   }
 						  ?>
 						  >表示する</label>
-			<label><input type="radio" name="rank_on" value="rank_not_show_1"
+			<label><input id="rank-1-notshow" type="radio" name="rank_on" value="rank_not_show_1"
 						  <?php 
 						  if( $_POST['rank_on'] == "rank_not_show_1"){
 							  echo "checked";
