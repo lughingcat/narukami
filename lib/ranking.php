@@ -527,7 +527,7 @@
 			</div><!--inputWrap-end-->
 		</div><!--rank-item-detail-wrap2-end-->
 		<h4>ランキング表示切り替え</h4>
-			<label><input type="radio" name="rank_on_2" value="rank_show_2"
+			<label><input id="rank-2-show" type="radio" name="rank_on_2" value="rank_show_2"
 						  <?php 
 						  if($_POST['rank_on_2'] == "rank_show_2" || $_POST['rank_on_2'] == "" || $item_rank_on_2 == "rank_show_2"){
 							  echo "checked";
@@ -539,7 +539,7 @@
 						   }
 						  ?>
 						  >表示する</label>
-			<label><input type="radio" name="rank_on_2" value="rank_not_show_2"
+			<label><input id="rank-2-notshow" type="radio" name="rank_on_2" value="rank_not_show_2"
 						  <?php 
 						  if( $_POST['rank_on_2'] == "rank_not_show_2"){
 							  echo "checked";
@@ -578,7 +578,7 @@
 			</div><!--inputWrap-end-->
 		</div><!--rank-item-detail-wrap3-end-->
 		<h4>ランキング表示切り替え</h4>
-			<label><input type="radio" name="rank_on_3" value="rank_show_3"
+			<label><input id="rank-3-show" type="radio" name="rank_on_3" value="rank_show_3"
 						  <?php 
 						  if($_POST['rank_on_3'] == "rank_show_3" || $_POST['rank_on_3'] == "" || $item_rank_on_3 == "rank_show_3"){
 							  echo "checked";
@@ -590,7 +590,7 @@
 						   }
 						  ?>
 						  >表示する</label>
-			<label><input type="radio" name="rank_on_3" value="rank_not_show_3"
+			<label><input id="rank-3-notshow" type="radio" name="rank_on_3" value="rank_not_show_3"
 						  <?php 
 						  if( $_POST['rank_on_3'] == "rank_not_show_3"){
 							  echo "checked";
@@ -630,7 +630,7 @@
 			</div><!--inputWrap-end-->
 		</div><!--rank-item-detail-wrap4-end-->
 		<h4>ランキング表示切り替え</h4>
-			<label><input type="radio" name="rank_on_4" value="rank_show_4"
+			<label><input id="rank-4-show" type="radio" name="rank_on_4" value="rank_show_4"
 						  <?php 
 						  if($_POST['rank_on_4'] == "rank_show_4" || $_POST['rank_on_4'] == "" || $item_rank_on_4 == "rank_show_4"){
 							  echo "checked";
@@ -642,7 +642,7 @@
 						   }
 						  ?>
 						  >表示する</label>
-			<label><input type="radio" name="rank_on_4" value="rank_not_show_4"
+			<label><input id="rank-4-notshow" type="radio" name="rank_on_4" value="rank_not_show_4"
 						  <?php 
 						  if( $_POST['rank_on_4'] == "rank_not_show_4"){
 							  echo "checked";
@@ -682,7 +682,7 @@
 			</div><!--inputWrap-end-->
 		</div><!--rank-item-detail-wrap5-end-->
 		<h4>ランキング表示切り替え</h4>
-			<label><input type="radio" name="rank_on_5" value="rank_show_5"
+			<label><input id="rank-5-show" type="radio" name="rank_on_5" value="rank_show_5"
 						  <?php 
 						  if($_POST['rank_on_5'] == "rank_show_5" || $_POST['rank_on_5'] == "" || $item_rank_on_5 == "rank_show_5"){
 							  echo "checked";
@@ -694,7 +694,7 @@
 						   }
 						  ?>
 						  >表示する</label>
-			<label><input type="radio" name="rank_on_5" value="rank_not_show_5"
+			<label><input id="rank-5-notshow" type="radio" name="rank_on_5" value="rank_not_show_5"
 						  <?php 
 						  if( $_POST['rank_on_5'] == "rank_not_show_5"){
 							  echo "checked";
@@ -734,7 +734,7 @@
 			</div><!--inputWrap-end-->
 		</div><!--rank-item-detail-wrap6-end-->
 		<h4>ランキング表示切り替え</h4>
-			<label><input type="radio" name="rank_on_6" value="rank_show_6"
+			<label><input id="rank-6-show" type="radio" name="rank_on_6" value="rank_show_6"
 						  <?php 
 						  if($_POST['rank_on_6'] == "rank_show_6" || $_POST['rank_on_6'] == "" || $item_rank_on_6 == "rank_show_6"){
 							  echo "checked";
@@ -746,7 +746,7 @@
 						   }
 						  ?>
 						  >表示する</label>
-			<label><input type="radio" name="rank_on_6" value="rank_not_show_6"
+			<label><input id="rank-6-notshow" type="radio" name="rank_on_6" value="rank_not_show_6"
 						  <?php 
 						  if( $_POST['rank_on_6'] == "rank_not_show_6"){
 							  echo "checked";

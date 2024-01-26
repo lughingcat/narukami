@@ -1,6 +1,41 @@
 /*==================================
 コンテンツメーカーjs
 ==================================*/
+//closebtn動作
+const closeItem1 = document.getElementById('rankingCloseBtn');
+	　　closeItem1.addEventListener('click' , ()=>{
+       document.getElementById('cmaker_ranking_wrap').style.display="none";
+      });
+const closeItem2 = document.getElementById('conceptCloseBtn');
+	　　closeItem2.addEventListener('click' , ()=>{
+       document.getElementById('cmaker_concept_wrap').style.display="none";
+      });
+const closeItem3 = document.getElementById('column_right_1CloseBtn');
+	　　closeItem3.addEventListener('click' , ()=>{
+       document.getElementById('cmaker_column_right_1_wrap').style.display="none";
+      });
+const closeItem4 = document.getElementById('column_3CloseBtn');
+	　　closeItem4.addEventListener('click' , ()=>{
+       document.getElementById('cmaker_column_3_wrap').style.display="none";
+      });
+const closeItem5 = document.getElementById('column_2CloseBtn');
+	　　closeItem5.addEventListener('click' , ()=>{
+       document.getElementById('cmaker_column_2_wrap').style.display="none";
+      });
+const closeItem6 = document.getElementById('text_contentCloseBtn');
+	　　closeItem6.addEventListener('click' , ()=>{
+       document.getElementById('cmaker_text_content_wrap').style.display="none";
+      });
+const closeItem7 = document.getElementById('store_infoCloseBtn');
+	　　closeItem7.addEventListener('click' , ()=>{
+       document.getElementById('cmaker_store_info_wrap').style.display="none";
+      });
+const closeItem8 = document.getElementById('column_left_1CloseBtn');
+	　　closeItem8.addEventListener('click' , ()=>{
+       document.getElementById('cmaker_column_left_1_wrap').style.display="none";
+      });
+
+
 //ロード時のセレクトボックスの制御
 window.addEventListener('load', function(){
 	selectVal = document.getElementById('cmaker').value;
@@ -489,15 +524,6 @@ animateTextWithSpans('.gm-primary-title');
 //.store-info-p_title時間差表示
 animateTextWithSpans('.store-info-p_title');
 
-//ボタン式選択項目の入力フォーム非表示
- const closeItem1 = document.getElementById('rankingCloseBtn');
-	　　closeItem1.addEventListener('click' , ()=>{
-       document.getElementById('cmaker_ranking_wrap').style.display="none";
-      })
- const closeItem2 = document.getElementById('conceptCloseBtn');
-	　　closeItem2.addEventListener('click' , ()=>{
-       document.getElementById('cmaker_concept_wrap').style.display="none";
-      })
 
 
 
@@ -512,9 +538,7 @@ document.addEventListener("DOMContentLoaded", function(){
 	rank1ItemUrlClear = document.getElementById('item_img_url_clear');
 	rank1Overlay = document.getElementById('rank-notshow-overlay');
 	rankShowValue= document.getElementById('rank-1-show');
-	console.log(rankShowValue.checked);
 	rankNotShowValue = document.getElementById('rank-1-notshow');
-	console.log(rankNotShowValue.checked);
 		if( rankShowValue.checked ){
 			rank1ItemImg.disabled = false;
 			rank1ItemTitle.disabled = false;
@@ -561,36 +585,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 //ランキング２
-window.addEventListener("load", function(){
-	rank2ItemImg = document.getElementById('item_img_url_2');
-	rank2ItemTitle = document.getElementById('rank2-item-title');
-	rank2ItemPrice = document.getElementById('rank2-item-price');
-	rank2ItemUrl = document.getElementById('rank2-item-url');
-	rank2ItemUrlBtn = document.getElementById('item_img_url_2_btn');
-	rank2ItemUrlClear = document.getElementById('item_img_url_2_clear');
-	rank2Overlay = document.getElementById('rank-notshow-overlay-2');
-	localStorage.setItem("rank2Show", "");
-	var rank2Show = localStorage.getItem('rank2Show');
-	if( rank2Show == "true" ){
-		rank2ItemImg.disabled = true;
-		rank2ItemTitle.disabled = true;
-		rank2ItemPrice.disabled = true;
-		rank2ItemUrl.disabled = true;
-		rank2ItemUrlBtn.disabled = true;
-		rank2ItemUrlClear.disabled = true;
-		rank2Overlay.style.display = "";
-	}else if( rank2Show == "false" || rank2Show == "" ){
-		rank2ItemImg.disabled = false;
-		rank2ItemTitle.disabled = false;
-		rank2ItemPrice.disabled = false;
-		rank2ItemUrl.disabled = false;
-		rank2ItemUrlBtn.disabled = false;
-		rank2ItemUrlClear.disabled = false;
-		rank2Overlay.style.display = "none";
-	}
-});
-
-window.addEventListener("load",function(){
+document.addEventListener("DOMContentLoaded", function(){
 	rankCheck = document.getElementsByName('rank_on_2');
 	rank2ItemImg = document.getElementById('item_img_url_2');
 	rank2ItemTitle = document.getElementById('rank2-item-title');
@@ -599,6 +594,26 @@ window.addEventListener("load",function(){
 	rank2ItemUrlBtn = document.getElementById('item_img_url_2_btn');
 	rank2ItemUrlClear = document.getElementById('item_img_url_2_clear');
 	rank2Overlay = document.getElementById('rank-notshow-overlay-2');
+	rankShowValue= document.getElementById('rank-2-show');
+	rankNotShowValue = document.getElementById('rank-2-notshow');
+	var rank2Show = localStorage.getItem('rank2Show');
+	if( rankNotShowValue.checked ){
+		rank2ItemImg.disabled = true;
+		rank2ItemTitle.disabled = true;
+		rank2ItemPrice.disabled = true;
+		rank2ItemUrl.disabled = true;
+		rank2ItemUrlBtn.disabled = true;
+		rank2ItemUrlClear.disabled = true;
+		rank2Overlay.style.display = "";
+	}else if( rankShowValue.checked ){
+		rank2ItemImg.disabled = false;
+		rank2ItemTitle.disabled = false;
+		rank2ItemPrice.disabled = false;
+		rank2ItemUrl.disabled = false;
+		rank2ItemUrlBtn.disabled = false;
+		rank2ItemUrlClear.disabled = false;
+		rank2Overlay.style.display = "none";
+	}
 	rankCheck.forEach(function(e) {
 		e.addEventListener("click", function() {           
 			const rank2Value = document.querySelector("input:checked[name=rank_on_2]").value;
@@ -626,36 +641,7 @@ window.addEventListener("load",function(){
 });
 
 //ランキング3
-window.addEventListener("load", function(){
-	rank3ItemImg = document.getElementById('item_img_url_3');
-	rank3ItemTitle = document.getElementById('rank3-item-title');
-	rank3ItemPrice = document.getElementById('rank3-item-price');
-	rank3ItemUrl = document.getElementById('rank3-item-url');
-	rank3ItemUrlBtn = document.getElementById('item_img_url_3_btn');
-	rank3ItemUrlClear = document.getElementById('item_img_url_3_clear');
-	rank3Overlay = document.getElementById('rank-notshow-overlay-3');
-	localStorage.setItem("rank3Show", "");
-	var rank3Show = localStorage.getItem('rank3Show');
-	if( rank3Show == "true" ){
-		rank3ItemImg.disabled = true;
-		rank3ItemTitle.disabled = true;
-		rank3ItemPrice.disabled = true;
-		rank3ItemUrl.disabled = true;
-		rank3ItemUrlBtn.disabled = true;
-		rank3ItemUrlClear.disabled = true;
-		rank3Overlay.style.display = "";
-	}else if( rank3Show == "false" || rank3Show == "" ){
-		rank3ItemImg.disabled = false;
-		rank3ItemTitle.disabled = false;
-		rank3ItemPrice.disabled = false;
-		rank3ItemUrl.disabled = false;
-		rank3ItemUrlBtn.disabled = false;
-		rank3ItemUrlClear.disabled = false;
-		rank3Overlay.style.display = "none";
-	}
-});
-
-window.addEventListener("load",function(){
+document.addEventListener("DOMContentLoaded", function(){
 	rankCheck = document.getElementsByName('rank_on_3');
 	rank3ItemImg = document.getElementById('item_img_url_3');
 	rank3ItemTitle = document.getElementById('rank3-item-title');
@@ -664,6 +650,26 @@ window.addEventListener("load",function(){
 	rank3ItemUrlBtn = document.getElementById('item_img_url_3_btn');
 	rank3ItemUrlClear = document.getElementById('item_img_url_3_clear');
 	rank3Overlay = document.getElementById('rank-notshow-overlay-3');
+	rankShowValue= document.getElementById('rank-3-show');
+	rankNotShowValue = document.getElementById('rank-3-notshow');
+	var rank3Show = localStorage.getItem('rank3Show');
+	if( rankNotShowValue.checked ){
+		rank3ItemImg.disabled = true;
+		rank3ItemTitle.disabled = true;
+		rank3ItemPrice.disabled = true;
+		rank3ItemUrl.disabled = true;
+		rank3ItemUrlBtn.disabled = true;
+		rank3ItemUrlClear.disabled = true;
+		rank3Overlay.style.display = "";
+	}else if( rankShowValue.checked ){
+		rank3ItemImg.disabled = false;
+		rank3ItemTitle.disabled = false;
+		rank3ItemPrice.disabled = false;
+		rank3ItemUrl.disabled = false;
+		rank3ItemUrlBtn.disabled = false;
+		rank3ItemUrlClear.disabled = false;
+		rank3Overlay.style.display = "none";
+	}
 	rankCheck.forEach(function(e) {
 		e.addEventListener("click", function() {           
 			const rank3Value = document.querySelector("input:checked[name=rank_on_3]").value;
@@ -690,37 +696,9 @@ window.addEventListener("load",function(){
 	});
 });
 
-//ランキング4
-window.addEventListener("load", function(){
-	rank4ItemImg = document.getElementById('item_img_url_4');
-	rank4ItemTitle = document.getElementById('rank4-item-title');
-	rank4ItemPrice = document.getElementById('rank4-item-price');
-	rank4ItemUrl = document.getElementById('rank4-item-url');
-	rank4ItemUrlBtn = document.getElementById('item_img_url_4_btn');
-	rank4ItemUrlClear = document.getElementById('item_img_url_4_clear');
-	rank4Overlay = document.getElementById('rank-notshow-overlay-4');
-	localStorage.setItem("rank4Show", "");
-	var rank4Show = localStorage.getItem('rank4Show');
-	if( rank4Show == "true" ){
-		rank4ItemImg.disabled = true;
-		rank4ItemTitle.disabled = true;
-		rank4ItemPrice.disabled = true;
-		rank4ItemUrl.disabled = true;
-		rank4ItemUrlBtn.disabled = true;
-		rank4ItemUrlClear.disabled = true;
-		rank4Overlay.style.display = "";
-	}else if( rank4Show == "false" || rank4Show == "" ){
-		rank4ItemImg.disabled = false;
-		rank4ItemTitle.disabled = false;
-		rank4ItemPrice.disabled = false;
-		rank4ItemUrl.disabled = false;
-		rank4ItemUrlBtn.disabled = false;
-		rank4ItemUrlClear.disabled = false;
-		rank4Overlay.style.display = "none";
-	}
-});
 
-window.addEventListener("load",function(){
+//ランキング4
+document.addEventListener("DOMContentLoaded", function(){
 	rankCheck = document.getElementsByName('rank_on_4');
 	rank4ItemImg = document.getElementById('item_img_url_4');
 	rank4ItemTitle = document.getElementById('rank4-item-title');
@@ -729,6 +707,26 @@ window.addEventListener("load",function(){
 	rank4ItemUrlBtn = document.getElementById('item_img_url_4_btn');
 	rank4ItemUrlClear = document.getElementById('item_img_url_4_clear');
 	rank4Overlay = document.getElementById('rank-notshow-overlay-4');
+	rankShowValue= document.getElementById('rank-4-show');
+	rankNotShowValue = document.getElementById('rank-4-notshow');
+	var rank4Show = localStorage.getItem('rank4Show');
+	if( rankNotShowValue.checked ){
+		rank4ItemImg.disabled = true;
+		rank4ItemTitle.disabled = true;
+		rank4ItemPrice.disabled = true;
+		rank4ItemUrl.disabled = true;
+		rank4ItemUrlBtn.disabled = true;
+		rank4ItemUrlClear.disabled = true;
+		rank4Overlay.style.display = "";
+	}else if( rankShowValue.checked ){
+		rank4ItemImg.disabled = false;
+		rank4ItemTitle.disabled = false;
+		rank4ItemPrice.disabled = false;
+		rank4ItemUrl.disabled = false;
+		rank4ItemUrlBtn.disabled = false;
+		rank4ItemUrlClear.disabled = false;
+		rank4Overlay.style.display = "none";
+	}
 	rankCheck.forEach(function(e) {
 		e.addEventListener("click", function() {           
 			const rank4Value = document.querySelector("input:checked[name=rank_on_4]").value;
@@ -755,37 +753,9 @@ window.addEventListener("load",function(){
 	});
 });
 
-//ランキング5
-window.addEventListener("load", function(){
-	rank5ItemImg = document.getElementById('item_img_url_5');
-	rank5ItemTitle = document.getElementById('rank5-item-title');
-	rank5ItemPrice = document.getElementById('rank5-item-price');
-	rank5ItemUrl = document.getElementById('rank5-item-url');
-	rank5ItemUrlBtn = document.getElementById('item_img_url_5_btn');
-	rank5ItemUrlClear = document.getElementById('item_img_url_5_clear');
-	rank5Overlay = document.getElementById('rank-notshow-overlay-5');
-	localStorage.setItem("rank5Show", "");
-	var rank5Show = localStorage.getItem('rank5Show');
-	if( rank5Show == "true" ){
-		rank5ItemImg.disabled = true;
-		rank5ItemTitle.disabled = true;
-		rank5ItemPrice.disabled = true;
-		rank5ItemUrl.disabled = true;
-		rank5ItemUrlBtn.disabled = true;
-		rank5ItemUrlClear.disabled = true;
-		rank5Overlay.style.display = "";
-	}else if( rank5Show == "false" || rank5Show == "" ){
-		rank5ItemImg.disabled = false;
-		rank5ItemTitle.disabled = false;
-		rank5ItemPrice.disabled = false;
-		rank5ItemUrl.disabled = false;
-		rank5ItemUrlBtn.disabled = false;
-		rank5ItemUrlClear.disabled = false;
-		rank5Overlay.style.display = "none";
-	}
-});
 
-window.addEventListener("load",function(){
+//ランキング5
+document.addEventListener("DOMContentLoaded", function(){
 	rankCheck = document.getElementsByName('rank_on_5');
 	rank5ItemImg = document.getElementById('item_img_url_5');
 	rank5ItemTitle = document.getElementById('rank5-item-title');
@@ -794,6 +764,26 @@ window.addEventListener("load",function(){
 	rank5ItemUrlBtn = document.getElementById('item_img_url_5_btn');
 	rank5ItemUrlClear = document.getElementById('item_img_url_5_clear');
 	rank5Overlay = document.getElementById('rank-notshow-overlay-5');
+	rankShowValue= document.getElementById('rank-5-show');
+	rankNotShowValue = document.getElementById('rank-5-notshow');
+	var rank5Show = localStorage.getItem('rank5Show');
+	if( rankNotShowValue.checked ){
+		rank5ItemImg.disabled = true;
+		rank5ItemTitle.disabled = true;
+		rank5ItemPrice.disabled = true;
+		rank5ItemUrl.disabled = true;
+		rank5ItemUrlBtn.disabled = true;
+		rank5ItemUrlClear.disabled = true;
+		rank5Overlay.style.display = "";
+	}else if( rankShowValue.checked ){
+		rank5ItemImg.disabled = false;
+		rank5ItemTitle.disabled = false;
+		rank5ItemPrice.disabled = false;
+		rank5ItemUrl.disabled = false;
+		rank5ItemUrlBtn.disabled = false;
+		rank5ItemUrlClear.disabled = false;
+		rank5Overlay.style.display = "none";
+	}
 	rankCheck.forEach(function(e) {
 		e.addEventListener("click", function() {           
 			const rank5Value = document.querySelector("input:checked[name=rank_on_5]").value;
@@ -820,38 +810,8 @@ window.addEventListener("load",function(){
 	});
 });
 
-
 //ランキング6
 window.addEventListener("load", function(){
-	rank6ItemImg = document.getElementById('item_img_url_6');
-	rank6ItemTitle = document.getElementById('rank6-item-title');
-	rank6ItemPrice = document.getElementById('rank6-item-price');
-	rank6ItemUrl = document.getElementById('rank6-item-url');
-	rank6ItemUrlBtn = document.getElementById('item_img_url_6_btn');
-	rank6ItemUrlClear = document.getElementById('item_img_url_6_clear');
-	rank6Overlay = document.getElementById('rank-notshow-overlay-6');
-	localStorage.setItem("rank6Show", "");
-	var rank6Show = localStorage.getItem('rank6Show');
-	if( rank6Show == "true" ){
-		rank6ItemImg.disabled = true;
-		rank6ItemTitle.disabled = true;
-		rank6ItemPrice.disabled = true;
-		rank6ItemUrl.disabled = true;
-		rank6ItemUrlBtn.disabled = true;
-		rank6ItemUrlClear.disabled = true;
-		rank6Overlay.style.display = "";
-	}else if( rank6Show == "false" || rank6Show == "" ){
-		rank6ItemImg.disabled = false;
-		rank6ItemTitle.disabled = false;
-		rank6ItemPrice.disabled = false;
-		rank6ItemUrl.disabled = false;
-		rank6ItemUrlBtn.disabled = false;
-		rank6ItemUrlClear.disabled = false;
-		rank6Overlay.style.display = "none";
-	}
-});
-
-window.addEventListener("load",function(){
 	rankCheck = document.getElementsByName('rank_on_6');
 	rank6ItemImg = document.getElementById('item_img_url_6');
 	rank6ItemTitle = document.getElementById('rank6-item-title');
@@ -860,6 +820,26 @@ window.addEventListener("load",function(){
 	rank6ItemUrlBtn = document.getElementById('item_img_url_6_btn');
 	rank6ItemUrlClear = document.getElementById('item_img_url_6_clear');
 	rank6Overlay = document.getElementById('rank-notshow-overlay-6');
+	rankShowValue= document.getElementById('rank-6-show');
+	rankNotShowValue = document.getElementById('rank-6-notshow');
+	var rank6Show = localStorage.getItem('rank6Show');
+	if( rankNotShowValue.checked ){
+		rank6ItemImg.disabled = true;
+		rank6ItemTitle.disabled = true;
+		rank6ItemPrice.disabled = true;
+		rank6ItemUrl.disabled = true;
+		rank6ItemUrlBtn.disabled = true;
+		rank6ItemUrlClear.disabled = true;
+		rank6Overlay.style.display = "";
+	}else if( rankShowValue.checked ){
+		rank6ItemImg.disabled = false;
+		rank6ItemTitle.disabled = false;
+		rank6ItemPrice.disabled = false;
+		rank6ItemUrl.disabled = false;
+		rank6ItemUrlBtn.disabled = false;
+		rank6ItemUrlClear.disabled = false;
+		rank6Overlay.style.display = "none";
+	}
 	rankCheck.forEach(function(e) {
 		e.addEventListener("click", function() {           
 			const rank6Value = document.querySelector("input:checked[name=rank_on_6]").value;
@@ -885,6 +865,8 @@ window.addEventListener("load",function(){
 		});
 	});
 });
+
+
 
 /*==================================
 メディアアップローダーjs

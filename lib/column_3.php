@@ -58,11 +58,11 @@
 				$column_3_bg_url = $column_3_bgImg_url;
 			}
 	;?>
-	<h4 class="h-admin-4-bg">コンセプト表示の背景画像を選択してください。</h4>
+	<h4 class="h-admin-4-bg">画像を選択してください。</h4>
 	<?php
   	generate_upload_image_tag('column_3_bg_img_url', $column_3_bg_url);
 	?>
-	<h4>コンセプトタイトルを入力してください。</h4>
+	<h4>タイトルを入力してください。</h4>
 	<input type="text" name="column_3_title" class="img-setect-url" value=
 		   <?php
 		   if( isset($_POST['column_3_title'])){
@@ -72,8 +72,8 @@
 		   }
 			   ;?>
 		   >
-	<h4>コンセプト文章を入力してください。</h4>
-		<p>※改行せずに入力すると美しく見えます(1000文字以内)</p>
+	<h4>文章を入力してください。</h4>
+		<p>※改行せずに入力すると美しく見えます。</p>
 	<textarea name="column_3_content" class="adm-textarea"><?php
 		if( isset($_POST['column_3_content'])){
 			echo $_POST['column_3_content'];
@@ -92,11 +92,11 @@
 				$column_3_sec_bg_url = $column_3_sec_bgImg_url;
 			}
 	;?>
-	<h4 class="h-admin-4-bg">コンセプト表示の背景画像を選択してください。</h4>
+	<h4 class="h-admin-4-bg">画像を選択してください。</h4>
 	<?php
   	generate_upload_image_tag('column_3_sec_bg_img_url', $column_3_sec_bg_url);
 	?>
-	<h4>コンセプトタイトルを入力してください。</h4>
+	<h4>タイトルを入力してください。</h4>
 	<input type="text" name="column_3_sec_title" class="img-setect-url" value=
 		   <?php
 		   if( isset($_POST['column_3_sec_title'])){
@@ -106,8 +106,8 @@
 		   }
 			   ;?>
 		   >
-	<h4>コンセプト文章を入力してください。</h4>
-		<p>※改行せずに入力すると美しく見えます(1000文字以内)</p>
+	<h4>文章を入力してください。</h4>
+		<p>※改行せずに入力すると美しく見えます。</p>
 	<textarea name="column_3_sec_content" class="adm-textarea"><?php
 		if( isset($_POST['column_3_sec_content'])){
 			echo $_POST['column_3_sec_content'];
@@ -126,11 +126,11 @@
 				$column_3_third_bg_url = $column_3_third_bgImg_url;
 			}
 	;?>
-	<h4 class="h-admin-4-bg">コンセプト表示の背景画像を選択してください。</h4>
+	<h4 class="h-admin-4-bg">画像を選択してください。</h4>
 	<?php
   	generate_upload_image_tag('column_3_third_bg_img_url', $column_3_third_bg_url);
 	?>
-	<h4>コンセプトタイトルを入力してください。</h4>
+	<h4>タイトルを入力してください。</h4>
 	<input type="text" name="column_3_third_title" class="img-setect-url" value=
 		   <?php
 		   if( isset($_POST['column_3_third_title'])){
@@ -140,8 +140,8 @@
 		   }
 			   ;?>
 		   >
-	<h4>コンセプト文章を入力してください。</h4>
-		<p>※改行せずに入力すると美しく見えます(1000文字以内)</p>
+	<h4>文章を入力してください。</h4>
+		<p>※改行せずに入力すると美しく見えます。</p>
 	<textarea name="column_3_third_content" class="adm-textarea"><?php
 		if( isset($_POST['column_3_third_content'])){
 			echo $_POST['column_3_third_content'];
