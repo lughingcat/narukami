@@ -31,6 +31,7 @@
 			  	"3カラム",
 			  	"店舗情報",
 			  	"テキストエリア",
+			  	"パララックス",
 			  );
 				if(isset($_POST['s_cmaker'])){
 					$selectbox_item = $_POST['s_cmaker'];
@@ -60,6 +61,7 @@
 				  <?php get_template_part('lib/column_3'); ?>
 				  <?php get_template_part('lib/store_info'); ?>
 				  <?php get_template_part('lib/text_content'); ?>
+				  <?php get_template_part('lib/parallax'); ?>
 			  </div>
 			  
 			  

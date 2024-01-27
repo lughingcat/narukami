@@ -40,7 +40,7 @@ const closeItem8 = document.getElementById('column_left_1CloseBtn');
 window.addEventListener('load', function(){
 	selectVal = document.getElementById('cmaker').value;
 	if(selectVal == 'ランキング'){
-			document.getElementById('cmaker_ranking_wrap').style.display="";
+			document.getElementById('cmaker_ranking_wrap').style.display="none";
 			document.getElementById('cmaker_concept_wrap').style.display="none";
 			document.getElementById('cmaker_column_right_1_wrap').style.display="none";
 			document.getElementById('cmaker_column_left_1_wrap').style.display="none";
@@ -230,6 +230,31 @@ function cmakerChange(){
 		}
 	}
 }
+//パララックス動作制御
+const parallax = document.querySelectorAll(".parallax-layer");
+const section = document.querySelectorAll(".parallax-section");
+const windowHeight = window.innerHeight;
+
+parallax[0].classList.add('parallax-isblock');
+
+document.addEventListener("scroll", function () {
+  for (let i = 0; i < section.length; i++) {
+    const getElementDistanceTop = section[i].getBoundingClientRect().top;
+    const getElementDistanceBottom = section[i].getBoundingClientRect().bottom;
+
+    if (getElementDistanceTop < windowHeight) {
+      parallax[i].classList.add('parallax-isblock');
+    } else {
+      parallax[i].classList.remove('parallax-isblock');
+    }
+    
+    if (getElementDistanceTop < 0 && getElementDistanceBottom > 0) {
+      parallax[i].classList.add("parallax-isactive");
+    } else { 
+      parallax[i].classList.remove("parallax-isactive");
+    }
+  }
+});
 
 //グランドメニューのCRAD
 function updateDataIndex(element, newIndex) {
