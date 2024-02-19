@@ -65,6 +65,7 @@
 			</div>
 		</article>
 	</div>
+	
 	<div id="gm-form-erea" class="inputForm">
 		<div class="rank-p-title-wrap">
 			<h4 class="rank-prev">グランドメニュータイトル</h4>
@@ -112,6 +113,5 @@
 	</div>
 	<button type="button" id="gm-elment-add">新規追加</button>
 	<button type="button" id="grandmenuCloseBtn">バリテート(ページを閉じる)</button>
-
 
 </div>

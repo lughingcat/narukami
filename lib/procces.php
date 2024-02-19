@@ -54,6 +54,11 @@ $i_grandmenu_img_url = json_encode($_POST['grandmenu_img_url'], JSON_UNESCAPED_U
 $i_grandmenu_title = json_encode( $_POST['grandmenu_title'], JSON_UNESCAPED_UNICODE);
 $i_grandmenu_pagelink = json_encode( $_POST['grandmenu_pagelink'], JSON_UNESCAPED_UNICODE);
 $i_gm_primary_title = $_POST['gm_primary_title'];
+//パララックス
+$i_parallax_bg_img_url = json_encode($_POST['parallax_bg_img_url'], JSON_UNESCAPED_UNICODE);
+$i_parallax_title = json_encode( $_POST['parallax_title'], JSON_UNESCAPED_UNICODE);
+$i_parallax_content = json_encode( $_POST['parallax_content'], JSON_UNESCAPED_UNICODE);
+$i_parallax_primary_title = $_POST['parallax_primary_title'];
 //右画像１カラム
 $i_column_right_1_img_url = $_POST['column_right_1_bg_img_url'];
 $i_column_right_1_title = $_POST['column_right_1_title'];
@@ -92,6 +97,8 @@ $i_text_content_bg_color = $_POST['text_content_bg_color'];
 $i_text_content_title = $_POST['text_content_title'];
 $i_text_content_content = $_POST['text_content_content'];
 $i_text_content_title_color = $_POST['text_content_title_color'];
+//dbの初期化
+$i_delete_iniz = $_POST['delete_iniz'];
 global $wpdb;
 	$tablename =  $wpdb->prefix . "narukami_content_maker";
 	// 各種データの保存
@@ -151,6 +158,11 @@ global $wpdb;
 			'grandmenu_title' => $i_grandmenu_title,
 			'grandmenu_pagelink' => $i_grandmenu_pagelink,
 			'gm_primary_title' => $i_gm_primary_title,
+			//パララックス
+			'parallax_bg_img_url' => $i_parallax_bg_img_url,
+			'parallax_title' => $i_parallax_title,
+			'parallax_content' => $i_parallax_content,
+			'parallax_primary_title' => $i_parallax_primary_title,
 			//右画像１カラム
 			'column_right_1_bg_img_url' => $i_column_right_1_img_url,
 			'column_right_1_title' => $i_column_right_1_title,
@@ -246,6 +258,11 @@ global $wpdb;
 			'%s',
 			'%s',
 			'%s',
+		//パララックス
+			'%s',
+			'%s',
+			'%s',
+			'%s',
 		//右画像１カラム
 			'%s',
 			'%s',
@@ -288,6 +305,24 @@ global $wpdb;
 	);
 
 
+//delete_db
+global $wpdb;
+$narukamicmker =  $wpdb->prefix . "narukami_content_maker";
+//idが1以外のレコードを取得
+$records_to_delete = $wpdb->get_results("SELECT * FROM $narukamicmker WHERE id != 1");
+if( $i_delete_iniz == "Initialization" ){
+foreach ($records_to_delete as $record) {
+    $wpdb->delete(
+		$narukamicmker, 
+		array(
+			'id' => $record->id
+		), 
+		array(
+			'%d'
+		));
+}
+}
+//update_db
 global $wpdb;
 $narukamicmker =  $wpdb->prefix . "narukami_content_maker";
 if( $i_rank_on == "rank_not_show_1" ){

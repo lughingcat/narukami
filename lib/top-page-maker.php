@@ -22,16 +22,16 @@
 			  }
 			  $selectbox_item = '';
 			  $selectbox_item_list = array(
-			  	"ランキング",
-			  	"コンセプト",
-			  	"グランドメニュー",
-			  	"右寄せ背景1カラム",
-			  	"左寄せ背景1カラム",
-			  	"2カラム",
-			  	"3カラム",
-			  	"店舗情報",
-			  	"テキストエリア",
-			  	"パララックス",
+			  	"ランキング" => 'ranking',
+   				"コンセプト" => 'concept',
+   				"グランドメニュー" => 'grandmenu',
+   				"右寄せ背景1カラム" => 'column_right_1',
+   				"左寄せ背景1カラム" => 'column_left_1',
+   				"2カラム" => 'column_2',
+   				"3カラム" => 'column_3',
+   				"店舗情報" => 'store_info',
+   				"テキストエリア" => 'text_content',
+   				"パララックス" => 'parallax',
 			  );
 				if(isset($_POST['s_cmaker'])){
 					$selectbox_item = $_POST['s_cmaker'];
@@ -39,36 +39,35 @@
 					$selectbox_item = $select_box;
 				}
 			  ?>
-			  <select name="s_cmaker" class="cmaker-wrap" id="cmaker" onchange="cmakerChange()">
+			  <select name="s_cmaker" class="cmaker-wrap" id="cmaker" onchange="loadContent()">
 				  <option hidden>選択してください</option>
 				  <?php 
-				  foreach( $selectbox_item_list as $value){
+				  foreach( $selectbox_item_list as $label => $value){
 					  if( $value === $selectbox_item ){
-						  echo "<option value='$value' selected>".$value."</option>";
+						  echo "<option value='$value' selected>" . $label . "</option>";
 					  }else{
-						  echo "<option value='$value'>".$value."</option>";
+						  echo "<option value='$value'>" . $label . "</option>";
 					  }
 				  }
-			  ?>
+			  ?> 
 			  </select>
+			  <div>
+				  </div> 
+			  <div id="contentContainer"></div>
+			  <button type="button" onclick="cloneSelectBox()">複製</button>
+			  <div id="clonedSelectBoxes"></div>
+			  
 			  <div id="cmakerChild" class="cmakerChildWrap">
-				  <?php get_template_part('lib/ranking'); ?>
-				  <?php get_template_part('lib/concept'); ?>
-				  <?php get_template_part('lib/grandmenu'); ?>
-				  <?php get_template_part('lib/column_right_1'); ?>
-				  <?php get_template_part('lib/column_left_1'); ?>
-				  <?php get_template_part('lib/column_2'); ?>
-				  <?php get_template_part('lib/column_3'); ?>
-				  <?php get_template_part('lib/store_info'); ?>
-				  <?php get_template_part('lib/text_content'); ?>
-				  <?php get_template_part('lib/parallax'); ?>
+				 
 			  </div>
 			  
 			  
 			  <button id="gmvalidate" type="submit" name="">保存</button>
+			  <button id="gmvalidate" type="submit" name="delete_iniz" value="Initialization">初期化</button>
 			  </div><!--mainEnd-->
 			</form>
 			<?php get_template_part('lib/procces');?>
+			
           </div> 
         </div>
       </div>

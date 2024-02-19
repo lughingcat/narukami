@@ -15,7 +15,7 @@
 			<div class="concept-back-wrap"
 				 style="background-image: url(<?php if( isset( $_POST['concept_bg_img_url'])){ echo $_POST['concept_bg_img_url']; }elseif( !isset($_POST['concept_bg_img_url']) ){ echo $concept_bgImg_url; };?> )">
 				<div class="concept-text-wrap">
-				<p class="concept-main-title test-concept-title"><?php if( isset( $_POST['concept_title'])){ echo $_POST['concept_title']; }elseif( !isset($_POST['concept_title'])){ echo $concept_title; };?></p>
+				<p class="concept-main-title"><?php if( isset( $_POST['concept_title'])){ echo $_POST['concept_title']; }elseif( !isset($_POST['concept_title'])){ echo $concept_title; };?></p>
 				<p class="concept-main-content"><?php if( isset( $_POST['concept_content'])){ echo nl2br($_POST['concept_content']); }elseif( !isset($_POST['concept_content'])){ echo nl2br($concept_content); };?></p>
 				</div>
 			</div>
@@ -30,6 +30,7 @@
 				$concept_bg_url = $concept_bgImg_url;
 			}
 	;?>
+		<input type="button" value="test" onclick="conceputfunctiontest()">
 	<h4 class="h-admin-4-bg">コンセプト表示の背景画像を選択してください。</h4>
 	<?php
   	generate_upload_image_tag('concept_bg_img_url', $concept_bg_url);
@@ -55,5 +56,10 @@
 		;?>
 		</textarea>
 	</div>
+	<script>
+		function conceputfunctiontest() {
+    console.log('読み込みテスト');
+		}
+	</script>
 	<button type="button" id="conceptCloseBtn">閉じる</button>
 </div>

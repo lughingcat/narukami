@@ -201,6 +201,42 @@ add_action('admin_enqueue_scripts', 'add_admin_style');
 
 
 
+//ajax追加
+add_action('admin_enqueue_scripts', 'enqueue_custom_scripts');
+
+function enqueue_custom_scripts() {
+	// jQueryをエンキュー
+    wp_enqueue_script('jquery');
+
+    wp_enqueue_script('custom-scripts', get_template_directory_uri() . '/assets/js/custom-scripts.js', array('jquery'), null, true);
+
+    // Ajax用の変数を設定
+    wp_localize_script('custom-scripts', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php')));
+}
+
+// Ajaxアクションを追加
+add_action('wp_ajax_load_content', 'load_content');
+add_action('wp_ajax_nopriv_load_content', 'load_content');
+
+function load_content() {
+    if (isset($_GET['selectedValue'])) {
+        $selectedValue = $_GET['selectedValue'];
+        $content = getContentBasedOnValue($selectedValue);
+        echo $content;
+    }
+
+    // 必ず終了する
+    wp_die();
+}
+
+function getContentBasedOnValue($value) {
+    ob_start();
+    get_template_part('lib/' . $value);
+    return ob_get_clean();
+}
+
+
+
 
 //カラーピッカーの生成関数
 function genelate_color_picker_tag_demo($name, $value, $label){?>
@@ -297,6 +333,10 @@ function create_theme_tables() {
 		  `grandmenu_title` TEXT NOT NULL,
 		  `grandmenu_pagelink` TEXT NOT NULL,
 		  `gm_primary_title` TEXT NOT NULL,
+		  `parallax_primary_title` TEXT NOT NULL,
+		  `parallax_bg_img_url` TEXT NOT NULL,
+		  `parallax_title` TEXT NOT NULL,
+		  `parallax_content` TEXT NOT NULL,
 		  `column_right_1_bg_img_url` TEXT NOT NULL,
 		  `column_right_1_title` TEXT NOT NULL,
 		  `column_right_1_content` TEXT NOT NULL,
@@ -400,6 +440,7 @@ function ranking_db_farst_insert_data(){
 	$column_3_sec_title_path = "SAMPLE&nbsp;SECONDERY";
 	$column_3_third_title_path = "SAMPLE&nbsp;TERTIARY";
 	$gm_primary_title_path = "GRAND&nbsp;MENU";
+	$parallax_primary_title_path = "PARALLAX&nbsp;PRIMARY&nbsp;TITLE";
 	$concept_content_sample =<<< EOM
 		親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰を抜かす奴があるかと云ったから、この次は抜かさずに飛んで見せますと答えた。（青空文庫より）
 		EOM;
@@ -410,8 +451,14 @@ function ranking_db_farst_insert_data(){
 		$rank4_img_path,
 		$rank5_img_path
 	];
+	$parallax_img_url_path = [
+		$rank1_img_path,
+		$rank2_img_path,
+		$rank3_img_path
+	];
 	
 	$grandmenu_img_url_json = json_encode($grandmenu_img_url_path,JSON_UNESCAPED_UNICODE);
+	$parallax_img_url_json = json_encode($parallax_img_url_path,JSON_UNESCAPED_UNICODE);
 	
 	$grandmenu_img_title_path = [
 	"Appetizer",
@@ -420,7 +467,13 @@ function ranking_db_farst_insert_data(){
 	"Sake appetizer",
 	"Course meal"
 	];
+	$parallax_title_path = [
+	"PARALLAX TITLE 1",
+	"PARALLAX TITLE 2",
+	"PARALLAX TITLE 3"
+	];
 	$grandmenu_title_json = json_encode($grandmenu_img_title_path,JSON_UNESCAPED_UNICODE );
+	$parallax_title_json = json_encode($parallax_title_path,JSON_UNESCAPED_UNICODE );
 	
 	$grandmenu_pagelink_path = [
 		$url_path,
@@ -429,7 +482,13 @@ function ranking_db_farst_insert_data(){
 		$url_path,
 		$url_path
 	];
+	$parallax_content_path = [
+		"Content for section 1.",
+		"Content for section 2.",
+		"Content for section 3."
+	];
 	$grandmenu_pagelink_json = json_encode($grandmenu_pagelink_path,JSON_UNESCAPED_UNICODE);
+	$parallax_content_json = json_encode($parallax_content_path,JSON_UNESCAPED_UNICODE);
 	
 	global $wpdb;
 	$tablename = $wpdb->prefix.'narukami_content_maker';
@@ -478,6 +537,10 @@ function ranking_db_farst_insert_data(){
 		'grandmenu_title' => $grandmenu_title_json,
 		'grandmenu_pagelink' => $grandmenu_pagelink_json,
 		'gm_primary_title' => $gm_primary_title_path,
+		'parallax_bg_img_url' => $parallax_img_url_json,
+		'parallax_title' => $parallax_title_json,
+		'parallax_content' => $parallax_content_json,
+		'parallax_primary_title' => $parallax_primary_title_path ,
 		'column_right_1_bg_img_url' => $column_right_1_bg_img_url_path,
 		'column_right_1_content' => $column_right_1_content_path,
 		'column_right_1_title' => $column_right_1_title_path,
@@ -561,6 +624,11 @@ function ranking_db_farst_insert_data(){
 			'%s',
 			'%s',
 			'%s',
+			//paralax
+			'%s',
+			'%s',
+			'%s',
+			'%s',
 			//rightImg1Column
 			'%s',
 			'%s',
@@ -617,82 +685,13 @@ function generate_upload_image_tag($name, $value){?>
     <?php endif ?>
   </div>
   <input id="<?php echo $name; ?>" class="img-setect-url img-count-item"name="<?php echo $name; ?>" type="text" value="<?php echo $value; ?>" />
-  <input id="<?php echo $name; ?>_btn" type="button" class="img-select" name="<?php echo $name; ?>_slect" value="選択" />
-  <input id="<?php echo $name; ?>_clear" type="button" class="img-select-clear" name="<?php echo $name; ?>_clear" value="クリア" />
+  <input id="<?php echo $name; ?>_btn" type="button" class="img-select" name="<?php echo $name; ?>_slect" onclick="uploaderOpenClick(this)" value="選択" />
+  <input id="<?php echo $name; ?>_clear" type="button" class="img-select-clear" name="<?php echo $name; ?>_clear" onclick="uploaderdeleteClick(this)" value="クリア" />
 </div>
-
-
-  <script type="text/javascript">
-  (function ($) {
-
-      var custom_uploader;
-
-      $("input:button[name=<?php echo $name; ?>_slect]").click(function(e) {
-
-          e.preventDefault();
-
-          if (custom_uploader) {
-
-              custom_uploader.open();
-              return;
-
-          }
-
-          custom_uploader = wp.media({
-
-              title: "画像を選択してください",
-
-              /* ライブラリの一覧は画像のみにする */
-              library: {
-                  type: "image"
-              },
-
-              button: {
-                  text: "画像の選択"
-              },
-
-              /* 選択できる画像は 1 つだけにする */
-              multiple: false
-
-          });
-
-          custom_uploader.on("select", function() {
-
-              var images = custom_uploader.state().get("selection");
-			  
-              /* file の中に選択された画像の各種情報が入っている */
-              images.each(function(file){
-                  $(this).text("リスト" + file);
-                  /* テキストフォームと表示されたサムネイル画像があればクリア */
-                  $("input:text[name=<?php echo $name; ?>]").val("");
-                  $("#<?php echo $name; ?>_thumbnail").empty();
-				  
-				   
-                  /* テキストフォームに画像の URL を表示 */
-                  $("input:text[name=<?php echo $name; ?>]").val(file.attributes.sizes.full.url);
-				  
-				  /* プレビュー用に選択されたサムネイル画像を表示 */
-                  $("#<?php echo $name; ?>_thumbnail").append('<img src="'+file.attributes.sizes.thumbnail.url+'" />');
-              });
-			 
-          });
-
-          custom_uploader.open();
-
-      });
-
-      /* クリアボタンを押した時の処理 */
-      $("input:button[name=<?php echo $name; ?>_clear]").click(function() {
-
-          $("input:text[name=<?php echo $name; ?>]").val("");
-          $("#<?php echo $name; ?>_thumbnail").empty();
-
-      });
-
-  })(jQuery);
-  </script>
+<div id="script-container"></div>
   <?php
 }
+
 //画像アップロード用のタグを複数出力する(multiple)
 function generate_upload_multipleimage_tag($name, $value, $index){
     ?>
@@ -751,12 +750,7 @@ function generate_upload_multipleimage_tag($name, $value, $index){
         $('#' + <?php echo json_encode($name); ?> + '_thumbnail_' + index).empty();
     });
 })(jQuery);
-
-
-
-
-
-  </script>
+</script>
 <?php
 }
 
@@ -809,11 +803,6 @@ require get_template_directory() . '/inc/customizer.php';
  * 管理画面に関する設定
  */
 require get_template_directory() . '/lib/function-setting.php';
-
-/**
- * データ送信用ファイル
- */
-
 
 
 

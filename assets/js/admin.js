@@ -1,262 +1,66 @@
 /*==================================
 コンテンツメーカーjs
 ==================================*/
+
+//selectbox追加動作
+let cloneCounter = 1;
+function cloneSelectBox() {
+            const originalSelectBox = document.querySelector('.cmaker-wrap');
+            const clonedSelectBox = originalSelectBox.cloneNode(true);
+
+            // 新しいセレクトボックスの値や属性を必要に応じて調整
+            clonedSelectBox.value = 'ランキング';
+            clonedSelectBox.id = 'cmaker' + cloneCounter;
+
+            // 複製したセレクトボックスを追加
+            document.getElementById('clonedSelectBoxes').appendChild(clonedSelectBox);
+
+            cloneCounter++;
+        }
+
+
+
 //closebtn動作
-const closeItem1 = document.getElementById('rankingCloseBtn');
-	　　closeItem1.addEventListener('click' , ()=>{
-       document.getElementById('cmaker_ranking_wrap').style.display="none";
-      });
-const closeItem2 = document.getElementById('conceptCloseBtn');
-	　　closeItem2.addEventListener('click' , ()=>{
-       document.getElementById('cmaker_concept_wrap').style.display="none";
-      });
-const closeItem3 = document.getElementById('column_right_1CloseBtn');
-	　　closeItem3.addEventListener('click' , ()=>{
-       document.getElementById('cmaker_column_right_1_wrap').style.display="none";
-      });
-const closeItem4 = document.getElementById('column_3CloseBtn');
-	　　closeItem4.addEventListener('click' , ()=>{
-       document.getElementById('cmaker_column_3_wrap').style.display="none";
-      });
-const closeItem5 = document.getElementById('column_2CloseBtn');
-	　　closeItem5.addEventListener('click' , ()=>{
-       document.getElementById('cmaker_column_2_wrap').style.display="none";
-      });
-const closeItem6 = document.getElementById('text_contentCloseBtn');
-	　　closeItem6.addEventListener('click' , ()=>{
-       document.getElementById('cmaker_text_content_wrap').style.display="none";
-      });
-const closeItem7 = document.getElementById('store_infoCloseBtn');
-	　　closeItem7.addEventListener('click' , ()=>{
-       document.getElementById('cmaker_store_info_wrap').style.display="none";
-      });
-const closeItem8 = document.getElementById('column_left_1CloseBtn');
-	　　closeItem8.addEventListener('click' , ()=>{
-       document.getElementById('cmaker_column_left_1_wrap').style.display="none";
-      });
 
-
-//ロード時のセレクトボックスの制御
-window.addEventListener('load', function(){
-	selectVal = document.getElementById('cmaker').value;
-	if(selectVal == 'ランキング'){
-			document.getElementById('cmaker_ranking_wrap').style.display="none";
-			document.getElementById('cmaker_concept_wrap').style.display="none";
-			document.getElementById('cmaker_column_right_1_wrap').style.display="none";
-			document.getElementById('cmaker_column_left_1_wrap').style.display="none";
-			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
-			document.getElementById('cmaker_column_2_wrap').style.display="none";
-			document.getElementById('cmaker_column_3_wrap').style.display="none";
-			document.getElementById('cmaker_store_info_wrap').style.display="none";
-			document.getElementById('cmaker_text_content_wrap').style.display="none";
-		}else if(selectVal == 'コンセプト'){
-			document.getElementById('cmaker_ranking_wrap').style.display="none";
-			document.getElementById('cmaker_concept_wrap').style.display="";
-			document.getElementById('cmaker_column_right_1_wrap').style.display="none";
-			document.getElementById('cmaker_column_left_1_wrap').style.display="none";
-			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
-			document.getElementById('cmaker_column_2_wrap').style.display="none";
-			document.getElementById('cmaker_column_3_wrap').style.display="none";
-			document.getElementById('cmaker_store_info_wrap').style.display="none";
-			document.getElementById('cmaker_text_content_wrap').style.display="none";
-		}else if(selectVal == 'グランドメニュー'){
-			document.getElementById('cmaker_ranking_wrap').style.display="none";
-			document.getElementById('cmaker_concept_wrap').style.display="none";
-			document.getElementById('cmaker_column_right_1_wrap').style.display="none";
-			document.getElementById('cmaker_column_left_1_wrap').style.display="none";
-			document.getElementById('cmaker_grandmenu_wrap').style.display="";
-			document.getElementById('cmaker_column_2_wrap').style.display="none";
-			document.getElementById('cmaker_column_3_wrap').style.display="none";
-			document.getElementById('cmaker_store_info_wrap').style.display="none";
-			document.getElementById('cmaker_text_content_wrap').style.display="none";
-		}else if(selectVal == '右寄せ背景1カラム'){
-			document.getElementById('cmaker_ranking_wrap').style.display="none";
-			document.getElementById('cmaker_concept_wrap').style.display="none";
-			document.getElementById('cmaker_column_right_1_wrap').style.display="";
-			document.getElementById('cmaker_column_left_1_wrap').style.display="none";
-			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
-			document.getElementById('cmaker_column_2_wrap').style.display="none";
-			document.getElementById('cmaker_column_3_wrap').style.display="none";
-			document.getElementById('cmaker_store_info_wrap').style.display="none";
-			document.getElementById('cmaker_text_content_wrap').style.display="none";
-		}else if(selectVal == '左寄せ背景1カラム'){
-			document.getElementById('cmaker_ranking_wrap').style.display="none";
-			document.getElementById('cmaker_concept_wrap').style.display="none";
-			document.getElementById('cmaker_column_right_1_wrap').style.display="none";
-			document.getElementById('cmaker_column_left_1_wrap').style.display="";
-			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
-			document.getElementById('cmaker_column_2_wrap').style.display="none";
-			document.getElementById('cmaker_column_3_wrap').style.display="none";
-			document.getElementById('cmaker_store_info_wrap').style.display="none";
-			document.getElementById('cmaker_text_content_wrap').style.display="none";
-		}else if(selectVal == '2カラム'){
-			document.getElementById('cmaker_ranking_wrap').style.display="none";
-			document.getElementById('cmaker_concept_wrap').style.display="none";
-			document.getElementById('cmaker_column_right_1_wrap').style.display="none";
-			document.getElementById('cmaker_column_left_1_wrap').style.display="none";
-			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
-			document.getElementById('cmaker_column_2_wrap').style.display="";
-			document.getElementById('cmaker_column_3_wrap').style.display="none";
-			document.getElementById('cmaker_store_info_wrap').style.display="none";
-			document.getElementById('cmaker_text_content_wrap').style.display="none";
-		}else if(selectVal == '3カラム'){
-			document.getElementById('cmaker_ranking_wrap').style.display="none";
-			document.getElementById('cmaker_concept_wrap').style.display="none";
-			document.getElementById('cmaker_column_right_1_wrap').style.display="none";
-			document.getElementById('cmaker_column_left_1_wrap').style.display="none";
-			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
-			document.getElementById('cmaker_column_2_wrap').style.display="none";
-			document.getElementById('cmaker_column_3_wrap').style.display="";
-			document.getElementById('cmaker_store_info_wrap').style.display="none";
-			document.getElementById('cmaker_text_content_wrap').style.display="none";
-		}else if(selectVal == '店舗情報'){
-			document.getElementById('cmaker_ranking_wrap').style.display="none";
-			document.getElementById('cmaker_concept_wrap').style.display="none";
-			document.getElementById('cmaker_column_right_1_wrap').style.display="none";
-			document.getElementById('cmaker_column_left_1_wrap').style.display="none";
-			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
-			document.getElementById('cmaker_column_2_wrap').style.display="none";
-			document.getElementById('cmaker_column_3_wrap').style.display="none";
-			document.getElementById('cmaker_store_info_wrap').style.display="";
-			document.getElementById('cmaker_text_content_wrap').style.display="none";
-		}else if(selectVal == 'テキストエリア'){
-			document.getElementById('cmaker_ranking_wrap').style.display="none";
-			document.getElementById('cmaker_concept_wrap').style.display="none";
-			document.getElementById('cmaker_column_right_1_wrap').style.display="none";
-			document.getElementById('cmaker_column_left_1_wrap').style.display="none";
-			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
-			document.getElementById('cmaker_column_2_wrap').style.display="none";
-			document.getElementById('cmaker_column_3_wrap').style.display="none";
-			document.getElementById('cmaker_store_info_wrap').style.display="none";
-			document.getElementById('cmaker_text_content_wrap').style.display=""; 
-		}
-});
-
-
-//セレクトボックスの表示切り替え
-function cmakerChange(){
-	if(document.getElementById('cmaker')){
-		id = document.getElementById('cmaker').value;
-		if(id == 'ランキング'){
-			document.getElementById('cmaker_ranking_wrap').style.display="";
-			document.getElementById('cmaker_concept_wrap').style.display="none";
-			document.getElementById('cmaker_column_right_1_wrap').style.display="none";
-			document.getElementById('cmaker_column_left_1_wrap').style.display="none";
-			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
-			document.getElementById('cmaker_column_2_wrap').style.display="none";
-			document.getElementById('cmaker_column_3_wrap').style.display="none";
-			document.getElementById('cmaker_store_info_wrap').style.display="none";
-			document.getElementById('cmaker_text_content_wrap').style.display="none";
-		}else if(id == 'コンセプト'){
-			document.getElementById('cmaker_ranking_wrap').style.display="none";
-			document.getElementById('cmaker_concept_wrap').style.display="";
-			document.getElementById('cmaker_column_right_1_wrap').style.display="none";
-			document.getElementById('cmaker_column_left_1_wrap').style.display="none";
-			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
-			document.getElementById('cmaker_column_2_wrap').style.display="none";
-			document.getElementById('cmaker_column_3_wrap').style.display="none";
-			document.getElementById('cmaker_store_info_wrap').style.display="none";
-			document.getElementById('cmaker_text_content_wrap').style.display="none";
-		}else if(id == 'グランドメニュー'){
-			document.getElementById('cmaker_ranking_wrap').style.display="none";
-			document.getElementById('cmaker_concept_wrap').style.display="none";
-			document.getElementById('cmaker_column_right_1_wrap').style.display="none";
-			document.getElementById('cmaker_column_left_1_wrap').style.display="none";
-			document.getElementById('cmaker_grandmenu_wrap').style.display="";
-			document.getElementById('cmaker_column_2_wrap').style.display="none";
-			document.getElementById('cmaker_column_3_wrap').style.display="none";
-			document.getElementById('cmaker_store_info_wrap').style.display="none";
-			document.getElementById('cmaker_text_content_wrap').style.display="none";
-		}else if(id == '右寄せ背景1カラム'){
-			document.getElementById('cmaker_ranking_wrap').style.display="none";
-			document.getElementById('cmaker_concept_wrap').style.display="none";
-			document.getElementById('cmaker_column_right_1_wrap').style.display="";
-			document.getElementById('cmaker_column_left_1_wrap').style.display="none";
-			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
-			document.getElementById('cmaker_column_2_wrap').style.display="none";
-			document.getElementById('cmaker_column_3_wrap').style.display="none";
-			document.getElementById('cmaker_store_info_wrap').style.display="none";
-			document.getElementById('cmaker_text_content_wrap').style.display="none";
-		}else if(id == '左寄せ背景1カラム'){
-			document.getElementById('cmaker_ranking_wrap').style.display="none";
-			document.getElementById('cmaker_concept_wrap').style.display="none";
-			document.getElementById('cmaker_column_right_1_wrap').style.display="none";
-			document.getElementById('cmaker_column_left_1_wrap').style.display="";
-			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
-			document.getElementById('cmaker_column_2_wrap').style.display="none";
-			document.getElementById('cmaker_column_3_wrap').style.display="none";
-			document.getElementById('cmaker_store_info_wrap').style.display="none";
-			document.getElementById('cmaker_text_content_wrap').style.display="none";
-		}else if(id == '2カラム'){
-			document.getElementById('cmaker_ranking_wrap').style.display="none";
-			document.getElementById('cmaker_concept_wrap').style.display="none";
-			document.getElementById('cmaker_column_right_1_wrap').style.display="none";
-			document.getElementById('cmaker_column_left_1_wrap').style.display="none";
-			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
-			document.getElementById('cmaker_column_2_wrap').style.display="";
-			document.getElementById('cmaker_column_3_wrap').style.display="none";
-			document.getElementById('cmaker_store_info_wrap').style.display="none";
-			document.getElementById('cmaker_text_content_wrap').style.display="none";
-		}else if(id =='3カラム'){
-			document.getElementById('cmaker_ranking_wrap').style.display="none";
-			document.getElementById('cmaker_concept_wrap').style.display="none";
-			document.getElementById('cmaker_column_right_1_wrap').style.display="none";
-			document.getElementById('cmaker_column_left_1_wrap').style.display="none";
-			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
-			document.getElementById('cmaker_column_2_wrap').style.display="none";
-			document.getElementById('cmaker_column_3_wrap').style.display="";
-			document.getElementById('cmaker_store_info_wrap').style.display="none";
-			document.getElementById('cmaker_text_content_wrap').style.display="none";
-		}else if(id == '店舗情報'){
-			document.getElementById('cmaker_ranking_wrap').style.display="none";
-			document.getElementById('cmaker_concept_wrap').style.display="none";
-			document.getElementById('cmaker_column_right_1_wrap').style.display="none";
-			document.getElementById('cmaker_column_left_1_wrap').style.display="none";
-			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
-			document.getElementById('cmaker_column_2_wrap').style.display="none";
-			document.getElementById('cmaker_column_3_wrap').style.display="none";
-			document.getElementById('cmaker_store_info_wrap').style.display="";
-			document.getElementById('cmaker_text_content_wrap').style.display="none";
-		}else if(id == 'テキストエリア'){
-			document.getElementById('cmaker_ranking_wrap').style.display="none";
-			document.getElementById('cmaker_concept_wrap').style.display="none";
-			document.getElementById('cmaker_column_right_1_wrap').style.display="none";
-			document.getElementById('cmaker_column_left_1_wrap').style.display="none";
-			document.getElementById('cmaker_grandmenu_wrap').style.display="none";
-			document.getElementById('cmaker_column_2_wrap').style.display="none";
-			document.getElementById('cmaker_column_3_wrap').style.display="none";
-			document.getElementById('cmaker_store_info_wrap').style.display="none";
-			document.getElementById('cmaker_text_content_wrap').style.display="";
-		}
-	}
-}
 //パララックス動作制御
+let handleScroll;
+function parallaxControl(){
+	
 const parallax = document.querySelectorAll(".parallax-layer");
 const section = document.querySelectorAll(".parallax-section");
 const windowHeight = window.innerHeight;
-
 parallax[0].classList.add('parallax-isblock');
 
-document.addEventListener("scroll", function () {
-  for (let i = 0; i < section.length; i++) {
-    const getElementDistanceTop = section[i].getBoundingClientRect().top;
-    const getElementDistanceBottom = section[i].getBoundingClientRect().bottom;
+	
+	handleScroll = function(){
+        for (let i = 0; i < section.length; i++) {
+            const getElementParentTop = document.querySelector(".parallax-container").getBoundingClientRect().top;
+            const getElementDistanceTop = section[i].getBoundingClientRect().top;
+            const getElementDistanceBottom = section[i].getBoundingClientRect().bottom;
 
-    if (getElementDistanceTop < windowHeight) {
-      parallax[i].classList.add('parallax-isblock');
-    } else {
-      parallax[i].classList.remove('parallax-isblock');
-    }
-    
-    if (getElementDistanceTop < 0 && getElementDistanceBottom > 0) {
-      parallax[i].classList.add("parallax-isactive");
-    } else { 
-      parallax[i].classList.remove("parallax-isactive");
-    }
-  }
-});
+            if (getElementDistanceTop < windowHeight) {
+                parallax[i].classList.add('parallax-isblock');
+            } else {
+                parallax[i].classList.remove('parallax-isblock');
+            }
 
+            if (getElementDistanceTop < 0 && getElementDistanceBottom > 0) {
+                parallax[i].classList.add("parallax-isactive");
+            } else {
+                parallax[i].classList.remove("parallax-isactive");
+            }
+
+            if (i === section.length - 1) {
+                parallax[i].classList.remove("parallax-isactive");
+            }
+        }
+}
+	
+	document.addEventListener("scroll", handleScroll);
+ 
+}
 //グランドメニューのCRAD
+function grandMenuControl(){
 function updateDataIndex(element, newIndex) {
     // data-index属性を新しい値に更新
     element.dataset.index = newIndex;
@@ -299,46 +103,13 @@ function updateDataIndex(element, newIndex) {
             plasNam++;
         }
     
-        const gmAddBtn = document.getElementById("gm-elment-add");
+        const gmAddBtn = document.getElementById('gm-elment-add');
         gmAddBtn.addEventListener("click", addGmElement, false);
 
-        function deleteParentEl(button) {
-			let elements = document.querySelectorAll('.gm-form-style');
-			// 最後の1つの要素になった場合
-			if (elements.length === 1) {
-				alert("最後の要素は削除できません");
-				return; // 削除しない
-			}
-            var parentEl = button.parentElement;
-            if (parentEl) {
-                parentEl.remove();
-				let elements = document.querySelectorAll('.gm-form-style');
-   				elements.forEach((el, index) => {
-   				    el.id = "gm-form_" + index;
-                });
-				var delBtnNum = document.querySelectorAll('.gm-item-del-btn');
-				delBtnNum.forEach((el,index)=>{
-					el.innerHTML = index + 1 + "番目のメニューを全削除。";
-					
-				});
-				var delRenumber = elements.forEach((element) => {
-					let parentNum = parseInt(element.id.match(/\d+$/), 10);
-					var nodesWithId = element.querySelectorAll('*[id]');
-					Array.from(nodesWithId).forEach((node, nodeIdex) => {
-						let currentId = node.id;
-						let lastNumbers = parseInt(currentId.match(/\d+$/), 10);
-						// 新しいIDを生成する
-						let newId = `${currentId.replace(/\d+$/, parentNum)}`;
-						// 新しいIDを割り当てる
-						node.id = newId;
-					});
-				});
-				
-				}
-            }
         
 
 //グランドメニューのバリテート
+
  document.getElementById('grandmenuCloseBtn').addEventListener('click', function() {
             var isFormValid = validateForm();
    			// 処理が完了している場合、true を返しているのでログを出力
@@ -516,43 +287,44 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-
-//トップ各項目タイトル時間差表示関数
-const animateTextWithSpans = function(selector, delay = 100) {
-    const wrapCharSpan = function(str) {
-        return [...str].map(char => `<span>${char}</span>`).join('');
-    }
-
-    const target = document.querySelector(selector);
-    if (!target) {
-        console.error(`Element with selector ${selector} not found.`);
-        return;
-    }
-
-    const originalText = target.textContent; // 元の文字列を保持
-
-    // 初回の呼び出しで元の文字列を span 要素で置き換える
-    target.innerHTML = wrapCharSpan(originalText);
-
-    Array.from(target.children).forEach((char, index) => {
-        window.setTimeout(function () {
-            char.classList.add('is-animated');
-        }, delay * index);
-    });
 }
-//.concept-main-title'時間差表示
-animateTextWithSpans('.concept-main-title');
-//.r-p-t-prev'時間差表示
-animateTextWithSpans('.r-p-t-prev');
-//gm-primary-title時間差表示
-animateTextWithSpans('.gm-primary-title');
-//.store-info-p_title時間差表示
-animateTextWithSpans('.store-info-p_title');
-
-
-
-
+//gmアイテム削除ボタン関数
+function deleteParentEl(button) {
+			let elements = document.querySelectorAll('.gm-form-style');
+			// 最後の1つの要素になった場合
+			if (elements.length === 1) {
+				alert("最後の要素は削除できません");
+				return; // 削除しない
+			}
+            var parentEl = button.parentElement;
+            if (parentEl) {
+                parentEl.remove();
+				let elements = document.querySelectorAll('.gm-form-style');
+   				elements.forEach((el, index) => {
+   				    el.id = "gm-form_" + index;
+                });
+				var delBtnNum = document.querySelectorAll('.gm-item-del-btn');
+				delBtnNum.forEach((el,index)=>{
+					el.innerHTML = index + 1 + "番目のメニューを全削除。";
+					
+				});
+				var delRenumber = elements.forEach((element) => {
+					let parentNum = parseInt(element.id.match(/\d+$/), 10);
+					var nodesWithId = element.querySelectorAll('*[id]');
+					Array.from(nodesWithId).forEach((node, nodeIdex) => {
+						let currentId = node.id;
+						let lastNumbers = parseInt(currentId.match(/\d+$/), 10);
+						// 新しいIDを生成する
+						let newId = `${currentId.replace(/\d+$/, parentNum)}`;
+						// 新しいIDを割り当てる
+						node.id = newId;
+					});
+				});
+				
+				}
+            }
 //ランキング表示非表示切り替え1
+function rankingControl(){
 document.addEventListener("DOMContentLoaded", function(){
 	rankCheck = document.getElementsByName('rank_on');
 	rank1ItemImg = document.getElementById('item_img_url');
@@ -890,6 +662,61 @@ window.addEventListener("load", function(){
 		});
 	});
 });
+}
+
+//トップ各項目タイトル時間差表示関数
+const animateTextWithSpans = function(selector, delay = 100) {
+    const wrapCharSpan = function(str) {
+        return [...str].map(char => `<span>${char}</span>`).join('');
+    }
+
+    const target = document.querySelector(selector);
+    if (!target) {
+        console.error(`Element with selector ${selector} not found.`);
+        return;
+    }
+
+    const originalText = target.textContent; // 元の文字列を保持
+
+    // 初回の呼び出しで元の文字列を span 要素で置き換える
+    target.innerHTML = wrapCharSpan(originalText);
+
+    Array.from(target.children).forEach((char, index) => {
+        window.setTimeout(function () {
+            char.classList.add('is-animated');
+        }, delay * index);
+    });
+}
+
+
+function handleSelectChange() {
+    var selectedValue = document.getElementById("cmaker").value;
+	commonInitialization();
+	
+    if (selectedValue === "parallax") {
+        console.log("Parallax selected");
+        parallaxControl();
+        animateTextWithSpans('.parallax-title');
+    } else if (selectedValue === "grandmenu") {
+        console.log("Grandmenu selected");
+        grandMenuControl();
+        animateTextWithSpans('.gm-primary-title');
+    } else if (selectedValue === "concept") {
+        console.log("Concept selected");
+        animateTextWithSpans('.concept-main-title');
+    } else if (selectedValue === "ranking") {
+        console.log("Ranking selected");
+        rankingControl();
+        animateTextWithSpans('.r-p-t-prev');
+    } else if (selectedValue === "store_info") {
+        console.log("Store info selected");
+        animateTextWithSpans('.store-info-p_title');
+    }
+}
+function commonInitialization(){
+	document.removeEventListener("scroll", handleScroll);
+	console.log('パララックスが初期化されました')
+}
 
 
 
@@ -897,7 +724,50 @@ window.addEventListener("load", function(){
 メディアアップローダーjs
 ==================================*/
 
+//id,valueをクリックしたボタンから抜き出し、アップローダ関数を実行
+　 function uploaderOpenClick(button) {
+    var buttonId = button.id;
+	var singleName = buttonId.replace('_btn', '');
+    initializeUploader(jQuery, singleName);
+  }
+function uploaderdeleteClick(button) {
+    var buttonIdDel = button.id;
+	var singleNameDel = buttonIdDel.replace('_clear', '');
+    deleteImgUploader(jQuery, singleNameDel);
+  }
   
+  function initializeUploader($, name) {
+    console.log(name + 'が読み込まれました');
+
+    var custom_uploader = wp.media({
+        title: "画像を選択してください",
+        library: {
+            type: "image"
+        },
+        button: {
+            text: "画像の選択"
+        },
+        multiple: false
+    });
+
+    custom_uploader.on("select", function () {
+        var images = custom_uploader.state().get("selection");
+
+        images.each(function (file) {
+            console.log("リスト" + file);
+            $("input:text[name=" + name + "]").val("");
+            $("#" + name + "_thumbnail").empty();
+            $("input:text[name=" + name + "]").val(file.attributes.sizes.full.url);
+            $("#" + name + "_thumbnail").append('<img src="' + file.attributes.sizes.thumbnail.url + '" />');
+        });
+    });
+
+    custom_uploader.open();
+}
+function deleteImgUploader($, name){
+        $("input:text[name=" + name + "]").val("");
+        $("#" + name + "_thumbnail").empty();
+}
 
 /*==================================
 サブフッターCRUDシステムjs
