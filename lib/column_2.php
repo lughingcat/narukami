@@ -105,5 +105,5 @@
 		;?>
 		</textarea>
 	</div>
-	<button type="button" id="column_2CloseBtn">閉じる</button>
+	<button type="button" id="column_2CloseBtn" onClick="closeFile(this)">閉じる</button>
 </div>

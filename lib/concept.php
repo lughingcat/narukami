@@ -4,6 +4,7 @@
 			<?php
 			  require_once(dirname(dirname(dirname(dirname(dirname( __FILE__ ))))) . '/wp-load.php' );
 			  global $wpdb;
+			  
 			  $query = "SELECT concept_bg_img_url,  concept_title, concept_content FROM wp_narukami_content_maker;";
 			  $rows = $wpdb->get_results($query);
 			  foreach($rows as $row) {
@@ -30,7 +31,6 @@
 				$concept_bg_url = $concept_bgImg_url;
 			}
 	;?>
-		<input type="button" value="test" onclick="conceputfunctiontest()">
 	<h4 class="h-admin-4-bg">コンセプト表示の背景画像を選択してください。</h4>
 	<?php
   	generate_upload_image_tag('concept_bg_img_url', $concept_bg_url);
@@ -61,5 +61,5 @@
     console.log('読み込みテスト');
 		}
 	</script>
-	<button type="button" id="conceptCloseBtn">閉じる</button>
+	<button type="button" id="conceptCloseBtn" onClick="closeFile(this)">閉じる</button>
 </div>

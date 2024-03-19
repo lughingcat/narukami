@@ -68,5 +68,5 @@
   	genelate_color_picker_tag_demo('text_content_title_color', $text_content_title_color_new, 'タイトルとコンテンツの文字色を選択してください。');
 	?>
 	</div>
-	<button type="button" id="text_contentCloseBtn">閉じる</button>
+	<button type="button" id="text_contentCloseBtn" onClick="closeFile(this)">閉じる</button>
 </div>

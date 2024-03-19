@@ -44,7 +44,8 @@ $i_item_url_6 = $_POST['item_img_url_6'];
 $i_item_page_link_6 = $_POST['item_page_link_6'];
 $i_rank_on_6 = $_POST['rank_on_6'];
 //セレクトボックス
-$select_content = $_POST['s_cmaker'];
+$select_contents = isset($_POST['s_cmaker']) ? $_POST['s_cmaker'] : array();
+$i_insert_ids = isset($_POST['insert_ids']) ? $_POST['insert_ids'] : array();
 //コンセプト
 $i_concept_bgImg_url = $_POST['concept_bg_img_url'];
 $i_concept_title = $_POST['concept_title'];
@@ -99,213 +100,384 @@ $i_text_content_content = $_POST['text_content_content'];
 $i_text_content_title_color = $_POST['text_content_title_color'];
 //dbの初期化
 $i_delete_iniz = $_POST['delete_iniz'];
+
+//ループ処理で$select_contentの値を振り分けてinsertさせる
 global $wpdb;
-	$tablename =  $wpdb->prefix . "narukami_content_maker";
-	// 各種データの保存
+$tablename =  $wpdb->prefix . "narukami_content_maker";
+foreach ($select_contents as $key => $select_content) {
+	
+	$insert_id = isset($i_insert_ids[$key]) ? $i_insert_ids[$key] : ''; 
+	
+	if($select_content === 'ranking'){
 	$wpdb->insert(
 		$tablename,
 		array(
-			//ランキングpopスタイル
-		    'rank_pop' => $rank_pop,
-			//ランキング背景スタイル
-			'rank_style' => $rank_style,
-			//ランキングメインタイトル
-			'rank_primary_title' => $rank_primary_title,
-			//ランキング
-			'item_name' => $i_title,
-			'item_price' => $i_price,
-			'item_img_url' => $i_item_url,
-			'item_page_link' => $i_item_page_link,
-			'rank_on' => $i_rank_on,
-			//2
-			'item_name_2' => $i_title_2,
-			'item_price_2' => $i_price_2,
-			'item_img_url_2' => $i_item_url_2,
-			'item_page_link_2' => $i_item_page_link_2,
-			'rank_on_2' => $i_rank_on_2,
-			//3
-			'item_name_3' => $i_title_3,
-			'item_price_3' => $i_price_3,
-			'item_img_url_3' => $i_item_url_3,
-			'item_page_link_3' => $i_item_page_link_3,
-			'rank_on_3' => $i_rank_on_3,
-			//4
-			'item_name_4' => $i_title_4,
-			'item_price_4' => $i_price_4,
-			'item_img_url_4' => $i_item_url_4,
-			'item_page_link_4' => $i_item_page_link_4,
-			'rank_on_4' => $i_rank_on_4,
-			//5
-			'item_name_5' => $i_title_5,
-			'item_price_5' => $i_price_5,
-			'item_img_url_5' => $i_item_url_5,
-			'item_page_link_5' => $i_item_page_link_5,
-			'rank_on_5' => $i_rank_on_5,
-			//6
-			'item_name_6' => $i_title_6,
-			'item_price_6' => $i_price_6,
-			'item_img_url_6' => $i_item_url_6,
-			'item_page_link_6' => $i_item_page_link_6,
-			'rank_on_6' => $i_rank_on_6,
-			//セレクトボックス
-			's_cmaker' => $select_content,
-			//コンセプト
-			'concept_bg_img_url' => $i_concept_bgImg_url,
-			'concept_title' => $i_concept_title,
-			'concept_content' => $i_concept_content,
-			//グランドメニュー
-			'grandmenu_img_url' => $i_grandmenu_img_url,
-			'grandmenu_title' => $i_grandmenu_title,
-			'grandmenu_pagelink' => $i_grandmenu_pagelink,
-			'gm_primary_title' => $i_gm_primary_title,
-			//パララックス
-			'parallax_bg_img_url' => $i_parallax_bg_img_url,
-			'parallax_title' => $i_parallax_title,
-			'parallax_content' => $i_parallax_content,
-			'parallax_primary_title' => $i_parallax_primary_title,
-			//右画像１カラム
-			'column_right_1_bg_img_url' => $i_column_right_1_img_url,
-			'column_right_1_title' => $i_column_right_1_title,
-			'column_right_1_content' => $i_column_right_1_content,
-			//左画像１カラム
-			'column_left_1_bg_img_url' => $i_column_left_1_img_url,
-			'column_left_1_title' => $i_column_left_1_title,
-			'column_left_1_content' => $i_column_left_1_content,
-			//2カラム
-			'column_2_bg_img_url' => $i_column_2_bgImg_url,
-			'column_2_title' => $i_column_2_title,
-			'column_2_content' => $i_column_2_content,
-			'column_2_sec_bg_img_url' => $i_column_2_sec_bgImg_url,
-			'column_2_sec_title' => $i_column_2_sec_title,
-			'column_2_sec_content' => $i_column_2_sec_content,
-			//3カラム
-			'column_3_bg_img_url' => $i_column_3_bgImg_url,
-			'column_3_title' => $i_column_3_title,
-			'column_3_content' => $i_column_3_content,
-			'column_3_sec_bg_img_url' => $i_column_3_sec_bgImg_url,
-			'column_3_sec_title' => $i_column_3_sec_title,
-			'column_3_sec_content' => $i_column_3_sec_content,
-			'column_3_third_bg_img_url' => $i_column_3_third_bgImg_url,
-			'column_3_third_title' => $i_column_3_third_title,
-			'column_3_third_content' => $i_column_3_third_content,
-			//店舗情報
-			'store_info_title' => $i_store_info_title,
-			'store_name' => $i_store_name,
-			'store_info_bg_img_url' => $i_store_info_bg_img_url,
-			'store_post_number' => $i_store_post_number,
-			'store_adress' => $i_store_adress,
-			'store_phone_num' => $i_store_phone_num,
-			'store_rg_holiday' => $i_store_rg_holiday,
-			//テキストエリア
-			'text_content_bg_color' => $i_text_content_bg_color,
-			'text_content_title' => $i_text_content_title,
-			'text_content_content' => $i_text_content_content,
-			'text_content_title_color' => $i_text_content_title_color,
+		//セレクトボックス
+		's_cmaker' => $select_content,
+		//インサートid
+		'insert_ids' => $insert_id,
+		//ランキングpopスタイル
+		'rank_pop' => $rank_pop,
+		//ランキング背景スタイル
+		'rank_style' => $rank_style,
+		//ランキングメインタイトル
+		'rank_primary_title' => $rank_primary_title,
+		//ランキング
+		'item_name' => $i_title,
+		'item_price' => $i_price,
+		'item_img_url' => $i_item_url,
+		'item_page_link' => $i_item_page_link,
+		'rank_on' => $i_rank_on,
+		//2
+		'item_name_2' => $i_title_2,
+		'item_price_2' => $i_price_2,
+		'item_img_url_2' => $i_item_url_2,
+		'item_page_link_2' => $i_item_page_link_2,
+		'rank_on_2' => $i_rank_on_2,
+		//3
+		'item_name_3' => $i_title_3,
+		'item_price_3' => $i_price_3,
+		'item_img_url_3' => $i_item_url_3,
+		'item_page_link_3' => $i_item_page_link_3,
+		'rank_on_3' => $i_rank_on_3,
+		//4
+		'item_name_4' => $i_title_4,
+		'item_price_4' => $i_price_4,
+		'item_img_url_4' => $i_item_url_4,
+		'item_page_link_4' => $i_item_page_link_4,
+		'rank_on_4' => $i_rank_on_4,
+		//5
+		'item_name_5' => $i_title_5,
+		'item_price_5' => $i_price_5,
+		'item_img_url_5' => $i_item_url_5,
+		'item_page_link_5' => $i_item_page_link_5,
+		'rank_on_5' => $i_rank_on_5,
+		//6
+		'item_name_6' => $i_title_6,
+		'item_price_6' => $i_price_6,
+		'item_img_url_6' => $i_item_url_6,
+		'item_page_link_6' => $i_item_page_link_6,
+		'rank_on_6' => $i_rank_on_6,
 		),
 		array(
-		//ランキングpopスタイル
-			'%s',
-		//ランキング背景スタイル
-			'%s',
-		//ランキングメインタイトル
-			'%s',
-		//ランキング
-			'%s',
-			'%s',
-			'%s',
-			'%s',
-			'%s',
-			'%s',
-		//2
-			'%s',
-			'%s',
-			'%s',
-			'%s',
-			'%s',
-			'%s',
-		//3
-			'%s',
-			'%s',
-			'%s',
-			'%s',
-			'%s',
-		//4
-			'%s',
-			'%s',
-			'%s',
-			'%s',
-			'%s',
-		//5
-			'%s',
-			'%s',
-			'%s',
-			'%s',
-			'%s',
-		//6
-			'%s',
-			'%s',
-			'%s',
-			'%s',
-			'%s',
 		//セレクトボックス
-			'%s',
-		//スライダー
-			'%s',
-			'%s',
-			'%s',
-		//グランドメニュー
-			'%s',
-			'%s',
-			'%s',
-			'%s',
-		//パララックス
-			'%s',
-			'%s',
-			'%s',
-			'%s',
-		//右画像１カラム
-			'%s',
-			'%s',
-			'%s',
-		//左画像１カラム
-			'%s',
-			'%s',
-			'%s',
-		//2カラム
-			'%s',
-			'%s',
-			'%s',
-			'%s',
-			'%s',
-			'%s',
-		//3カラム
-			'%s',
-			'%s',
-			'%s',
-			'%s',
-			'%s',
-			'%s',
-			'%s',
-			'%s',
-			'%s',
-		//店舗情報
-			'%s',
-			'%s',
-			'%s',
-			'%s',
-			'%s',
-			'%s',
-			'%s',
-		//テキストエリア
-			'%s',
-			'%s',
-			'%s',
-			'%s',
+		'%s',
+		//インサートid
+		'%s',
+		//ランキングpopスタイル
+		'%s',
+		//ランキング背景スタイル
+		'%s',
+		//ランキングメインタイトル
+		'%s',
+		//ランキング
+		'%s',
+		'%s',
+		'%s',
+		'%s',
+		'%s',
+		'%s',
+		//2
+		'%s',
+		'%s',
+		'%s',
+		'%s',
+		'%s',
+		'%s',
+		//3
+		'%s',
+		'%s',
+		'%s',
+		'%s',
+		'%s',
+		//4
+		'%s',
+		'%s',
+		'%s',
+		'%s',
+		'%s',
+		//5
+		'%s',
+		'%s',
+		'%s',
+		'%s',
+		'%s',
+		//6
+		'%s',
+		'%s',
+		'%s',
+		'%s',
+		'%s',
 		)
-	);
+		);
+	}
+	if($select_content === 'concept'){
+	$wpdb->insert(
+		$tablename,
+		array(
+		//セレクトボックス
+		's_cmaker' => $select_content,
+		//インサートid
+		'insert_ids' => $insert_id,
+		//コンセプト
+		'concept_bg_img_url' => $i_concept_bgImg_url,
+		'concept_title' => $i_concept_title,
+		'concept_content' => $i_concept_content,
+		),
+		array(
+		//セレクトボックス
+		'%s',
+		//インサートid
+		'%s',
+		//コンセプト
+		'%s',
+		'%s',
+		'%s',
+		)
+		);
+	}
+	if($select_content === 'grandmenu'){
+	$wpdb->insert(
+		$tablename,
+		array(
+		//セレクトボックス
+		's_cmaker' => $select_content,
+		//インサートid
+		'insert_ids' => $insert_id,
+		//グランドメニュー
+		'grandmenu_img_url' => $i_grandmenu_img_url,
+		'grandmenu_title' => $i_grandmenu_title,
+		'grandmenu_pagelink' => $i_grandmenu_pagelink,
+		'gm_primary_title' => $i_gm_primary_title,
+		),
+		array(
+		//セレクトボックス
+		'%s',
+		//インサートid
+		'%s',
+		//グランドメニュー
+		'%s',
+		'%s',
+		'%s',
+		'%s',
+		)
+		);
+	}
+	
+	if($select_content === 'column_right_1'){
+	$wpdb->insert(
+		$tablename,
+		array(
+		//セレクトボックス
+		's_cmaker' => $select_content,
+		//インサートid
+		'insert_ids' => $insert_id,
+		//右画像１カラム
+		'column_right_1_bg_img_url' => $i_column_right_1_img_url,
+		'column_right_1_title' => $i_column_right_1_title,
+		'column_right_1_content' => $i_column_right_1_content,
+		),
+		array(
+		//セレクトボックス
+		'%s',
+		//インサートid
+		'%s',
+		//右画像１カラム
+		'%s',
+		'%s',
+		'%s',
+		)
+		);
+	}
+	
+	if($select_content === 'column_left_1'){
+	$wpdb->insert(
+		$tablename,
+		array(
+		//セレクトボックス
+		's_cmaker' => $select_content,
+		//インサートid
+		'insert_ids' => $insert_id,
+		//左画像１カラム
+		'column_left_1_bg_img_url' => $i_column_left_1_img_url,
+		'column_left_1_title' => $i_column_left_1_title,
+		'column_left_1_content' => $i_column_left_1_content,
+		),
+		array(
+		//セレクトボックス
+		'%s',
+		//インサートid
+		'%s',
+		//左画像１カラム
+		'%s',
+		'%s',
+		'%s',
+		)
+		);
+	}
+	
+	if($select_content === 'column_2'){
+	$wpdb->insert(
+		$tablename,
+		array(
+		//セレクトボックス
+		's_cmaker' => $select_content,
+		//インサートid
+		'insert_ids' => $insert_id,
+		//2カラム
+		'column_2_bg_img_url' => $i_column_2_bgImg_url,
+		'column_2_title' => $i_column_2_title,
+		'column_2_content' => $i_column_2_content,
+		'column_2_sec_bg_img_url' => $i_column_2_sec_bgImg_url,
+		'column_2_sec_title' => $i_column_2_sec_title,
+		'column_2_sec_content' => $i_column_2_sec_content,
+		),
+		array(
+		//セレクトボックス
+		'%s',
+		//インサートid
+		'%s',
+		//2カラム
+		'%s',
+		'%s',
+		'%s',
+		'%s',
+		'%s',
+		'%s',
+		)
+		);
+	}
+	
+	if($select_content === 'column_3'){
+	$wpdb->insert(
+		$tablename,
+		array(
+		//セレクトボックス
+		's_cmaker' => $select_content,
+		//インサートid
+		'insert_ids' => $insert_id,
+		//3カラム
+		'column_3_bg_img_url' => $i_column_3_bgImg_url,
+		'column_3_title' => $i_column_3_title,
+		'column_3_content' => $i_column_3_content,
+		'column_3_sec_bg_img_url' => $i_column_3_sec_bgImg_url,
+		'column_3_sec_title' => $i_column_3_sec_title,
+		'column_3_sec_content' => $i_column_3_sec_content,
+		'column_3_third_bg_img_url' => $i_column_3_third_bgImg_url,
+		'column_3_third_title' => $i_column_3_third_title,
+		'column_3_third_content' => $i_column_3_third_content,
+		),
+		array(
+		//セレクトボックス
+		'%s',
+		//インサートid
+		'%s',
+		//3カラム
+		'%s',
+		'%s',
+		'%s',
+		'%s',
+		'%s',
+		'%s',
+		'%s',
+		'%s',
+		'%s',
+		)
+		);
+	}
+	
+	if($select_content === 'store_info'){
+	$wpdb->insert(
+		$tablename,
+		array(
+		//セレクトボックス
+		's_cmaker' => $select_content,
+		//インサートid
+		'insert_ids' => $insert_id,
+		//店舗情報
+		'store_info_title' => $i_store_info_title,
+		'store_name' => $i_store_name,
+		'store_info_bg_img_url' => $i_store_info_bg_img_url,
+		'store_post_number' => $i_store_post_number,
+		'store_adress' => $i_store_adress,
+		'store_phone_num' => $i_store_phone_num,
+		'store_rg_holiday' => $i_store_rg_holiday,
+		),
+		array(
+		//セレクトボックス
+		'%s',
+		//インサートid
+		'%s',
+		//店舗情報
+		'%s',
+		'%s',
+		'%s',
+		'%s',
+		'%s',
+		'%s',
+		'%s',
+		)
+		);
+	}
+	
+	if($select_content === 'text_content'){
+	$wpdb->insert(
+		$tablename,
+		array(
+		//セレクトボックス
+		's_cmaker' => $select_content,
+		//インサートid
+		'insert_ids' => $insert_id,
+		//テキストエリア
+		'text_content_bg_color' => $i_text_content_bg_color,
+		'text_content_title' => $i_text_content_title,
+		'text_content_content' => $i_text_content_content,
+		'text_content_title_color' => $i_text_content_title_color,
+		),
+		array(
+		//セレクトボックス
+		'%s',
+		//インサートid
+		'%s',
+		//テキストエリア
+		'%s',
+		'%s',
+		'%s',
+		'%s',
+		)
+		);
+	}
+	
+	if($select_content === 'parallax'){
+	$wpdb->insert(
+		$tablename,
+		array(
+		//セレクトボックス
+		's_cmaker' => $select_content,
+		//インサートid
+		'insert_ids' => $insert_id,
+		//パララックス
+		'parallax_bg_img_url' => $i_parallax_bg_img_url,
+		'parallax_title' => $i_parallax_title,
+		'parallax_content' => $i_parallax_content,
+		'parallax_primary_title' => $i_parallax_primary_title,
+		),
+		array(
+		//セレクトボックス
+		'%s',
+		//インサートid
+		'%s',
+		//パララックス
+		'%s',
+		'%s',
+		'%s',
+		'%s',
+		)
+		);
+	}
+}//foreachEnd
 
-
-//delete_db
+//$narukamicmkerの初期化
 global $wpdb;
 $narukamicmker =  $wpdb->prefix . "narukami_content_maker";
 //idが1以外のレコードを取得

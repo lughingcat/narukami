@@ -264,6 +264,37 @@ function my_admin_print_styles_demo() {
 }
 add_action('admin_print_styles', 'my_admin_print_styles_demo');
 
+
+/**
+ * トップページのコンテンツ保存時、列id1以外を削除し、再保存させる
+ */
+function my_save_button_handler() {
+    // 保存ボタンがクリックされた場合
+    if (isset($_POST['toppage_initialization'])) {
+        delete_keep_update(); // データをクリアする関数を呼び出す
+        // ここに他の保存処理を追加
+    }
+}
+
+// 'admin_post' フックを利用して、特定のアクションが発生したときに関数を呼び出す
+add_action('init', 'my_save_button_handler');
+
+function delete_keep_update(){
+		global $wpdb;
+		$narukamicmker =  $wpdb->prefix . "narukami_content_maker";
+		//idが1以外のレコードを取得
+		$records_to_delete = $wpdb->get_results("SELECT * FROM $narukamicmker WHERE id != 1");
+			foreach ($records_to_delete as $record) {
+				$wpdb->delete(
+					$narukamicmker, 
+					array(
+						'id' => $record->id
+					), 
+					array(
+						'%d'
+					));
+			}
+}
 /**
  * テーマ有効時、コンテンツメーカーのテーブルをdbに作成する。
  */
@@ -292,7 +323,8 @@ function create_theme_tables() {
 		}
 		$sql = "CREATE TABLE {$table_name} (
 		  `s_cmaker` varchar(20) NOT NULL,
-		  `id` int(11) NOT NULL AUTO_INCREMENT,
+		  `insert_ids` TEXT NOT NULL,
+		  `id` int(11) AUTO_INCREMENT NOT NULL,
 		  `rank_pop` varchar(20) NOT NULL,
 		  `rank_style` varchar(20) NOT NULL,
 		  `rank_primary_title` TEXT NOT NULL,
@@ -302,12 +334,12 @@ function create_theme_tables() {
 		  `item_name_4` TEXT NOT NULL,
 		  `item_name_5` TEXT NOT NULL,
 		  `item_name_6` TEXT NOT NULL,
-		  `item_price` int(11) NOT NULL,
-		  `item_price_2` int(11) NOT NULL,
-		  `item_price_3` int(11) NOT NULL,
-		  `item_price_4` int(11) NOT NULL,
-		  `item_price_5` int(11) NOT NULL,
-		  `item_price_6` int(11) NOT NULL,
+		  `item_price` TEXT NOT NULL,
+		  `item_price_2` TEXT NOT NULL,
+		  `item_price_3` TEXT NOT NULL,
+		  `item_price_4` TEXT NOT NULL,
+		  `item_price_5` TEXT NOT NULL,
+		  `item_price_6` TEXT NOT NULL,
 		  `item_img_url` TEXT NOT NULL,
 		  `item_img_url_2` TEXT NOT NULL,
 		  `item_img_url_3` TEXT NOT NULL,
@@ -496,7 +528,8 @@ function ranking_db_farst_insert_data(){
 	$wpdb->insert(
 		$tablename,
 		array(
-		's_cmaker' => 'ランキング',
+		's_cmaker' => 'ranking',
+		'insert_ids' => 'insert_id_first',
 		'rank_pop' => 'math_sq_bg',
 		'rank_style' => 'overlay',
 		'rank_primary_title' => $rank_primary_t,
@@ -576,6 +609,7 @@ function ranking_db_farst_insert_data(){
 		),
 		array(
 			//スタイル
+			'%s',
 			'%s',
 			'%s',
 			'%s',
@@ -695,7 +729,7 @@ function generate_upload_image_tag($name, $value){?>
 //画像アップロード用のタグを複数出力する(multiple)
 function generate_upload_multipleimage_tag($name, $value, $index){
     ?>
-    <div class="img-wrap-function">
+    <div class="img-wrap-function" data-index="<?php echo $index; ?>">
         <p class="subf-prev-title">選択画像PREVIEW</p>
         <div id="<?php echo $name; ?>_thumbnail_<?php echo $index; ?>" class="uploded-thumbnail">
             <?php if ($value): ?>
@@ -703,57 +737,12 @@ function generate_upload_multipleimage_tag($name, $value, $index){
             <?php endif ?>
         </div>
         <input id="<?php echo $name; ?>_<?php echo $index; ?>" class="img-select-url" name="<?php echo $name; ?>[]" type="text" value="<?php echo $value; ?>" />
-        <input id="<?php echo $name; ?>_btn_<?php echo $index; ?>" type="button" class="img-select img-select-btn" name="<?php echo $name; ?>_select" data-index="<?php echo $index; ?>" value="選択" />
+        <input id="<?php echo $name; ?>_btn_<?php echo $index; ?>" type="button" class="img-select img-select-btn" name="<?php echo $name; ?>_select" data-index="<?php echo $index; ?>" onClick="uploaderOpenClickMultiple(this)" value="選択" />
 <input id="<?php echo $name; ?>_clear_<?php echo $index; ?>" type="button" class="img-select-clear img-clear-btn" name="<?php echo $name; ?>_clear" data-index="<?php echo $index; ?>" value="クリア" />
     </div>
 
-
-<script type="text/javascript">
-   var custom_uploaders = {}; // ページ全体で1度だけ宣言
-(function ($) {
-    $(document).on('click', '.img-select-btn', function (e) {
-        e.preventDefault();
-        var buttonId = $(this).attr('id');
-        var index = buttonId.split('_').pop();  // ボタンのidからindexを取得
-        // 既にその要素に対するアップローダーが存在するか確認
-        if (!custom_uploaders[index]) {
-            // アップローダーが存在しない場合、新しいアップローダーを作成
-            custom_uploaders[index] = wp.media({
-                title: '画像を選択してください',
-                library: {
-                    type: 'image'
-                },
-                button: {
-                    text: '画像の選択'
-                },
-                multiple: false
-            });
-
-            custom_uploaders[index].on('select', function () {
-                var images = custom_uploaders[index].state().get('selection');
-                images.each(function (file) {
-                    $('#' + <?php echo json_encode($name); ?> + '_' + index).val(file.attributes.url);
-                    $('#' + <?php echo json_encode($name); ?> + '_thumbnail_' + index).empty();
-                    $('#' + <?php echo json_encode($name); ?> + '_thumbnail_' + index).append('<img src="' + file.attributes.sizes.thumbnail.url + '" />');
-                });
-            });
-        }
-
-        // アップローダーを開く
-        custom_uploaders[index].open();
-    });
-
-    $(document).on('click', '.img-clear-btn', function () {
-        var buttonId = $(this).attr('id');
-        var index = buttonId.split('_').pop();  // ボタンのidからindexを取得
-        $('#' + <?php echo json_encode($name); ?> + '_' + index).val('');
-        $('#' + <?php echo json_encode($name); ?> + '_thumbnail_' + index).empty();
-    });
-})(jQuery);
-</script>
 <?php
 }
-
 function my_admin_scripts() {
     wp_enqueue_media();
 }

@@ -760,5 +760,5 @@
 		
 		
 	</div><!--inputForm-end-->
-	<button type="button" id="rankingCloseBtn">閉じる</button>
+	<button type="button" id="rankingCloseBtn" onClick="closeFile(this)">閉じる</button>
 </div>

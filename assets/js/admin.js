@@ -3,20 +3,24 @@
 ==================================*/
 
 //selectbox追加動作
-let cloneCounter = 1;
+
 function cloneSelectBox() {
-            const originalSelectBox = document.querySelector('.cmaker-wrap');
-            const clonedSelectBox = originalSelectBox.cloneNode(true);
+	const selectBoxLengh = document.querySelectorAll('.clone-wrap-parent').length;
+    const originalSelectBox = Array.from(document.querySelectorAll('.clone-wrap-parent'));;
+	const lastOriginalSelectBox = originalSelectBox.pop();
+    const clonedSelectBox = lastOriginalSelectBox.cloneNode(true);
+	
+	//contentContainer要素を取得
+    const cloneContentContainer = clonedSelectBox.querySelector('.content-Container');
+	
+    // 新しいIDをセット
+    clonedSelectBox.id = 'clone-wrap_' + selectBoxLengh;
+    cloneContentContainer.id = 'contentContainer_' + selectBoxLengh;
+	
+    // 複製したセレクトボックスを追加
+    document.getElementById('clonedSelectBoxes').appendChild(clonedSelectBox);
+}
 
-            // 新しいセレクトボックスの値や属性を必要に応じて調整
-            clonedSelectBox.value = 'ランキング';
-            clonedSelectBox.id = 'cmaker' + cloneCounter;
-
-            // 複製したセレクトボックスを追加
-            document.getElementById('clonedSelectBoxes').appendChild(clonedSelectBox);
-
-            cloneCounter++;
-        }
 
 
 
@@ -59,8 +63,7 @@ parallax[0].classList.add('parallax-isblock');
 	document.addEventListener("scroll", handleScroll);
  
 }
-//グランドメニューのCRAD
-function grandMenuControl(){
+//data-indexの親、子要素のナンバリングを再処理する
 function updateDataIndex(element, newIndex) {
     // data-index属性を新しい値に更新
     element.dataset.index = newIndex;
@@ -74,6 +77,31 @@ function updateDataIndex(element, newIndex) {
         }
     });
 }
+//グランドメニューのCRAD
+																					  
+function grandMenuControl(){
+	
+//data-index連番振り直し処理
+var gmItemDelBtnDataIndex = document.querySelectorAll('.gm-item-del-btn');
+gmItemDelBtnDataIndex.forEach(function(gmItemDelBtn){
+	gmItemDelBtn.addEventListener('click', function(event){
+		//data-indexの連番を振るため、親要素の数を取得する
+		let dataIndexParentsLengh = document.querySelectorAll('.img-wrap-function');
+		
+            //親要素をループ処理
+            dataIndexParentsLengh.forEach((parentElement, parentIndex) => {
+                newIndex =　parentIndex;
+				updateDataIndex(parentElement, newIndex);//親要素のナンバリングを関数で処理
+				
+				// 子要素を再帰的に処理
+				parentElement.querySelectorAll('[data-index]').forEach((childElement) => {
+				updateDataIndex(childElement, newIndex);
+				});
+            });
+		
+			
+	});
+});
  function addGmElement() {
 			let countEl = document.querySelectorAll('.gm-form-style').length;
 			let lastNam = countEl -1;
@@ -97,6 +125,23 @@ function updateDataIndex(element, newIndex) {
 			   }
 				
     		});
+	 		
+	 		//コピーで増やした要素のdata-indexの値を親、子要素全て変更する
+	 		var copiedNewDataIndex = copied.querySelector('.img-wrap-function');
+	 		var dataIndexValue = parseInt(copiedNewDataIndex.dataset.index, 10);
+	 		
+	 		if (!isNaN(dataIndexValue)) {
+		 		copiedNewDataIndex.dataset.index = dataIndexValue + 1;
+				copiedNewDataIndex.querySelectorAll('[data-index]').forEach((childElement) => {
+				newIndex = copiedNewDataIndex.dataset.index;
+				updateDataIndex(childElement, newIndex);
+				});
+				
+	 		} else {
+		 		// パースに失敗した場合の処理
+		 		console.error("Invalid data-index value");
+	 		}
+	 		//コピーで増やした要素の削除ボタンを生成
 	 		var delBtnNum = copied.querySelector('#gm-del-button_' + plasNam);
 	 		delBtnNum.innerHTML = plasNam + 1 + "番目の要素を全削除";
     		addField.appendChild(copied);
@@ -275,19 +320,7 @@ function checkString(variable, searchString) {
     return variable.includes(searchString);
 }
 
-//gmリスト表示の遅延処理
-document.addEventListener('DOMContentLoaded', function() {
-            // 画面が読み込まれたときに、遅延させて順番に表示
-            var items = document.getElementsByClassName('gm-item-wrap');
-			var itemsArray = Array.from(items);
-            itemsArray.forEach(function(item, index) {
-                setTimeout(function() {
-                    item.classList.add('show');
-                }, index * 300); // 各要素が0.2秒ずつ遅れて表示される
-            });
-        });
 
-}
 //gmアイテム削除ボタン関数
 function deleteParentEl(button) {
 			let elements = document.querySelectorAll('.gm-form-style');
@@ -322,10 +355,25 @@ function deleteParentEl(button) {
 				});
 				
 				}
-            }
+}
+
+	
+//gmリスト表示の遅延処理
+var items = document.getElementsByClassName('gm-item-wrap');
+var itemsArray = Array.from(items);
+          itemsArray.forEach(function(item, index) {
+              setTimeout(function() {
+                  item.classList.add('show');
+              }, index * 300); // 各要素が0.2秒ずつ遅れて表示される
+          });
+        
+
+}//gmControle
+
+
+
 //ランキング表示非表示切り替え1
 function rankingControl(){
-document.addEventListener("DOMContentLoaded", function(){
 	rankCheck = document.getElementsByName('rank_on');
 	rank1ItemImg = document.getElementById('item_img_url');
 	rank1ItemTitle = document.getElementById('rank1-item-title');
@@ -377,12 +425,10 @@ document.addEventListener("DOMContentLoaded", function(){
 			}
 		});
 	});
-});
 
 
 
 //ランキング２
-document.addEventListener("DOMContentLoaded", function(){
 	rankCheck = document.getElementsByName('rank_on_2');
 	rank2ItemImg = document.getElementById('item_img_url_2');
 	rank2ItemTitle = document.getElementById('rank2-item-title');
@@ -435,10 +481,8 @@ document.addEventListener("DOMContentLoaded", function(){
 			}
 		});
 	});
-});
 
 //ランキング3
-document.addEventListener("DOMContentLoaded", function(){
 	rankCheck = document.getElementsByName('rank_on_3');
 	rank3ItemImg = document.getElementById('item_img_url_3');
 	rank3ItemTitle = document.getElementById('rank3-item-title');
@@ -491,11 +535,10 @@ document.addEventListener("DOMContentLoaded", function(){
 			}
 		});
 	});
-});
+
 
 
 //ランキング4
-document.addEventListener("DOMContentLoaded", function(){
 	rankCheck = document.getElementsByName('rank_on_4');
 	rank4ItemImg = document.getElementById('item_img_url_4');
 	rank4ItemTitle = document.getElementById('rank4-item-title');
@@ -548,11 +591,9 @@ document.addEventListener("DOMContentLoaded", function(){
 			}
 		});
 	});
-});
 
 
 //ランキング5
-document.addEventListener("DOMContentLoaded", function(){
 	rankCheck = document.getElementsByName('rank_on_5');
 	rank5ItemImg = document.getElementById('item_img_url_5');
 	rank5ItemTitle = document.getElementById('rank5-item-title');
@@ -605,10 +646,8 @@ document.addEventListener("DOMContentLoaded", function(){
 			}
 		});
 	});
-});
 
 //ランキング6
-window.addEventListener("load", function(){
 	rankCheck = document.getElementsByName('rank_on_6');
 	rank6ItemImg = document.getElementById('item_img_url_6');
 	rank6ItemTitle = document.getElementById('rank6-item-title');
@@ -661,7 +700,6 @@ window.addEventListener("load", function(){
 			}
 		});
 	});
-});
 }
 
 //トップ各項目タイトル時間差表示関数
@@ -687,35 +725,32 @@ const animateTextWithSpans = function(selector, delay = 100) {
         }, delay * index);
     });
 }
+//各種クローズボタン実装
+function closeFile(closeEl) {
+    targetPage = closeEl.parentNode;
+    targetPage.classList.add('notshow');
+}
 
-
-function handleSelectChange() {
-    var selectedValue = document.getElementById("cmaker").value;
+function handleSelectChange(selectName) {
+    var selectedValue = selectName;
 	commonInitialization();
-	
     if (selectedValue === "parallax") {
-        console.log("Parallax selected");
         parallaxControl();
         animateTextWithSpans('.parallax-title');
     } else if (selectedValue === "grandmenu") {
-        console.log("Grandmenu selected");
         grandMenuControl();
         animateTextWithSpans('.gm-primary-title');
     } else if (selectedValue === "concept") {
-        console.log("Concept selected");
         animateTextWithSpans('.concept-main-title');
     } else if (selectedValue === "ranking") {
-        console.log("Ranking selected");
         rankingControl();
         animateTextWithSpans('.r-p-t-prev');
     } else if (selectedValue === "store_info") {
-        console.log("Store info selected");
         animateTextWithSpans('.store-info-p_title');
     }
 }
 function commonInitialization(){
 	document.removeEventListener("scroll", handleScroll);
-	console.log('パララックスが初期化されました')
 }
 
 
@@ -724,19 +759,34 @@ function commonInitialization(){
 メディアアップローダーjs
 ==================================*/
 
-//id,valueをクリックしたボタンから抜き出し、アップローダ関数を実行
+//idをクリックしたボタンから抜き出し、アップローダ関数を実行
 　 function uploaderOpenClick(button) {
     var buttonId = button.id;
 	var singleName = buttonId.replace('_btn', '');
     initializeUploader(jQuery, singleName);
   }
+
+
+//idをクリックしたボタンから抜き出し、アップローダ関数を実行(配列対応)
+　 function uploaderOpenClickMultiple(button) {
+    var buttonIdMult = button.id;
+	var dataIndexValue = button.getAttribute("data-index");
+	console.log(dataIndexValue)
+	var singleNameMult = buttonIdMult.replace(/_btn_(\d+)$/, '');
+    initializeUploaderMult(jQuery, singleNameMult, dataIndexValue);
+  }
+
+
+//削除ボタンの実装
 function uploaderdeleteClick(button) {
     var buttonIdDel = button.id;
 	var singleNameDel = buttonIdDel.replace('_clear', '');
     deleteImgUploader(jQuery, singleNameDel);
   }
-  
-  function initializeUploader($, name) {
+
+
+//アップローダsingle  
+function initializeUploader($, name) {
     console.log(name + 'が読み込まれました');
 
     var custom_uploader = wp.media({
@@ -767,6 +817,42 @@ function uploaderdeleteClick(button) {
 function deleteImgUploader($, name){
         $("input:text[name=" + name + "]").val("");
         $("#" + name + "_thumbnail").empty();
+}
+
+//アップローダmult
+var custom_uploaders = [];
+function initializeUploaderMult($, name, index) {
+    console.log(name + 'が読み込まれました');
+	
+            custom_uploaders[index] = wp.media({
+                title: '画像を選択してください',
+                library: {
+                    type: 'image'
+                },
+                button: {
+                    text: '画像の選択'
+                },
+                multiple: false
+            });
+
+            custom_uploaders[index].on('select', function () {
+                var images = custom_uploaders[index].state().get('selection');
+                images.each(function (file) {
+                    $('#' + name + '_' + index).val(file.attributes.url);
+                    $('#' + name + '_thumbnail_' + index).empty();
+                    $('#' + name + '_thumbnail_' + index).append('<img src="' + file.attributes.sizes.thumbnail.url + '" />');
+                });
+            });
+
+        // アップローダーを開く
+        custom_uploaders[index].open();
+
+    $(document).on('click', '.img-clear-btn', function () {
+        var buttonId = $(this).attr('id');
+        var index = buttonId.split('_').pop();  // ボタンのidからindexを取得
+        $('#' + name + '_' + index).val('');
+        $('#' + name + '_thumbnail_' + index).empty();
+    });
 }
 
 /*==================================

@@ -102,7 +102,7 @@
 	}
 	?>
 	</div>
-	<button type="button" id="parallaxCloseBtn">閉じる</button>
+	<button type="button" id="parallaxCloseBtn" onClick="closeFile(this)">閉じる</button>
 <script>
 
 </script>

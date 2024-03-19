@@ -1,7 +1,8 @@
 
-function loadContent() {
-    var selectedValue = document.getElementById('cmaker').value;
-    var contentContainer = document.getElementById('contentContainer');
+function loadContent(selectElement) {
+    var selectedValue = selectElement.value;
+	var parentEL = selectElement.parentNode;
+    var contentContainer = parentEL.querySelector('div');
     
     if (contentContainer) {
         // Ajaxリクエスト
@@ -15,7 +16,7 @@ function loadContent() {
             success: function(response) {
                 // サーバーからの応答を表示対象の要素に設定
                 contentContainer.innerHTML = response;
-                handleSelectChange();
+                handleSelectChange(selectedValue);
             }
         });
     } else {
