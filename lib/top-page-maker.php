@@ -1,3 +1,4 @@
+
 <div id="back_wrap">
     <?php
     settings_fields('custom-menu-group');
@@ -13,10 +14,9 @@
 			  <?php 
 			  require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/wp-load.php');
 			  global $wpdb;
-			  
 			  $query_check = "SELECT COUNT(*) FROM {$wpdb->prefix}narukami_content_maker WHERE id != 1;";
 			  $count_rows = $wpdb->get_var($query_check);
-			  
+			  var_dump($count_rows);
 			  $select_boxes = array();
 			  $insert_id_check = array();
 			  if ($count_rows === '0') {
@@ -34,14 +34,11 @@
 				  FROM {$wpdb->prefix}narukami_content_maker
 				  WHERE id != 1;";
 			  }
-			  
 			  $rows = $wpdb->get_results($query);
 			  foreach ($rows as $row) {
 				  $select_boxes[] = $row->s_cmaker;
 				  $insert_id_check[] = $row->insert_ids;
 			  }
-			  var_dump($select_boxes);
-			  var_dump($insert_id_check);
 			  
 
 			  $selectbox_item = '';
@@ -80,15 +77,15 @@
 				  );
 			  }
 			  foreach ($selectboxitem_summarize as $entry) {
-    // $entry['item']と$entry['insert_id']を使用して処理を行う
-    echo "Item: " . $entry['item'] . ", Insert ID: " . $entry['insert_id'] . "<br>";
-}
+				  echo "Item: " . $entry['item'] . ", Insert ID: " . $entry['insert_id'] . "<br>";
+			  }
 			  ?>
 			  
 			  <?php $i = 0; foreach($selectboxitem_summarize as $entry) : ?>
+			  
 			  <div id="clone-wrap_<?php echo $i; ?>" class="clone-wrap-parent">
-				  <input type="hidden" id="insert-ids-<?php echo $i; ?>" name="insert_ids[]" class="insert-item-id" value="insert-id<?php echo $i; ?>">
-			  <select name="s_cmaker[]" class="cmaker-wrap" id="cmaker_<?php echo $i; ?>" onchange="loadContent(this)">
+				  <input type="hidden" id="insert-ids-<?php echo $i; ?>" name="insert_ids[]" class="insert-item-id" value="<?php echo $entry['insert_id']; ?>">
+			  <select name="s_cmaker[]" class="cmaker-wrap" id="cmaker_<?php echo $i; ?>" data-index="<?php echo 'insert-id'. $i; ?>" onchange="loadContent(this)">
 				  <option hidden>選択してください</option>
 				  <?php 
 				  foreach( $selectbox_item_list as $label => $value){
@@ -101,8 +98,14 @@
 			  ?> 
 			  </select> 
 			  <div id="contentContainer_<?php echo $i; ?>" class="content-Container">
+				 ccc
 				  <?php
-				  
+				  if($entry['item'] == 'concept'){
+					  include("lib/concept.php");
+				  }
+				  if($entry['item'] == 'grandmenu'){
+					  get_template_part("lib/grandmenu");
+				  }
 				  ;?>
 			  </div>
 			  </div>

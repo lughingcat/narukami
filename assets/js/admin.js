@@ -5,17 +5,33 @@
 //selectbox追加動作
 
 function cloneSelectBox() {
-	const selectBoxLengh = document.querySelectorAll('.clone-wrap-parent').length;
+	const selectBoxLength = document.querySelectorAll('.clone-wrap-parent').length;
     const originalSelectBox = Array.from(document.querySelectorAll('.clone-wrap-parent'));;
 	const lastOriginalSelectBox = originalSelectBox.pop();
     const clonedSelectBox = lastOriginalSelectBox.cloneNode(true);
 	
-	//contentContainer要素を取得
+	//各種要素を取得
     const cloneContentContainer = clonedSelectBox.querySelector('.content-Container');
+	const cloneSelectbox =  clonedSelectBox.querySelector('.cmaker-wrap');
+	const insertIdOriginal = clonedSelectBox.querySelector('.insert-item-id');
+	const insertDataIndex =  cloneSelectbox.getAttribute('data-index');
+	const newIndex = insertDataIndex.replace(/\d+$/, '');
 	
     // 新しいIDをセット
-    clonedSelectBox.id = 'clone-wrap_' + selectBoxLengh;
-    cloneContentContainer.id = 'contentContainer_' + selectBoxLengh;
+    clonedSelectBox.id = 'clone-wrap_' + selectBoxLength;
+	insertIdOriginal.id = 'insert-ids-' + selectBoxLength;
+	insertIdOriginal.value = 'insert-id' + selectBoxLength;
+	cloneSelectbox.setAttribute('data-index', newIndex + selectBoxLength);
+	const targetOptionInitial = '選択してください';
+	for(let i=0; i < cloneSelectbox.options.length; i++){
+		const option = cloneSelectbox.options[i];
+		if(option.text.includes(targetOptionInitial)){
+			option.selected = true;
+		} else {
+			option.selected = false;
+		}
+	}
+    cloneContentContainer.id = 'contentContainer_' + selectBoxLength;
 	
     // 複製したセレクトボックスを追加
     document.getElementById('clonedSelectBoxes').appendChild(clonedSelectBox);
@@ -273,7 +289,6 @@ gmItemDelBtnDataIndex.forEach(function(gmItemDelBtn){
 							this.classList.remove('gmform-error');
 						}
 						if(firstResult === 'img'){
-							console.log('イベントのターゲット要素:', event.target);
 							erroeMsegImg[findImgEl].style.display = 'none';
 							this.classList.remove('gmform-error');
 						}
@@ -734,6 +749,7 @@ function closeFile(closeEl) {
 function handleSelectChange(selectName) {
     var selectedValue = selectName;
 	commonInitialization();
+	changeSameIdConcept();
     if (selectedValue === "parallax") {
         parallaxControl();
         animateTextWithSpans('.parallax-title');
@@ -742,6 +758,7 @@ function handleSelectChange(selectName) {
         animateTextWithSpans('.gm-primary-title');
     } else if (selectedValue === "concept") {
         animateTextWithSpans('.concept-main-title');
+		
     } else if (selectedValue === "ranking") {
         rankingControl();
         animateTextWithSpans('.r-p-t-prev');
@@ -751,6 +768,14 @@ function handleSelectChange(selectName) {
 }
 function commonInitialization(){
 	document.removeEventListener("scroll", handleScroll);
+}
+
+function changeSameIdConcept() {
+    const conceptIdOriginal = document.querySelectorAll('.img-select');
+    const conceptIdOriginalLength = conceptIdOriginal.length; // 配列の長さを取得
+    for (var i = 0; i < conceptIdOriginalLength; i++) {
+        conceptIdOriginal[i].id = 'concept_bg_img_url' + (i + 1) + '_btn'; // インデックス i に基づいて ID を設定
+    }
 }
 
 
@@ -763,6 +788,7 @@ function commonInitialization(){
 　 function uploaderOpenClick(button) {
     var buttonId = button.id;
 	var singleName = buttonId.replace('_btn', '');
+	var insertIdName = document.querySelector('.insert-item-id').value;
     initializeUploader(jQuery, singleName);
   }
 
@@ -771,7 +797,6 @@ function commonInitialization(){
 　 function uploaderOpenClickMultiple(button) {
     var buttonIdMult = button.id;
 	var dataIndexValue = button.getAttribute("data-index");
-	console.log(dataIndexValue)
 	var singleNameMult = buttonIdMult.replace(/_btn_(\d+)$/, '');
     initializeUploaderMult(jQuery, singleNameMult, dataIndexValue);
   }
@@ -787,7 +812,6 @@ function uploaderdeleteClick(button) {
 
 //アップローダsingle  
 function initializeUploader($, name) {
-    console.log(name + 'が読み込まれました');
 
     var custom_uploader = wp.media({
         title: "画像を選択してください",
@@ -804,7 +828,6 @@ function initializeUploader($, name) {
         var images = custom_uploader.state().get("selection");
 
         images.each(function (file) {
-            console.log("リスト" + file);
             $("input:text[name=" + name + "]").val("");
             $("#" + name + "_thumbnail").empty();
             $("input:text[name=" + name + "]").val(file.attributes.sizes.full.url);
@@ -822,7 +845,6 @@ function deleteImgUploader($, name){
 //アップローダmult
 var custom_uploaders = [];
 function initializeUploaderMult($, name, index) {
-    console.log(name + 'が読み込まれました');
 	
             custom_uploaders[index] = wp.media({
                 title: '画像を選択してください',

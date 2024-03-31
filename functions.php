@@ -221,8 +221,10 @@ add_action('wp_ajax_nopriv_load_content', 'load_content');
 function load_content() {
     if (isset($_GET['selectedValue'])) {
         $selectedValue = $_GET['selectedValue'];
+		$_SESSION['insertGlobalId'] = $_GET['insertId'];
         $content = getContentBasedOnValue($selectedValue);
         echo $content;
+		echo $_SESSION['insertGlobalId'];
     }
 
     // 必ず終了する
@@ -231,7 +233,7 @@ function load_content() {
 
 function getContentBasedOnValue($value) {
     ob_start();
-    get_template_part('lib/' . $value);
+    include('lib/' . $value . '.php');
     return ob_get_clean();
 }
 
@@ -710,7 +712,7 @@ add_action('narukami_theme_activate', 'ranking_db_farst_insert_data');
 
 
 //画像アップロード用のタグを出力する(single)
-function generate_upload_image_tag($name, $value){?>
+function generate_upload_image_tag($name, $value, $insert){?>
 <div class="img-wrap-function">
 <p class="subf-prev-title">選択画像PREVEW</p>
 <div id="<?php echo $name; ?>_thumbnail" class="uploded-thumbnail">
@@ -719,7 +721,7 @@ function generate_upload_image_tag($name, $value){?>
     <?php endif ?>
   </div>
   <input id="<?php echo $name; ?>" class="img-setect-url img-count-item"name="<?php echo $name; ?>" type="text" value="<?php echo $value; ?>" />
-  <input id="<?php echo $name; ?>_btn" type="button" class="img-select" name="<?php echo $name; ?>_slect" onclick="uploaderOpenClick(this)" value="選択" />
+  <input id="<?php echo $name; ?>_btn" type="button" class="img-select" name="<?php echo $name; ?>_slect" onclick="uploaderOpenClick(this)" data-insert-id="<?php echo $insert; ?>" value="選択" />
   <input id="<?php echo $name; ?>_clear" type="button" class="img-select-clear" name="<?php echo $name; ?>_clear" onclick="uploaderdeleteClick(this)" value="クリア" />
 </div>
 <div id="script-container"></div>
