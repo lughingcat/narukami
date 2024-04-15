@@ -1,42 +1,40 @@
 /*==================================
 コンテンツメーカーjs
 ==================================*/
-
 //selectbox追加動作
 
 function cloneSelectBox() {
 	const selectBoxLength = document.querySelectorAll('.clone-wrap-parent').length;
     const originalSelectBox = Array.from(document.querySelectorAll('.clone-wrap-parent'));;
 	const lastOriginalSelectBox = originalSelectBox.pop();
-    const clonedSelectBox = lastOriginalSelectBox.cloneNode(true);
+    const clonedSelectBox = lastOriginalSelectBox.cloneNode(true);//全体
 	
 	//各種要素を取得
     const cloneContentContainer = clonedSelectBox.querySelector('.content-Container');
-	const cloneSelectbox =  clonedSelectBox.querySelector('.cmaker-wrap');
+	const cloneSelectbox =  clonedSelectBox.querySelector('.cmaker-wrap');//セレクトボックスのみ
 	const insertIdOriginal = clonedSelectBox.querySelector('.insert-item-id');
-	const insertDataIndex =  cloneSelectbox.getAttribute('data-index');
+	const insertDataIndex =  cloneSelectbox.getAttribute('data-index');//セレクトボックスのみ
 	const newIndex = insertDataIndex.replace(/\d+$/, '');
 	
     // 新しいIDをセット
     clonedSelectBox.id = 'clone-wrap_' + selectBoxLength;
 	insertIdOriginal.id = 'insert-ids-' + selectBoxLength;
 	insertIdOriginal.value = 'insert-id' + selectBoxLength;
-	cloneSelectbox.setAttribute('data-index', newIndex + selectBoxLength);
+	cloneSelectbox.id = 'cmaker_' + selectBoxLength;//セレクトボックスのみ
+	cloneSelectbox.setAttribute('data-index', newIndex + selectBoxLength);//セレクトボックスのみ
 	const targetOptionInitial = '選択してください';
-	for(let i=0; i < cloneSelectbox.options.length; i++){
+	for(let i=0; i < cloneSelectbox.options.length; i++){//セレクトボックスのみ
 		const option = cloneSelectbox.options[i];
-		if(option.text.includes(targetOptionInitial)){
-			option.selected = true;
-		} else {
-			option.selected = false;
-		}
+		if(option.text === targetOptionInitial){
+        option.selected = true;
+        break;
+    	}
 	}
+	loadContent(cloneSelectbox);
     cloneContentContainer.id = 'contentContainer_' + selectBoxLength;
-	
     // 複製したセレクトボックスを追加
     document.getElementById('clonedSelectBoxes').appendChild(clonedSelectBox);
 }
-
 
 
 
@@ -335,43 +333,6 @@ function checkString(variable, searchString) {
     return variable.includes(searchString);
 }
 
-
-//gmアイテム削除ボタン関数
-function deleteParentEl(button) {
-			let elements = document.querySelectorAll('.gm-form-style');
-			// 最後の1つの要素になった場合
-			if (elements.length === 1) {
-				alert("最後の要素は削除できません");
-				return; // 削除しない
-			}
-            var parentEl = button.parentElement;
-            if (parentEl) {
-                parentEl.remove();
-				let elements = document.querySelectorAll('.gm-form-style');
-   				elements.forEach((el, index) => {
-   				    el.id = "gm-form_" + index;
-                });
-				var delBtnNum = document.querySelectorAll('.gm-item-del-btn');
-				delBtnNum.forEach((el,index)=>{
-					el.innerHTML = index + 1 + "番目のメニューを全削除。";
-					
-				});
-				var delRenumber = elements.forEach((element) => {
-					let parentNum = parseInt(element.id.match(/\d+$/), 10);
-					var nodesWithId = element.querySelectorAll('*[id]');
-					Array.from(nodesWithId).forEach((node, nodeIdex) => {
-						let currentId = node.id;
-						let lastNumbers = parseInt(currentId.match(/\d+$/), 10);
-						// 新しいIDを生成する
-						let newId = `${currentId.replace(/\d+$/, parentNum)}`;
-						// 新しいIDを割り当てる
-						node.id = newId;
-					});
-				});
-				
-				}
-}
-
 	
 //gmリスト表示の遅延処理
 var items = document.getElementsByClassName('gm-item-wrap');
@@ -385,7 +346,44 @@ var itemsArray = Array.from(items);
 
 }//gmControle
 
-
+//gmアイテム削除ボタン関数
+function deleteParentEl(button) {
+			let elements = document.querySelectorAll('.gm-form-style');
+			// 最後の1つの要素になった場合
+			if (elements.length === 1) {
+				alert("最後の要素は削除できません");
+				return; // 削除しない
+			}
+            var parentEl = button.parentElement;
+            if (parentEl) {
+               	parentEl.remove();
+				
+				let elements = document.querySelectorAll('.gm-form-style');
+   				elements.forEach((el, index) => {
+   				    el.id = "gm-form_" + index;
+               	});
+				
+				
+				var delBtnNum = document.querySelectorAll('.gm-item-del-btn');
+				delBtnNum.forEach((el,index)=>{
+					el.innerHTML = index + 1 + "番目のメニューを全削除。";	
+				});
+				
+				elements.forEach((element) => {
+				let parentNum = parseInt(element.id.match(/\d+$/), 10);
+				var nodesWithId = element.querySelectorAll('*[id]');
+				Array.from(nodesWithId).forEach((node, nodeIdex) => {
+					let currentId = node.id;
+					let lastNumbers = parseInt(currentId.match(/\d+$/), 10);
+					// 新しいIDを生成する
+					let newId = `${currentId.replace(/\d+$/, parentNum)}`;
+					// 新しいIDを割り当てる
+					node.id = newId;
+				});
+				});
+				
+			}
+}
 
 //ランキング表示非表示切り替え1
 function rankingControl(){
@@ -749,7 +747,6 @@ function closeFile(closeEl) {
 function handleSelectChange(selectName) {
     var selectedValue = selectName;
 	commonInitialization();
-	changeSameIdConcept();
     if (selectedValue === "parallax") {
         parallaxControl();
         animateTextWithSpans('.parallax-title');
@@ -770,13 +767,7 @@ function commonInitialization(){
 	document.removeEventListener("scroll", handleScroll);
 }
 
-function changeSameIdConcept() {
-    const conceptIdOriginal = document.querySelectorAll('.img-select');
-    const conceptIdOriginalLength = conceptIdOriginal.length; // 配列の長さを取得
-    for (var i = 0; i < conceptIdOriginalLength; i++) {
-        conceptIdOriginal[i].id = 'concept_bg_img_url' + (i + 1) + '_btn'; // インデックス i に基づいて ID を設定
-    }
-}
+
 
 
 
@@ -784,35 +775,32 @@ function changeSameIdConcept() {
 メディアアップローダーjs
 ==================================*/
 
-//idをクリックしたボタンから抜き出し、アップローダ関数を実行
+//idをクリックしたボタンから抜き出し、アップローダ関数を実行(single)
 　 function uploaderOpenClick(button) {
     var buttonId = button.id;
-	var singleName = buttonId.replace('_btn', '');
-	var insertIdName = document.querySelector('.insert-item-id').value;
-    initializeUploader(jQuery, singleName);
+	var singleName = buttonId.replace(/_btn|\d/g, '');
+	var insertIdName = button.getAttribute('data-insert-id');
+    initializeUploader(jQuery, singleName, insertIdName);
   }
 
-
-//idをクリックしたボタンから抜き出し、アップローダ関数を実行(配列対応)
-　 function uploaderOpenClickMultiple(button) {
-    var buttonIdMult = button.id;
-	var dataIndexValue = button.getAttribute("data-index");
-	var singleNameMult = buttonIdMult.replace(/_btn_(\d+)$/, '');
-    initializeUploaderMult(jQuery, singleNameMult, dataIndexValue);
-  }
-
-
-//削除ボタンの実装
+//削除ボタンの実装(single)
 function uploaderdeleteClick(button) {
     var buttonIdDel = button.id;
-	var singleNameDel = buttonIdDel.replace('_clear', '');
-    deleteImgUploader(jQuery, singleNameDel);
-  }
+	var singleNameDel = buttonIdDel.replace(/_clear|\d/g, '');
+	var insertIdName = button.getAttribute('data-insert-id');
+    deleteImgUploader(jQuery, singleNameDel, insertIdName); 
+}
 
+//削除ボタン関数(single)
+function deleteImgUploader($, name, insertIdName){
+        $("input:text[name='" + name + "[]'][data-insert-id='" + insertIdName + "']").val("");
+        $("#" + name + "_thumbnail[data-insert-id=" + insertIdName + "]").empty();
+}
 
 //アップローダsingle  
-function initializeUploader($, name) {
-
+function initializeUploader($, name, insertIdName) {
+	console.log(name)
+	console.log(insertIdName)
     var custom_uploader = wp.media({
         title: "画像を選択してください",
         library: {
@@ -826,26 +814,47 @@ function initializeUploader($, name) {
 
     custom_uploader.on("select", function () {
         var images = custom_uploader.state().get("selection");
-
         images.each(function (file) {
-            $("input:text[name=" + name + "]").val("");
-            $("#" + name + "_thumbnail").empty();
-            $("input:text[name=" + name + "]").val(file.attributes.sizes.full.url);
-            $("#" + name + "_thumbnail").append('<img src="' + file.attributes.sizes.thumbnail.url + '" />');
+            var inputName = $("input:text[name='" + name + "[]'][data-insert-id='" + insertIdName + "']");
+            var thumbnailContainer = $("#" + name + "_thumbnail[data-insert-id=" + insertIdName + "]");
+            if (inputName.length && thumbnailContainer.length) {
+                inputName.val(file.attributes.url); // ファイルのURLを挿入
+                thumbnailContainer.empty();
+                thumbnailContainer.append('<img src="' + file.attributes.sizes.thumbnail.url + '" />');
+            }
         });
     });
 
     custom_uploader.open();
 }
-function deleteImgUploader($, name){
-        $("input:text[name=" + name + "]").val("");
-        $("#" + name + "_thumbnail").empty();
+//idをクリックしたボタンから抜き出し、アップローダ関数を実行(multi)
+　 function uploaderOpenClickMultiple(button) {
+    var buttonIdMult = button.id;
+	var indexValue = button.getAttribute("data-index");
+	var dataIndexValue = button.getAttribute("data-insert-id");
+	var singleNameMult = buttonIdMult.replace(/_btn_(\d+)$/, '');
+    initializeUploaderMult(jQuery, singleNameMult, indexValue, dataIndexValue);
+  }
+
+//削除ボタンの実装(multi)
+function uploaderdeleteClickMulti(button) {
+    var buttonIdDel = button.id;
+	var multiNameDel = buttonIdDel.replace(/_clear_(\d+)$/, '');
+	var delBtnDataIndex = button.getAttribute('data-index');
+	var insertIdName = button.getAttribute('data-insert-id');
+    deleteImgUploaderMulti(jQuery, multiNameDel, delBtnDataIndex, insertIdName); 
 }
+
+//削除ボタン関数(multi)
+function deleteImgUploaderMulti($, name, index, insertIdName){
+        $('#' + name + '_' + index + '[data-insert-id="' + insertIdName + '"]').val('');
+        $('#' + name + '_thumbnail_' + index + '[data-insert-id="' + insertIdName + '"]').empty();
+}
+
 
 //アップローダmult
 var custom_uploaders = [];
-function initializeUploaderMult($, name, index) {
-	
+function initializeUploaderMult($, name, index, insertIdName) {
             custom_uploaders[index] = wp.media({
                 title: '画像を選択してください',
                 library: {
@@ -860,21 +869,14 @@ function initializeUploaderMult($, name, index) {
             custom_uploaders[index].on('select', function () {
                 var images = custom_uploaders[index].state().get('selection');
                 images.each(function (file) {
-                    $('#' + name + '_' + index).val(file.attributes.url);
-                    $('#' + name + '_thumbnail_' + index).empty();
-                    $('#' + name + '_thumbnail_' + index).append('<img src="' + file.attributes.sizes.thumbnail.url + '" />');
+                    $('#' + name + '_' + index + '[data-insert-id="' + insertIdName + '"]').val(file.attributes.url);
+                    $('#' + name + '_thumbnail_' + index + '[data-insert-id="' + insertIdName + '"]').empty();
+                    $('#' + name + '_thumbnail_' + index + '[data-insert-id="' + insertIdName + '"]').append('<img src="' + file.attributes.sizes.thumbnail.url + '" />');
                 });
             });
 
         // アップローダーを開く
         custom_uploaders[index].open();
-
-    $(document).on('click', '.img-clear-btn', function () {
-        var buttonId = $(this).attr('id');
-        var index = buttonId.split('_').pop();  // ボタンのidからindexを取得
-        $('#' + name + '_' + index).val('');
-        $('#' + name + '_thumbnail_' + index).empty();
-    });
 }
 
 /*==================================

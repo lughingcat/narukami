@@ -47,14 +47,14 @@ $i_rank_on_6 = $_POST['rank_on_6'];
 $select_contents = isset($_POST['s_cmaker']) ? $_POST['s_cmaker'] : array();
 $i_insert_ids = isset($_POST['insert_ids']) ? $_POST['insert_ids'] : array();
 //コンセプト
-$i_concept_bgImg_url = $_POST['concept_bg_img_url'];
-$i_concept_title = $_POST['concept_title'];
-$i_concept_content = $_POST['concept_content'];
+$i_concept_bgImg_url = isset($_POST['concept_bg_img_url']) ? $_POST['concept_bg_img_url'] : array();
+$i_concept_title = isset($_POST['concept_title']) ? $_POST['concept_title'] : array();
+$i_concept_content = isset($_POST['concept_content']) ? $_POST['concept_content'] : array();
 //グランドメニュー
-$i_grandmenu_img_url = json_encode($_POST['grandmenu_img_url'], JSON_UNESCAPED_UNICODE);
+$i_grandmenu_img_url = isset($_POST['grandmenu_img_url']) ? $_POST['grandmenu_img_url'] : array();
 $i_grandmenu_title = json_encode( $_POST['grandmenu_title'], JSON_UNESCAPED_UNICODE);
 $i_grandmenu_pagelink = json_encode( $_POST['grandmenu_pagelink'], JSON_UNESCAPED_UNICODE);
-$i_gm_primary_title = $_POST['gm_primary_title'];
+$i_gm_primary_title = isset($_POST['gm_primary_title']) ? $_POST['gm_primary_title'] : array();
 //パララックス
 $i_parallax_bg_img_url = json_encode($_POST['parallax_bg_img_url'], JSON_UNESCAPED_UNICODE);
 $i_parallax_title = json_encode( $_POST['parallax_title'], JSON_UNESCAPED_UNICODE);
@@ -100,14 +100,23 @@ $i_text_content_content = $_POST['text_content_content'];
 $i_text_content_title_color = $_POST['text_content_title_color'];
 //dbの初期化
 $i_delete_iniz = $_POST['delete_iniz'];
-
 //ループ処理で$select_contentの値を振り分けてinsertさせる
 global $wpdb;
 $tablename =  $wpdb->prefix . "narukami_content_maker";
 foreach ($select_contents as $key => $select_content) {
-	
 	$insert_id = isset($i_insert_ids[$key]) ? $i_insert_ids[$key] : ''; 
+	//コンセプト
+	$concept_bg_img_url_roop = isset($i_concept_bgImg_url[$key]) ? $i_concept_bgImg_url[$key] : ''; 
+	$concept_title_roop = isset($i_concept_title[$key]) ? $i_concept_title[$key] : ''; 
+	$concept_content_roop = isset($i_concept_content[$key]) ? $i_concept_content[$key] : '';
+	//グランドメニュー
 	
+	$grandmenu_img_url_roop = isset($i_grandmenu_img_url[$key]) ? $i_grandmenu_img_url[$key] : '';
+	$grandmenu_img_url_roop_json = json_encode( $grandmenu_img_url_roop, JSON_UNESCAPED_UNICODE);
+	$grandmenu_title_roop = isset($i_grandmenu_title[$key]) ? $i_grandmenu_title[$key] : '';
+	$grandmenu_pagelink_roop = isset($i_grandmenu_pagelink[$key]) ? $i_grandmenu_pagelink[$key] : '';
+	$gm_primary_title_roop = isset($i_gm_primary_title[$key]) ? $i_gm_primary_title[$key] : '';
+	//グランドメニュー
 	if($select_content === 'ranking'){
 	$wpdb->insert(
 		$tablename,
@@ -220,9 +229,9 @@ foreach ($select_contents as $key => $select_content) {
 		//インサートid
 		'insert_ids' => $insert_id,
 		//コンセプト
-		'concept_bg_img_url' => $i_concept_bgImg_url,
-		'concept_title' => $i_concept_title,
-		'concept_content' => $i_concept_content,
+		'concept_bg_img_url' => $concept_bg_img_url_roop,
+		'concept_title' => $concept_title_roop,
+		'concept_content' => $concept_content_roop,
 		),
 		array(
 		//セレクトボックス
@@ -245,10 +254,10 @@ foreach ($select_contents as $key => $select_content) {
 		//インサートid
 		'insert_ids' => $insert_id,
 		//グランドメニュー
-		'grandmenu_img_url' => $i_grandmenu_img_url,
-		'grandmenu_title' => $i_grandmenu_title,
-		'grandmenu_pagelink' => $i_grandmenu_pagelink,
-		'gm_primary_title' => $i_gm_primary_title,
+		'grandmenu_img_url' => $grandmenu_img_url_roop_jsonz,
+		'grandmenu_title' => $grandmenu_title_roop,
+		'grandmenu_pagelink' => $grandmenu_pagelink_roop,
+		'gm_primary_title' => $gm_primary_title_roop,
 		),
 		array(
 		//セレクトボックス

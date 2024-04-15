@@ -1,4 +1,4 @@
-
+//セレクトボックス変更に対してphpファイルのincludeを制御
 function loadContent(selectElement) {
     var selectedValue = selectElement.value;
 	var parentEL = selectElement.parentNode;

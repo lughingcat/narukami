@@ -16,7 +16,6 @@
 			  global $wpdb;
 			  $query_check = "SELECT COUNT(*) FROM {$wpdb->prefix}narukami_content_maker WHERE id != 1;";
 			  $count_rows = $wpdb->get_var($query_check);
-			  var_dump($count_rows);
 			  $select_boxes = array();
 			  $insert_id_check = array();
 			  if ($count_rows === '0') {
@@ -79,12 +78,12 @@
 			  foreach ($selectboxitem_summarize as $entry) {
 				  echo "Item: " . $entry['item'] . ", Insert ID: " . $entry['insert_id'] . "<br>";
 			  }
+var_dump($_POST['grandmenu_img_url']);
 			  ?>
-			  
 			  <?php $i = 0; foreach($selectboxitem_summarize as $entry) : ?>
 			  
 			  <div id="clone-wrap_<?php echo $i; ?>" class="clone-wrap-parent">
-				  <input type="hidden" id="insert-ids-<?php echo $i; ?>" name="insert_ids[]" class="insert-item-id" value="<?php echo $entry['insert_id']; ?>">
+				  <input type="hidden" id="insert-ids-<?php echo $i; ?>" name="insert_ids[]" class="insert-item-id" value="insert-id0">
 			  <select name="s_cmaker[]" class="cmaker-wrap" id="cmaker_<?php echo $i; ?>" data-index="<?php echo 'insert-id'. $i; ?>" onchange="loadContent(this)">
 				  <option hidden>選択してください</option>
 				  <?php 
@@ -98,13 +97,13 @@
 			  ?> 
 			  </select> 
 			  <div id="contentContainer_<?php echo $i; ?>" class="content-Container">
-				 ccc
+				qqq
 				  <?php
 				  if($entry['item'] == 'concept'){
-					  include("lib/concept.php");
+					  include("concept.php");
 				  }
 				  if($entry['item'] == 'grandmenu'){
-					  get_template_part("lib/grandmenu");
+					  include("grandmenu.php");
 				  }
 				  ;?>
 			  </div>
@@ -117,9 +116,7 @@
 			<button id="gmvalidate" type="submit" name="toppage_initialization">保存</button>
 			<button id="gmvalidate" type="submit" name="delete_iniz" value="Initialization">初期化</button>
 			</form>
-			
-			<?php get_template_part('lib/procces');?>
-			
+			<?php include("procces.php"); ?>	
           </div> 
         </div>
       </div>

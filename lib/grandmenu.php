@@ -4,13 +4,37 @@
 			<?php
 			  require_once(dirname(dirname(dirname(dirname(dirname( __FILE__ ))))) . '/wp-load.php' );
 			  global $wpdb;
-			  $query = "SELECT gm_primary_title, grandmenu_img_url,  grandmenu_title, grandmenu_pagelink FROM wp_narukami_content_maker;";
+			  $insertGlobalId = $_SESSION['insertGlobalId'];
+			  preg_match('/([a-zA-Z]+)(\d+)/', $insertGlobalId, $matches);
+			  $gm_numbers = $matches[2];
+			  $sql = $wpdb->prepare("SELECT * FROM {$wpdb->prefix}narukami_content_maker WHERE insert_ids = %s", $insertGlobalId);
+			  $id_result = $wpdb->get_results($sql);
+			  if( empty($id_result)){
+				$query = "SELECT 
+				insert_ids, 
+				gm_primary_title, 
+			  	grandmenu_img_url,  
+			  	grandmenu_title, 
+			  	grandmenu_pagelink 
+			  	FROM wp_narukami_content_maker
+				WHERE insert_ids = 'insert_id_first'";
+			}else{
+				$query = "SELECT 
+				insert_ids, 
+				gm_primary_title, 
+			  	grandmenu_img_url,  
+			  	grandmenu_title, 
+			  	grandmenu_pagelink 
+			  	FROM wp_narukami_content_maker 
+				WHERE insert_ids = '" . $insertGlobalId . "'";
+			}
 			  $rows = $wpdb->get_results($query,OBJECT);
 			  foreach($rows as $row) {
 				 $grandmenu_img_url = $row->grandmenu_img_url;
 				 $grandmenu_title = $row->grandmenu_title;
 				 $grandmenu_pagelink = $row->grandmenu_pagelink;
 				 $gm_primary_title = $row->gm_primary_title;
+				 $insert_id_array = $row->insert_ids;
 			  };
 			  ?>
 			<?php
@@ -70,7 +94,7 @@
 		<div class="rank-p-title-wrap">
 			<h4 class="rank-prev">グランドメニュータイトル</h4>
 			<p>ランキングタイトルを入力してください</p>
-			<input type="text" class="img-setect-url" name="gm_primary_title" value="<?php echo $grandmenu_primary_title ;?>">
+			<input type="text" class="img-setect-url" name="gm_primary_title[]" value="<?php echo $grandmenu_primary_title ;?>">
 		</div>
 		<?php 
 			if( !empty($_POST['grandmenu_img_url']) )
@@ -86,7 +110,7 @@
 		foreach ($gm_item_Array as $key => $values ) {
 			echo "<div id='gm-form_$index' class='gm-form-style'>";
 			echo '<h4 class="h-admin-4-bg">グランドメニュージャンルの背景画像を選択してください。</h4>';
-			$result_gm = generate_upload_multipleimage_tag('grandmenu_img_url', $values['imgurl'], $index);
+			$result_gm = generate_upload_multipleimage_tag('grandmenu_img_url', $values['imgurl'], $index, $insertGlobalId, $gm_numbers);
 			echo $result_gm;
 			$error_message_img = 'グランドメニューの背景画像が選択されていません。';
 			echo '<div id="gm_img_error_' . $index . '" class="gm-error-message-img" style="display: none;">' . $error_message_img . '</div>';

@@ -715,32 +715,32 @@ add_action('narukami_theme_activate', 'ranking_db_farst_insert_data');
 function generate_upload_image_tag($name, $value, $insert){?>
 <div class="img-wrap-function">
 <p class="subf-prev-title">選択画像PREVEW</p>
-<div id="<?php echo $name; ?>_thumbnail" class="uploded-thumbnail">
+<div id="<?php echo $name; ?>_thumbnail" class="uploded-thumbnail" data-insert-id="<?php echo $insert; ?>">
     <?php if ($value): ?>
       <img src="<?php echo $value; ?>" alt="選択中の画像">
     <?php endif ?>
   </div>
-  <input id="<?php echo $name; ?>" class="img-setect-url img-count-item"name="<?php echo $name; ?>" type="text" value="<?php echo $value; ?>" />
+  <input id="<?php echo $name; ?>" class="img-setect-url img-count-item" name="<?php echo $name . '[]'; ?>" type="text" data-insert-id="<?php echo $insert; ?>" value="<?php echo $value; ?>" />
   <input id="<?php echo $name; ?>_btn" type="button" class="img-select" name="<?php echo $name; ?>_slect" onclick="uploaderOpenClick(this)" data-insert-id="<?php echo $insert; ?>" value="選択" />
-  <input id="<?php echo $name; ?>_clear" type="button" class="img-select-clear" name="<?php echo $name; ?>_clear" onclick="uploaderdeleteClick(this)" value="クリア" />
+  <input id="<?php echo $name; ?>_clear" type="button" class="img-select-clear" name="<?php echo $name; ?>_clear" onclick="uploaderdeleteClick(this)" data-insert-id="<?php echo $insert; ?>" value="クリア" />
 </div>
 <div id="script-container"></div>
   <?php
 }
 
 //画像アップロード用のタグを複数出力する(multiple)
-function generate_upload_multipleimage_tag($name, $value, $index){
+function generate_upload_multipleimage_tag($name, $value, $index, $insert, $gm_numbers){
     ?>
     <div class="img-wrap-function" data-index="<?php echo $index; ?>">
         <p class="subf-prev-title">選択画像PREVIEW</p>
-        <div id="<?php echo $name; ?>_thumbnail_<?php echo $index; ?>" class="uploded-thumbnail">
+        <div id="<?php echo $name; ?>_thumbnail_<?php echo $index; ?>" class="uploded-thumbnail" data-insert-id="<?php echo $insert; ?>">
             <?php if ($value): ?>
                 <img src="<?php echo $value; ?>" alt="選択中の画像">
             <?php endif ?>
         </div>
-        <input id="<?php echo $name; ?>_<?php echo $index; ?>" class="img-select-url" name="<?php echo $name; ?>[]" type="text" value="<?php echo $value; ?>" />
-        <input id="<?php echo $name; ?>_btn_<?php echo $index; ?>" type="button" class="img-select img-select-btn" name="<?php echo $name; ?>_select" data-index="<?php echo $index; ?>" onClick="uploaderOpenClickMultiple(this)" value="選択" />
-<input id="<?php echo $name; ?>_clear_<?php echo $index; ?>" type="button" class="img-select-clear img-clear-btn" name="<?php echo $name; ?>_clear" data-index="<?php echo $index; ?>" value="クリア" />
+        <input id="<?php echo $name; ?>_<?php echo $index; ?>" class="img-select-url" name="<?php echo $name; ?>[<?php echo $gm_numbers; ?>][]" type="text" data-insert-id="<?php echo $insert; ?>" value="<?php echo $value; ?>" />
+        <input id="<?php echo $name; ?>_btn_<?php echo $index; ?>" type="button" class="img-select img-select-btn" name="<?php echo $name; ?>_select" data-index="<?php echo $index; ?>" data-insert-id="<?php echo $insert; ?>" onClick="uploaderOpenClickMultiple(this)" value="選択" />
+		<input id="<?php echo $name; ?>_clear_<?php echo $index; ?>" type="button" class="img-select-clear img-clear-btn" name="<?php echo $name; ?>_clear" data-index="<?php echo $index; ?>" data-insert-id="<?php echo $insert; ?>" onClick="uploaderdeleteClickMulti(this)" value="クリア" />
     </div>
 
 <?php
