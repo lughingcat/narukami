@@ -1,15 +1,27 @@
-<div id="cmaker_grandmenu_wrap" class="cmakerWrapgrandmenu">
+<div id="cmaker_grandmenu_wrap" class="cmakerWrapgrandmenu show-element notshow">
 	<div class="grandmenu_Prevew">
 		<article class="cmakerPrevew">
 			<?php
 			  require_once(dirname(dirname(dirname(dirname(dirname( __FILE__ ))))) . '/wp-load.php' );
 			  global $wpdb;
-			  $insertGlobalId = $_SESSION['insertGlobalId'];
-			  preg_match('/([a-zA-Z]+)(\d+)/', $insertGlobalId, $matches);
-			  $gm_numbers = $matches[2];
+			  global $insert_id_post;
+			  if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
+				 $insertGlobalId = $_SESSION['insertGlobalId'];
+				 if(preg_match('/([a-zA-Z]+)(\d+)/', $insertGlobalId, $matches)) {
+					 $gm_numbers = $matches[2];
+					 var_dump('セッション送信:'. $gm_numbers);
+				 }
+			 } else {
+				 $insertGlobalId = $insert_id_post;
+				 if(preg_match('/([a-zA-Z]+)(\d+)/', $insertGlobalId, $matches)) {
+					 $gm_numbers = $matches[2];
+					 var_dump('ポスト送信orDB値:'. $gm_numbers);
+				 }
+			 }
+			  
 			  $sql = $wpdb->prepare("SELECT * FROM {$wpdb->prefix}narukami_content_maker WHERE insert_ids = %s", $insertGlobalId);
 			  $id_result = $wpdb->get_results($sql);
-			  if( empty($id_result)){
+			  if( empty($id_result) || $insert_id_post !== $insertGlobalId){
 				$query = "SELECT 
 				insert_ids, 
 				gm_primary_title, 
@@ -38,15 +50,16 @@
 			  };
 			  ?>
 			<?php
+			//各連想配列の変数をセット
 			if(isset($_POST['gm_primary_title'])){
 			$grandmenu_primary_title = $_POST['gm_primary_title'];
 			}else{
 			$grandmenu_primary_title = $gm_primary_title;
 			}
 			if(isset($_POST['grandmenu_img_url'])){
-			$grandmenu_title_dec = $_POST['grandmenu_title'];
-			$grandmenu_img_url_dec = $_POST['grandmenu_img_url'];
-			$grandmenu_pagelink_dec = $_POST['grandmenu_pagelink'];
+			$grandmenu_title_dec = $_POST['grandmenu_title'][$gm_numbers];
+			$grandmenu_img_url_dec = $_POST['grandmenu_img_url'][$gm_numbers];
+			$grandmenu_pagelink_dec = $_POST['grandmenu_pagelink'][$gm_numbers];
 			}else{
 			$grandmenu_title_dec = json_decode($grandmenu_title);
 			$grandmenu_img_url_dec = json_decode($grandmenu_img_url);
@@ -62,15 +75,18 @@
 					'pagelink' => $grandmenu_pagelink_dec[$i]
 				);
 			}
-			if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['grandmenu_title'])) {
-				$grandmenu_title_dec[] = ""; // 空文字を追加
-			}
-
 			;?>
 			
 			<div class="grandmenu-wrap" >
 				<div class="gm-primary-title-prevew">
-						<p class="gm-primary-title"><?php echo $grandmenu_primary_title;?></p>
+					<p class="gm-primary-title"><?php
+					if( isset( $_POST['gm_primary_title']) && is_array( $_POST['gm_primary_title'])){ 
+						echo $_POST['gm_primary_title'][$gm_numbers]; 
+					}elseif( !isset($_POST['gm_primary_title']) ){ 
+						echo $grandmenu_primary_title;
+					}
+					;?>
+					</p>
 				</div>
 					<ul class="grandmenu-title-wrap">
 					<?php
@@ -94,7 +110,11 @@
 		<div class="rank-p-title-wrap">
 			<h4 class="rank-prev">グランドメニュータイトル</h4>
 			<p>ランキングタイトルを入力してください</p>
-			<input type="text" class="img-setect-url" name="gm_primary_title[]" value="<?php echo $grandmenu_primary_title ;?>">
+			<input type="text" class="img-setect-url" name="gm_primary_title[<?php echo $gm_numbers; ?>]" value="<?php if( isset($_POST['gm_primary_title'])){
+			   echo $_POST['gm_primary_title'][$gm_numbers];
+		   }else{
+			   echo $grandmenu_primary_title;
+		   }?>">
 		</div>
 		<?php 
 			if( !empty($_POST['grandmenu_img_url']) )
@@ -115,11 +135,11 @@
 			$error_message_img = 'グランドメニューの背景画像が選択されていません。';
 			echo '<div id="gm_img_error_' . $index . '" class="gm-error-message-img" style="display: none;">' . $error_message_img . '</div>';
 			echo "<h4>グランドメニューのジャンル名を入力してください。</h4>";
-			echo "<input id='gm_title_$index' type='text' name='grandmenu_title[]' class='img-setect-url' value='" . $values['title'] . "'>";
+			echo "<input id='gm_title_$index' type='text' name='grandmenu_title[$gm_numbers][]' class='img-setect-url' value='" . $values['title'] . "'>";
 			$error_message_title = 'グランドメニュータイトルが入力されていません。';
 			echo '<div id="gm_title_error_' . $index . '" class="gm-error-message-title" style="display: none;">' . $error_message_title . '</div>';
 			echo "<h4>ジャンル一覧ページへのリンクを入力してください。</h4>";
-			echo "<input id='gm_link_$index' type='text' name='grandmenu_pagelink[]' class='img-setect-url' value='" . $values['pagelink'] . "'></br>";
+			echo "<input id='gm_link_$index' type='text' name='grandmenu_pagelink[$gm_numbers][]' class='img-setect-url' value='" . $values['pagelink'] . "'></br>";
 			$error_message_link = 'グランドメニューのページリンクが選択されていません。';
 			echo '<div id="gm_link_error_' . $index . '" class="gm-error-message-link" style="display: none;">' . $error_message_link . '</div>';
 			$del_btn_index = $index + 1;

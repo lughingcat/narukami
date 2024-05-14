@@ -2,6 +2,7 @@
 function loadContent(selectElement) {
     var selectedValue = selectElement.value;
 	var parentEL = selectElement.parentNode;
+	var parentIdNum = parentEL.id.replace(/\D/g, '');
     var contentContainer = parentEL.querySelector('div');
 	var insertIdGlobalValue = selectElement.getAttribute('data-index');
     if (contentContainer) {
@@ -17,7 +18,7 @@ function loadContent(selectElement) {
             success: function(response) {
                 // サーバーからの応答を表示対象の要素に設定
                 contentContainer.innerHTML = response;
-                handleSelectChange(selectedValue);
+                handleSelectChange(selectedValue, parentIdNum);
             }
         });
     } else {

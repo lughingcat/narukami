@@ -1,4 +1,3 @@
-
 <div id="back_wrap">
     <?php
     settings_fields('custom-menu-group');
@@ -19,7 +18,7 @@
 			  $select_boxes = array();
 			  $insert_id_check = array();
 			  if ($count_rows === '0') {
-				  // idが1以外の挿入がない場合、idが1の行も取得する
+				  // idが1以外の挿入がない場合、idが1の行を取得
 				  $query = "SELECT
 				  s_cmaker,
 				  insert_ids
@@ -42,7 +41,7 @@
 
 			  $selectbox_item = '';
 			  $selectbox_item_list = array(
-			  	"ランキング" => 'ranking',
+			  	"ランキング※１回のみ使用可" => 'ranking',
    				"コンセプト" => 'concept',
    				"グランドメニュー" => 'grandmenu',
    				"右寄せ背景1カラム" => 'column_right_1',
@@ -59,13 +58,19 @@
 				}else{
 					$selectbox_item = $select_boxes;
 				}
+			  foreach($selectbox_item as $item){
+				  var_dump('scmakerDBの値:' . $item);
+			  }
 			  //insert_ids分岐
 			  	if(isset($_POST['insert_ids'])){
 					$insert_id_variable = $_POST['insert_ids'];
 				}else{
 					$insert_id_variable = $insert_id_check;
 				}
-			  
+			  foreach($insert_id_variable as $item){
+				  var_dump('insert_idsDBの値:' . $item);
+			  }
+			  //s_cmakerを連想配列化する
 			  $selectboxitem_summarize = array();
 			  foreach ($selectbox_item as $key => $item) {
 				  // $keyは$selectbox_itemのキー、$itemはそのキーに対応する値
@@ -75,16 +80,17 @@
 					  'insert_id' => $insert_id
 				  );
 			  }
+			 
+			  //テスト出力
 			  foreach ($selectboxitem_summarize as $entry) {
 				  echo "Item: " . $entry['item'] . ", Insert ID: " . $entry['insert_id'] . "<br>";
 			  }
-var_dump($_POST['grandmenu_img_url']);
 			  ?>
 			  <?php $i = 0; foreach($selectboxitem_summarize as $entry) : ?>
 			  
 			  <div id="clone-wrap_<?php echo $i; ?>" class="clone-wrap-parent">
-				  <input type="hidden" id="insert-ids-<?php echo $i; ?>" name="insert_ids[]" class="insert-item-id" value="insert-id0">
-			  <select name="s_cmaker[]" class="cmaker-wrap" id="cmaker_<?php echo $i; ?>" data-index="<?php echo 'insert-id'. $i; ?>" onchange="loadContent(this)">
+				  <input type="hidden" id="insert-ids-<?php echo $i; ?>" name="insert_ids[]" class="insert-item-id" value="insert-id<?php echo $i; ?>">
+			  <select name="s_cmaker[]" class="cmaker-wrap" id="cmaker_<?php echo $i; ?>" data-index="<?php echo 'insert-id'. $i; ?>" onchange="loadContent(this); rankingRemoved(this);">
 				  <option hidden>選択してください</option>
 				  <?php 
 				  foreach( $selectbox_item_list as $label => $value){
@@ -94,23 +100,31 @@ var_dump($_POST['grandmenu_img_url']);
 						  echo "<option value='$value'>" . $label . "</option>";
 					  }
 				  }
-			  ?> 
-			  </select> 
+			  	　?> 
+			　</select>
 			  <div id="contentContainer_<?php echo $i; ?>" class="content-Container">
-				qqq
+				  <button type="button" id="open-file<?php echo $i?>" class="open-file-button" onClick="openPageElement(this)">開く</button>
 				  <?php
-				  if($entry['item'] == 'concept'){
-					  include("concept.php");
+				  global $insert_id_post;
+				  if(isset($_POST['insert_ids'])){
+				  	$insert_id_post = $_POST['insert_ids'][$i];
+				  }else{
+					$insert_id_post = $entry['insert_id'];
 				  }
-				  if($entry['item'] == 'grandmenu'){
-					  include("grandmenu.php");
+				  var_dump('insert_id_postの値:' . $insert_id_post);
+				  if($entry['item'] == "grandmenu"){
+					  include('grandmenu.php');
+				  }elseif($entry['item'] == "concept"){
+					  include('concept.php');
+				  }elseif($entry['item'] == "ranking"){
+					  include('ranking.php');
 				  }
-				  ;?>
+				  ?>
 			  </div>
 			  </div>
 			  <?php $i++; endforeach; ?>
 			  <div id="clonedSelectBoxes"></div>
-			  <button type="button" onclick="cloneSelectBox()">複製</button>
+			  <button type="button" onclick="cloneSelectBox(); rankingRemoved(this);">複製</button>
 			  </div><!--mainEnd-->
 				
 			<button id="gmvalidate" type="submit" name="toppage_initialization">保存</button>

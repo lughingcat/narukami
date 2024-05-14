@@ -1,48 +1,48 @@
 <?php
 require_once( dirname(dirname(dirname(dirname(dirname( __FILE__ ))))) . '/wp-load.php' );
 //ランキングpopスタイル
-$rank_pop = $_POST['rank_pop'];
+$rank_pop = isset($_POST['rank_pop']) ? $_POST['rank_pop'] : array();
 //ランキング背景スタイル
-$rank_style = $_POST['rank_style'];
+$rank_style = isset($_POST['rank_style']) ? $_POST['rank_style'] : array();
 //ランキングメインタイトル
-$rank_primary_title = $_POST['rank_primary_title'];
+$rank_primary_title = isset($_POST['rank_primary_title']) ? $_POST['rank_primary_title'] : array();
 //ランキング
 //1
-$i_title = $_POST['item_title'];
-$i_price = $_POST['item_price'];
-$i_item_url = $_POST['item_img_url'];
-$i_item_page_link = $_POST['item_page_link'];
-$i_rank_on = $_POST['rank_on'];
+$i_title = isset($_POST['item_title']) ? $_POST['item_title'] : array();
+$i_price = isset($_POST['item_price']) ? $_POST['item_price'] : array();
+$i_item_url = isset($_POST['item_img_url']) ? $_POST['item_img_url'] : array();
+$i_item_page_link = isset($_POST['item_page_link']) ? $_POST['item_page_link'] : array();
+$i_rank_on = isset($_POST['rank_on']) ? $_POST['rank_on'] : array();
 //2
-$i_title_2 = $_POST['item_title_2'];
-$i_price_2 = $_POST['item_price_2'];
-$i_item_url_2 = $_POST['item_img_url_2'];
-$i_item_page_link_2 = $_POST['item_page_link_2'];
-$i_rank_on_2 = $_POST['rank_on_2'];
+$i_title_2 = isset($_POST['item_title_2']) ? $_POST['item_title_2'] : array();
+$i_price_2 = isset($_POST['item_price_2']) ? $_POST['item_price_2'] : array();
+$i_item_url_2 = isset($_POST['item_img_url_2']) ? $_POST['item_img_url_2'] : array();
+$i_item_page_link_2 = isset($_POST['item_page_link_2']) ? $_POST['item_page_link_2'] : array();
+$i_rank_on_2 = isset($_POST['rank_on_2']) ? $_POST['rank_on_2'] : array();
 //3
-$i_title_3 = $_POST['item_title_3'];
-$i_price_3 = $_POST['item_price_3'];
-$i_item_url_3 = $_POST['item_img_url_3'];
-$i_item_page_link_3 = $_POST['item_page_link_3'];
-$i_rank_on_3 = $_POST['rank_on_3'];
+$i_title_3 = isset($_POST['item_title_3']) ? $_POST['item_title_3'] : array();
+$i_price_3 = isset($_POST['item_price_3']) ? $_POST['item_price_3'] : array();
+$i_item_url_3 = isset($_POST['item_img_url_3']) ? $_POST['item_img_url_3'] : array();
+$i_item_page_link_3 = isset($_POST['item_page_link_3']) ? $_POST['item_page_link_3'] : array();
+$i_rank_on_3 = isset($_POST['rank_on_3']) ? $_POST['rank_on_3'] : array();
 //4
-$i_title_4 = $_POST['item_title_4'];
-$i_price_4 = $_POST['item_price_4'];
-$i_item_url_4 = $_POST['item_img_url_4'];
-$i_item_page_link_4 = $_POST['item_page_link_4'];
-$i_rank_on_4 = $_POST['rank_on_4'];
+$i_title_4 = isset($_POST['item_title_4']) ? $_POST['item_title_4'] : array();
+$i_price_4 = isset($_POST['item_price_4']) ? $_POST['item_price_4'] : array();
+$i_item_url_4 = isset($_POST['item_img_url_4']) ? $_POST['item_img_url_4'] : array();
+$i_item_page_link_4 = isset($_POST['item_page_link_4']) ? $_POST['item_page_link_4'] : array();
+$i_rank_on_4 = isset($_POST['rank_on_4']) ? $_POST['rank_on_4'] : array();
 //5
-$i_title_5 = $_POST['item_title_5'];
-$i_price_5 = $_POST['item_price_5'];
-$i_item_url_5 = $_POST['item_img_url_5'];
-$i_item_page_link_5 = $_POST['item_page_link_5'];
-$i_rank_on_5 = $_POST['rank_on_5'];
+$i_title_5 = isset($_POST['item_title_5']) ? $_POST['item_title_5'] : array();
+$i_price_5 = isset($_POST['item_price_5']) ? $_POST['item_price_5'] : array();
+$i_item_url_5 = isset($_POST['item_img_url_5']) ? $_POST['item_img_url_5']: array();
+$i_item_page_link_5 = isset($_POST['item_page_link_5']) ? $_POST['item_page_link_5']: array();
+$i_rank_on_5 = isset($_POST['rank_on_5']) ? $_POST['rank_on_5']: array();
 //6
-$i_title_6 = $_POST['item_title_6'];
-$i_price_6 = $_POST['item_price_6'];
-$i_item_url_6 = $_POST['item_img_url_6'];
-$i_item_page_link_6 = $_POST['item_page_link_6'];
-$i_rank_on_6 = $_POST['rank_on_6'];
+$i_title_6 = isset($_POST['item_title_6']) ? $_POST['item_title_6']: array();
+$i_price_6 = isset($_POST['item_price_6']) ? $_POST['item_price_6']: array();
+$i_item_url_6 = isset($_POST['item_img_url_6']) ? $_POST['item_img_url_6']: array();
+$i_item_page_link_6 = isset($_POST['item_page_link_6']) ? $_POST['item_page_link_6']: array();
+$i_rank_on_6 = isset($_POST['rank_on_6']) ? $_POST['rank_on_6']: array();
 //セレクトボックス
 $select_contents = isset($_POST['s_cmaker']) ? $_POST['s_cmaker'] : array();
 $i_insert_ids = isset($_POST['insert_ids']) ? $_POST['insert_ids'] : array();
@@ -52,8 +52,8 @@ $i_concept_title = isset($_POST['concept_title']) ? $_POST['concept_title'] : ar
 $i_concept_content = isset($_POST['concept_content']) ? $_POST['concept_content'] : array();
 //グランドメニュー
 $i_grandmenu_img_url = isset($_POST['grandmenu_img_url']) ? $_POST['grandmenu_img_url'] : array();
-$i_grandmenu_title = json_encode( $_POST['grandmenu_title'], JSON_UNESCAPED_UNICODE);
-$i_grandmenu_pagelink = json_encode( $_POST['grandmenu_pagelink'], JSON_UNESCAPED_UNICODE);
+$i_grandmenu_title = isset($_POST['grandmenu_title']) ? $_POST['grandmenu_title'] : array();
+$i_grandmenu_pagelink = isset($_POST['grandmenu_pagelink']) ? $_POST['grandmenu_pagelink'] : array();
 $i_gm_primary_title = isset($_POST['gm_primary_title']) ? $_POST['gm_primary_title'] : array();
 //パララックス
 $i_parallax_bg_img_url = json_encode($_POST['parallax_bg_img_url'], JSON_UNESCAPED_UNICODE);
@@ -105,16 +105,64 @@ global $wpdb;
 $tablename =  $wpdb->prefix . "narukami_content_maker";
 foreach ($select_contents as $key => $select_content) {
 	$insert_id = isset($i_insert_ids[$key]) ? $i_insert_ids[$key] : ''; 
+	//ランキングpopスタイル
+	$rank_pop_roop = isset($rank_pop[$key]) ? $rank_pop[$key] : ''; 
+	var_dump($rank_pop_roop);
+	//ランキング背景スタイル
+	$rank_style_roop = isset($rank_style[$key]) ? $rank_style[$key] : ''; 
+	//ランキングメインタイトル
+	$rank_primary_title_roop = isset($rank_primary_title[$key]) ? $rank_primary_title[$key] : '';
+	//1
+	$i_title_roop = isset($i_title[$key]) ? $i_title[$key] : '';
+	$i_price_roop = isset($i_price[$key]) ? $i_price[$key] : '';
+	$i_item_url_roop = isset($i_item_url[$key]) ? $i_item_url[$key] : '';
+	$i_item_page_link_roop = isset($i_item_page_link[$key]) ? $i_item_page_link[$key] : '';
+	$i_rank_on_roop = isset($i_rank_on[$key]) ? $i_rank_on[$key] : '';
+	//2
+	$i_title_2_roop = isset($i_title_2[$key]) ? $i_title_2[$key] : '';
+	$i_price_2_roop = isset($i_price_2[$key]) ? $i_price_2[$key] : '';
+	$i_item_url_2_roop = isset($i_item_url_2[$key]) ? $i_item_url_2[$key] : '';
+	$i_item_page_link_2_roop = isset($i_item_page_link_2[$key]) ? $i_item_page_link_2[$key] : '';
+	$i_rank_on_2_roop = isset($i_rank_on_2[$key]) ? $i_rank_on_2[$key] : '';
+	//3
+	$i_title_3_roop = isset($i_title_3[$key]) ? $i_title_3[$key] : '';
+	$i_price_3_roop = isset($i_price_3[$key]) ? $i_price_3[$key] : '';
+	$i_item_url_3_roop = isset($i_item_url_3[$key]) ? $i_item_url_3[$key] : '';
+	$i_item_page_link_3_roop = isset($i_item_page_link_3[$key]) ? $i_item_page_link_3[$key] : '';
+	$i_rank_on_3_roop = isset($i_rank_on_3[$key]) ? $i_rank_on_3[$key] : '';
+	//4
+	$i_title_4_roop = isset($i_title_4[$key]) ? $i_title_4[$key] : '';
+	$i_price_4_roop = isset($i_price_4[$key]) ? $i_price_4[$key] : '';
+	$i_item_url_4_roop = isset($i_item_url_4[$key]) ? $i_item_url_4[$key] : '';
+	$i_item_page_link_4_roop = isset($i_item_page_link_4[$key]) ? $i_item_page_link_4[$key] : '';
+	$i_rank_on_4_roop = isset($i_rank_on_4[$key]) ? $i_rank_on_4[$key] : '';
+	//5
+	$i_title_5_roop = isset($i_title_5[$key]) ? $i_title_5[$key] : '';
+	$i_price_5_roop = isset($i_price_5[$key]) ? $i_price_5[$key] : '';
+	$i_item_url_5_roop = isset($i_item_url_5[$key]) ? $i_item_url_5[$key] : '';
+	$i_item_page_link_5_roop = isset($i_item_page_link_5[$key]) ? $i_item_page_link_5[$key] : '';
+	$i_rank_on_5_roop = isset($i_rank_on_5[$key]) ? $i_rank_on_5[$key] : '';
+	//5
+	$i_title_6_roop = isset($i_title_6[$key]) ? $i_title_6[$key] : '';
+	$i_price_6_roop = isset($i_price_6[$key]) ? $i_price_6[$key] : '';
+	$i_item_url_6_roop = isset($i_item_url_6[$key]) ? $i_item_url_6[$key] : '';
+	$i_item_page_link_6_roop = isset($i_item_page_link_6[$key]) ? $i_item_page_link_6[$key] : '';
+	$i_rank_on_6_roop = isset($i_rank_on_6[$key]) ? $i_rank_on_6[$key] : '';
 	//コンセプト
 	$concept_bg_img_url_roop = isset($i_concept_bgImg_url[$key]) ? $i_concept_bgImg_url[$key] : ''; 
 	$concept_title_roop = isset($i_concept_title[$key]) ? $i_concept_title[$key] : ''; 
 	$concept_content_roop = isset($i_concept_content[$key]) ? $i_concept_content[$key] : '';
-	//グランドメニュー
 	
+	//グランドメニュー
 	$grandmenu_img_url_roop = isset($i_grandmenu_img_url[$key]) ? $i_grandmenu_img_url[$key] : '';
 	$grandmenu_img_url_roop_json = json_encode( $grandmenu_img_url_roop, JSON_UNESCAPED_UNICODE);
+	
 	$grandmenu_title_roop = isset($i_grandmenu_title[$key]) ? $i_grandmenu_title[$key] : '';
+	$grandmenu_title_roop_json = json_encode( $grandmenu_title_roop, JSON_UNESCAPED_UNICODE);
+		
 	$grandmenu_pagelink_roop = isset($i_grandmenu_pagelink[$key]) ? $i_grandmenu_pagelink[$key] : '';
+	$grandmenu_pagelink_roop_json = json_encode( $grandmenu_pagelink_roop, JSON_UNESCAPED_UNICODE);
+	
 	$gm_primary_title_roop = isset($i_gm_primary_title[$key]) ? $i_gm_primary_title[$key] : '';
 	//グランドメニュー
 	if($select_content === 'ranking'){
@@ -126,47 +174,47 @@ foreach ($select_contents as $key => $select_content) {
 		//インサートid
 		'insert_ids' => $insert_id,
 		//ランキングpopスタイル
-		'rank_pop' => $rank_pop,
+		'rank_pop' => $rank_pop_roop,
 		//ランキング背景スタイル
-		'rank_style' => $rank_style,
+		'rank_style' => $rank_style_roop,
 		//ランキングメインタイトル
-		'rank_primary_title' => $rank_primary_title,
+		'rank_primary_title' => $rank_primary_title_roop,
 		//ランキング
-		'item_name' => $i_title,
-		'item_price' => $i_price,
-		'item_img_url' => $i_item_url,
-		'item_page_link' => $i_item_page_link,
-		'rank_on' => $i_rank_on,
+		'item_name' => $i_title_roop,
+		'item_price' => $i_price_roop,
+		'item_img_url' => $i_item_url_roop,
+		'item_page_link' => $i_item_page_link_roop,
+		'rank_on' => $i_rank_on_roop,
 		//2
-		'item_name_2' => $i_title_2,
-		'item_price_2' => $i_price_2,
-		'item_img_url_2' => $i_item_url_2,
-		'item_page_link_2' => $i_item_page_link_2,
-		'rank_on_2' => $i_rank_on_2,
+		'item_name_2' => $i_title_2_roop,
+		'item_price_2' => $i_price_2_roop,
+		'item_img_url_2' => $i_item_url_2_roop,
+		'item_page_link_2' => $i_item_page_link_2_roop,
+		'rank_on_2' => $i_rank_on_2_roop,
 		//3
-		'item_name_3' => $i_title_3,
-		'item_price_3' => $i_price_3,
-		'item_img_url_3' => $i_item_url_3,
-		'item_page_link_3' => $i_item_page_link_3,
-		'rank_on_3' => $i_rank_on_3,
+		'item_name_3' => $i_title_3_roop,
+		'item_price_3' => $i_price_3_roop,
+		'item_img_url_3' => $i_item_url_3_roop,
+		'item_page_link_3' => $i_item_page_link_3_roop,
+		'rank_on_3' => $i_rank_on_3_roop,
 		//4
-		'item_name_4' => $i_title_4,
-		'item_price_4' => $i_price_4,
-		'item_img_url_4' => $i_item_url_4,
-		'item_page_link_4' => $i_item_page_link_4,
-		'rank_on_4' => $i_rank_on_4,
+		'item_name_4' => $i_title_4_roop,
+		'item_price_4' => $i_price_4_roop,
+		'item_img_url_4' => $i_item_url_4_roop,
+		'item_page_link_4' => $i_item_page_link_4_roop,
+		'rank_on_4' => $i_rank_on_4_roop,
 		//5
-		'item_name_5' => $i_title_5,
-		'item_price_5' => $i_price_5,
-		'item_img_url_5' => $i_item_url_5,
-		'item_page_link_5' => $i_item_page_link_5,
-		'rank_on_5' => $i_rank_on_5,
+		'item_name_5' => $i_title_5_roop,
+		'item_price_5' => $i_price_5_roop,
+		'item_img_url_5' => $i_item_url_5_roop,
+		'item_page_link_5' => $i_item_page_link_5_roop,
+		'rank_on_5' => $i_rank_on_5_roop,
 		//6
-		'item_name_6' => $i_title_6,
-		'item_price_6' => $i_price_6,
-		'item_img_url_6' => $i_item_url_6,
-		'item_page_link_6' => $i_item_page_link_6,
-		'rank_on_6' => $i_rank_on_6,
+		'item_name_6' => $i_title_6_roop,
+		'item_price_6' => $i_price_6_roop,
+		'item_img_url_6' => $i_item_url_6_roop,
+		'item_page_link_6' => $i_item_page_link_6_roop,
+		'rank_on_6' => $i_rank_on_6_roop,
 		),
 		array(
 		//セレクトボックス
@@ -254,9 +302,9 @@ foreach ($select_contents as $key => $select_content) {
 		//インサートid
 		'insert_ids' => $insert_id,
 		//グランドメニュー
-		'grandmenu_img_url' => $grandmenu_img_url_roop_jsonz,
-		'grandmenu_title' => $grandmenu_title_roop,
-		'grandmenu_pagelink' => $grandmenu_pagelink_roop,
+		'grandmenu_img_url' => $grandmenu_img_url_roop_json,
+		'grandmenu_title' => $grandmenu_title_roop_json,
+		'grandmenu_pagelink' => $grandmenu_pagelink_roop_json,
 		'gm_primary_title' => $gm_primary_title_roop,
 		),
 		array(

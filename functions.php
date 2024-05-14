@@ -200,6 +200,14 @@ function add_admin_style(){
 add_action('admin_enqueue_scripts', 'add_admin_style');
 
 
+//セッション
+function start_admin_session() {
+    if ( ! session_id() ) {
+        session_start();
+    }
+}
+add_action('admin_init', 'start_admin_session');
+
 
 //ajax追加
 add_action('admin_enqueue_scripts', 'enqueue_custom_scripts');
@@ -226,7 +234,6 @@ function load_content() {
         echo $content;
 		echo $_SESSION['insertGlobalId'];
     }
-
     // 必ず終了する
     wp_die();
 }
@@ -297,6 +304,69 @@ function delete_keep_update(){
 					));
 			}
 }
+//ランキングの表示切り替えカプセル(プレビュー用)
+//ランキングタイトル
+function data_variable_set($POST_data, $DB_data, $gm_numbers){
+	if(is_array($POST_data)){
+		return $POST_data[$gm_numbers];
+	}elseif(!empty($POST_data)){
+		return $POST_data;
+	}else{
+		return $DB_data;
+	}
+}
+//ランキング表示切り替え
+function process_rank_on($POST_data, $DB_data, $former_data, $gm_numbers) {
+	if(is_array($POST_data) && !empty($POST_data[$gm_numbers]) && $POST_data[$gm_numbers] == $former_data){
+		return "";
+	}elseif(!empty($POST_data) && $POST_data == $former_data){
+		return "";
+	}elseif(empty($POST_data) && $DB_data == $former_data){
+		return "";
+	}else{
+		return "none";
+	}
+}
+
+//チェックボックス制御
+function checkbox_dataset($POST_data, $DB_data, $former_data, $gm_numbers) {
+	if(is_array($POST_data) && !empty($POST_data[$gm_numbers]) && $POST_data[$gm_numbers] == $former_data){
+		return "checked";
+	}elseif(!empty($POST_data) && $POST_data == $former_data){
+		return "checked";
+	}elseif(empty($POST_data) && $DB_data == $former_data){
+		return "checked";
+	}else{
+		return "";
+	}
+}
+//overlay制御
+function overlay_control($POST_data, $DB_data, $overlay, $gm_numbers, $img_data){
+	if(is_array($POST_data) && !empty($POST_data[$gm_numbers]) && $POST_data[$gm_numbers] == $overlay){
+		return $img_data;
+	}elseif(!empty($POST_data) && $POST_data == $overlay){
+		return $img_data;
+	}elseif(empty($POST_data) && $DB_data == $overlay){
+		return $img_data;
+	}else{
+		return "";
+	}
+}
+
+//ランキング入力制御show(input用)
+
+function check_rank_show($rank_on, $item_rank_on, $gm_numbers, $rank_show_values) {
+	if(is_array($rank_on) && !empty($rank_on[$gm_numbers]) && $rank_on[$gm_numbers] == $rank_show_values){
+		return "checked";
+	}elseif(!empty($rank_on) && $rank_on == $rank_show_values){
+		return "checked";
+	}elseif(empty($rank_on) && $item_rank_on == $rank_show_values){
+		return "checked";
+	}else{
+		return "";
+	}
+}
+
 /**
  * テーマ有効時、コンテンツメーカーのテーブルをdbに作成する。
  */
@@ -530,7 +600,7 @@ function ranking_db_farst_insert_data(){
 	$wpdb->insert(
 		$tablename,
 		array(
-		's_cmaker' => 'ranking',
+		's_cmaker' => '選択してください',
 		'insert_ids' => 'insert_id_first',
 		'rank_pop' => 'math_sq_bg',
 		'rank_style' => 'overlay',
@@ -710,9 +780,8 @@ function ranking_db_farst_insert_data(){
 
 add_action('narukami_theme_activate', 'ranking_db_farst_insert_data');
 
-
-//画像アップロード用のタグを出力する(single)
-function generate_upload_image_tag($name, $value, $insert){?>
+//画像アップロード用のタグを出力する(single, 配列なし)
+function generate_upload_image_tag_no_array($name, $value, $insert){?>
 <div class="img-wrap-function">
 <p class="subf-prev-title">選択画像PREVEW</p>
 <div id="<?php echo $name; ?>_thumbnail" class="uploded-thumbnail" data-insert-id="<?php echo $insert; ?>">
@@ -720,7 +789,23 @@ function generate_upload_image_tag($name, $value, $insert){?>
       <img src="<?php echo $value; ?>" alt="選択中の画像">
     <?php endif ?>
   </div>
-  <input id="<?php echo $name; ?>" class="img-setect-url img-count-item" name="<?php echo $name . '[]'; ?>" type="text" data-insert-id="<?php echo $insert; ?>" value="<?php echo $value; ?>" />
+  <input id="<?php echo $name; ?>" class="img-setect-url img-count-item" name="<?php echo $name; ?>" type="text" data-insert-id="<?php echo $insert; ?>" value="<?php echo $value; ?>" />
+  <input id="<?php echo $name; ?>_btn" type="button" class="img-select" name="<?php echo $name; ?>_slect" onclick="uploaderOpenClick(this)" data-insert-id="<?php echo $insert; ?>" value="選択" />
+  <input id="<?php echo $name; ?>_clear" type="button" class="img-select-clear" name="<?php echo $name; ?>_clear" onclick="uploaderdeleteClick(this)" data-insert-id="<?php echo $insert; ?>" value="クリア" />
+</div>
+<div id="script-container"></div>
+  <?php
+}
+//画像アップロード用のタグを出力する(single)
+function generate_upload_image_tag($name, $value, $insert, $gm_numbers){?>
+<div class="img-wrap-function">
+<p class="subf-prev-title">選択画像PREVEW</p>
+<div id="<?php echo $name; ?>_thumbnail" class="uploded-thumbnail" data-insert-id="<?php echo $insert; ?>">
+    <?php if ($value): ?>
+      <img src="<?php echo $value; ?>" alt="選択中の画像">
+    <?php endif ?>
+  </div>
+  <input id="<?php echo $name; ?>" class="img-setect-url img-count-item" name="<?php echo $name . '['. $gm_numbers .']'; ?>" type="text" data-insert-id="<?php echo $insert; ?>" value="<?php echo $value; ?>" />
   <input id="<?php echo $name; ?>_btn" type="button" class="img-select" name="<?php echo $name; ?>_slect" onclick="uploaderOpenClick(this)" data-insert-id="<?php echo $insert; ?>" value="選択" />
   <input id="<?php echo $name; ?>_clear" type="button" class="img-select-clear" name="<?php echo $name; ?>_clear" onclick="uploaderdeleteClick(this)" data-insert-id="<?php echo $insert; ?>" value="クリア" />
 </div>
@@ -770,6 +855,8 @@ function my_wp_get_attachment_metadata( $data, $id ) {
     return $data;
 }
 
+
+//
 /**
  * Implement the Custom Header feature.
  */
