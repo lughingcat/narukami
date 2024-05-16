@@ -104,7 +104,7 @@ gmItemDelBtnDataIndex.forEach(function(gmItemDelBtn){
 		
             //親要素をループ処理
             dataIndexParentsLengh.forEach((parentElement, parentIndex) => {
-                newIndex =　parentIndex;
+                newIndex = parentIndex;
 				updateDataIndex(parentElement, newIndex);//親要素のナンバリングを関数で処理
 				
 				// 子要素を再帰的に処理
@@ -564,6 +564,7 @@ function openPageElement(button) {
     let grandmenuWrap = parentEl.querySelector('.cmakerWrapgrandmenu');
     let conceptWrap = parentEl.querySelector('.cmakerWrapConcept');
 	let rankingWrap = parentEl.querySelector('.cmaker-wrap-ranking');
+	let column_right_1 = parentEl.querySelector('.cmakerWrapcolumn_right_1');
 	let buttonId = button.id;
 	let idNum = buttonId.match(/\d+$/)[0];
     if (grandmenuWrap) {
@@ -573,6 +574,8 @@ function openPageElement(button) {
     } else if (rankingWrap) {
 		rankingWrap.classList.remove('notshow');
 		rankingControl(idNum);
+	} else if (column_right_1){
+		column_right_1.classList.remove('notshow');
 	}
 }
 
@@ -582,6 +585,7 @@ function handleSelectChange(selectName, parentIdNum) {
     if (selectedValue === "parallax") {
         parallaxControl();
         animateTextWithSpans('.parallax-title');
+		
     } else if (selectedValue === "grandmenu") {
         grandMenuControl();
 		gmImgListAnimation();
@@ -596,9 +600,14 @@ function handleSelectChange(selectName, parentIdNum) {
         rankingControl(parentIdNum);
 		loadCloseClass(selectedValue, parentIdNum);
         animateTextWithSpans('.r-p-t-prev');
+		
     } else if (selectedValue === "store_info") {
         animateTextWithSpans('.store-info-p_title');
-    }
+		
+    } else if (selectedValue === "column_right_1"){
+		loadCloseClass(selectedValue, parentIdNum);
+		animateTextWithSpans('.column_right_1-main-title');
+	}
 }
 function commonInitialization(){
 	document.removeEventListener("scroll", handleScroll);
@@ -654,7 +663,7 @@ document.addEventListener('DOMContentLoaded', function() {
 ==================================*/
 
 //idをクリックしたボタンから抜き出し、アップローダ関数を実行(single)
-　 function uploaderOpenClick(button) {
+function uploaderOpenClick(button) {
     var buttonId = button.id;
 	var singleName = buttonId.replace(/_btn|\d/g, '');
 	var insertIdName = button.getAttribute('data-insert-id');
@@ -706,7 +715,7 @@ function initializeUploader($, name, insertIdName, insertLastNumber) {
     custom_uploader.open();
 }
 //idをクリックしたボタンから抜き出し、アップローダ関数を実行(multi)
-　 function uploaderOpenClickMultiple(button) {
+function uploaderOpenClickMultiple(button) {
     var buttonIdMult = button.id;
 	var indexValue = button.getAttribute("data-index");
 	var dataIndexValue = button.getAttribute("data-insert-id");

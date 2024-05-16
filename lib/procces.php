@@ -61,9 +61,9 @@ $i_parallax_title = json_encode( $_POST['parallax_title'], JSON_UNESCAPED_UNICOD
 $i_parallax_content = json_encode( $_POST['parallax_content'], JSON_UNESCAPED_UNICODE);
 $i_parallax_primary_title = $_POST['parallax_primary_title'];
 //右画像１カラム
-$i_column_right_1_img_url = $_POST['column_right_1_bg_img_url'];
-$i_column_right_1_title = $_POST['column_right_1_title'];
-$i_column_right_1_content = $_POST['column_right_1_content'];
+$i_column_right_1_img_url = isset($_POST['column_right_1_bg_img_url']) ? $_POST['column_right_1_bg_img_url'] : array();
+$i_column_right_1_title = isset($_POST['column_right_1_title']) ? $_POST['column_right_1_title'] : array();
+$i_column_right_1_content = isset($_POST['column_right_1_content']) ? $_POST['column_right_1_content'] : array();
 //左画像１カラム
 $i_column_left_1_img_url = $_POST['column_left_1_bg_img_url'];
 $i_column_left_1_title = $_POST['column_left_1_title'];
@@ -148,10 +148,16 @@ foreach ($select_contents as $key => $select_content) {
 	$i_item_url_6_roop = isset($i_item_url_6[$key]) ? $i_item_url_6[$key] : '';
 	$i_item_page_link_6_roop = isset($i_item_page_link_6[$key]) ? $i_item_page_link_6[$key] : '';
 	$i_rank_on_6_roop = isset($i_rank_on_6[$key]) ? $i_rank_on_6[$key] : '';
+	
 	//コンセプト
 	$concept_bg_img_url_roop = isset($i_concept_bgImg_url[$key]) ? $i_concept_bgImg_url[$key] : ''; 
 	$concept_title_roop = isset($i_concept_title[$key]) ? $i_concept_title[$key] : ''; 
 	$concept_content_roop = isset($i_concept_content[$key]) ? $i_concept_content[$key] : '';
+	
+	//右画像背景1カラム
+	$column_right_1_img_url_roop = isset($i_column_right_1_img_url[$key]) ? $i_column_right_1_img_url[$key] : '';
+	$column_right_1_title_roop = isset($i_column_right_1_title[$key]) ? $i_column_right_1_title[$key] : '';
+	$column_right_1_content_roop = isset($i_column_right_1_content[$key]) ? $i_column_right_1_content[$key] : '';
 	
 	//グランドメニュー
 	$grandmenu_img_url_roop = isset($i_grandmenu_img_url[$key]) ? $i_grandmenu_img_url[$key] : '';
@@ -164,7 +170,7 @@ foreach ($select_contents as $key => $select_content) {
 	$grandmenu_pagelink_roop_json = json_encode( $grandmenu_pagelink_roop, JSON_UNESCAPED_UNICODE);
 	
 	$gm_primary_title_roop = isset($i_gm_primary_title[$key]) ? $i_gm_primary_title[$key] : '';
-	//グランドメニュー
+	
 	if($select_content === 'ranking'){
 	$wpdb->insert(
 		$tablename,
@@ -330,9 +336,9 @@ foreach ($select_contents as $key => $select_content) {
 		//インサートid
 		'insert_ids' => $insert_id,
 		//右画像１カラム
-		'column_right_1_bg_img_url' => $i_column_right_1_img_url,
-		'column_right_1_title' => $i_column_right_1_title,
-		'column_right_1_content' => $i_column_right_1_content,
+		'column_right_1_bg_img_url' => $column_right_1_img_url_roop,
+		'column_right_1_title' => $column_right_1_title_roop,
+		'column_right_1_content' => $column_right_1_content_roop,
 		),
 		array(
 		//セレクトボックス

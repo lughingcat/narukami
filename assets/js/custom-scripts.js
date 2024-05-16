@@ -1,10 +1,11 @@
 //セレクトボックス変更に対してphpファイルのincludeを制御
 function loadContent(selectElement) {
     var selectedValue = selectElement.value;
-	var parentEL = selectElement.parentNode;
-	var parentIdNum = parentEL.id.replace(/\D/g, '');
+    var parentEL = selectElement.parentNode;
+    var parentIdNum = parentEL.id.replace(/\D/g, '');
     var contentContainer = parentEL.querySelector('div');
-	var insertIdGlobalValue = selectElement.getAttribute('data-index');
+    var insertIdGlobalValue = selectElement.getAttribute('data-index');
+
     if (contentContainer) {
         // Ajaxリクエスト
         jQuery.ajax({
@@ -16,14 +17,29 @@ function loadContent(selectElement) {
                 insertId: insertIdGlobalValue
             },
             success: function(response) {
-                // サーバーからの応答を表示対象の要素に設定
-                contentContainer.innerHTML = response;
-                handleSelectChange(selectedValue, parentIdNum);
+                try {
+                    // サーバーからの応答がエラーメッセージを含んでいるか確認
+                    if (response.startsWith('Error:')) {
+                        throw new Error(response);
+                    }
+                    // サーバーからの応答を表示対象の要素に設定
+                    contentContainer.innerHTML = response;
+                    handleSelectChange(selectedValue, parentIdNum);
+                    console.log(selectedValue);
+                    console.log(parentIdNum);
+                } catch (error) {
+                    console.error('Error in success handler:', error);
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                // AJAXリクエスト自体のエラーをコンソールに出力
+                console.error('AJAX error:', textStatus, errorThrown);
             }
         });
     } else {
         console.error('contentContainerが見つかりませんでした。');
     }
 }
+
 
 

@@ -100,8 +100,8 @@
 						  echo "<option value='$value'>" . $label . "</option>";
 					  }
 				  }
-			  	　?> 
-			　</select>
+			      ?> 
+		      </select>
 			  <div id="contentContainer_<?php echo $i; ?>" class="content-Container">
 				  <button type="button" id="open-file<?php echo $i?>" class="open-file-button" onClick="openPageElement(this)">開く</button>
 				  <?php
@@ -118,6 +118,8 @@
 					  include('concept.php');
 				  }elseif($entry['item'] == "ranking"){
 					  include('ranking.php');
+				  }elseif($entry['item'] == "column_right_1"){
+					  include('column_right_1.php');
 				  }
 				  ?>
 			  </div>
