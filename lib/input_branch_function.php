@@ -9,7 +9,7 @@
 ランキングアイテム画像,
 */
 function data_variable_set($POST_data, $DB_data, $gm_numbers){
-	if(is_array($POST_data)){
+	if(is_array($POST_data) && array_key_exists($gm_numbers, $POST_data)){
 		return $POST_data[$gm_numbers];
 	}elseif(!empty($POST_data)){
 		return $POST_data;
@@ -17,16 +17,18 @@ function data_variable_set($POST_data, $DB_data, $gm_numbers){
 		return $DB_data;
 	}
 }
+
+
 /*
-右1カラムコンテンツ,
+store-infoGoogleマップリンクバックスラッシュ削除
 */
-function data_variable_set_nl2br($POST_data, $DB_data, $gm_numbers){
-	if(is_array($POST_data)){
-		return nl2br($POST_data[$gm_numbers]);
+function data_variable_set_stripslashes($POST_data, $DB_data, $gm_numbers){
+	if(is_array($POST_data) && array_key_exists($gm_numbers, $POST_data)){
+		return stripslashes($POST_data[$gm_numbers]);
 	}elseif(!empty($POST_data)){
-		return nl2br($POST_data);
+		return stripslashes($POST_data);
 	}else{
-		return nl2br($DB_data);
+		return stripslashes($DB_data);
 	}
 }
 

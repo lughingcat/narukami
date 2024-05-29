@@ -387,7 +387,7 @@
 			<div class="rank-p-title-wrap">
 			<h4 class="rank-prev">ランキングタイトル</h4>
 			<p>ランキングタイトルを入力してください</p>
-			<input type="text" class="rank-primary-title" name="rank_primary_title[]" value="<?php echo $rank_primary_title_result;?>">
+			<input type="text" class="rank-primary-title" name="rank_primary_title[<?php echo $gm_numbers; ?>]" value="<?php echo $rank_primary_title_result;?>">
 			</div>
 		<h4 class="rank-prev">ランキングポップデザイン</h4>
 		<p>ランキングポップのデザインを選択してください</p>
@@ -398,7 +398,7 @@
 			</div><!--rank-font-1-wrap-end-->
 				<div class="font-setting">
 					<p class="font-title">四角背景</p>
-					<input type="radio" name="rank_pop[]" value="math_sq_bg"
+					<input type="radio" name="rank_pop[<?php echo $gm_numbers; ?>]" value="math_sq_bg"
 						   <?php 
 						   echo checkbox_dataset($rank_pop_check, $rank_pop, $math_sq_bg, $gm_numbers);
 						   ?>
@@ -412,7 +412,7 @@
 			</div><!--rank-font-1-wrap-end-->
 				<div class="font-setting">
 					<p class="font-title">丸背景</p>
-					<input type="radio" name="rank_pop[]" value="math_circle_bg" 
+					<input type="radio" name="rank_pop[<?php echo $gm_numbers; ?>]" value="math_circle_bg" 
 						   <?php 
 						   echo checkbox_dataset($rank_pop_check, $rank_pop, $math_circle_bg, $gm_numbers);
 						   ?>
@@ -426,7 +426,7 @@
 			</div><!--rank-font-1-wrap-end-->
 				<div class="font-setting">
 					<p class="font-title">縦帯背景</p>
-					<input type="radio" name="rank_pop[]" value="math_band_bg"
+					<input type="radio" name="rank_pop[<?php echo $gm_numbers; ?>]" value="math_band_bg"
 						   <?php 
 						   echo checkbox_dataset($rank_pop_check, $rank_pop, $math_band_bg, $gm_numbers);
 						   ?>
@@ -441,7 +441,7 @@
 			</div><!--rank-font-1-wrap-end-->
 				<div class="font-setting">
 					<p class="font-title">ラベル背景</p>
-					<input type="radio" name="rank_pop[]" value="math_label_bg"
+					<input type="radio" name="rank_pop[<?php echo $gm_numbers; ?>]" value="math_label_bg"
 						   <?php 
 						   echo checkbox_dataset($rank_pop_check, $rank_pop, $math_label_bg, $gm_numbers);
 						   ?>
@@ -468,7 +468,7 @@
 			</div>
 				<div class="rank-radio-style">
 					<p class="rank-item-title">画像背景オーバーレイ</p>
-					<input type="radio" name="rank_style[]" value="overlay"
+					<input type="radio" name="rank_style[<?php echo $gm_numbers; ?>]" value="overlay"
 						   <?php
 						   echo checkbox_dataset($rank_style_check, $rank_style, $overlay, $gm_numbers);
 						   ?>
@@ -488,7 +488,7 @@
 			 </div>
 				<div class="rank-radio-style">
 					<p class="rank-item-title-2">画像のみ背景透過</p>
-					<input type="radio" name="rank_style[]" value="clipping" 
+					<input type="radio" name="rank_style[<?php echo $gm_numbers; ?>]" value="clipping" 
 						   <?php 
 						   echo checkbox_dataset($rank_style_check, $rank_style, $clipping, $gm_numbers);
 						   ?>
@@ -508,7 +508,7 @@
 			 </div>
 				<div class="rank-radio-style">
 					<p class="rank-item-title-3">画像背景丸形切り抜き</p>
-					<input type="radio" name="rank_style[]" value="circle" 
+					<input type="radio" name="rank_style[<?php echo $gm_numbers; ?>]" value="circle" 
 						   <?php 
 						   echo checkbox_dataset($rank_style_check, $rank_style, $circle, $gm_numbers);
 						   ?>
@@ -528,11 +528,11 @@
 			?>
 			<div class="inputWrap">
 			<h4>商品名を入力してください。</h4>
-			<input type="text" id="rank1-item-title" class="img-setect-url" name="item_title[]" value=<?php echo $rank_item_name_result; ?>>
+			<input type="text" id="rank1-item-title" class="img-setect-url" name="item_title[<?php echo $gm_numbers; ?>]" value=<?php echo $rank_item_name_result; ?>>
 			<h4>商品価格を入力してください。（※半角英数で数字のみ記載してください。）</h4>
-			<input type="text" id="rank-item-price"  class="img-setect-url" name="item_price[]" value=<?php echo $rank_item_price_result; ?>>
+			<input type="text" id="rank-item-price"  class="img-setect-url" name="item_price[<?php echo $gm_numbers; ?>]" value=<?php echo $rank_item_price_result; ?>>
 			<h4>詳細ページリンクURL</h4>
-			<input type="text" id="rank-item-url" class="img-setect-url" name="item_page_link[]" value=<?php echo $item_page_link_result; ?>>
+			<input type="text" id="rank-item-url" class="img-setect-url" name="item_page_link[<?php echo $gm_numbers; ?>]" value=<?php echo $item_page_link_result; ?>>
 				<div id="rank-notshow-overlay" class="rank-notinput-overlay">
 					<p class="rank-notshow-p">ランキングを非表示にしています。</p>
 					<p class="rank-notshow-p-sub">ランキングを入力、表示させるには下記のランキング表示切り替えで「表示する」をクリックして、入力をしてください。</p>
@@ -540,12 +540,12 @@
 			</div><!--inputWrap-end-->
 		</div><!--rank-item-detail-wrap1-end-->
 		<h4>ランキング表示切り替え</h4>
-			<label><input id="rank-1-show" type="radio" name="rank_on[]" value="rank_show_1"
+			<label><input id="rank-1-show" type="radio" name="rank_on[<?php echo $gm_numbers; ?>]" value="rank_show_1"
 						  <?php 
 						  echo check_rank_show($rank_on_check, $item_rank_on, $gm_numbers, $rank_show_result);
 						  ?>
 						  >表示する</label>
-			<label><input id="rank-1-notshow" type="radio" name="rank_on[]" value="rank_not_show_1"
+			<label><input id="rank-1-notshow" type="radio" name="rank_on[<?php echo $gm_numbers; ?>]" value="rank_not_show_1"
 						  <?php 
 						  echo check_rank_show($rank_on_check, $item_rank_on, $gm_numbers, $rank_notshow_result);
 						  ?>
@@ -558,11 +558,11 @@
 			?>
 			<div class="inputWrap">
 			<h4>商品名を入力してください。</h4>
-			<input type="text" id="rank2-item-title" class="img-setect-url" name="item_title_2[]" value=<?php echo $rank_item_name_2_result; ?>>
+			<input type="text" id="rank2-item-title" class="img-setect-url" name="item_title_2[<?php echo $gm_numbers; ?>]" value=<?php echo $rank_item_name_2_result; ?>>
 			<h4>商品価格を入力してください。（※半角英数で数字のみ記載してください。）</h4>
-			<input type="text" id="rank2-item-price" class="img-setect-url" name="item_price_2[]" value=<?php echo $rank_item_price_2_result; ?>>
+			<input type="text" id="rank2-item-price" class="img-setect-url" name="item_price_2[<?php echo $gm_numbers; ?>]" value=<?php echo $rank_item_price_2_result; ?>>
 			<h4>詳細ページリンクURL</h4>
-			<input type="text" id="rank2-item-url" class="img-setect-url" name="item_page_link_2[]" value=<?php echo $item_page_link_2_result; ?>>
+			<input type="text" id="rank2-item-url" class="img-setect-url" name="item_page_link_2[<?php echo $gm_numbers; ?>]" value=<?php echo $item_page_link_2_result; ?>>
 				<div id="rank-notshow-overlay-2" class="rank-notinput-overlay">
 					<p class="rank-notshow-p">ランキングを非表示にしています。</p>
 					<p class="rank-notshow-p-sub">ランキングを入力、表示させるには下記のランキング表示切り替えで「表示する」をクリックして、入力をしてください。</p>
@@ -570,12 +570,12 @@
 			</div><!--inputWrap-end-->
 		</div><!--rank-item-detail-wrap2-end-->
 		<h4>ランキング表示切り替え</h4>
-			<label><input id="rank-2-show" type="radio" name="rank_on_2[]" value="rank_show_2"
+			<label><input id="rank-2-show" type="radio" name="rank_on_2[<?php echo $gm_numbers; ?>]" value="rank_show_2"
 						  <?php 
 						  echo check_rank_show($rank_on_check_2, $item_rank_on_2, $gm_numbers, $rank_show_2_result);
 						  ?>
 						  >表示する</label>
-			<label><input id="rank-2-notshow" type="radio" name="rank_on_2[]" value="rank_not_show_2"
+			<label><input id="rank-2-notshow" type="radio" name="rank_on_2[<?php echo $gm_numbers; ?>]" value="rank_not_show_2"
 						  <?php 
 						  echo check_rank_show($rank_on_check_2, $item_rank_on_2, $gm_numbers, $rank_notshow_2_result);
 						  ?>
@@ -588,11 +588,11 @@
 			?>
 			<div class="inputWrap">
 			<h4>商品名を入力してください。</h4>
-			<input type="text" id="rank3-item-title" class="img-setect-url" name="item_title_3[]" value=<?php echo $rank_item_name_3_result; ?>>
+			<input type="text" id="rank3-item-title" class="img-setect-url" name="item_title_3[<?php echo $gm_numbers; ?>]" value=<?php echo $rank_item_name_3_result; ?>>
 			<h4>商品価格を入力してください。（※半角英数で数字のみ記載してください。）</h4>
-			<input type="text" id="rank3-item-price" class="img-setect-url" name="item_price_3[]" value=<?php echo $rank_item_price_3_result; ?>>
+			<input type="text" id="rank3-item-price" class="img-setect-url" name="item_price_3[<?php echo $gm_numbers; ?>]" value=<?php echo $rank_item_price_3_result; ?>>
 			<h4>詳細ページリンクURL</h4>
-			<input type="text" id="rank3-item-url" class="img-setect-url" name="item_page_link_3[]" value=<?php echo $item_page_link_3_result; ?>>
+			<input type="text" id="rank3-item-url" class="img-setect-url" name="item_page_link_3[<?php echo $gm_numbers; ?>]" value=<?php echo $item_page_link_3_result; ?>>
 			<div id="rank-notshow-overlay-3" class="rank-notinput-overlay">
 					<p class="rank-notshow-p">ランキングを非表示にしています。</p>
 					<p class="rank-notshow-p-sub">ランキングを入力、表示させるには下記のランキング表示切り替えで「表示する」をクリックして、入力をしてください。</p>
@@ -600,12 +600,12 @@
 			</div><!--inputWrap-end-->
 		</div><!--rank-item-detail-wrap3-end-->
 		<h4>ランキング表示切り替え</h4>
-			<label><input id="rank-3-show" type="radio" name="rank_on_3[]" value="rank_show_3"
+			<label><input id="rank-3-show" type="radio" name="rank_on_3[<?php echo $gm_numbers; ?>]" value="rank_show_3"
 						  <?php 
 						  echo check_rank_show($rank_on_check_3, $item_rank_on_3, $gm_numbers, $rank_show_3_result);
 						  ?>
 						  >表示する</label>
-			<label><input id="rank-3-notshow" type="radio" name="rank_on_3[]" value="rank_not_show_3"
+			<label><input id="rank-3-notshow" type="radio" name="rank_on_3[<?php echo $gm_numbers; ?>]" value="rank_not_show_3"
 						  <?php 
 						  echo check_rank_show($rank_on_check_3, $item_rank_on_3, $gm_numbers, $rank_notshow_3_result);
 						  ?>
@@ -617,11 +617,11 @@
 			?>
 			<div class="inputWrap">
 			<h4>商品名を入力してください。</h4>
-			<input type="text" id="rank4-item-title" class="img-setect-url" name="item_title_4[]" value=<?php echo $rank_item_name_4_result; ?>>
+			<input type="text" id="rank4-item-title" class="img-setect-url" name="item_title_4[<?php echo $gm_numbers; ?>]" value=<?php echo $rank_item_name_4_result; ?>>
 			<h4>商品価格を入力してください。（※半角英数で数字のみ記載してください。）</h4>
-			<input type="text" id="rank4-item-price" class="img-setect-url" name="item_price_4[]" value=<?php echo $rank_item_price_4_result; ?>>
+			<input type="text" id="rank4-item-price" class="img-setect-url" name="item_price_4[<?php echo $gm_numbers; ?>]" value=<?php echo $rank_item_price_4_result; ?>>
 			<h4>詳細ページリンクURL</h4>
-			<input type="text" id="rank4-item-url" class="img-setect-url" name="item_page_link_4[]" value=<?php echo $item_page_link_4_result; ?>>
+			<input type="text" id="rank4-item-url" class="img-setect-url" name="item_page_link_4[<?php echo $gm_numbers; ?>]" value=<?php echo $item_page_link_4_result; ?>>
 			<div id="rank-notshow-overlay-4" class="rank-notinput-overlay">
 					<p class="rank-notshow-p">ランキングを非表示にしています。</p>
 					<p class="rank-notshow-p-sub">ランキングを入力、表示させるには下記のランキング表示切り替えで「表示する」をクリックして、入力をしてください。</p>
@@ -629,12 +629,12 @@
 			</div><!--inputWrap-end-->
 		</div><!--rank-item-detail-wrap4-end-->
 		<h4>ランキング表示切り替え</h4>
-			<label><input id="rank-4-show" type="radio" name="rank_on_4[]" value="rank_show_4"
+			<label><input id="rank-4-show" type="radio" name="rank_on_4[<?php echo $gm_numbers; ?>]" value="rank_show_4"
 						  <?php 
 						  echo check_rank_show($rank_on_check_4, $item_rank_on_4, $gm_numbers, $rank_show_4_result);
 						  ?>
 						  >表示する</label>
-			<label><input id="rank-4-notshow" type="radio" name="rank_on_4[]" value="rank_not_show_4"
+			<label><input id="rank-4-notshow" type="radio" name="rank_on_4[<?php echo $gm_numbers; ?>]" value="rank_not_show_4"
 						  <?php 
 						  echo check_rank_show($rank_on_check_4, $item_rank_on_4, $gm_numbers, $rank_notshow_4_result);
 						  ?>
@@ -648,11 +648,11 @@
 			?>
 			<div class="inputWrap">
 			<h4>商品名を入力してください。</h4>
-			<input type="text" id="rank5-item-title" class="img-setect-url" name="item_title_5[]" value=<?php echo $rank_item_name_5_result; ?>>
+			<input type="text" id="rank5-item-title" class="img-setect-url" name="item_title_5[<?php echo $gm_numbers; ?>]" value=<?php echo $rank_item_name_5_result; ?>>
 			<h4>商品価格を入力してください。（※半角英数で数字のみ記載してください。）</h4>
-			<input type="text" id="rank5-item-price" class="img-setect-url" name="item_price_5[]" value=<?php echo $rank_item_price_5_result; ?>>
+			<input type="text" id="rank5-item-price" class="img-setect-url" name="item_price_5[<?php echo $gm_numbers; ?>]" value=<?php echo $rank_item_price_5_result; ?>>
 			<h4>詳細ページリンクURL</h4>
-			<input type="text" id="rank5-item-url" class="img-setect-url" name="item_page_link_5[]" value=<?php echo $item_page_link_5_result; ?>>
+			<input type="text" id="rank5-item-url" class="img-setect-url" name="item_page_link_5[<?php echo $gm_numbers; ?>]" value=<?php echo $item_page_link_5_result; ?>>
 			<div id="rank-notshow-overlay-5" class="rank-notinput-overlay">
 					<p class="rank-notshow-p">ランキングを非表示にしています。</p>
 					<p class="rank-notshow-p-sub">ランキングを入力、表示させるには下記のランキング表示切り替えで「表示する」をクリックして、入力をしてください。</p>
@@ -660,12 +660,12 @@
 			</div><!--inputWrap-end-->
 		</div><!--rank-item-detail-wrap5-end-->
 		<h4>ランキング表示切り替え</h4>
-			<label><input id="rank-5-show" type="radio" name="rank_on_5[]" value="rank_show_5"
+			<label><input id="rank-5-show" type="radio" name="rank_on_5[<?php echo $gm_numbers; ?>]" value="rank_show_5"
 						  <?php 
 						  echo check_rank_show($rank_on_check_5, $item_rank_on_5, $gm_numbers, $rank_show_5_result);
 						  ?>
 						  >表示する</label>
-			<label><input id="rank-5-notshow" type="radio" name="rank_on_5[]" value="rank_not_show_5"
+			<label><input id="rank-5-notshow" type="radio" name="rank_on_5[<?php echo $gm_numbers; ?>]" value="rank_not_show_5"
 						  <?php 
 						  echo check_rank_show($rank_on_check_5, $item_rank_on_5, $gm_numbers, $rank_notshow_5_result);
 						  ?>
@@ -677,11 +677,11 @@
 			?>
 			<div class="inputWrap">
 			<h4>商品名を入力してください。</h4>
-			<input type="text" id="rank6-item-title" class="img-setect-url" name="item_title_6[]" value=<?php echo $rank_item_name_6_result; ?>>
+			<input type="text" id="rank6-item-title" class="img-setect-url" name="item_title_6[<?php echo $gm_numbers; ?>]" value=<?php echo $rank_item_name_6_result; ?>>
 			<h4>商品価格を入力してください。（※半角英数で数字のみ記載してください。）</h4>
-			<input type="text" id="rank6-item-price" class="img-setect-url" name="item_price_6[]" value=<?php echo $rank_item_price_6_result; ?>>
+			<input type="text" id="rank6-item-price" class="img-setect-url" name="item_price_6[<?php echo $gm_numbers; ?>]" value=<?php echo $rank_item_price_6_result; ?>>
 			<h4>詳細ページリンクURL</h4>
-			<input type="text" id="rank6-item-url" class="img-setect-url" name="item_page_link_6[]" value=<?php echo $item_page_link_6_result; ?>>
+			<input type="text" id="rank6-item-url" class="img-setect-url" name="item_page_link_6[<?php echo $gm_numbers; ?>]" value=<?php echo $item_page_link_6_result; ?>>
 			<div id="rank-notshow-overlay-6" class="rank-notinput-overlay">
 					<p class="rank-notshow-p">ランキングを非表示にしています。</p>
 					<p class="rank-notshow-p-sub">ランキングを入力、表示させるには下記のランキング表示切り替えで「表示する」をクリックして、入力をしてください。</p>
@@ -689,12 +689,12 @@
 			</div><!--inputWrap-end-->
 		</div><!--rank-item-detail-wrap6-end-->
 		<h4>ランキング表示切り替え</h4>
-			<label><input id="rank-6-show" type="radio" name="rank_on_6[]" value="rank_show_6"
+			<label><input id="rank-6-show" type="radio" name="rank_on_6[<?php echo $gm_numbers; ?>]" value="rank_show_6"
 						  <?php 
 						  echo check_rank_show($rank_on_check_6, $item_rank_on_6, $gm_numbers, $rank_show_6_result);
 						  ?>
 						  >表示する</label>
-			<label><input id="rank-6-notshow" type="radio" name="rank_on_6[]" value="rank_not_show_6"
+			<label><input id="rank-6-notshow" type="radio" name="rank_on_6[<?php echo $gm_numbers; ?>]" value="rank_not_show_6"
 						  <?php 
 						  echo check_rank_show($rank_on_check_6, $item_rank_on_6, $gm_numbers, $rank_notshow_6_result);
 						  ?>

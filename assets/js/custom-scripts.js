@@ -25,8 +25,6 @@ function loadContent(selectElement) {
                     // サーバーからの応答を表示対象の要素に設定
                     contentContainer.innerHTML = response;
                     handleSelectChange(selectedValue, parentIdNum);
-                    console.log(selectedValue);
-                    console.log(parentIdNum);
                 } catch (error) {
                     console.error('Error in success handler:', error);
                 }

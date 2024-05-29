@@ -47,18 +47,19 @@
 			  ?>
 			<?php
 			//array-check
-			$column_right_1_bgImg_url_check = isset($_POST['column_right_1_bg_img_url']) ? $_POST['column_right_1_bg_img_url'] : "";
+			$column_right_1_bgImg_url_check = isset($_POST['column_right_bg_img_url']) ? $_POST['column_right_bg_img_url'] : "";
 			$column_right_1_title_check = isset($_POST['column_right_1_title']) ? $_POST['column_right_1_title'] : "";
 			$column_right_1_content_check = isset($_POST['column_right_1_content']) ? $_POST['column_right_1_content'] : "";
 			//function-result
 			$column_right_1_bgImg_url_result = data_variable_set($column_right_1_bgImg_url_check, $column_right_1_bgImg_url, $gm_numbers);
 			$column_right_1_title_result = data_variable_set($column_right_1_title_check, $column_right_1_title, $gm_numbers);
-			$column_right_1_content_result = data_variable_set_nl2br($column_right_1_content_check, $column_right_1_content, $gm_numbers);
+			$column_right_1_content_result = data_variable_set($column_right_1_content_check, $column_right_1_content, $gm_numbers);
+			$column_right_1_content_nl2br = nl2br($column_right_1_content_result);
 			?>
 			<div class="column_right_1-all-wrap">
 				<div class="column_right_1-text-wrap">
 					<p class="column_right_1-main-title"><?php echo $column_right_1_title_result; ?></p>
-					<p class="column_right_1-main-content"><?php echo $column_right_1_content_result; ?></p>
+					<p class="column_right_1-main-content"><?php echo stripslashes($column_right_1_content_nl2br); ?></p>
 				</div>
 				<div class="column_right_1-back-wrap"
 					 style="background-image: url(<?php echo $column_right_1_bgImg_url_result; ?>)">
@@ -69,16 +70,16 @@
 	<div class="inputForm">
 	<h4 class="h-admin-4-bg">画像を選択してください。</h4>
 	<?php
-  	generate_upload_image_tag('column_right_1_bg_img_url', $column_right_1_bgImg_url_result, $insertGlobalId, $gm_numbers);
+  	generate_upload_image_tag('column_right_bg_img_url', $column_right_1_bgImg_url_result, $insertGlobalId, $gm_numbers);
 	?>
 	<h4>タイトルを入力してください。</h4>
-	<input type="text" name="column_right_1_title[]" class="img-setect-url" value=
+	<input type="text" name="column_right_1_title[<?php echo $gm_numbers; ?>]" class="img-setect-url" value=
 		   <?php echo $column_right_1_title_result; ?>
 		   >
 	<h4>文章を入力してください。</h4>
 		<p>※改行せずに入力すると美しく見えます。</p>
-	<textarea name="column_right_1_content[]" class="adm-textarea"><?php echo $column_right_1_content_result;?>
-		</textarea>
+	<textarea name="column_right_1_content[<?php echo $gm_numbers; ?>]" class="narukami-tinymce-editor"><?php echo stripslashes($column_right_1_content_nl2br);?>
+	</textarea>
 	</div>
 	<button type="button" id="column_right_1CloseBtn" onClick="closeFile(this)">閉じる</button>
 </div>

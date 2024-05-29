@@ -565,6 +565,11 @@ function openPageElement(button) {
     let conceptWrap = parentEl.querySelector('.cmakerWrapConcept');
 	let rankingWrap = parentEl.querySelector('.cmaker-wrap-ranking');
 	let column_right_1 = parentEl.querySelector('.cmakerWrapcolumn_right_1');
+	let column_left_1 = parentEl.querySelector('.cmakerWrapcolumn_left_1');
+	let column_2 = parentEl.querySelector('.cmakerWrapcolumn_2');
+	let column_3 = parentEl.querySelector('.cmakerWrapcolumn_3');
+	let storeInfo = parentEl.querySelector('.cmakerWrapstore_info');
+	let textContent = parentEl.querySelector('.cmakerWraptext_content');
 	let buttonId = button.id;
 	let idNum = buttonId.match(/\d+$/)[0];
     if (grandmenuWrap) {
@@ -576,6 +581,16 @@ function openPageElement(button) {
 		rankingControl(idNum);
 	} else if (column_right_1){
 		column_right_1.classList.remove('notshow');
+	} else if (column_left_1){
+		column_left_1.classList.remove('notshow');
+	} else if (column_2){
+		column_2.classList.remove('notshow');
+	} else if (column_3){
+		column_3.classList.remove('notshow');
+	} else if (storeInfo){
+		storeInfo.classList.remove('notshow');
+	} else if (textContent){
+		textContent.classList.remove('notshow');
 	}
 }
 
@@ -583,30 +598,61 @@ function handleSelectChange(selectName, parentIdNum) {
     var selectedValue = selectName;
 	commonInitialization();
     if (selectedValue === "parallax") {
+		
         parallaxControl();
         animateTextWithSpans('.parallax-title');
 		
     } else if (selectedValue === "grandmenu") {
+		
         grandMenuControl();
 		gmImgListAnimation();
 		loadCloseClass(selectedValue, parentIdNum);
         animateTextWithSpans('.gm-primary-title');
 		
     } else if (selectedValue === "concept") {
+		
 		loadCloseClass(selectedValue, parentIdNum);
         animateTextWithSpans('.concept-main-title');
+		initCustomEditor();
 		
     } else if (selectedValue === "ranking") {
+		
         rankingControl(parentIdNum);
 		loadCloseClass(selectedValue, parentIdNum);
         animateTextWithSpans('.r-p-t-prev');
 		
     } else if (selectedValue === "store_info") {
+		
+		loadCloseClass(selectedValue, parentIdNum);
         animateTextWithSpans('.store-info-p_title');
 		
     } else if (selectedValue === "column_right_1"){
+		
 		loadCloseClass(selectedValue, parentIdNum);
 		animateTextWithSpans('.column_right_1-main-title');
+		initCustomEditor();
+		
+	} else if (selectedValue === "column_left_1"){
+		
+		loadCloseClass(selectedValue, parentIdNum);
+		animateTextWithSpans('.column_left_1-main-title');
+		initCustomEditor();
+		
+	} else if (selectedValue === "column_2"){
+		
+		loadCloseClass(selectedValue, parentIdNum);
+		initCustomEditor();
+		
+	} else if (selectedValue === "column_3"){
+		
+		loadCloseClass(selectedValue, parentIdNum);
+		initCustomEditor();
+		
+	} else if (selectedValue === "text_content"){
+		
+		loadCloseClass(selectedValue, parentIdNum);
+		animateTextWithSpans('.text_content-main-title');
+		initCustomEditor();
 	}
 }
 function commonInitialization(){
@@ -698,7 +744,6 @@ function initializeUploader($, name, insertIdName, insertLastNumber) {
         },
         multiple: false
     });
-
     custom_uploader.on("select", function () {
         var images = custom_uploader.state().get("selection");
         images.each(function (file) {

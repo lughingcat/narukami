@@ -120,6 +120,16 @@
 					  include('ranking.php');
 				  }elseif($entry['item'] == "column_right_1"){
 					  include('column_right_1.php');
+				  }elseif($entry['item'] == "column_left_1"){
+					  include('column_left_1.php');
+				  }elseif($entry['item'] == "column_2"){
+					  include('column_2.php');
+				  }elseif($entry['item'] == "column_3"){
+					  include('column_3.php');
+				  }elseif($entry['item'] == "store_info"){
+					  include('store_info.php');
+				  }elseif($entry['item'] == "text_content"){
+					  include('text_content.php');
 				  }
 				  ?>
 			  </div>

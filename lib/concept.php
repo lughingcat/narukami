@@ -47,69 +47,39 @@
 			   $insert_id_array = $row->insert_ids;
 		    };
 		  ?>
+			<?php
+			//array-check
+			$concept_bgImg_url_check = isset($_POST['concept_bg_img_url']) ? $_POST['concept_bg_img_url'] : "";
+			$concept_title_check = isset($_POST['concept_title']) ? $_POST['concept_title'] : "";
+			$concept_content_check = isset($_POST['concept_content']) ? $_POST['concept_content'] : "";
+			//function-result
+			$concept_bgImg_url_result = data_variable_set($concept_bgImg_url_check, $concept_bgImg_url, $gm_numbers);
+			$concept_title_result = data_variable_set($concept_title_check, $concept_title, $gm_numbers);
+			$concept_content_result = data_variable_set($concept_content_check, $concept_content, $gm_numbers);
+			$concept_content_nl2br = nl2br($concept_content_result);
+			?>
 		<div class="concept-back-wrap"
-			 style="background-image: url(<?php 
-					if( isset( $_POST['concept_bg_img_url']) && is_array( $_POST['concept_bg_img_url'])){ 
-						echo $_POST['concept_bg_img_url'][$gm_numbers]; 
-					}elseif( !isset($_POST['concept_bg_img_url']) ){ 
-						echo $concept_bgImg_url; }
-					;?> 
-			)">
+			 style="background-image: url(<?php echo $concept_bgImg_url_result; ?> )">
 			<div class="concept-text-wrap">
-			<p class="concept-main-title">
-				<?php 
-				if(isset( $_POST['concept_title']) && is_array( $_POST['concept_title'])) {
-					echo $_POST['concept_title'][$gm_numbers]; 
-				} elseif( !isset($_POST['concept_title'])) {
-					echo $concept_title;
-				}
-				?>
-			</p>
-			<p class="concept-main-content">
-				<?php 
-				if( isset( $_POST['concept_content']) && is_array($_POST['concept_content'])){ 
-					echo nl2br($_POST['concept_content'][$gm_numbers]); 
-				}elseif( !isset($_POST['concept_content'])) { 
-					echo nl2br($concept_content); 
-				}
-				;?>
-			</p>
+				<p class="concept-main-title"><?php echo $concept_title_result; ?></p>
+				<p class="concept-main-content"><?php echo stripslashes($concept_content_nl2br); ?></p>
 			</div>
 		</div>
 		</article>
 	</div>
 	<div class="inputForm">
-	<?php 
-		if( !empty($_POST['concept_bg_img_url']) ){ 
-			$concept_bg_url = $_POST['concept_bg_img_url'][$gm_numbers]; 
-		}else{ 
-			$concept_bg_url = $concept_bgImg_url;
-		}	
-	;?>
 	<h4 class="h-admin-4-bg">コンセプト表示の背景画像を選択してください。</h4>
 	<?php
-  	generate_upload_image_tag('concept_bg_img_url', $concept_bg_url, $insertGlobalId, $gm_numbers);
+  	generate_upload_image_tag('concept_bg_img_url', $concept_bgImg_url_result, $insertGlobalId, $gm_numbers);
 	?>
 	<h4>コンセプトタイトルを入力してください。</h4>
 	<input type="text" name="concept_title[<?php echo $gm_numbers; ?>]" class="img-setect-url" value=
-		   <?php
-		   if( isset($_POST['concept_title'])){
-			   echo $_POST['concept_title'][$gm_numbers];
-		   }else{
-			   echo $concept_title;
-		   }
-			   ;?>
+		   <?php echo $concept_title_result; ?>
 		   >
 	<h4>コンセプト文章を入力してください。</h4>
 		<p>※改行せずに入力すると美しく見えます。</p>
-	<textarea name="concept_content[<?php echo $gm_numbers; ?>]" class="adm-textarea"><?php
-		if( isset($_POST['concept_content'])){
-			echo $_POST['concept_content'][$gm_numbers];
-		}else{
-			echo $concept_content;
-		}
-		;?>
-		</textarea>
+	<textarea name="concept_content[<?php echo $gm_numbers; ?>]" class="narukami-tinymce-editor"><?php echo stripslashes($concept_content_nl2br); ?>
+	</textarea>
 	</div>
 	<button type="button" id="conceptCloseBtn" onClick="closeFile(this)">閉じる</button>
 </div>

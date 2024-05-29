@@ -196,9 +196,15 @@ function add_admin_style(){
   wp_enqueue_style('admin_style', $path_css);
   $path_js = get_template_directory_uri().'/assets/js/admin.js';
   wp_enqueue_script('admin_script', $path_js, '', '', true);
+
 }
 add_action('admin_enqueue_scripts', 'add_admin_style');
 
+function my_custom_editor_enqueue() {
+	wp_enqueue_editor();
+    wp_enqueue_script('my_custom_editor_script', get_template_directory_uri() . '/assets/js/custom-editor.js', array('jquery', 'wp-editor'), null, true);
+}
+add_action('admin_enqueue_scripts', 'my_custom_editor_enqueue');
 
 //セッション
 function start_admin_session() {

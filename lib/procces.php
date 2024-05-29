@@ -60,44 +60,49 @@ $i_parallax_bg_img_url = json_encode($_POST['parallax_bg_img_url'], JSON_UNESCAP
 $i_parallax_title = json_encode( $_POST['parallax_title'], JSON_UNESCAPED_UNICODE);
 $i_parallax_content = json_encode( $_POST['parallax_content'], JSON_UNESCAPED_UNICODE);
 $i_parallax_primary_title = $_POST['parallax_primary_title'];
+
 //右画像１カラム
-$i_column_right_1_img_url = isset($_POST['column_right_1_bg_img_url']) ? $_POST['column_right_1_bg_img_url'] : array();
+$i_column_right_img_url = isset($_POST['column_right_bg_img_url']) ? $_POST['column_right_bg_img_url'] : array();
 $i_column_right_1_title = isset($_POST['column_right_1_title']) ? $_POST['column_right_1_title'] : array();
 $i_column_right_1_content = isset($_POST['column_right_1_content']) ? $_POST['column_right_1_content'] : array();
+
 //左画像１カラム
-$i_column_left_1_img_url = $_POST['column_left_1_bg_img_url'];
-$i_column_left_1_title = $_POST['column_left_1_title'];
-$i_column_left_1_content = $_POST['column_left_1_content'];
+$i_column_left_img_url = isset($_POST['column_left_bg_img_url']) ? $_POST['column_left_bg_img_url'] : array();
+$i_column_left_1_title = isset($_POST['column_left_1_title']) ? $_POST['column_left_1_title'] : array();
+$i_column_left_1_content = isset($_POST['column_left_1_content']) ? $_POST['column_left_1_content'] : array();
+
 //2カラム
-$i_column_2_bgImg_url = $_POST['column_2_bg_img_url'];
-$i_column_2_title = $_POST['column_2_title'];
-$i_column_2_content = $_POST['column_2_content'];
-$i_column_2_sec_bgImg_url = $_POST['column_2_sec_bg_img_url'];
-$i_column_2_sec_title = $_POST['column_2_sec_title'];
-$i_column_2_sec_content = $_POST['column_2_sec_content'];
+$i_column_2_bgImg_url = isset($_POST['column_two_bg_img_url']) ? $_POST['column_two_bg_img_url'] : array();
+$i_column_2_title = isset($_POST['column_2_title']) ? $_POST['column_2_title'] : array();
+$i_column_2_content = isset($_POST['column_2_content']) ? $_POST['column_2_content'] : array();
+$i_column_2_sec_bgImg_url = isset($_POST['column_two_sec_bg_img_url']) ? $_POST['column_two_sec_bg_img_url'] : array();
+$i_column_2_sec_title = isset($_POST['column_2_sec_title']) ? $_POST['column_2_sec_title'] : array();
+$i_column_2_sec_content = isset($_POST['column_2_sec_content']) ? $_POST['column_2_sec_content'] : array();
+
 //3カラム
-$i_column_3_bgImg_url = $_POST['column_3_bg_img_url'];
-$i_column_3_title = $_POST['column_3_title'];
-$i_column_3_content = $_POST['column_3_content'];
-$i_column_3_sec_bgImg_url = $_POST['column_3_sec_bg_img_url'];
-$i_column_3_sec_title = $_POST['column_3_sec_title'];
-$i_column_3_sec_content = $_POST['column_3_sec_content'];
-$i_column_3_third_bgImg_url = $_POST['column_3_third_bg_img_url'];
-$i_column_3_third_title = $_POST['column_3_third_title'];
-$i_column_3_third_content = $_POST['column_3_third_content'];
+$i_column_3_bgImg_url = isset($_POST['column_three_bg_img_url']) ? $_POST['column_three_bg_img_url'] : array();
+$i_column_3_title = isset($_POST['column_3_title']) ? $_POST['column_3_title'] : array();
+$i_column_3_content = isset($_POST['column_3_content']) ? $_POST['column_3_content'] : array();
+$i_column_3_sec_bgImg_url = isset($_POST['column_three_sec_bg_img_url']) ? $_POST['column_three_sec_bg_img_url'] : array();
+$i_column_3_sec_title = isset($_POST['column_3_sec_title']) ? $_POST['column_3_sec_title'] : array();
+$i_column_3_sec_content = isset($_POST['column_3_sec_content']) ? $_POST['column_3_sec_content'] : array();
+$i_column_3_third_bgImg_url = isset($_POST['column_three_third_bg_img_url']) ? $_POST['column_three_third_bg_img_url'] : array();
+$i_column_3_third_title = isset($_POST['column_3_third_title']) ? $_POST['column_3_third_title'] : array();
+$i_column_3_third_content = isset($_POST['column_3_third_content']) ? $_POST['column_3_third_content'] : array();
+
 //店舗情報
-$i_store_info_title = $_POST['store_info_title'];
-$i_store_name = $_POST['store_name'];
-$i_store_info_bg_img_url = $_POST['store_info_bg_img_url'];
-$i_store_post_number = $_POST['store_post_number'];
-$i_store_adress = $_POST['store_adress'];
-$i_store_phone_num = $_POST['store_phone_num'];
-$i_store_rg_holiday = $_POST['store_rg_holiday'];
+$i_store_info_title = isset($_POST['store_info_title']) ? $_POST['store_info_title'] : array();
+$i_store_name = isset($_POST['store_name']) ? $_POST['store_name'] : array();
+$i_store_info_bg_img_url = isset($_POST['store_info_bg_img_url']) ? $_POST['store_info_bg_img_url'] : array();
+$i_store_post_number = isset($_POST['store_post_number']) ? $_POST['store_post_number'] : array();
+$i_store_adress = isset($_POST['store_adress']) ? $_POST['store_adress'] : array();
+$i_store_phone_num = isset($_POST['store_phone_num']) ? $_POST['store_phone_num'] : array();
+$i_store_rg_holiday = isset($_POST['store_rg_holiday']) ? $_POST['store_rg_holiday'] : array();
+
 //テキストエリア
-$i_text_content_bg_color = $_POST['text_content_bg_color'];
-$i_text_content_title = $_POST['text_content_title'];
-$i_text_content_content = $_POST['text_content_content'];
-$i_text_content_title_color = $_POST['text_content_title_color'];
+$i_text_content_title = isset($_POST['text_content_title']) ? $_POST['text_content_title'] : array();
+$i_text_content_content = isset($_POST['text_content_content']) ? $_POST['text_content_content'] : array();
+
 //dbの初期化
 $i_delete_iniz = $_POST['delete_iniz'];
 //ループ処理で$select_contentの値を振り分けてinsertさせる
@@ -142,7 +147,7 @@ foreach ($select_contents as $key => $select_content) {
 	$i_item_url_5_roop = isset($i_item_url_5[$key]) ? $i_item_url_5[$key] : '';
 	$i_item_page_link_5_roop = isset($i_item_page_link_5[$key]) ? $i_item_page_link_5[$key] : '';
 	$i_rank_on_5_roop = isset($i_rank_on_5[$key]) ? $i_rank_on_5[$key] : '';
-	//5
+	//6
 	$i_title_6_roop = isset($i_title_6[$key]) ? $i_title_6[$key] : '';
 	$i_price_6_roop = isset($i_price_6[$key]) ? $i_price_6[$key] : '';
 	$i_item_url_6_roop = isset($i_item_url_6[$key]) ? $i_item_url_6[$key] : '';
@@ -155,9 +160,46 @@ foreach ($select_contents as $key => $select_content) {
 	$concept_content_roop = isset($i_concept_content[$key]) ? $i_concept_content[$key] : '';
 	
 	//右画像背景1カラム
-	$column_right_1_img_url_roop = isset($i_column_right_1_img_url[$key]) ? $i_column_right_1_img_url[$key] : '';
+	$column_right_img_url_roop = isset($i_column_right_img_url[$key]) ? $i_column_right_img_url[$key] : '';
 	$column_right_1_title_roop = isset($i_column_right_1_title[$key]) ? $i_column_right_1_title[$key] : '';
 	$column_right_1_content_roop = isset($i_column_right_1_content[$key]) ? $i_column_right_1_content[$key] : '';
+	
+	//左画像背景1カラム
+	$column_left_img_url_roop = isset($i_column_left_img_url[$key]) ? $i_column_left_img_url[$key] : '';
+	$column_left_1_title_roop = isset($i_column_left_1_title[$key]) ? $i_column_left_1_title[$key] : '';
+	$column_left_1_content_roop = isset($i_column_left_1_content[$key]) ? $i_column_left_1_content[$key] : '';
+
+	//2カラム
+	$column_2_bgImg_url_roop = isset($i_column_2_bgImg_url[$key]) ? $i_column_2_bgImg_url[$key] : '';
+	$column_2_title_roop = isset($i_column_2_title[$key]) ? $i_column_2_title[$key] : '';
+	$column_2_content_roop = isset($i_column_2_content[$key]) ? $i_column_2_content[$key] : '';
+	$column_2_sec_bgImg_url_roop = isset($i_column_2_sec_bgImg_url[$key]) ? $i_column_2_sec_bgImg_url[$key] : '';
+	$column_2_sec_title_roop = isset($i_column_2_sec_title[$key]) ? $i_column_2_sec_title[$key] : '';
+	$column_2_sec_content_roop = isset($i_column_2_sec_content[$key]) ? $i_column_2_sec_content[$key] : '';
+	
+	//3カラム
+	$column_3_bgImg_url_roop = isset($i_column_3_bgImg_url[$key]) ? $i_column_3_bgImg_url[$key] : '';
+	$column_3_title_roop = isset($i_column_3_title[$key]) ? $i_column_3_title[$key] : '';
+	$column_3_content_roop = isset($i_column_3_content[$key]) ? $i_column_3_content[$key] : '';
+	$column_3_sec_bgImg_url_roop = isset($i_column_3_sec_bgImg_url[$key]) ? $i_column_3_sec_bgImg_url[$key] : '';
+	$column_3_sec_title_roop = isset($i_column_3_sec_title[$key]) ? $i_column_3_sec_title[$key] : '';
+	$column_3_sec_content_roop = isset($i_column_3_sec_content[$key]) ? $i_column_3_sec_content[$key] : '';
+	$column_3_third_bgImg_url_roop = isset($i_column_3_third_bgImg_url[$key]) ? $i_column_3_third_bgImg_url[$key] : '';
+	$column_3_third_title_roop = isset($i_column_3_third_title[$key]) ? $i_column_3_third_title[$key] : '';
+	$column_3_third_content_roop = isset($i_column_3_third_content[$key]) ? $i_column_3_third_content[$key] : '';
+	
+	//店舗情報
+	$store_info_title_roop = isset($i_store_info_title[$key]) ? $i_store_info_title[$key] : '';
+	$store_name_roop = isset($i_store_name[$key]) ? $i_store_name[$key] : '';
+	$store_info_bg_img_url_roop = isset($i_store_info_bg_img_url[$key]) ? $i_store_info_bg_img_url[$key] : '';
+	$store_post_number_roop = isset($i_store_post_number[$key]) ? $i_store_post_number[$key] : '';
+	$store_adress_roop = isset($i_store_adress[$key]) ? $i_store_adress[$key] : '';
+	$store_phone_num_roop = isset($i_store_phone_num[$key]) ? $i_store_phone_num[$key] : '';
+	$store_rg_holiday_roop = isset($i_store_rg_holiday[$key]) ? $i_store_rg_holiday[$key] : '';
+	
+	//テキストエリア
+	$text_content_title_roop = isset($i_text_content_title[$key]) ? $i_text_content_title[$key] : '';
+	$text_content_content_roop = isset($i_text_content_content[$key]) ? $i_text_content_content[$key] : '';
 	
 	//グランドメニュー
 	$grandmenu_img_url_roop = isset($i_grandmenu_img_url[$key]) ? $i_grandmenu_img_url[$key] : '';
@@ -336,7 +378,7 @@ foreach ($select_contents as $key => $select_content) {
 		//インサートid
 		'insert_ids' => $insert_id,
 		//右画像１カラム
-		'column_right_1_bg_img_url' => $column_right_1_img_url_roop,
+		'column_right_1_bg_img_url' => $column_right_img_url_roop,
 		'column_right_1_title' => $column_right_1_title_roop,
 		'column_right_1_content' => $column_right_1_content_roop,
 		),
@@ -362,9 +404,9 @@ foreach ($select_contents as $key => $select_content) {
 		//インサートid
 		'insert_ids' => $insert_id,
 		//左画像１カラム
-		'column_left_1_bg_img_url' => $i_column_left_1_img_url,
-		'column_left_1_title' => $i_column_left_1_title,
-		'column_left_1_content' => $i_column_left_1_content,
+		'column_left_1_bg_img_url' => $column_left_img_url_roop,
+		'column_left_1_title' => $column_left_1_title_roop,
+		'column_left_1_content' => $column_left_1_content_roop,
 		),
 		array(
 		//セレクトボックス
@@ -388,12 +430,12 @@ foreach ($select_contents as $key => $select_content) {
 		//インサートid
 		'insert_ids' => $insert_id,
 		//2カラム
-		'column_2_bg_img_url' => $i_column_2_bgImg_url,
-		'column_2_title' => $i_column_2_title,
-		'column_2_content' => $i_column_2_content,
-		'column_2_sec_bg_img_url' => $i_column_2_sec_bgImg_url,
-		'column_2_sec_title' => $i_column_2_sec_title,
-		'column_2_sec_content' => $i_column_2_sec_content,
+		'column_2_bg_img_url' => $column_2_bgImg_url_roop,
+		'column_2_title' => $column_2_title_roop,
+		'column_2_content' => $column_2_content_roop,
+		'column_2_sec_bg_img_url' => $column_2_sec_bgImg_url_roop,
+		'column_2_sec_title' => $column_2_sec_title_roop,
+		'column_2_sec_content' => $column_2_sec_content_roop,
 		),
 		array(
 		//セレクトボックス
@@ -420,15 +462,15 @@ foreach ($select_contents as $key => $select_content) {
 		//インサートid
 		'insert_ids' => $insert_id,
 		//3カラム
-		'column_3_bg_img_url' => $i_column_3_bgImg_url,
-		'column_3_title' => $i_column_3_title,
-		'column_3_content' => $i_column_3_content,
-		'column_3_sec_bg_img_url' => $i_column_3_sec_bgImg_url,
-		'column_3_sec_title' => $i_column_3_sec_title,
-		'column_3_sec_content' => $i_column_3_sec_content,
-		'column_3_third_bg_img_url' => $i_column_3_third_bgImg_url,
-		'column_3_third_title' => $i_column_3_third_title,
-		'column_3_third_content' => $i_column_3_third_content,
+		'column_3_bg_img_url' => $column_3_bgImg_url_roop,
+		'column_3_title' => $column_3_title_roop,
+		'column_3_content' => $column_3_content_roop,
+		'column_3_sec_bg_img_url' => $column_3_sec_bgImg_url_roop,
+		'column_3_sec_title' => $column_3_sec_title_roop,
+		'column_3_sec_content' => $column_3_sec_content_roop,
+		'column_3_third_bg_img_url' => $column_3_third_bgImg_url_roop,
+		'column_3_third_title' => $column_3_third_title_roop,
+		'column_3_third_content' => $column_3_third_content_roop,
 		),
 		array(
 		//セレクトボックス
@@ -458,13 +500,13 @@ foreach ($select_contents as $key => $select_content) {
 		//インサートid
 		'insert_ids' => $insert_id,
 		//店舗情報
-		'store_info_title' => $i_store_info_title,
-		'store_name' => $i_store_name,
-		'store_info_bg_img_url' => $i_store_info_bg_img_url,
-		'store_post_number' => $i_store_post_number,
-		'store_adress' => $i_store_adress,
-		'store_phone_num' => $i_store_phone_num,
-		'store_rg_holiday' => $i_store_rg_holiday,
+		'store_info_title' => $store_info_title_roop,
+		'store_name' => $store_name_roop,
+		'store_info_bg_img_url' => $store_info_bg_img_url_roop,
+		'store_post_number' => $store_post_number_roop,
+		'store_adress' => $store_adress_roop,
+		'store_phone_num' => $store_phone_num_roop,
+		'store_rg_holiday' => $store_rg_holiday_roop,
 		),
 		array(
 		//セレクトボックス
@@ -492,10 +534,8 @@ foreach ($select_contents as $key => $select_content) {
 		//インサートid
 		'insert_ids' => $insert_id,
 		//テキストエリア
-		'text_content_bg_color' => $i_text_content_bg_color,
-		'text_content_title' => $i_text_content_title,
-		'text_content_content' => $i_text_content_content,
-		'text_content_title_color' => $i_text_content_title_color,
+		'text_content_title' => $text_content_title_roop,
+		'text_content_content' => $text_content_content_roop,
 		),
 		array(
 		//セレクトボックス
@@ -503,8 +543,6 @@ foreach ($select_contents as $key => $select_content) {
 		//インサートid
 		'%s',
 		//テキストエリア
-		'%s',
-		'%s',
 		'%s',
 		'%s',
 		)
