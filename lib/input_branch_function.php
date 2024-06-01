@@ -17,8 +17,16 @@ function data_variable_set($POST_data, $DB_data, $gm_numbers){
 		return $DB_data;
 	}
 }
-
-
+//json用
+function data_variable_set_json($POST_data, $DB_data, $gm_numbers){
+	if(is_array($POST_data) && array_key_exists($gm_numbers, $POST_data)){
+		return $POST_data[$gm_numbers];
+	}elseif(!empty($POST_data)){
+		return $POST_data;
+	}else{
+		return json_decode($DB_data, true);
+	}
+}
 /*
 store-infoGoogleマップリンクバックスラッシュ削除
 */

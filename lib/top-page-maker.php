@@ -130,6 +130,8 @@
 					  include('store_info.php');
 				  }elseif($entry['item'] == "text_content"){
 					  include('text_content.php');
+				  }elseif($entry['item'] == "parallax"){
+					  include('parallax.php');
 				  }
 				  ?>
 			  </div>

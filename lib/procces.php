@@ -56,10 +56,10 @@ $i_grandmenu_title = isset($_POST['grandmenu_title']) ? $_POST['grandmenu_title'
 $i_grandmenu_pagelink = isset($_POST['grandmenu_pagelink']) ? $_POST['grandmenu_pagelink'] : array();
 $i_gm_primary_title = isset($_POST['gm_primary_title']) ? $_POST['gm_primary_title'] : array();
 //パララックス
-$i_parallax_bg_img_url = json_encode($_POST['parallax_bg_img_url'], JSON_UNESCAPED_UNICODE);
-$i_parallax_title = json_encode( $_POST['parallax_title'], JSON_UNESCAPED_UNICODE);
-$i_parallax_content = json_encode( $_POST['parallax_content'], JSON_UNESCAPED_UNICODE);
-$i_parallax_primary_title = $_POST['parallax_primary_title'];
+$i_parallax_bg_img_url = isset($_POST['parallax_bg_img_url']) ? $_POST['parallax_bg_img_url'] : array();
+$i_parallax_title = isset($_POST['parallax_title']) ? $_POST['parallax_title'] : array();
+$i_parallax_content = isset($_POST['parallax_content']) ? $_POST['parallax_content'] : array();
+$i_parallax_primary_title = isset($_POST['parallax_primary_title']) ? $_POST['parallax_primary_title'] : array();
 
 //右画像１カラム
 $i_column_right_img_url = isset($_POST['column_right_bg_img_url']) ? $_POST['column_right_bg_img_url'] : array();
@@ -212,6 +212,18 @@ foreach ($select_contents as $key => $select_content) {
 	$grandmenu_pagelink_roop_json = json_encode( $grandmenu_pagelink_roop, JSON_UNESCAPED_UNICODE);
 	
 	$gm_primary_title_roop = isset($i_gm_primary_title[$key]) ? $i_gm_primary_title[$key] : '';
+	
+	//パララックス
+	$parallax_bg_img_url_roop = isset($i_parallax_bg_img_url[$key]) ? $i_parallax_bg_img_url[$key] : '';
+	$parallax_bg_img_url_roop_json = json_encode($parallax_bg_img_url_roop, JSON_UNESCAPED_UNICODE);
+	
+	$parallax_title_roop = isset($i_parallax_title[$key]) ? $i_parallax_title[$key] : '';
+	$parallax_title_roop_json = json_encode($parallax_title_roop, JSON_UNESCAPED_UNICODE);
+	
+	$parallax_content_roop = isset($i_parallax_content[$key]) ? $i_parallax_content[$key] : '';
+	$parallax_content_roop_json = json_encode($parallax_content_roop, JSON_UNESCAPED_UNICODE);
+	
+	$parallax_primary_title_roop = isset($i_parallax_primary_title[$key]) ? $i_parallax_primary_title[$key] : '';
 	
 	if($select_content === 'ranking'){
 	$wpdb->insert(
@@ -558,10 +570,10 @@ foreach ($select_contents as $key => $select_content) {
 		//インサートid
 		'insert_ids' => $insert_id,
 		//パララックス
-		'parallax_bg_img_url' => $i_parallax_bg_img_url,
-		'parallax_title' => $i_parallax_title,
-		'parallax_content' => $i_parallax_content,
-		'parallax_primary_title' => $i_parallax_primary_title,
+		'parallax_bg_img_url' => $parallax_bg_img_url_roop_json,
+		'parallax_title' => $parallax_title_roop_json,
+		'parallax_content' => $parallax_content_roop_json,
+		'parallax_primary_title' => $parallax_primary_title_roop,
 		),
 		array(
 		//セレクトボックス

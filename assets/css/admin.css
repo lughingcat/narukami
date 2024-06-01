@@ -23,7 +23,8 @@
 #column_3CloseBtn,
 #column_right_1CloseBtn,
 #rankingCloseBtn,
-#conceptCloseBtn {
+#conceptCloseBtn,
+#parallaxCloseBtn {
   width: 20%;
   padding: 2%;
   margin: 2%;

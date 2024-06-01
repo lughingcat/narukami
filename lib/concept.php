@@ -47,17 +47,18 @@
 			   $insert_id_array = $row->insert_ids;
 		    };
 		  ?>
-			<?php
-			//array-check
-			$concept_bgImg_url_check = isset($_POST['concept_bg_img_url']) ? $_POST['concept_bg_img_url'] : "";
-			$concept_title_check = isset($_POST['concept_title']) ? $_POST['concept_title'] : "";
-			$concept_content_check = isset($_POST['concept_content']) ? $_POST['concept_content'] : "";
-			//function-result
-			$concept_bgImg_url_result = data_variable_set($concept_bgImg_url_check, $concept_bgImg_url, $gm_numbers);
-			$concept_title_result = data_variable_set($concept_title_check, $concept_title, $gm_numbers);
-			$concept_content_result = data_variable_set($concept_content_check, $concept_content, $gm_numbers);
-			$concept_content_nl2br = nl2br($concept_content_result);
-			?>
+		  <?php
+		  //array-check
+		  $concept_bgImg_url_check = isset($_POST['concept_bg_img_url']) ? $_POST['concept_bg_img_url'] : "";
+		  $concept_title_check = isset($_POST['concept_title']) ? $_POST['concept_title'] : "";
+		  $concept_content_check = isset($_POST['concept_content']) ? $_POST['concept_content'] : "";
+		  //function-result
+		  $concept_bgImg_url_result = data_variable_set($concept_bgImg_url_check, $concept_bgImg_url, $gm_numbers);
+		  $concept_title_result = data_variable_set($concept_title_check, $concept_title, $gm_numbers);
+		  $concept_content_result = data_variable_set($concept_content_check, $concept_content, $gm_numbers);
+		  $concept_content_nl2br = nl2br($concept_content_result);
+		  ?>
+			
 		<div class="concept-back-wrap"
 			 style="background-image: url(<?php echo $concept_bgImg_url_result; ?> )">
 			<div class="concept-text-wrap">
