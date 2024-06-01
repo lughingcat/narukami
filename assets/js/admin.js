@@ -47,6 +47,7 @@ function parallaxControl(){
 const parallax = document.querySelectorAll(".parallax-layer");
 const section = document.querySelectorAll(".parallax-section");
 const windowHeight = window.innerHeight;
+console.log(windowHeight)
 parallax[0].classList.add('parallax-isblock');
 
 	
@@ -77,6 +78,16 @@ parallax[0].classList.add('parallax-isblock');
 	document.addEventListener("scroll", handleScroll);
  
 }
+
+//パララックスページ読み込み後関数呼び出し
+document.addEventListener('DOMContentLoaded', (event) => {
+    // ページ全体が読み込まれた後に実行するコード
+    let element = document.getElementById('cmaker_parallax_wrap');
+    if (element) {
+        parallaxControl(); // parallaxControl() を呼び出す
+    }
+});
+
 //data-indexの親、子要素のナンバリングを再処理する
 function updateDataIndex(element, newIndex) {
     // data-index属性を新しい値に更新
@@ -570,6 +581,7 @@ function openPageElement(button) {
 	let column_3 = parentEl.querySelector('.cmakerWrapcolumn_3');
 	let storeInfo = parentEl.querySelector('.cmakerWrapstore_info');
 	let textContent = parentEl.querySelector('.cmakerWraptext_content');
+	let parallax = parentEl.querySelector('.cmakerWrapparallax');
 	let buttonId = button.id;
 	let idNum = buttonId.match(/\d+$/)[0];
     if (grandmenuWrap) {
@@ -591,6 +603,8 @@ function openPageElement(button) {
 		storeInfo.classList.remove('notshow');
 	} else if (textContent){
 		textContent.classList.remove('notshow');
+	} else if (parallax){
+		parallax.classList.remove('notshow');
 	}
 }
 
@@ -600,6 +614,7 @@ function handleSelectChange(selectName, parentIdNum) {
     if (selectedValue === "parallax") {
 		
         parallaxControl();
+		loadCloseClass(selectedValue, parentIdNum);
         animateTextWithSpans('.parallax-title');
 		
     } else if (selectedValue === "grandmenu") {

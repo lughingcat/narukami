@@ -1,4 +1,4 @@
-<div id="cmaker_parallax_wrap" class="cmakerWrapparallax">
+<div id="cmaker_parallax_wrap" class="cmakerWrapparallax show-element notshow">
 	<div class="parallax_Prevew">
 		<article class="cmakerPrevew">
 			<?php
@@ -60,9 +60,6 @@
 		  	$parallax_bg_img_url_dec_result = data_variable_set_json($parallax_bg_img_url_dec_check, $parallax_bgImg_url, $gm_numbers);
 		  	$parallax_content_dec_result = data_variable_set_json($parallax_content_dec_check, $parallax_content, $gm_numbers);
 		  	?>
-			<?php var_dump($parallax_title_dec_result);?>
-			<?php var_dump($parallax_bg_img_url_dec_result);?>
-			<?php var_dump($parallax_content_dec_result);?>
 			<?php
 			// 連想配列を作成
 			$pallx_item_Array = array();
