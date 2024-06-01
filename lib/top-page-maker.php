@@ -106,11 +106,12 @@
 				  <button type="button" id="open-file<?php echo $i?>" class="open-file-button" onClick="openPageElement(this)">開く</button>
 				  <?php
 				  global $insert_id_post;
-				  if(isset($_POST['insert_ids'])){
-				  	$insert_id_post = $_POST['insert_ids'][$i];
-				  }else{
-					$insert_id_post = $entry['insert_id'];
+				  if (isset($_POST['insert_ids']) && is_array($_POST['insert_ids']) && isset($_POST['insert_ids'][$i])) {
+					  $insert_id_post = $_POST['insert_ids'][$i];
+				  } else {
+					  $insert_id_post = $entry['insert_id'];
 				  }
+
 				  var_dump('insert_id_postの値:' . $insert_id_post);
 				  if($entry['item'] == "grandmenu"){
 					  include('grandmenu.php');
