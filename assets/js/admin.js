@@ -42,42 +42,43 @@ function cloneSelectBox() {
 
 //パララックス動作制御
 let handleScroll;
-function parallaxControl(){
-	
-const parallax = document.querySelectorAll(".parallax-layer");
-const section = document.querySelectorAll(".parallax-section");
-const windowHeight = window.innerHeight;
-console.log(windowHeight)
-parallax[0].classList.add('parallax-isblock');
+function parallaxControl() {
+    const parallaxContainers = document.querySelectorAll(".parallax-container");
+    const windowHeight = window.innerHeight; // ビューポートの高さ（表示領域）を測る
+    console.log(windowHeight);
 
-	
-	handleScroll = function(){
-        for (let i = 0; i < section.length; i++) {
-            const getElementParentTop = document.querySelector(".parallax-container").getBoundingClientRect().top;
-            const getElementDistanceTop = section[i].getBoundingClientRect().top;
-            const getElementDistanceBottom = section[i].getBoundingClientRect().bottom;
+    const handleScroll = function() {
+        parallaxContainers.forEach(container => {
+            const sections = container.querySelectorAll(".parallax-section");
+            const parallaxLayers = container.querySelectorAll(".parallax-layer");
 
-            if (getElementDistanceTop < windowHeight) {
-                parallax[i].classList.add('parallax-isblock');
-            } else {
-                parallax[i].classList.remove('parallax-isblock');
-            }
+            sections.forEach((section, i) => {
+                const getElementDistanceTop = section.getBoundingClientRect().top; // セクションの上がトップとどれだけ離れているか
+                const getElementDistanceBottom = section.getBoundingClientRect().bottom; // セクションの下がトップとどれだけ離れているか
 
-            if (getElementDistanceTop < 0 && getElementDistanceBottom > 0) {
-                parallax[i].classList.add("parallax-isactive");
-            } else {
-                parallax[i].classList.remove("parallax-isactive");
-            }
+                if (getElementDistanceTop < windowHeight) {
+                    parallaxLayers[i].classList.add('parallax-isblock');
+                } else {
+                    parallaxLayers[i].classList.remove('parallax-isblock');
+                }
 
-            if (i === section.length - 1) {
-                parallax[i].classList.remove("parallax-isactive");
-            }
-        }
+                if (getElementDistanceTop < 0 && getElementDistanceBottom > 0) {
+                    parallaxLayers[i].classList.add("parallax-isactive");
+                } else {
+                    parallaxLayers[i].classList.remove("parallax-isactive");
+                }
+
+                if (i === sections.length - 1) {
+                    parallaxLayers[i].classList.remove("parallax-isactive");
+                }
+            });
+        });
+    };
+
+    document.addEventListener("scroll", handleScroll);
+    handleScroll(); // 初期ロード時に呼び出しておく
 }
-	
-	document.addEventListener("scroll", handleScroll);
- 
-}
+
 
 //パララックスページ読み込み後関数呼び出し
 document.addEventListener('DOMContentLoaded', (event) => {

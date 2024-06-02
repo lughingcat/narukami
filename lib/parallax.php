@@ -50,7 +50,7 @@
 			  ?>
 			<?php
 		  	//array-check
-		  	$pallx_primary_title_check = isset($_POST['$pallx_primary_title']) ? $_POST['$pallx_primary_title'] : "";
+		  	$pallx_primary_title_check = isset($_POST['pallx_primary_title']) ? $_POST['pallx_primary_title'] : "";
 		  	$parallax_title_dec_check = isset($_POST['parallax_title']) ? $_POST['parallax_title'] : "";
 		  	$parallax_bg_img_url_dec_check = isset($_POST['parallax_bg_img_url']) ? $_POST['parallax_bg_img_url'] : "";
 		  	$parallax_content_dec_check = isset($_POST['parallax_content']) ? $_POST['parallax_content'] : "";
@@ -77,17 +77,14 @@
 								'content' => $parallax_content_dec_result[$i]
 							);
 						} else {
-							// 必要に応じてエラーハンドリングを追加
-							// 例: エラーログに記録する、デフォルト値を設定する、など
+							//url, content,　エラーハンドリング
 						}
 					}
 				} else {
-					// $parallax_bg_img_url_dec_result または $parallax_content_dec_result が配列でない場合の処理
-					// 例: エラーログに記録する、エラーメッセージを表示する、など
+					//arrayに対するエラーハンドリング
 				}
 			} else {
-				// $parallax_title_dec_result が配列でない場合の処理
-				// 例: エラーログに記録する、エラーメッセージを表示する、など
+				//全体arrayに対するエラーハンドリング
 			}
 			;?>
 			

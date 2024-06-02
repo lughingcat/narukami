@@ -50,43 +50,49 @@
 			  };
 			  ?>
 			<?php
-			//各連想配列の変数をセット
-			if(isset($_POST['gm_primary_title'])){
-			$grandmenu_primary_title = $_POST['gm_primary_title'];
-			}else{
-			$grandmenu_primary_title = $gm_primary_title;
-			}
-			if(isset($_POST['grandmenu_img_url'])){
-			$grandmenu_title_dec = $_POST['grandmenu_title'][$gm_numbers];
-			$grandmenu_img_url_dec = $_POST['grandmenu_img_url'][$gm_numbers];
-			$grandmenu_pagelink_dec = $_POST['grandmenu_pagelink'][$gm_numbers];
-			}else{
-			$grandmenu_title_dec = json_decode($grandmenu_title);
-			$grandmenu_img_url_dec = json_decode($grandmenu_img_url);
-			$grandmenu_pagelink_dec = json_decode($grandmenu_pagelink);
-			}
+		  	//array-check
+		  	$gm_primary_title_check = isset($_POST['gm_primary_title']) ? $_POST['gm_primary_title'] : "";
+		  	$grandmenu_title_check = isset($_POST['grandmenu_title']) ? $_POST['grandmenu_title'] : "";
+		  	$grandmenu_pagelink_check = isset($_POST['grandmenu_pagelink']) ? $_POST['grandmenu_pagelink'] : "";
+		  	$grandmenu_img_url_check = isset($_POST['grandmenu_img_url']) ? $_POST['grandmenu_img_url'] : "";
+		  	//function-result
+		  	$gm_primary_title_result = data_variable_set($gm_primary_title_check, $gm_primary_title, $gm_numbers);
+		  	$grandmenu_title_dec_result = data_variable_set_json($grandmenu_title_check, $grandmenu_title, $gm_numbers);
+		  	$grandmenu_pagelink_dec_result = data_variable_set_json($grandmenu_pagelink_check, $grandmenu_pagelink, $gm_numbers);
+		  	$grandmenu_img_url_dec_result = data_variable_set_json($grandmenu_img_url_check, $grandmenu_img_url, $gm_numbers);
+		  	?>
+			<?php
+			// 連想配列を作成
 			// 連想配列を作成
 			$gm_item_Array = array();
 			
-			for ($i = 0; $i < count($grandmenu_title_dec); $i++) {
-				$gm_item_Array[$grandmenu_title_dec[$i]] = array(
-					'title' => $grandmenu_title_dec[$i],
-					'imgurl' => $grandmenu_img_url_dec[$i],
-					'pagelink' => $grandmenu_pagelink_dec[$i]
-				);
+			// $parallax_title_dec_result が配列であるかを確認
+			if (is_array($grandmenu_title_dec_result)) {
+				// 各変数が配列であるかを確認
+				if (is_array($grandmenu_img_url_dec_result) && is_array($grandmenu_pagelink_dec_result)) {
+					for ($i = 0; $i < count($grandmenu_title_dec_result); $i++) {
+						// 配列のインデックスが存在するかを確認
+						if (isset($grandmenu_img_url_dec_result[$i]) && isset($grandmenu_pagelink_dec_result[$i])) {
+							$gm_item_Array[$grandmenu_title_dec_result[$i]] = array(
+								'title' => $grandmenu_title_dec_result[$i],
+								'imgurl' => $grandmenu_img_url_dec_result[$i],
+								'pagelink' => $grandmenu_pagelink_dec_result[$i]
+							);
+						} else {
+						//url, pagelink,　エラーハンドリング
+						}
+					}
+				} else {
+					//arrayに対するエラーハンドリング
+				}
+			} else {
+				//全体arrayに対するエラーハンドリング
 			}
 			;?>
 			
 			<div class="grandmenu-wrap" >
 				<div class="gm-primary-title-prevew">
-					<p class="gm-primary-title"><?php
-					if( isset( $_POST['gm_primary_title']) && is_array( $_POST['gm_primary_title'])){ 
-						echo $_POST['gm_primary_title'][$gm_numbers]; 
-					}elseif( !isset($_POST['gm_primary_title']) ){ 
-						echo $grandmenu_primary_title;
-					}
-					;?>
-					</p>
+					<p class="gm-primary-title"><?php echo $gm_primary_title_result; ?></p>
 				</div>
 					<ul class="grandmenu-title-wrap">
 					<?php
@@ -100,7 +106,6 @@
 						}											  
 					}
 					;?>	
-					
 					</ul>
 			</div>
 		</article>
@@ -109,21 +114,9 @@
 	<div id="gm-form-erea" class="inputForm">
 		<div class="rank-p-title-wrap">
 			<h4 class="rank-prev">グランドメニュータイトル</h4>
-			<p>ランキングタイトルを入力してください</p>
-			<input type="text" class="img-setect-url" name="gm_primary_title[<?php echo $gm_numbers; ?>]" value="<?php if( isset($_POST['gm_primary_title'])){
-			   echo $_POST['gm_primary_title'][$gm_numbers];
-		   }else{
-			   echo $grandmenu_primary_title;
-		   }?>">
+			<p>グランドメニューのタイトルを入力してください</p>
+			<input type="text" class="img-setect-url" name="gm_primary_title[<?php echo $gm_numbers; ?>]" value="<?php echo $gm_primary_title_result; ?>">
 		</div>
-		<?php 
-			if( !empty($_POST['grandmenu_img_url']) )
-			{ 
-				$grandmenu_img_bg_url = $_POST['grandmenu_img_url']; 
-			} else{ 
-				$grandmenu_img_bg_url = $grandmenu_img_url_dec;
-			}
-	;?>
 	<?php
 	if (isset($gm_item_Array) && is_array($gm_item_Array)) {
 		$index = 0;
