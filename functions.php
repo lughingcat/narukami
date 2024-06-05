@@ -373,6 +373,18 @@ function my_wp_get_attachment_metadata( $data, $id ) {
     return $data;
 }
 
+//トップページのプレビュー関数
+add_action('template_redirect', 'custom_preview_handler');
+function custom_preview_handler() {
+    if (isset($_GET['preview']) && $_GET['preview'] === 'true' && isset($_GET['page']) && $_GET['page'] === 'toppage_builder_preview') {
+        // トップページビルダーのプレビュー用テンプレート
+		$post_data = $_POST;
+		echo $post_data;
+		echo '出力テスト';
+        include(get_template_directory() . '/custom-preview-template.php');
+        exit;
+    }
+}
 
 //
 /**

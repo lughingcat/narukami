@@ -100,13 +100,6 @@
 		</article>
 	</div>
 	<div class="inputForm">
-	<div>
-		<h4>自由テキスト</h4>
-		<?php settings_fields('my_custom_editor_group'); ?>
-        <?php do_settings_sections('my_custom_editor_group'); ?>
-        <textarea id="my_custom_editor" name="my_custom_editor_content"><?php echo esc_textarea(get_option('my_custom_editor_content')); ?></textarea>
-        <?php submit_button(); ?>
-	</div>
 	<h4>店舗情報のタイトルを入力してください</h4>
 	<input type="text" name="store_info_title[<?php echo $gm_numbers; ?>]" class="img-setect-url" value=<?php echo $store_info_title_result; ?>>
 		

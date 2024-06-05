@@ -8,7 +8,7 @@
         <h3 class='hndle'><span class="title">ヘッダー設定</span></h3>
         <div class="inside">
 			<h2 class="narukami-admin-h2">トップページビルダー</h2>
-			<form id="post-toppage-maker" method="post" name="test" action="">
+			<form id="post-toppage-maker" method="post" name="narukami_top_page_maker" action="">
           <div class="main">
 			  <?php 
 			  require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/wp-load.php');
