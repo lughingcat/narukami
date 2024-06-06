@@ -149,6 +149,6 @@
     <button id="close-valitate-btn" type="button">閉じる</button>
 	</div>
 	<button type="button" id="gm-elment-add">新規追加</button>
-	<button type="button" id="grandmenuCloseBtn">バリテート(ページを閉じる)</button>
+	<button type="button" id="grandmenuCloseBtn" onClick="gmValitateFunc(this)">バリテート(ページを閉じる)</button>
 
 </div>
