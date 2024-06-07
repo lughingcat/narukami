@@ -183,10 +183,13 @@ gmItemDelBtnDataIndex.forEach(function(gmItemDelBtn){
 }//gmControle
 
 //グランドメニューのバリテート
-function gmValitateFunc(button){
-	 		var parentEl = button.parentElement;
-	 		console.log(parentEl)
-            var isFormValid = validateForm();
+document.addEventListener("DOMContentLoaded", function() {
+	document.addEventListener('click',function(event){
+ 	if (event.target.classList.contains("gm-vali-btn")) {
+   	    var button = event.target;
+   	    var parentEl = button.parentElement;
+   	
+        var isFormValid = validateForm(parentEl);
    			// 処理が完了している場合、true を返しているのでログを出力
    			if (isFormValid) {
 			   var hopupChildIdName = 'valitate-complete';
@@ -200,17 +203,19 @@ function gmValitateFunc(button){
 					parentEl.classList.add('notshow');
 			   });
    			}else{
-				hopupChildId.style.display="none";
+				validateForm(parentEl);
 			}
-}
+	}
+	});
+});
 
-        function validateForm() {
+        function validateForm(parentEl) {
 			var emptyInputId;
-            var gmform = document.getElementById('gm-form-erea');
+            var gmform = parentEl.querySelector('#gm-form-erea');
             var inputElements = gmform.querySelectorAll('input');
-			var erroeMsegTitle = document.querySelectorAll('[id^="gm_title_error_"]');
-			var erroeMsegImg = document.querySelectorAll('[id^="gm_img_error_"]');
-			var erroeMsegLink = document.querySelectorAll('[id^="gm_link_error_"]');
+			var erroeMsegTitle = gmform.querySelectorAll('[id^="gm_title_error_"]');
+			var erroeMsegImg = gmform.querySelectorAll('[id^="gm_img_error_"]');
+			var erroeMsegLink = gmform.querySelectorAll('[id^="gm_link_error_"]');
             var scrollToElement;
             var hasEmptyInput = false;
 			

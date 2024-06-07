@@ -144,11 +144,11 @@
 	}
 	?>
 	</div>
-	<div id="valitate-complete">
+	<div id="valitate-complete" style="display: none;">
     <p>バリテートは正常に完了しました。</p>
     <button id="close-valitate-btn" type="button">閉じる</button>
 	</div>
 	<button type="button" id="gm-elment-add">新規追加</button>
-	<button type="button" id="grandmenuCloseBtn" onClick="gmValitateFunc(this)">バリテート(ページを閉じる)</button>
+	<button type="button" id="grandmenuCloseBtn" class="gm-vali-btn">バリテート(ページを閉じる)</button>
 
 </div>
