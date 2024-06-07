@@ -183,23 +183,26 @@ gmItemDelBtnDataIndex.forEach(function(gmItemDelBtn){
 }//gmControle
 
 //グランドメニューのバリテート
-if( document.getElementById('grandmenuCloseBtn')){
- document.getElementById('grandmenuCloseBtn').addEventListener('click', function() {
+function gmValitateFunc(button){
+	 		var parentEl = button.parentElement;
+	 		console.log(parentEl)
             var isFormValid = validateForm();
    			// 処理が完了している場合、true を返しているのでログを出力
    			if (isFormValid) {
-			   document.getElementById('cmaker_grandmenu_wrap').style.display="";
-			   document.getElementById('valitate-complete').style.display="block";
-			   document.getElementById('close-valitate-btn').addEventListener('click', ()=>{
+			   var hopupChildIdName = 'valitate-complete';
+			   var hopupCloseIdName = 'close-valitate-btn';
+			   var hopupChildId = parentEl.querySelector('#' + hopupChildIdName);
+			   var hopupCloseId = parentEl.querySelector('#' + hopupCloseIdName);
+			   hopupChildId.style.display="block";
+			   hopupCloseId.addEventListener('click', ()=>{
 					event.preventDefault();
-					document.getElementById('valitate-complete').style.display="none";
-					document.getElementById('cmaker_grandmenu_wrap').style.display="none";
+					hopupChildId.style.display="none";
+					parentEl.classList.add('notshow');
 			   });
    			}else{
-				document.getElementById('valitate-complete').style.display="none";
+				hopupChildId.style.display="none";
 			}
- });
-
+}
 
         function validateForm() {
 			var emptyInputId;
@@ -347,7 +350,7 @@ function checkString(variable, searchString) {
 	variable = variable || '';
     return variable.includes(searchString);
 }
-}
+
 
 
 function gmImgListAnimation(){
