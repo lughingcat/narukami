@@ -6,8 +6,7 @@
     <?php wp_head(); ?>
 </head>
 <body>
-    <h1>プレビューテスト</h1>
-    <p>このメッセージが表示されたらテンプレートは正しく読み込まれています。</p>
+    <h1>NARUKAMI-TOP-PAGE-PREVIEW</h1>
 	 <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // フォームデータを取得して表示
