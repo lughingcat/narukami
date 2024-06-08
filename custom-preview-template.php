@@ -22,6 +22,9 @@
 					$result[$key] = $value[$index];
 				}
 				echo '<pre>' . print_r($value[$index], true) . '</pre>';
+				if($value[$index] == 'concept'){
+					include(get_template_directory() . '/front-inc/front_concept.php');
+				}
 			}
 			$results[] = $result;
 		}
