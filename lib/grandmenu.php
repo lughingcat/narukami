@@ -66,7 +66,7 @@
 			// 連想配列を作成
 			$gm_item_Array = array();
 			
-			// $parallax_title_dec_result が配列であるかを確認
+			// $grandmenu_title_dec_result が配列であるかを確認
 			if (is_array($grandmenu_title_dec_result)) {
 				// 各変数が配列であるかを確認
 				if (is_array($grandmenu_img_url_dec_result) && is_array($grandmenu_pagelink_dec_result)) {
