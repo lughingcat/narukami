@@ -20,6 +20,7 @@
 			}
 			$results[] = $result;
 		}
+		echo '<pre>' . print_r($results, true) . '</pre>';
 		foreach($results as $key=> $value){
 			if($value['array-num'] == $key && $value['s_cmaker'] === 'concept'){
 				$insert_ids = $value['insert_ids'];
@@ -28,6 +29,15 @@
 				$concept_bg_img_url = $value['concept_bg_img_url'];
 				include(get_template_directory() . '/front-inc/front_concept.php');
 			}
+			if($value['array-num'] == $key && $value['s_cmaker'] === 'grandmenu'){
+				$insert_ids = $value['insert_ids'];
+				$gm_primary_title = $value['gm_primary_title'];
+				$grandmenu_img_url = $value['grandmenu_img_url'];
+				$grandmenu_title = $value['grandmenu_title'];
+				$grandmenu_pagelink = $value['grandmenu_pagelink'];
+				include(get_template_directory() . '/front-inc/front_grandmenu.php');
+			}
+				
 		}
 		
 	} else {

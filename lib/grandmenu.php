@@ -63,7 +63,6 @@
 		  	?>
 			<?php
 			// 連想配列を作成
-			// 連想配列を作成
 			$gm_item_Array = array();
 			
 			// $grandmenu_title_dec_result が配列であるかを確認
