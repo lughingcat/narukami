@@ -168,8 +168,6 @@ add_action( 'wp_enqueue_scripts', 'narukami_all_theme_item_scripts' );
 /**
  * 管理画面のcss/jsの読み込み
  */
-
-
 function add_cdns(){
 	wp_enqueue_script('vue','https://cdn.jsdelivr.net/npm/vue@2.7.11/dist/vue.js');
 	wp_enqueue_script('twinMax','https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js');
@@ -205,6 +203,21 @@ function my_custom_editor_enqueue() {
     wp_enqueue_script('my_custom_editor_script', get_template_directory_uri() . '/assets/js/custom-editor.js', array('jquery', 'wp-editor'), null, true);
 }
 add_action('admin_enqueue_scripts', 'my_custom_editor_enqueue');
+
+/**
+ * フロントサイトのcss,js,エンキュー
+ */
+function enqueue_narukami_top_preview_assets() {
+    // プレビュー表示中かどうかをチェック
+    if (is_preview()) {
+        // CSSファイルをエンキュー
+        wp_enqueue_style('narukami-top-preview', get_template_directory_uri() . '/sass/preview/narukami-top-preview.css');
+		wp_enqueue_script('narukami-top-js-preview', get_template_directory_uri() . '/js/preview/narukami-top-preview.js', array('jquery'), null, true);
+    }
+}
+// wp_enqueue_scripts アクションにフック
+add_action('wp_enqueue_scripts', 'enqueue_narukami_top_preview_assets');
+
 
 //セッション
 function start_admin_session() {
@@ -378,9 +391,6 @@ add_action('template_redirect', 'custom_preview_handler');
 function custom_preview_handler() {
     if (isset($_GET['preview']) && $_GET['preview'] === 'true' && isset($_GET['page']) && $_GET['page'] === 'toppage_builder_preview') {
         // トップページビルダーのプレビュー用テンプレート
-		$post_data = $_POST;
-		echo $post_data;
-		echo '出力テスト';
         include(get_template_directory() . '/custom-preview-template.php');
         exit;
     }

@@ -20,11 +20,13 @@
 			}
 			$results[] = $result;
 		}
-		echo '<pre>' . print_r($results, true) . '</pre>';
 		foreach($results as $key=> $value){
 			if($value['array-num'] == $key && $value['s_cmaker'] === 'concept'){
+				$insert_ids = $value['insert_ids'];
+				$concept_title = $value['concept_title'];
+				$concept_content = $value['concept_content'];
 				$concept_bg_img_url = $value['concept_bg_img_url'];
-				echo '<pre>' . print_r($concept_bg_img_url, true) . '</pre>';
+				include(get_template_directory() . '/front-inc/front_concept.php');
 			}
 		}
 		

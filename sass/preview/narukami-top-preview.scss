@@ -1,0 +1,69 @@
+//コンセプト
+.n-section-block{
+	.concept-back-wrap{
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	.concept-text-wrap{
+		width: 65%;
+		height: 90%;
+		background-color: rgba(255,255,255,0.89);
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		border-radius: 5px;
+		overflow-y: scroll;
+		.concept-main-title{
+			position: relative;
+			display: block;
+			text-align: center;
+			font-size: 1.2rem;
+			font-weight: bold;
+			background-color: rgba(255,255,255,0.4);
+			margin: 40px 0;
+			padding: 40px 0;
+			letter-spacing: 5px;
+			span {
+       			display: inline-block;
+       			transition: 1s;
+       			opacity: 0;
+       			transform: translateX(50px);
+       			
+       			&.is-animated {
+       			    opacity: 1;
+       			    transform: translateX(0);
+       			}
+   		    }
+		}
+		.concept-main-title::before{
+		content: '';
+  		position: absolute;
+  		bottom: 30px;
+  		display: inline-block;
+  		width: 100px;
+  		height: 2px;
+  		left: 50%;
+  		-webkit-transform: translateX(-50%);
+  		transform: translateX(-50%);
+  		background-color: #000000bf;
+  		border-radius: 2px;
+		}
+		.concept-main-content{
+			display: block;
+			width: 50%;
+			height: 360px;
+			box-sizing: border-box;
+			overflow: scroll;
+			margin: 40px auto;
+			padding: 20px;
+			line-height: 25px;
+			background-color: rgba(255,255,255,0.4);
+			letter-spacing: 2px;
+		}
+	}
+  }
+}
