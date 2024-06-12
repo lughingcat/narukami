@@ -56,6 +56,6 @@ function narukami_all_theme_item_customize_partial_blogdescription() {
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function narukami_all_theme_item_customize_preview_js() {
-	wp_enqueue_script( 'narukami_all_theme_item-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), _S_VERSION, true );
+	wp_enqueue_script( 'narukami_all_theme_item-customizer', get_template_directory_uri() . '/front-js/customizer.js', array( 'customize-preview' ), _S_VERSION, true );
 }
 add_action( 'customize_preview_init', 'narukami_all_theme_item_customize_preview_js' );

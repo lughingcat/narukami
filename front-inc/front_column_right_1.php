@@ -1,0 +1,11 @@
+<article class="n-section-block">
+	<div class="column_right_1-all-wrap">
+		<div class="column_right_1-text-wrap">
+			<p class="column_right_1-main-title"><?php echo $column_right_1_title; ?></p>
+			<p class="column_right_1-main-content"><?php echo stripslashes($column_right_1_content); ?></p>
+		</div>
+		<div class="column_right_1-back-wrap"
+			 style="background-image: url(<?php echo $column_right_bg_img_url; ?>)">
+		</div>
+	</div>
+</article>

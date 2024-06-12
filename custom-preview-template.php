@@ -37,6 +37,13 @@
 				$grandmenu_pagelink = $value['grandmenu_pagelink'];
 				include(get_template_directory() . '/front-inc/front_grandmenu.php');
 			}
+			if($value['array-num'] == $key && $value['s_cmaker'] === 'column_right_1'){
+				$insert_ids = $value['insert_ids'];
+				$column_right_bg_img_url = $value['column_right_bg_img_url'];
+				$column_right_1_title = $value['column_right_1_title'];
+				$column_right_1_content = $value['column_right_1_content'];
+				include(get_template_directory() . '/front-inc/front_column_right_1.php');
+			}
 				
 		}
 		
