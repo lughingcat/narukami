@@ -69,13 +69,13 @@
 			if (is_array($grandmenu_title_dec_result)) {
 				// 各変数が配列であるかを確認
 				if (is_array($grandmenu_img_url_dec_result) && is_array($grandmenu_pagelink_dec_result)) {
-					for ($i = 0; $i < count($grandmenu_title_dec_result); $i++) {
+					for ($g = 0; $g < count($grandmenu_title_dec_result); $g++) {
 						// 配列のインデックスが存在するかを確認
-						if (isset($grandmenu_img_url_dec_result[$i]) && isset($grandmenu_pagelink_dec_result[$i])) {
-							$gm_item_Array[$grandmenu_title_dec_result[$i]] = array(
-								'title' => $grandmenu_title_dec_result[$i],
-								'imgurl' => $grandmenu_img_url_dec_result[$i],
-								'pagelink' => $grandmenu_pagelink_dec_result[$i]
+						if (isset($grandmenu_img_url_dec_result[$g]) && isset($grandmenu_pagelink_dec_result[$g])) {
+							$gm_item_Array[$grandmenu_title_dec_result[$g]] = array(
+								'title' => $grandmenu_title_dec_result[$g],
+								'imgurl' => $grandmenu_img_url_dec_result[$g],
+								'pagelink' => $grandmenu_pagelink_dec_result[$g]
 							);
 						} else {
 						//url, pagelink,　エラーハンドリング
@@ -150,5 +150,4 @@
 	</div>
 	<button type="button" id="gm-elment-add">新規追加</button>
 	<button type="button" id="grandmenuCloseBtn" class="gm-vali-btn">バリテート(ページを閉じる)</button>
-
 </div>

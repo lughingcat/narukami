@@ -58,18 +58,12 @@
 				}else{
 					$selectbox_item = $select_boxes;
 				}
-			  foreach($selectbox_item as $item){
-				  var_dump('scmakerDBの値:' . $item);
-			  }
 			  //insert_ids分岐
 			  	if(isset($_POST['insert_ids'])){
 					$insert_id_variable = $_POST['insert_ids'];
 				}else{
 					$insert_id_variable = $insert_id_check;
 				}
-			  foreach($insert_id_variable as $item){
-				  var_dump('insert_idsDBの値:' . $item);
-			  }
 			  //s_cmakerを連想配列化する
 			  $selectboxitem_summarize = array();
 			  foreach ($selectbox_item as $key => $item) {
@@ -80,14 +74,12 @@
 					  'insert_id' => $insert_id
 				  );
 			  }
-			 
 			  //テスト出力
 			  foreach ($selectboxitem_summarize as $entry) {
 				  echo "Item: " . $entry['item'] . ", Insert ID: " . $entry['insert_id'] . "<br>";
 			  }
 			  ?>
 			  <?php $i = 0; foreach($selectboxitem_summarize as $entry) : ?>
-			  
 			  <div id="clone-wrap_<?php echo $i; ?>" class="clone-wrap-parent">
 				  <input type="hidden" id="insert-ids-<?php echo $i; ?>" name="insert_ids[]" class="insert-item-id" value="insert-id<?php echo $i; ?>">
 			  <select name="s_cmaker[]" class="cmaker-wrap" id="cmaker_<?php echo $i; ?>" data-index="<?php echo 'insert-id'. $i; ?>" onchange="loadContent(this); rankingRemoved(this);">

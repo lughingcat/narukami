@@ -44,6 +44,13 @@
 				$column_right_1_content = $value['column_right_1_content'];
 				include(get_template_directory() . '/front-inc/front_column_right_1.php');
 			}
+			if($value['array-num'] == $key && $value['s_cmaker'] === 'column_left_1'){
+				$insert_ids = $value['insert_ids'];
+				$column_left_bg_img_url = $value['column_left_bg_img_url'];
+				$column_left_1_title = $value['column_left_1_title'];
+				$column_left_1_content = $value['column_left_1_content'];
+				include(get_template_directory() . '/front-inc/front_column_left_1.php');
+			}
 				
 		}
 		
