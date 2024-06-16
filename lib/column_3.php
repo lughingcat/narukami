@@ -136,6 +136,7 @@
 		</article>
 	</div>
 	<div class="inputForm">
+	<input type="hidden" name="array-num[<?php echo $gm_numbers; ?>]" value="<?php echo $gm_numbers; ?>">	
 	<h4 class="h-admin-4-bg">画像を選択してください。</h4>
 	<?php
   	generate_upload_image_tag('column_three_bg_img_url', $column_3_Img_url_result, $insertGlobalId, $gm_numbers);

@@ -384,6 +384,7 @@
 		</article>
 	</div>
 	<div class="inputForm">
+	<input type="hidden" name="array-num[<?php echo $gm_numbers; ?>]" value="<?php echo $gm_numbers; ?>">
 			<div class="rank-p-title-wrap">
 			<h4 class="rank-prev">ランキングタイトル</h4>
 			<p>ランキングタイトルを入力してください</p>

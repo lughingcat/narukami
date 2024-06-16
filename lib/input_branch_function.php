@@ -78,6 +78,15 @@ function overlay_control($POST_data, $DB_data, $overlay, $gm_numbers, $img_data)
 	}
 }
 
+//overlay ispreview 制御
+function preview_overlay_control($POST_data, $overlay, $img_data){
+	if(!empty($POST_data) && $POST_data == $overlay){
+		return $img_data;
+	}else{
+		return "";
+	}
+}
+
 //ランキング入力制御show(input用)
 
 function check_rank_show($rank_on, $item_rank_on, $gm_numbers, $rank_show_values) {
