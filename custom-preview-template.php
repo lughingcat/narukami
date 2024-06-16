@@ -51,6 +51,16 @@
 				$column_left_1_content = $value['column_left_1_content'];
 				include(get_template_directory() . '/front-inc/front_column_left_1.php');
 			}
+			if($value['array-num'] == $key && $value['s_cmaker'] === 'column_2'){
+				$insert_ids = $value['insert_ids'];
+				$column_two_bg_img_url = $value['column_two_bg_img_url'];
+				$column_2_title = $value['column_2_title'];
+				$column_2_content = $value['column_2_content'];
+				$column_two_sec_bg_img_url = $value['column_two_sec_bg_img_url'];
+				$column_2_sec_title = $value['column_2_sec_title'];
+				$column_2_sec_content = $value['column_2_sec_content'];
+				include(get_template_directory() . '/front-inc/front_column2.php');
+			}
 				
 		}
 		
