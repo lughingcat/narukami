@@ -8,7 +8,7 @@ $overlay_control_4_pre = preview_overlay_control($rank_style, $overlay, $item_im
 $overlay_control_5_pre = preview_overlay_control($rank_style, $overlay, $item_img_5);
 $overlay_control_6_pre = preview_overlay_control($rank_style, $overlay, $item_img_6);
 ?>
-<article class="">
+<article class="n-section-block">
 <div class="rank-primary-title-prevew">
 			<p class="r-p-t-prev"><?php echo $rank_primary_title;?></p>
 		</div>
@@ -47,70 +47,70 @@ $overlay_control_6_pre = preview_overlay_control($rank_style, $overlay, $item_im
 		    </div>
 		</div><!--ランキング2位end-->
 			
-			<div class="<?php echo $rank_style_result;?>" 
-			 style="display: <?php echo $rank_on_3_result ;?> ; background-image: url(<?php echo $overlay_control_3_result;?>)"><!--ランキング3位-->
-			<a href=<?php echo $item_page_link_3_result; ?>></a>
-			<div class="<?php echo $rank_pop_result;?>"><span>3</span></div>
+			<div class="<?php echo $rank_style; ?>" 
+			 style="display: <?php echo $rank_on_3; ?> ; background-image: url(<?php echo $overlay_control_3_pre;?>)"><!--ランキング3位-->
+			<a href=<?php echo $item_page_link_3; ?>></a>
+			<div class="<?php echo $rank_pop;?>"><span>3</span></div>
 			<div class="ranking-img">
-				<img src="<?php echo $rank_img_3_result; ?>">
+				<img src="<?php echo $item_img_url_3; ?>">
 			</div>
 			<div class="ranking-discription">
 				<div class="rank-dis-text">
-				<p class="ranking-item-title"><?php echo $rank_item_name_3_result; ?></p>
+				<p class="ranking-item-title"><?php echo $item_title_3; ?></p>
 				</div>
 				<div class="rank-dis-price">
-				<p><?php echo $rank_item_price_3_result; ?>円</p>
+				<p><?php echo $item_price_3; ?>円</p>
 				</div>
 		    </div>
 		</div><!--ランキング3位end-->
 			
-			<div class="<?php echo $rank_style_result;?>" 
-			 style="display: <?php echo $rank_on_4_result ;?> ; background-image: url(<?php echo $overlay_control_4_result;?>)"><!--ランキング4位-->
-			<a href=<?php echo $item_page_link_4_result; ?>></a>
-			<div class="<?php echo $rank_pop_result;?>"><span>4</span></div>
+			<div class="<?php echo $rank_style; ?>" 
+			 style="display: <?php echo $rank_on_4; ?> ; background-image: url(<?php echo $overlay_control_4_pre; ?>)"><!--ランキング4位-->
+			<a href=<?php echo $item_page_link_4; ?>></a>
+			<div class="<?php echo $rank_pop;?>"><span>4</span></div>
 			<div class="ranking-img">
-				<img src="<?php echo $rank_img_4_result; ?>">
+				<img src="<?php echo $item_img_url_4; ?>">
 			</div>
 			<div class="ranking-discription">
 				<div class="rank-dis-text">
-				<p class="ranking-item-title"><?php echo $rank_item_name_4_result; ?></p>
+				<p class="ranking-item-title"><?php echo $item_title_4; ?></p>
 				</div>
 				<div class="rank-dis-price">
-				<p><?php echo $rank_item_price_4_result; ?>円</p>
+				<p><?php echo $item_price_4; ?>円</p>
 				</div>
 		    </div>
 		</div><!--ランキング4位end-->
 			
-			<div class="<?php echo $rank_style_result;?>" 
-			 style="display: <?php echo $rank_on_5_result ;?> ; background-image: url(<?php echo $overlay_control_5_result;?>)"><!--ランキング5位-->
-			<a href=<?php echo $item_page_link_5_result; ?>></a>
-			<div class="<?php echo $rank_pop_result;?>"><span>5</span></div>
+			<div class="<?php echo $rank_style; ?>" 
+			 style="display: <?php echo $rank_on_5; ?> ; background-image: url(<?php echo $overlay_control_5_pre; ?>)"><!--ランキング5位-->
+			<a href=<?php echo $item_page_link_5; ?>></a>
+			<div class="<?php echo $rank_pop;?>"><span>5</span></div>
 			<div class="ranking-img">
-				<img src="<?php echo $rank_img_5_result; ?>">
+				<img src="<?php echo $item_img_url_5; ?>">
 			</div>
 			<div class="ranking-discription">
 				<div class="rank-dis-text">
-				<p class="ranking-item-title"><?php echo $rank_item_name_5_result; ?></p>
+				<p class="ranking-item-title"><?php echo $item_title_5; ?></p>
 				</div>
 				<div class="rank-dis-price">
-				<p><?php echo $rank_item_price_5_result; ?>円</p>
+				<p><?php echo $item_price_5; ?>円</p>
 				</div>
 		    </div>
 		</div><!--ランキング5位end-->
 			
-			<div class="<?php echo $rank_style_result;?>" 
-			 style="display: <?php echo $rank_on_6_result ;?> ; background-image: url(<?php echo $overlay_control_6_result;?>)"><!--ランキング6位-->
-			<a href=<?php echo $item_page_link_6_result; ?>></a>
-			<div class="<?php echo $rank_pop_result;?>"><span>6</span></div>
+			<div class="<?php echo $rank_style; ?>" 
+			 style="display: <?php echo $rank_on_6; ?> ; background-image: url(<?php echo $overlay_control_6_pre; ?>)"><!--ランキング6位-->
+			<a href=<?php echo $item_page_link_6; ?>></a>
+			<div class="<?php echo $rank_pop;?>"><span>6</span></div>
 			<div class="ranking-img">
-				<img src="<?php echo $rank_img_6_result; ?>">
+				<img src="<?php echo $item_img_url_6; ?>">
 			</div>
 			<div class="ranking-discription">
 				<div class="rank-dis-text">
-				<p class="ranking-item-title"><?php echo $rank_item_name_6_result; ?></p>
+				<p class="ranking-item-title"><?php echo $item_title_6; ?></p>
 				</div>
 				<div class="rank-dis-price">
-				<p><?php echo $rank_item_price_6_result; ?>円</p>
+				<p><?php echo $item_price_6; ?>円</p>
 				</div>
 		    </div>
 		</div><!--ランキング6位end-->

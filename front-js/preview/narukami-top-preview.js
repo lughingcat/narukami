@@ -37,6 +37,7 @@ const animateTextWithSpans = function(element, delay = 100) {
 const gmItemList = document.querySelectorAll('.grandmenu-title-wrap');
 const gmPrimaryTitle = document.querySelectorAll('.gm-primary-title');
 const conceptMainTitle = document.querySelectorAll('.concept-main-title');
+const rankPrimaryTitle = document.querySelectorAll('.r-p-t-prev');
 // IntersectionObserverのコールバック関数
 const callback = (entries, observer) => {
   entries.forEach(entry => {
@@ -53,6 +54,10 @@ const callback = (entries, observer) => {
       if (entry.target.classList.contains('concept-main-title')) {
         animateTextWithSpans(entry.target);
       }
+		
+	  if (entry.target.classList.contains('r-p-t-prev')) {
+		animateTextWithSpans(entry.target);
+	  }
 		observer.unobserve(entry.target);
     }
   });
@@ -72,3 +77,4 @@ const observer = new IntersectionObserver(callback, options);
 gmItemList.forEach(element => observer.observe(element));
 gmPrimaryTitle.forEach(element => observer.observe(element));
 conceptMainTitle.forEach(element => observer.observe(element));
+rankPrimaryTitle.forEach(element => observer.observe(element));
