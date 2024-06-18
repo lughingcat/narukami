@@ -2,16 +2,18 @@
 $overlay = "overlay";
 //オーバーレイコントロール
 $overlay_control_pre = preview_overlay_control($rank_style, $overlay, $item_img_url);
-$overlay_control_2_pre = preview_overlay_control($rank_style, $overlay, $item_img_2);
-$overlay_control_3_pre = preview_overlay_control($rank_style, $overlay, $item_img_3);
-$overlay_control_4_pre = preview_overlay_control($rank_style, $overlay, $item_img_4);
-$overlay_control_5_pre = preview_overlay_control($rank_style, $overlay, $item_img_5);
-$overlay_control_6_pre = preview_overlay_control($rank_style, $overlay, $item_img_6);
+$overlay_control_2_pre = preview_overlay_control($rank_style, $overlay, $item_img_url_2);
+$overlay_control_3_pre = preview_overlay_control($rank_style, $overlay, $item_img_url_3);
+$overlay_control_4_pre = preview_overlay_control($rank_style, $overlay, $item_img_url_4);
+$overlay_control_5_pre = preview_overlay_control($rank_style, $overlay, $item_img_url_5);
+$overlay_control_6_pre = preview_overlay_control($rank_style, $overlay, $item_img_url_6);
 ?>
 <article class="n-section-block">
-<div class="rank-primary-title-prevew">
+	<div class="rank-primary-title-prevew">
 			<p class="r-p-t-prev"><?php echo $rank_primary_title;?></p>
-		</div>
+	</div>
+<div class="ranking-all-back-wrap">
+		
 		<div class="ranking-all-wrap">
 		<div class="<?php echo $rank_style;?>" 
 			 style="display: <?php echo $rank_on;?> ; background-image: url(<?php echo $overlay_control_pre;?>)"><!--ランキング１位-->
@@ -115,4 +117,5 @@ $overlay_control_6_pre = preview_overlay_control($rank_style, $overlay, $item_im
 		    </div>
 		</div><!--ランキング6位end-->
 		</div>
+	</div>
 </article>
