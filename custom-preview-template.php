@@ -110,7 +110,13 @@
 				$item_page_link_6 = $value['item_page_link_6'];
 				$rank_on_6 = $value['rank_on_6'];
 				include(get_template_directory() . '/front-inc/front_ranking.php');
-			}	
+			}
+			if($value['array-num'] == $key && $value['s_cmaker'] === 'text_content'){
+				$insert_ids = $value['insert_ids'];
+				$text_content_title = $value['text_content_title'];
+				$text_content_content = $value['text_content_content'];
+				include(get_template_directory() . '/front-inc/front_text_content.php');
+			}
 		}
 		
 	} else {

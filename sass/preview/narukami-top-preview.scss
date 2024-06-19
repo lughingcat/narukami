@@ -67,7 +67,7 @@
 		font-family: math;
 		font-weight: bold;
 		width: 20%;
-		font-size: 1.8em;
+		font-size: 1em;
 		box-sizing: border-box;
 		text-align: center;
 		background-color: #dbbf4b;
@@ -84,7 +84,7 @@
 		font-weight: bold;
 		width: 40px;
 		height: 40px;
-		font-size: 1.8em;
+		font-size: 1.4em;
 		box-sizing: border-box;
 		text-align: center;
 		background-color: #DBBF4B;
@@ -123,7 +123,7 @@
 			top: -20%;
 	  		left: 0;
 	  		display: block;
-	  		height: 20px;
+	  		height: 50px;
 	  		border: 1.2rem solid #DBBF4B;
 	  		border-bottom-width: 15px;
 	  		border-bottom-color: transparent;
@@ -159,7 +159,7 @@
 	  		width: 0;
 			height: 0;
 			border-style: solid;
-			border-width: 50px 50px 0 0;
+			border-width: 65px 65px 0 0;
 			border-color: #DBBF4B transparent transparent transparent;
 			z-index: -1;
 			border-top-left-radius: 5px;
@@ -200,9 +200,9 @@
 		
 	    .ranking-item-title{
 	    	margin: 10px;
-			font-size: 1.3em;
+			font-size: 1em;
 			font-weight: bold;
-			width: 192px;
+			width: 162px;
 			white-space: nowrap;
 			text-overflow: ellipsis;
 			overflow: hidden;
@@ -253,9 +253,9 @@
 		
 	    .ranking-item-title{
 	    	margin: 10px;
-			font-size: 1.3em;
+			font-size: 1em;
 			font-weight: bold;
-			width: 192px;
+			width: 162px;
 			white-space: nowrap;
 			text-overflow: ellipsis;
 			overflow: hidden;
@@ -659,5 +659,31 @@
 		}
 	}
 }
-
+//テキストエリア
+.n-section-block{
+	.text_content-back-wrap{
+	width: 100%;
+	margin: 20px 0;
+	padding: 10px;
+	.text_content-text-wrap{
+		width: 100%;
+		.text_content-main-title{
+			width: 60%;
+			font-size: 1.5em;
+			font-weight: bold;
+			text-align: center;
+			margin: 8% auto;
+			letter-spacing: 5px;
+		}
+		.text_content-main-content{
+			width: 80%;
+			margin:  10% auto;
+			text-align: center;
+			line-height: 35px;
+			font-size: 1.2em;
+			letter-spacing: 3px;
+		}
+	}
+}
+}
 

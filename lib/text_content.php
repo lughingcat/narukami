@@ -68,6 +68,7 @@
 		</article>
 	</div>
 	<div class="inputForm">
+	<input type="hidden" name="array-num[<?php echo $gm_numbers; ?>]" value="<?php echo $gm_numbers; ?>">
 	<h4>テキストエリアのタイトルを入力してください。</h4>
 	<input type="text" name="text_content_title[<?php echo $gm_numbers; ?>]" class="img-setect-url" value=
 		   <?php echo $text_content_title_result; ?>
