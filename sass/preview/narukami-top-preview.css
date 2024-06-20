@@ -547,3 +547,70 @@
       line-height: 35px;
       font-size: 1em;
       letter-spacing: 1px; }
+
+.n-section-block .store-info-primary-title-prevew {
+  width: 90%;
+  text-align: center;
+  margin: 0 auto 5%;
+  text-align: center;
+  box-shadow: 0px 4px 2px -3px #b6b4b4; }
+  .n-section-block .store-info-primary-title-prevew .store-info-p_title {
+    font-size: 1.2em;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 3em;
+    font-weight: bold;
+    letter-spacing: 5px; }
+    .n-section-block .store-info-primary-title-prevew .store-info-p_title span {
+      display: inline-block;
+      transition: 1s;
+      opacity: 0;
+      transform: translateX(50px); }
+      .n-section-block .store-info-primary-title-prevew .store-info-p_title span.is-animated {
+        opacity: 1;
+        transform: translateX(0); }
+  .n-section-block .store-info-primary-title-prevew .store-info-p_title::before {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    display: inline-block;
+    width: 60px;
+    height: 2px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background-color: #000000bf;
+    border-radius: 2px; }
+.n-section-block .store_info-all-wrap {
+  width: 80%;
+  position: relative;
+  display: flex;
+  margin: 0 auto; }
+  .n-section-block .store_info-all-wrap .store_info-text-wrap {
+    width: 30%;
+    padding: 20px;
+    background-color: #000000; }
+    .n-section-block .store_info-all-wrap .store_info-text-wrap .adress-detail-title {
+      font-weight: bold;
+      position: relative;
+      color: #ffffff; }
+    .n-section-block .store_info-all-wrap .store_info-text-wrap .adress-detail-title::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      display: inline-block;
+      width: 100%;
+      height: 2px;
+      left: 0;
+      transform: translateX(0%);
+      background-color: #ffffff69;
+      border-radius: 2px; }
+    .n-section-block .store_info-all-wrap .store_info-text-wrap .store_info-main-title {
+      color: #ffffff;
+      font-weight: bold; }
+  .n-section-block .store_info-all-wrap .store_info-back-wrap {
+    width: 70%; }
+    .n-section-block .store_info-all-wrap .store_info-back-wrap iframe {
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box; }

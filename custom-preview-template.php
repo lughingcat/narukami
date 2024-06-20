@@ -117,6 +117,25 @@
 				$text_content_content = $value['text_content_content'];
 				include(get_template_directory() . '/front-inc/front_text_content.php');
 			}
+			if($value['array-num'] == $key && $value['s_cmaker'] === 'store_info'){
+				$insert_ids = $value['insert_ids'];
+				$store_info_title = $value['store_info_title'];
+				$store_name = $value['store_name'];
+				$store_info_bg_img_url = $value['store_info_bg_img_url'];
+				$store_post_number = $value['store_post_number'];
+				$store_adress = $value['store_adress'];
+				$store_phone_num = $value['store_phone_num'];
+				$store_rg_holiday = $value['store_rg_holiday'];
+				include(get_template_directory() . '/front-inc/front_store_info.php');
+			}
+			if($value['array-num'] == $key && $value['s_cmaker'] === 'parallax'){
+				$insert_ids = $value['insert_ids'];
+				$parallax_primary_title = $value['parallax_primary_title'];
+				$parallax_bg_img_url = $value['parallax_bg_img_url'];
+				$parallax_title = $value['parallax_title'];
+				$parallax_content = $value['parallax_content'];
+				include(get_template_directory() . '/front-inc/front_parallax.php');
+			}
 		}
 		
 	} else {

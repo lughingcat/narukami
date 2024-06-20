@@ -38,6 +38,7 @@ const gmItemList = document.querySelectorAll('.grandmenu-title-wrap');
 const gmPrimaryTitle = document.querySelectorAll('.gm-primary-title');
 const conceptMainTitle = document.querySelectorAll('.concept-main-title');
 const rankPrimaryTitle = document.querySelectorAll('.r-p-t-prev');
+const storeInfoTitle = document.querySelectorAll('.store-info-p_title');
 // IntersectionObserverのコールバック関数
 const callback = (entries, observer) => {
   entries.forEach(entry => {
@@ -56,6 +57,10 @@ const callback = (entries, observer) => {
       }
 		
 	  if (entry.target.classList.contains('r-p-t-prev')) {
+		animateTextWithSpans(entry.target);
+	  }
+		
+	  if (entry.target.classList.contains('store-info-p_title')) {
 		animateTextWithSpans(entry.target);
 	  }
 		observer.unobserve(entry.target);
@@ -78,3 +83,4 @@ gmItemList.forEach(element => observer.observe(element));
 gmPrimaryTitle.forEach(element => observer.observe(element));
 conceptMainTitle.forEach(element => observer.observe(element));
 rankPrimaryTitle.forEach(element => observer.observe(element));
+storeInfoTitle.forEach(element => observer.observe(element));

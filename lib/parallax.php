@@ -68,13 +68,13 @@
 			if (is_array($parallax_title_dec_result)) {
 				// 各変数が配列であるかを確認
 				if (is_array($parallax_bg_img_url_dec_result) && is_array($parallax_content_dec_result)) {
-					for ($i = 0; $i < count($parallax_title_dec_result); $i++) {
+					for ($p = 0; $p < count($parallax_title_dec_result); $p++) {
 						// 配列のインデックスが存在するかを確認
-						if (isset($parallax_bg_img_url_dec_result[$i]) && isset($parallax_content_dec_result[$i])) {
-							$pallx_item_Array[$parallax_title_dec_result[$i]] = array(
-								'title' => $parallax_title_dec_result[$i],
-								'imgurl' => $parallax_bg_img_url_dec_result[$i],
-								'content' => $parallax_content_dec_result[$i]
+						if (isset($parallax_bg_img_url_dec_result[$p]) && isset($parallax_content_dec_result[$p])) {
+							$pallx_item_Array[$parallax_title_dec_result[$p]] = array(
+								'title' => $parallax_title_dec_result[$p],
+								'imgurl' => $parallax_bg_img_url_dec_result[$p],
+								'content' => $parallax_content_dec_result[$p]
 							);
 						} else {
 							//url, content,　エラーハンドリング
@@ -112,6 +112,7 @@
 			</article>
 	</div>
 	<div class="inputForm">
+	<input type="hidden" name="array-num[<?php echo $gm_numbers; ?>]" value="<?php echo $gm_numbers; ?>">
 	<h4>パララックスのメインタイトルを入力してください。</h4>
 	<input type="text" name="parallax_primary_title[<?php echo $gm_numbers; ?>]" class="img-setect-url" value=<?php echo $pallx_primary_title_result ;?>>
 	<?php

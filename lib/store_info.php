@@ -100,6 +100,7 @@
 		</article>
 	</div>
 	<div class="inputForm">
+	<input type="hidden" name="array-num[<?php echo $gm_numbers; ?>]" value="<?php echo $gm_numbers; ?>">
 	<h4>店舗情報のタイトルを入力してください</h4>
 	<input type="text" name="store_info_title[<?php echo $gm_numbers; ?>]" class="img-setect-url" value=<?php echo $store_info_title_result; ?>>
 		
