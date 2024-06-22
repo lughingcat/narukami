@@ -25,7 +25,7 @@ if (is_array($parallax_title)) {
 	//全体arrayに対するエラーハンドリング
 }
 ;?>
-<article class="n_section_block">
+<article class="n-section-block">
 	<div class='parallax-container'>
 		<div class='parallax-section'>
 			<div class='parallax-layer'>

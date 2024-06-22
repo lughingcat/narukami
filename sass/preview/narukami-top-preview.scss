@@ -770,3 +770,105 @@
 }
 }
 
+//パララックス
+
+.n-section-block{
+	.parallax-container {
+    width: 100vw;
+	height: 100vh;
+    position: relative;
+    margin: 15% 0;
+    .parallax-section {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        .parallax-layer {
+            position: absolute;
+            top: 0;
+            display: none;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+
+            &.parallax-isblock {
+                display: block;
+
+                &.parallax-isactive {
+                    position: fixed;
+                }
+            }
+			.parallax-title-wrap{
+				width: 70%;
+				text-align: center;
+				margin: 0 auto 5%;
+				text-align: center;
+				box-shadow: 0px 4px 2px -3px #b6b4b4;
+            .parallax-title {
+                position: relative;
+                display: block;
+                text-align: center;
+                font-size: 1.2rem;
+                font-weight: bold;
+                background-color: rgba(255, 255, 255, 0.4);
+                margin: 40px 0;
+                padding: 40px 0;
+                letter-spacing: 5px;
+
+                span {
+                    display: inline-block;
+                    transition: 1s;
+                    opacity: 0;
+                    transform: translateX(50px);
+
+                    &.is-animated {
+                        opacity: 1;
+                        transform: translateX(0);
+                    }
+                }
+            }
+				.parallax-title::before{
+					content: '';
+  					position: absolute;
+  					bottom: 20px;
+  					display: inline-block;
+  					width: 60px;
+  					height: 2px;
+  					left: 50%;
+  					-webkit-transform: translateX(-50%);
+  					transform: translateX(-50%);
+  					background-color: #000000bf;
+  					border-radius: 2px;
+				}
+			}
+			.parallax-content-title{
+				position: absolute;
+                display: block;
+                text-align: center;
+                font-size: 2.2em;
+                font-weight: bold;
+         		top: 30%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+                letter-spacing: 5px;
+				color: #ffffff;
+				text-shadow: 1px 1px 10px #000;
+			}
+			.parallax-content{
+				position: absolute;
+                display: block;
+                font-weight: bold;
+         		top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+                letter-spacing: 2px;
+				color: #ffffff;
+				text-shadow: 1px 1px 10px #000;
+			}
+        }
+    }
+}
+}
+
