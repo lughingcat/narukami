@@ -9,7 +9,7 @@
         <div class="inside">
 			<h2 class="narukami-admin-h2">トップページビルダー</h2>
 			<form id="post-toppage-maker" method="post" name="narukami_top_page_maker" action="">
-          <div class="main">
+          <div id="select-all-wrap" class="main">
 			  <?php 
 			  require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/wp-load.php');
 			  global $wpdb;
@@ -59,11 +59,16 @@
 					$selectbox_item = $select_boxes;
 				}
 			  //insert_ids分岐
-			  	if(isset($_POST['insert_ids'])){
-					$insert_id_variable = $_POST['insert_ids'];
-				}else{
-					$insert_id_variable = $insert_id_check;
-				}
+			  if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
+				  $insert_id_variable = get_option('insert_ids');
+				  var_dump($insert_id_variable);
+			  }else{
+			  	  if(isset($_POST['insert_ids'])){
+				  	$insert_id_variable = $_POST['insert_ids'];
+				  }else{
+				  	$insert_id_variable = $insert_id_check;
+				  }
+			  }
 			  //s_cmakerを連想配列化する
 			  $selectboxitem_summarize = array();
 			  foreach ($selectbox_item as $key => $item) {
@@ -82,6 +87,7 @@
 			  <?php $i = 0; foreach($selectboxitem_summarize as $entry) : ?>
 			  <div id="clone-wrap_<?php echo $i; ?>" class="clone-wrap-parent">
 				  <input type="hidden" id="insert-ids-<?php echo $i; ?>" name="insert_ids[]" class="insert-item-id" value="insert-id<?php echo $i; ?>">
+			  <div class="handle">☰</div>
 			  <select name="s_cmaker[]" class="cmaker-wrap" id="cmaker_<?php echo $i; ?>" data-index="<?php echo 'insert-id'. $i; ?>" onchange="loadContent(this); rankingRemoved(this);">
 				  <option hidden>選択してください</option>
 				  <?php 
