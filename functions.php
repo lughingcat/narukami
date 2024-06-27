@@ -241,7 +241,7 @@ function enqueue_custom_scripts() {
     wp_localize_script('custom-scripts', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php')));
 }
 
-// Ajaxアクションを追加
+// セレクトボック選択のajax処理
 add_action('wp_ajax_load_content', 'load_content');
 add_action('wp_ajax_nopriv_load_content', 'load_content');
 
@@ -263,6 +263,43 @@ function getContentBasedOnValue($value) {
     return ob_get_clean();
 }
 
+//セレクトボックス並びえのajax処理
+
+add_action('wp_ajax_update_indices', 'update_indices');
+add_action('wp_ajax_nopriv_update_indices', 'update_indices');
+
+function update_indices() {
+    // JSONのペイロードを取得
+    $json = file_get_contents('php://input');
+    $data = json_decode($json, true);
+	var_dump($data['indices']); // サーバー側でのデータ出力
+	error_log(print_r($data['indices'], true)); // ログにデータを出力
+    if (!empty($data['indices'])) {
+        // 受け取ったデータを変数にセット
+        $insert_id_variable = $data['indices'];
+
+        // ここでデータを処理する（例：データベースに保存など）
+        update_option('insert_ids', $insert_id_variable);
+        // レスポンスを作成
+        $response = array(
+            'status' => 'success',
+            'message' => 'Indices updated successfully',
+            'data' => $insert_id_variable
+        );
+
+        // JSONレスポンスを返す
+        wp_send_json($response);
+    } else {
+        // エラーレスポンスを返す
+        wp_send_json(array(
+            'status' => 'error',
+            'message' => 'No indices received'
+        ));
+    }
+
+    // WordPressの終了処理を実行
+    wp_die();
+}
 
 
 

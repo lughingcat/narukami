@@ -84,3 +84,72 @@ gmPrimaryTitle.forEach(element => observer.observe(element));
 conceptMainTitle.forEach(element => observer.observe(element));
 rankPrimaryTitle.forEach(element => observer.observe(element));
 storeInfoTitle.forEach(element => observer.observe(element));
+
+
+//パララックス動作制御
+function parallaxControl(container) {
+    const windowHeight = window.innerHeight; // ビューポートの高さ（表示領域）を測る
+    const handleScroll = function() {
+        const sections = container.querySelectorAll(".parallax-section");
+        const parallaxLayers = container.querySelectorAll(".parallax-layer");
+        sections.forEach((section, i) => {
+            const getElementDistanceTop = section.getBoundingClientRect().top; // セクションの上がトップとどれだけ離れているか
+            const getElementDistanceBottom = section.getBoundingClientRect().bottom; // セクションの下がトップとどれだけ離れているか
+
+            if (getElementDistanceTop < windowHeight) {
+                parallaxLayers[i].classList.add('parallax-isblock');
+            } else {
+                parallaxLayers[i].classList.remove('parallax-isblock');
+            }
+
+            if (getElementDistanceTop < 0 && getElementDistanceBottom > 0) {
+                parallaxLayers[i].classList.add("parallax-isactive");
+            } else {
+                parallaxLayers[i].classList.remove("parallax-isactive");
+            }
+
+            if (i === sections.length - 1) {
+                parallaxLayers[i].classList.remove("parallax-isactive");
+            }
+        });
+    };
+
+    document.addEventListener("scroll", handleScroll);
+    handleScroll(); // 初期ロード時に呼び出しておく
+}
+
+// IntersectionObserverのコールバック関数
+const observerCallback = (entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // parallaxControlを発火させる
+            parallaxControl(entry.target);
+			console.log('発火');
+            // 一度発火したら監視を停止する
+            observer.unobserve(entry.target);
+			console.log('停止');
+        }
+    });
+};
+
+// IntersectionObserverのオプション
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1 // 要素が10%表示領域に入ったときに発火させる
+};
+
+// パララックスページ読み込み後にIntersectionObserverを設定
+document.addEventListener('DOMContentLoaded', (event) => {
+    const observers = new IntersectionObserver(observerCallback, observerOptions);
+	const elementHeghtVh = '50vh';
+    const parallaxContainers = document.querySelectorAll(".parallax-container");
+    parallaxContainers.forEach(container => {
+		parentEl = container.parentElement;
+		parentElLayerLengh = container.querySelectorAll('.parallax-section').length -1;
+		nextEl = parentEl.nextElementSibling;
+		nextEl.style.marginTop = parentElLayerLengh + elementHeghtVh;
+        observers.observe(container);
+    });
+});
+
