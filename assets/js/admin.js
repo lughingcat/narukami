@@ -40,12 +40,13 @@
 	 async function sendIndices() {
         const selectBoxes = document.querySelectorAll('.clone-wrap-parent input[name="insert_ids[]"]');
         const data = Array.from(selectBoxes).map(input => input.value);
-		console.log(ajaxurl)
+		console.log(ajax_object.ajax_url)
         try {
-            const response = await fetch(ajaxurl, {
+            const response = await fetch(ajax_object.ajax_url, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+					'X-Requested-With': 'XMLHttpRequest'
                 },
                 body: JSON.stringify({ 
     		    action: 'update_indices',

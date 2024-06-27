@@ -3,9 +3,9 @@ function loadContent(selectElement) {
     var selectedValue = selectElement.value;
     var parentEL = selectElement.parentNode;
     var parentIdNum = parentEL.id.replace(/\D/g, '');
-    var contentContainer = parentEL.querySelector('div');
+    var contentContainer = parentEL.querySelector('.content-Container');
     var insertIdGlobalValue = selectElement.getAttribute('data-index');
-
+	
     if (contentContainer) {
         // Ajaxリクエスト
         jQuery.ajax({
@@ -25,6 +25,7 @@ function loadContent(selectElement) {
                     // サーバーからの応答を表示対象の要素に設定
                     contentContainer.innerHTML = response;
                     handleSelectChange(selectedValue, parentIdNum);
+					console.log(ajax_object.ajax_url);
                 } catch (error) {
                     console.error('Error in success handler:', error);
                 }

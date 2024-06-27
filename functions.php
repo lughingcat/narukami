@@ -272,7 +272,10 @@ function update_indices() {
     // JSONのペイロードを取得
     $json = file_get_contents('php://input');
     $data = json_decode($json, true);
-	var_dump($data['indices']); // サーバー側でのデータ出力
+	
+	error_log('Received data:');
+    error_log(print_r($data, true));
+	
 	error_log(print_r($data['indices'], true)); // ログにデータを出力
     if (!empty($data['indices'])) {
         // 受け取ったデータを変数にセット
