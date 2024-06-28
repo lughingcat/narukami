@@ -193,8 +193,12 @@ function add_admin_style(){
   $path_css = get_template_directory_uri().'/assets/css/admin.css';
   wp_enqueue_style('admin_style', $path_css);
   $path_js = get_template_directory_uri().'/assets/js/admin.js';
-  wp_enqueue_script('admin_script', $path_js, '', '', true);
-
+  wp_enqueue_script('admin_script', $path_js, array('jquery'), '', true);
+  // admin_scriptにローカライズを追加
+  wp_localize_script('admin_script', 'my_ajax_obj', array(
+      'ajaxurl' => admin_url('admin-ajax.php'),
+      'nonce' => wp_create_nonce('my_ajax_nonce')
+  ));
 }
 add_action('admin_enqueue_scripts', 'add_admin_style');
 
@@ -263,8 +267,7 @@ function getContentBasedOnValue($value) {
     return ob_get_clean();
 }
 
-//セレクトボックス並びえのajax処理
-
+//セレクトボックス移動によるajaxの処理（nonce）
 add_action('wp_ajax_update_indices', 'update_indices');
 add_action('wp_ajax_nopriv_update_indices', 'update_indices');
 
@@ -272,11 +275,25 @@ function update_indices() {
     // JSONのペイロードを取得
     $json = file_get_contents('php://input');
     $data = json_decode($json, true);
-	
-	error_log('Received data:');
-    error_log(print_r($data, true));
-	
-	error_log(print_r($data['indices'], true)); // ログにデータを出力
+
+    // AJAXリクエストの確認
+    if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) !== 'xmlhttprequest') {
+        wp_send_json(array(
+            'status' => 'error',
+            'message' => 'Invalid request'
+        ));
+        wp_die(); // 必ず終了処理を実行
+    }
+
+    // ノンスの確認
+    if (!isset($_SERVER['HTTP_X_WP_NONCE']) || !wp_verify_nonce($_SERVER['HTTP_X_WP_NONCE'], 'my_ajax_nonce')) {
+        wp_send_json(array(
+            'status' => 'error',
+            'message' => 'Invalid nonce'
+        ));
+        wp_die(); // 必ず終了処理を実行
+    }
+
     if (!empty($data['indices'])) {
         // 受け取ったデータを変数にセット
         $insert_id_variable = $data['indices'];
@@ -303,6 +320,7 @@ function update_indices() {
     // WordPressの終了処理を実行
     wp_die();
 }
+
 
 
 
