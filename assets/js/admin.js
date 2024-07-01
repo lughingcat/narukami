@@ -11,7 +11,7 @@
 		handle: '.handle',
 		onEnd: function (evt) { // ドラッグ終了時に実行
            	updateIndices();
-			sendIndices();
+			indicesfunc();
         }
     });
 	 
@@ -37,37 +37,33 @@
 					openFileButton.id = 'open-file' + index;
                 });
             }
-	 async function sendIndices() {
-        const selectBoxes = document.querySelectorAll('.clone-wrap-parent input[name="insert_ids[]"]');
-        const data = Array.from(selectBoxes).map(input => input.value);
-		console.log(my_ajax_obj)
-        try {
-            const response = await fetch(my_ajax_obj.ajaxurl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-					'X-Requested-With': 'XMLHttpRequest',
-					'X-WP-Nonce': my_ajax_obj.nonce
-                },
-                body: JSON.stringify({ 
-    		    action: 'update_indices',
-    		    indices: data 
-    			})
-            });
-
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-
-            const result = await response.json();
-            console.log('Success:', result);
-            // 必要に応じてDOMを再表示するロジックをここに追加
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    }
 	 
  });
+
+function indicesfunc(){
+	const selectBoxes = document.querySelectorAll('.clone-wrap-parent input[name="insert_ids[]"]');
+    const data = Array.from(selectBoxes).map(input => input.value);
+	const postData = {
+        action: 'custom_ajax_action',
+        dataArray: data
+    };
+	const url = `${my_ajax_obj.ajaxurl}?action=custom_ajax_action&nonce=${my_ajax_obj.nonce}`;
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(postData)
+    })
+    .then(response => response.json()) // JSON形式でレスポンスをパース
+    .then(data => {
+        alert('Response: ' + JSON.stringify(data));
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+	
 
 //selectbox追加動作
 

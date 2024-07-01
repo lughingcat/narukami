@@ -190,10 +190,11 @@ function add_admin_style(){
 		
 		return str_replace(' id=', ' defer id=', $tag);
 	}
+  wp_enqueue_script('jquery');
   $path_css = get_template_directory_uri().'/assets/css/admin.css';
   wp_enqueue_style('admin_style', $path_css);
   $path_js = get_template_directory_uri().'/assets/js/admin.js';
-  wp_enqueue_script('admin_script', $path_js, array('jquery'), '', true);
+  wp_enqueue_script('admin_script', $path_js, array('jquery'), null, true);
   // admin_scriptにローカライズを追加
   wp_localize_script('admin_script', 'my_ajax_obj', array(
       'ajaxurl' => admin_url('admin-ajax.php'),
@@ -268,60 +269,42 @@ function getContentBasedOnValue($value) {
 }
 
 //セレクトボックス移動によるajaxの処理（nonce）
-add_action('wp_ajax_update_indices', 'update_indices');
-add_action('wp_ajax_nopriv_update_indices', 'update_indices');
 
-function update_indices() {
+function handle_custom_ajax_request() {
+    check_ajax_referer('my_ajax_nonce', 'nonce');
     // JSONのペイロードを取得
     $json = file_get_contents('php://input');
     $data = json_decode($json, true);
-
-    // AJAXリクエストの確認
-    if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) !== 'xmlhttprequest') {
-        wp_send_json(array(
-            'status' => 'error',
-            'message' => 'Invalid request'
-        ));
-        wp_die(); // 必ず終了処理を実行
-    }
-
-    // ノンスの確認
-    if (!isset($_SERVER['HTTP_X_WP_NONCE']) || !wp_verify_nonce($_SERVER['HTTP_X_WP_NONCE'], 'my_ajax_nonce')) {
-        wp_send_json(array(
-            'status' => 'error',
-            'message' => 'Invalid nonce'
-        ));
-        wp_die(); // 必ず終了処理を実行
-    }
-
-    if (!empty($data['indices'])) {
+	
+    if (!empty($data['dataArray'])) {
+		
         // 受け取ったデータを変数にセット
-        $insert_id_variable = $data['indices'];
-
-        // ここでデータを処理する（例：データベースに保存など）
-        update_option('insert_ids', $insert_id_variable);
+        $insert_id = $data['dataArray'];
         // レスポンスを作成
         $response = array(
             'status' => 'success',
             'message' => 'Indices updated successfully',
-            'data' => $insert_id_variable
+            'data' => $insert_id
         );
 
         // JSONレスポンスを返す
-        wp_send_json($response);
+       wp_send_json_success($response);
     } else {
-        // エラーレスポンスを返す
-        wp_send_json(array(
+        // エラーレスポンスの作成
+        $response = array(
             'status' => 'error',
             'message' => 'No indices received'
-        ));
+        );
+
+        // JSONレスポンスを返す
+        wp_send_json_error($response);
     }
 
     // WordPressの終了処理を実行
     wp_die();
 }
-
-
+add_action('wp_ajax_custom_ajax_action', 'handle_custom_ajax_request');
+add_action('wp_ajax_nopriv_custom_ajax_action', 'handle_custom_ajax_request');
 
 
 //カラーピッカーの生成関数
