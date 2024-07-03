@@ -13,6 +13,15 @@
 			  <?php 
 			  require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/wp-load.php');
 			  global $wpdb;
+			  var_dump($_POST);
+			  if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'notify_top_page') {
+					// 通知を受け取り、処理を実行
+					// 例: トップページの更新処理など
+					
+					echo 'ajax succes recieve message!';
+				}else{
+					echo 'none';
+				}
 			  $query_check = "SELECT COUNT(*) FROM {$wpdb->prefix}narukami_content_maker WHERE id != 1;";
 			  $count_rows = $wpdb->get_var($query_check);
 			  $select_boxes = array();
@@ -59,14 +68,16 @@
 					$selectbox_item = $select_boxes;
 				}
 			  //insert_ids分岐
+			  
 			  if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
-				  $insert_id_variable = get_option('insert_ids');
-				  var_dump($insert_id_variable);
+				  $insert_id_variable = get_option('insert_id_indices');
 			  }else{
 			  	  if(isset($_POST['insert_ids'])){
 				  	$insert_id_variable = $_POST['insert_ids'];
+					
 				  }else{
 				  	$insert_id_variable = $insert_id_check;
+					
 				  }
 			  }
 			  //s_cmakerを連想配列化する

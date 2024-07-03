@@ -198,7 +198,8 @@ function add_admin_style(){
   // admin_scriptにローカライズを追加
   wp_localize_script('admin_script', 'my_ajax_obj', array(
       'ajaxurl' => admin_url('admin-ajax.php'),
-      'nonce' => wp_create_nonce('my_ajax_nonce')
+      'nonce' => wp_create_nonce('my_ajax_nonce'),
+	  'topPageMakerUrl' => home_url('/wp-content/themes/narukami/lib/top-page-maker.php')
   ));
 }
 add_action('admin_enqueue_scripts', 'add_admin_style');
@@ -286,7 +287,7 @@ function handle_custom_ajax_request() {
             'message' => 'Indices updated successfully',
             'data' => $insert_id
         );
-
+		
         // JSONレスポンスを返す
        wp_send_json_success($response);
     } else {
@@ -305,6 +306,36 @@ function handle_custom_ajax_request() {
 }
 add_action('wp_ajax_custom_ajax_action', 'handle_custom_ajax_request');
 add_action('wp_ajax_nopriv_custom_ajax_action', 'handle_custom_ajax_request');
+
+//top-page-maker.phpへの通知
+
+function notify_top_page_callback() {
+    // ここに処理を記述する
+    // 必要に応じてtop-page-maker.phpに通知する処理を追加する
+    
+    // 例: top-page-maker.phpに通知する
+	$topPageMakerUrl = home_url('/wp-content/themes/narukami/lib/top-page-maker.php');
+	error_log('Debug data: ' . print_r($topPageMakerUrl, true));
+    $response = wp_remote_post($topPageMakerUrl, array(
+        'method'    => 'POST',
+        'body'      => array(
+            'action' => 'notify_top_page'
+        )
+    ));
+	$response_php_file = include('lib/top-page-maker.php');
+	echo $response_php_file;
+    if (is_wp_error($response)) {
+        $error_message = $response->get_error_message();
+        wp_send_json_error($error_message);
+    } else {
+        wp_send_json_success('notify_top_page');
+		echo $response_php_file;
+    }
+
+    wp_die();
+}
+add_action('wp_ajax_notify_top_page', 'notify_top_page_callback');
+add_action('wp_ajax_nopriv_notify_top_page', 'notify_top_page_callback');
 
 
 //カラーピッカーの生成関数

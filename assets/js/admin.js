@@ -41,6 +41,7 @@
  });
 
 function indicesfunc(){
+	const ajaxSuccesContainer = document.getElementById('ajax-test');
 	const selectBoxes = document.querySelectorAll('.clone-wrap-parent input[name="insert_ids[]"]');
     const data = Array.from(selectBoxes).map(input => input.value);
 	const postData = {
@@ -51,13 +52,32 @@ function indicesfunc(){
     fetch(url, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+			'X-Requested-With': 'XMLHttpRequest',
         },
         body: JSON.stringify(postData)
     })
     .then(response => response.json()) // JSON形式でレスポンスをパース
-    .then(data => {
-        alert('Response: ' + JSON.stringify(data));
+    .then(response => {
+        if (response.success) {
+            // AJAXリクエストが成功したときに、top-page-maker.phpを呼び出す
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({ action: 'notify_top_page' }).toString()
+            })
+            .then(response => response.text())
+            .then(responseText => {
+                console.log('Top page maker response:', responseText);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        } else {
+            console.error('AJAX request failed:', response.message);
+        }
     })
     .catch(error => {
         console.error('Error:', error);
