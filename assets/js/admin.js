@@ -60,7 +60,7 @@ function indicesfunc(){
     .then(response => response.json()) // JSON形式でレスポンスをパース
     .then(response => {
         if (response.success) {
-            // AJAXリクエストが成功したときに、top-page-maker.phpを呼び出す
+            const insertIdReloadContainer = document.getElementById('insert-id-reload-value');
             fetch(url, {
                 method: 'POST',
                 headers: {
@@ -71,6 +71,7 @@ function indicesfunc(){
             .then(response => response.text())
             .then(responseText => {
                 console.log('Top page maker response:', responseText);
+				insertIdReloadContainer.innerHTML = responseText;
             })
             .catch(error => {
                 console.error('Error:', error);

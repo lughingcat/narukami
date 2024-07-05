@@ -286,10 +286,9 @@ function handle_custom_ajax_request() {
             'status' => 'success',
             'message' => 'Indices updated successfully',
             'data' => $insert_id
-        );
-		
-        // JSONレスポンスを返す
-       wp_send_json_success($response);
+        );// JSONレスポンスを返す
+		update_option('insert_id_indices', $insert_id );
+		wp_send_json_success($response);
     } else {
         // エラーレスポンスの作成
         $response = array(
@@ -322,13 +321,11 @@ function notify_top_page_callback() {
             'action' => 'notify_top_page'
         )
     ));
-	$response_php_file = include('lib/top-page-maker.php');
-	echo $response_php_file;
+	$response_php_file = include('lib/insert-id-reload-ajax.php');
     if (is_wp_error($response)) {
         $error_message = $response->get_error_message();
         wp_send_json_error($error_message);
     } else {
-        wp_send_json_success('notify_top_page');
 		echo $response_php_file;
     }
 

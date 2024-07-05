@@ -82,7 +82,9 @@ function add_custom_menu_page_1(){
 
 <div class="wrap">
     <h2>鳴雷コンテンツ作成ツール一覧</h2>
+	<div id="include-file-sorting">
 	<?php include('top-page-maker.php'); ?>
+	</div>
 	<?php 
 	// プレビューボタン
     $preview_link = add_query_arg(

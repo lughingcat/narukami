@@ -13,15 +13,6 @@
 			  <?php 
 			  require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/wp-load.php');
 			  global $wpdb;
-			  var_dump($_POST);
-			  if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'notify_top_page') {
-					// 通知を受け取り、処理を実行
-					// 例: トップページの更新処理など
-					
-					echo 'ajax succes recieve message!';
-				}else{
-					echo 'none';
-				}
 			  $query_check = "SELECT COUNT(*) FROM {$wpdb->prefix}narukami_content_maker WHERE id != 1;";
 			  $count_rows = $wpdb->get_var($query_check);
 			  $select_boxes = array();
@@ -61,40 +52,12 @@
    				"テキストエリア" => 'text_content',
    				"パララックス" => 'parallax',
 			  );
-			  //s_cmaker分岐
-				if(isset($_POST['s_cmaker'])){
-					$selectbox_item = $_POST['s_cmaker'];
-				}else{
-					$selectbox_item = $select_boxes;
-				}
-			  //insert_ids分岐
-			  
-			  if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
-				  $insert_id_variable = get_option('insert_id_indices');
-			  }else{
-			  	  if(isset($_POST['insert_ids'])){
-				  	$insert_id_variable = $_POST['insert_ids'];
-					
-				  }else{
-				  	$insert_id_variable = $insert_id_check;
-					
-				  }
-			  }
-			  //s_cmakerを連想配列化する
-			  $selectboxitem_summarize = array();
-			  foreach ($selectbox_item as $key => $item) {
-				  // $keyは$selectbox_itemのキー、$itemはそのキーに対応する値
-				  $insert_id = isset($insert_id_variable[$key]) ? $insert_id_variable[$key] : '';
-				  $selectboxitem_summarize[] = array(
-					  'item' => $item,
-					  'insert_id' => $insert_id
-				  );
-			  }
-			  //テスト出力
-			  foreach ($selectboxitem_summarize as $entry) {
-				  echo "Item: " . $entry['item'] . ", Insert ID: " . $entry['insert_id'] . "<br>";
-			  }
 			  ?>
+			  
+			  <div id="insert-id-reload-value">
+			  	<?php include('insert-id-reload-ajax.php');?>
+			  </div>
+			  
 			  <?php $i = 0; foreach($selectboxitem_summarize as $entry) : ?>
 			  <div id="clone-wrap_<?php echo $i; ?>" class="clone-wrap-parent">
 				  <input type="hidden" id="insert-ids-<?php echo $i; ?>" name="insert_ids[]" class="insert-item-id" value="insert-id<?php echo $i; ?>">
