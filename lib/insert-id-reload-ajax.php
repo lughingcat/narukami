@@ -1,13 +1,18 @@
 <?php 
 //s_cmaker分岐
-if(isset($_POST['s_cmaker'])){
-	$selectbox_item = $_POST['s_cmaker'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'notify_top_page') {
+	$selectbox_item = get_option('scmaker_array_values');
 }else{
-	$selectbox_item = $select_boxes;
+	if(isset($_POST['s_cmaker'])){
+		$selectbox_item = $_POST['s_cmaker'];
+	}else{
+		$selectbox_item = $select_boxes;
+	}
 }
 foreach($selectbox_item as $item){
 	echo $item . '</br>';
 }
+
 //insert_ids分岐
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'notify_top_page') {
 	$insert_id_variable = get_option('insert_id_indices');

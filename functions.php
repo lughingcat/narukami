@@ -277,17 +277,19 @@ function handle_custom_ajax_request() {
     $json = file_get_contents('php://input');
     $data = json_decode($json, true);
 	
-    if (!empty($data['dataArray'])) {
-		
-        // 受け取ったデータを変数にセット
+    if (!empty($data['dataArray']) && !empty($data['scmakerArray'])) {
+		// 受け取ったデータを変数にセット
         $insert_id = $data['dataArray'];
+        $scmaker_array = $data['scmakerArray'];
         // レスポンスを作成
         $response = array(
             'status' => 'success',
             'message' => 'Indices updated successfully',
-            'data' => $insert_id
+            'data' => $insert_id,
+            'scmaker' => $scmaker_array
         );// JSONレスポンスを返す
 		update_option('insert_id_indices', $insert_id );
+		update_option('scmaker_array_values', $scmaker_array );
 		wp_send_json_success($response);
     } else {
         // エラーレスポンスの作成

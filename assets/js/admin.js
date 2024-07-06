@@ -41,12 +41,17 @@
  });
 
 function indicesfunc(){
-	const ajaxSuccesContainer = document.getElementById('ajax-test');
+	const scmakerValue = document.getElementsByName('s_cmaker[]');
+	const scmakerValues = [];
+	for(var i = 0; i < scmakerValue.length; i++){
+		scmakerValues.push(scmakerValue[i].value);
+	}
 	const selectBoxes = document.querySelectorAll('.clone-wrap-parent input[name="insert_ids[]"]');
     const data = Array.from(selectBoxes).map(input => input.value);
 	const postData = {
         action: 'custom_ajax_action',
-        dataArray: data
+        dataArray: data,
+		scmakerArray: scmakerValues
     };
 	const url = `${my_ajax_obj.ajaxurl}?action=custom_ajax_action&nonce=${my_ajax_obj.nonce}`;
     fetch(url, {
@@ -59,6 +64,7 @@ function indicesfunc(){
     })
     .then(response => response.json()) // JSON形式でレスポンスをパース
     .then(response => {
+		console.log(response)
         if (response.success) {
             const insertIdReloadContainer = document.getElementById('insert-id-reload-value');
             fetch(url, {
