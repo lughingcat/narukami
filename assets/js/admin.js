@@ -67,6 +67,7 @@ function indicesfunc(){
 		console.log(response)
         if (response.success) {
             const insertIdReloadContainer = document.getElementById('insert-id-reload-value');
+            const selectboxReloadContainer = document.getElementById('ajax-reload-container');
             fetch(url, {
                 method: 'POST',
                 headers: {
@@ -74,10 +75,15 @@ function indicesfunc(){
                 },
                 body: new URLSearchParams({ action: 'notify_top_page' }).toString()
             })
-            .then(response => response.text())
-            .then(responseText => {
-                console.log('Top page maker response:', responseText);
-				insertIdReloadContainer.innerHTML = responseText;
+            .then(response => response.json())
+            .then(data => {
+				if(data.success){
+					insertIdReloadContainer.innerHTML = data.data.insertIdContent;
+					selectboxReloadContainer.innerHTML = data.data.selectboxContent;
+					console.log(data.data.selectboxContent)
+				}else{
+					console.error('Error:', data.data);
+				}
             })
             .catch(error => {
                 console.error('Error:', error);

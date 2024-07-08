@@ -323,12 +323,19 @@ function notify_top_page_callback() {
             'action' => 'notify_top_page'
         )
     ));
-	$response_php_file = include('lib/insert-id-reload-ajax.php');
+	$insert_filename = 'insert-id-reload-ajax';
+	$selectbox_filename = 'selectbox_file_reload_ajax';
+	$response_insertid_file = getContentBasedOnValue($insert_filename);
+	$response_selectbox_file = getContentBasedOnValue($selectbox_filename);
     if (is_wp_error($response)) {
         $error_message = $response->get_error_message();
         wp_send_json_error($error_message);
     } else {
-		echo $response_php_file;
+		$response_data = array(
+        'insertIdContent' => $response_insertid_file,
+        'selectboxContent' => $response_selectbox_file
+    	);
+    wp_send_json_success($response_data);
     }
 
     wp_die();

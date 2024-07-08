@@ -76,37 +76,42 @@
 		      </select>
 			  <div id="contentContainer_<?php echo $i; ?>" class="content-Container">
 				  <button type="button" id="open-file<?php echo $i?>" class="open-file-button" onClick="openPageElement(this)">開く</button>
-				  <?php
-				  global $insert_id_post;
-				  if (isset($_POST['insert_ids']) && is_array($_POST['insert_ids']) && isset($_POST['insert_ids'][$i])) {
-					  $insert_id_post = $_POST['insert_ids'][$i];
-				  } else {
-					  $insert_id_post = $entry['insert_id'];
-				  }
-
-				  var_dump('insert_id_postの値:' . $insert_id_post);
-				  if($entry['item'] == "grandmenu"){
-					  include('grandmenu.php');
-				  }elseif($entry['item'] == "concept"){
-					  include('concept.php');
-				  }elseif($entry['item'] == "ranking"){
-					  include('ranking.php');
-				  }elseif($entry['item'] == "column_right_1"){
-					  include('column_right_1.php');
-				  }elseif($entry['item'] == "column_left_1"){
-					  include('column_left_1.php');
-				  }elseif($entry['item'] == "column_2"){
-					  include('column_2.php');
-				  }elseif($entry['item'] == "column_3"){
-					  include('column_3.php');
-				  }elseif($entry['item'] == "store_info"){
-					  include('store_info.php');
-				  }elseif($entry['item'] == "text_content"){
-					  include('text_content.php');
-				  }elseif($entry['item'] == "parallax"){
-					  include('parallax.php');
-				  }
-				  ?>
+				  <div id="ajax-reload-container">
+				  	<?php
+                    global $insert_id_post;
+                    
+                    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'notify_top_page') {
+                    	$insert_id_post = get_option('insert_id_indices');
+                    }else{
+                      if (isset($_POST['insert_ids']) && is_array($_POST['insert_ids']) && isset($_POST['insert_ids'][$i])) {
+                    	  $insert_id_post = $_POST['insert_ids'][$i];
+                      } else {
+                    	  $insert_id_post = $entry['insert_id'];
+                      }
+                    }
+                      if($entry['item'] == "grandmenu"){
+                    	  include('grandmenu.php');
+                      }elseif($entry['item'] == "concept"){
+                    	  include('concept.php');
+                      }elseif($entry['item'] == "ranking"){
+                    	  include('ranking.php');
+                      }elseif($entry['item'] == "column_right_1"){
+                    	  include('column_right_1.php');
+                      }elseif($entry['item'] == "column_left_1"){
+                    	  include('column_left_1.php');
+                      }elseif($entry['item'] == "column_2"){
+                    	  include('column_2.php');
+                      }elseif($entry['item'] == "column_3"){
+                    	  include('column_3.php');
+                      }elseif($entry['item'] == "store_info"){
+                    	  include('store_info.php');
+                      }elseif($entry['item'] == "text_content"){
+                    	  include('text_content.php');
+                      }elseif($entry['item'] == "parallax"){
+                    	  include('parallax.php');
+                      }
+                    ?>
+				  </div>
 			  </div>
 			  </div>
 			  <?php $i++; endforeach; ?>
