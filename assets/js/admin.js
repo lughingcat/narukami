@@ -67,7 +67,6 @@ function indicesfunc(){
 		console.log(response)
         if (response.success) {
             const insertIdReloadContainer = document.getElementById('insert-id-reload-value');
-            const selectboxReloadContainer = document.getElementById('ajax-reload-container');
             fetch(url, {
                 method: 'POST',
                 headers: {
@@ -79,8 +78,6 @@ function indicesfunc(){
             .then(data => {
 				if(data.success){
 					insertIdReloadContainer.innerHTML = data.data.insertIdContent;
-					selectboxReloadContainer.innerHTML = data.data.selectboxContent;
-					console.log(data.data.selectboxContent)
 				}else{
 					console.error('Error:', data.data);
 				}
