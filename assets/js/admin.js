@@ -12,6 +12,7 @@
 		onEnd: function (evt) { // ドラッグ終了時に実行
            	updateIndices();
 			indicesfunc();
+			
         }
     });
 	 
@@ -36,10 +37,31 @@
 					//孫要素
 					openFileButton.id = 'open-file' + index;
                 });
-            }
+		 	childElementRenumber();
+       }
 	 
  });
 
+//各.content-Containerの子要素内のinputの再ナンバリング	
+function childElementRenumber(){
+	const contentContainer = document.querySelectorAll('.content-Container');
+	contentContainer.forEach(function(container,number){
+		var inputs = container.querySelectorAll('input');
+		console.log(inputs)
+		var arrayNums = container.querySelectorAll('input[name*="array-num"]');
+		arrayNums.forEach(function(arrayNum){
+			arrayNum.value = number;
+			console.log(arrayNum.value)
+		})
+		inputs.forEach(function(input) {
+        	var name = input.getAttribute('name');
+        	if (name) {
+        	    var newName = name.replace(/\[\d+\]/, '[' + number + ']');
+        	    input.setAttribute('name', newName);
+        	}
+        });
+	});
+}
 function indicesfunc(){
 	const scmakerValue = document.getElementsByName('s_cmaker[]');
 	const scmakerValues = [];
@@ -93,7 +115,7 @@ function indicesfunc(){
         console.error('Error:', error);
     });
 }
-	
+
 
 //selectbox追加動作
 
