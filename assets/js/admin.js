@@ -9,10 +9,14 @@
         animation: 150, // ドラッグ時のアニメーション
         ghostClass: 'blue-background-class', // ドラッグ中の要素に適用されるクラス
 		handle: '.handle',
+		onStart: function () {
+            // 並べ替え開始時にエディタを破棄
+            tinymce.remove('.narukami-tinymce-editor');
+            },
 		onEnd: function (evt) { // ドラッグ終了時に実行
            	updateIndices();
 			indicesfunc();
-			
+			initCustomEditor();
         }
     });
 	 
@@ -47,7 +51,8 @@ function childElementRenumber(){
 	const contentContainer = document.querySelectorAll('.content-Container');
 	contentContainer.forEach(function(container,number){
 		var inputs = container.querySelectorAll('input');
-		console.log(inputs)
+		var textareas = container.querySelectorAll('textarea');
+		var insertIds = container.querySelectorAll('[data-insert-id]');
 		var arrayNums = container.querySelectorAll('input[name*="array-num"]');
 		arrayNums.forEach(function(arrayNum){
 			arrayNum.value = number;
@@ -60,6 +65,20 @@ function childElementRenumber(){
         	    input.setAttribute('name', newName);
         	}
         });
+		textareas.forEach(function(textarea){
+			var name = textarea.getAttribute('name');
+			if(name){
+				var newName = name.replace(/\[\d+\]/, '[' + number + ']');
+				textarea.setAttribute('name', newName);
+			}
+		})
+		insertIds.forEach(function(insertId){
+			var dataInsertId = insertId.getAttribute('data-insert-id');
+			if(dataInsertId){
+				var newValue = 'insert-id' + number;
+				insertId.setAttribute('data-insert-id', newValue)
+			}
+		});
 	});
 }
 function indicesfunc(){
