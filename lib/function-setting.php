@@ -96,7 +96,7 @@ function add_custom_menu_page_1(){
     );
 	echo '<button type="button" class="button" onclick="submitPreviewForm()">プレビュー</button>';
 	echo '
-    <script type="text/javascript">
+<script type="text/javascript">
 function submitPreviewForm() {
     var form = document.getElementById("post-toppage-maker");
     var formData = new FormData(form);
