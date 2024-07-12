@@ -84,9 +84,14 @@ function childElementRenumber(){
 }
 //selectbox削除
 function deleteSelectboxItem(button){
-	var parentElement = button.parentElement;
-	parentElement.remove();
-	updateIndices();
+	var confirmDelete = confirm("入力データが完全に消去されます。\n実行しますか？");
+	if (confirmDelete) {
+		var parentElement = button.parentElement;
+		parentElement.remove();
+		updateIndices();
+	}else{
+		console.log("削除がキャンセルされました。");
+	}
 }
 
 function indicesfunc(){
