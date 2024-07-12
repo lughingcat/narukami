@@ -62,6 +62,7 @@
 			  <div id="clone-wrap_<?php echo $i; ?>" class="clone-wrap-parent">
 				  <input type="hidden" id="insert-ids-<?php echo $i; ?>" name="insert_ids[]" class="insert-item-id" value="insert-id<?php echo $i; ?>">
 			  <div class="handle">☰</div>
+			  <button id="delete_selectbox_<?php echo $i; ?>" type="button" class="delete_selectbox_item" onClick="deleteSelectboxItem(this)">削除</button>
 			  <select name="s_cmaker[]" class="cmaker-wrap" id="cmaker_<?php echo $i; ?>" data-index="<?php echo 'insert-id'. $i; ?>" onchange="loadContent(this); rankingRemoved(this);">
 				  <option hidden>選択してください</option>
 				  <?php 

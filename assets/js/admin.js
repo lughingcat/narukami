@@ -20,32 +20,33 @@
         }
     });
 	 
-	 function updateIndices() {
-                const selectBoxes = document.querySelectorAll('.clone-wrap-parent');
-                selectBoxes.forEach((box, index) => {
-					const scmakerEl = box.querySelector('.cmaker-wrap');
-					const contentContainer = box.querySelector('.content-Container');
-					const openFileButton = contentContainer.querySelector('.open-file-button');
-					const hiddenInput = box.querySelector('input[name="insert_ids[]"]');
-					//親要素
-                    // IDを更新
-                    box.id = 'clone-wrap_' + index;
-					// hidden value,id
-                    hiddenInput.value = 'insert-id' + index;
-                    hiddenInput.id = 'insert-ids-' + index;
-					//子要素
-                    // data-index,id
-                    scmakerEl.dataset.index = 'insert-id'+ index;
-                    scmakerEl.id = 'cmaker_'+ index;
-                    contentContainer.id = 'contentContainer_'+ index;
-					//孫要素
-					openFileButton.id = 'open-file' + index;
-                });
-		 	childElementRenumber();
-       }
-	 
  });
-
+function updateIndices() {
+	const selectBoxes = document.querySelectorAll('.clone-wrap-parent');
+	selectBoxes.forEach((box, index) => {
+		const scmakerEl = box.querySelector('.cmaker-wrap');
+		const contentContainer = box.querySelector('.content-Container');
+		const openFileButton = contentContainer.querySelector('.open-file-button');
+		const hiddenInput = box.querySelector('input[name="insert_ids[]"]');
+		const deleteBtn = box.querySelector('.delete_selectbox_item');
+		//親要素
+    	// IDを更新
+    	box.id = 'clone-wrap_' + index;
+		// hidden value,id
+    	hiddenInput.value = 'insert-id' + index;
+    	hiddenInput.id = 'insert-ids-' + index;
+		//deleteBtnのid更新
+		deleteBtn.id = 'delete_selectbox_' + index;
+		//子要素
+    	// data-index,id
+    	scmakerEl.dataset.index = 'insert-id'+ index;
+    	scmakerEl.id = 'cmaker_'+ index;
+    	contentContainer.id = 'contentContainer_'+ index;
+		//孫要素
+		openFileButton.id = 'open-file' + index;
+    });
+　childElementRenumber();
+}
 //各.content-Containerの子要素内のinputの再ナンバリング	
 function childElementRenumber(){
 	const contentContainer = document.querySelectorAll('.content-Container');
@@ -81,6 +82,13 @@ function childElementRenumber(){
 		});
 	});
 }
+//selectbox削除
+function deleteSelectboxItem(button){
+	var parentElement = button.parentElement;
+	parentElement.remove();
+	updateIndices();
+}
+
 function indicesfunc(){
 	const scmakerValue = document.getElementsByName('s_cmaker[]');
 	const scmakerValues = [];

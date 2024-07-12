@@ -31,8 +31,11 @@ function initCustomEditor() {
           　  　editor.on('change keyup', function() {
 				  var content = editor.getContent();
 				  var hiddenTextarea = editor.getElement();
+				  var filteredContent = content.replace(/<p>/gi, '').replace(/<\/p>/gi, '');
+                  editor.setContent(filteredContent, { format: 'html' });
                   if (hiddenTextarea) {
-                      hiddenTextarea.value = content;
+                      hiddenTextarea.value = filteredContent;
+					  console.log(hiddenTextarea.value)
                   }
           　  　});
           　}
