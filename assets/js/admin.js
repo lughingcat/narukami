@@ -4,12 +4,30 @@
 
 //selectbox移動動作制御
  document.addEventListener('DOMContentLoaded', function() {
+	 function initializeSortable() {
     // Sortableのインスタンスを作成
-    new Sortable(document.getElementById('select-all-wrap'), {
+    var sortable = new Sortable(document.getElementById('select-all-wrap'), {
         animation: 150, // ドラッグ時のアニメーション
         ghostClass: 'blue-background-class', // ドラッグ中の要素に適用されるクラス
 		handle: '.handle',
-		onStart: function () {
+		onChoose: function (evt) {
+            var item = evt.item;
+            // 子要素にopen-file-buttonクラスが含まれてない場合
+            if (!item.querySelector('.open-file-button')) {
+                // ドラッグをキャンセルしてアラートを表示
+                evt.preventDefault(); // ドラッグをキャンセル
+                alert('保存が完了していません。\n保存をしてからドラッグしてください。');
+				item.setAttribute('data-drag-disabled', 'false');
+            }
+        },
+		onStart: function (evt) {
+			var item = evt.item;
+                // フラグが設定されている場合、ドラッグをキャンセル
+                if (item.getAttribute('data-drag-disabled') === 'false') {
+                    evt.preventDefault(); // ドラッグをキャンセル
+                    return;
+                }
+			console.log()
             // 並べ替え開始時にエディタを破棄
             tinymce.remove('.narukami-tinymce-editor');
             },
@@ -19,7 +37,8 @@
 			initCustomEditor();
         }
     });
-	 
+   }
+	 initializeSortable();
  });
 function updateIndices() {
 	const selectBoxes = document.querySelectorAll('.clone-wrap-parent');
