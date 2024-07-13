@@ -1,5 +1,57 @@
 @charset "UTF-8";
 /*================================
+	top-page-makerスタイル
+=================================*/
+#select-all-wrap {
+  background-color: #32495F;
+  width: 100%;
+  padding: 3%;
+  box-sizing: border-box; }
+  #select-all-wrap .clone-wrap-parent {
+    position: relative;
+    width: 100%; }
+    #select-all-wrap .clone-wrap-parent .select-box-item-wrap {
+      position: relative;
+      margin-top: 3%; }
+      #select-all-wrap .clone-wrap-parent .select-box-item-wrap .delete_selectbox_item {
+        width: 8%;
+        height: 25px;
+        background-color: #9D3B3B;
+        border-radius: 0;
+        border: 0;
+        margin: 0;
+        color: #FFFFFF; }
+      #select-all-wrap .clone-wrap-parent .select-box-item-wrap .cmaker-wrap {
+        width: 92%;
+        height: 65px;
+        max-width: none;
+        border-radius: 0;
+        border: 0;
+        position: absolute;
+        top: 0;
+        margin: 0; }
+      #select-all-wrap .clone-wrap-parent .select-box-item-wrap .move-handle {
+        width: 8%;
+        height: 40px;
+        background-color: #0D6432;
+        color: #0D6432;
+        text-align: center;
+        border: 0;
+        position: relative; }
+        #select-all-wrap .clone-wrap-parent .select-box-item-wrap .move-handle p {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -100%); }
+          #select-all-wrap .clone-wrap-parent .select-box-item-wrap .move-handle p .fa-solid.fa-up-down-left-right {
+            color: #ffffff;
+            font-size: 14px; }
+
+.cmakerWrapcolumn_2,
+.cmakerWrapConcept {
+  background-color: #ffffff; }
+
+/*================================
 	adimin-page 共通パーツスタイル
 =================================*/
 /*-- hタグ、見出しスタイル --*/
@@ -139,7 +191,8 @@
   #back_wrap .postbox {
     box-shadow: 4px 4px 16px -5px #777777; }
   #back_wrap .hndle {
-    border-bottom: 1px solid #B2B2B2; }
+    border-bottom: 1px solid #B2B2B2;
+    cursor: auto; }
     #back_wrap .hndle .title {
       margin-left: 25px;
       font-size: 1.2em;

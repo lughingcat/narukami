@@ -9,7 +9,7 @@
     var sortable = new Sortable(document.getElementById('select-all-wrap'), {
         animation: 150, // ドラッグ時のアニメーション
         ghostClass: 'blue-background-class', // ドラッグ中の要素に適用されるクラス
-		handle: '.handle',
+		handle: '.move-handle',
 		onChoose: function (evt) {
             var item = evt.item;
             // 子要素にopen-file-buttonクラスが含まれてない場合
@@ -150,7 +150,7 @@ function indicesfunc(){
             .then(response => response.json())
             .then(data => {
 				if(data.success){
-					insertIdReloadContainer.innerHTML = data.data.insertIdContent;
+					//ここにレスポンスのDOMを操作するコードを入れる。現段階では何もしない。
 				}else{
 					console.error('Error:', data.data);
 				}

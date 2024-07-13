@@ -1,7 +1,7 @@
 //セレクトボックス変更に対してphpファイルのincludeを制御
 function loadContent(selectElement) {
     var selectedValue = selectElement.value;
-    var parentEL = selectElement.parentNode;
+    var parentEL = selectElement.parentNode.parentNode//親要素の親要素を取得
     var parentIdNum = parentEL.id.replace(/\D/g, '');
     var contentContainer = parentEL.querySelector('.content-Container');
     var insertIdGlobalValue = selectElement.getAttribute('data-index');

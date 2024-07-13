@@ -9,21 +9,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 		$selectbox_item = $select_boxes;
 	}
 }
-foreach($selectbox_item as $item){
-	echo $item . '</br>';
-}
 
 //insert_ids分岐
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'notify_top_page') {
 	$insert_id_variable = get_option('insert_id_indices');
-	var_dump($insert_id_variable);
 }else{
 	if(isset($_POST['insert_ids'])){
-		$insert_id_variable = $_POST['insert_ids'];
-		echo '$POST';			
+		$insert_id_variable = $_POST['insert_ids'];			
 	}else{
-		$insert_id_variable = $insert_id_check;
-		echo 'DATABASE';			
+		$insert_id_variable = $insert_id_check;			
 	}
 }
 //s_cmakerを連想配列化する
@@ -35,9 +29,5 @@ foreach ($selectbox_item as $key => $item) {
 	  'item' => $item,
 	  'insert_id' => $insert_id
   );
-}
-//テスト出力
-foreach ($selectboxitem_summarize as $entry) {
-  echo "Item: " . $entry['item'] . ", Insert ID: " . $entry['insert_id'] . "<br>";
 }
 ?>

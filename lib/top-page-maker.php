@@ -61,7 +61,8 @@
 			  <?php $i = 0; foreach($selectboxitem_summarize as $entry) : ?>
 			  <div id="clone-wrap_<?php echo $i; ?>" class="clone-wrap-parent">
 				  <input type="hidden" id="insert-ids-<?php echo $i; ?>" name="insert_ids[]" class="insert-item-id" value="insert-id<?php echo $i; ?>">
-			  <div class="handle">☰</div>
+			  <div class="select-box-item-wrap">
+			  <div class="move-handle"><p><i class="fa-solid fa-up-down-left-right"></i></p></div>
 			  <button id="delete_selectbox_<?php echo $i; ?>" type="button" class="delete_selectbox_item" onClick="deleteSelectboxItem(this)">削除</button>
 			  <select name="s_cmaker[]" class="cmaker-wrap" id="cmaker_<?php echo $i; ?>" data-index="<?php echo 'insert-id'. $i; ?>" onchange="loadContent(this); rankingRemoved(this);">
 				  <option hidden>選択してください</option>
@@ -115,11 +116,11 @@
 				  </div>
 			  </div>
 			  </div>
+			  </div>
 			  <?php $i++; endforeach; ?>
 			  <div id="clonedSelectBoxes"></div>
-			  <button type="button" onclick="cloneSelectBox(); rankingRemoved(this);">複製</button>
 			  </div><!--mainEnd-->
-				
+			<button type="button" onclick="cloneSelectBox(); rankingRemoved(this);">複製</button>	
 			<button id="gmvalidate" type="submit" name="toppage_initialization">保存</button>
 			<button id="gmvalidate" type="submit" name="delete_iniz" value="Initialization">初期化</button>
 			</form>

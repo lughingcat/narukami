@@ -1,4 +1,63 @@
 // Scss Document
+/*================================
+	top-page-makerスタイル
+=================================*/
+#select-all-wrap{
+	background-color: #32495F;
+	width: 100%;
+	padding: 3%;
+	box-sizing: border-box;
+	.clone-wrap-parent{
+		position: relative;
+		width: 100%;
+		.select-box-item-wrap{
+			position: relative;
+			margin-top: 3%;
+			.delete_selectbox_item{
+				width: 8%;
+				height: 25px;
+				background-color: #9D3B3B;
+				border-radius: 0;
+				border: 0;
+				margin: 0;
+				color: #FFFFFF;
+			}
+			.cmaker-wrap{
+				width: 92%;
+				height: 65px;
+				max-width: none;
+				border-radius: 0;
+				border: 0;
+				position: absolute;
+				top: 0;
+				margin: 0;
+			}
+			.move-handle{
+				width: 8%;
+				height: 40px;
+				background-color: #0D6432;
+				color: #0D6432;
+				text-align: center;
+				border: 0;
+				position: relative;
+				p{
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%,-100%);
+					.fa-solid.fa-up-down-left-right{
+						color: #ffffff;
+						font-size: 14px;
+					}
+				}
+			}
+		}
+	}
+}
+.cmakerWrapcolumn_2,
+.cmakerWrapConcept{
+	background-color: #ffffff;
+}
 
 /*================================
 	adimin-page 共通パーツスタイル
@@ -176,6 +235,7 @@
 	}
 	.hndle{
 		border-bottom: 1px solid #B2B2B2;
+		cursor: auto;
 		.title{
 			margin-left: 25px;
 			font-size: 1.2em;
