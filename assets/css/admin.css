@@ -14,13 +14,14 @@
       position: relative;
       margin-top: 3%; }
       #select-all-wrap .clone-wrap-parent .select-box-item-wrap .delete_selectbox_item {
-        width: 8%;
+        width: 6%;
         height: 25px;
         background-color: #9D3B3B;
         border-radius: 0;
         border: 0;
         margin: 0;
-        color: #FFFFFF; }
+        color: #FFFFFF;
+        font-size: 10px; }
       #select-all-wrap .clone-wrap-parent .select-box-item-wrap .cmaker-wrap {
         width: 92%;
         height: 65px;
@@ -31,7 +32,7 @@
         top: 0;
         margin: 0; }
       #select-all-wrap .clone-wrap-parent .select-box-item-wrap .move-handle {
-        width: 8%;
+        width: 6%;
         height: 40px;
         background-color: #0D6432;
         color: #0D6432;
