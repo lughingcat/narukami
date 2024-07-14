@@ -5,10 +5,18 @@
 	
 	<div class="metabox-holder">
       <div class="postbox bg">
-        <h3 class='hndle'><span class="title">ヘッダー設定</span></h3>
+        <h3 class='hndle'><span class="title">鳴雷トップページビルダー[NarukamiTopPageBilder]</span></h3>
         <div class="inside">
-			<h2 class="narukami-admin-h2">トップページビルダー</h2>
-			<form id="post-toppage-maker" method="post" name="narukami_top_page_maker" action="">
+		  <h2 class="narukami-admin-h2">鳴雷トップページビルダーの使い方</h2>
+		  <p class="tpb-discription">
+			  ヘッダー、フッター間のコンテンツを作成できます。</br>
+		  コンテンツを追加ボタンを押すと新規コンテンツを作成できます。</br>
+		  作成が完了したら設定を保存を押すと、作成済みコンテンツがデータベースへ全て保存されます。</br>
+		  
+		  
+		  
+		  </p>
+		  <form id="post-toppage-maker" method="post" name="narukami_top_page_maker" action="">
           <div id="select-all-wrap" class="main">
 			  <?php 
 			  require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/wp-load.php');
@@ -77,7 +85,7 @@
 			      ?> 
 		      </select>
 			  <div id="contentContainer_<?php echo $i; ?>" class="content-Container">
-				  <button type="button" id="open-file<?php echo $i?>" class="open-file-button" onClick="openPageElement(this)">開く</button>
+				  <button type="button" id="open-file<?php echo $i?>" class="open-file-button" onClick="openPageElement(this)"><i class="fa-regular fa-folder-open"></i></button>
 				  <div id="ajax-reload-container">
 				  	<?php
                     global $insert_id_post;
@@ -114,21 +122,53 @@
                       }
                     ?>
 				  </div>
-			  </div>
-			  </div>
-			  </div>
+			  </div><!--content-Container-end-->
+			  </div><!--select-box-item-wrap-end-->
+			  </div><!--clone-wrap-parent-end-->
 			  <?php $i++; endforeach; ?>
 			  <div id="clonedSelectBoxes"></div>
 			  </div><!--mainEnd-->
-			<button type="button" onclick="cloneSelectBox(); rankingRemoved(this);">複製</button>	
-			<button id="gmvalidate" type="submit" name="toppage_initialization">保存</button>
-			<button id="gmvalidate" type="submit" name="delete_iniz" value="Initialization">初期化</button>
+			<div class="control-setting-btn">
+				<button type="button" class="reproduction-btn" onclick="cloneSelectBox(); rankingRemoved(this);">コンテンツを追加</button>	
+				<button id="gmvalidate" type="submit" class="top-page-maker-save-btn" name="toppage_initialization">設定を保存</button>
+				<?php 
+				// プレビューボタン
+    			$preview_link = add_query_arg(
+    			    array(
+    			        'preview' => 'true',
+    			        'page' => 'toppage_builder_preview'
+    			    ),
+    			    home_url('/')
+    			);
+				echo '<button type="button" class="narukami-prevew-btn" onclick="submitPreviewForm()">PREVEW</button>';
+echo '
+<script type="text/javascript">
+function submitPreviewForm() {
+    var form = document.getElementById("post-toppage-maker");
+    var formData = new FormData(form);
+    var xhr = new XMLHttpRequest();
+    var preview_link = "' . $preview_link . '";
+    xhr.open("POST", preview_link, true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            console.log("XHR Status:", xhr.status);
+            if (xhr.status == 200) {
+                var previewWindow = window.open(preview_link, "_blank");
+                previewWindow.document.open();
+                previewWindow.document.write(xhr.responseText);
+                previewWindow.document.close();
+            }
+        }
+    };
+    xhr.send(formData);
+}
+</script>
+';
+				?>
+			</div>
 			</form>
 			<?php include("procces.php"); ?>	
           </div> 
         </div>
       </div>
-	<div class="wp-submitAllBtn">
-	<?php submit_button('全体をサイトへ反映'); ?>
-	</div>
 </div>

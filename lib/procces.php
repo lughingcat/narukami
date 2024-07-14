@@ -112,7 +112,6 @@ foreach ($select_contents as $key => $select_content) {
 	$insert_id = isset($i_insert_ids[$key]) ? $i_insert_ids[$key] : ''; 
 	//ランキングpopスタイル
 	$rank_pop_roop = isset($rank_pop[$key]) ? $rank_pop[$key] : ''; 
-	var_dump($rank_pop_roop);
 	//ランキング背景スタイル
 	$rank_style_roop = isset($rank_style[$key]) ? $rank_style[$key] : ''; 
 	//ランキングメインタイトル

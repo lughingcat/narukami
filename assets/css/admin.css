@@ -23,14 +23,15 @@
         color: #FFFFFF;
         font-size: 10px; }
       #select-all-wrap .clone-wrap-parent .select-box-item-wrap .cmaker-wrap {
-        width: 92%;
+        width: 94%;
         height: 65px;
         max-width: none;
         border-radius: 0;
         border: 0;
         position: absolute;
         top: 0;
-        margin: 0; }
+        margin: 0;
+        box-shadow: none; }
       #select-all-wrap .clone-wrap-parent .select-box-item-wrap .move-handle {
         width: 6%;
         height: 40px;
@@ -47,10 +48,67 @@
           #select-all-wrap .clone-wrap-parent .select-box-item-wrap .move-handle p .fa-solid.fa-up-down-left-right {
             color: #ffffff;
             font-size: 14px; }
+      #select-all-wrap .clone-wrap-parent .select-box-item-wrap .content-Container {
+        width: 100%;
+        position: relative;
+        box-sizing: border-box; }
+        #select-all-wrap .clone-wrap-parent .select-box-item-wrap .content-Container .open-file-button {
+          width: 6%;
+          height: 30px;
+          background-color: #D16407;
+          border: 0; }
+          #select-all-wrap .clone-wrap-parent .select-box-item-wrap .content-Container .open-file-button .fa-regular.fa-folder-open {
+            color: #FFFFFF;
+            font-size: 14px; }
 
+.cmakerWrapConcept,
+.cmaker-wrap-ranking,
+.cmakerWrapgrandmenu,
+.cmakerWrapstore_info,
+.cmakerWraptext_content,
+.cmakerWrapparallax,
+.cmakerWrapcolumn_left_1,
+.cmakerWrapcolumn_right_1,
 .cmakerWrapcolumn_2,
-.cmakerWrapConcept {
-  background-color: #ffffff; }
+.cmakerWrapcolumn_3 {
+  background-color: #ffffff;
+  margin-top: 2% 0;
+  box-sizing: border-box;
+  padding: 2%; }
+
+.control-setting-btn {
+  width: 100%;
+  margin: 7% auto 0;
+  position: relative;
+  display: flex;
+  justify-content: center; }
+  .control-setting-btn .reproduction-btn {
+    width: 15%;
+    height: 50px;
+    background-color: #d16407;
+    color: #FFFFFF;
+    text-align: center;
+    border: 0;
+    margin: 0 2%;
+    border-radius: 3px; }
+  .control-setting-btn .top-page-maker-save-btn {
+    width: 15%;
+    height: 50px;
+    background-color: #0D6432;
+    color: #FFFFFF;
+    text-align: center;
+    border: 0;
+    margin: 0 2%;
+    border-radius: 3px; }
+  .control-setting-btn .narukami-prevew-btn {
+    width: 15%;
+    height: 50px;
+    background-color: #FFFFFF;
+    color: #0086AD;
+    text-align: center;
+    border: 2px solid #0086AD;
+    margin: 0 2%;
+    border-radius: 3px; }
 
 /*================================
 	adimin-page 共通パーツスタイル
@@ -1253,9 +1311,7 @@
 /*------　テキストエリアスタイル　-------*/
 .text_content-back-wrap {
   width: 100%;
-  margin: 20px 0;
-  padding: 10px;
-  border: 1px solid; }
+  margin: 20px 0; }
   .text_content-back-wrap .text_content-text-wrap {
     width: 100%; }
     .text_content-back-wrap .text_content-text-wrap .text_content-main-title {
@@ -1277,11 +1333,12 @@
 .parallax-container {
   width: 100%;
   position: relative;
-  margin: 15% 0; }
+  margin: 15% auto; }
   .parallax-container .parallax-section {
     position: relative;
     width: 680px;
-    height: 510px; }
+    height: 510px;
+    margin: 0 auto; }
     .parallax-container .parallax-section .parallax-layer {
       position: absolute;
       top: 0;
