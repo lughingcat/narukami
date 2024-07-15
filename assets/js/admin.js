@@ -575,7 +575,6 @@ function deleteParentEl(button) {
 }
 
 function handleRankSettings(rankCheck, itemImg, itemTitle, itemPrice, itemUrl, itemUrlBtn, itemUrlClear, overlay, rankShowValue, rankNotShowValue, number) {
-	console.log(rankCheck)
 	if( rankNotShowValue.checked ){
 		itemImg.disabled = true;
 		itemTitle.disabled = true;
@@ -597,7 +596,6 @@ function handleRankSettings(rankCheck, itemImg, itemTitle, itemPrice, itemUrl, i
         e.addEventListener("click", function() {           
             const clickedInput = event.target;
     		const rankValue = clickedInput.value;
-			console.log(rankValue)
             if (rankValue === "rank_not_show_" + number) {
                 itemImg.disabled = true;
                 itemTitle.disabled = true;
@@ -620,15 +618,10 @@ function handleRankSettings(rankCheck, itemImg, itemTitle, itemPrice, itemUrl, i
 }
 //ランキング表示非表示切り替え1
 function rankingControl(idNum){
-	console.log(idNum);
-	console.log('呼び出されました')
 	const parentEl = document.getElementById('contentContainer_' + idNum);
-	console.log(parentEl)
-	var test = parentEl.querySelector('#item_img_url');
-	console.log(test)
 //ランキング1	
 handleRankSettings(
-	parentEl.querySelectorAll('input[name="rank_on[]"]'), 
+	parentEl.querySelectorAll('input[name="rank_on[' + idNum + ']"]'), 
     parentEl.querySelector('#item_img_url'), 
     parentEl.querySelector('#rank1-item-title'), 
     parentEl.querySelector('#rank-item-price'), 
@@ -642,7 +635,7 @@ handleRankSettings(
 );
 //ランキング2	
 handleRankSettings(
-	parentEl.querySelectorAll('input[name="rank_on_2[]"]'), 
+	parentEl.querySelectorAll('input[name="rank_on_2[' + idNum + ']"]'), 
     parentEl.querySelector('#item_img_url_2'), 
     parentEl.querySelector('#rank2-item-title'), 
     parentEl.querySelector('#rank2-item-price'), 
@@ -656,7 +649,7 @@ handleRankSettings(
 );
 //ランキング3	
 handleRankSettings(
-	parentEl.querySelectorAll('input[name="rank_on_3[]"]'), 
+	parentEl.querySelectorAll('input[name="rank_on_3[' + idNum + ']"]'), 
     parentEl.querySelector('#item_img_url_3'), 
     parentEl.querySelector('#rank3-item-title'), 
     parentEl.querySelector('#rank3-item-price'), 
@@ -670,7 +663,7 @@ handleRankSettings(
 );
 //ランキング4	
 handleRankSettings(
-	parentEl.querySelectorAll('input[name="rank_on_4[]"]'), 
+	parentEl.querySelectorAll('input[name="rank_on_4[' + idNum + ']"]'), 
     parentEl.querySelector('#item_img_url_4'), 
     parentEl.querySelector('#rank4-item-title'), 
     parentEl.querySelector('#rank4-item-price'), 
@@ -684,7 +677,7 @@ handleRankSettings(
 );
 //ランキング5	
 handleRankSettings(
-	parentEl.querySelectorAll('input[name="rank_on_5[]"]'), 
+	parentEl.querySelectorAll('input[name="rank_on_5[' + idNum + ']"]'), 
     parentEl.querySelector('#item_img_url_5'), 
     parentEl.querySelector('#rank5-item-title'), 
     parentEl.querySelector('#rank5-item-price'), 
@@ -698,7 +691,7 @@ handleRankSettings(
 );
 //ランキング6
 handleRankSettings(
-	parentEl.querySelectorAll('input[name="rank_on_6[]"]'), 
+	parentEl.querySelectorAll('input[name="rank_on_6[' + idNum + ']"]'), 
     parentEl.querySelector('#item_img_url_6'), 
     parentEl.querySelector('#rank6-item-title'), 
     parentEl.querySelector('#rank6-item-price'), 
