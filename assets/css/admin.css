@@ -60,6 +60,14 @@
           #select-all-wrap .clone-wrap-parent .select-box-item-wrap .content-Container .open-file-button .fa-regular.fa-folder-open {
             color: #FFFFFF;
             font-size: 14px; }
+        #select-all-wrap .clone-wrap-parent .select-box-item-wrap .content-Container .not-save-faile {
+          width: 6%;
+          height: 30px;
+          background-color: #8c8f94;
+          border: 0; }
+          #select-all-wrap .clone-wrap-parent .select-box-item-wrap .content-Container .not-save-faile .fa-solid.fa-folder-closed {
+            color: #FFFFFF;
+            font-size: 14px; }
 
 .cmakerWrapConcept,
 .cmaker-wrap-ranking,
@@ -1062,7 +1070,8 @@
   padding: 20px;
   border: 2px #0b950b solid;
   border-radius: 5px;
-  width: 45%; }
+  width: 45%;
+  z-index: 999; }
   #valitate-complete p {
     font-size: 1.2em;
     font-weight: bold; }

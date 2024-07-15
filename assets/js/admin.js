@@ -27,7 +27,6 @@
                     evt.preventDefault(); // ドラッグをキャンセル
                     return;
                 }
-			console.log()
             // 並べ替え開始時にエディタを破棄
             tinymce.remove('.narukami-tinymce-editor');
             },
@@ -61,8 +60,7 @@ function updateIndices() {
     	scmakerEl.dataset.index = 'insert-id'+ index;
     	scmakerEl.id = 'cmaker_'+ index;
     	contentContainer.id = 'contentContainer_'+ index;
-		//孫要素
-		openFileButton.id = 'open-file' + index;
+		
     });
 　childElementRenumber();
 }
@@ -76,7 +74,6 @@ function childElementRenumber(){
 		var arrayNums = container.querySelectorAll('input[name*="array-num"]');
 		arrayNums.forEach(function(arrayNum){
 			arrayNum.value = number;
-			console.log(arrayNum.value)
 		})
 		inputs.forEach(function(input) {
         	var name = input.getAttribute('name');
@@ -103,9 +100,14 @@ function childElementRenumber(){
 }
 //selectbox削除
 function deleteSelectboxItem(button){
+	var selectboxItems = document.querySelectorAll('.clone-wrap-parent');
+	if (selectboxItems.length <= 1) {
+    	alert("最後のセレクトボックスは削除できません。");
+    	return; // 削除処理を終了
+	}
 	var confirmDelete = confirm("入力データが完全に消去されます。\n実行しますか？");
 	if (confirmDelete) {
-		var parentElement = button.parentElement;
+		var parentElement = button.parentNode.parentNode;
 		parentElement.remove();
 		updateIndices();
 	}else{
@@ -137,7 +139,6 @@ function indicesfunc(){
     })
     .then(response => response.json()) // JSON形式でレスポンスをパース
     .then(response => {
-		console.log(response)
         if (response.success) {
             const insertIdReloadContainer = document.getElementById('insert-id-reload-value');
             fetch(url, {
@@ -203,17 +204,11 @@ function cloneSelectBox() {
     document.getElementById('clonedSelectBoxes').appendChild(clonedSelectBox);
 }
 
-
-
-//closebtn動作
-
 //パララックス動作制御
 let handleScroll;
 function parallaxControl() {
     const parallaxContainers = document.querySelectorAll(".parallax-container");
     const windowHeight = window.innerHeight; // ビューポートの高さ（表示領域）を測る
-    console.log(windowHeight);
-
     const handleScroll = function() {
         parallaxContainers.forEach(container => {
             const sections = container.querySelectorAll(".parallax-section");
@@ -580,6 +575,7 @@ function deleteParentEl(button) {
 }
 
 function handleRankSettings(rankCheck, itemImg, itemTitle, itemPrice, itemUrl, itemUrlBtn, itemUrlClear, overlay, rankShowValue, rankNotShowValue, number) {
+	console.log(rankCheck)
 	if( rankNotShowValue.checked ){
 		itemImg.disabled = true;
 		itemTitle.disabled = true;
@@ -601,6 +597,7 @@ function handleRankSettings(rankCheck, itemImg, itemTitle, itemPrice, itemUrl, i
         e.addEventListener("click", function() {           
             const clickedInput = event.target;
     		const rankValue = clickedInput.value;
+			console.log(rankValue)
             if (rankValue === "rank_not_show_" + number) {
                 itemImg.disabled = true;
                 itemTitle.disabled = true;
@@ -623,7 +620,12 @@ function handleRankSettings(rankCheck, itemImg, itemTitle, itemPrice, itemUrl, i
 }
 //ランキング表示非表示切り替え1
 function rankingControl(idNum){
+	console.log(idNum);
+	console.log('呼び出されました')
 	const parentEl = document.getElementById('contentContainer_' + idNum);
+	console.log(parentEl)
+	var test = parentEl.querySelector('#item_img_url');
+	console.log(test)
 //ランキング1	
 handleRankSettings(
 	parentEl.querySelectorAll('input[name="rank_on[]"]'), 
@@ -758,7 +760,7 @@ function openPageElement(button) {
 	let storeInfo = parentEl.querySelector('.cmakerWrapstore_info');
 	let textContent = parentEl.querySelector('.cmakerWraptext_content');
 	let parallax = parentEl.querySelector('.cmakerWrapparallax');
-	let buttonId = button.id;
+	let buttonId = parentEl.id;
 	let idNum = buttonId.match(/\d+$/)[0];
     if (grandmenuWrap) {
         grandmenuWrap.classList.remove('notshow');
