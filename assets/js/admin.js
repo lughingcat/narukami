@@ -756,26 +756,26 @@ function openPageElement(button) {
 	let buttonId = parentEl.id;
 	let idNum = buttonId.match(/\d+$/)[0];
     if (grandmenuWrap) {
-        grandmenuWrap.classList.remove('notshow');
+        grandmenuWrap.classList.toggle('notshow');
     } else if (conceptWrap) {
-        conceptWrap.classList.remove('notshow');
+        conceptWrap.classList.toggle('notshow');
     } else if (rankingWrap) {
-		rankingWrap.classList.remove('notshow');
+		rankingWrap.classList.toggle('notshow');
 		rankingControl(idNum);
 	} else if (column_right_1){
-		column_right_1.classList.remove('notshow');
+		column_right_1.classList.toggle('notshow');
 	} else if (column_left_1){
-		column_left_1.classList.remove('notshow');
+		column_left_1.classList.toggle('notshow');
 	} else if (column_2){
-		column_2.classList.remove('notshow');
+		column_2.classList.toggle('notshow');
 	} else if (column_3){
-		column_3.classList.remove('notshow');
+		column_3.classList.toggle('notshow');
 	} else if (storeInfo){
-		storeInfo.classList.remove('notshow');
+		storeInfo.classList.toggle('notshow');
 	} else if (textContent){
-		textContent.classList.remove('notshow');
+		textContent.classList.toggle('notshow');
 	} else if (parallax){
-		parallax.classList.remove('notshow');
+		parallax.classList.toggle('notshow');
 	}
 }
 

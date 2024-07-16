@@ -7,6 +7,28 @@
       <div class="postbox bg">
         <h3 class='hndle'><span class="title">鳴雷トップページビルダー[NarukamiTopPageBilder]</span></h3>
         <div class="inside">
+		  <h2 class="narukami-admin-h2">各セクションコンテンツ解説</h2>
+		  <div class="hopup-section-all-wrap">
+			  <div class="hopup-discription">
+			  	<p>
+			  	鳴雷トップページビルダーの各セクションのデザインを確認できます。</br>
+			  	ボタンをクリックするとホップアップ表示しますので作成前にご確認ください。</br>
+			  	用途など詳細も記載していますのでご自身の作りたいサイトに合わせてご利用ください。</br>
+			  	</p>
+			  </div>
+			  <div class="hopup-button-wrap">
+			  	<button type="button" class="narukami-hopuo-section-btn">ランキング</button>
+			  	<button type="button" class="narukami-hopuo-section-btn">コンセプト</button>
+			  	<button type="button" class="narukami-hopuo-section-btn">グランドメニュー</button>
+			  	<button type="button" class="narukami-hopuo-section-btn">右寄せ1カラム</button>
+			  	<button type="button" class="narukami-hopuo-section-btn">左寄せ1カラム</button>
+			  	<button type="button" class="narukami-hopuo-section-btn">2カラム</button>
+			  	<button type="button" class="narukami-hopuo-section-btn">3カラム</button>
+			  	<button type="button" class="narukami-hopuo-section-btn">パララックス</button>
+			  	<button type="button" class="narukami-hopuo-section-btn">店舗情報</button>
+			  	<button type="button" class="narukami-hopuo-section-btn">テキストエリア</button>
+			  </div>
+		  </div>
 		  <h2 class="narukami-admin-h2">鳴雷トップページビルダーの使い方</h2>
 		  <p class="tpb-discription">
 			  ヘッダー、フッター間のコンテンツを作成できます。</br>
@@ -129,7 +151,7 @@
 			  <div id="clonedSelectBoxes"></div>
 			  </div><!--mainEnd-->
 			<div class="control-setting-btn">
-				<button type="button" class="reproduction-btn" onclick="cloneSelectBox(); rankingRemoved(this);">コンテンツを追加</button>	
+				<button type="button" class="reproduction-btn" onclick="cloneSelectBox(); rankingRemoved(this);"><span>コンテンツを追加</span></button>	
 				<button id="gmvalidate" type="submit" class="top-page-maker-save-btn" name="toppage_initialization">設定を保存</button>
 				<?php 
 				// プレビューボタン

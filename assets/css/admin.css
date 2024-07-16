@@ -1,6 +1,39 @@
 @charset "UTF-8";
 /*================================
-	top-page-makerスタイル
+	top-page-makerホップアッププレビュースタイル
+=================================*/
+.hopup-section-all-wrap {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  background-color: #32495F;
+  box-sizing: border-box; }
+  .hopup-section-all-wrap .hopup-discription {
+    background-color: #FFFFFF;
+    width: 100%;
+    margin: 2% 0;
+    padding: 2% 0; }
+  .hopup-section-all-wrap .hopup-button-wrap {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    padding: 2%;
+    box-sizing: border-box; }
+    .hopup-section-all-wrap .hopup-button-wrap .narukami-hopuo-section-btn {
+      margin: 2% 4%;
+      padding: 1%;
+      width: 40%;
+      height: 60px;
+      border: none;
+      border-radius: 2px;
+      background-color: #FFFFFF;
+      font-weight: bold;
+      text-align: center; }
+
+/*================================
+	top-page-makerコンテンツスタイル
 =================================*/
 #select-all-wrap {
   background-color: #32495F;
@@ -22,6 +55,9 @@
         margin: 0;
         color: #FFFFFF;
         font-size: 10px; }
+        #select-all-wrap .clone-wrap-parent .select-box-item-wrap .delete_selectbox_item:hover {
+          background-color: #CC7979;
+          color: #782D2D; }
       #select-all-wrap .clone-wrap-parent .select-box-item-wrap .cmaker-wrap {
         width: 94%;
         height: 65px;
@@ -39,15 +75,20 @@
         color: #0D6432;
         text-align: center;
         border: 0;
-        position: relative; }
+        position: relative;
+        cursor: move; }
         #select-all-wrap .clone-wrap-parent .select-box-item-wrap .move-handle p {
           position: absolute;
-          top: 50%;
+          top: 45%;
           left: 50%;
           transform: translate(-50%, -100%); }
           #select-all-wrap .clone-wrap-parent .select-box-item-wrap .move-handle p .fa-solid.fa-up-down-left-right {
             color: #ffffff;
             font-size: 14px; }
+        #select-all-wrap .clone-wrap-parent .select-box-item-wrap .move-handle:hover {
+          background-color: #65bf8b; }
+          #select-all-wrap .clone-wrap-parent .select-box-item-wrap .move-handle:hover p .fa-solid.fa-up-down-left-right {
+            color: #0D6432; }
       #select-all-wrap .clone-wrap-parent .select-box-item-wrap .content-Container {
         width: 100%;
         position: relative;
@@ -60,6 +101,10 @@
           #select-all-wrap .clone-wrap-parent .select-box-item-wrap .content-Container .open-file-button .fa-regular.fa-folder-open {
             color: #FFFFFF;
             font-size: 14px; }
+          #select-all-wrap .clone-wrap-parent .select-box-item-wrap .content-Container .open-file-button:hover {
+            background-color: #F1C097; }
+            #select-all-wrap .clone-wrap-parent .select-box-item-wrap .content-Container .open-file-button:hover .fa-regular.fa-folder-open {
+              color: #D16407; }
         #select-all-wrap .clone-wrap-parent .select-box-item-wrap .content-Container .not-save-faile {
           width: 6%;
           height: 30px;
@@ -68,6 +113,10 @@
           #select-all-wrap .clone-wrap-parent .select-box-item-wrap .content-Container .not-save-faile .fa-solid.fa-folder-closed {
             color: #FFFFFF;
             font-size: 14px; }
+          #select-all-wrap .clone-wrap-parent .select-box-item-wrap .content-Container .not-save-faile:hover {
+            background-color: #EFECEC; }
+            #select-all-wrap .clone-wrap-parent .select-box-item-wrap .content-Container .not-save-faile:hover .fa-solid.fa-folder-closed {
+              color: #8c8f94; }
 
 .cmakerWrapConcept,
 .cmaker-wrap-ranking,
@@ -91,6 +140,8 @@
   display: flex;
   justify-content: center; }
   .control-setting-btn .reproduction-btn {
+    position: relative;
+    display: inline-block;
     width: 15%;
     height: 50px;
     background-color: #d16407;
@@ -99,6 +150,12 @@
     border: 0;
     margin: 0 2%;
     border-radius: 3px; }
+    .control-setting-btn .reproduction-btn:hover {
+      background-color: #ffffff;
+      color: #d16407;
+      font-weight: bold;
+      border: 2px solid #d16407;
+      transition: 0.2s; }
   .control-setting-btn .top-page-maker-save-btn {
     width: 15%;
     height: 50px;
@@ -108,6 +165,12 @@
     border: 0;
     margin: 0 2%;
     border-radius: 3px; }
+    .control-setting-btn .top-page-maker-save-btn:hover {
+      background-color: #FFFFFF;
+      color: #0D6432;
+      font-weight: bold;
+      border: 2px solid #0D6432;
+      transition: 0.2s; }
   .control-setting-btn .narukami-prevew-btn {
     width: 15%;
     height: 50px;
@@ -117,6 +180,11 @@
     border: 2px solid #0086AD;
     margin: 0 2%;
     border-radius: 3px; }
+    .control-setting-btn .narukami-prevew-btn:hover {
+      background-color: #0086AD;
+      color: #FFFFFF;
+      font-weight: bold;
+      transition: 0.2s; }
 
 /*================================
 	adimin-page 共通パーツスタイル
