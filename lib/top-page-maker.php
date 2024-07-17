@@ -17,8 +17,12 @@
 			  	</p>
 			  </div>
 			  <div class="hopup-button-wrap">
-			  	<button type="button" class="narukami-hopuo-section-btn">ランキング</button>
-			  	<button type="button" class="narukami-hopuo-section-btn">コンセプト</button>
+			  	<button id="popup-ranking-btn" type="button" class="narukami-hopuo-section-btn">ランキング</button>
+			  	<button id="popup-concept-btn" type="button" class="narukami-hopuo-section-btn">コンセプト</button>
+				<div id="hopup-concept-wrap" class="popup-element-narukami popup-notshow">
+				<iframe id="popup-concept" class="hopup-element-iframe" src="<?php echo get_template_directory_uri() . '/popup-element/popup-concept.php'; ?>"></iframe>
+				<button id="concept-delete-hopup-btn" type="button" class="hopup-delete-btn" onclick="hopupDeleteElment(this)">Delete</button>
+				</div>
 			  	<button type="button" class="narukami-hopuo-section-btn">グランドメニュー</button>
 			  	<button type="button" class="narukami-hopuo-section-btn">右寄せ1カラム</button>
 			  	<button type="button" class="narukami-hopuo-section-btn">左寄せ1カラム</button>

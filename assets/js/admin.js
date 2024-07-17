@@ -1,7 +1,27 @@
 /*==================================
-コンテンツメーカーjs
+トップページビルダーjs
 ==================================*/
-
+//各セクション詳細表示制御
+document.addEventListener('DOMContentLoaded', function(){
+	var sectionButtons = document.querySelectorAll('.narukami-hopuo-section-btn');
+	sectionButtons.forEach(function(sectionBtn, index){
+		var btnId = sectionBtn.id;
+		sectionBtn.addEventListener('click',function(){
+			if( btnId === 'popup-concept-btn'){
+			document.getElementById('hopup-concept-wrap').classList.remove('popup-notshow');
+			}
+		});
+		
+	});
+});
+//セクション詳細非表示ボタン
+function hopupDeleteElment(button){
+	var btnId = button.id;
+	if( btnId === 'concept-delete-hopup-btn'){
+		var parentEl = button.parentNode;
+		parentEl.classList.add('popup-notshow');
+	}
+}
 //selectbox移動動作制御
  document.addEventListener('DOMContentLoaded', function() {
 	 function initializeSortable() {
