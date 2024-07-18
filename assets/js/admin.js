@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function(){
 		sectionBtn.addEventListener('click',function(){
 			if( btnId === 'popup-concept-btn'){
 			document.getElementById('hopup-concept-wrap').classList.remove('popup-notshow');
+			} else if( btnId === 'popup-ranking-btn'){
+				document.getElementById('hopup-ranking-wrap').classList.remove('popup-notshow');
 			}
 		});
 		
@@ -21,7 +23,12 @@ function hopupDeleteElment(button){
 		var parentEl = button.parentNode;
 		parentEl.classList.add('popup-notshow');
 	}
+	if( btnId === 'ranking-delete-hopup-btn'){
+		var parentEl = button.parentNode;
+		parentEl.classList.add('popup-notshow');
+	}
 }
+
 //selectbox移動動作制御
  document.addEventListener('DOMContentLoaded', function() {
 	 function initializeSortable() {

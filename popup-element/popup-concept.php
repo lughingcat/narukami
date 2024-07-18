@@ -1,10 +1,6 @@
-
-
 <head>
-<title>Document</title>
 <link rel="stylesheet" href="hopup-asset/css/hopup-style.css">
 </head>
-<h1>Popup Content</h1>
 <div class="popup-element-all-wrap">
     <div class="popup-discription">
         <div class="concept-back-wrap"
