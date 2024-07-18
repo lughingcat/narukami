@@ -18,10 +18,13 @@
 			  </div>
 			  <div class="hopup-button-wrap">
 			  	<button id="popup-ranking-btn" type="button" class="narukami-hopuo-section-btn">ランキング</button>
-			  	<button id="popup-concept-btn" type="button" class="narukami-hopuo-section-btn">コンセプト</button>
+			  <button id="popup-concept-btn" type="button" class="narukami-hopuo-section-btn">コンセプト</button>
 				<div id="hopup-concept-wrap" class="popup-element-narukami popup-notshow">
-				<iframe id="popup-concept" class="hopup-element-iframe" src="<?php echo get_template_directory_uri() . '/popup-element/popup-concept.php'; ?>"></iframe>
-				<button id="concept-delete-hopup-btn" type="button" class="hopup-delete-btn" onclick="hopupDeleteElment(this)">Delete</button>
+					<iframe id="popup-concept" class="hopup-element-iframe" src="<?php echo get_template_directory_uri() . '/popup-element/popup-concept.php'; ?>"></iframe>
+						<div class="hopup-prevew-discription">
+							<p class="hopup-info">コンセプトセクションです。</br>キャッチフレーズと店舗の伝えたい思いを記述してください。</br>背景画像は全画面表示になってます。店の人気メニューを載せると効果的です。</p>
+						</div>
+					<button id="concept-delete-hopup-btn" type="button" class="hopup-delete-btn" onclick="hopupDeleteElment(this)">Delete</button>
 				</div>
 			  	<button type="button" class="narukami-hopuo-section-btn">グランドメニュー</button>
 			  	<button type="button" class="narukami-hopuo-section-btn">右寄せ1カラム</button>

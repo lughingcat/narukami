@@ -51,6 +51,37 @@
 		width: 70%;
 		height: 60%;
 		display: block;
+		position: absolute;
+		top: 0;
+	}
+	.hopup-prevew-discription{
+		width: 48%;
+		margin: 0 auto;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, 50%);
+		background-color: #FFFFFF;
+		display: flex;
+		align-items: center;
+		border-radius: 3px;
+		border: 3px solid #8ABBC1;
+		&::before{
+			content: '\f05a';
+			width: 5%;
+			height: 100%;
+			font-family: "Font Awesome 6 Free";
+    		font-weight: 900;
+			display: block;
+			text-align: center;
+			font-size: 22px;
+			color: #8ABBC1;
+			padding: 8px;
+		}
+		.hopup-info{
+			width: 95%;
+			padding: 2% 5%;
+		}
 	}
 }
 .popup-notshow{
@@ -59,7 +90,7 @@
 //削除ボタン
 .hopup-delete-btn{
 	display: block;
-	width: 20%;
+	width: 15%;
 	height: 45px;
 	background-color: #FFFFFF;
 	border: none;

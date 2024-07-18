@@ -46,14 +46,42 @@
   .popup-element-narukami .hopup-element-iframe {
     width: 70%;
     height: 60%;
-    display: block; }
+    display: block;
+    position: absolute;
+    top: 0; }
+  .popup-element-narukami .hopup-prevew-discription {
+    width: 48%;
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 50%);
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+    border: 3px solid #8ABBC1; }
+    .popup-element-narukami .hopup-prevew-discription::before {
+      content: '\f05a';
+      width: 5%;
+      height: 100%;
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      display: block;
+      text-align: center;
+      font-size: 22px;
+      color: #8ABBC1;
+      padding: 8px; }
+    .popup-element-narukami .hopup-prevew-discription .hopup-info {
+      width: 95%;
+      padding: 2% 5%; }
 
 .popup-notshow {
   display: none; }
 
 .hopup-delete-btn {
   display: block;
-  width: 20%;
+  width: 15%;
   height: 45px;
   background-color: #FFFFFF;
   border: none;
