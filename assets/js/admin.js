@@ -1,7 +1,27 @@
 /*==================================
-コンテンツメーカーjs
+トップページビルダーjs
 ==================================*/
-
+//各セクション詳細表示制御
+document.addEventListener('DOMContentLoaded', function(){
+	var sectionButtons = document.querySelectorAll('.narukami-hopuo-section-btn');
+	sectionButtons.forEach(function(sectionBtn, index){
+		var btnId = sectionBtn.id;
+		sectionBtn.addEventListener('click',function(){
+			if( btnId === 'popup-concept-btn'){
+			document.getElementById('hopup-concept-wrap').classList.remove('popup-notshow');
+			}
+		});
+		
+	});
+});
+//セクション詳細非表示ボタン
+function hopupDeleteElment(button){
+	var btnId = button.id;
+	if( btnId === 'concept-delete-hopup-btn'){
+		var parentEl = button.parentNode;
+		parentEl.classList.add('popup-notshow');
+	}
+}
 //selectbox移動動作制御
  document.addEventListener('DOMContentLoaded', function() {
 	 function initializeSortable() {
@@ -27,7 +47,6 @@
                     evt.preventDefault(); // ドラッグをキャンセル
                     return;
                 }
-			console.log()
             // 並べ替え開始時にエディタを破棄
             tinymce.remove('.narukami-tinymce-editor');
             },
@@ -61,8 +80,7 @@ function updateIndices() {
     	scmakerEl.dataset.index = 'insert-id'+ index;
     	scmakerEl.id = 'cmaker_'+ index;
     	contentContainer.id = 'contentContainer_'+ index;
-		//孫要素
-		openFileButton.id = 'open-file' + index;
+		
     });
 　childElementRenumber();
 }
@@ -76,7 +94,6 @@ function childElementRenumber(){
 		var arrayNums = container.querySelectorAll('input[name*="array-num"]');
 		arrayNums.forEach(function(arrayNum){
 			arrayNum.value = number;
-			console.log(arrayNum.value)
 		})
 		inputs.forEach(function(input) {
         	var name = input.getAttribute('name');
@@ -103,9 +120,14 @@ function childElementRenumber(){
 }
 //selectbox削除
 function deleteSelectboxItem(button){
+	var selectboxItems = document.querySelectorAll('.clone-wrap-parent');
+	if (selectboxItems.length <= 1) {
+    	alert("最後のセレクトボックスは削除できません。");
+    	return; // 削除処理を終了
+	}
 	var confirmDelete = confirm("入力データが完全に消去されます。\n実行しますか？");
 	if (confirmDelete) {
-		var parentElement = button.parentElement;
+		var parentElement = button.parentNode.parentNode;
 		parentElement.remove();
 		updateIndices();
 	}else{
@@ -137,7 +159,6 @@ function indicesfunc(){
     })
     .then(response => response.json()) // JSON形式でレスポンスをパース
     .then(response => {
-		console.log(response)
         if (response.success) {
             const insertIdReloadContainer = document.getElementById('insert-id-reload-value');
             fetch(url, {
@@ -203,17 +224,11 @@ function cloneSelectBox() {
     document.getElementById('clonedSelectBoxes').appendChild(clonedSelectBox);
 }
 
-
-
-//closebtn動作
-
 //パララックス動作制御
 let handleScroll;
 function parallaxControl() {
     const parallaxContainers = document.querySelectorAll(".parallax-container");
     const windowHeight = window.innerHeight; // ビューポートの高さ（表示領域）を測る
-    console.log(windowHeight);
-
     const handleScroll = function() {
         parallaxContainers.forEach(container => {
             const sections = container.querySelectorAll(".parallax-section");
@@ -626,7 +641,7 @@ function rankingControl(idNum){
 	const parentEl = document.getElementById('contentContainer_' + idNum);
 //ランキング1	
 handleRankSettings(
-	parentEl.querySelectorAll('input[name="rank_on[]"]'), 
+	parentEl.querySelectorAll('input[name="rank_on[' + idNum + ']"]'), 
     parentEl.querySelector('#item_img_url'), 
     parentEl.querySelector('#rank1-item-title'), 
     parentEl.querySelector('#rank-item-price'), 
@@ -640,7 +655,7 @@ handleRankSettings(
 );
 //ランキング2	
 handleRankSettings(
-	parentEl.querySelectorAll('input[name="rank_on_2[]"]'), 
+	parentEl.querySelectorAll('input[name="rank_on_2[' + idNum + ']"]'), 
     parentEl.querySelector('#item_img_url_2'), 
     parentEl.querySelector('#rank2-item-title'), 
     parentEl.querySelector('#rank2-item-price'), 
@@ -654,7 +669,7 @@ handleRankSettings(
 );
 //ランキング3	
 handleRankSettings(
-	parentEl.querySelectorAll('input[name="rank_on_3[]"]'), 
+	parentEl.querySelectorAll('input[name="rank_on_3[' + idNum + ']"]'), 
     parentEl.querySelector('#item_img_url_3'), 
     parentEl.querySelector('#rank3-item-title'), 
     parentEl.querySelector('#rank3-item-price'), 
@@ -668,7 +683,7 @@ handleRankSettings(
 );
 //ランキング4	
 handleRankSettings(
-	parentEl.querySelectorAll('input[name="rank_on_4[]"]'), 
+	parentEl.querySelectorAll('input[name="rank_on_4[' + idNum + ']"]'), 
     parentEl.querySelector('#item_img_url_4'), 
     parentEl.querySelector('#rank4-item-title'), 
     parentEl.querySelector('#rank4-item-price'), 
@@ -682,7 +697,7 @@ handleRankSettings(
 );
 //ランキング5	
 handleRankSettings(
-	parentEl.querySelectorAll('input[name="rank_on_5[]"]'), 
+	parentEl.querySelectorAll('input[name="rank_on_5[' + idNum + ']"]'), 
     parentEl.querySelector('#item_img_url_5'), 
     parentEl.querySelector('#rank5-item-title'), 
     parentEl.querySelector('#rank5-item-price'), 
@@ -696,7 +711,7 @@ handleRankSettings(
 );
 //ランキング6
 handleRankSettings(
-	parentEl.querySelectorAll('input[name="rank_on_6[]"]'), 
+	parentEl.querySelectorAll('input[name="rank_on_6[' + idNum + ']"]'), 
     parentEl.querySelector('#item_img_url_6'), 
     parentEl.querySelector('#rank6-item-title'), 
     parentEl.querySelector('#rank6-item-price'), 
@@ -760,29 +775,29 @@ function openPageElement(button) {
 	let storeInfo = parentEl.querySelector('.cmakerWrapstore_info');
 	let textContent = parentEl.querySelector('.cmakerWraptext_content');
 	let parallax = parentEl.querySelector('.cmakerWrapparallax');
-	let buttonId = button.id;
+	let buttonId = parentEl.id;
 	let idNum = buttonId.match(/\d+$/)[0];
     if (grandmenuWrap) {
-        grandmenuWrap.classList.remove('notshow');
+        grandmenuWrap.classList.toggle('notshow');
     } else if (conceptWrap) {
-        conceptWrap.classList.remove('notshow');
+        conceptWrap.classList.toggle('notshow');
     } else if (rankingWrap) {
-		rankingWrap.classList.remove('notshow');
+		rankingWrap.classList.toggle('notshow');
 		rankingControl(idNum);
 	} else if (column_right_1){
-		column_right_1.classList.remove('notshow');
+		column_right_1.classList.toggle('notshow');
 	} else if (column_left_1){
-		column_left_1.classList.remove('notshow');
+		column_left_1.classList.toggle('notshow');
 	} else if (column_2){
-		column_2.classList.remove('notshow');
+		column_2.classList.toggle('notshow');
 	} else if (column_3){
-		column_3.classList.remove('notshow');
+		column_3.classList.toggle('notshow');
 	} else if (storeInfo){
-		storeInfo.classList.remove('notshow');
+		storeInfo.classList.toggle('notshow');
 	} else if (textContent){
-		textContent.classList.remove('notshow');
+		textContent.classList.toggle('notshow');
 	} else if (parallax){
-		parallax.classList.remove('notshow');
+		parallax.classList.toggle('notshow');
 	}
 }
 

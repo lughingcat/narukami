@@ -257,7 +257,7 @@ function load_content() {
 		$_SESSION['insertGlobalId'] = $_GET['insertId'];
         $content = getContentBasedOnValue($selectedValue);
         echo $content;
-		echo $_SESSION['insertGlobalId'];
+		echo '<button type="button" class="not-save-faile" onClick="openPageElement(this)"><i class="fa-solid fa-folder-closed"></i></div>';
     }
     // 必ず終了する
     wp_die();

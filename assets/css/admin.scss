@@ -1,6 +1,115 @@
 // Scss Document
 /*================================
-	top-page-makerスタイル
+	top-page-makerホップアッププレビュースタイル
+=================================*/
+.hopup-section-all-wrap{
+	position: relative;
+	margin: 0 auto;
+	width: 100%;
+	background-color: #32495F;
+	box-sizing: border-box;
+	.hopup-discription{
+		background-color: #FFFFFF;
+		width: 100%;
+		margin: 2% 0;
+		padding: 2% 0;
+	}
+	.hopup-button-wrap{
+		position: relative;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		width: 100%;
+		padding: 2%;
+		box-sizing: border-box;
+		.narukami-hopuo-section-btn{
+			margin: 2% 4%;
+			padding: 1%;
+			width: 40%;
+			height: 60px;
+			border: none;
+			border-radius: 2px;
+			background-color: #FFFFFF;
+			font-weight: bold;
+			text-align: center;
+		}
+	}
+}
+
+.popup-element-narukami{
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); 
+	z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	.hopup-element-iframe{
+		width: 70%;
+		height: 60%;
+		display: block;
+		position: absolute;
+		top: 0;
+	}
+	.hopup-prevew-discription{
+		width: 48%;
+		margin: 0 auto;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, 50%);
+		background-color: #FFFFFF;
+		display: flex;
+		align-items: center;
+		border-radius: 3px;
+		border: 3px solid #8ABBC1;
+		&::before{
+			content: '\f05a';
+			width: 5%;
+			height: 100%;
+			font-family: "Font Awesome 6 Free";
+    		font-weight: 900;
+			display: block;
+			text-align: center;
+			font-size: 22px;
+			color: #8ABBC1;
+			padding: 8px;
+		}
+		.hopup-info{
+			width: 95%;
+			padding: 2% 5%;
+		}
+	}
+}
+.popup-notshow{
+	display: none;
+}
+//削除ボタン
+.hopup-delete-btn{
+	display: block;
+	width: 15%;
+	height: 45px;
+	background-color: #FFFFFF;
+	border: none;
+	margin: 0 auto;
+	border-radius: 2px;
+	position: absolute;
+	left: 50%;
+	top: 80%;
+	transform: translate(-50%, 50%);
+	&:hover{
+		background-color: rgba(0, 0, 0, 0.8);
+		color: #ffffff;
+		font-size: 16px;
+		font-weight: bold;
+		border: 2px solid #ffffff;
+	}
+}
+/*================================
+	top-page-makerコンテンツスタイル
 =================================*/
 #select-all-wrap{
 	background-color: #32495F;
@@ -22,6 +131,10 @@
 				margin: 0;
 				color: #FFFFFF;
 				font-size: 10px;
+				&:hover{
+				 background-color: #CC7979;
+				 color: #782D2D;
+				}
 			}
 			.cmaker-wrap{
 				width: 94%;
@@ -42,14 +155,23 @@
 				text-align: center;
 				border: 0;
 				position: relative;
+				cursor: move;
 				p{
 					position: absolute;
-					top: 50%;
+					top: 45%;
 					left: 50%;
 					transform: translate(-50%,-100%);
 					.fa-solid.fa-up-down-left-right{
 						color: #ffffff;
 						font-size: 14px;
+					}
+				}
+				&:hover{
+					background-color: #65bf8b;
+					p{
+						.fa-solid.fa-up-down-left-right{
+						color: #0D6432;
+						}
 					}
 				}
 			}
@@ -65,6 +187,28 @@
 					.fa-regular.fa-folder-open{
 						color: #FFFFFF;
 						font-size: 14px;
+					}
+					&:hover{
+						background-color: #F1C097;
+						.fa-regular.fa-folder-open{
+						color: #D16407;
+						}
+					}
+				}
+				.not-save-faile{
+					width: 6%;
+					height: 30px;
+					background-color: #8c8f94;
+					border: 0;
+					.fa-solid.fa-folder-closed{
+						color: #FFFFFF;
+						font-size: 14px;
+					}
+					&:hover{
+						background-color: #EFECEC;
+						.fa-solid.fa-folder-closed{
+						color: #8c8f94;
+						}
 					}
 				}
 			}
@@ -93,6 +237,8 @@
 	display: flex;
 	justify-content: center;
 	.reproduction-btn{
+		position: relative;
+		display: inline-block;
 		width: 15%;
 		height: 50px;
 		background-color: #d16407;
@@ -101,6 +247,13 @@
 		border: 0;
 		margin: 0 2%;
 		border-radius: 3px;
+		&:hover{
+			background-color: #ffffff;
+			color: #d16407;
+			font-weight: bold;
+			border: 2px solid #d16407;
+			transition: 0.2s;
+		}
 	}
 	.top-page-maker-save-btn{
 		width: 15%;
@@ -111,6 +264,13 @@
 		border: 0;
 		margin: 0 2%;
 		border-radius: 3px;
+		&:hover{
+			background-color: #FFFFFF;
+			color: #0D6432;
+			font-weight: bold;
+			border: 2px solid #0D6432;
+			transition: 0.2s;
+		}
 	}
 	.narukami-prevew-btn{
 		width: 15%;
@@ -121,6 +281,12 @@
 		border: 2px solid #0086AD;
 		margin: 0 2%;
 		border-radius: 3px;
+		&:hover{
+			background-color: #0086AD;
+			color: #FFFFFF;
+			font-weight: bold;
+			transition: 0.2s;
+		}
 	}
 }
 /*================================
@@ -1298,6 +1464,7 @@
 	border: 2px #0b950b solid;
 	border-radius: 5px;
 	width: 45%;
+	z-index: 999;
 	p{
 		font-size: 1.2em;
 		font-weight: bold;
