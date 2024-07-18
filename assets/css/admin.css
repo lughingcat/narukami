@@ -75,6 +75,8 @@
     .popup-element-narukami .hopup-prevew-discription .hopup-info {
       width: 95%;
       padding: 2% 5%; }
+    .popup-element-narukami .hopup-prevew-discription.grandmenu-custumtop {
+      top: 63%; }
 
 .popup-notshow {
   display: none; }
@@ -97,6 +99,8 @@
     font-size: 16px;
     font-weight: bold;
     border: 2px solid #ffffff; }
+  .hopup-delete-btn.custum-top-gm {
+    top: 85%; }
 
 /*================================
 	top-page-makerコンテンツスタイル

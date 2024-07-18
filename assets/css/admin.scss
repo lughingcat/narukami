@@ -82,6 +82,9 @@
 			width: 95%;
 			padding: 2% 5%;
 		}
+		&.grandmenu-custumtop{
+			top: 63%;
+		}
 	}
 }
 .popup-notshow{
@@ -106,6 +109,9 @@
 		font-size: 16px;
 		font-weight: bold;
 		border: 2px solid #ffffff;
+	}
+	&.custum-top-gm{
+		top: 85%;
 	}
 }
 /*================================

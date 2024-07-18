@@ -24,16 +24,23 @@
 							<p class="hopup-info">ランキングセクションです。</br>お店のおすすめ商品を紹介してください。</br>デザインパターンは複数ご用意しています。お好みにカスタムしてください。</p>
 						</div>
 					<button id="ranking-delete-hopup-btn" type="button" class="hopup-delete-btn" onclick="hopupDeleteElment(this)">Delete</button>
-				</div>
+				  </div>
 			  	<button id="popup-concept-btn" type="button" class="narukami-hopuo-section-btn">コンセプト</button>
-				<div id="hopup-concept-wrap" class="popup-element-narukami popup-notshow">
+				  <div id="hopup-concept-wrap" class="popup-element-narukami popup-notshow">
 					<iframe id="popup-concept" class="hopup-element-iframe" src="<?php echo get_template_directory_uri() . '/popup-element/popup-concept.php'; ?>"></iframe>
 						<div class="hopup-prevew-discription">
 							<p class="hopup-info">コンセプトセクションです。</br>キャッチフレーズと店舗の伝えたい思いを記述してください。</br>背景画像は全画面表示になってます。店の人気メニューを載せると効果的です。</p>
 						</div>
 					<button id="concept-delete-hopup-btn" type="button" class="hopup-delete-btn" onclick="hopupDeleteElment(this)">Delete</button>
-				</div>
-			  	<button type="button" class="narukami-hopuo-section-btn">グランドメニュー</button>
+				  </div>
+			  	<button id="popup-grandmenu-btn" type="button" class="narukami-hopuo-section-btn">グランドメニュー</button>
+				  <div id="hopup-grandmenu-wrap" class="popup-element-narukami popup-notshow">
+					<iframe id="popup-grandmenu" class="hopup-element-iframe" src="<?php echo get_template_directory_uri() . '/popup-element/popup-grandmenu.php'; ?>"></iframe>
+						<div class="hopup-prevew-discription grandmenu-custumtop">
+							<p class="hopup-info">ランキングセクションです。</br>お店のおすすめ商品を紹介してください。</br>デザインパターンは複数ご用意しています。お好みにカスタムしてください。</p>
+						</div>
+					<button id="grandmenu-delete-hopup-btn" type="button" class="hopup-delete-btn custum-top-gm" onclick="hopupDeleteElment(this)">Delete</button>
+				  </div>
 			  	<button type="button" class="narukami-hopuo-section-btn">右寄せ1カラム</button>
 			  	<button type="button" class="narukami-hopuo-section-btn">左寄せ1カラム</button>
 			  	<button type="button" class="narukami-hopuo-section-btn">2カラム</button>
