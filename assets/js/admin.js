@@ -741,7 +741,9 @@ function closeFile(closeEl) {
 //セレクトボックスの選択で.notshowを削除しファイルを表示
 function loadCloseClass(element, parentIdNum){
 	const targetClass = document.querySelectorAll('.content-Container')[parentIdNum];
+	console.log(targetClass)
 	const childElement = targetClass.getElementsByClassName("show-element")[0]; 
+	console.log(childElement)
 	childElement.classList.remove('notshow');
 }
 
