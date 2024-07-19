@@ -105,4 +105,7 @@
 		</div>
     </div>
 </div>
+<div class="hopup-prevew-discription">
+	<p class="hopup-info">ランキングセクションです。</br>お店のおすすめ商品を紹介してください。</br>デザインパターンは複数ご用意しています。お好みにカスタムしてください。</p>
+</div>
 <script src="hopup-asset/js/hopup-element.js"></script>

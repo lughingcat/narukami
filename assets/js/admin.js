@@ -3,7 +3,7 @@
 ==================================*/
 //各セクション詳細表示制御
 document.addEventListener('DOMContentLoaded', function(){
-	var sectionButtons = document.querySelectorAll('.narukami-hopuo-section-btn');
+	var sectionButtons = document.querySelectorAll('.narukami-hopup-section-btn');
 	sectionButtons.forEach(function(sectionBtn, index){
 		var btnId = sectionBtn.id;
 		sectionBtn.addEventListener('click',function(){
@@ -13,6 +13,14 @@ document.addEventListener('DOMContentLoaded', function(){
 				document.getElementById('hopup-ranking-wrap').classList.remove('popup-notshow');
 			} else if( btnId === 'popup-grandmenu-btn' ){
 				document.getElementById('hopup-grandmenu-wrap').classList.remove('popup-notshow');
+			} else if( btnId === 'popup-right1-btn' ){
+				document.getElementById('hopup-right1-wrap').classList.remove('popup-notshow');
+			} else if( btnId === 'popup-left1-btn' ){
+				document.getElementById('hopup-left1-wrap').classList.remove('popup-notshow');
+			} else if( btnId === 'popup-column2-btn' ){
+				document.getElementById('hopup-column2-wrap').classList.remove('popup-notshow');
+			} else if( btnId === 'popup-column3-btn' ){
+				document.getElementById('hopup-column3-wrap').classList.remove('popup-notshow');
 			}
 		});
 		
@@ -30,6 +38,22 @@ function hopupDeleteElment(button){
 		parentEl.classList.add('popup-notshow');
 	}
 	if( btnId === 'grandmenu-delete-hopup-btn'){
+		var parentEl = button.parentNode;
+		parentEl.classList.add('popup-notshow');
+	}
+	if( btnId === 'right1-delete-hopup-btn'){
+		var parentEl = button.parentNode;
+		parentEl.classList.add('popup-notshow');
+	}
+	if( btnId === 'left1-delete-hopup-btn'){
+		var parentEl = button.parentNode;
+		parentEl.classList.add('popup-notshow');
+	}
+	if( btnId === 'column2-delete-hopup-btn'){
+		var parentEl = button.parentNode;
+		parentEl.classList.add('popup-notshow');
+	}
+	if( btnId === 'column3-delete-hopup-btn'){
 		var parentEl = button.parentNode;
 		parentEl.classList.add('popup-notshow');
 	}

@@ -22,7 +22,7 @@
 		width: 100%;
 		padding: 2%;
 		box-sizing: border-box;
-		.narukami-hopuo-section-btn{
+		.narukami-hopup-section-btn{
 			margin: 2% 4%;
 			padding: 1%;
 			width: 40%;
@@ -59,7 +59,7 @@
 		margin: 0 auto;
 		position: absolute;
 		left: 50%;
-		top: 58%;
+		bottom: 15%;
 		transform: translate(-50%, 50%);
 		background-color: #FFFFFF;
 		display: flex;
@@ -82,9 +82,6 @@
 			width: 95%;
 			padding: 2% 5%;
 		}
-		&.grandmenu-custumtop{
-			top: 63%;
-		}
 	}
 }
 .popup-notshow{
@@ -93,15 +90,15 @@
 //削除ボタン
 .hopup-delete-btn{
 	display: block;
-	width: 15%;
+	width: 10%;
 	height: 45px;
 	background-color: #FFFFFF;
 	border: none;
 	margin: 0 auto;
 	border-radius: 2px;
 	position: absolute;
-	left: 50%;
-	top: 80%;
+	left: 83%;
+	bottom: 10%;
 	transform: translate(-50%, 50%);
 	&:hover{
 		background-color: rgba(0, 0, 0, 0.8);
@@ -111,7 +108,7 @@
 		border: 2px solid #ffffff;
 	}
 	&.custum-top-gm{
-		top: 85%;
+		bottom: 10%;
 	}
 }
 /*================================

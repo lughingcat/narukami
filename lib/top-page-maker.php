@@ -17,7 +17,7 @@
 			  	</p>
 			  </div>
 			  <div class="hopup-button-wrap">
-			  	<button id="popup-ranking-btn" type="button" class="narukami-hopuo-section-btn">ランキング</button>
+			  	<button id="popup-ranking-btn" type="button" class="narukami-hopup-section-btn">ランキング</button>
 				  <div id="hopup-ranking-wrap" class="popup-element-narukami popup-notshow">
 					<iframe id="popup-ranking" class="hopup-element-iframe" src="<?php echo get_template_directory_uri() . '/popup-element/popup-ranking.php'; ?>"></iframe>
 						<div class="hopup-prevew-discription">
@@ -25,7 +25,7 @@
 						</div>
 					<button id="ranking-delete-hopup-btn" type="button" class="hopup-delete-btn" onclick="hopupDeleteElment(this)">Delete</button>
 				  </div>
-			  	<button id="popup-concept-btn" type="button" class="narukami-hopuo-section-btn">コンセプト</button>
+			  	<button id="popup-concept-btn" type="button" class="narukami-hopup-section-btn">コンセプト</button>
 				  <div id="hopup-concept-wrap" class="popup-element-narukami popup-notshow">
 					<iframe id="popup-concept" class="hopup-element-iframe" src="<?php echo get_template_directory_uri() . '/popup-element/popup-concept.php'; ?>"></iframe>
 						<div class="hopup-prevew-discription">
@@ -33,21 +33,49 @@
 						</div>
 					<button id="concept-delete-hopup-btn" type="button" class="hopup-delete-btn" onclick="hopupDeleteElment(this)">Delete</button>
 				  </div>
-			  	<button id="popup-grandmenu-btn" type="button" class="narukami-hopuo-section-btn">グランドメニュー</button>
+			  	<button id="popup-grandmenu-btn" type="button" class="narukami-hopup-section-btn">グランドメニュー</button>
 				  <div id="hopup-grandmenu-wrap" class="popup-element-narukami popup-notshow">
 					<iframe id="popup-grandmenu" class="hopup-element-iframe" src="<?php echo get_template_directory_uri() . '/popup-element/popup-grandmenu.php'; ?>"></iframe>
 						<div class="hopup-prevew-discription grandmenu-custumtop">
-							<p class="hopup-info">ランキングセクションです。</br>お店のおすすめ商品を紹介してください。</br>デザインパターンは複数ご用意しています。お好みにカスタムしてください。</p>
+							<p class="hopup-info">グランドメニューセクションです。</br>お店の商品ジャンルのリンク元としてお使いください。コース料理がある場合コース料理一覧ページへのリンク元としてもご利用いただけます。</p>
 						</div>
 					<button id="grandmenu-delete-hopup-btn" type="button" class="hopup-delete-btn custum-top-gm" onclick="hopupDeleteElment(this)">Delete</button>
 				  </div>
-			  	<button type="button" class="narukami-hopuo-section-btn">右寄せ1カラム</button>
-			  	<button type="button" class="narukami-hopuo-section-btn">左寄せ1カラム</button>
-			  	<button type="button" class="narukami-hopuo-section-btn">2カラム</button>
-			  	<button type="button" class="narukami-hopuo-section-btn">3カラム</button>
-			  	<button type="button" class="narukami-hopuo-section-btn">パララックス</button>
-			  	<button type="button" class="narukami-hopuo-section-btn">店舗情報</button>
-			  	<button type="button" class="narukami-hopuo-section-btn">テキストエリア</button>
+			  	<button id="popup-right1-btn" type="button" class="narukami-hopup-section-btn">右寄せ1カラム</button>
+					<div id="hopup-right1-wrap" class="popup-element-narukami popup-notshow">
+						<iframe id="popup-right1" class="hopup-element-iframe" src="<?php echo get_template_directory_uri() . '/popup-element/popup-right1.php'; ?>"></iframe>
+						<div class="hopup-prevew-discription">
+							<p class="hopup-info">グランドメニューセクションです。</br>お店の商品ジャンルのリンク元としてお使いください。コース料理がある場合コース料理一覧ページへのリンク元としてもご利用いただけます。</p>
+						</div>
+					<button id="right1-delete-hopup-btn" type="button" class="hopup-delete-btn" onclick="hopupDeleteElment(this)">Delete</button>
+				  	</div>
+			  	<button id="popup-left1-btn" type="button" class="narukami-hopup-section-btn">左寄せ1カラム</button>
+					<div id="hopup-left1-wrap" class="popup-element-narukami popup-notshow">
+						<iframe id="popup-left1" class="hopup-element-iframe" src="<?php echo get_template_directory_uri() . '/popup-element/popup-left1.php'; ?>"></iframe>
+						<div class="hopup-prevew-discription">
+							<p class="hopup-info">グランドメニューセクションです。</br>お店の商品ジャンルのリンク元としてお使いください。コース料理がある場合コース料理一覧ページへのリンク元としてもご利用いただけます。</p>
+						</div>
+					<button id="left1-delete-hopup-btn" type="button" class="hopup-delete-btn" onclick="hopupDeleteElment(this)">Delete</button>
+				  	</div>
+			  	<button id="popup-column2-btn" type="button" class="narukami-hopup-section-btn">2カラム</button>
+					<div id="hopup-column2-wrap" class="popup-element-narukami popup-notshow">
+						<iframe id="popup-column2" class="hopup-element-iframe" src="<?php echo get_template_directory_uri() . '/popup-element/popup-2column.php'; ?>"></iframe>
+						<div class="hopup-prevew-discription">
+							<p class="hopup-info">グランドメニューセクションです。</br>お店の商品ジャンルのリンク元としてお使いください。コース料理がある場合コース料理一覧ページへのリンク元としてもご利用いただけます。</p>
+						</div>
+					<button id="column2-delete-hopup-btn" type="button" class="hopup-delete-btn" onclick="hopupDeleteElment(this)">Delete</button>
+				  	</div>
+			  	<button id="popup-column3-btn" type="button" class="narukami-hopup-section-btn">3カラム</button>
+					<div id="hopup-column3-wrap" class="popup-element-narukami popup-notshow">
+						<iframe id="popup-column3" class="hopup-element-iframe" src="<?php echo get_template_directory_uri() . '/popup-element/popup-3column.php'; ?>"></iframe>
+						<div class="hopup-prevew-discription">
+							<p class="hopup-info">グランドメニューセクションです。</br>お店の商品ジャンルのリンク元としてお使いください。コース料理がある場合コース料理一覧ページへのリンク元としてもご利用いただけます。</p>
+						</div>
+					<button id="column3-delete-hopup-btn" type="button" class="hopup-delete-btn" onclick="hopupDeleteElment(this)">Delete</button>
+				  	</div>
+			  	<button type="button" class="narukami-hopup-section-btn">パララックス</button>
+			  	<button type="button" class="narukami-hopup-section-btn">店舗情報</button>
+			  	<button type="button" class="narukami-hopup-section-btn">テキストエリア</button>
 			  </div>
 		  </div>
 		  <h2 class="narukami-admin-h2">鳴雷トップページビルダーの使い方</h2>
