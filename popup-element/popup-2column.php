@@ -1,7 +1,7 @@
 <head>
 <link rel="stylesheet" href="hopup-asset/css/hopup-style.css">
 </head>
-<div class="popup-element-all-wrap">
+<div class="popup-element-all-wrap column2-width">
     <div class="popup-discription">
 		<div class="column_2-all-wrap">
 			<div class="column_2_item_wrap">

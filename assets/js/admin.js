@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		var btnId = sectionBtn.id;
 		sectionBtn.addEventListener('click',function(){
 			if( btnId === 'popup-concept-btn' ){
-			document.getElementById('hopup-concept-wrap' ).classList.remove('popup-notshow');
+				document.getElementById('hopup-concept-wrap' ).classList.remove('popup-notshow');
 			} else if( btnId === 'popup-ranking-btn'){
 				document.getElementById('hopup-ranking-wrap').classList.remove('popup-notshow');
 			} else if( btnId === 'popup-grandmenu-btn' ){
@@ -21,11 +21,18 @@ document.addEventListener('DOMContentLoaded', function(){
 				document.getElementById('hopup-column2-wrap').classList.remove('popup-notshow');
 			} else if( btnId === 'popup-column3-btn' ){
 				document.getElementById('hopup-column3-wrap').classList.remove('popup-notshow');
+			} else if( btnId === 'popup-parallax-btn' ){
+				document.getElementById('hopup-parallax-wrap').classList.remove('popup-notshow');
+			} else if( btnId === 'popup-storeinfo-btn' ){
+				document.getElementById('hopup-storeinfo-wrap').classList.remove('popup-notshow');
+			} else if( btnId === 'popup-textarea-btn' ){
+				document.getElementById('hopup-textarea-wrap').classList.remove('popup-notshow');
 			}
 		});
 		
 	});
 });
+
 //セクション詳細非表示ボタン
 function hopupDeleteElment(button){
 	var btnId = button.id;
@@ -54,6 +61,18 @@ function hopupDeleteElment(button){
 		parentEl.classList.add('popup-notshow');
 	}
 	if( btnId === 'column3-delete-hopup-btn'){
+		var parentEl = button.parentNode;
+		parentEl.classList.add('popup-notshow');
+	}
+	if( btnId === 'parallax-delete-hopup-btn'){
+		var parentEl = button.parentNode;
+		parentEl.classList.add('popup-notshow');
+	}
+	if( btnId === 'storeinfo-delete-hopup-btn'){
+		var parentEl = button.parentNode;
+		parentEl.classList.add('popup-notshow');
+	}
+	if( btnId === 'textarea-delete-hopup-btn'){
 		var parentEl = button.parentNode;
 		parentEl.classList.add('popup-notshow');
 	}

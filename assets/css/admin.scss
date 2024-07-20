@@ -32,6 +32,14 @@
 			background-color: #FFFFFF;
 			font-weight: bold;
 			text-align: center;
+			&:hover{
+				background-color: #D16407;
+				color: #FFFFFF;
+				font-size: 1.1em;
+				height: 59px;
+				border-radius: 6px;
+				transition: .5s;
+			}
 		}
 	}
 }

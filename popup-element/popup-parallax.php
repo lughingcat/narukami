@@ -46,7 +46,7 @@
 	}
 	;?>
 	
-	<div class='parallax-container'>
+	<div id="parallax-popup-wrap" class='parallax-container'>
 		<div class='parallax-section'>
 			<div class='parallax-layer'>
 				<div class='parallax-title-wrap'>

@@ -73,9 +73,30 @@
 						</div>
 					<button id="column3-delete-hopup-btn" type="button" class="hopup-delete-btn" onclick="hopupDeleteElment(this)">Delete</button>
 				  	</div>
-			  	<button type="button" class="narukami-hopup-section-btn">パララックス</button>
-			  	<button type="button" class="narukami-hopup-section-btn">店舗情報</button>
-			  	<button type="button" class="narukami-hopup-section-btn">テキストエリア</button>
+			  	<button id="popup-parallax-btn" type="button" class="narukami-hopup-section-btn">パララックス</button>
+					<div id="hopup-parallax-wrap" class="popup-element-narukami popup-notshow">
+						<iframe id="popup-parallax" class="hopup-element-iframe" src="<?php echo get_template_directory_uri() . '/popup-element/popup-parallax.php'; ?>"></iframe>
+						<div class="hopup-prevew-discription">
+							<p class="hopup-info">グランドメニューセクションです。</br>お店の商品ジャンルのリンク元としてお使いください。コース料理がある場合コース料理一覧ページへのリンク元としてもご利用いただけます。</p>
+						</div>
+					<button id="parallax-delete-hopup-btn" type="button" class="hopup-delete-btn" onclick="hopupDeleteElment(this)">Delete</button>
+				  	</div>
+			  	<button id="popup-storeinfo-btn" type="button" class="narukami-hopup-section-btn">店舗情報</button>
+					<div id="hopup-storeinfo-wrap" class="popup-element-narukami popup-notshow">
+						<iframe id="popup-storeinfo" class="hopup-element-iframe" src="<?php echo get_template_directory_uri() . '/popup-element/popup-storeinfo.php'; ?>"></iframe>
+						<div class="hopup-prevew-discription">
+							<p class="hopup-info">グランドメニューセクションです。</br>お店の商品ジャンルのリンク元としてお使いください。コース料理がある場合コース料理一覧ページへのリンク元としてもご利用いただけます。</p>
+						</div>
+					<button id="storeinfo-delete-hopup-btn" type="button" class="hopup-delete-btn" onclick="hopupDeleteElment(this)">Delete</button>
+				  	</div>
+			  	<button id="popup-textarea-btn" type="button" class="narukami-hopup-section-btn">テキストエリア</button>
+					<div id="hopup-textarea-wrap" class="popup-element-narukami popup-notshow">
+						<iframe id="popup-textarea" class="hopup-element-iframe" src="<?php echo get_template_directory_uri() . '/popup-element/popup-textarea.php'; ?>"></iframe>
+						<div class="hopup-prevew-discription">
+							<p class="hopup-info">グランドメニューセクションです。</br>お店の商品ジャンルのリンク元としてお使いください。コース料理がある場合コース料理一覧ページへのリンク元としてもご利用いただけます。</p>
+						</div>
+					<button id="textarea-delete-hopup-btn" type="button" class="hopup-delete-btn" onclick="hopupDeleteElment(this)">Delete</button>
+				  	</div>
 			  </div>
 		  </div>
 		  <h2 class="narukami-admin-h2">鳴雷トップページビルダーの使い方</h2>

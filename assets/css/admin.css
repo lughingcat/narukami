@@ -31,6 +31,13 @@
       background-color: #FFFFFF;
       font-weight: bold;
       text-align: center; }
+      .hopup-section-all-wrap .hopup-button-wrap .narukami-hopup-section-btn:hover {
+        background-color: #D16407;
+        color: #FFFFFF;
+        font-size: 1.1em;
+        height: 59px;
+        border-radius: 6px;
+        transition: .5s; }
 
 .popup-element-narukami {
   position: fixed;
