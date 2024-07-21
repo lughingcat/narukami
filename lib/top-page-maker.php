@@ -108,7 +108,11 @@
 		    	<p class="hover-discrption-text">マウスオーバーした状態でドラッグアンドドロップすると各セクションの並べ替えが可能です。</br>※保存していないセクションは移動ができません。</p>
 			  </div>
 	          <div class="hover-containerdelete">
-		    	<p class="hover-delete-btn">削除</i></p>
+		    	<p class="hover-delete-btn">削除</p>
+		    	<p class="hover-discrption-text">マウスオーバーした状態でドラッグアンドドロップすると各セクションの並べ替えが可能です。</br>※保存していないセクションは移動ができません。</p>
+			  </div>
+			  <div class="hover-containersavefile">
+		    	<p class="hover-savefile"><i class="fa-regular fa-folder-open"></i></p>
 		    	<p class="hover-discrption-text">マウスオーバーした状態でドラッグアンドドロップすると各セクションの並べ替えが可能です。</br>※保存していないセクションは移動ができません。</p>
 			  </div>
 		  </div>

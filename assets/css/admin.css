@@ -194,6 +194,33 @@
     .tpb-discription .hover-containerdelete:hover .hover-delete-btn {
       background-color: #CC7979;
       color: #782D2D; }
+  .tpb-discription .hover-containersavefile {
+    position: relative;
+    display: inline-block; }
+    .tpb-discription .hover-containersavefile .fa-regular.fa-folder-open {
+      color: #FFFFFF;
+      text-align: center;
+      position: relative;
+      background-color: #d16407;
+      font-size: 1em;
+      padding: 8px;
+      margin: 5px; }
+    .tpb-discription .hover-containersavefile .hover-discrption-text {
+      visibility: hidden;
+      position: absolute;
+      background-color: #0086ad;
+      color: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      top: 0;
+      left: 50;
+      transform: translateY(-120%);
+      white-space: nowrap; }
+    .tpb-discription .hover-containersavefile:hover .hover-discrption-text {
+      visibility: visible; }
+    .tpb-discription .hover-containersavefile:hover .fa-regular.fa-folder-open {
+      color: #D16407;
+      background-color: #F1C097; }
 
 /*================================
 	top-page-makerコンテンツスタイル
