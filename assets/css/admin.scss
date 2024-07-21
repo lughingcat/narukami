@@ -2,6 +2,7 @@
 /*================================
 	top-page-makerホップアッププレビュースタイル
 =================================*/
+
 .hopup-section-all-wrap{
 	position: relative;
 	margin: 0 auto;
@@ -11,8 +12,23 @@
 	.hopup-discription{
 		background-color: #FFFFFF;
 		width: 100%;
-		margin: 2% 0;
 		padding: 2% 0;
+		display: flex;
+		align-items: center;
+		border: 3px solid #0086ad;
+		box-sizing: border-box;
+		&::before{
+			content: '\f05a';
+			width: 5%;
+			height: 100%;
+			font-family: "Font Awesome 6 Free";
+    		font-weight: 900;
+			display: block;
+			text-align: center;
+			font-size: 22px;
+			color: #0086ad;
+			padding: 8px;
+		}
 	}
 	.hopup-button-wrap{
 		position: relative;
@@ -22,21 +38,23 @@
 		width: 100%;
 		padding: 2%;
 		box-sizing: border-box;
+		margin-bottom: 10%;
 		.narukami-hopup-section-btn{
-			margin: 2% 4%;
+			margin: 1% 1%;
 			padding: 1%;
-			width: 40%;
-			height: 60px;
+			width: 15%;
+			height: 50px;
 			border: none;
 			border-radius: 2px;
 			background-color: #FFFFFF;
 			font-weight: bold;
 			text-align: center;
+			font-size: 0.9em;
 			&:hover{
 				background-color: #D16407;
 				color: #FFFFFF;
-				font-size: 1.1em;
-				height: 59px;
+				font-size: 1em;
+				height: 49px;
 				border-radius: 6px;
 				transition: .5s;
 			}
@@ -73,7 +91,7 @@
 		display: flex;
 		align-items: center;
 		border-radius: 3px;
-		border: 3px solid #8ABBC1;
+		border: 3px solid #0086ad;
 		&::before{
 			content: '\f05a';
 			width: 5%;
@@ -83,7 +101,7 @@
 			display: block;
 			text-align: center;
 			font-size: 22px;
-			color: #8ABBC1;
+			color: #0086ad;
 			padding: 8px;
 		}
 		.hopup-info{
@@ -117,6 +135,89 @@
 	}
 	&.custum-top-gm{
 		bottom: 10%;
+	}
+}
+.tpb-discription{
+		background-color: #FFFFFF;
+		width: 100%;
+		padding: 2% 0;
+		display: flex;
+		align-items: center;
+		border: 3px solid #0086ad;
+		box-sizing: border-box;
+		&::before{
+			content: '\f05a';
+			width: 5%;
+			height: 100%;
+			font-family: "Font Awesome 6 Free";
+    		font-weight: 900;
+			display: block;
+			text-align: center;
+			font-size: 22px;
+			color: #0086ad;
+			padding: 8px;
+		}
+	.hover-containermove{//移動ボタン
+		position: relative;
+		display: inline-block;
+		.fa-solid.fa-up-down-left-right{
+    		color: #FFFFFF;
+    		text-align: center;
+    		position: relative;
+			background-color: #0D6432;
+			font-size: 1em;
+			padding: 8px;
+			margin: 5px;
+		}
+		.hover-discrption-text{
+			visibility: hidden;
+  			position: absolute;
+  			background-color: #0086ad;
+  			color: #fff;
+  			padding: 15px;
+  			border-radius: 5px;
+  			top: 0; 
+  			left: 50;
+  			transform: translateY(-120%);
+  			white-space: nowrap;
+		}
+		&:hover .hover-discrption-text{
+			visibility: visible;
+		}
+		&:hover .fa-solid.fa-up-down-left-right{
+			color: #0D6432;
+			background-color: #65bf8b;
+		}
+	}
+	.hover-containerdelete{//削除ボタン
+		position: relative;
+		display: inline-block;
+		.hover-delete-btn{
+    		background-color: #9D3B3B;
+    		color: #FFFFFF;
+    		font-size: 0.8em;
+			padding: 6px;
+			margin: 5px;
+		}
+		.hover-discrption-text{
+			visibility: hidden;
+  			position: absolute;
+  			background-color: #0086ad;
+  			color: #fff;
+  			padding: 15px;
+  			border-radius: 5px;
+  			top: 0; 
+  			left: 50;
+  			transform: translateY(-120%);
+  			white-space: nowrap;
+		}
+		&:hover .hover-discrption-text{
+			visibility: visible;
+		}
+		&:hover .hover-delete-btn{
+			background-color: #CC7979;
+			color: #782D2D;
+		}
 	}
 }
 /*================================

@@ -8,6 +8,7 @@
         <h3 class='hndle'><span class="title">鳴雷トップページビルダー[NarukamiTopPageBilder]</span></h3>
         <div class="inside">
 		  <h2 class="narukami-admin-h2">各セクションコンテンツ解説</h2>
+			
 		  <div class="hopup-section-all-wrap">
 			  <div class="hopup-discription">
 			  	<p>
@@ -15,7 +16,7 @@
 			  	ボタンをクリックするとホップアップ表示しますので作成前にご確認ください。</br>
 			  	用途など詳細も記載していますのでご自身の作りたいサイトに合わせてご利用ください。</br>
 			  	</p>
-			  </div>
+			</div>
 			  <div class="hopup-button-wrap">
 			  	<button id="popup-ranking-btn" type="button" class="narukami-hopup-section-btn">ランキング</button>
 				  <div id="hopup-ranking-wrap" class="popup-element-narukami popup-notshow">
@@ -45,7 +46,7 @@
 					<div id="hopup-right1-wrap" class="popup-element-narukami popup-notshow">
 						<iframe id="popup-right1" class="hopup-element-iframe" src="<?php echo get_template_directory_uri() . '/popup-element/popup-right1.php'; ?>"></iframe>
 						<div class="hopup-prevew-discription">
-							<p class="hopup-info">グランドメニューセクションです。</br>お店の商品ジャンルのリンク元としてお使いください。コース料理がある場合コース料理一覧ページへのリンク元としてもご利用いただけます。</p>
+							<p class="hopup-info">右寄せ1カラムセクションです。</br>画像と説明を一緒に訴求できます。画面一杯のセクションの間に挟むように使うとおしゃれにデザインできます。</p>
 						</div>
 					<button id="right1-delete-hopup-btn" type="button" class="hopup-delete-btn" onclick="hopupDeleteElment(this)">Delete</button>
 				  	</div>
@@ -53,7 +54,7 @@
 					<div id="hopup-left1-wrap" class="popup-element-narukami popup-notshow">
 						<iframe id="popup-left1" class="hopup-element-iframe" src="<?php echo get_template_directory_uri() . '/popup-element/popup-left1.php'; ?>"></iframe>
 						<div class="hopup-prevew-discription">
-							<p class="hopup-info">グランドメニューセクションです。</br>お店の商品ジャンルのリンク元としてお使いください。コース料理がある場合コース料理一覧ページへのリンク元としてもご利用いただけます。</p>
+							<p class="hopup-info">左寄せ1カラムセクションです。</br>画像と説明を一緒に訴求できます。画面一杯のセクションの間に挟むように使うとおしゃれにデザインできます。</p>
 						</div>
 					<button id="left1-delete-hopup-btn" type="button" class="hopup-delete-btn" onclick="hopupDeleteElment(this)">Delete</button>
 				  	</div>
@@ -61,7 +62,7 @@
 					<div id="hopup-column2-wrap" class="popup-element-narukami popup-notshow">
 						<iframe id="popup-column2" class="hopup-element-iframe" src="<?php echo get_template_directory_uri() . '/popup-element/popup-2column.php'; ?>"></iframe>
 						<div class="hopup-prevew-discription">
-							<p class="hopup-info">グランドメニューセクションです。</br>お店の商品ジャンルのリンク元としてお使いください。コース料理がある場合コース料理一覧ページへのリンク元としてもご利用いただけます。</p>
+							<p class="hopup-info">2カラムセクションです。</br>お店のサブコンテンツや並べて訴求したい場合有効です。連続で使うことで使っている素材のこだわりや調味料のこだわりなどを伝えることができます。</p>
 						</div>
 					<button id="column2-delete-hopup-btn" type="button" class="hopup-delete-btn" onclick="hopupDeleteElment(this)">Delete</button>
 				  	</div>
@@ -69,7 +70,7 @@
 					<div id="hopup-column3-wrap" class="popup-element-narukami popup-notshow">
 						<iframe id="popup-column3" class="hopup-element-iframe" src="<?php echo get_template_directory_uri() . '/popup-element/popup-3column.php'; ?>"></iframe>
 						<div class="hopup-prevew-discription">
-							<p class="hopup-info">グランドメニューセクションです。</br>お店の商品ジャンルのリンク元としてお使いください。コース料理がある場合コース料理一覧ページへのリンク元としてもご利用いただけます。</p>
+							<p class="hopup-info">3カラムセクションです。</br>お店のサブコンテンツや並べて訴求したい場合有効です。連続で使うことで使っている素材のこだわりや調味料のこだわりなどを伝えることができます。</p>
 						</div>
 					<button id="column3-delete-hopup-btn" type="button" class="hopup-delete-btn" onclick="hopupDeleteElment(this)">Delete</button>
 				  	</div>
@@ -77,7 +78,7 @@
 					<div id="hopup-parallax-wrap" class="popup-element-narukami popup-notshow">
 						<iframe id="popup-parallax" class="hopup-element-iframe" src="<?php echo get_template_directory_uri() . '/popup-element/popup-parallax.php'; ?>"></iframe>
 						<div class="hopup-prevew-discription">
-							<p class="hopup-info">グランドメニューセクションです。</br>お店の商品ジャンルのリンク元としてお使いください。コース料理がある場合コース料理一覧ページへのリンク元としてもご利用いただけます。</p>
+							<p class="hopup-info">パララックスセクションです。</br>とにかく派手に動きのあるセクションをデザインできます。画面いっぱいの画像で美味しそうな料理画像を並べてお店のブランド力を訴求できます。</p>
 						</div>
 					<button id="parallax-delete-hopup-btn" type="button" class="hopup-delete-btn" onclick="hopupDeleteElment(this)">Delete</button>
 				  	</div>
@@ -85,7 +86,7 @@
 					<div id="hopup-storeinfo-wrap" class="popup-element-narukami popup-notshow">
 						<iframe id="popup-storeinfo" class="hopup-element-iframe" src="<?php echo get_template_directory_uri() . '/popup-element/popup-storeinfo.php'; ?>"></iframe>
 						<div class="hopup-prevew-discription">
-							<p class="hopup-info">グランドメニューセクションです。</br>お店の商品ジャンルのリンク元としてお使いください。コース料理がある場合コース料理一覧ページへのリンク元としてもご利用いただけます。</p>
+							<p class="hopup-info">店舗情報セクションです。</br>お店の営業概要を訴求できます。フッターの上に配置すると一番効果的に訴求できます。Googleマップの埋め込みも出来るように設計しています。</p>
 						</div>
 					<button id="storeinfo-delete-hopup-btn" type="button" class="hopup-delete-btn" onclick="hopupDeleteElment(this)">Delete</button>
 				  	</div>
@@ -93,21 +94,24 @@
 					<div id="hopup-textarea-wrap" class="popup-element-narukami popup-notshow">
 						<iframe id="popup-textarea" class="hopup-element-iframe" src="<?php echo get_template_directory_uri() . '/popup-element/popup-textarea.php'; ?>"></iframe>
 						<div class="hopup-prevew-discription">
-							<p class="hopup-info">グランドメニューセクションです。</br>お店の商品ジャンルのリンク元としてお使いください。コース料理がある場合コース料理一覧ページへのリンク元としてもご利用いただけます。</p>
+							<p class="hopup-info">テキストエリアセクションです。</br>画像なしで、シンプルに文字だけで訴求したい場合に有効です。画像がメインのコンセプトセクションやパララックスセクションの後に使用するとおしゃれにデザインできます。</p>
 						</div>
 					<button id="textarea-delete-hopup-btn" type="button" class="hopup-delete-btn" onclick="hopupDeleteElment(this)">Delete</button>
 				  	</div>
 			  </div>
 		  </div>
-		  <h2 class="narukami-admin-h2">鳴雷トップページビルダーの使い方</h2>
-		  <p class="tpb-discription">
-			  ヘッダー、フッター間のコンテンツを作成できます。</br>
-		  コンテンツを追加ボタンを押すと新規コンテンツを作成できます。</br>
-		  作成が完了したら設定を保存を押すと、作成済みコンテンツがデータベースへ全て保存されます。</br>
-		  
-		  
-		  
-		  </p>
+
+		<h2 class="narukami-admin-h2">鳴雷トップページビルダーの使い方</h2>
+		  <div class="tpb-discription">
+			  <div class="hover-containermove">
+		    	<p><i class="fa-solid fa-up-down-left-right"></i></p>
+		    	<p class="hover-discrption-text">マウスオーバーした状態でドラッグアンドドロップすると各セクションの並べ替えが可能です。</br>※保存していないセクションは移動ができません。</p>
+			  </div>
+	          <div class="hover-containerdelete">
+		    	<p class="hover-delete-btn">削除</i></p>
+		    	<p class="hover-discrption-text">マウスオーバーした状態でドラッグアンドドロップすると各セクションの並べ替えが可能です。</br>※保存していないセクションは移動ができません。</p>
+			  </div>
+		  </div>
 		  <form id="post-toppage-maker" method="post" name="narukami_top_page_maker" action="">
           <div id="select-all-wrap" class="main">
 			  <?php 
