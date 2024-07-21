@@ -128,6 +128,7 @@
   width: 100%;
   padding: 2% 0;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   border: 3px solid #0086ad;
   box-sizing: border-box; }
@@ -142,70 +143,22 @@
     font-size: 22px;
     color: #0086ad;
     padding: 8px; }
-  .tpb-discription .hover-containermove {
+  .tpb-discription .hover-container {
     position: relative;
     display: inline-block; }
-    .tpb-discription .hover-containermove .fa-solid.fa-up-down-left-right {
-      color: #FFFFFF;
-      text-align: center;
-      position: relative;
+    .tpb-discription .hover-container .hover-btn-discription {
+      width: 50px;
+      height: 50px;
       background-color: #0D6432;
-      font-size: 1em;
-      padding: 8px;
-      margin: 5px; }
-    .tpb-discription .hover-containermove .hover-discrption-text {
-      visibility: hidden;
-      position: absolute;
-      background-color: #0086ad;
-      color: #fff;
-      padding: 15px;
-      border-radius: 5px;
-      top: 0;
-      left: 50;
-      transform: translateY(-120%);
-      white-space: nowrap; }
-    .tpb-discription .hover-containermove:hover .hover-discrption-text {
-      visibility: visible; }
-    .tpb-discription .hover-containermove:hover .fa-solid.fa-up-down-left-right {
-      color: #0D6432;
-      background-color: #65bf8b; }
-  .tpb-discription .hover-containerdelete {
-    position: relative;
-    display: inline-block; }
-    .tpb-discription .hover-containerdelete .hover-delete-btn {
-      background-color: #9D3B3B;
-      color: #FFFFFF;
-      font-size: 0.8em;
-      padding: 6px;
-      margin: 5px; }
-    .tpb-discription .hover-containerdelete .hover-discrption-text {
-      visibility: hidden;
-      position: absolute;
-      background-color: #0086ad;
-      color: #fff;
-      padding: 15px;
-      border-radius: 5px;
-      top: 0;
-      left: 50;
-      transform: translateY(-120%);
-      white-space: nowrap; }
-    .tpb-discription .hover-containerdelete:hover .hover-discrption-text {
-      visibility: visible; }
-    .tpb-discription .hover-containerdelete:hover .hover-delete-btn {
-      background-color: #CC7979;
-      color: #782D2D; }
-  .tpb-discription .hover-containersavefile {
-    position: relative;
-    display: inline-block; }
-    .tpb-discription .hover-containersavefile .fa-regular.fa-folder-open {
-      color: #FFFFFF;
+      padding: 0;
+      margin: 5px;
+      border: none;
       text-align: center;
-      position: relative;
-      background-color: #d16407;
-      font-size: 1em;
-      padding: 8px;
-      margin: 5px; }
-    .tpb-discription .hover-containersavefile .hover-discrption-text {
+      border-radius: 5px; }
+      .tpb-discription .hover-container .hover-btn-discription .fa-solid.fa-up-down-left-right {
+        color: #FFFFFF;
+        font-size: 1.4em; }
+    .tpb-discription .hover-container .hover-discrption-text {
       visibility: hidden;
       position: absolute;
       background-color: #0086ad;
@@ -216,11 +169,12 @@
       left: 50;
       transform: translateY(-120%);
       white-space: nowrap; }
-    .tpb-discription .hover-containersavefile:hover .hover-discrption-text {
+    .tpb-discription .hover-container:hover .hover-discrption-text {
       visibility: visible; }
-    .tpb-discription .hover-containersavefile:hover .fa-regular.fa-folder-open {
-      color: #D16407;
-      background-color: #F1C097; }
+    .tpb-discription .hover-container:hover .hover-btn-discription {
+      background-color: #65bf8b; }
+      .tpb-discription .hover-container:hover .hover-btn-discription .fa-solid.fa-up-down-left-right {
+        color: #0D6432; }
 
 /*================================
 	top-page-makerコンテンツスタイル

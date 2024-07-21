@@ -103,16 +103,8 @@
 
 		<h2 class="narukami-admin-h2">鳴雷トップページビルダーの使い方</h2>
 		  <div class="tpb-discription">
-			  <div class="hover-containermove">
-		    	<p><i class="fa-solid fa-up-down-left-right"></i></p>
-		    	<p class="hover-discrption-text">マウスオーバーした状態でドラッグアンドドロップすると各セクションの並べ替えが可能です。</br>※保存していないセクションは移動ができません。</p>
-			  </div>
-	          <div class="hover-containerdelete">
-		    	<p class="hover-delete-btn">削除</p>
-		    	<p class="hover-discrption-text">マウスオーバーした状態でドラッグアンドドロップすると各セクションの並べ替えが可能です。</br>※保存していないセクションは移動ができません。</p>
-			  </div>
-			  <div class="hover-containersavefile">
-		    	<p class="hover-savefile"><i class="fa-regular fa-folder-open"></i></p>
+			  <div class="hover-container">
+		    	<button class="hover-btn-discription"><p><i class="fa-solid fa-up-down-left-right"></i></button>
 		    	<p class="hover-discrption-text">マウスオーバーした状態でドラッグアンドドロップすると各セクションの並べ替えが可能です。</br>※保存していないセクションは移動ができません。</p>
 			  </div>
 		  </div>
