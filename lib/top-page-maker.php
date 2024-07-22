@@ -7,7 +7,7 @@
       <div class="postbox bg">
         <h3 class='hndle'><span class="title">鳴雷トップページビルダー[NarukamiTopPageBilder]</span></h3>
         <div class="inside">
-		  <h2 class="narukami-admin-h2">各セクションコンテンツ解説</h2>
+		  <h2 class="narukami-admin-h2">各セクションパーツデザイン</h2>
 			
 		  <div class="hopup-section-all-wrap">
 			  <div class="hopup-discription">
@@ -107,8 +107,8 @@
   			<p>[操作方法]</p>
   			<p>コンテンツを追加して、セクションを選択し表示したいデータを入力してください。</p>
   			<p>各セクションは並んでいる順番でトップページへ表示されます。</p>
-  			<p>入力が完了しましたら「設定を保存」というボタンをクリックし、設定をデータベースへ保存してください</br>ここで保存されたデータがトップページとして表示されます。</p>
-  			<p>保存されてない状態でトップページの確認をしたい場合は「PREVEW」ボタンをクリックしてください。</br>入力途中でも状態を確認することができます。</p>
+  			<p>入力が完了しましたら「設定を保存」というボタンをクリックし、設定をデータベースへ保存してください。</br>ここで保存されたデータがトップページとして表示されます。</p>
+  			<p>保存されてない状態で作成途中のトップページデザインを確認をしたい場合は「PREVEW」ボタンをクリックしてください。作成途中でも状態を確認することができます。</p>
 		  </div>
 		  <div class="tpb-discription">
 			  <div class="hover-container">

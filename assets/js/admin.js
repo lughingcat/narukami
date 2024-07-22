@@ -88,8 +88,10 @@ function hopupDeleteElment(button){
 		handle: '.move-handle',
 		onChoose: function (evt) {
             var item = evt.item;
+			var notMoveElement = document.getElementsByClassName('not-save-faile');
+			console.log(notMoveElement);
             // 子要素にopen-file-buttonクラスが含まれてない場合
-            if (!item.querySelector('.open-file-button')) {
+            if (!item.querySelector('.open-file-button') || notMoveElement.length !== 0) {
                 // ドラッグをキャンセルしてアラートを表示
                 evt.preventDefault(); // ドラッグをキャンセル
                 alert('保存が完了していません。\n保存をしてからドラッグしてください。');
@@ -98,8 +100,9 @@ function hopupDeleteElment(button){
         },
 		onStart: function (evt) {
 			var item = evt.item;
+			var notMoveElement = document.getElementsByClassName('not-save-faile');
                 // フラグが設定されている場合、ドラッグをキャンセル
-                if (item.getAttribute('data-drag-disabled') === 'false') {
+                if (item.getAttribute('data-drag-disabled') === 'false' || notMoveElement.length !== 0) {
                     evt.preventDefault(); // ドラッグをキャンセル
                     return;
                 }
