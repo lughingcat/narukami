@@ -133,7 +133,8 @@
   align-items: center;
   border: 3px solid #0086ad;
   border-bottom: none;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  position: relative; }
   .tpb-discription::before {
     content: '\f05a';
     width: 5%;
@@ -146,7 +147,6 @@
     color: #0086ad;
     padding: 8px; }
   .tpb-discription .hover-container {
-    position: relative;
     display: inline-block; }
     .tpb-discription .hover-container .hover-btn-discription {
       width: 50px;
@@ -197,8 +197,8 @@
       padding: 15px;
       border-radius: 5px;
       top: 0;
-      left: 50;
-      transform: translateY(-120%);
+      left: 10%;
+      transform: translateY(-130%);
       white-space: nowrap; }
     .tpb-discription .hover-container:hover .hover-discrption-text {
       visibility: visible; }
@@ -213,6 +213,35 @@
       background-color: #F1C097; }
       .tpb-discription .hover-container:hover .file-open-icon .fa-regular.fa-folder-open {
         color: #D16407; }
+    .tpb-discription .hover-container:hover .file-close-icon {
+      background-color: #EFECEC; }
+      .tpb-discription .hover-container:hover .file-close-icon .fa-solid.fa-folder-closed {
+        color: #8c8f94; }
+    .tpb-discription .hover-container:hover .add-section-btn {
+      background-color: #ffffff;
+      color: #d16407;
+      font-weight: bold;
+      border: 2px solid #d16407;
+      transition: 0.2s; }
+    .tpb-discription .hover-container:hover .save-section-btn {
+      background-color: #FFFFFF;
+      color: #0D6432;
+      font-weight: bold;
+      border: 2px solid #0D6432;
+      transition: 0.2s; }
+    .tpb-discription .hover-container:hover .prevew-section-btn {
+      background-color: #0086AD;
+      color: #FFFFFF;
+      font-weight: bold;
+      transition: 0.2s; }
+
+.tpb-discription-textwrap {
+  width: 80%;
+  border: 3px solid #0086ad;
+  margin-bottom: 2%;
+  padding: 2%; }
+  .tpb-discription-textwrap p {
+    line-height: 25px; }
 
 /*================================
 	top-page-makerコンテンツスタイル

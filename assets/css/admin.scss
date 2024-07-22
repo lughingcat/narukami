@@ -148,6 +148,7 @@
 		border: 3px solid #0086ad;
 		border-bottom: none;
 		box-sizing: border-box;
+		position: relative;
 		&::before{
 			content: '\f05a';
 			width: 5%;
@@ -161,7 +162,6 @@
 			padding: 8px;
 		}
 	.hover-container{//解説ボタンwrap
-		position: relative;
 		display: inline-block;
 		.hover-btn-discription{
 			width: 50px;
@@ -222,8 +222,8 @@
   			padding: 15px;
   			border-radius: 5px;
   			top: 0; 
-  			left: 50;
-  			transform: translateY(-120%);
+			left: 10%;
+  			transform: translateY(-130%);
   			white-space: nowrap;
 		}
 		&:hover .hover-discrption-text{
@@ -245,10 +245,43 @@
 					color: #D16407;
 			}
 		}
+		&:hover .file-close-icon{
+			background-color: #EFECEC;
+			.fa-solid.fa-folder-closed{
+				color: #8c8f94;
+			}
+		}
+		&:hover .add-section-btn{
+			background-color: #ffffff;
+			color: #d16407;
+			font-weight: bold;
+			border: 2px solid #d16407;
+			transition: 0.2s;
+		}
+		&:hover .save-section-btn{
+			background-color: #FFFFFF;
+			color: #0D6432;
+			font-weight: bold;
+			border: 2px solid #0D6432;
+			transition: 0.2s;
+		}
+		&:hover .prevew-section-btn{
+			background-color: #0086AD;
+			color: #FFFFFF;
+			font-weight: bold;
+			transition: 0.2s;
+		}
 	}
 }
-//コピーエレメント
-
+.tpb-discription-textwrap{
+	width: 80%;
+	border: 3px solid #0086ad;
+	margin-bottom: 2%;
+	padding: 2%;
+	p{
+		line-height: 25px;
+	}
+}
 /*================================
 	top-page-makerコンテンツスタイル
 =================================*/

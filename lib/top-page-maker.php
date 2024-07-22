@@ -102,34 +102,42 @@
 		  </div>
 
 		<h2 class="narukami-admin-h2">鳴雷トップページビルダーの使い方</h2>
+		  <div class="tpb-discription-textwrap">
+  			<p>トップページビルダーの使い方を解説します。</br>インフォメーションの各種ボタンにマウスオーバーさせると詳細解説が表示されますのでご確認ください。</p>
+  			<p>[操作方法]</p>
+  			<p>コンテンツを追加して、セクションを選択し表示したいデータを入力してください。</p>
+  			<p>各セクションは並んでいる順番でトップページへ表示されます。</p>
+  			<p>入力が完了しましたら「設定を保存」というボタンをクリックし、設定をデータベースへ保存してください</br>ここで保存されたデータがトップページとして表示されます。</p>
+  			<p>保存されてない状態でトップページの確認をしたい場合は「PREVEW」ボタンをクリックしてください。</br>入力途中でも状態を確認することができます。</p>
+		  </div>
 		  <div class="tpb-discription">
 			  <div class="hover-container">
 		    	<button class="hover-btn-discription"><i class="fa-solid fa-up-down-left-right"></i></button>
-		    	<p class="hover-discrption-text">マウスオーバーした状態でドラッグアンドドロップすると各セクションの並べ替えが可能です。</br>※保存していないセクションは移動ができません。</p>
+		    	<p class="hover-discrption-text">マウスオーバーした状態でドラッグアンドドロップすると各セクションの並べ替えが可能です。</br>保存していないセクションは移動ができません。</p>
 			  </div>
 			  <div class="hover-container">
 		    	<button class="hover-btn-discription hover-delete">削除</button>
-		    	<p class="hover-discrption-text">マウスオーバーした状態でドラッグアンドドロップすると各セクションの並べ替えが可能です。</br>※保存していないセクションは移動ができません。delete</p>
+		    	<p class="hover-discrption-text">追加したまたは既存のセクションを削除します。</br>ここで削除を行ってもデータベースの入力値は削除はされません。</br>データベースの削除を行う場合は「設定を保存」ボタンを押して</br>新規データとして保存してください。</p>
 			  </div>
 			  <div class="hover-container">
 		    	<button class="hover-btn-discription file-open-icon"><i class="fa-regular fa-folder-open"></i></button>
-		    	<p class="hover-discrption-text">マウスオーバーした状態でドラッグアンドドロップすると各セクションの並べ替えが可能です。</br>※保存していないセクションは移動ができません。delete</p>
+		    	<p class="hover-discrption-text">データベースに保存した値が出力されている場合このアイコンが登場します。</br>クリックすると入力フォームが出現しますので、変更や追加を行ってください。</br>決定した際は、「設定を保存」ボタンを押してデータベースへ保存をしてください。</p>
 			  </div>
 			  <div class="hover-container">
 		    	<button class="hover-btn-discription file-close-icon"><i class="fa-solid fa-folder-closed"></i></button>
-		    	<p class="hover-discrption-text">マウスオーバーした状態でドラッグアンドドロップすると各セクションの並べ替えが可能です。</br>※保存していないセクションは移動ができません。delete</p>
+		    	<p class="hover-discrption-text">セクションを選択した際このボタンが出現します。</br>このボタンが出現した状態は、データベースへの値の保存が完了していない状態です。</br>「設定を保存」ボタンを押すことでオレンジファイルボタンに変わります。</br>このボタンが出現している場合、「移動」ができません。</br>移動をする場合は「設定を保存」ボタンを押し、データベースへの値の保存を完了させ</br>オレンジファイルボタンを出現させてから移動を行ってください。</p>
 			  </div>
 			  <div class="hover-container">
 		    	<button class="hover-btn-discription add-section-btn">コンテンツを追加</button>
-		    	<p class="hover-discrption-text">マウスオーバーした状態でドラッグアンドドロップすると各セクションの並べ替えが可能です。</br>※保存していないセクションは移動ができません。delete</p>
+		    	<p class="hover-discrption-text">このボタンをクリックすると新しいセクションを追加できます。</br>追加したらセクションを選択、値を入力し</br>「設定を保存」ボタンをクリックしてデータベースへ値を保存してください。</p>
 			  </div>
 			  <div class="hover-container">
 		    	<button class="hover-btn-discription save-section-btn">設定を保存</button>
-		    	<p class="hover-discrption-text">マウスオーバーした状態でドラッグアンドドロップすると各セクションの並べ替えが可能です。</br>※保存していないセクションは移動ができません。delete</p>
+		    	<p class="hover-discrption-text">現在表示されてる各セクションの入力値を全てデータベースへ保存します。</br>ここで保存された値がセクション並び順にトップページへ出力されます。</p>
 			  </div>
 			  <div class="hover-container">
 		    	<button class="hover-btn-discription prevew-section-btn">PREVEW</button>
-		    	<p class="hover-discrption-text">マウスオーバーした状態でドラッグアンドドロップすると各セクションの並べ替えが可能です。</br>※保存していないセクションは移動ができません。delete</p>
+		    	<p class="hover-discrption-text">現在作成途中のトップページビルダーの確認ができます。</br>保存、未保存関係なくデザインを確認したい際にクリックしてください。</p>
 			  </div>
 		  </div>
 		  <form id="post-toppage-maker" method="post" name="narukami_top_page_maker" action="">
