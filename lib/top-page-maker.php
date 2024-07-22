@@ -104,8 +104,32 @@
 		<h2 class="narukami-admin-h2">鳴雷トップページビルダーの使い方</h2>
 		  <div class="tpb-discription">
 			  <div class="hover-container">
-		    	<button class="hover-btn-discription"><p><i class="fa-solid fa-up-down-left-right"></i></button>
+		    	<button class="hover-btn-discription"><i class="fa-solid fa-up-down-left-right"></i></button>
 		    	<p class="hover-discrption-text">マウスオーバーした状態でドラッグアンドドロップすると各セクションの並べ替えが可能です。</br>※保存していないセクションは移動ができません。</p>
+			  </div>
+			  <div class="hover-container">
+		    	<button class="hover-btn-discription hover-delete">削除</button>
+		    	<p class="hover-discrption-text">マウスオーバーした状態でドラッグアンドドロップすると各セクションの並べ替えが可能です。</br>※保存していないセクションは移動ができません。delete</p>
+			  </div>
+			  <div class="hover-container">
+		    	<button class="hover-btn-discription file-open-icon"><i class="fa-regular fa-folder-open"></i></button>
+		    	<p class="hover-discrption-text">マウスオーバーした状態でドラッグアンドドロップすると各セクションの並べ替えが可能です。</br>※保存していないセクションは移動ができません。delete</p>
+			  </div>
+			  <div class="hover-container">
+		    	<button class="hover-btn-discription file-close-icon"><i class="fa-solid fa-folder-closed"></i></button>
+		    	<p class="hover-discrption-text">マウスオーバーした状態でドラッグアンドドロップすると各セクションの並べ替えが可能です。</br>※保存していないセクションは移動ができません。delete</p>
+			  </div>
+			  <div class="hover-container">
+		    	<button class="hover-btn-discription add-section-btn">コンテンツを追加</button>
+		    	<p class="hover-discrption-text">マウスオーバーした状態でドラッグアンドドロップすると各セクションの並べ替えが可能です。</br>※保存していないセクションは移動ができません。delete</p>
+			  </div>
+			  <div class="hover-container">
+		    	<button class="hover-btn-discription save-section-btn">設定を保存</button>
+		    	<p class="hover-discrption-text">マウスオーバーした状態でドラッグアンドドロップすると各セクションの並べ替えが可能です。</br>※保存していないセクションは移動ができません。delete</p>
+			  </div>
+			  <div class="hover-container">
+		    	<button class="hover-btn-discription prevew-section-btn">PREVEW</button>
+		    	<p class="hover-discrption-text">マウスオーバーした状態でドラッグアンドドロップすると各セクションの並べ替えが可能です。</br>※保存していないセクションは移動ができません。delete</p>
 			  </div>
 		  </div>
 		  <form id="post-toppage-maker" method="post" name="narukami_top_page_maker" action="">

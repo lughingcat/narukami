@@ -15,6 +15,7 @@
     display: flex;
     align-items: center;
     border: 3px solid #0086ad;
+    border-bottom: none;
     box-sizing: border-box; }
     .hopup-section-all-wrap .hopup-discription::before {
       content: '\f05a';
@@ -131,6 +132,7 @@
   flex-wrap: wrap;
   align-items: center;
   border: 3px solid #0086ad;
+  border-bottom: none;
   box-sizing: border-box; }
   .tpb-discription::before {
     content: '\f05a';
@@ -158,6 +160,35 @@
       .tpb-discription .hover-container .hover-btn-discription .fa-solid.fa-up-down-left-right {
         color: #FFFFFF;
         font-size: 1.4em; }
+    .tpb-discription .hover-container .hover-delete {
+      background-color: #9d3b3b;
+      color: #ffffff; }
+    .tpb-discription .hover-container .file-open-icon {
+      background-color: #d16407; }
+      .tpb-discription .hover-container .file-open-icon .fa-regular.fa-folder-open {
+        color: #FFFFFF;
+        font-size: 1.4em; }
+    .tpb-discription .hover-container .file-close-icon {
+      background-color: #696969; }
+      .tpb-discription .hover-container .file-close-icon .fa-solid.fa-folder-closed {
+        color: #FFFFFF;
+        font-size: 1.4em; }
+    .tpb-discription .hover-container .add-section-btn {
+      background-color: #d16407;
+      width: 120px;
+      color: #FFFFFF;
+      padding: 3px; }
+    .tpb-discription .hover-container .save-section-btn {
+      width: 100px;
+      background-color: #0d6432;
+      padding: 3px;
+      color: #ffffff; }
+    .tpb-discription .hover-container .prevew-section-btn {
+      width: 100px;
+      padding: 3px;
+      border: 2px solid #0086ad;
+      color: #0086ad;
+      background-color: #ffffff; }
     .tpb-discription .hover-container .hover-discrption-text {
       visibility: hidden;
       position: absolute;
@@ -175,6 +206,13 @@
       background-color: #65bf8b; }
       .tpb-discription .hover-container:hover .hover-btn-discription .fa-solid.fa-up-down-left-right {
         color: #0D6432; }
+    .tpb-discription .hover-container:hover .hover-delete {
+      background-color: #CC7979;
+      color: #782D2D; }
+    .tpb-discription .hover-container:hover .file-open-icon {
+      background-color: #F1C097; }
+      .tpb-discription .hover-container:hover .file-open-icon .fa-regular.fa-folder-open {
+        color: #D16407; }
 
 /*================================
 	top-page-makerコンテンツスタイル

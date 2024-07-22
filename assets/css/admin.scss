@@ -16,6 +16,7 @@
 		display: flex;
 		align-items: center;
 		border: 3px solid #0086ad;
+		border-bottom: none;
 		box-sizing: border-box;
 		&::before{
 			content: '\f05a';
@@ -145,6 +146,7 @@
 		flex-wrap: wrap;
 		align-items: center;
 		border: 3px solid #0086ad;
+		border-bottom: none;
 		box-sizing: border-box;
 		&::before{
 			content: '\f05a';
@@ -158,7 +160,7 @@
 			color: #0086ad;
 			padding: 8px;
 		}
-	.hover-container{//移動ボタン
+	.hover-container{//解説ボタンwrap
 		position: relative;
 		display: inline-block;
 		.hover-btn-discription{
@@ -174,6 +176,43 @@
     			color: #FFFFFF;
 				font-size: 1.4em;
 			}
+		}
+		.hover-delete{
+			background-color: #9d3b3b;
+			color: #ffffff;
+		}
+		.file-open-icon{
+			background-color: #d16407;
+			.fa-regular.fa-folder-open{
+				color: #FFFFFF;
+				font-size: 1.4em;
+			}
+		}
+		.file-close-icon{
+			background-color: #696969;
+			.fa-solid.fa-folder-closed{
+				color: #FFFFFF;
+				font-size: 1.4em;
+			}
+		}
+		.add-section-btn{
+			background-color: #d16407;
+			width: 120px;
+			color: #FFFFFF;
+			padding: 3px;
+		}
+		.save-section-btn{
+			width: 100px;
+			background-color: #0d6432;
+			padding: 3px;
+			color: #ffffff;
+		}
+		.prevew-section-btn{
+			width: 100px;
+			padding: 3px;
+			border: 2px solid #0086ad;
+			color: #0086ad;
+			background-color: #ffffff;
 		}
 		.hover-discrption-text{
 			visibility: hidden;
@@ -196,8 +235,20 @@
 				color: #0D6432;
 			}
 		}
+		&:hover .hover-delete{
+			background-color: #CC7979;
+			color: #782D2D;
+		}
+		&:hover .file-open-icon{
+			background-color: #F1C097;
+			.fa-regular.fa-folder-open{
+					color: #D16407;
+			}
+		}
 	}
 }
+//コピーエレメント
+
 /*================================
 	top-page-makerコンテンツスタイル
 =================================*/
