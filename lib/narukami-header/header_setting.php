@@ -16,7 +16,7 @@
 				<div class="tab-content-wrap">
 					<div id="narukami-header-setting" class="tabcontent">
 				  		<h3>Tab 1</h3>
-				  		<p>Content for Tab 1.</p>
+				  		<?php include('inc_narukami_header_part.php');?>
 					</div>
 				
 					<div id="narukami-heroheader-setting" class="tabcontent">
