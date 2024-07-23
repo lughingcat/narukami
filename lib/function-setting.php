@@ -34,10 +34,10 @@ function add_custom_submenu_page()
 					 'add_custom_menu_page_1',
 					 1);
 	
-	//構造化マークアップ
+	//鳴雷ヘッダー設定
 	add_submenu_page('custom_menu_page', 
-					 '構造化マークアップ設定', 
-					 '構造化マークアップ設定', 
+					 '鳴雷ヘッダー設定', 
+					 '鳴雷ヘッダー設定', 
 					 'manage_options', 
 					 'custom_submenu_page_2', 
 					 'add_custom_menu_page_2',
@@ -91,12 +91,13 @@ function add_custom_menu_page_1(){
 
 
 
-//構造化マークアップコード
+//鳴雷ヘッダー設定
 function add_custom_menu_page_2()
 {
-    ?>
+?>
 <div class="wrap">
-    <h2>構造化マークアップ設定</h2>
+    <h2>鳴雷ヘッダー設定</h2>
+	<?php include('narukami-header/header_setting.php'); ?>
 </div>
 <?php
 }
@@ -128,7 +129,7 @@ function add_custom_menu_page_5()
     ?>
 <div class="wrap">
     <h2>サブフッター設定</h2>
-<?php include('subfooter_adm.php'); ?>
+<?php include('narukami-subfooter/subfooter_adm.php'); ?>
 </div>
 
 <?php
