@@ -28,7 +28,7 @@ function initCustomEditor() {
             remove_script_host: false,
             convert_urls: true,
 			setup: function(editor) {
-          　  　editor.on('change keyup', function() {
+          　  　editor.on('focus', function() {
 				  var content = editor.getContent();
 				  var hiddenTextarea = editor.getElement();
 				  var filteredContent = content.replace(/<p>/gi, '').replace(/<\/p>/gi, '');

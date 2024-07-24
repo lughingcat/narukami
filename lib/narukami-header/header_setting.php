@@ -13,7 +13,8 @@
 				 	<button class="tablinks" onclick="openTab(event, 'Tab2')">ヒーローヘッダー設定</button>
 				 	<button class="tablinks" onclick="openTab(event, 'Tab3')">サイトアニメーション設定</button>
 				</div>
-				<form id="narukami-header-form" method="post" name="narukami-header-form" action="">
+				<form id="narukami-header-form" method="post" name="narukami-header-form" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
+					<input type="hidden" name="action" value="update_custom_option" /><!--アクション名(フック用)-->
 					<div class="tab-content-wrap">
 						<div id="narukami-header-setting" class="tabcontent">
 					  		<h3>Tab 1</h3>
@@ -33,7 +34,6 @@
 					<button type="submit">保存する</button>
 					<?php wp_nonce_field('update_header_action', 'update_header_nonce'); ?>
 				</form><!--form-end-->
-				<?php update_custom_option(); ?>
 			</div><!--tab-setting-all-wrap-end-->
         </div><!--inside-end-->
       </div><!--postbox bg-end-->

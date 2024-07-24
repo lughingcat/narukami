@@ -5,8 +5,11 @@
 		    require_once(dirname(dirname(dirname(dirname(dirname(dirname( __FILE__ )))))) . '/wp-load.php' );
 		    global $wpdb;
 			$i_site_rogo_img_url = esc_url(get_option('site-rogo-img'));
-			$i_site_title_value = esc_url(get_option('header_site_title'));
-			$i_site_discription_value = wp_kses_post($_POST['header_site_discription']);
+			$i_site_title_value = sanitize_text_field(get_option('header-tite'));
+			$i_site_discription_value = wp_kses_post(get_option('header-discription'));
+			var_dump($i_site_rogo_img_url);
+			var_dump($i_site_title_value);
+			var_dump($i_site_discription_value);
 			$insertGlobalId = "insert_id1";
 			$gm_numbers = '0';
 		  ?>
@@ -21,9 +24,6 @@
 	</div>
 	<div class="inputForm">
 	<h4 class="h-admin-4-bg">サイトロゴ画像を選択してください。</h4>
-	<?php
-  	generate_upload_image_tag('site-rogo-img', $site_rogo_img_url, $insertGlobalId, $gm_numbers);
-	?>
 	<h4>サイトタイトルを入力してください。</h4>
 	<input type="text" name="header_site_title" class="img-setect-url" value=<?php echo $i_site_title_value; ?>>
 	<h4>サイトディスクリプションを入力してください。</h4>
