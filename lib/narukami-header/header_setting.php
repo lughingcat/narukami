@@ -13,22 +13,24 @@
 				 	<button class="tablinks" onclick="openTab(event, 'Tab2')">ヒーローヘッダー設定</button>
 				 	<button class="tablinks" onclick="openTab(event, 'Tab3')">サイトアニメーション設定</button>
 				</div>
-				<div class="tab-content-wrap">
-					<div id="narukami-header-setting" class="tabcontent">
-				  		<h3>Tab 1</h3>
-				  		<?php include('inc_narukami_header_part.php');?>
-					</div>
-				
-					<div id="narukami-heroheader-setting" class="tabcontent">
-				  		<h3>Tab 2</h3>
-				 		<p>Content for Tab 2.</p>
-					</div>
-				
-					<div id="narukami-siteanimation-setting" class="tabcontent">
-				  		<h3>Tab 3</h3>
-				  		<p>Content for Tab 3.</p>
-					</div>
-				</div><!--tab-content-wrap-end-->
+				<form id="narukami-header-form" method="post" name="narukami-header-form" action="">
+					<div class="tab-content-wrap">
+						<div id="narukami-header-setting" class="tabcontent">
+					  		<h3>Tab 1</h3>
+					  		<?php include('inc_narukami_header_part.php');?>
+						</div>
+					
+						<div id="narukami-heroheader-setting" class="tabcontent">
+					  		<h3>Tab 2</h3>
+					 		<p>Content for Tab 2.</p>
+						</div>
+					
+						<div id="narukami-siteanimation-setting" class="tabcontent">
+					  		<h3>Tab 3</h3>
+					  		<p>Content for Tab 3.</p>
+						</div>
+					</div><!--tab-content-wrap-end-->
+				</form><!--form-end-->
 			</div><!--tab-setting-all-wrap-end-->
         </div><!--inside-end-->
       </div><!--postbox bg-end-->
