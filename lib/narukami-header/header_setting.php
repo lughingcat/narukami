@@ -30,7 +30,10 @@
 					  		<p>Content for Tab 3.</p>
 						</div>
 					</div><!--tab-content-wrap-end-->
+					<button type="submit">保存する</button>
+					<?php wp_nonce_field('update_header_action', 'update_header_nonce'); ?>
 				</form><!--form-end-->
+				<?php update_custom_option(); ?>
 			</div><!--tab-setting-all-wrap-end-->
         </div><!--inside-end-->
       </div><!--postbox bg-end-->

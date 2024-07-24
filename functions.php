@@ -505,7 +505,10 @@ require get_template_directory() . '/lib/input_branch_function.php';
  * 管理画面に関する設定
  */
 require get_template_directory() . '/lib/function-setting.php';
-
+/**
+ * nonceによるセキュリティーチェック関数
+ */
+require get_template_directory() . '/post_nonce_check.php';
 
 
 /**
