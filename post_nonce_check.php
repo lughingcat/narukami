@@ -8,10 +8,10 @@ function update_custom_option() {
         }
 		
         //update_optionヘッダー
-        //$header_rogo_url_value = esc_url($_POST['site-rogo-img']);
+        $header_rogo_url_value = esc_url($_POST['site-rogo-img-url']);
         $header_title_value = sanitize_text_field($_POST['header_site_title']);
         $header_discription_value = wp_kses_post($_POST['header_site_discription']);
-        //update_option('header-rogo-url', $header_rogo_url_value);
+        update_option('header-rogo-url', $header_rogo_url_value);
         update_option('header-tite', $header_title_value);
         update_option('header-discription', $header_discription_value);
 

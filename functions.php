@@ -401,9 +401,24 @@ function delete_keep_update(){
 }
 
 
+//画像アップロード用のタグを出力する(single配列なし)
+function generate_upload_image_single_tag($name, $value){?>
+<div class="img-wrap-function">
+<p class="subf-prev-title">選択画像PREVEW</p>
+<div id="<?php echo $name; ?>_thumbnail" class="uploded-thumbnail">
+    <?php if ($value): ?>
+      <img src="<?php echo $value; ?>" alt="選択中の画像">
+    <?php endif ?>
+  </div>
+  <input id="<?php echo $name; ?>" class="img-setect-url img-count-item" name="<?php echo $name; ?>" type="text" value="<?php echo $value; ?>" />
+  <input id="<?php echo $name; ?>_btn" type="button" class="img-select" name="<?php echo $name; ?>_slect" onclick="sngleUploaderOpen(this)" value="選択" />
+  <input id="<?php echo $name; ?>_clear" type="button" class="img-select-clear" name="<?php echo $name; ?>_clear" onclick="sngleUploaderDelete(this)"  value="クリア" />
+</div>
+<div id="script-container"></div>
+  <?php
+}
 
-
-//画像アップロード用のタグを出力する(single)
+//画像アップロード用のタグを出力する(single配列)
 function generate_upload_image_tag($name, $value, $insert, $gm_numbers){?>
 <div class="img-wrap-function">
 <p class="subf-prev-title">選択画像PREVEW</p>
@@ -420,7 +435,7 @@ function generate_upload_image_tag($name, $value, $insert, $gm_numbers){?>
   <?php
 }
 
-//画像アップロード用のタグを複数出力する(multiple)
+//画像アップロード用のタグを複数出力する(multiple配列)
 function generate_upload_multipleimage_tag($name, $value, $index, $insert, $gm_numbers){
     ?>
     <div class="img-wrap-function" data-index="<?php echo $index; ?>">

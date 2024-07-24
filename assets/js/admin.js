@@ -978,7 +978,39 @@ document.addEventListener('DOMContentLoaded', function() {
 /*==================================
 メディアアップローダーjs
 ==================================*/
+function sngleUploaderOpen(button){
+	
+}
+function sngleUploaderDelete(button){
+	
+}
+//アップローダ配列なし  
+function singleUploaderfunc($, name, insertIdName, insertLastNumber) {
+    var custom_uploader = wp.media({
+        title: "画像を選択してください",
+        library: {
+            type: "image"
+        },
+        button: {
+            text: "画像の選択"
+        },
+        multiple: false
+    });
+    custom_uploader.on("select", function () {
+        var images = custom_uploader.state().get("selection");
+        images.each(function (file) {
+            var inputName = $("input:text[name='" + name + "[" + insertLastNumber + "]'][data-insert-id='" + insertIdName + "']");
+            var thumbnailContainer = $("#" + name + "_thumbnail[data-insert-id=" + insertIdName + "]");
+            if (inputName.length && thumbnailContainer.length) {
+                inputName.val(file.attributes.url); // ファイルのURLを挿入
+                thumbnailContainer.empty();
+                thumbnailContainer.append('<img src="' + file.attributes.sizes.thumbnail.url + '" />');
+            }
+        });
+    });
 
+    custom_uploader.open();
+}
 //idをクリックしたボタンから抜き出し、アップローダ関数を実行(single)
 function uploaderOpenClick(button) {
     var buttonId = button.id;
