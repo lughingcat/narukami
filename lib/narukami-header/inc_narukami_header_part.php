@@ -7,12 +7,18 @@
 			$i_site_rogo_img_url = esc_url(get_option('header-rogo-url'));
 			$i_site_title_value = sanitize_text_field(get_option('header-tite'));
 			$i_site_discription_value = wp_kses_post(get_option('header-discription'));
-			var_dump($i_site_rogo_img_url);
-			var_dump($i_site_title_value);
-			var_dump($i_site_discription_value);
-			$insertGlobalId = "insert_id1";
-			$gm_numbers = 0;
-		  ?>
+			$i_header_display_setting = sanitize_text_field(get_option('header-disp-set'));
+		?>
+		<?php
+			//ヘッダー表示、非表示切り替え
+			if($i_header_display_setting === 'display_on'){
+				$display_on = "checked";
+				$display_off = "";
+			}else{
+				$display_on = "";
+				$display_off = "checked";
+			}
+		?>
 		<div class="header-back-wrap"
 			 style="background-image: url(<?php echo $i_site_rogo_img_url; ?>)">
 			<div class="header-title-wrap">
@@ -23,6 +29,11 @@
 		</article>
 	</div>
 	<div class="inputForm">
+	<h4 class="h-admin-4-bg">ヘッダー表示設定。</h4>
+		<div class="header-display-wrap">
+			<label><input type="radio" name="header-display-setting" value="display_on" <?php echo $display_on; ?>>ヘッダーを表示する</label>
+			<label><input type="radio" name="header-display-setting" value="display_off" <?php echo $display_off; ?>>ヘッダーを非表示にする</label>
+		</div>
 	<h4 class="h-admin-4-bg">サイトロゴ画像を選択してください。</h4>
 		<?php
   		generate_upload_image_single_tag('site-rogo-img-url', $i_site_rogo_img_url);

@@ -979,13 +979,15 @@ document.addEventListener('DOMContentLoaded', function() {
 メディアアップローダーjs
 ==================================*/
 function sngleUploaderOpen(button){
-	
+	var buttonId = button.id;
+	var nameId = buttonId.replace("_btn", "");
+    singleUploaderfunc(jQuery, nameId);
 }
 function sngleUploaderDelete(button){
 	
 }
 //アップローダ配列なし  
-function singleUploaderfunc($, name, insertIdName, insertLastNumber) {
+function singleUploaderfunc($, name) {
     var custom_uploader = wp.media({
         title: "画像を選択してください",
         library: {
@@ -999,8 +1001,8 @@ function singleUploaderfunc($, name, insertIdName, insertLastNumber) {
     custom_uploader.on("select", function () {
         var images = custom_uploader.state().get("selection");
         images.each(function (file) {
-            var inputName = $("input:text[name='" + name + "[" + insertLastNumber + "]'][data-insert-id='" + insertIdName + "']");
-            var thumbnailContainer = $("#" + name + "_thumbnail[data-insert-id=" + insertIdName + "]");
+            var inputName = $(`input:text[name='${name}']`);
+            var thumbnailContainer = $(`#${name}_thumbnail`);
             if (inputName.length && thumbnailContainer.length) {
                 inputName.val(file.attributes.url); // ファイルのURLを挿入
                 thumbnailContainer.empty();
