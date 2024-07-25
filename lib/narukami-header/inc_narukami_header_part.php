@@ -8,15 +8,24 @@
 			$i_site_title_value = sanitize_text_field(get_option('header-tite'));
 			$i_site_discription_value = wp_kses_post(get_option('header-discription'));
 			$i_header_display_setting = sanitize_text_field(get_option('header-disp-set'));
+			$i_header_rogo_setting = sanitize_text_field(get_option('header-rogo-set'));
 		?>
 		<?php
-			//ヘッダー表示、非表示切り替え
+			//ヘッダー表示切り替え
 			if($i_header_display_setting === 'display_on'){
 				$display_on = "checked";
 				$display_off = "";
 			}else{
 				$display_on = "";
 				$display_off = "checked";
+			}
+			//ヘッダーロゴ表示切り替え
+			if($i_header_rogo_setting === 'display_on'){
+				$display_rogo_on = "checked";
+				$display_rogo_off = "";
+			}else{
+				$display_rogo_on = "";
+				$display_rogo_off = "checked";
 			}
 		?>
 		<div class="header-back-wrap"
@@ -30,7 +39,7 @@
 	</div>
 	<div class="inputForm">
 	<h4 class="h-admin-4-bg">ヘッダー表示設定。</h4>
-		<div class="header-display-wrap">
+		<div class="header-radio-wrap">
 			<label><input type="radio" name="header-display-setting" value="display_on" <?php echo $display_on; ?>>ヘッダーを表示する</label>
 			<label><input type="radio" name="header-display-setting" value="display_off" <?php echo $display_off; ?>>ヘッダーを非表示にする</label>
 		</div>
@@ -38,6 +47,10 @@
 		<?php
   		generate_upload_image_single_tag('site-rogo-img-url', $i_site_rogo_img_url);
 		?>
+		<div class="header-radio-wrap">
+			<label><input type="radio" name="header-display-rogo" value="display_on" <?php echo $display_rogo_on; ?>>ヘッダーロゴを表示する</label>
+			<label><input type="radio" name="header-display-rogo" value="display_off" <?php echo $display_rogo_off; ?>>ヘッダーロゴを非表示にする</label>
+		</div>
 	<h4>サイトタイトルを入力してください。</h4>
 	<input type="text" name="header_site_title" class="img-setect-url" value=<?php echo $i_site_title_value; ?>>
 	<h4>サイトディスクリプションを入力してください。</h4>

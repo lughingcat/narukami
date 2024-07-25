@@ -12,10 +12,12 @@ function update_custom_option() {
         $header_title_value = sanitize_text_field($_POST['header_site_title']);
         $header_discription_value = wp_kses_post($_POST['header_site_discription']);
         $header_display_set = sanitize_text_field($_POST['header-display-setting']);
+        $header_rogo_set = sanitize_text_field($_POST['header-display-rogo']);
         update_option('header-rogo-url', $header_rogo_url_value);
         update_option('header-tite', $header_title_value);
         update_option('header-discription', $header_discription_value);
         update_option('header-disp-set', $header_display_set);
+        update_option('header-rogo-set', $header_rogo_set);
 
         wp_redirect(add_query_arg('updated', 'true', wp_get_referer()));
         exit;
