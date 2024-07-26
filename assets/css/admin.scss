@@ -3,8 +3,69 @@
 /*================================
 	鳴雷ヘッダー設定スタイル
 =================================*/
-
-
+//ラジオボタンスタイル
+.header-radio-wrap{
+	margin-top: 15px;
+	.display-sort-wrap{
+		position: relative;
+		.display-inner-wrap-block{
+			width: 100px;
+			height: 100px;
+			padding: 5px;
+			text-align: center;
+			position: relative;
+			border: 3px solid #0086ad;
+			border-radius: 5px;
+			margin-bottom: 10px;
+			margin-right: 20px;
+			.header-rogo{
+				border-radius: 50%;
+				width: 50%;
+				height: 50%;
+				display: inline-block;
+				position: relative;
+				margin: 10% auto 0;
+				border: 3px solid #0086ad;
+				span{
+					position: absolute;
+    				top: 50%;
+    				left: 50%;
+    				transform: translate(-50%, -50%);
+					font-weight: bold;
+				}
+			}
+			.header-title{
+				width: 100%;
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,150%);
+				font-weight: bold;
+			}
+			.flex-patern{
+				position: static;
+				transform: none;
+			}
+		}
+		.flex-line{
+			display: flex;
+			width: 160px;
+			span{
+				position: absolute;
+				top: 50%;
+				left: 45%;
+				transform: translate(0,-80%);
+			}
+		}
+		label{
+				margin: 3% auto 0;
+			}
+		}
+	}
+.sort-line-flex{
+	display: flex;
+}
 /*================================
 	top-page-makerホップアッププレビュースタイル
 =================================*/

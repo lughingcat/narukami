@@ -2,6 +2,59 @@
 /*================================
 	鳴雷ヘッダー設定スタイル
 =================================*/
+.header-radio-wrap {
+  margin-top: 15px; }
+  .header-radio-wrap .display-sort-wrap {
+    position: relative; }
+    .header-radio-wrap .display-sort-wrap .display-inner-wrap-block {
+      width: 100px;
+      height: 100px;
+      padding: 5px;
+      text-align: center;
+      position: relative;
+      border: 3px solid #0086ad;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      margin-right: 20px; }
+      .header-radio-wrap .display-sort-wrap .display-inner-wrap-block .header-rogo {
+        border-radius: 50%;
+        width: 50%;
+        height: 50%;
+        display: inline-block;
+        position: relative;
+        margin: 10% auto 0;
+        border: 3px solid #0086ad; }
+        .header-radio-wrap .display-sort-wrap .display-inner-wrap-block .header-rogo span {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-weight: bold; }
+      .header-radio-wrap .display-sort-wrap .display-inner-wrap-block .header-title {
+        width: 100%;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 150%);
+        font-weight: bold; }
+      .header-radio-wrap .display-sort-wrap .display-inner-wrap-block .flex-patern {
+        position: static;
+        transform: none; }
+    .header-radio-wrap .display-sort-wrap .flex-line {
+      display: flex;
+      width: 160px; }
+      .header-radio-wrap .display-sort-wrap .flex-line span {
+        position: absolute;
+        top: 50%;
+        left: 45%;
+        transform: translate(0, -80%); }
+    .header-radio-wrap .display-sort-wrap label {
+      margin: 3% auto 0; }
+
+.sort-line-flex {
+  display: flex; }
+
 /*================================
 	top-page-makerホップアッププレビュースタイル
 =================================*/

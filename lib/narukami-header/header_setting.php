@@ -1,7 +1,8 @@
 <div id="back_wrap">
     <?php
     settings_fields('custom-menu-group');
-    do_settings_sections('custom-menu-group'); ?>
+    do_settings_sections('custom-menu-group'); 
+	?>
 	
 	<div class="metabox-holder">
       <div class="postbox bg">
