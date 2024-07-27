@@ -342,31 +342,31 @@ add_action('wp_ajax_notify_top_page', 'notify_top_page_callback');
 add_action('wp_ajax_nopriv_notify_top_page', 'notify_top_page_callback');
 
 
-//カラーピッカーの生成関数
-function genelate_color_picker_tag_demo($name, $value, $label){?>
-  <p><label for="<?php echo $name; ?>"><?php echo $label; ?></label></p>
-  <p><input type="text" name="<?php echo $name; ?>" value="<?php echo $value; ?>" ></p>
-  <?php wp_enqueue_script( 'wp-color-picker' );
-  $data = '(function( $ ) {
-      var options = {
-          defaultColor: false,
-          change: function(event, ui){},
-          clear: function() {},
-          hide: true,
-          palettes: true,
-      };
-      $("input:text[name='.$name.']").wpColorPicker(options);
-  })( jQuery );';
-    wp_add_inline_script( 'wp-color-picker', $data, 'after' ) ;
-
+// カラーピッカーの生成関数ノーマル
+function genelate_color_picker_tag_demo($name, $value, $label) { ?>
+    <p><label for="<?php echo $name; ?>"><?php echo $label; ?></label></p>
+    <p><input type="text" name="<?php echo $name; ?>" value="<?php echo $value; ?>" ></p>
+    <?php wp_enqueue_script('wp-color-picker');
+    $data = '(function( $ ) {
+        var options = {
+            defaultColor: false,
+            change: function(event, ui){},
+            clear: function() {},
+            hide: true,
+            palettes: true,
+        };
+        $("input:text[name=\'' . $name . '\']").wpColorPicker(options);
+    })( jQuery );';
+    wp_add_inline_script('wp-color-picker', $data, 'after');
 }
-//カラーピッカー用スタイルの読み込み
 
-
+// カラーピッカー用スタイルの読み込み
 function my_admin_print_styles_demo() {
- wp_enqueue_style( 'wp-color-picker' );
+    wp_enqueue_style('wp-color-picker');
 }
 add_action('admin_print_styles', 'my_admin_print_styles_demo');
+
+
 
 
 /**
