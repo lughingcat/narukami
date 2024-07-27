@@ -17,6 +17,7 @@ function update_custom_option() {
         $header_sdisc_set = sanitize_text_field($_POST['header-display-sitedisc']);
         $header_bgcolor_set = sanitize_text_field($_POST['header-bg-color']);
         $header_sort_set = sanitize_text_field($_POST['header-display-sort']);
+        $header_textcolor_set = sanitize_text_field($_POST['header-text-color']);
         update_option('header-rogo-url', $header_rogo_url_value);
         update_option('header-tite', $header_title_value);
         update_option('header-discription', $header_discription_value);
@@ -25,6 +26,7 @@ function update_custom_option() {
         update_option('header-stitle-set', $header_stitle_set);
         update_option('header-bg-color', $header_bgcolor_set);
         update_option('header-sort-set', $header_sort_set);
+        update_option('header-text-color', $header_textcolor_set);
 
         wp_redirect(add_query_arg('updated', 'true', wp_get_referer()));
         exit;

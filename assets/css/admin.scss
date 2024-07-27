@@ -3,6 +3,30 @@
 /*================================
 	鳴雷ヘッダー設定スタイル
 =================================*/
+//ヘッダープレビュースタイル
+.header-back-wrap{
+	text-align: center;
+	padding: 1% 0;
+	.header-rogo-wrap{
+		width: 100px;
+		height: 80px;
+		background-size: contain;
+		background-repeat: no-repeat;
+		margin: 0 auto;
+	}
+	.header-title-wrap{
+		.header-site-title{
+			font-weight: bold;
+			display: inline-block;
+			border-bottom: 1px solid;
+			padding-bottom: 7px;
+			margin: 5px auto;
+		}
+		.header-site-discription{
+			margin: 0 auto;
+		}
+	}
+}
 //ラジオボタンスタイル
 .header-radio-wrap{
 	margin-top: 15px;

@@ -353,7 +353,7 @@ function genelate_color_picker_tag_demo($name, $value, $label){?>
           change: function(event, ui){},
           clear: function() {},
           hide: true,
-          palettes: true
+          palettes: true,
       };
       $("input:text[name='.$name.']").wpColorPicker(options);
   })( jQuery );';

@@ -13,6 +13,7 @@
 			$i_header_sdisc_setting = sanitize_text_field(get_option('header-sdisc-set'));
 			$i_header_bgcolor = sanitize_text_field(get_option('header-bg-color'));
 			$i_header_sort_setting = sanitize_text_field(get_option('header-sort-set'));
+			$i_header_textcolor_setting = sanitize_text_field(get_option('header-text-color'));
 		?>
 		<?php
 			//ヘッダー表示切り替え
@@ -57,10 +58,16 @@
 			}
 		?>
 		<div class="header-back-wrap"
-			 style="background-image: url(<?php echo $i_site_rogo_img_url; ?>)">
-			<div class="header-title-wrap">
-				<p class="header-site-title"><?php echo $i_site_title_value; ?></p>
-				<p class="header-site-discription"><?php echo $i_site_discription_value;?></p>
+			 style="background-color: <?php echo $i_header_bgcolor; ?>;">
+			<div class="header-flex-setting">
+				<div class="header-rogo-wrap"
+					 style="background-image: url(<?php echo $i_site_rogo_img_url; ?>);"></div>
+				<div class="header-title-wrap">
+					<p class="header-site-title" 
+					   style="color: <?php echo $i_header_textcolor_setting; ?>;"><?php echo $i_site_title_value; ?></p>
+					<p class="header-site-discription" 
+					   style="color: <?php echo $i_header_textcolor_setting; ?>;"><?php echo $i_site_discription_value;?></p>
+				</div>
 			</div>
 		</div>
 		</article>
@@ -95,14 +102,24 @@
 			<label><input type="radio" name="header-display-sitetitle" value="display_on" <?php echo $display_sitetitle_on; ?>>サイトタイトルを表示する</label>
 			<label><input type="radio" name="header-display-sitetitle" value="display_off" <?php echo $display_sitetitle_off; ?>>サイトタイトルを非表示にする</label>
 		</div>
-	<h4>サイトディスクリプションを入力してください。</h4>
-		<p>※改行せずに入力すると美しく見えます。</p>
+	<h4>サイトの説明文を入力してください。</h4>
 	<textarea name="header_site_discription" class="narukami-tinymce-editor"><?php echo $i_site_discription_value;?>
 	</textarea>
 		<div class="header-radio-wrap">
 			<label><input type="radio" name="header-display-sitedisc" value="display_on" <?php echo $display_sitedisc_on; ?>>サイト説明を表示する</label>
 			<label><input type="radio" name="header-display-sitedisc" value="display_off" <?php echo $display_sitedisc_off; ?>>サイト説明を非表示にする</label>
 		</div>
+	<h4>サイトタイトルと説明文の文字色設定。</h4>
+		<div class="color-box-child">
+		<?php 
+			genelate_color_picker_tag_demo(
+        	  'header-text-color', 
+        	  get_option('header-text-color'), 
+        	  'サイトタイトルと説明文の文字色を選択してください。'
+        	);
+        ?> 
+		</div>
+	<!--
 	<h4>ロゴとサイトタイトルの並びを選択してください。</h4>
 		<div class="header-radio-wrap sort-line-flex">
 			<div class="display-sort-wrap">
@@ -119,6 +136,6 @@
 				</div>
 				<label><input type="radio" name="header-display-sort" value="flex" <?php echo $display_sort_flex; ?>>横並び</label>
 			</div>
-		</div>
+		</div>-->
 	</div><!--inputform-end-->
 </div><!--all-wrap-end-->
