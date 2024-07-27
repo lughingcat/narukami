@@ -56,6 +56,14 @@
 				$display_sort_block = "";
 				$display_sort_flex = "checked";
 			}
+			//背景色選択
+			if($i_header_bgcolor === 'block'){
+				$display_sort_block = "checked";
+				$display_sort_flex = "";
+			}else{
+				$display_sort_block = "";
+				$display_sort_flex = "checked";
+			}
 		?>
 		<div class="header-back-wrap"
 			 style="background-color: <?php echo $i_header_bgcolor; ?>;">
@@ -79,14 +87,17 @@
 			<label><input type="radio" name="header-display-setting" value="display_off" <?php echo $display_off; ?>>ヘッダーを非表示にする</label>
 		</div>
 	<h4>ヘッダー背景色設定。</h4>
-		<div class="color-box-child">
-		<?php 
+		<div class="header-radio-wrap">
+			<div class="color-box-child">
+			<?php 
 			genelate_color_picker_tag_demo(
         	  'header-bg-color', 
         	  get_option('header-bg-color'), 
         	  'ヘッダー背景色を選択してください。'
         	);
-        ?> 
+			?> 
+			</div>
+			<label><input type="radio" name="header-bg-color" value="transparent" <?php echo $display_off; ?>>ヘッダーを非表示にする</label>
 		</div>
 	<h4 class="h-admin-4-bg">サイトロゴ画像を選択してください。</h4>
 		<?php

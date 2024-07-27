@@ -984,7 +984,14 @@ function sngleUploaderOpen(button){
     singleUploaderfunc(jQuery, nameId);
 }
 function sngleUploaderDelete(button){
-	
+	var buttonIdDel = button.id;
+	var singleNameDel = buttonIdDel.replace(/_clear|\d/g, '');
+	singledeleteImgUploader(jQuery, singleNameDel)
+}
+//配列なし削除ボタン関数(single)
+function singledeleteImgUploader($, name){
+        $(`input:text[name='${name}']`).val("");
+        $(`#${name}_thumbnail`).empty();
 }
 //アップローダ配列なし  
 function singleUploaderfunc($, name) {
