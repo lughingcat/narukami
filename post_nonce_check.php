@@ -7,7 +7,8 @@ function update_custom_option() {
             die('不正なリクエストです。');
         }
 		
-        //update_optionヘッダー
+        //update_option ヘッダー
+		
         $header_rogo_url_value = esc_url($_POST['site-rogo-img-url']);//サイトロゴ
         $header_title_value = sanitize_text_field($_POST['header_site_title']);//タイトル
         $header_discription_value = wp_kses_post($_POST['header_site_discription']);//説明文
@@ -28,7 +29,14 @@ function update_custom_option() {
         update_option('header-bg-color', $header_bgcolor_set);
         update_option('header-sort-set', $header_sort_set);
         update_option('header-text-color', $header_textcolor_set);
-
+		
+		//update_option グローバルメニュー
+		$gloalmenu_title_array = sanitize_option_value($_POST['global_item_title']);
+		$gloalmenu_link_array = sanitize_option_value($_POST['global_item_link']);
+		update_option('global_title_array', $gloalmenu_title_array);
+		update_option('global_url_array', $gloalmenu_link_array);
+		
+		
         wp_redirect(add_query_arg('updated', 'true', wp_get_referer()));
         exit;
     }

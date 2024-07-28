@@ -517,6 +517,10 @@ require get_template_directory() . '/lib/init_function.php';
  */
 require get_template_directory() . '/lib/input_branch_function.php';
 /**
+ * サニタイズ用関数ファイル
+ */
+require get_template_directory() . '/lib/sanitize_func.php';
+/**
  * 管理画面に関する設定
  */
 require get_template_directory() . '/lib/function-setting.php';
