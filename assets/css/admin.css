@@ -75,6 +75,17 @@
 .sort-line-flex {
   display: flex; }
 
+.globalmenu-flex-wrap {
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  padding: 2% 0; }
+  .globalmenu-flex-wrap .flex-child-wrap {
+    width: 50%; }
+    .globalmenu-flex-wrap .flex-child-wrap .img-setect-url {
+      width: 90%; }
+
 /*================================
 	top-page-makerホップアッププレビュースタイル
 =================================*/

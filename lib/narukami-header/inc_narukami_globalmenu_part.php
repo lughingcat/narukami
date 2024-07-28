@@ -35,25 +35,26 @@
 					echo $value['title'];
 					echo $value['url'];
 				}
+			}else{
+				echo $i_global_title_array;
+				echo $i_global_url_array;
 			}
 		?>
 		<div class="globalmenu-back-wrap"
 			 style="background-color: <?php echo $i_header_bgcolor; ?>; display: <?php echo $disp_switch; ?>;">
 			<div class="globalmenu-flex-setting">
 				<ul class="globalmenu-title-wrap">
-					<li><a href="<?php echo $i_global_item_link; ?>" class="globalmenu-item-title" 
-					   style="color: <?php echo $i_header_textcolor_setting; ?>;">
-						<?php echo $i_global_item_title?></a></li>
+					<?php
+					if (isset($global_items_Array) && is_array($global_items_Array)) {
+						foreach ($global_items_Array as $key => $values ) {
+						echo "<li><a class='globalmenu-item-title' style='color:" . $i_header_textcolor_setting . ";' href='" . $values['url'] . "'>" . $values['title'] . "</li></a>";
+						}											  
+					}
+					?>
 				</ul>
 			</div>
 		</div>
-		<?php
-		if (isset($global_items_Array) && is_array($global_items_Array)) {
-			foreach ($global_items_Array as $key => $values ) {
-				echo "<li><a class='globalmenu-item-title' href='" . $values['url'] . "'>" . $values['title'] . "</li></a>";
-			}											  
-		}
-		?>
+		
 		</article>
 	</div>
 	<div class="inputForm">
@@ -67,17 +68,6 @@
         	);
 		?> 
 		</div>
-	<h4>グローバルメニューのタイトルとリンクURLを入力してください。</h4>
-		<div class="globalmenu-flex-wrap">
-			<div class="flex-child-wrap">
-				<p>タイトル</p>
-				<input type="text" name="global_item_title[]" class="img-setect-url">
-			</div>
-			<div class="flex-child-wrap">
-				<p>リンクURL</p>
-				<input type="text" name="global_item_link[]" class="img-setect-url">
-			</div>
-		</div>
 	<h4>グローバルメニューの文字色を設定してください。</h4>
 		<div class="color-box-child">
 		<?php 
@@ -88,5 +78,37 @@
         	);
 		?> 
 		</div>
+	<h4>グローバルメニューのタイトルとリンクURLを入力してください。</h4>
+		<!--
+		<div id='global-flex-wrap' class='globalmenu-flex-wrap'>
+			<div class='flex-child-wrap'>
+				<p>タイトル</p>
+				<input type="text" name="global_item_title[]" class="img-setect-url" value="">
+			</div>
+			<div class='flex-child-wrap'>
+				<p>リンクURL</p>
+				<input type="text" name="global_item_link[]" class="img-setect-url" value="">
+			</div>
+			<button type="button" class="global-item-delete-btn" onclick="globalItemDelete(this)">削除</button>
+		</div>-->
+		<?php
+		if (isset($global_items_Array) && is_array($global_items_Array)) {
+		$global_lentgh = 0;
+		foreach ($global_items_Array as $key2 => $items ) {
+			echo "<div id='global-flex-wrap_$global_lentgh' class='globalmenu-flex-wrap'>";
+			echo "<div class='flex-child-wrap'>";
+			echo "<p>タイトル</p>";
+			echo '<input type="text" name="global_item_title[]" class="img-setect-url" value="' . $items['title'] . '">';
+			echo "</div>";
+			echo "<div class='flex-child-wrap'>";
+			echo "<p>リンクURL</p>";
+			echo '<input type="text" name="global_item_link[]" class="img-setect-url" value="' . $items['url'] . '">';
+			echo "</div>";
+			echo "</div>";
+			$global_lentgh++;
+		}
+		}
+		?>
 	</div><!--inputform-end-->
+	<button id="globalmenu-add-btn" type="button" class="reproduction-btn">フォームを追加する</button>
 </div><!--all-wrap-end-->

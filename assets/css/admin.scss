@@ -92,6 +92,23 @@
 .sort-line-flex{
 	display: flex;
 }
+//グローバルメニュースタイル
+//プレビュー
+//CRUD
+.globalmenu-flex-wrap{
+	width: 100%;
+	display: flex;
+	position: relative;
+	justify-content: center;
+	padding: 2% 0;
+	.flex-child-wrap{
+	width: 50%;
+		.img-setect-url{
+			width: 90%;
+		}
+	}
+}
+
 /*================================
 	top-page-makerホップアッププレビュースタイル
 =================================*/

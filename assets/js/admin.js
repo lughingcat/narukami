@@ -1,6 +1,32 @@
 /*==================================
 ヘッダー設定js
 ==================================*/
+document.addEventListener('DOMContentLoaded', function(){
+	var glandMenuAddBtn = document.getElementById('globalmenu-add-btn');
+	if(glandMenuAddBtn){
+		glandMenuAddBtn.addEventListener('click', function(){
+			var parentElementAll = document.querySelectorAll('.globalmenu-flex-wrap');
+			if (parentElementAll.length > 0) {
+                // 最後の要素を取得
+                var lastElement = parentElementAll[parentElementAll.length - 1];
+                // 複製
+                var clone = lastElement.cloneNode(true);
+                // 必要に応じてIDや名前の変更
+                clone.id = 'global-flex-wrap_' + parentElementAll.length;
+                clone.querySelectorAll('input').forEach(function(input) {
+                    input.value = ''; // 複製後に入力値をリセット
+                });
+                // 親要素に追加
+                lastElement.parentNode.appendChild(clone);
+            }
+		});
+	}
+});
+
+
+
+
+
 
 /*==================================
 トップページビルダーjs
