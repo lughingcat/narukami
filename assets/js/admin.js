@@ -23,6 +23,22 @@ document.addEventListener('DOMContentLoaded', function(){
 	}
 });
 
+function globalmenuDeleteElement(button) {
+    var parentElementAll = document.querySelectorAll('.globalmenu-flex-wrap');
+    
+    if (parentElementAll.length > 1) { // 要素が1つ以上ある場合のみ削除可能
+        var parentEl = button.parentElement;
+        parentEl.remove();
+
+        parentElementAll = document.querySelectorAll('.globalmenu-flex-wrap'); // 更新
+        parentElementAll.forEach(function(parent, index) {
+            parent.id = 'global-flex-wrap_' + index;
+			console.log(parent.id);
+        });
+    }else{
+		alert('最後の１つは削除出来ません。');
+	}
+}
 
 
 

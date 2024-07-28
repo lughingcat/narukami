@@ -75,16 +75,57 @@
 .sort-line-flex {
   display: flex; }
 
-.globalmenu-flex-wrap {
+.global-form-wrap {
+  background-color: #32495F;
   width: 100%;
-  display: flex;
+  padding: 3%;
+  box-sizing: border-box; }
+  .global-form-wrap .globalmenu-flex-wrap {
+    width: 90%;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: stretch;
+    background-color: #FFFFFF;
+    margin: 5% auto; }
+    .global-form-wrap .globalmenu-flex-wrap .flex-child-wrap {
+      width: 50%;
+      margin: 0 0 3% 3%;
+      font-weight: bold; }
+      .global-form-wrap .globalmenu-flex-wrap .flex-child-wrap .img-setect-url {
+        width: 80%;
+        font-weight: normal;
+        border-radius: 0; }
+    .global-form-wrap .globalmenu-flex-wrap .globalmenu-delete-btn {
+      width: 7%;
+      min-height: 30px;
+      background-color: #9D3B3B;
+      border-radius: 0;
+      border: 0;
+      margin: 0;
+      color: #FFFFFF;
+      font-size: 10px; }
+      .global-form-wrap .globalmenu-flex-wrap .globalmenu-delete-btn:hover {
+        background-color: #CC7979;
+        color: #782D2D; }
+
+.reproduction-btn {
   position: relative;
-  justify-content: center;
-  padding: 2% 0; }
-  .globalmenu-flex-wrap .flex-child-wrap {
-    width: 50%; }
-    .globalmenu-flex-wrap .flex-child-wrap .img-setect-url {
-      width: 90%; }
+  display: inline-block;
+  width: 30%;
+  height: 50px;
+  background-color: #d16407;
+  color: #FFFFFF;
+  text-align: center;
+  border: 0;
+  margin: 0 2%;
+  border-radius: 3px; }
+  .reproduction-btn:hover {
+    background-color: #ffffff;
+    color: #d16407;
+    font-weight: bold;
+    border: 2px solid #d16407;
+    transition: 0.2s; }
 
 /*================================
 	top-page-makerホップアッププレビュースタイル
