@@ -6,29 +6,54 @@
 		    global $wpdb;
 			$i_global_title_array = sanitize_option_value(get_option('global_title_array'));
 			$i_global_url_array = sanitize_option_value(get_option('global_url_array'));
-			if(is_array($i_global_title_array )){
-			foreach($i_global_title_array as $key=>$value){
-				echo $key;
-				echo $value;
+			// 連想配列を作成
+			$global_items_Array = array();
+			
+			// $i_global_title_arrayが配列であるかを確認
+			if (is_array($i_global_title_array)) {
+				// 各変数が配列であるかを確認
+				if (is_array($i_global_url_array)) {
+					for ($global = 0; $global < count($i_global_title_array); $global++) {
+						// 配列のインデックスが存在するかを確認
+						if (isset($i_global_title_array[$global])) {
+							$global_items_Array[$i_global_title_array[$global]] = array(
+								'title' => $i_global_title_array[$global],
+								'url' => $i_global_url_array[$global]
+							);
+						} else {
+						//url, pagelink,　エラーハンドリング
+						}
+					}
+				} else {
+					//arrayに対するエラーハンドリング
+				}
+			} else {
+				//全体arrayに対するエラーハンドリング
 			}
-			}
-			if(is_array($i_global_url_array)){
-			foreach($i_global_url_array as $key=>$value){
-				echo $key;
-				echo $value;
-			}
+			if(is_array($global_items_Array)){
+				foreach($global_items_Array as $key=>$value){
+					echo $value['title'];
+					echo $value['url'];
+				}
 			}
 		?>
 		<div class="globalmenu-back-wrap"
 			 style="background-color: <?php echo $i_header_bgcolor; ?>; display: <?php echo $disp_switch; ?>;">
 			<div class="globalmenu-flex-setting">
-				<div class="globalmenu-title-wrap">
-					<a href="<?php echo $i_global_item_link; ?>" class="globalmenu-item-title" 
+				<ul class="globalmenu-title-wrap">
+					<li><a href="<?php echo $i_global_item_link; ?>" class="globalmenu-item-title" 
 					   style="color: <?php echo $i_header_textcolor_setting; ?>;">
-					<?php echo $i_global_item_title?></a>
-				</div>
+						<?php echo $i_global_item_title?></a></li>
+				</ul>
 			</div>
 		</div>
+		<?php
+		if (isset($global_items_Array) && is_array($global_items_Array)) {
+			foreach ($global_items_Array as $key => $values ) {
+				echo "<li><a class='globalmenu-item-title' href='" . $values['url'] . "'>" . $values['title'] . "</li></a>";
+			}											  
+		}
+		?>
 		</article>
 	</div>
 	<div class="inputForm">
@@ -42,21 +67,13 @@
         	);
 		?> 
 		</div>
-	<h4>グローバルメニュータイトルを入力してください。</h4>
+	<h4>グローバルメニューのタイトルとリンクURLを入力してください。</h4>
 		<div class="globalmenu-flex-wrap">
-			<div class="">
+			<div class="flex-child-wrap">
 				<p>タイトル</p>
 				<input type="text" name="global_item_title[]" class="img-setect-url">
 			</div>
-			<div class="">
-				<p>リンクURL</p>
-				<input type="text" name="global_item_link[]" class="img-setect-url">
-			</div>
-			<div class="">
-				<p>タイトル</p>
-				<input type="text" name="global_item_title[]" class="img-setect-url">
-			</div>
-			<div class="">
+			<div class="flex-child-wrap">
 				<p>リンクURL</p>
 				<input type="text" name="global_item_link[]" class="img-setect-url">
 			</div>
