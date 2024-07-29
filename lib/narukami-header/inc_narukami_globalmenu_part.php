@@ -34,21 +34,30 @@
 				//全体arrayに対するエラーハンドリング
 			}
 		?>
-		<div class="globalmenu-back-wrap"
-			 style="background-color: <?php echo $i_gloalmenu_bgcolor; ?>;">
-			<div class="globalmenu-flex-setting">
-				<ul class="globalmenu-title-wrap">
-					<?php
+		<div class="globalmenu-content-all-wrap">
+			<div class="humberger-button-wrap">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+			<div class="globalmenu-back-wrap"
+				 style="background-color: <?php echo $i_gloalmenu_bgcolor; ?>;">
+				<div class="globalmenu-flex-setting">
+					<ul class="globalmenu-title-wrap">
+						<?php
 					if (isset($global_items_Array) && is_array($global_items_Array)) {
 						foreach ($global_items_Array as $key => $values ) {
 						echo "<li><a class='globalmenu-item-title' style='color:" . $i_gloalmenu_textcolor . ";' href='" . $values['url'] . "'>" . $values['title'] . "</li></a>";
 						}											  
 					}
 					?>
-				</ul>
+					</ul>
+				</div>
+			</div><!--globalmenu-back-wrap-end-->
+			<div class="store-web-site">
+				<h2>STORE WEB SITE</h2>
 			</div>
-		</div>
-		
+		</div><!--globalmenu-content-all-wrap-end-->
 		</article>
 	</div>
 	<div class="inputForm">

@@ -75,6 +75,21 @@
 .sort-line-flex {
   display: flex; }
 
+.globalmenu-content-all-wrap {
+  position: relative; }
+  .globalmenu-content-all-wrap .humberger-button-wrap {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: green; }
+    .globalmenu-content-all-wrap .humberger-button-wrap span {
+      width: 80%;
+      height: 10px;
+      background-color: #ffffff;
+      border-radius: 10px; }
+  .globalmenu-content-all-wrap .store-web-site {
+    background-color: yellow; }
+
 .global-form-wrap {
   background-color: #32495F;
   width: 100%;

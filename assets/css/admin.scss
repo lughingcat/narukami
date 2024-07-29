@@ -94,6 +94,31 @@
 }
 //グローバルメニュースタイル
 //プレビュー
+.globalmenu-content-all-wrap{
+	position: relative;
+	.humberger-button-wrap{//humbergerBtnWrap
+		position: relative;
+		width: 50px;
+		height: 50px;
+		background-color: green;
+		span{
+			width: 80%;
+			height: 10px;
+			background-color: #ffffff;
+			border-radius: 10px;
+		}
+	}
+	.globalmenu-back-wrap{
+		.globalmenu-flex-setting{//slide wrap
+			.globalmenu-title-wrap{//ul
+				
+			}
+		}
+	}
+	.store-web-site{//最下層
+		background-color: yellow;
+	}
+}
 //CRUD
 .global-form-wrap{
 	background-color: #32495F;
