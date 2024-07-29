@@ -6,6 +6,9 @@
 		    global $wpdb;
 			$i_global_title_array = sanitize_option_value(get_option('global_title_array'));
 			$i_global_url_array = sanitize_option_value(get_option('global_url_array'));
+			$i_gloalmenu_bgcolor = sanitize_option_value(get_option('gloalmenu_bgcolor'));
+			$i_gloalmenu_textcolor = sanitize_option_value(get_option('gloalmenu_textcolor'));
+			
 			// 連想配列を作成
 			$global_items_Array = array();
 			
@@ -21,7 +24,7 @@
 								'url' => $i_global_url_array[$global]
 							);
 						} else {
-						//url, pagelink,　エラーハンドリング
+						//タイトル, URL,　エラーハンドリング
 						}
 					}
 				} else {
@@ -30,21 +33,15 @@
 			} else {
 				//全体arrayに対するエラーハンドリング
 			}
-			if(is_array($global_items_Array)){
-				foreach($global_items_Array as $key=>$value){
-					echo $value['title'];
-					echo $value['url'];
-				}
-			}
 		?>
 		<div class="globalmenu-back-wrap"
-			 style="background-color: <?php echo $i_header_bgcolor; ?>; display: <?php echo $disp_switch; ?>;">
+			 style="background-color: <?php echo $i_gloalmenu_bgcolor; ?>;">
 			<div class="globalmenu-flex-setting">
 				<ul class="globalmenu-title-wrap">
 					<?php
 					if (isset($global_items_Array) && is_array($global_items_Array)) {
 						foreach ($global_items_Array as $key => $values ) {
-						echo "<li><a class='globalmenu-item-title' style='color:" . $i_header_textcolor_setting . ";' href='" . $values['url'] . "'>" . $values['title'] . "</li></a>";
+						echo "<li><a class='globalmenu-item-title' style='color:" . $i_gloalmenu_textcolor . ";' href='" . $values['url'] . "'>" . $values['title'] . "</li></a>";
 						}											  
 					}
 					?>
@@ -60,7 +57,7 @@
 		<?php 
 			genelate_color_picker_tag_demo(
           	'globalmenu-bg-color', 
-          	get_option('globalmenu-bg-color'),
+          	get_option('gloalmenu_bgcolor'),
           	'デフォルトは透明です。変更後再度透明にしたい場合は、クリアを押してください。'
         	);
 		?> 
@@ -69,8 +66,8 @@
 		<div class="color-box-child">
 		<?php 
 			genelate_color_picker_tag_demo(
-          	'globalmenu-bg-color', 
-          	get_option('globalmenu-bg-color'),
+          	'globalmenu-text-color', 
+          	get_option('gloalmenu_textcolor'),
           	'テキスト色変更。'
         	);
 		?> 

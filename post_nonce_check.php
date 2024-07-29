@@ -33,8 +33,12 @@ function update_custom_option() {
 		//update_option グローバルメニュー
 		$gloalmenu_title_array = sanitize_option_value($_POST['global_item_title']);
 		$gloalmenu_link_array = sanitize_option_value($_POST['global_item_link']);
+		$gloalmenu_bgcolor = sanitize_option_value($_POST['globalmenu-bg-color']);
+		$gloalmenu_textcolor = sanitize_option_value($_POST['globalmenu-text-color']);
 		update_option('global_title_array', $gloalmenu_title_array);
 		update_option('global_url_array', $gloalmenu_link_array);
+		update_option('gloalmenu_bgcolor', $gloalmenu_bgcolor);
+		update_option('gloalmenu_textcolor', $gloalmenu_textcolor);
 		
 		
         wp_redirect(add_query_arg('updated', 'true', wp_get_referer()));
