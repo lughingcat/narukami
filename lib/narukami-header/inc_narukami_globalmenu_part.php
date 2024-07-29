@@ -36,9 +36,12 @@
 		?>
 		<div class="globalmenu-content-all-wrap">
 			<div class="humberger-button-wrap">
-				<span></span>
-				<span></span>
-				<span></span>
+				<div class="span-wrap">
+					<span></span>
+					<span></span>
+					<span></span>
+					<p class="span-text">MENU<p>
+				</div>
 			</div>
 			<div class="globalmenu-back-wrap"
 				 style="background-color: <?php echo $i_gloalmenu_bgcolor; ?>;">

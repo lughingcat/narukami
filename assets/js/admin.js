@@ -40,7 +40,17 @@ function globalmenuDeleteElement(button) {
 	}
 }
 
-
+document.addEventListener('DOMContentLoaded', function() {
+  var globalmenuToggle = document.querySelector('.span-wrap');
+  if(globalmenuToggle){
+  		globalmenuToggle.addEventListener('click', function() {
+    		globalmenuToggle.classList.toggle('global-open');
+			document.querySelector('.humberger-button-wrap').classList.toggle('wrap-change');
+			document.querySelector('.globalmenu-back-wrap').classList.toggle('slide-change');
+			document.querySelector('.span-text').classList.toggle('opacity-change');
+  		});
+  }
+});
 
 
 
