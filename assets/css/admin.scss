@@ -116,7 +116,7 @@
 			border-radius: 50%;
 			width: 35px;
 			height: 35px;
-			top: 1%;
+			top: 2%;
 			left: 1%;
 		}
 		.span-wrap{
@@ -183,19 +183,13 @@
 			margin: 0;
 			.globalmenu-title-wrap{//ul
 				width: 100%;
-				display: flex;
-				flex-wrap: wrap;
-				position: absolute; 
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
 				text-align: center;
+				position: relative;
 				li{
-					width: 30%;
-					margin: 3%;
-					padding: 5%;
-					background-color: #ffffff;
-					border-radius: 3px;
+					width: 90%;
+					margin: 0 auto;
+					padding: 16px;
+					border-bottom: 2px solid #FFFFFF;
 					a{
 						text-decoration: none;
 					}
