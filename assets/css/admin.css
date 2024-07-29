@@ -125,13 +125,13 @@
       .globalmenu-content-all-wrap .humberger-button-wrap .span-wrap.global-open span {
         margin: 2px auto; }
         .globalmenu-content-all-wrap .humberger-button-wrap .span-wrap.global-open span:nth-child(1) {
-          transform: rotate(40deg) translate(2px, 11px);
+          transform: rotate(-40deg) translate(-8px, -3px);
           width: 50%; }
         .globalmenu-content-all-wrap .humberger-button-wrap .span-wrap.global-open span:nth-child(3) {
-          transform: rotate(-40deg) translate(2px, -11px);
+          transform: rotate(40deg) translate(-8px, 3px);
           width: 50%; }
   .globalmenu-content-all-wrap .globalmenu-back-wrap {
-    width: 40%;
+    width: 60%;
     height: 100%;
     position: absolute;
     z-index: 99;
@@ -142,6 +142,28 @@
     .globalmenu-content-all-wrap .globalmenu-back-wrap.slide-change {
       transform: translateX(0);
       opacity: 1; }
+    .globalmenu-content-all-wrap .globalmenu-back-wrap .globalmenu-flex-setting {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      margin: 0; }
+      .globalmenu-content-all-wrap .globalmenu-back-wrap .globalmenu-flex-setting .globalmenu-title-wrap {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center; }
+        .globalmenu-content-all-wrap .globalmenu-back-wrap .globalmenu-flex-setting .globalmenu-title-wrap li {
+          width: 30%;
+          margin: 3%;
+          padding: 5%;
+          background-color: #ffffff;
+          border-radius: 3px; }
+          .globalmenu-content-all-wrap .globalmenu-back-wrap .globalmenu-flex-setting .globalmenu-title-wrap li a {
+            text-decoration: none; }
   .globalmenu-content-all-wrap .store-web-site {
     background-color: yellow;
     width: 100%;
