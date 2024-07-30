@@ -8,7 +8,10 @@
 			$i_global_url_array = sanitize_option_value(get_option('global_url_array'));
 			$i_gloalmenu_bgcolor = sanitize_option_value(get_option('gloalmenu_bgcolor'));
 			$i_gloalmenu_textcolor = sanitize_option_value(get_option('gloalmenu_textcolor'));
-			
+			$i_humberger_btn_bg = sanitize_option_value(get_option('humberger_btn_bg'));
+			$i_humberger_arrowcolor = sanitize_option_value(get_option('humberger-arrowcolor'));
+			$i_global_textunderlinecolor = sanitize_option_value(get_option('global-textunderlinecolor'));
+			$i_global_text_menucolor = sanitize_option_value(get_option('global-text-menucolor'));
 			// 連想配列を作成
 			$global_items_Array = array();
 			
@@ -35,12 +38,12 @@
 			}
 		?>
 		<div class="globalmenu-content-all-wrap">
-			<div class="humberger-button-wrap">
+			<div class="humberger-button-wrap" style="background-color: <?php echo $i_humberger_btn_bg; ?>">
 				<div class="span-wrap">
-					<span></span>
-					<span></span>
-					<span></span>
-					<p class="span-text">MENU<p>
+					<span style="background-color: <?php echo $i_humberger_arrowcolor; ?>"></span>
+					<span style="background-color: <?php echo $i_humberger_arrowcolor; ?>"></span>
+					<span style="background-color: <?php echo $i_humberger_arrowcolor; ?>"></span>
+					<p class="span-text" style="color: <?php echo $i_global_text_menucolor; ?>">MENU</p>
 				</div>
 			</div>
 			<div class="globalmenu-back-wrap"
@@ -50,7 +53,15 @@
 						<?php
 					if (isset($global_items_Array) && is_array($global_items_Array)) {
 						foreach ($global_items_Array as $key => $values ) {
-						echo "<li><a class='globalmenu-item-title' style='color:" . $i_gloalmenu_textcolor . ";' href='" . $values['url'] . "'>" . $values['title'] . "</li></a>";
+						echo "<li style='border-bottom: 1px solid " . $i_global_textunderlinecolor . ";'>
+        				<a class='globalmenu-item-title' 
+           				style='color: " . $i_gloalmenu_textcolor . ";' 
+           				href='" . $values['url'] . "'>
+						" . $values['title'] . "
+						</a>
+      					</li>";
+
+
 						}											  
 					}
 					?>
@@ -65,14 +76,52 @@
 	</div>
 	<div class="inputForm">
 	<h4>グローバルメニュー背景色設定。</h4>
-		<div class="color-box-child">
-		<?php 
-			genelate_color_picker_tag_demo(
-          	'globalmenu-bg-color', 
-          	get_option('gloalmenu_bgcolor'),
-          	'デフォルトは透明です。変更後再度透明にしたい場合は、クリアを押してください。'
-        	);
-		?> 
+		<div class="color-box-all-wrap">
+			<div class="color-box-child">
+			<?php 
+				genelate_color_picker_tag_demo(
+          		'globalmenu-bg-color', 
+          		get_option('gloalmenu_bgcolor'),
+          		'グローバルメニュー背景色。'
+        		);
+			?> 
+			</div>
+			<div class="color-box-child">
+			<?php 
+				genelate_color_picker_tag_demo(
+          		'humberger-btn-bg', 
+          		get_option('humberger_btn_bg'),
+          		'ハンバーガーメニューボタン背景色。'
+        		);
+			?> 
+			</div>
+			<div class="color-box-child">
+			<?php 
+				genelate_color_picker_tag_demo(
+          		'humberger-arrowcolor', 
+          		get_option('humberger-arrowcolor'),
+          		'ハンバーガーメニュー矢印色。'
+        		);
+			?> 
+			</div>
+			<div class="color-box-child">
+			<?php 
+				genelate_color_picker_tag_demo(
+          		'global-textunderlinecolor', 
+          		get_option('global-textunderlinecolor'),
+          		'テキストアンダーライン色'
+        		);
+			?> 
+			</div>
+			<div class="color-box-child">
+			<?php 
+				genelate_color_picker_tag_demo(
+          		'global-text-menucolor', 
+          		get_option('global-text-menucolor'),
+          		'「MUNE」文字色'
+        		);
+			?> 
+			</div>
 		</div>
 	<h4>グローバルメニューの文字色を設定してください。</h4>
 		<div class="color-box-child">

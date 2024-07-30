@@ -84,7 +84,6 @@
   .globalmenu-content-all-wrap .humberger-button-wrap {
     width: 45px;
     height: 45px;
-    background-color: #0086AD;
     position: absolute;
     top: 5%;
     left: 2%;
@@ -149,15 +148,19 @@
       margin: 0; }
       .globalmenu-content-all-wrap .globalmenu-back-wrap .globalmenu-flex-setting .globalmenu-title-wrap {
         width: 100%;
+        height: 100%;
         text-align: center;
-        position: relative; }
+        position: relative;
+        overflow: scroll; }
         .globalmenu-content-all-wrap .globalmenu-back-wrap .globalmenu-flex-setting .globalmenu-title-wrap li {
           width: 90%;
           margin: 0 auto;
           padding: 16px;
-          border-bottom: 2px solid #FFFFFF; }
+          transition: 0.2s; }
           .globalmenu-content-all-wrap .globalmenu-back-wrap .globalmenu-flex-setting .globalmenu-title-wrap li a {
             text-decoration: none; }
+          .globalmenu-content-all-wrap .globalmenu-back-wrap .globalmenu-flex-setting .globalmenu-title-wrap li:hover {
+            font-size: 1.1em; }
   .globalmenu-content-all-wrap .store-web-site {
     background-color: yellow;
     width: 100%;
@@ -167,6 +170,12 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%); }
+
+.color-box-all-wrap {
+  width: 100%;
+  position: relative; }
+  .color-box-all-wrap .color-box-child {
+    width: 100%; }
 
 .global-form-wrap {
   background-color: #32495F;
