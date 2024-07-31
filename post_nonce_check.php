@@ -48,6 +48,11 @@ function update_custom_option() {
 		update_option('global-textunderlinecolor', $global_textunderlinecolor);
 		update_option('global-text-menucolor', $global_text_menucolor);
 		
+		//ヒーローヘッダー
+		$heorheader_type = sanitize_option_value($_POST['heorheader-type']);
+		update_option('heorheader_type', $heorheader_type);
+		
+		
 		
         wp_redirect(add_query_arg('updated', 'true', wp_get_referer()));
         exit;
