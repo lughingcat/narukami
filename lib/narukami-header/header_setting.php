@@ -23,14 +23,14 @@
 					  		<?php include('inc_narukami_header_part.php');?>
 						</div>
 						
-						<div id="narukami-globalmenu-setting" class="tabcontent">
+						<div id="narukami-globalmenu-setting" class="tabcontent" style="display: none;">
 					  		<h3>グローバルメニュープレビュー</h3>
 					  		<?php include('inc_narukami_globalmenu_part.php');?>
 						</div>
 						
 						<div id="narukami-heroheader-setting" class="tabcontent">
-					  		<h3>Tab 2</h3>
-					 		<p>Content for Tab 2.</p>
+					  		<h3>ヒーローヘッダープレビュー</h3>
+					 		<?php include('inc_narukami_heroheader_part.php');?>
 						</div>
 					
 						<div id="narukami-siteanimation-setting" class="tabcontent">
