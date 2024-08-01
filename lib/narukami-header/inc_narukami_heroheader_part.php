@@ -8,6 +8,7 @@
 			$i_heroheader_stillImg = sanitize_option_value(get_option('hero-H-stillImg'));
 			$i_heroheader_stillTitle = sanitize_option_value(get_option('hero-H-stillTitle'));
 			$i_hh_still_title_color = sanitize_option_value(get_option('heroheader-titleTextColor'));
+			$i_hh_still_shadow_color = sanitize_option_value(get_option('heroheader-titleShadowColor'));
 			if(isset($i_heorheader_type)){
 				if($i_heorheader_type === "still_img"){
 					$still_img_check = "checked";
@@ -15,6 +16,8 @@
 					$slider_check = "";
 					$i_heroheader_bg = $i_heroheader_stillImg;
 					$i_heroheader_title = $i_heroheader_stillTitle;
+					$i_heroheader_shadow = $i_hh_still_shadow_color;
+					include('heroheader_prevew_part/still_img_prevew_part.php');
 				}elseif($i_heorheader_type === "move"){
 					$still_img_check = "";
 					$move_check = "checked";
@@ -26,19 +29,6 @@
 				}
 			}
 		?>
-		<div class="heroheader-prevew-all-wrap">
-			<div class="heroheader-back-wrap">
-				<div class="heroheader-rogo-wrap"
-					 style="background-image: url('<?php echo $i_heroheader_bg; ?>');">
-					<div class="heroheader-title-wrap">
-						<p class="heroheader-title" 
-					   	   style="color: <?php echo $i_hh_still_title_color; ?>;">
-						<?php echo $i_heroheader_title; ?>
-						</p>
-				</div>
-				</div>
-			</div><!--heroheader-back-wrap-end-->
-		</div><!--heroheader-prevew-all-wrap-end-->
 		</article>
 	</div>
 	<div class="inputForm">

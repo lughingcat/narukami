@@ -53,10 +53,12 @@ function update_custom_option() {
 		$hh_still_img = sanitize_option_value($_POST['hh-still-img']);
 		$hh_still_title = sanitize_option_value($_POST['hh-still-title']);
 		$hh_titleTextColor = sanitize_option_value($_POST['hh-titleTextColor']);
+		$hh_titleShadowColor = sanitize_option_value($_POST['hh-titleShadowColor']);
 		update_option('heorheader_type', $heorheader_type);
 		update_option('hero-H-stillImg', $hh_still_img);
 		update_option('hero-H-stillTitle', $hh_still_title);
 		update_option('heroheader-titleTextColor', $hh_titleTextColor);
+		update_option('heroheader-titleShadowColor', $hh_titleShadowColor);
 		
 		
 		

@@ -229,6 +229,32 @@
     border: 2px solid #d16407;
     transition: 0.2s; }
 
+.heroheader-prevew-all-wrap {
+  position: relative;
+  width: 100%;
+  height: 300px; }
+  .heroheader-prevew-all-wrap .heroheader-back-wrap {
+    position: relative;
+    padding: 1%; }
+    .heroheader-prevew-all-wrap .heroheader-back-wrap .heroheader-rogo-wrap {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      background-size: cover;
+      background-position: center; }
+      .heroheader-prevew-all-wrap .heroheader-back-wrap .heroheader-rogo-wrap .heroheader-title-wrap {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 1% 3%;
+        text-align: center; }
+        .heroheader-prevew-all-wrap .heroheader-back-wrap .heroheader-rogo-wrap .heroheader-title-wrap .heroheader-title {
+          font-weight: bold;
+          font-size: 2em;
+          letter-spacing: 6px; }
+
 /*================================
 	top-page-makerホップアッププレビュースタイル
 =================================*/
