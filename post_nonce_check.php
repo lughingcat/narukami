@@ -49,17 +49,30 @@ function update_custom_option() {
 		update_option('global-text-menucolor', $global_text_menucolor);
 		
 		//ヒーローヘッダー
+		//設定
 		$heorheader_type = sanitize_option_value($_POST['heorheader-type']);
+		update_option('heorheader_type', $heorheader_type);
+		//静止画
 		$hh_still_img = sanitize_option_value($_POST['hh-still-img']);
 		$hh_still_title = sanitize_option_value($_POST['hh-still-title']);
 		$hh_titleTextColor = sanitize_option_value($_POST['hh-titleTextColor']);
 		$hh_titleShadowColor = sanitize_option_value($_POST['hh-titleShadowColor']);
-		update_option('heorheader_type', $heorheader_type);
 		update_option('hero-H-stillImg', $hh_still_img);
 		update_option('hero-H-stillTitle', $hh_still_title);
 		update_option('heroheader-titleTextColor', $hh_titleTextColor);
 		update_option('heroheader-titleShadowColor', $hh_titleShadowColor);
 		
+		//動画
+		$hh_move_img = sanitize_option_value($_POST['hh-move']);
+		$hh_move_title = sanitize_option_value($_POST['hh-move-title']);
+		$hh_move_backshadow = sanitize_option_value($_POST['hh-moveFrontWrap']);
+		$hh_moveTitleColor = sanitize_option_value($_POST['hh-moveTitleColor']);
+		$hh_moveTitleShadowColor = sanitize_option_value($_POST['hh-moveTitleShadowColor']);
+		update_option('hero-H-move', $hh_move_img);
+		update_option('hero-H-moveTitle', $hh_move_title);
+		update_option('hero-H-movebackshadow', $hh_move_backshadow);
+		update_option('heroheader-moveTitleTextColor', $hh_moveTitleColor);
+		update_option('heroheader-moveTitleShadowColor', $hh_moveTitleShadowColor);
 		
 		
         wp_redirect(add_query_arg('updated', 'true', wp_get_referer()));
