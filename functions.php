@@ -425,7 +425,22 @@ function delete_keep_update(){
 					));
 			}
 }
-
+//動画アップロード用のタグを出力する(single配列なし)
+function generate_upload_video_single_tag($name, $value){?>
+<div class="img-wrap-function">
+<p class="subf-prev-title">選択画像PREVEW</p>
+<div id="<?php echo $name; ?>_thumbnail" class="uploded-thumbnail">
+	<video width="320" height="200" controls autoplay loop muted>
+		<source src="<?php echo $value; ?>" type="video/mp4">
+	</video>
+  </div>
+  <input id="<?php echo $name; ?>" class="img-setect-url img-count-item" name="<?php echo $name; ?>" type="text" value="<?php echo $value; ?>" />
+  <input id="<?php echo $name; ?>_btn" type="button" class="img-select" name="<?php echo $name; ?>_slect" onclick="sngleUploaderVideoOpen(this)" value="選択" />
+  <input id="<?php echo $name; ?>_clear" type="button" class="img-select-clear" name="<?php echo $name; ?>_clear" onclick="sngleUploaderVideoDelete(this)"  value="クリア" />
+</div>
+<div id="script-container"></div>
+  <?php
+}
 
 //画像アップロード用のタグを出力する(single配列なし)
 function generate_upload_image_single_tag($name, $value){?>

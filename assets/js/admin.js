@@ -1034,22 +1034,24 @@ document.addEventListener('DOMContentLoaded', function() {
 /*==================================
 メディアアップローダーjs
 ==================================*/
+//single（配列なし）
 function sngleUploaderOpen(button){
 	var buttonId = button.id;
 	var nameId = buttonId.replace("_btn", "");
     singleUploaderfunc(jQuery, nameId);
 }
+//single Delete(配列なし)
 function sngleUploaderDelete(button){
 	var buttonIdDel = button.id;
 	var singleNameDel = buttonIdDel.replace(/_clear|\d/g, '');
 	singledeleteImgUploader(jQuery, singleNameDel)
 }
-//配列なし削除ボタン関数(single)
+//single配列なし削除ボタン呼び出し関数(single)
 function singledeleteImgUploader($, name){
         $(`input:text[name='${name}']`).val("");
         $(`#${name}_thumbnail`).empty();
 }
-//アップローダ配列なし  
+//アップローダsingle(配列なし)  
 function singleUploaderfunc($, name) {
     var custom_uploader = wp.media({
         title: "画像を選択してください",
@@ -1076,6 +1078,54 @@ function singleUploaderfunc($, name) {
 
     custom_uploader.open();
 }
+
+
+//single（動画用配列なし）
+function sngleUploaderVideoOpen(button){
+	var buttonId = button.id;
+	var nameId = buttonId.replace("_btn", "");
+    singleUploderVideo(jQuery, nameId);
+}
+//single Delete(配列なし)
+function sngleUploaderVideoDelete(button){
+	var buttonIdDel = button.id;
+	var singleNameDel = buttonIdDel.replace(/_clear|\d/g, '');
+	singledeleteVideoUploader(jQuery, singleNameDel)
+}
+//配列なし削除ボタン呼び出し関数(single)
+function singledeleteVideoUploader($, name){
+        $(`input:text[name='${name}']`).val("");
+        $(`#${name}_thumbnail`).empty();
+}
+//動画用アップローダ呼び出し関数
+function singleUploderVideo($, name){
+	var custom_uploader = wp.media({
+        title: "動画を選択してください",
+        library: {
+            type: "video"
+        },
+        button: {
+            text: "動画の選択"
+        },
+        multiple: false
+    });
+
+    custom_uploader.on("select", function () {
+        var videos = custom_uploader.state().get("selection");
+        videos.each(function (file) {
+            var inputName = $(`input:text[name='${name}']`);
+            var thumbnailContainer = $(`#${name}_thumbnail`);
+            if (inputName.length && thumbnailContainer.length) {
+                inputName.val(file.attributes.url); // ファイルのURLを挿入
+                thumbnailContainer.empty();
+                thumbnailContainer.append('<video width="320" height="200" controls><source src="' + file.attributes.url + '" type="video/mp4">Your browser does not support the video tag.</video>');
+            }
+        });
+    });
+
+    custom_uploader.open();	
+}
+
 //idをクリックしたボタンから抜き出し、アップローダ関数を実行(single)
 function uploaderOpenClick(button) {
     var buttonId = button.id;
