@@ -176,9 +176,26 @@ function add_cdns(){
 	wp_enqueue_script('draggable','https://cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.24.3/vuedraggable.umd.js');
 	wp_enqueue_script('bootstrapJs','https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js');
 	wp_enqueue_style('fontawesome','https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css');
+	wp_enqueue_style('slick-css', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
+    wp_enqueue_style('slick-theme-css', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css');
+	// Slick SliderのJavaScriptをエンキュー
+    wp_enqueue_script('slick-js', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array('jquery'), null, true);
+	// Slick Sliderの初期化スクリプトをエンキュー
+    wp_add_inline_script('slick-js', '
+        jQuery(document).ready(function($) {
+            $(".heroheader-slider-wrap").slick({
+                
+                autoplaySpeed: 3000,
+                dots: true,
+                infinite: true,
+                speed: 500,
+				arrows: true,
+                cssEase: "linear"
+            });
+        });
+    ');
 }
 add_action( 'admin_enqueue_scripts', 'add_cdns' );
-
 
 function add_admin_style(){
 	add_filter('script_loader_tag', 'add_defer', 10, 2);

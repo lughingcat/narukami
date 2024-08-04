@@ -45,6 +45,7 @@
 					$still_img_check = "";
 					$move_check = "";
 					$slider_check = "checked";
+					include('heroheader_prevew_part/slider_prevew_part.php');
 				}
 			}
 		?>

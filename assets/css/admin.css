@@ -305,6 +305,47 @@
         font-size: 2em;
         letter-spacing: 6px; }
 
+.heroheader-prevew-slider-all-wrap {
+  position: relative;
+  width: 100%;
+  height: 450px; }
+  .heroheader-prevew-slider-all-wrap .heroheader-slider-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 450px; }
+    .heroheader-prevew-slider-all-wrap .heroheader-slider-wrap .slick-prev.slick-arrow {
+      left: 15px;
+      z-index: 99; }
+    .heroheader-prevew-slider-all-wrap .heroheader-slider-wrap .slick-next.slick-arrow {
+      right: 15px; }
+    .heroheader-prevew-slider-all-wrap .heroheader-slider-wrap .slick-slide {
+      position: relative; }
+      .heroheader-prevew-slider-all-wrap .heroheader-slider-wrap .slick-slide img {
+        width: 100%;
+        height: 450px;
+        object-fit: cover;
+        display: block; }
+      .heroheader-prevew-slider-all-wrap .heroheader-slider-wrap .slick-slide p {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        font-size: 2em;
+        font-weight: bold;
+        text-align: center;
+        color: #FFFFFF;
+        text-shadow: 1px 1px 1px 10px #000; }
+      .heroheader-prevew-slider-all-wrap .heroheader-slider-wrap .slick-slide .back-shadow {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.5); }
+
 /*================================
 	top-page-makerホップアッププレビュースタイル
 =================================*/

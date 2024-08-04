@@ -371,7 +371,57 @@
 	}
 }
 //スライダー
-
+.heroheader-prevew-slider-all-wrap{//全体wrap
+	position: relative;
+	width: 100%;
+	height: 450px;
+	.heroheader-slider-wrap{//slider全体のwrap
+		position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 450px;
+		.slick-prev.slick-arrow{
+			left: 15px;
+			z-index: 99;
+		}
+		.slick-next.slick-arrow{
+			right: 15px;
+		}
+		.slick-slide{
+			position: relative;
+			img{
+				width: 100%;
+				height: 450px;
+    			object-fit: cover;
+    			display: block;
+			}
+			p{
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				width: 100%;
+				font-size: 2em;
+				font-weight: bold;
+				text-align: center;
+				//以下削除対象
+				color: #FFFFFF;
+				text-shadow: 1px 1px 1px 10px #000;
+			}
+			.back-shadow{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				background-color: rgba(0,0,0,0.50);
+				
+			}
+		}		
+	}
+	
+}
 /*================================
 	top-page-makerホップアッププレビュースタイル
 =================================*/
