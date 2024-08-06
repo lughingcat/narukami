@@ -29,7 +29,8 @@ if (is_array($slider_img_array)) {
 	<div id="slider-form-wrap_0">
 		<p>画像を選択してください。</p>
 		<?php
-		generate_upload_image_single_tag('slider-img-link[]', $sfvalue);
+		$data_num = 'index_0';
+		 echo generate_upload_image_single_array_tag('slider-img-link', $value, $data_num);
 		?>
 		<p>タイトルを入力してください。</p>
 		<input type="text" name="slider_item_title[]" class="img-setect-url" value="">

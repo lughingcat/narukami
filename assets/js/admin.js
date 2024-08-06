@@ -1078,6 +1078,13 @@ function singleUploaderfunc($, name) {
 
     custom_uploader.open();
 }
+//single（配列）
+function singleSelectArryImg(button){
+	var buttonId = button.id;
+	var nameId = buttonId.replace("_btn", "");
+	var dataIndex = button.getAttribute('data-index');
+}
+
 
 //single（動画用配列なし）
 function sngleUploaderVideoOpen(button){

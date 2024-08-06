@@ -169,7 +169,6 @@ add_action( 'wp_enqueue_scripts', 'narukami_all_theme_item_scripts' );
  * 管理画面のcss/jsの読み込み
  */
 function add_cdns(){
-	wp_enqueue_script('jquery');
 	wp_enqueue_script('vue','https://cdn.jsdelivr.net/npm/vue@2.7.11/dist/vue.js');
 	wp_enqueue_script('twinMax','https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js');
 	wp_enqueue_script('sprintf','https://cdnjs.cloudflare.com/ajax/libs/sprintf/1.1.2/sprintf.min.js');
@@ -478,17 +477,17 @@ function generate_upload_image_single_tag($name, $value){?>
 }
 
 //画像アップロード用のタグを出力する(single配列)
-function generate_upload_image_single_array_tag($name, $value){?>
+function generate_upload_image_single_array_tag($name, $value, $number){?>
 <div class="img-wrap-function">
 <p class="subf-prev-title">選択画像PREVEW</p>
-<div id="<?php echo $name; ?>_thumbnail" class="uploded-thumbnail">
+<div id="<?php echo $name; ?>_thumbnail" class="uploded-thumbnail" data-index="<?php echo $number; ?>">
     <?php if ($value): ?>
       <img src="<?php echo $value; ?>" alt="選択中の画像">
     <?php endif ?>
   </div>
-  <input id="<?php echo $name; ?>" class="img-setect-url img-count-item" name="<?php echo $name; ?>[]" type="text" value="<?php echo $value; ?>" />
-  <input id="<?php echo $name; ?>_btn" type="button" class="img-select" name="<?php echo $name; ?>_slect" onclick="sngleUploaderOpen(this)" value="選択" />
-  <input id="<?php echo $name; ?>_clear" type="button" class="img-select-clear" name="<?php echo $name; ?>_clear" onclick="sngleUploaderDelete(this)"  value="クリア" />
+  <input id="<?php echo $name; ?>" class="img-setect-url img-count-item" name="<?php echo $name; ?>[]" type="text" data-index="<?php echo $number; ?>" value="<?php echo $value; ?>" />
+  <input id="<?php echo $name; ?>_btn" type="button" class="img-select" name="<?php echo $name; ?>_slect" onclick="singleSelectArryImg(this)" data-index="<?php echo $number; ?>" value="選択" />
+  <input id="<?php echo $name; ?>_clear" type="button" class="img-select-clear" name="<?php echo $name; ?>_clear" onclick="sngleUploaderDelete(this)" data-index="<?php echo $number; ?>"  value="クリア" />
 </div>
 <div id="script-container"></div>
   <?php
