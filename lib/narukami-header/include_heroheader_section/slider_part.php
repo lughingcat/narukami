@@ -1,6 +1,16 @@
 <?php
- $slider_img_array = sanitize_option_value(get_option('slider_img_link_array'));
- $slider_title_array = sanitize_option_value(get_option('slider_item_title_array'));
+
+//配列として初期化
+$slider_img_array = get_option('slider_img_link_array', array(''));
+$slider_title_array = get_option('slider_item_title_array', array(''));
+
+//登録時処理
+$slider_img_array = !empty($slider_img_array) ? sanitize_option_value($slider_img_array) : array('');
+$slider_title_array = !empty($slider_title_array) ? sanitize_option_value($slider_title_array) : array('');
+
+var_dump($slider_img_array);
+var_dump($slider_title_array);
+
 //配列を作成
 $slider_formItem_array = array();
 
@@ -26,22 +36,24 @@ if (is_array($slider_img_array)) {
 	}
 ?>
 <h4>スライダーの画像を選択してタイトルを入力してください。</h4>
+<!--
 	<div id="slider-form-wrap_0">
 		<p>画像を選択してください。</p>
-		<?php
-		$data_num = 'index_0';
-		 echo generate_upload_image_single_array_tag('slider-img-link', $value, $data_num);
-		?>
+		//<?php
+		//$data_num = 'index_0';
+		// echo generate_upload_image_single_array_tag('slider-img-link', $value, $data_num);
+		//?>
 		<p>タイトルを入力してください。</p>
 		<input type="text" name="slider_item_title[]" class="img-setect-url" value="">
 	</div>
+-->
 	<?php
 	if (isset($slider_formItem_array) && is_array($slider_formItem_array)) {
 	$slider_lengh = 0;
 		foreach($slider_formItem_array as $key2=>$s_item){
 			echo '<div id="slider-form-wrap_'. $slider_lengh . '">';
 			echo '<p>画像を選択してください。</p>';	
-			echo generate_upload_image_tag('slider-img-link', $s_item['sf-url'], 'slider-value', 0);
+			echo generate_upload_image_single_array_tag('slider-img-link', $value, $data_num);
 			echo '<p>タイトルを入力してください。</p>';	
 			echo '<input type="text" name="slider_item_title[]" class="img-setect-url" value="' . $s_item['sf-title'] . '">';
 			echo '</div>';

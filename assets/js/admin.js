@@ -1078,13 +1078,52 @@ function singleUploaderfunc($, name) {
 
     custom_uploader.open();
 }
-//single（配列）
+//single画像追加ボタン（配列）
 function singleSelectArryImg(button){
 	var buttonId = button.id;
 	var nameId = buttonId.replace("_btn", "");
 	var dataIndex = button.getAttribute('data-index');
+	singleUploaderArrayfunc(jQuery, nameId, dataIndex);
 }
+//single Delete(配列)
+function sngleUploaderArrayDelete(button){
+	var buttonIdDel = button.id;
+	var singleNameDel = buttonIdDel.replace(/_clear|\d/g, '');
+	var dataIndex = button.getAttribute('data-index');
+	singledeleteImgArrayUploader(jQuery, singleNameDel, dataIndex);
+}
+//single配列削除ボタン呼び出し関数(single)
+function singledeleteImgArrayUploader($, name, dataIndex){
+        $(`input[name='${name}[]'][data-index='${dataIndex}']`).val("");
+        $(`#${name}_thumbnail[data-index='${dataIndex}']`).empty();
+}
+//アップローダsingle(配列)  
+function singleUploaderArrayfunc($, name, dataIndex) {
+    var custom_uploader = wp.media({
+        title: "画像を選択してください",
+        library: {
+            type: "image"
+        },
+        button: {
+            text: "画像の選択"
+        },
+        multiple: false
+    });
+    custom_uploader.on("select", function () {
+        var images = custom_uploader.state().get("selection");
+        images.each(function (file) {
+            var inputName = $(`input[name='${name}[]'][data-index='${dataIndex}']`);
+			var thumbnailContainer = $(`#${name}_thumbnail[data-index='${dataIndex}']`);
+            if (inputName.length && thumbnailContainer.length) {
+                inputName.val(file.attributes.url); // ファイルのURLを挿入
+                thumbnailContainer.empty();
+                thumbnailContainer.append('<img src="' + file.attributes.sizes.thumbnail.url + '" />');
+            }
+        });
+    });
 
+    custom_uploader.open();
+}
 
 //single（動画用配列なし）
 function sngleUploaderVideoOpen(button){

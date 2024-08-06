@@ -487,7 +487,7 @@ function generate_upload_image_single_array_tag($name, $value, $number){?>
   </div>
   <input id="<?php echo $name; ?>" class="img-setect-url img-count-item" name="<?php echo $name; ?>[]" type="text" data-index="<?php echo $number; ?>" value="<?php echo $value; ?>" />
   <input id="<?php echo $name; ?>_btn" type="button" class="img-select" name="<?php echo $name; ?>_slect" onclick="singleSelectArryImg(this)" data-index="<?php echo $number; ?>" value="選択" />
-  <input id="<?php echo $name; ?>_clear" type="button" class="img-select-clear" name="<?php echo $name; ?>_clear" onclick="sngleUploaderDelete(this)" data-index="<?php echo $number; ?>"  value="クリア" />
+  <input id="<?php echo $name; ?>_clear" type="button" class="img-select-clear" name="<?php echo $name; ?>_clear" onclick="sngleUploaderArrayDelete(this)" data-index="<?php echo $number; ?>"  value="クリア" />
 </div>
 <div id="script-container"></div>
   <?php
