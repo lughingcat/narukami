@@ -1,18 +1,9 @@
 <?php
-	$slider_img_link = array(
-		'https://nousondiner.com/wp-content/uploads/2024/07/beef.jpg',
-		'https://nousondiner.com/wp-content/uploads/2024/07/salmon.jpg',
-		'https://nousondiner.com/wp-content/uploads/2024/07/unadon.jpg'
-	);
-	$slider_item_title = array(
-		'Slide 1',
-		'Slide 2',
-		'Slide 3'
-	);
+	$slider_img_link = sanitize_option_value(get_option('slider_img_link_array'));
+	$slider_item_title = sanitize_option_value(get_option('slider_item_title_array'));
 	// 連想配列を作成
 	$slider_items_Array = array();
-			
-	// $i_global_title_arrayが配列であるかを確認
+
 	if (is_array($slider_img_link)) {
 		// 各変数が配列であるかを確認
 		if (is_array($slider_item_title)) {
@@ -34,19 +25,16 @@
 		//全体arrayに対するエラーハンドリング
 	}
 ?>
-aaa
 <div class="heroheader-prevew-slider-all-wrap">
+	<div class="heroheader-slider-wrap">
     <?php
     foreach($slider_items_Array as $key => $item){
-        echo '<div class="heroheader-slider-wrap">';
-        echo '<div>';
         echo '<div>';
         echo '<img src="' . $item['url'] . '" alt="Slide 1">';
         echo '<div class="back-shadow"></div>';
         echo '<p>' . $item['title'] . '</p>';
         echo '</div>';
-        echo '</div>';
-        echo '</div>'; // 閉じタグを追加
     }
     ?>
+	</div><!--heroheader-slider-wrap-end-->
 </div><!--heroheader-prevew-slider-all-wrap-end-->

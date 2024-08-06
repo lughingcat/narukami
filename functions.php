@@ -185,7 +185,7 @@ function add_cdns(){
     wp_add_inline_script('slick-js', '
         jQuery(document).ready(function($) {
             $(".heroheader-slider-wrap").slick({
-                
+               	autoplay: true,
                 autoplaySpeed: 3000,
                 dots: true,
                 infinite: true,
@@ -470,6 +470,23 @@ function generate_upload_image_single_tag($name, $value){?>
     <?php endif ?>
   </div>
   <input id="<?php echo $name; ?>" class="img-setect-url img-count-item" name="<?php echo $name; ?>" type="text" value="<?php echo $value; ?>" />
+  <input id="<?php echo $name; ?>_btn" type="button" class="img-select" name="<?php echo $name; ?>_slect" onclick="sngleUploaderOpen(this)" value="選択" />
+  <input id="<?php echo $name; ?>_clear" type="button" class="img-select-clear" name="<?php echo $name; ?>_clear" onclick="sngleUploaderDelete(this)"  value="クリア" />
+</div>
+<div id="script-container"></div>
+  <?php
+}
+
+//画像アップロード用のタグを出力する(single配列)
+function generate_upload_image_single_array_tag($name, $value){?>
+<div class="img-wrap-function">
+<p class="subf-prev-title">選択画像PREVEW</p>
+<div id="<?php echo $name; ?>_thumbnail" class="uploded-thumbnail">
+    <?php if ($value): ?>
+      <img src="<?php echo $value; ?>" alt="選択中の画像">
+    <?php endif ?>
+  </div>
+  <input id="<?php echo $name; ?>" class="img-setect-url img-count-item" name="<?php echo $name; ?>[]" type="text" value="<?php echo $value; ?>" />
   <input id="<?php echo $name; ?>_btn" type="button" class="img-select" name="<?php echo $name; ?>_slect" onclick="sngleUploaderOpen(this)" value="選択" />
   <input id="<?php echo $name; ?>_clear" type="button" class="img-select-clear" name="<?php echo $name; ?>_clear" onclick="sngleUploaderDelete(this)"  value="クリア" />
 </div>

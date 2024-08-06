@@ -74,6 +74,11 @@ function update_custom_option() {
 		update_option('heroheader-moveTitleTextColor', $hh_moveTitleColor);
 		update_option('heroheader-moveTitleShadowColor', $hh_moveTitleShadowColor);
 		
+		//スライダー
+		$hh_slider_img = sanitize_option_value($_POST['slider-img-link']);
+		$hh_slider_title = sanitize_option_value($_POST['slider_item_title']);
+		update_option('slider_img_link_array', $hh_slider_img);
+		update_option('slider_item_title_array', $hh_slider_title);
 		
         wp_redirect(add_query_arg('updated', 'true', wp_get_referer()));
         exit;

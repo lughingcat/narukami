@@ -1079,7 +1079,6 @@ function singleUploaderfunc($, name) {
     custom_uploader.open();
 }
 
-
 //single（動画用配列なし）
 function sngleUploaderVideoOpen(button){
 	var buttonId = button.id;
