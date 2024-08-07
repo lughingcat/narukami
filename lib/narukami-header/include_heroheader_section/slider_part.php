@@ -35,25 +35,16 @@ if (is_array($slider_img_array)) {
 		//全体arrayに対するエラーハンドリング
 	}
 ?>
+
 <h4>スライダーの画像を選択してタイトルを入力してください。</h4>
-<!--
-	<div id="slider-form-wrap_0">
-		<p>画像を選択してください。</p>
-		//<?php
-		//$data_num = 'index_0';
-		// echo generate_upload_image_single_array_tag('slider-img-link', $value, $data_num);
-		//?>
-		<p>タイトルを入力してください。</p>
-		<input type="text" name="slider_item_title[]" class="img-setect-url" value="">
-	</div>
--->
+<div class="slider-item-all-wrap">
 	<?php
 	if (isset($slider_formItem_array) && is_array($slider_formItem_array)) {
 	$slider_lengh = 0;
 		foreach($slider_formItem_array as $key2=>$s_item){
-			echo '<div id="slider-form-wrap_'. $slider_lengh . '">';
+			echo '<div id="slider-form-wrap_' . $slider_lengh . '" class="slider-form-wrap">';
 			echo '<p>画像を選択してください。</p>';	
-			echo generate_upload_image_single_array_tag('slider-img-link', $value, $data_num);
+			echo generate_upload_image_single_array_tag('slider-img-link', $value, $slider_lengh);
 			echo '<p>タイトルを入力してください。</p>';	
 			echo '<input type="text" name="slider_item_title[]" class="img-setect-url" value="' . $s_item['sf-title'] . '">';
 			echo '</div>';
@@ -61,3 +52,5 @@ if (is_array($slider_img_array)) {
 		}
 	}
 	?>
+</div>
+<button type="button" id="slider-add-button" class="slider-item-add-btn">アイテムを追加</button>

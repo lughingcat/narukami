@@ -1,10 +1,11 @@
 /*==================================
 ヘッダー設定js
 ==================================*/
+//グローバルメニュー追加処理
 document.addEventListener('DOMContentLoaded', function(){
-	var glandMenuAddBtn = document.getElementById('globalmenu-add-btn');
-	if(glandMenuAddBtn){
-		glandMenuAddBtn.addEventListener('click', function(){
+	var globalMenuAddBtn = document.getElementById('globalmenu-add-btn');
+	if(globalMenuAddBtn){
+		globalMenuAddBtn.addEventListener('click', function(){
 			var parentElementAll = document.querySelectorAll('.globalmenu-flex-wrap');
 			if (parentElementAll.length > 0) {
                 // 最後の要素を取得
@@ -22,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		});
 	}
 });
-
+//グローバルメニュー削除処理
 function globalmenuDeleteElement(button) {
     var parentElementAll = document.querySelectorAll('.globalmenu-flex-wrap');
     
@@ -39,7 +40,7 @@ function globalmenuDeleteElement(button) {
 		alert('最後の１つは削除出来ません。');
 	}
 }
-
+//グローバルメニュー動作制御
 document.addEventListener('DOMContentLoaded', function() {
   var globalmenuToggle = document.querySelector('.span-wrap');
   if(globalmenuToggle){
@@ -51,7 +52,36 @@ document.addEventListener('DOMContentLoaded', function() {
   		});
   }
 });
-
+//ヘッダースライダーアイテム追加処理
+document.addEventListener('DOMContentLoaded', function(){
+	var sliderAddBtn = document.getElementById('slider-add-button');
+	if(sliderAddBtn){
+		sliderAddBtn.addEventListener('click', function(){
+			var parentElementAll = document.querySelectorAll('.slider-form-wrap');
+			if (parentElementAll.length > 0) {
+                // 最後の要素を取得
+                var lastElement = parentElementAll[parentElementAll.length - 1];
+                // 複製
+                var clone = lastElement.cloneNode(true);
+                // 必要に応じてIDや名前の変更
+                clone.id = 'slider-form-wrap_' + parentElementAll.length;
+				//data-indexの値を更新
+				var dataIndexCloneValue = clone.querySelector('#slider-img-link_thumbnail').getAttribute(['data-index']);
+				dataIndexCloneValue++;
+				dataIndexElement = clone.querySelectorAll('[data-index]');
+				dataIndexElement.forEach(function(element){
+					element.setAttribute('data-index', dataIndexCloneValue);
+					console.log(element.getAttribute(['data-index']))
+				});
+                clone.querySelectorAll('input').forEach(function(input) {
+                    input.value = ''; // 複製後に入力値をリセット
+                });
+                // 親要素に追加
+                lastElement.parentNode.appendChild(clone);
+            }
+		});
+	}
+});
 
 
 /*==================================
