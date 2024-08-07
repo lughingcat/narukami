@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
   		});
   }
 });
+
 //ヘッダースライダーアイテム追加処理
 document.addEventListener('DOMContentLoaded', function(){
 	var sliderAddBtn = document.getElementById('slider-add-button');
@@ -71,11 +72,10 @@ document.addEventListener('DOMContentLoaded', function(){
 				dataIndexElement = clone.querySelectorAll('[data-index]');
 				dataIndexElement.forEach(function(element){
 					element.setAttribute('data-index', dataIndexCloneValue);
-					console.log(element.getAttribute(['data-index']))
 				});
-                clone.querySelectorAll('input').forEach(function(input) {
-                    input.value = ''; // 複製後に入力値をリセット
-                });
+				//inputの初期化
+                clone.querySelector('#slider-img-link').value = '';
+                clone.querySelector('input[name="slider_item_title[]"]').value = '';
                 // 親要素に追加
                 lastElement.parentNode.appendChild(clone);
             }
