@@ -8,8 +8,13 @@ $slider_title_array = get_option('slider_item_title_array', array(''));
 $slider_img_array = !empty($slider_img_array) ? sanitize_option_value($slider_img_array) : array('');
 $slider_title_array = !empty($slider_title_array) ? sanitize_option_value($slider_title_array) : array('');
 
-var_dump($slider_img_array);
-var_dump($slider_title_array);
+//shadow変数セット
+$slider_shadow_value = sanitize_option_value(get_option('slider_item_shadow'));
+	if($slider_shadow_value === "shadow-on"){
+		$shadow_value_check = "checked";
+	}else{
+		$shadow_value_check = "";
+	}
 
 //配列を作成
 $slider_formItem_array = array();
@@ -36,6 +41,11 @@ if (is_array($slider_img_array)) {
 	}
 ?>
 
+<h4>スライダーの画像を暗くする</h4>
+<label><input id="slider-shadow-swich" type="checkbox" name="shadowValue" value="shadow-on" <?php echo $shadow_value_check; ?>>暗くする</label>
+<div class="slider-shadow-range notshow">
+	<input id="precision-slider" type="range" name="slider-shadow-range-value" min="0" max="1" value="0.5" step="0.01">
+</div>
 <h4>スライダーの画像を選択してタイトルを入力してください。</h4>
 <div class="slider-item-all-wrap">
 	<?php
@@ -44,9 +54,10 @@ if (is_array($slider_img_array)) {
 		foreach($slider_formItem_array as $key2=>$s_item){
 			echo '<div id="slider-form-wrap_' . $slider_lengh . '" class="slider-form-wrap">';
 			echo '<p>画像を選択してください。</p>';	
-			echo generate_upload_image_single_array_tag('slider-img-link', $value, $slider_lengh);
+			echo generate_upload_image_single_array_tag('slider-img-link', $s_item['sf-url'], $slider_lengh);
 			echo '<p>タイトルを入力してください。</p>';	
 			echo '<input type="text" name="slider_item_title[]" class="img-setect-url" value="' . $s_item['sf-title'] . '">';
+			echo '<button class="slider-del-btn" type="button" onclick="sliderItemDelBtn(this)">このアイテムを削除する</button>';
 			echo '</div>';
 			$slider_lengh++;
 		}

@@ -77,8 +77,10 @@ function update_custom_option() {
 		//スライダー
 		$hh_slider_img = sanitize_option_value($_POST['slider-img-link']);
 		$hh_slider_title = sanitize_option_value($_POST['slider_item_title']);
+		$hh_slider_shadow = sanitize_option_value($_POST['shadowValue']);
 		update_option('slider_img_link_array', $hh_slider_img);
 		update_option('slider_item_title_array', $hh_slider_title);
+		update_option('slider_item_shadow', $hh_slider_shadow);
 		
         wp_redirect(add_query_arg('updated', 'true', wp_get_referer()));
         exit;

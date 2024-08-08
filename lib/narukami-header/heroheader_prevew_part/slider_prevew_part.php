@@ -1,6 +1,13 @@
 <?php
 	$slider_img_link = sanitize_option_value(get_option('slider_img_link_array'));
 	$slider_item_title = sanitize_option_value(get_option('slider_item_title_array'));
+	$slider_item_shadow = sanitize_option_value(get_option('slider_item_shadow'));
+	if($slider_item_shadow === "shadow-on"){
+		$shadow_value = "background-color: rgba(0,0,0,0.50);";
+	}else{
+		$shadow_value = "";
+	}
+
 	// 連想配列を作成
 	$slider_items_Array = array();
 
@@ -31,7 +38,7 @@
     foreach($slider_items_Array as $key => $item){
         echo '<div>';
         echo '<img src="' . $item['url'] . '" alt="Slide 1">';
-        echo '<div class="back-shadow"></div>';
+        echo '<div class="back-shadow" style="' . $shadow_value . '"></div>';
         echo '<p>' . $item['title'] . '</p>';
         echo '</div>';
     }

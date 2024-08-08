@@ -76,14 +76,54 @@ document.addEventListener('DOMContentLoaded', function(){
 				//inputの初期化
                 clone.querySelector('#slider-img-link').value = '';
                 clone.querySelector('input[name="slider_item_title[]"]').value = '';
+                clone.querySelector('#slider-img-link_thumbnail img').remove();
+				console.log(clone.querySelector('#slider-img-link_thumbnail'));
                 // 親要素に追加
                 lastElement.parentNode.appendChild(clone);
             }
 		});
 	}
 });
+//スライダーアイテム削除処理
+function sliderItemDelBtn(button){
+	 var parentElementAll = document.querySelectorAll('.slider-form-wrap');
+    
+    if (parentElementAll.length > 1) { // 要素が1つ以上ある場合のみ削除可能
+        var parentEl = button.parentElement;
+        parentEl.remove();
 
-
+        parentElementAll = document.querySelectorAll('.slider-form-wrap'); // 更新
+        parentElementAll.forEach(function(parent, index) {
+            parent.id = 'slider-form-wrap_' + index;
+			var parentNumber = parent.id.split('_')[1];
+			var childDataIndex = parent.querySelectorAll('[data-index]');
+			//data-indexの値を更新
+			childDataIndex.forEach(function(childData){
+				childData.setAttribute('data-index', parentNumber);
+			})
+        });
+    }else{
+		alert('最後の１つは削除出来ません。');
+	}
+}
+//スライダーシャドウスイッチ制御
+ document.addEventListener('DOMContentLoaded', function() {
+var sliderShadowSwich = document.getElementById('slider-shadow-swich');
+if(sliderShadowSwich){
+	var sliderRangeVolume = document.querySelector('.slider-shadow-range');
+	//初期化
+	if (sliderShadowSwich.checked) {
+        sliderRangeVolume.classList.remove('notshow');
+    }
+	sliderShadowSwich.addEventListener('change', function() {
+    	if (sliderShadowSwich.checked) {
+    	    sliderRangeVolume.classList.remove('notshow');
+    	} else {
+    	    sliderRangeVolume.classList.add('notshow');
+    	}
+    });
+}
+ });
 /*==================================
 トップページビルダーjs
 ==================================*/
