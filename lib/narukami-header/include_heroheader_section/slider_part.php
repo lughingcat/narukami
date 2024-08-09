@@ -45,8 +45,9 @@ if (is_array($slider_img_array)) {
 <label><input id="slider-shadow-swich" type="checkbox" name="shadowValue" value="shadow-on" <?php echo $shadow_value_check; ?>>暗くする</label>
 <div class="slider-shadow-range notshow">
 	<div class="shadow-range-prevew-wrap">
-		<div class="shadow-range-bg"><p>SHASOW RANGE</p></div>
+		<div class="shadow-range-bg"></div>
 		<div class="shadow-range-wrap" style="background-color: rgba(0, 0, 0, <?php echo $slider_item_shadow_volume; ?>);"></div>
+		<p>Darkness of Shadow</p>
 	</div>
 	<input id="precision-slider" type="range" name="slider-shadow-range-value" min="0" max="1" value="<?php echo $slider_item_shadow_volume; ?>" step="0.01">
 	<span id="shaow-rgba-balue"><?php echo $slider_item_shadow_volume; ?></span>

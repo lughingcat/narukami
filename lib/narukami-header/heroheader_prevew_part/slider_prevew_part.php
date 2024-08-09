@@ -8,7 +8,6 @@
 	}else{
 		$shadow_value = "";
 	}
-	echo $shadow_value;
 	// 連想配列を作成
 	$slider_items_Array = array();
 
