@@ -108,10 +108,17 @@ function sliderItemDelBtn(button){
 }
 //スライダーシャドウスイッチ制御
  document.addEventListener('DOMContentLoaded', function() {
-var sliderShadowSwich = document.getElementById('slider-shadow-swich');
+	 var sliderShadowSwich = document.getElementById('slider-shadow-swich');
+	 var shadowVolume = document.getElementById('precision-slider');
 if(sliderShadowSwich){
+	//shadow数値表示
+	shadowVolume.addEventListener('input', function() {
+    	var shadowValue = parseFloat(shadowVolume.value).toFixed(2);
+    	document.getElementById('shaow-rgba-balue').textContent = shadowValue;
+		document.querySelector('.shadow-range-wrap').style.backgroundColor = 'rgba(0, 0, 0, ' + shadowValue + ')';
+    });
 	var sliderRangeVolume = document.querySelector('.slider-shadow-range');
-	//初期化
+	//初期化switch,volume
 	if (sliderShadowSwich.checked) {
         sliderRangeVolume.classList.remove('notshow');
     }
@@ -123,7 +130,7 @@ if(sliderShadowSwich){
     	}
     });
 }
- });
+});
 /*==================================
 トップページビルダーjs
 ==================================*/

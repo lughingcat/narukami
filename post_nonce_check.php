@@ -78,9 +78,11 @@ function update_custom_option() {
 		$hh_slider_img = sanitize_option_value($_POST['slider-img-link']);
 		$hh_slider_title = sanitize_option_value($_POST['slider_item_title']);
 		$hh_slider_shadow = sanitize_option_value($_POST['shadowValue']);
+		$hh_slider_shadow_volume = sanitize_option_value($_POST['slider-shadow-range-value']);
 		update_option('slider_img_link_array', $hh_slider_img);
 		update_option('slider_item_title_array', $hh_slider_title);
 		update_option('slider_item_shadow', $hh_slider_shadow);
+		update_option('slider_item_shadow_volume', $hh_slider_shadow_volume);
 		
         wp_redirect(add_query_arg('updated', 'true', wp_get_referer()));
         exit;

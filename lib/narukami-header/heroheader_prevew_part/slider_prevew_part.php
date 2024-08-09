@@ -2,12 +2,13 @@
 	$slider_img_link = sanitize_option_value(get_option('slider_img_link_array'));
 	$slider_item_title = sanitize_option_value(get_option('slider_item_title_array'));
 	$slider_item_shadow = sanitize_option_value(get_option('slider_item_shadow'));
+	$slider_item_shadow_volume = sanitize_option_value(get_option('slider_item_shadow_volume'));
 	if($slider_item_shadow === "shadow-on"){
-		$shadow_value = "background-color: rgba(0,0,0,0.50);";
+		$shadow_value = "background-color: rgba(0, 0, 0, {$slider_item_shadow_volume});";
 	}else{
 		$shadow_value = "";
 	}
-
+	echo $shadow_value;
 	// 連想配列を作成
 	$slider_items_Array = array();
 

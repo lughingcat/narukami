@@ -345,6 +345,37 @@
         top: 0;
         left: 0; }
 
+.slider-shadow-range {
+  margin: 20px 0; }
+  .slider-shadow-range .shadow-range-prevew-wrap {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    margin-bottom: 10px; }
+    .slider-shadow-range .shadow-range-prevew-wrap .shadow-range-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      background-color: yellow; }
+      .slider-shadow-range .shadow-range-prevew-wrap .shadow-range-bg p {
+        width: 100%;
+        position: absolute;
+        top: 40%;
+        left: 60%;
+        transform: translate(-50%, -50%);
+        color: #ffffff;
+        font-weight: bold; }
+    .slider-shadow-range .shadow-range-prevew-wrap .shadow-range-wrap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 0;
+      width: 100%;
+      height: 100%; }
+
 /*================================
 	top-page-makerホップアッププレビュースタイル
 =================================*/

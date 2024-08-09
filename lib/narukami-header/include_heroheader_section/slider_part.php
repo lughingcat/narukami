@@ -44,7 +44,12 @@ if (is_array($slider_img_array)) {
 <h4>スライダーの画像を暗くする</h4>
 <label><input id="slider-shadow-swich" type="checkbox" name="shadowValue" value="shadow-on" <?php echo $shadow_value_check; ?>>暗くする</label>
 <div class="slider-shadow-range notshow">
-	<input id="precision-slider" type="range" name="slider-shadow-range-value" min="0" max="1" value="0.5" step="0.01">
+	<div class="shadow-range-prevew-wrap">
+		<div class="shadow-range-bg"><p>SHASOW RANGE</p></div>
+		<div class="shadow-range-wrap" style="background-color: rgba(0, 0, 0, <?php echo $slider_item_shadow_volume; ?>);"></div>
+	</div>
+	<input id="precision-slider" type="range" name="slider-shadow-range-value" min="0" max="1" value="<?php echo $slider_item_shadow_volume; ?>" step="0.01">
+	<span id="shaow-rgba-balue"><?php echo $slider_item_shadow_volume; ?></span>
 </div>
 <h4>スライダーの画像を選択してタイトルを入力してください。</h4>
 <div class="slider-item-all-wrap">
