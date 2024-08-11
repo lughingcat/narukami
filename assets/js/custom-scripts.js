@@ -41,28 +41,7 @@ function loadContent(selectElement) {
 }
 
 
-//ヒーローヘッダーの選択値による読み込みファイルの分岐
-jQuery(document).ready(function($) {
-    $('input[name="heorheader-type"]').on('change', function() {
-        if ($('.partfile-includecontaider').length > 0) {
-            var selectedValue = $(this).val();
 
-            $.ajax({
-                url: ajax_object.ajax_url,
-                type: 'POST',
-                data: {
-                    action: 'heroheader_type_change',
-                    header_type: selectedValue
-                },
-                success: function(response) {
-                    $('.partfile-includecontaider').html(response);
-                }
-            });
-        } else {
-            console.error('[partfile-includecontaider]コンテナが存在しません・');
-        }
-    });
-});
 
 
 

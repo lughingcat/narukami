@@ -107,30 +107,93 @@ function sliderItemDelBtn(button){
 	}
 }
 //スライダーシャドウスイッチ制御
- document.addEventListener('DOMContentLoaded', function() {
-	 var sliderShadowSwich = document.getElementById('slider-shadow-swich');
-	 var shadowVolume = document.getElementById('precision-slider');
-if(sliderShadowSwich){
-	//shadow数値表示
-	shadowVolume.addEventListener('input', function() {
-    	var shadowValue = parseFloat(shadowVolume.value).toFixed(2);
-    	document.getElementById('shaow-rgba-balue').textContent = shadowValue;
-		document.querySelector('.shadow-range-wrap').style.backgroundColor = 'rgba(0, 0, 0, ' + shadowValue + ')';
-    });
-	var sliderRangeVolume = document.querySelector('.slider-shadow-range');
-	//初期化switch,volume
-	if (sliderShadowSwich.checked) {
-        sliderRangeVolume.classList.remove('notshow');
+ function initializeSliderShadow() {
+    var sliderShadowSwich = document.getElementById('slider-shadow-swich');
+    var shadowVolume = document.getElementById('precision-slider');
+
+    if(sliderShadowSwich){
+        // shadow数値表示
+        shadowVolume.addEventListener('input', function() {
+            var shadowValue = parseFloat(shadowVolume.value).toFixed(2);
+            document.getElementById('shaow-rgba-balue').textContent = shadowValue;
+            document.querySelector('.shadow-range-wrap').style.backgroundColor = 'rgba(0, 0, 0, ' + shadowValue + ')';
+        });
+
+        var sliderRangeVolume = document.querySelector('.slider-shadow-range');
+
+        // 初期化 switch, volume
+        if (sliderShadowSwich.checked) {
+            sliderRangeVolume.classList.remove('notshow');
+        }
+
+        sliderShadowSwich.addEventListener('change', function() {
+            if (sliderShadowSwich.checked) {
+                sliderRangeVolume.classList.remove('notshow');
+            } else {
+                sliderRangeVolume.classList.add('notshow');
+            }
+        });
     }
-	sliderShadowSwich.addEventListener('change', function() {
-    	if (sliderShadowSwich.checked) {
-    	    sliderRangeVolume.classList.remove('notshow');
-    	} else {
-    	    sliderRangeVolume.classList.add('notshow');
-    	}
-    });
 }
+//ヒーローヘッダータイプ変更スイッチ制御
+document.addEventListener('DOMContentLoaded', function() {
+    var heroheaderAllInput = document.querySelectorAll('.heroheader-value');
+
+    // もしラジオボタンが存在しない場合は処理をスキップする
+    if (heroheaderAllInput.length === 0) {
+        return;
+    }
+
+    function toggleHeroHeaderParts() {
+        // 各パートの要素を取得
+        const stillImgPart = document.querySelector('.still-imgpart-wrap');
+        const movePart = document.querySelector('.movepart-wrap');
+        const sliderPart = document.querySelector('.sliderpart-wrap');
+        // プレビュー側の要素を取得
+        const stillImgPrevew = document.querySelector('.still-img-prevewpart-wrap');
+        const movePrevew = document.querySelector('.move-prevewpart-wrap');
+        const sliderPrevew = document.querySelector('.slider-prevewpart-wrap');
+
+        // 要素が存在しない場合は処理をスキップ
+        if (!stillImgPart || !movePart || !sliderPart || !stillImgPrevew || !movePrevew || !sliderPrevew) {
+            return;
+        }
+
+        // すべて非表示にする
+        stillImgPart.style.display = 'none';
+        movePart.style.display = 'none';
+        sliderPart.style.display = 'none';
+        stillImgPrevew.style.display = 'none';
+        movePrevew.style.display = 'none';
+        sliderPrevew.style.display = 'none';
+
+        // 選択されているラジオボタンに基づいて表示を切り替え
+        const selectedRadio = document.querySelector('input[name="heorheader-type"]:checked');
+        if (selectedRadio) {
+            if (selectedRadio.value === 'still_img') {
+                stillImgPart.style.display = 'block';
+                stillImgPrevew.style.display = 'block';
+            } else if (selectedRadio.value === 'move') {
+                movePart.style.display = 'block';
+                movePrevew.style.display = 'block';
+            } else if (selectedRadio.value === 'slider') {
+                sliderPart.style.display = 'block';
+                sliderPrevew.style.display = 'block';
+				initializeSliderShadow();
+            }
+        }
+    }
+
+    // ページロード時に表示を切り替える
+    toggleHeroHeaderParts();
+
+    // ラジオボタンの変更時に表示を切り替える
+    heroheaderAllInput.forEach(function(radio) {
+        radio.addEventListener('change', toggleHeroHeaderParts);
+    });
 });
+
+
 /*==================================
 トップページビルダーjs
 ==================================*/

@@ -286,31 +286,6 @@ function getContentBasedOnValue($value) {
     return ob_get_clean();
 }
 
-//ヒーローヘッダーのajax処理
-
-function heroheader_type_change() {
-    if (isset($_POST['header_type'])) {
-        $header_type = sanitize_text_field($_POST['header_type']);
-		update_option('heorheader_type', $header_type);
-        switch ($header_type) {
-            case 'still_img':
-                include get_template_directory() . '/lib/narukami-header/include_heroheader_section/still_img_part.php';
-                break;
-            case 'move':
-                include get_template_directory() . '/lib/narukami-header/include_heroheader_section/move_part.php';
-                break;
-            case 'slider':
-                include get_template_directory() . '/lib/narukami-header/include_heroheader_section/slider_part.php';
-                break;
-            default:
-                break;
-        }
-    }
-    wp_die();
-}
-add_action('wp_ajax_heroheader_type_change', 'heroheader_type_change');
-add_action('wp_ajax_nopriv_heroheader_type_change', 'heroheader_type_change');
-
 
 //セレクトボックス移動によるajaxの処理（nonce）
 
@@ -399,6 +374,8 @@ function genelate_color_picker_tag_demo($name, $value, $label) { ?>
             palettes: true,
         };
         $("input:text[name=\'' . $name . '\']").wpColorPicker(options);
+		var namesam = "'.$name.'";
+		console.log(namesam)
     })( jQuery );';
     wp_add_inline_script('wp-color-picker', $data, 'after');
 }

@@ -3,6 +3,8 @@
 //配列として初期化
 $slider_img_array = get_option('slider_img_link_array', array(''));
 $slider_title_array = get_option('slider_item_title_array', array(''));
+//shadowVolumeの数値初期化
+$slider_shadow_val = get_option('slider_item_shadow_volume', '0.50');
 
 //登録時処理
 $slider_img_array = !empty($slider_img_array) ? sanitize_option_value($slider_img_array) : array('');
@@ -15,6 +17,8 @@ $slider_shadow_value = sanitize_option_value(get_option('slider_item_shadow'));
 	}else{
 		$shadow_value_check = "";
 	}
+//shadow数値セット
+$slider_item_shadow_volume = !empty($slider_shadow_val) ? sanitize_option_value(get_option('slider_item_shadow_volume')) : '0.50';
 
 //配列を作成
 $slider_formItem_array = array();
@@ -41,7 +45,7 @@ if (is_array($slider_img_array)) {
 	}
 ?>
 
-<h4>スライダーの画像を暗くする</h4>
+<h4>ヒーローヘッダースライダーの画像を暗くする</h4>
 <label><input id="slider-shadow-swich" type="checkbox" name="shadowValue" value="shadow-on" <?php echo $shadow_value_check; ?>>暗くする</label>
 <div class="slider-shadow-range notshow">
 	<div class="shadow-range-prevew-wrap">
@@ -52,16 +56,16 @@ if (is_array($slider_img_array)) {
 	<input id="precision-slider" type="range" name="slider-shadow-range-value" min="0" max="1" value="<?php echo $slider_item_shadow_volume; ?>" step="0.01">
 	<span id="shaow-rgba-balue"><?php echo $slider_item_shadow_volume; ?></span>
 </div>
-<h4>スライダーの画像を選択してタイトルを入力してください。</h4>
+<h4>ヒーローヘッダースライダーの画像を選択してタイトルを入力してください。</h4>
 <div class="slider-item-all-wrap">
 	<?php
 	if (isset($slider_formItem_array) && is_array($slider_formItem_array)) {
 	$slider_lengh = 0;
 		foreach($slider_formItem_array as $key2=>$s_item){
 			echo '<div id="slider-form-wrap_' . $slider_lengh . '" class="slider-form-wrap">';
-			echo '<p>画像を選択してください。</p>';	
+			echo '<p>スライダー画像を選択してください。</p>';	
 			echo generate_upload_image_single_array_tag('slider-img-link', $s_item['sf-url'], $slider_lengh);
-			echo '<p>タイトルを入力してください。</p>';	
+			echo '<p>スライダータイトルを入力してください。</p>';	
 			echo '<input type="text" name="slider_item_title[]" class="img-setect-url" value="' . $s_item['sf-title'] . '">';
 			echo '<button class="slider-del-btn" type="button" onclick="sliderItemDelBtn(this)">このアイテムを削除する</button>';
 			echo '</div>';
