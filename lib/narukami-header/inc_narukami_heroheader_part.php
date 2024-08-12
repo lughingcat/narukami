@@ -21,6 +21,27 @@
 				}
 			}
 		?>
+		<h4>ヒーローヘッダーのタイプを選択してください</h4>
+		<div class="heroheader-select-all-wrap">
+			<div class="heroheader-item-wrap">
+				<div class="heroheader-img-wrap">
+					<p><i class="fa-regular fa-image"></i></p>
+				</div>
+				<label><input type="radio" name="heorheader-type" class="heroheader-value" value="still_img" <?php echo $still_img_check; ?>>静止画</label>
+			</div><!--heroheader-item-wrap-end-->
+			<div class="heroheader-item-wrap">
+				<div class="heroheader-img-wrap">
+					<p><i class="fa-brands fa-youtube"></i></p>
+				</div>
+				<label><input type="radio" name="heorheader-type" class="heroheader-value" value="move" <?php echo $move_check; ?>>動画</label>
+			</div><!--heroheader-item-wrap-end-->
+			<div class="heroheader-item-wrap">
+				<div class="heroheader-img-wrap">
+					<p><i class="fa-solid fa-sliders"></i></p>
+				</div>
+				<label><input type="radio" name="heorheader-type" class="heroheader-value" value="slider" <?php echo $slider_check; ?>>スライダー</label>
+			</div><!--heroheader-item-wrap-end-->
+		</div><!--heroheader-select-all-wrap-end-->
 			<div class="still-img-prevewpart-wrap">
 				<?php
 				include('heroheader_prevew_part/still_img_prevew_part.php');
@@ -39,27 +60,6 @@
 		</article>
 	</div>
 	<div class="inputForm">
-		<h4>ヒーローヘッダーのタイプを選択してください</h4>
-		<div class="heroheader-select-all-wrap">
-			<div class="heroheader-item-wrap">
-				<div class="heroheader-img-wrap">
-					<p>静止画</p>
-				</div>
-				<label><input type="radio" name="heorheader-type" class="heroheader-value" value="still_img" <?php echo $still_img_check; ?>>静止画</label>
-			</div><!--heroheader-item-wrap-end-->
-			<div class="heroheader-item-wrap">
-				<div class="heroheader-img-wrap">
-					<p>動画</p>
-				</div>
-				<label><input type="radio" name="heorheader-type" class="heroheader-value" value="move" <?php echo $move_check; ?>>動画</label>
-			</div><!--heroheader-item-wrap-end-->
-			<div class="heroheader-item-wrap">
-				<div class="heroheader-img-wrap">
-					<p>スライダー</p>
-				</div>
-				<label><input type="radio" name="heorheader-type" class="heroheader-value" value="slider" <?php echo $slider_check; ?>>スライダー</label>
-			</div><!--heroheader-item-wrap-end-->
-		</div><!--heroheader-select-all-wrap-end-->
 		
 		<div class="partfile-includecontaider">
 			<div class="still-imgpart-wrap">

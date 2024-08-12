@@ -320,11 +320,13 @@
 	position: relative;
 	width: 100%;
 	height: 300px;
+	margin: 0 auto;
 	.heroheader-video-back-wrap{//動画とタイトルwrap
 		width: 100%;
 		height: 300px;
 		position: relative;
 		padding: 1%;
+		box-sizing: border-box;
 		.heroheader-video-wrap{//動画のwrap
 			position: absolute;
             top: 0;
@@ -456,6 +458,97 @@
 			text-align: center;
 		}
 	}
+}
+
+.slider-item-all-wrap{//スライダーCRUD
+	margin-bottom: 30px;
+	.slider-form-wrap{
+		margin: 20px 0;
+		.slider-del-btn{
+			display: block;
+			width: 350px;
+    		height: 35px;
+    		background-color: #9D3B3B;
+    		border-radius: 2px;
+    		border: 0;
+    		margin: 20px 0 50px;
+    		color: #FFFFFF;
+    		font-size: 1em;
+			&:hover{
+				border: 2px solid #ad002d;
+				background-color: #FFFFFF;
+				color: #ad002d;
+				transition: 0.2s;
+			}
+		}
+	}
+}
+.slider-item-add-btn{
+	position: relative;
+    display: inline-block;
+    width: 15%;
+    height: 50px;
+    background-color: #d16407;
+    color: #FFFFFF;
+    text-align: center;
+    border: 0;
+    border-radius: 3px;
+	&:hover{
+		background-color: #ffffff;
+		color: #d16407;
+		font-weight: bold;
+		border: 2px solid #d16407;
+		transition: 0.2s;
+	}
+}
+//ヒーローヘッダーシステム
+.heroheader-select-all-wrap{//選択全体wrap
+	width: 100%;
+	position: relative;
+	margin: 30px auto 10px;
+	padding: 10px 0;
+	display: flex;
+	justify-content: center;
+	border: 3px solid #0086ad;
+	border-radius: 5px;
+	.heroheader-item-wrap{//item wrap
+		width: 30%;
+		margin: 10px;
+		padding: 5px;
+		.heroheader-img-wrap{//背景画像
+			width: 150px;
+    		height: 90px;
+    		background-color: #0086ad;
+    		border-radius: 5px;
+			position: relative;
+			margin: 15px auto;
+			p{
+				width: 100%;
+				color: #FFFFFF;
+    			font-weight: bold;
+    			position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-90%);
+				text-align: center;
+				.fa-regular.fa-image{//静止画アイコン
+					font-size: 2em;
+				}
+				.fa-brands.fa-youtube{//動画アイコン
+					font-size: 2em;
+				}
+				.fa-solid.fa-sliders{//スライダーアイコン
+					font-size: 2em;
+					color: inherit;
+				}
+			}
+		}
+		label{
+			display: block;
+			text-align: center;
+		}
+	}
+	
 }
 /*================================
 	top-page-makerホップアッププレビュースタイル

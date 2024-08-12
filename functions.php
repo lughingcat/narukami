@@ -184,7 +184,7 @@ function add_cdns(){
     wp_add_inline_script('slick-js', '
         jQuery(document).ready(function($) {
             $(".heroheader-slider-wrap").slick({
-               	autoplay: true,
+				lazyLoad: "ondemand",
                 autoplaySpeed: 3000,
                 dots: true,
                 infinite: true,
@@ -374,8 +374,6 @@ function genelate_color_picker_tag_demo($name, $value, $label) { ?>
             palettes: true,
         };
         $("input:text[name=\'' . $name . '\']").wpColorPicker(options);
-		var namesam = "'.$name.'";
-		console.log(namesam)
     })( jQuery );';
     wp_add_inline_script('wp-color-picker', $data, 'after');
 }

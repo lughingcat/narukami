@@ -76,8 +76,10 @@ document.addEventListener('DOMContentLoaded', function(){
 				//inputの初期化
                 clone.querySelector('#slider-img-link').value = '';
                 clone.querySelector('input[name="slider_item_title[]"]').value = '';
-                clone.querySelector('#slider-img-link_thumbnail img').remove();
-				console.log(clone.querySelector('#slider-img-link_thumbnail'));
+                const imageElement = clone.querySelector('#slider-img-link_thumbnail img');
+				if (imageElement) {
+					imageElement.remove();
+				}
                 // 親要素に追加
                 lastElement.parentNode.appendChild(clone);
             }
