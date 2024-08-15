@@ -537,7 +537,7 @@ function custom_preview_handler() {
     }
 }
 
-//
+
 /**
  * Implement the Custom Header feature.
  */
