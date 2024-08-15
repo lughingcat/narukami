@@ -3,12 +3,75 @@
 /*================================
 	鳴雷ヘッダー設定スタイル
 =================================*/
+$stretch-duration: 1s;
+$stretch-easing: ease-in-out;
+
+@mixin stretch-shrink-animation {
+  @keyframes stretchShrink {
+    0% {
+      width: 0;
+      transform-origin: left;
+		 transform: translateX(0);
+    }
+    40% {
+      width: 100%;
+      transform-origin: left;
+	  transform: translateX(0);
+    }
+	60% {
+      width: 100%;
+      transform-origin: left;
+	  transform: translateX(0);
+    }
+    100% {
+      width: 100%;
+      transform-origin: right;
+	  transform: translateX(100%);
+    }
+  }
+
+  animation: stretchShrink $stretch-duration $stretch-easing;
+}
+//1 forwards
+//アニメーションパートスタイル
+.anime-set-prevew-wrap{
+	width: 300px;
+	height: 150px;
+	position: relative;
+	background-color: yellow;
+	overflow: hidden;
+	.animetion-prewrap{
+		position: absolute;
+    	top: 0;
+    	left: 0;
+    	height: 100%;
+		box-sizing: border-box;
+		width: 100%;
+		&.stretch-shrink {
+   			@include stretch-shrink-animation;
+    		animation-play-state: paused; // デフォルトでアニメーションを一時停止
+  		}
+		&.stretch-shrink-active {
+  			animation-play-state: running; // アニメーションを再開
+		}
+	}
+}
+// アニメーションを適用するクラス
+.stretch-shrink {
+  background-color: #ffffff; /* 背景色 */
+  height: 100%; /* 高さ */
+  
+  @include stretch-shrink-animation;
+}
+
+
 //ヘッダープレビュースタイル
 .header-back-wrap{
 	text-align: center;
-	padding: 1% 0;
+	padding: 5% 0;
 	width: 100%;
-	border: 1px solid;
+	box-shadow: 0px 0px 15px -5px #777777;
+	margin: 5% auto;
 	.header-rogo-wrap{
 		width: 100px;
 		height: 80px;
@@ -486,7 +549,7 @@
 .slider-item-add-btn{
 	position: relative;
     display: inline-block;
-    width: 15%;
+    width: 30%;
     height: 50px;
     background-color: #d16407;
     color: #FFFFFF;

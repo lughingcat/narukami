@@ -74,4 +74,4 @@ if (is_array($slider_img_array)) {
 	}
 	?>
 </div>
-<button type="button" id="slider-add-button" class="slider-item-add-btn">アイテムを追加</button>
+<button type="button" id="slider-add-button" class="slider-item-add-btn">新規スライダーを追加</button>

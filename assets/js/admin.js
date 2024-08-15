@@ -195,6 +195,23 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+//サイトアニメーション設定
+document.getElementById('animateButton').addEventListener('click', function() {
+  const animetionElement = document.querySelector('.animetion-prewrap');
+  
+  // アニメーションを開始
+  animetionElement.classList.add('stretch-shrink-active');
+  
+  // アニメーション終了後にクラスを削除し、要素を初期状態に戻す
+  animetionElement.addEventListener('animationend', function() {
+    animetionElement.classList.remove('stretch-shrink-active');
+    
+    // 初期状態に戻す
+    animetionElement.style.width = '0';
+    animetionElement.style.transform = 'translateX(0)';
+  }, { once: true }); // イベントリスナーを一度だけ実行
+});
+
 
 /*==================================
 トップページビルダーjs

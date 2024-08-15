@@ -18,24 +18,24 @@
 				<form id="narukami-header-form" method="post" name="narukami-header-form" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
 					<input type="hidden" name="action" value="update_custom_option" /><!--アクション名(フック用)-->
 					<div class="tab-content-wrap">
-						<div id="narukami-header-setting" class="tabcontent" style="display: none;">
+						<div id="narukami-header-setting" class="tabcontent" style="display: none">
 					  		<h3>ヘッダープレビュー</h3>
 					  		<?php include('inc_narukami_header_part.php');?>
 						</div>
 						
-						<div id="narukami-globalmenu-setting" class="tabcontent" style="display: none;">
+						<div id="narukami-globalmenu-setting" class="tabcontent" style="display: none">
 					  		<h3>グローバルメニュープレビュー</h3>
 					  		<?php include('inc_narukami_globalmenu_part.php');?>
 						</div>
 						
-						<div id="narukami-heroheader-setting" class="tabcontent">
+						<div id="narukami-heroheader-setting" class="tabcontent" style="display: none">
 					  		<h3>ヒーローヘッダープレビュー</h3>
 					 		<?php include('inc_narukami_heroheader_part.php');?>
 						</div>
 					
 						<div id="narukami-siteanimation-setting" class="tabcontent">
-					  		<h3>Tab 3</h3>
-					  		<p>Content for Tab 3.</p>
+					  		<h3>サイトアニメーション設定</h3>
+					  		<?php include('inc_narukami_animation_setting.php');?>
 						</div>
 					</div><!--tab-content-wrap-end-->
 					<button type="submit">保存する</button>
