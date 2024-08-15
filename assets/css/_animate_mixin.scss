@@ -1,0 +1,30 @@
+// Scss Document
+$stretch-duration: .5s;
+$stretch-easing: ease-in-out;
+
+@mixin stretch-shrink-animation {//ロードアニメーション[左から右]
+  @keyframes stretchShrink {
+    0% {
+      width: 0;
+      transform-origin: left;
+		 transform: translateX(0);
+    }
+    40% {
+      width: 100%;
+      transform-origin: left;
+	  transform: translateX(0);
+    }
+	60% {
+      width: 100%;
+      transform-origin: left;
+	  transform: translateX(0);
+    }
+    100% {
+      width: 100%;
+      transform-origin: right;
+	  transform: translateX(100%);
+    }
+  }
+
+  animation: stretchShrink $stretch-duration $stretch-easing;
+}

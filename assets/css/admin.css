@@ -14,36 +14,11 @@
     left: 0;
     height: 100%;
     box-sizing: border-box;
-    width: 100%; }
+    width: 0; }
     .anime-set-prevew-wrap .animetion-prewrap.stretch-shrink {
-      animation: stretchShrink 1s ease-in-out;
-      animation-play-state: paused; }
-@keyframes stretchShrink {
-  0% {
-    width: 0;
-    transform-origin: left;
-    transform: translateX(0); }
-  40% {
-    width: 100%;
-    transform-origin: left;
-    transform: translateX(0); }
-  60% {
-    width: 100%;
-    transform-origin: left;
-    transform: translateX(0); }
-  100% {
-    width: 100%;
-    transform-origin: right;
-    transform: translateX(100%); } }
-    .anime-set-prevew-wrap .animetion-prewrap.stretch-shrink-active {
-      animation-play-state: running; }
-
-.stretch-shrink {
-  background-color: #ffffff;
-  /* 背景色 */
-  height: 100%;
-  /* 高さ */
-  animation: stretchShrink 1s ease-in-out; }
+      background-color: #ffffff;
+      height: 100%;
+      animation: stretchShrink 0.5s ease-in-out; }
 @keyframes stretchShrink {
   0% {
     width: 0;
