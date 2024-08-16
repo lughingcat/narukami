@@ -196,17 +196,28 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 //サイトアニメーション設定
-document.getElementById('animateButton').addEventListener('click', function() {
-  const animetionElement = document.querySelector('.animetion-prewrap');
-  
-  // アニメーションを開始
-  animetionElement.classList.add('stretch-shrink');
-  
-  // アニメーション終了後にクラスを削除し、要素を初期状態に戻す
-  animetionElement.addEventListener('animationend', function() {
-    animetionElement.classList.remove('stretch-shrink');
-  }); 
-	
+document.addEventListener('DOMContentLoaded', function(){
+	var animeBtnAll = document.querySelectorAll('.load-anime-prevew-btn');
+	if(animeBtnAll){
+		const animetionElement = document.querySelector('.animetion-prewrap');
+		
+		animeBtnAll.forEach(function(animeBtn){
+			var btnId = animeBtn.id;
+			animeBtn.addEventListener('click', function(){
+				if(btnId === 'right-to-left-btn'){
+					animetionElement.classList.add('stretch-shrink-right');
+					animetionElement.addEventListener('animationend', function() {
+    					animetionElement.classList.remove('stretch-shrink-right');
+  					}); 
+				} else if(btnId === 'curtain-btn'){
+					animetionElement.classList.add('stretch-shrink-curtain');
+					animetionElement.addEventListener('animationend', function() {
+    					animetionElement.classList.remove('stretch-shrink-curtain');
+  					});
+				}
+			});
+		});
+	}
 });
 
 

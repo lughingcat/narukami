@@ -2,8 +2,8 @@
 $stretch-duration: .5s;
 $stretch-easing: ease-in-out;
 
-@mixin stretch-shrink-animation {//ロードアニメーション[左から右]
-  @keyframes stretchShrink {
+@mixin stretch-shrink-right-animation {//ロードアニメーション[right-slide]
+  @keyframes stretchShrinkRight {
     0% {
       width: 0;
       transform-origin: left;
@@ -26,5 +26,32 @@ $stretch-easing: ease-in-out;
     }
   }
 
-  animation: stretchShrink $stretch-duration $stretch-easing;
+  animation: stretchShrinkRight $stretch-duration $stretch-easing;
+}
+
+@mixin stretch-shrink-curtain-animation {//ロードアニメーション[top-down-top]
+  @keyframes stretchShrinkCurtain {
+    0% {
+      width: 100%;
+	  height: 0;
+	  transform: translateY(0);
+    }
+    40% {
+      width: 100%;
+	  height: 100%;
+	  transform: translateY(0);
+    }
+	60% {
+      width: 100%;
+	  height: 100%;
+	  transform: translateY(0);
+    }
+    100% {
+      width: 100%;
+	  height: 0;
+	  transform: translateY(0);
+    }
+  }
+
+  animation: stretchShrinkCurtain $stretch-duration $stretch-easing;
 }

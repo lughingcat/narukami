@@ -4,4 +4,5 @@
 	<div class="animetion-prewrap">
 	</div>
 </div>
-<button id="animateButton" type="button">アニメーション開始</button>
+<button id="right-to-left-btn" class="load-anime-prevew-btn" type="button">右スライド</button>
+<button id="curtain-btn" class="load-anime-prevew-btn" type="button">カーテン</button>
