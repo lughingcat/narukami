@@ -1,6 +1,25 @@
 // Scss Document
-$stretch-duration: .5s;
+$stretch-duration: 3s;
+$circle-duration: 3s;
+$bg-duration: 3.3s;
 $stretch-easing: ease-in-out;
+$circle-easing: ease-out;
+
+@mixin bg-opacty-animation {//ロードアニメーション[right-slide]
+  @keyframes bgOpacityAnime {
+    0% {
+		opacity: 0;
+    }
+	90% {
+		opacity: 0;
+    }
+    100% {
+		opacity: 1;
+    }
+  }
+
+  animation: bgOpacityAnime $bg-duration $circle-easing;
+}
 
 @mixin stretch-shrink-right-animation {//ロードアニメーション[right-slide]
   @keyframes stretchShrinkRight {
@@ -9,12 +28,12 @@ $stretch-easing: ease-in-out;
       transform-origin: left;
 		 transform: translateX(0);
     }
-    40% {
+    10% {
       width: 100%;
       transform-origin: left;
 	  transform: translateX(0);
     }
-	60% {
+	90% {
       width: 100%;
       transform-origin: left;
 	  transform: translateX(0);
@@ -36,12 +55,12 @@ $stretch-easing: ease-in-out;
 	  height: 0;
 	  transform: translateY(0);
     }
-    40% {
+    10% {
       width: 100%;
 	  height: 100%;
 	  transform: translateY(0);
     }
-	60% {
+	90% {
       width: 100%;
 	  height: 100%;
 	  transform: translateY(0);
@@ -54,4 +73,35 @@ $stretch-easing: ease-in-out;
   }
 
   animation: stretchShrinkCurtain $stretch-duration $stretch-easing;
+}
+
+
+@mixin expand-circle-animation {
+  @keyframes expandCircle {
+    0% {
+      	width: 500px;
+      	height: 500px;
+      	opacity: 1;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+    }
+	90% {
+      	width: 500px;
+      	height: 500px;
+      	opacity: 0.8;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+    }
+    100% {
+      	width: 0;
+      	height: 0;
+      	opacity: 0;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+    }
+  }
+	animation: expandCircle $circle-duration $circle-easing;
 }

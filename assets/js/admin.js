@@ -200,25 +200,41 @@ document.addEventListener('DOMContentLoaded', function(){
 	var animeBtnAll = document.querySelectorAll('.load-anime-prevew-btn');
 	if(animeBtnAll){
 		const animetionElement = document.querySelector('.animetion-prewrap');
-		
 		animeBtnAll.forEach(function(animeBtn){
 			var btnId = animeBtn.id;
 			animeBtn.addEventListener('click', function(){
 				if(btnId === 'right-to-left-btn'){
+					bgOpacityControl()
 					animetionElement.classList.add('stretch-shrink-right');
 					animetionElement.addEventListener('animationend', function() {
     					animetionElement.classList.remove('stretch-shrink-right');
   					}); 
 				} else if(btnId === 'curtain-btn'){
+					bgOpacityControl()
 					animetionElement.classList.add('stretch-shrink-curtain');
 					animetionElement.addEventListener('animationend', function() {
     					animetionElement.classList.remove('stretch-shrink-curtain');
+  					});
+				} else if(btnId === 'circle-open-btn'){
+					bgOpacityControl()
+					animetionElement.classList.add('expand-circle');
+					animetionElement.addEventListener('animationend', function() {
+    					animetionElement.classList.remove('expand-circle');
   					});
 				}
 			});
 		});
 	}
 });
+
+//bg透明度コントロール
+function bgOpacityControl(){
+	var bgContainer = document.querySelector('.anime-set-prevew-wrap');
+	bgContainer.classList.add('bg-opacity-value');
+	bgContainer.addEventListener('animationend', function() {
+    	bgContainer.classList.remove('bg-opacity-value');
+  	});
+}
 
 
 /*==================================
