@@ -3,7 +3,8 @@
 		<p>アニメーションテスト</p>
 	</div>
 	<div class="animetion-prewrap">
-		<p>ここにタイトルが入ります</p>
+		<p class="loadwrap-rogo">ここにROGOを入れる。</p>
+		<p class="loading-text">Loding...</p>
 	</div>
 </div>
 <button id="right-to-left-btn" class="load-anime-prevew-btn" type="button">右スライド</button>

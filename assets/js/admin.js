@@ -198,29 +198,42 @@ document.addEventListener('DOMContentLoaded', function() {
 //サイトアニメーション設定
 document.addEventListener('DOMContentLoaded', function(){
 	var animeBtnAll = document.querySelectorAll('.load-anime-prevew-btn');
+	var circlerogo = document.querySelector('.loadwrap-rogo');
+	var circleText = document.querySelector('.loading-text');
 	if(animeBtnAll){
 		const animetionElement = document.querySelector('.animetion-prewrap');
 		animeBtnAll.forEach(function(animeBtn){
 			var btnId = animeBtn.id;
 			animeBtn.addEventListener('click', function(){
 				if(btnId === 'right-to-left-btn'){
-					bgOpacityControl()
+					bgOpacityControl();
+					loadinganimetionControl();
 					animetionElement.classList.add('stretch-shrink-right');
 					animetionElement.addEventListener('animationend', function() {
     					animetionElement.classList.remove('stretch-shrink-right');
   					}); 
 				} else if(btnId === 'curtain-btn'){
-					bgOpacityControl()
+					bgOpacityControl();
+					loadinganimetionControl();
 					animetionElement.classList.add('stretch-shrink-curtain');
 					animetionElement.addEventListener('animationend', function() {
     					animetionElement.classList.remove('stretch-shrink-curtain');
   					});
 				} else if(btnId === 'circle-open-btn'){
-					bgOpacityControl()
+					bgOpacityControl();
 					animetionElement.classList.add('expand-circle');
 					animetionElement.addEventListener('animationend', function() {
     					animetionElement.classList.remove('expand-circle');
   					});
+					circlerogo.classList.add('loading-opacity-cont');
+					circlerogo.addEventListener('animationend', function() {
+    					circlerogo.classList.remove('loading-opacity-cont');
+  					});
+					circleText.classList.add('loading-anime');
+					circleText.addEventListener('animationend', function() {
+    					circleText.classList.remove('loading-anime');
+  					});
+					
 				}
 			});
 		});
@@ -234,6 +247,14 @@ function bgOpacityControl(){
 	bgContainer.addEventListener('animationend', function() {
     	bgContainer.classList.remove('bg-opacity-value');
   	});
+}
+//loading...アニメーション制御
+function loadinganimetionControl(){
+	var loadingAnimeContainer = document.querySelector('.loading-text');
+	loadingAnimeContainer.classList.add('loading-anime');
+	loadingAnimeContainer.addEventListener('animationend', function(){
+		loadingAnimeContainer.classList.remove('loading-anime');
+	});
 }
 
 

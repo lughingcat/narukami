@@ -1,6 +1,7 @@
 // Scss Document
 $stretch-duration: 3s;
 $circle-duration: 3s;
+$loading-duration: 1.5s;
 $bg-duration: 3.3s;
 $stretch-easing: ease-in-out;
 $circle-easing: ease-out;
@@ -24,9 +25,9 @@ $circle-easing: ease-out;
 @mixin stretch-shrink-right-animation {//ロードアニメーション[right-slide]
   @keyframes stretchShrinkRight {
     0% {
-      	width: 0;
+      	width: 100%;
       	transform-origin: left;
-	  	transform: translateX(0);
+	  	transform: translateX(-100%);
 		opacity: 1;
 		
     }
@@ -56,27 +57,27 @@ $circle-easing: ease-out;
 @mixin stretch-shrink-curtain-animation {//ロードアニメーション[top-down-top]
   @keyframes stretchShrinkCurtain {
     0% {
-      	width: 100%;
-	  	height: 0;
-	  	transform: translateY(0);
+		width: 100%;
+	  	height: 100%;
+	  	transform: translateY(-100%);
 		opacity: 1;
     }
     10% {
-      	width: 100%;
+		width: 100%;
 	  	height: 100%;
 	  	transform: translateY(0);
 		opacity: 1;
     }
 	90% {
-      	width: 100%;
+		width: 100%;
 	  	height: 100%;
 	  	transform: translateY(0);
 		opacity: 1;
     }
     100% {
-      	width: 100%;
-	  	height: 0;
-	  	transform: translateY(0);
+		width: 100%;
+	  	height: 100%;
+	  	transform: translateY(-100%);
 		opacity: 1;
     }
   }
@@ -85,23 +86,24 @@ $circle-easing: ease-out;
 }
 
 
-@mixin expand-circle-animation {
+@mixin expand-circle-animation {//circle-anime
   @keyframes expandCircle {
     0% {
-      	width: 500px;
-      	height: 500px;
+      	width: 100%;
+      	height: 100%;
       	opacity: 1;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%,-50%);
     }
 	90% {
-      	width: 500px;
-      	height: 500px;
+      	width: 100%;
+      	height: 100%;
       	opacity: 0.8;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%,-50%);
+		border-radius: 50%;
     }
     100% {
       	width: 0;
@@ -110,7 +112,70 @@ $circle-easing: ease-out;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%,-50%);
+		border-radius: 50%;
     }
   }
 	animation: expandCircle $circle-duration $circle-easing;
+}
+
+@mixin circle-text-animation {//circle-text
+  @keyframes CircleTextAnime {
+    0% {
+      	opacity: 1;
+    }
+	70% {
+      	opacity: 0;
+    }
+    100% {
+      	opacity: 0;
+    }
+  }
+	animation: CircleTextAnime $circle-duration $circle-easing;
+}
+
+@mixin loading-text-animation {//loadingアニメ
+  @keyframes loadingTextAnimation {
+    0% {
+      	opacity: 1;
+    }
+	50% {
+      	opacity: 0;
+    }
+    100% {
+      	opacity: 1;
+    }
+  }
+	animation: loadingTextAnimation $loading-duration $circle-easing infinite;
+}
+
+@mixin combined-text-animation { //circleのloadingとテキストのopacity値を統一
+  @keyframes CircleTextAnimeconb {
+    0% {
+      	opacity: 1;
+    }
+    70% {
+      	opacity: 0;
+    }
+    100% {
+      	opacity: 0;
+    }
+  }
+
+  // loadingTextAnimationのアニメーション
+  @keyframes loadingTextAnimationconb {
+    0% {
+      	opacity: 1;
+    }
+    50% {
+      	opacity: 0;
+    }
+    100% {
+      	opacity: 1;
+    }
+  }
+
+  // 両方のアニメーションを適用
+  animation: 
+    CircleTextAnimeconb $circle-duration $circle-easing,
+    loadingTextAnimationconb $loading-duration $circle-easing infinite;
 }
