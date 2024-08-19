@@ -1,8 +1,9 @@
 // Scss Document
-$stretch-duration: 3s;
-$circle-duration: 3s;
-$loading-duration: 1.5s;
-$bg-duration: 3.3s;
+$stretch-duration: 4s;
+$circle-duration: 4s;
+$loading-duration: 2s;
+$popup-rogo-duration: 4s;
+$bg-duration: 4.3s;
 $stretch-easing: ease-in-out;
 $circle-easing: ease-out;
 
@@ -124,6 +125,9 @@ $circle-easing: ease-out;
       	opacity: 1;
     }
 	70% {
+      	opacity: 1;
+    }
+	90% {
       	opacity: 0;
     }
     100% {
@@ -187,15 +191,21 @@ $circle-easing: ease-out;
       	opacity: 0;
     }
 	10% {
+      	opacity: 0;
+    }
+	25% {
       	opacity: 1;
     }
-	70% {
+	75% {
       	opacity: 1;
+    }
+	90% {
+      	opacity: 0;
     }
     100% {
       	opacity: 0;
     }
   }
-	animation: popUpRogoAnime $circle-duration $circle-easing;
+	animation: popUpRogoAnime $popup-rogo-duration $circle-easing;
 }
 
