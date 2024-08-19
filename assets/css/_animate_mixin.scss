@@ -148,13 +148,16 @@ $circle-easing: ease-out;
 	animation: loadingTextAnimation $loading-duration $circle-easing infinite;
 }
 
-@mixin combined-text-animation { //circleのloadingとテキストのopacity値を統一
+@mixin combined-text-animation { //circleのloadingopacity値を統一
   @keyframes CircleTextAnimeconb {
     0% {
+      	opacity: 0;
+    }
+	10% {
       	opacity: 1;
     }
-    70% {
-      	opacity: 0;
+    80% {
+      	opacity: 1;
     }
     100% {
       	opacity: 0;
@@ -173,9 +176,26 @@ $circle-easing: ease-out;
       	opacity: 1;
     }
   }
-
-  // 両方のアニメーションを適用
   animation: 
     CircleTextAnimeconb $circle-duration $circle-easing,
     loadingTextAnimationconb $loading-duration $circle-easing infinite;
 }
+
+@mixin popup-rogo-animation {//rogo出現アニメーション
+  @keyframes popUpRogoAnime {
+    0% {
+      	opacity: 0;
+    }
+	10% {
+      	opacity: 1;
+    }
+	70% {
+      	opacity: 1;
+    }
+    100% {
+      	opacity: 0;
+    }
+  }
+	animation: popUpRogoAnime $circle-duration $circle-easing;
+}
+

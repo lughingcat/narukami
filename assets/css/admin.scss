@@ -63,6 +63,9 @@
 			&.loading-opacity-cont{
 				@include circle-text-animation;
 			}
+			&.popup-rogo{
+				@include popup-rogo-animation;
+			}
 		}
 		.loading-text{
 			width: 100%;

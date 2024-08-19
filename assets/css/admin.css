@@ -130,7 +130,18 @@
   0% {
     opacity: 1; }
   70% {
-    opacity: 0.8; }
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+      .animetion-all-wrap .animetion-prewrap .loadwrap-rogo.popup-rogo {
+        animation: popUpRogoAnime 3s ease-out; }
+@keyframes popUpRogoAnime {
+  0% {
+    opacity: 0; }
+  10% {
+    opacity: 1; }
+  70% {
+    opacity: 1; }
   100% {
     opacity: 0; } }
     .animetion-all-wrap .animetion-prewrap .loading-text {
@@ -146,8 +157,10 @@
 @keyframes CircleTextAnimeconb {
   0% {
     opacity: 0; }
-  70% {
-    opacity: 0.8; }
+  10% {
+    opacity: 1; }
+  80% {
+    opacity: 1; }
   100% {
     opacity: 0; } }
 @keyframes loadingTextAnimationconb {

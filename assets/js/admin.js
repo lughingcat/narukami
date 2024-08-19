@@ -208,6 +208,7 @@ document.addEventListener('DOMContentLoaded', function(){
 				if(btnId === 'right-to-left-btn'){
 					bgOpacityControl();
 					loadinganimetionControl();
+					popupRogoControl();
 					animetionElement.classList.add('stretch-shrink-right');
 					animetionElement.addEventListener('animationend', function() {
     					animetionElement.classList.remove('stretch-shrink-right');
@@ -215,6 +216,7 @@ document.addEventListener('DOMContentLoaded', function(){
 				} else if(btnId === 'curtain-btn'){
 					bgOpacityControl();
 					loadinganimetionControl();
+					popupRogoControl();
 					animetionElement.classList.add('stretch-shrink-curtain');
 					animetionElement.addEventListener('animationend', function() {
     					animetionElement.classList.remove('stretch-shrink-curtain');
@@ -256,7 +258,14 @@ function loadinganimetionControl(){
 		loadingAnimeContainer.classList.remove('loading-anime');
 	});
 }
-
+//rogo出現アニメーション制御
+function popupRogoControl(){
+	var popupRogoContainer = document.querySelector('.loadwrap-rogo');
+	popupRogoContainer.classList.add('popup-rogo');
+	popupRogoContainer.addEventListener('animationend', function(){
+		popupRogoContainer.classList.remove('popup-rogo');
+	});
+}
 
 /*==================================
 トップページビルダーjs
