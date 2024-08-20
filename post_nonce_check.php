@@ -84,6 +84,16 @@ function update_custom_option() {
 		update_option('slider_item_shadow', $hh_slider_shadow);
 		update_option('slider_item_shadow_volume', $hh_slider_shadow_volume);
 		
+		//オープニングアニメーション
+		$loading_anime_type = sanitize_option_value($_POST['ladinganime-type']);
+		$open_bg_img_url = sanitize_option_value($_POST['open-bg-img-url']);
+		$open_rogo_img_url = sanitize_option_value($_POST['open-rogo-img-url']);
+		$loadingtext_color = sanitize_option_value($_POST['loadingtext-color']);
+		update_option('loading-anime-type', $loading_anime_type);
+		update_option('open-bg-imgurl', $open_bg_img_url);
+		update_option('open-rogo-imgurl', $open_rogo_img_url);
+		update_option('loadingtext-color', $loadingtext_color);
+		
         wp_redirect(add_query_arg('updated', 'true', wp_get_referer()));
         exit;
     }

@@ -18,7 +18,6 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background-image: url("http://localhost:8888/wp01/wp-content/uploads/2024/08/sushi-8735288_1920.jpg");
 		background-position: center;
 		background-size: cover;
 		background-repeat: no-repeat;
@@ -53,19 +52,16 @@
 			width: 15%;
 		}
 		&.stretch-shrink-right {
-			background-color: blue;
   			height: 100%;
    			@include stretch-shrink-right-animation;
   		}
 	    &.stretch-shrink-curtain {
-			background-color: blue;
   			height: 100%;
    			@include stretch-shrink-curtain-animation;
   		}
 		&.expand-circle {
   			width: 100%;
   			height: 100%;
-  			background-color: blue;
   			position: absolute;
   			top: 50%;
   			left: 50%;
