@@ -10,7 +10,7 @@
 	position: relative;
 	max-width: 1100px;
 	height: 400px;
-	margin: 10px auto 5%;
+	margin: 0 auto;
 	overflow: hidden;
 	.anime-set-prevew-wrap{
 		position: absolute;
@@ -99,7 +99,7 @@
 			color: #000;
 			text-align: center;
 			font-weight: bold;
-			font-family: 'Sawarabi Gothic', sans-serif;
+			font-family: 'Noto Serif JP', sans-serif;
 			letter-spacing: 1px;
 			&.loading-anime{
 				@include combined-text-animation;
@@ -107,7 +107,44 @@
 		}
 	}
 }
+//アニメーションプレビューボタン
+.prevew-btn-wrap{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin: 0 auto;
+	.loading-anime-item-wrap{
+		width: 30%;
+		display: inline-grid;
+		justify-items: center;
+		.load-anime-prevew-btn{
+			width: 80%;
+    		height: 50px;
+    		background-color: #FFFFFF;
+    		color: #0086AD;
+    		text-align: center;
+    		border: 2px solid #0086AD;
+    		margin: 10px 2% 20px;
+    		border-radius: 3px;
+			&:hover{
+				background-color: #0086AD;
+				color: #FFFFFF;
+				font-weight: bold;
+				transition: 0.2s;
+			}
+			&.not-use-btn{
+				background-color: #9d3b3b;
+				border: 2px solid #9d3b3b;
+				color: #ffffff;
+				&:hover{
+					font-weight: normal;
+				}
+			}
+		}
+	}
 	
+}
+
 
 
 

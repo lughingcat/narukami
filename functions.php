@@ -177,7 +177,7 @@ function add_cdns(){
 	wp_enqueue_script('draggable','https://cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.24.3/vuedraggable.umd.js');
 	wp_enqueue_script('bootstrapJs','https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js');
 	wp_enqueue_style('fontawesome','https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css');
-	wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css?family=Sawarabi+Gothic', array(), null);
+	wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css?family=Noto+Serif+JP', array(), null);
 	wp_enqueue_style('slick-css', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
     wp_enqueue_style('slick-theme-css', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css');
 	// Slick SliderのJavaScriptをエンキュー
