@@ -29,13 +29,14 @@ function openTab(button, tabName) {
 
 // ページが読み込まれた際に、ローカルストレージの値に基づいてタブを表示
 window.onload = function() {
-  var selectedTab = localStorage.getItem('selectedTab');
-  if (selectedTab) {
-    document.getElementById(selectedTab).style.display = "block";
-  } else {
-    // 初回ロード時、デフォルトのタブを開く
-    document.getElementById('header-tab1').style.display = "block";
-  }
+  	var selectedTab = localStorage.getItem('selectedTab');
+	var mainTabContent = document.getElementById('animetion_setting_wrap');
+  	if (mainTabContent && selectedTab) {
+    	document.getElementById(selectedTab).style.display = "block";
+  	} else if(mainTabContent) {
+		// 初回ロード時、デフォルトのタブを開く
+    	document.getElementById('header-tab1').style.display = "block";
+  	}
 }
 
 //グローバルメニュー追加処理
