@@ -1,6 +1,43 @@
 /*==================================
 ヘッダー設定js
 ==================================*/
+//ヘッダー設定表示切り替え
+function openTab(button, tabName) {
+	if(tabName === 'header-tab1'){
+		document.getElementById('header-tab1').style.display = "block";
+		document.getElementById('header-tab2').style.display = "none";
+		document.getElementById('header-tab3').style.display = "none";
+		document.getElementById('header-tab4').style.display = "none";
+	}else if(tabName === 'header-tab2'){
+		document.getElementById('header-tab1').style.display = "none";
+		document.getElementById('header-tab2').style.display = "block";
+		document.getElementById('header-tab3').style.display = "none";
+		document.getElementById('header-tab4').style.display = "none";
+	}else if(tabName === 'header-tab3'){
+		document.getElementById('header-tab1').style.display = "none";
+		document.getElementById('header-tab2').style.display = "none";
+		document.getElementById('header-tab3').style.display = "block";
+		document.getElementById('header-tab4').style.display = "none";
+	}else if(tabName === 'header-tab4'){
+		document.getElementById('header-tab1').style.display = "none";
+		document.getElementById('header-tab2').style.display = "none";
+		document.getElementById('header-tab3').style.display = "none";
+		document.getElementById('header-tab4').style.display = "block";
+	}
+  localStorage.setItem('selectedTab', tabName);
+}
+
+// ページが読み込まれた際に、ローカルストレージの値に基づいてタブを表示
+window.onload = function() {
+  var selectedTab = localStorage.getItem('selectedTab');
+  if (selectedTab) {
+    document.getElementById(selectedTab).style.display = "block";
+  } else {
+    // 初回ロード時、デフォルトのタブを開く
+    document.getElementById('header-tab1').style.display = "block";
+  }
+}
+
 //グローバルメニュー追加処理
 document.addEventListener('DOMContentLoaded', function(){
 	var globalMenuAddBtn = document.getElementById('globalmenu-add-btn');
