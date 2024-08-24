@@ -38,7 +38,9 @@
 					  		<?php include('inc_narukami_animation_setting.php');?>
 						</div>
 					</div><!--tab-content-wrap-end-->
-					<button type="submit">保存する</button>
+					<div class="control-setting-btn">
+						<button id="header-setting-save-btn" type="submit" class="top-page-maker-save-btn">設定を保存</button>
+					</div>
 					<?php wp_nonce_field('update_header_action', 'update_header_nonce'); ?>
 				</form><!--form-end-->
 			</div><!--tab-setting-all-wrap-end-->

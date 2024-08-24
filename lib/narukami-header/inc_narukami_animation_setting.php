@@ -69,9 +69,14 @@ if(isset($i_loading_anime_type)){
 				<label class="loading-anime-label"><input type="radio" name="ladinganime-type" value="loading-anime-not-use" <?php echo $stretch_none; ?>>使用しない。</label>
 			</div>
 		</div>
-		<h4>オーバーラップデザインを選択してください。</h4>
+		<h4>オーバーラップデザインを作成します。</h4>
+		<p>上記のprevewボタンをクリックしてください。</p>
+		<p>アニメーションが発火し、ローディングアニメーションが始まります。</p>
+		<p>動きのあるオーバーラップのデザインを、下記入力フォームより自由に作成することができます。</p>
+		<p>店舗の雰囲気に合った背景画像と、店舗ロゴなどを配置して独自のローディングアニメーションを作成してください。</p>
+		<p>ユーザーにトップページを早く見せたい場合は</br>上記のローディングアニメーションのパターン選択より「使用しない」を選択し、保存してください。</br>ローディングアニメーションは発火しません。</p>
 		<div>
-			<p>オーバーラップさせる背景画像を選択してください。</p>
+			<h4>オーバーラップさせる背景画像を選択してください。</h4>
 			<?php
   			generate_upload_image_single_tag('open-bg-img-url', $i_open_bgimgurl);
 			?>

@@ -8,21 +8,29 @@ function openTab(button, tabName) {
 		document.getElementById('header-tab2').style.display = "none";
 		document.getElementById('header-tab3').style.display = "none";
 		document.getElementById('header-tab4').style.display = "none";
+		tabStyleControl();
+		button.classList.add('tab-check-on');
 	}else if(tabName === 'header-tab2'){
 		document.getElementById('header-tab1').style.display = "none";
 		document.getElementById('header-tab2').style.display = "block";
 		document.getElementById('header-tab3').style.display = "none";
 		document.getElementById('header-tab4').style.display = "none";
+		tabStyleControl();
+		button.classList.add('tab-check-on');
 	}else if(tabName === 'header-tab3'){
 		document.getElementById('header-tab1').style.display = "none";
 		document.getElementById('header-tab2').style.display = "none";
 		document.getElementById('header-tab3').style.display = "block";
 		document.getElementById('header-tab4').style.display = "none";
+		tabStyleControl();
+		button.classList.add('tab-check-on');
 	}else if(tabName === 'header-tab4'){
 		document.getElementById('header-tab1').style.display = "none";
 		document.getElementById('header-tab2').style.display = "none";
 		document.getElementById('header-tab3').style.display = "none";
 		document.getElementById('header-tab4').style.display = "block";
+		tabStyleControl();
+		button.classList.add('tab-check-on');
 	}
   localStorage.setItem('selectedTab', tabName);
 }
@@ -33,10 +41,38 @@ window.onload = function() {
 	var mainTabContent = document.getElementById('animetion_setting_wrap');
   	if (mainTabContent && selectedTab) {
     	document.getElementById(selectedTab).style.display = "block";
+		var targetBtn = getButtonBySecondArgument(selectedTab);
+		targetBtn.classList.add('tab-check-on');
   	} else if(mainTabContent) {
 		// 初回ロード時、デフォルトのタブを開く
     	document.getElementById('header-tab1').style.display = "block";
+    	document.getElementById('header-tab1').classList.add('tab-check-on');
   	}
+}
+
+//選択中のタブのスタイル制御
+function tabStyleControl(){
+	var onClickCheckStyle = document.querySelectorAll('.tablinks');
+	var tabCheckValue = document.querySelector('.tab-check-on');
+	if(tabCheckValue){
+		onClickCheckStyle.forEach(function(checkStyle) {
+  			checkStyle.classList.remove('tab-check-on');
+		});
+	};
+}
+
+//ロード時のタブスタイルを見つける関数
+function getButtonBySecondArgument(targetValue) {
+  var buttons = document.querySelectorAll('.tablinks');
+  
+  for (var i = 0; i < buttons.length; i++) {
+    var onclickAttr = buttons[i].getAttribute('onclick');
+    if (onclickAttr.includes(targetValue)) {
+      return buttons[i];
+    }
+  }
+  
+  return null; // 見つからない場合は null を返す
 }
 
 //グローバルメニュー追加処理

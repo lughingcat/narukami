@@ -5,6 +5,38 @@
 =================================*/
 @import 'animate_mixin';
 
+//ヘッダー設定切り替えボタン
+.tab-button-wrap{
+	width: 100%;
+	margin: 20px auto 0;
+	padding: 10px 0;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	.tablinks{
+		width: 25%;
+    	height: 50px;
+    	background-color: #FFFFFF;
+    	color: #0086AD;
+    	text-align: center;
+    	border: 2px solid #0086AD;
+    	margin: 0 2%;
+    	border-radius: 3px;
+		&:hover{
+			background-color: #0086AD;
+			color: #FFFFFF;
+			font-weight: bold;
+			transition: 0.2s;
+		}
+		&.tab-check-on{
+			background-color: #0086AD;
+			color: #FFFFFF;
+			font-weight: bold;
+			transition: 0.2s;
+		}
+	}
+}
+
 //アニメーションプレビュースタイル
 .animetion-all-wrap{
 	position: relative;

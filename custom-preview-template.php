@@ -8,7 +8,8 @@
 <body>
     <h1>NARUKAMI-TOP-PAGE-PREVIEW</h1>
 	 <?php
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+		//トップページメーカーPOST
+    	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // フォームデータを取得して表示
         $formData = $_POST;
 		foreach ($formData['array-num'] as $index) {
@@ -20,7 +21,6 @@
 			}
 			$results[] = $result;
 		}
-		echo '<pre>' . print_r($results, true) . '</pre>';
 		foreach($results as $key=> $value){
 			if($value['array-num'] == $key && $value['s_cmaker'] === 'concept'){
 				$insert_ids = $value['insert_ids'];
