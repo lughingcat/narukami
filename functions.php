@@ -538,6 +538,15 @@ function custom_preview_handler() {
         exit;
     }
 }
+//トップページヘッダーのプレビュー関数
+add_action('template_redirect', 'custom_header_preview_handler');
+function custom_header_preview_handler() {
+    if (isset($_GET['preview']) && $_GET['preview'] === 'true' && isset($_GET['page']) && $_GET['page'] === 'toppage_header_preview') {
+        // トップページビルダーのプレビュー用テンプレート
+        include(get_template_directory() . '/custom-header-prevew-temp.php');
+        exit;
+    }
+}
 
 
 /**

@@ -40,6 +40,40 @@
 					</div><!--tab-content-wrap-end-->
 					<div class="control-setting-btn">
 						<button id="header-setting-save-btn" type="submit" class="top-page-maker-save-btn">設定を保存</button>
+						<?php 
+						// プレビューボタン
+    					$preview_link = add_query_arg(
+    			   		 array(
+    			   		     'preview' => 'true',
+    			   		     'page' => 'toppage_header_preview'
+    			   		 ),
+    			   		 home_url('/')
+    					);
+						echo '<button type="button" class="narukami-prevew-btn" onclick="submitHeaderPreviewForm()">PREVEW</button>';
+						echo '
+						<script type="text/javascript">
+							function submitHeaderPreviewForm() {
+								var form = document.getElementById("narukami-header-form");
+								var formData = new FormData(form);
+								var xhr = new XMLHttpRequest();
+								var preview_link = "' . $preview_link . '";
+								xhr.open("POST", preview_link, true);
+								xhr.onreadystatechange = function () {
+									if (xhr.readyState == 4) {
+										console.log("XHR Status:", xhr.status);
+									if (xhr.status == 200) {
+										var previewWindow = window.open(preview_link, "_blank");
+										previewWindow.document.open();
+										previewWindow.document.write(xhr.responseText);
+										previewWindow.document.close();
+									}
+									}
+								};
+								xhr.send(formData);
+							}
+						</script>
+							';
+						?>
 					</div>
 					<?php wp_nonce_field('update_header_action', 'update_header_nonce'); ?>
 				</form><!--form-end-->
