@@ -1,5 +1,30 @@
 //全体設定
 
+//ヘッダープレビュースタイル
+.header-back-wrap{
+	text-align: center;
+	padding: 5% 0;
+	width: 100%;
+	box-shadow: 0px 0px 15px -5px #777777;
+	margin: 0 auto;
+	.header-rogo-wrap{
+		width: 100px;
+		height: 80px;
+		margin: 0 auto;
+	}
+	.header-title-wrap{
+		.header-site-title{
+			font-weight: bold;
+			display: inline-block;
+			border-bottom: 1px solid;
+			padding-bottom: 7px;
+			margin: 5px auto;
+		}
+		.header-site-discription{
+			margin: 0 auto;
+		}
+	}
+}
 
 //ランキング
 .n-section-block{
