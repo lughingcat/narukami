@@ -6,7 +6,6 @@
     <?php wp_head(); ?>
 </head>
 <body>
-    <h1>NARUKAMI-HEADER-PREVIEW</h1>
 	 <?php
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // フォームデータを取得して表示

@@ -131,23 +131,5 @@
         	);
         ?> 
 		</div>
-	<!--
-	<h4>ロゴとサイトタイトルの並びを選択してください。</h4>
-		<div class="header-radio-wrap sort-line-flex">
-			<div class="display-sort-wrap">
-				<div class="display-inner-wrap-block">
-					<p class="header-rogo"><span>ROGO</span></p>
-					<span class="header-title">SITE TITLE</span>
-				</div>
-				<label><input type="radio" name="header-display-sort" value="block" <?php echo $display_sort_block; ?>>縦並び</label>
-			</div>
-			<div class="display-sort-wrap">
-				<div class="display-inner-wrap-block flex-line">
-					<p class="header-rogo"><span>ROGO</span></p>
-					<p class="header-title flex-patern"><span>SITE TITLE</span></p>
-				</div>
-				<label><input type="radio" name="header-display-sort" value="flex" <?php echo $display_sort_flex; ?>>横並び</label>
-			</div>
-		</div>-->
 	</div><!--inputform-end-->
 </div><!--all-wrap-end-->

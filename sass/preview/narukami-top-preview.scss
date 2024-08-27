@@ -3,13 +3,11 @@
 //ヘッダープレビュースタイル
 .header-back-wrap{
 	text-align: center;
-	padding: 5% 0;
+	padding: 1% 0;
 	width: 100%;
-	box-shadow: 0px 0px 15px -5px #777777;
 	margin: 0 auto;
 	.header-rogo-wrap{
-		width: 100px;
-		height: 80px;
+		width: 7%;
 		margin: 0 auto;
 	}
 	.header-title-wrap{
@@ -19,9 +17,12 @@
 			border-bottom: 1px solid;
 			padding-bottom: 7px;
 			margin: 5px auto;
+			font-size: .6em;
 		}
 		.header-site-discription{
 			margin: 0 auto;
+			font-weight: bold;
+			font-size: .6em;
 		}
 	}
 }
