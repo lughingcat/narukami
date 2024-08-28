@@ -1,9 +1,37 @@
 @charset "UTF-8";
+.heroheader-prevew-all-wrap {
+  position: relative; }
+  .heroheader-prevew-all-wrap .heroheader-back-wrap {
+    position: relative;
+    width: 100vw;
+    height: 100vh; }
+    .heroheader-prevew-all-wrap .heroheader-back-wrap .heroheader-rogo-wrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center; }
+      .heroheader-prevew-all-wrap .heroheader-back-wrap .heroheader-rogo-wrap .heroheader-title-wrap {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 1% 3%;
+        text-align: center; }
+        .heroheader-prevew-all-wrap .heroheader-back-wrap .heroheader-rogo-wrap .heroheader-title-wrap .heroheader-title {
+          font-weight: bold;
+          font-size: 2em;
+          letter-spacing: 6px; }
+
 .header-back-wrap {
   text-align: center;
   padding: 1% 0;
   width: 100%;
-  margin: 0 auto; }
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  z-index: 99; }
   .header-back-wrap .header-rogo-wrap {
     width: 7%;
     margin: 0 auto; }
