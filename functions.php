@@ -239,6 +239,28 @@ function enqueue_narukami_top_preview_assets() {
         wp_enqueue_style('narukami-top-preview', get_template_directory_uri() . '/sass/preview/narukami-top-preview.css');
 		wp_enqueue_script('narukami-top-js-preview', get_template_directory_uri() . '/front-js/preview/narukami-top-preview.js', array('jquery'), null, true);
 		wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css?family=Noto+Serif+JP', array(), null);
+		//jquery
+		wp_enqueue_script('jquery');
+		// Slick CSS
+    	wp_enqueue_style('slick-css', 'https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css', array(), null);
+    	wp_enqueue_style('slick-theme-css', 'https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css', array('slick-css'), null);
+		// Slick SliderのJavaScriptをエンキュー
+    	wp_enqueue_script('slick-js', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array('jquery'), null, true);
+		// Slick Sliderの初期化スクリプトをエンキュー
+    	wp_add_inline_script('slick-js', '
+        jQuery(document).ready(function($) {
+            $(".heroheader-slider-wrap").slick({
+				autoplay: true,
+				lazyLoad: "ondemand",
+                autoplaySpeed: 3000,
+                dots: true,
+                infinite: true,
+                speed: 500,
+				arrows: true,
+                cssEase: "linear"
+            });
+        });
+    ');
     }
 }
 // wp_enqueue_scripts アクションにフック

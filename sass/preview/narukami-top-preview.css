@@ -90,6 +90,48 @@
   100% {
     transform: translateY(0);
     opacity: 1; } }
+.heroheader-prevew-slider-all-wrap {
+  position: relative;
+  width: 100vw;
+  height: 100vh; }
+  .heroheader-prevew-slider-all-wrap .heroheader-slider-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh; }
+    .heroheader-prevew-slider-all-wrap .heroheader-slider-wrap .slick-prev.slick-arrow {
+      left: 15px;
+      z-index: 99; }
+    .heroheader-prevew-slider-all-wrap .heroheader-slider-wrap .slick-next.slick-arrow {
+      right: 15px; }
+    .heroheader-prevew-slider-all-wrap .heroheader-slider-wrap .slick-slide {
+      position: relative;
+      width: 100%;
+      height: 100vh; }
+      .heroheader-prevew-slider-all-wrap .heroheader-slider-wrap .slick-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block; }
+      .heroheader-prevew-slider-all-wrap .heroheader-slider-wrap .slick-slide p {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        font-size: 2em;
+        font-weight: bold;
+        text-align: center;
+        color: #FFFFFF;
+        text-shadow: 1px 1px 1px 10px #000; }
+      .heroheader-prevew-slider-all-wrap .heroheader-slider-wrap .slick-slide .back-shadow {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0; }
+
 .heroheader-back-wrap .heroheader-rogo-wrap.bg-opacity-value {
   animation: bgOpacityAnime 4.3s ease-out; }
 @keyframes bgOpacityAnime {
@@ -407,6 +449,173 @@
     font-family: 'Noto Serif JP', sans-serif;
     letter-spacing: 1px; }
     .heroheader-video-back-wrap .animetion-prewrap .loading-text.loading-anime {
+      animation: CircleTextAnimeconb 4s ease-out, loadingTextAnimationconb 2s ease-out infinite; }
+@keyframes CircleTextAnimeconb {
+  0% {
+    opacity: 0; }
+  10% {
+    opacity: 1; }
+  80% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+@keyframes loadingTextAnimationconb {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+.heroheader-prevew-slider-all-wrap .heroheader-slider-wrap.bg-opacity-value {
+  animation: bgOpacityAnime 4.3s ease-out; }
+@keyframes bgOpacityAnime {
+  0% {
+    opacity: 0; }
+  90% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+.heroheader-prevew-slider-all-wrap .animetion-prewrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  box-sizing: border-box;
+  width: 0;
+  opacity: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }
+  .heroheader-prevew-slider-all-wrap .animetion-prewrap img {
+    width: 13%; }
+  .heroheader-prevew-slider-all-wrap .animetion-prewrap.stretch-shrink-right {
+    height: 100%;
+    animation: stretchShrinkRight 4s ease-in-out; }
+@keyframes stretchShrinkRight {
+  0% {
+    width: 100%;
+    transform-origin: left;
+    transform: translateX(-100%);
+    opacity: 1; }
+  10% {
+    width: 100%;
+    transform-origin: left;
+    transform: translateX(0);
+    opacity: 1; }
+  90% {
+    width: 100%;
+    transform-origin: left;
+    transform: translateX(0);
+    opacity: 1; }
+  100% {
+    width: 100%;
+    transform-origin: right;
+    transform: translateX(100%);
+    opacity: 1; } }
+  .heroheader-prevew-slider-all-wrap .animetion-prewrap.stretch-shrink-curtain {
+    height: 100%;
+    animation: stretchShrinkCurtain 4s ease-in-out; }
+@keyframes stretchShrinkCurtain {
+  0% {
+    width: 100%;
+    height: 100%;
+    transform: translateY(-100%);
+    opacity: 1; }
+  10% {
+    width: 100%;
+    height: 100%;
+    transform: translateY(0);
+    opacity: 1; }
+  90% {
+    width: 100%;
+    height: 100%;
+    transform: translateY(0);
+    opacity: 1; }
+  100% {
+    width: 100%;
+    height: 100%;
+    transform: translateY(-100%);
+    opacity: 1; } }
+  .heroheader-prevew-slider-all-wrap .animetion-prewrap.expand-circle {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: expandCircle 4s ease-out; }
+@keyframes expandCircle {
+  0% {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+  90% {
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%; }
+  100% {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%; } }
+  .heroheader-prevew-slider-all-wrap .animetion-prewrap .loadwrap-rogo {
+    width: 100%;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 1.1em;
+    text-align: center; }
+    .heroheader-prevew-slider-all-wrap .animetion-prewrap .loadwrap-rogo.loading-opacity-cont {
+      animation: CircleTextAnime 4s ease-out; }
+@keyframes CircleTextAnime {
+  0% {
+    opacity: 1; }
+  70% {
+    opacity: 1; }
+  90% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+    .heroheader-prevew-slider-all-wrap .animetion-prewrap .loadwrap-rogo.popup-rogo {
+      animation: popUpRogoAnime 4s ease-out; }
+@keyframes popUpRogoAnime {
+  0% {
+    opacity: 0; }
+  10% {
+    opacity: 0; }
+  25% {
+    opacity: 1; }
+  75% {
+    opacity: 1; }
+  90% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+  .heroheader-prevew-slider-all-wrap .animetion-prewrap .loading-text {
+    width: 100%;
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #000;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Noto Serif JP', sans-serif;
+    letter-spacing: 1px; }
+    .heroheader-prevew-slider-all-wrap .animetion-prewrap .loading-text.loading-anime {
       animation: CircleTextAnimeconb 4s ease-out, loadingTextAnimationconb 2s ease-out infinite; }
 @keyframes CircleTextAnimeconb {
   0% {

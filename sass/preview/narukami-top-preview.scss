@@ -35,6 +35,7 @@
 	}
 	
 }
+
 //ヒーローヘッダー動画
 .heroheader-prevew-video-all-wrap{//全体wrap
 	position: relative;
@@ -86,7 +87,58 @@
 		}
 	}
 }
-
+//スライダー
+.heroheader-prevew-slider-all-wrap{//全体wrap
+	position: relative;
+	width: 100vw;
+    height: 100vh;
+	.heroheader-slider-wrap{//slider全体のwrap
+		position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+		.slick-prev.slick-arrow{
+			left: 15px;
+			z-index: 99;
+		}
+		.slick-next.slick-arrow{
+			right: 15px;
+		}
+		.slick-slide{
+			position: relative;
+			width: 100%;
+			height: 100vh;
+			img{
+				width: 100%;
+				height: 100%;
+    			object-fit: cover;
+    			display: block;
+			}
+			p{
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				width: 100%;
+				font-size: 2em;
+				font-weight: bold;
+				text-align: center;
+				//以下削除対象
+				color: #FFFFFF;
+				text-shadow: 1px 1px 1px 10px #000;
+			}
+			.back-shadow{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		}		
+	}
+	
+}
 //アニメーションプレビュースタイル（静止画）
 .heroheader-back-wrap{
 	.heroheader-rogo-wrap{
@@ -162,6 +214,79 @@
 //アニメーションプレビュースタイル（動画）
 .heroheader-video-back-wrap{
 	.heroheader-video-wrap{
+		&.bg-opacity-value{
+			@include bg-opacty-animation;
+		}
+	}
+	.animetion-prewrap{
+		position: absolute;
+    	top: 0;
+    	left: 0;
+    	height: 100%;
+		box-sizing: border-box;
+		width: 0;
+		opacity: 0;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		img{
+			width: 13%;
+		}
+		&.stretch-shrink-right {
+  			height: 100%;
+   			@include stretch-shrink-right-animation;
+  		}
+	    &.stretch-shrink-curtain {
+  			height: 100%;
+   			@include stretch-shrink-curtain-animation;
+  		}
+		&.expand-circle {
+  			width: 100%;
+  			height: 100%;
+  			position: absolute;
+  			top: 50%;
+  			left: 50%;
+  			transform: translate(-50%, -50%);
+  			@include expand-circle-animation;
+		}
+		.loadwrap-rogo{
+			width: 100%;
+			position: absolute;
+			top: 45%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			color: #FFFFFF;
+			font-weight: bold;
+			font-size: 1.1em;
+			text-align: center;
+			&.loading-opacity-cont{
+				@include circle-text-animation;
+			}
+			&.popup-rogo{
+				@include popup-rogo-animation;
+			}
+		}
+		.loading-text{
+			width: 100%;
+			position: absolute;
+			bottom: 3%;
+			left: 50%;
+			transform: translateX(-50%);
+			color: #000;
+			text-align: center;
+			font-weight: bold;
+			font-family: 'Noto Serif JP', sans-serif;
+			letter-spacing: 1px;
+			&.loading-anime{
+				@include combined-text-animation;
+			}
+		}
+	}
+}
+
+//アニメーションプレビュースタイル（スライダー）
+.heroheader-prevew-slider-all-wrap{
+	.heroheader-slider-wrap{
 		&.bg-opacity-value{
 			@include bg-opacty-animation;
 		}

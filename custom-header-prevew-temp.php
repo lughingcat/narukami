@@ -17,6 +17,8 @@
 			include(get_template_directory() . '/front-inc-header/inc-HH-still-img-part.php');
 		}elseif($headerformData['heorheader-type'] === 'move'){
 			include(get_template_directory() . '/front-inc-header/inc-HH-move-part.php');
+		}elseif($headerformData['heorheader-type'] === 'slider'){
+			include(get_template_directory() . '/front-inc-header/inc-HH-slider-part.php');
 		}
 	}
     ?>
