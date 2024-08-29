@@ -1,24 +1,36 @@
 <?php
-//静止画変数
-$i_heroheader_stillImg = sanitize_option_value($_POST['hh-still-img']);
-$i_heroheader_stillTitle = sanitize_option_value($_POST['hh-still-title']);
-$i_hh_still_title_color = sanitize_option_value($_POST['hh-titleTextColor']);
-$i_hh_still_shadow_color = sanitize_option_value($_POST['hh-titleShadowColor']);
+//動画変数
+$i_heroheader_video= sanitize_option_value($_POST['hh-move']);
+$i_heroheader_video_title = sanitize_option_value($_POST['hh-move-title']);
+$i_heroheader_video_textColor = sanitize_option_value($_POST['hh-moveTitleColor']);
+$i_heroheader_video_textShadow = sanitize_option_value($_POST['hh-moveTitleShadowColor']);
+$i_heroheader_video_backShadow = sanitize_option_value($_POST['hh-moveFrontWrap']);
 $animetion_type = sanitize_option_value($_POST['ladinganime-type']);
 $i_open_bgimgurl = sanitize_option_value($_POST['open-bg-img-url']);
 $i_open_rogoimgurl = sanitize_option_value($_POST['open-rogo-img-url']);
 $i_loadingtext_color = sanitize_option_value($_POST['loadingtext-color']);
+	if($i_heroheader_video_backShadow === "backshadow-on"){
+		$back_shadow_value = "";
+	}else{
+		$back_shadow_value = "none";
+	}
 ?>
-<div class="heroheader-prevew-all-wrap">
-	<div class="heroheader-back-wrap">
-		<div class="heroheader-rogo-wrap"
-			 style="background-image: url('<?php echo $i_heroheader_stillImg; ?>');">
-				<div class="heroheader-title-wrap">
-					<p class="heroheader-title" 
-					   style="color: <?php echo $i_hh_still_title_color; ?>; text-shadow: 1px 1px 10px <?php echo $i_hh_still_shadow_color; ?>;">
-						<?php echo $i_heroheader_stillTitle; ?>
-					</p>
-				</div>
+<div class="heroheader-prevew-video-all-wrap">
+	<div class="heroheader-video-back-wrap">
+		<div class="heroheader-video-wrap">
+			<video autoplay loop muted playsinline>
+            	<source src="<?php echo $i_heroheader_video; ?>" type="video/mp4">
+			    Your browser does not support the video tag.
+        	</video>
+		</div>
+		<div class="heroheader-overlay"
+			 style="display: <?php echo $back_shadow_value; ?>;">
+		</div>
+		<div class="heroheader-video-title-wrap">
+			<p class="heroheader-video-title" 
+			   style="color: <?php echo $i_heroheader_video_textColor; ?>; text-shadow: 1px 1px 10px <?php echo $i_heroheader_video_textShadow; ?>;">
+			   <?php echo $i_heroheader_video_title; ?>
+			</p>
 		</div>
 		<div class="animetion-prewrap" style="background-image: url('<?php echo $i_open_bgimgurl; ?>');">
 			<p class="loadwrap-rogo">
@@ -26,9 +38,8 @@ $i_loadingtext_color = sanitize_option_value($_POST['loadingtext-color']);
 			</p>
 			<p class="loading-text" style="color: <?php echo $i_loadingtext_color; ?>;">Loding...</p>
 		</div>
-	</div><!--heroheader-back-wrap-end-->
-</div><!--heroheader-prevew-all-wrap-end-->
-
+	</div><!--heroheader-video-back-wrap-end-->
+</div><!--heroheader-prevew-video-all-wrap-end-->
 <script>
 document.addEventListener('DOMContentLoaded', function(){
 	var overWrapElement = document.querySelector('.animetion-prewrap');
@@ -45,12 +56,12 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 //bg透明度コントロール
 function bgPreviewOpacty(){
-	var bgContainer = document.querySelector('.heroheader-rogo-wrap');
+	var bgContainer = document.querySelector('.heroheader-video-wrap');
 	bgContainer.classList.add('bg-opacity-value');
 }
 //bgタイトルホップアップ
 function bgTitleHopup(){
-	var bgTitle = document.querySelector('.heroheader-title');
+	var bgTitle = document.querySelector('.heroheader-video-title');
 	bgTitle.classList.add('hopup-animation');
 }
 //loading...アニメーション制御

@@ -238,6 +238,7 @@ function enqueue_narukami_top_preview_assets() {
         // CSSファイルをエンキュー
         wp_enqueue_style('narukami-top-preview', get_template_directory_uri() . '/sass/preview/narukami-top-preview.css');
 		wp_enqueue_script('narukami-top-js-preview', get_template_directory_uri() . '/front-js/preview/narukami-top-preview.js', array('jquery'), null, true);
+		wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css?family=Noto+Serif+JP', array(), null);
     }
 }
 // wp_enqueue_scripts アクションにフック

@@ -23,7 +23,407 @@
           font-weight: bold;
           font-size: 2em;
           letter-spacing: 6px; }
-
+          .heroheader-prevew-all-wrap .heroheader-back-wrap .heroheader-rogo-wrap .heroheader-title-wrap .heroheader-title.hopup-animation {
+            animation: floatUp 4.4s ease-out; }
+@keyframes floatUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0; }
+  90% {
+    transform: translateY(50%);
+    opacity: 0; }
+  100% {
+    transform: translateY(0);
+    opacity: 1; } }
+.heroheader-prevew-video-all-wrap {
+  position: relative; }
+  .heroheader-prevew-video-all-wrap .heroheader-video-back-wrap {
+    position: relative;
+    width: 100vw;
+    height: 100vh; }
+    .heroheader-prevew-video-all-wrap .heroheader-video-back-wrap .heroheader-video-wrap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden; }
+      .heroheader-prevew-video-all-wrap .heroheader-video-back-wrap .heroheader-video-wrap video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* 全体を表示する */
+        position: absolute;
+        top: 0;
+        left: 0; }
+    .heroheader-prevew-video-all-wrap .heroheader-video-back-wrap .heroheader-overlay {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.5);
+      /* 黒いオーバーレイ、透明度50% */
+      pointer-events: none;
+      /* オーバーレイをクリックしてもイベントが発生しないようにする */ }
+    .heroheader-prevew-video-all-wrap .heroheader-video-back-wrap .heroheader-video-title-wrap {
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 1% 3%;
+      text-align: center; }
+      .heroheader-prevew-video-all-wrap .heroheader-video-back-wrap .heroheader-video-title-wrap .heroheader-video-title {
+        font-weight: bold;
+        font-size: 2em;
+        letter-spacing: 6px; }
+        .heroheader-prevew-video-all-wrap .heroheader-video-back-wrap .heroheader-video-title-wrap .heroheader-video-title.hopup-animation {
+          animation: floatUp 4.4s ease-out; }
+@keyframes floatUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0; }
+  90% {
+    transform: translateY(50%);
+    opacity: 0; }
+  100% {
+    transform: translateY(0);
+    opacity: 1; } }
+.heroheader-back-wrap .heroheader-rogo-wrap.bg-opacity-value {
+  animation: bgOpacityAnime 4.3s ease-out; }
+@keyframes bgOpacityAnime {
+  0% {
+    opacity: 0; }
+  90% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+.heroheader-back-wrap .animetion-prewrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  box-sizing: border-box;
+  width: 0;
+  opacity: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }
+  .heroheader-back-wrap .animetion-prewrap img {
+    width: 13%; }
+  .heroheader-back-wrap .animetion-prewrap.stretch-shrink-right {
+    height: 100%;
+    animation: stretchShrinkRight 4s ease-in-out; }
+@keyframes stretchShrinkRight {
+  0% {
+    width: 100%;
+    transform-origin: left;
+    transform: translateX(-100%);
+    opacity: 1; }
+  10% {
+    width: 100%;
+    transform-origin: left;
+    transform: translateX(0);
+    opacity: 1; }
+  90% {
+    width: 100%;
+    transform-origin: left;
+    transform: translateX(0);
+    opacity: 1; }
+  100% {
+    width: 100%;
+    transform-origin: right;
+    transform: translateX(100%);
+    opacity: 1; } }
+  .heroheader-back-wrap .animetion-prewrap.stretch-shrink-curtain {
+    height: 100%;
+    animation: stretchShrinkCurtain 4s ease-in-out; }
+@keyframes stretchShrinkCurtain {
+  0% {
+    width: 100%;
+    height: 100%;
+    transform: translateY(-100%);
+    opacity: 1; }
+  10% {
+    width: 100%;
+    height: 100%;
+    transform: translateY(0);
+    opacity: 1; }
+  90% {
+    width: 100%;
+    height: 100%;
+    transform: translateY(0);
+    opacity: 1; }
+  100% {
+    width: 100%;
+    height: 100%;
+    transform: translateY(-100%);
+    opacity: 1; } }
+  .heroheader-back-wrap .animetion-prewrap.expand-circle {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: expandCircle 4s ease-out; }
+@keyframes expandCircle {
+  0% {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+  90% {
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%; }
+  100% {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%; } }
+  .heroheader-back-wrap .animetion-prewrap .loadwrap-rogo {
+    width: 100%;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 1.1em;
+    text-align: center; }
+    .heroheader-back-wrap .animetion-prewrap .loadwrap-rogo.loading-opacity-cont {
+      animation: CircleTextAnime 4s ease-out; }
+@keyframes CircleTextAnime {
+  0% {
+    opacity: 1; }
+  70% {
+    opacity: 1; }
+  90% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+    .heroheader-back-wrap .animetion-prewrap .loadwrap-rogo.popup-rogo {
+      animation: popUpRogoAnime 4s ease-out; }
+@keyframes popUpRogoAnime {
+  0% {
+    opacity: 0; }
+  10% {
+    opacity: 0; }
+  25% {
+    opacity: 1; }
+  75% {
+    opacity: 1; }
+  90% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+  .heroheader-back-wrap .animetion-prewrap .loading-text {
+    width: 100%;
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #000;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Noto Serif JP', sans-serif;
+    letter-spacing: 1px; }
+    .heroheader-back-wrap .animetion-prewrap .loading-text.loading-anime {
+      animation: CircleTextAnimeconb 4s ease-out, loadingTextAnimationconb 2s ease-out infinite; }
+@keyframes CircleTextAnimeconb {
+  0% {
+    opacity: 0; }
+  10% {
+    opacity: 1; }
+  80% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+@keyframes loadingTextAnimationconb {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+.heroheader-video-back-wrap .heroheader-video-wrap.bg-opacity-value {
+  animation: bgOpacityAnime 4.3s ease-out; }
+@keyframes bgOpacityAnime {
+  0% {
+    opacity: 0; }
+  90% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+.heroheader-video-back-wrap .animetion-prewrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  box-sizing: border-box;
+  width: 0;
+  opacity: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }
+  .heroheader-video-back-wrap .animetion-prewrap img {
+    width: 13%; }
+  .heroheader-video-back-wrap .animetion-prewrap.stretch-shrink-right {
+    height: 100%;
+    animation: stretchShrinkRight 4s ease-in-out; }
+@keyframes stretchShrinkRight {
+  0% {
+    width: 100%;
+    transform-origin: left;
+    transform: translateX(-100%);
+    opacity: 1; }
+  10% {
+    width: 100%;
+    transform-origin: left;
+    transform: translateX(0);
+    opacity: 1; }
+  90% {
+    width: 100%;
+    transform-origin: left;
+    transform: translateX(0);
+    opacity: 1; }
+  100% {
+    width: 100%;
+    transform-origin: right;
+    transform: translateX(100%);
+    opacity: 1; } }
+  .heroheader-video-back-wrap .animetion-prewrap.stretch-shrink-curtain {
+    height: 100%;
+    animation: stretchShrinkCurtain 4s ease-in-out; }
+@keyframes stretchShrinkCurtain {
+  0% {
+    width: 100%;
+    height: 100%;
+    transform: translateY(-100%);
+    opacity: 1; }
+  10% {
+    width: 100%;
+    height: 100%;
+    transform: translateY(0);
+    opacity: 1; }
+  90% {
+    width: 100%;
+    height: 100%;
+    transform: translateY(0);
+    opacity: 1; }
+  100% {
+    width: 100%;
+    height: 100%;
+    transform: translateY(-100%);
+    opacity: 1; } }
+  .heroheader-video-back-wrap .animetion-prewrap.expand-circle {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: expandCircle 4s ease-out; }
+@keyframes expandCircle {
+  0% {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+  90% {
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%; }
+  100% {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%; } }
+  .heroheader-video-back-wrap .animetion-prewrap .loadwrap-rogo {
+    width: 100%;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 1.1em;
+    text-align: center; }
+    .heroheader-video-back-wrap .animetion-prewrap .loadwrap-rogo.loading-opacity-cont {
+      animation: CircleTextAnime 4s ease-out; }
+@keyframes CircleTextAnime {
+  0% {
+    opacity: 1; }
+  70% {
+    opacity: 1; }
+  90% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+    .heroheader-video-back-wrap .animetion-prewrap .loadwrap-rogo.popup-rogo {
+      animation: popUpRogoAnime 4s ease-out; }
+@keyframes popUpRogoAnime {
+  0% {
+    opacity: 0; }
+  10% {
+    opacity: 0; }
+  25% {
+    opacity: 1; }
+  75% {
+    opacity: 1; }
+  90% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+  .heroheader-video-back-wrap .animetion-prewrap .loading-text {
+    width: 100%;
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #000;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Noto Serif JP', sans-serif;
+    letter-spacing: 1px; }
+    .heroheader-video-back-wrap .animetion-prewrap .loading-text.loading-anime {
+      animation: CircleTextAnimeconb 4s ease-out, loadingTextAnimationconb 2s ease-out infinite; }
+@keyframes CircleTextAnimeconb {
+  0% {
+    opacity: 0; }
+  10% {
+    opacity: 1; }
+  80% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+@keyframes loadingTextAnimationconb {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 .header-back-wrap {
   text-align: center;
   padding: 1% 0;

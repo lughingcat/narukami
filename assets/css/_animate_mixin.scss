@@ -4,6 +4,7 @@ $circle-duration: 4s;
 $loading-duration: 2s;
 $popup-rogo-duration: 4s;
 $bg-duration: 4.3s;
+$float-text: 4.4s;
 $stretch-easing: ease-in-out;
 $circle-easing: ease-out;
 
@@ -207,5 +208,23 @@ $circle-easing: ease-out;
     }
   }
 	animation: popUpRogoAnime $popup-rogo-duration $circle-easing;
+}
+
+@mixin float-text-animation{
+	@keyframes floatUp {
+  	0% {
+    	transform: translateY(100%);
+  	  	opacity: 0;
+  	}
+	90%{
+		transform: translateY(50%);
+  	  	opacity: 0;	
+	}
+  	100% {
+    	transform: translateY(0);
+    	opacity: 1;
+  	}
+	}
+	animation: floatUp $float-text $circle-easing;
 }
 
