@@ -1,14 +1,13 @@
 <?php
-$i_site_rogo_img_url = esc_url(get_option('header-rogo-url'));
-$i_site_title_value = sanitize_text_field(get_option('header-tite'));
-$i_site_discription_value = wp_kses_post(get_option('header-discription'));
-$i_header_display_setting = sanitize_text_field(get_option('header-disp-set'));
-$i_header_rogo_setting = sanitize_text_field(get_option('header-rogo-set'));
-$i_header_stitle_setting = sanitize_text_field(get_option('header-stitle-set'));
-$i_header_sdisc_setting = sanitize_option_value($_POST['header-display-sitedisc']);//サニタイズ変更済み
-$i_header_bgcolor = sanitize_text_field(get_option('header-bg-color'));
-$i_header_sort_setting = sanitize_text_field(get_option('header-sort-set'));
-$i_header_textcolor_setting = sanitize_text_field(get_option('header-text-color'));
+$i_site_rogo_img_url = sanitize_option_value($_POST['site-rogo-img-url']);
+$i_site_title_value = sanitize_option_value($_POST['header_site_title']);
+$i_site_discription_value = sanitize_option_value($_POST['header_site_discription']);
+$i_header_display_setting = sanitize_option_value($_POST['header-display-setting']);
+$i_header_rogo_setting = sanitize_option_value($_POST['header-display-rogo']);
+$i_header_stitle_setting = sanitize_option_value($_POST['header-display-sitetitle']);
+$i_header_sdisc_setting = sanitize_option_value($_POST['header-display-sitedisc']);
+$i_header_bgcolor = sanitize_option_value($_POST['header-bg-color']);
+$i_header_textcolor_setting = sanitize_option_value($_POST['header-text-color']);
 ?>
 <?php
 //ヘッダー表示切り替え
@@ -44,9 +43,10 @@ if($i_header_bgcolor === ''){
 <div class="header-back-wrap"
 	 style="background-color: <?php echo $i_header_bgcolor; ?>; display: <?php echo $disp_switch; ?>;">
 	<div class="header-flex-setting">
-		<div class="header-rogo-wrap"
-			 style="display: <?php echo $disp_img_switch; ?>;">
-			<img src="<?php echo $i_site_rogo_img_url; ?>">
+		<div class="header-rogo-wrap" style="display: <?php echo $disp_img_switch; ?>;">
+    		<a href="<?php echo home_url(); ?>">
+        		<img src="<?php echo $i_site_rogo_img_url; ?>" alt="Site Logo">
+    		</a>
 		</div>
 		<div class="header-title-wrap">
 			<p class="header-site-title" 
