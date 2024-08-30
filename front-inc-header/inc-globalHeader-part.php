@@ -7,6 +7,7 @@ $i_humberger_btn_bg = sanitize_option_value($_POST['humberger-btn-bg']);
 $i_humberger_arrowcolor = sanitize_option_value($_POST['humberger-arrowcolor']);
 $i_global_textunderlinecolor = sanitize_option_value($_POST['global-textunderlinecolor']);
 $i_global_text_menucolor = sanitize_option_value($_POST['global-text-menucolor']);
+$animetion_type = sanitize_option_value($_POST['ladinganime-type']);
 // 連想配列を作成
 $global_items_Array = array();
 			
@@ -66,7 +67,6 @@ if (is_array($i_global_title_array)) {
 //グローバルメニュー動作制御
 document.addEventListener('DOMContentLoaded', function() {
   var globalmenuToggle = document.querySelector('.span-wrap');
-	console.log('ロード完了')
   if(globalmenuToggle){
   		globalmenuToggle.addEventListener('click', function() {
 			console.log('クリック完了')
@@ -92,5 +92,18 @@ document.addEventListener('scroll', function() {
     element.style.transform = 'translateX(0)';
   }, 500); // 500ms後に戻す
 });
-
+//出現アニメーション
+document.addEventListener('DOMContentLoaded', function(){
+	var gmAnimationStyle = '<?php echo $animetion_type; ?>';
+	if(gmAnimationStyle === 'loading-anime-not-use'){
+		
+	}else{
+		gmBgPreviewOpacty();
+	}
+});
+//bg透明度コントロール
+function gmBgPreviewOpacty(){
+	var gmBgContainer = document.querySelector('.globalmenu-content-all-wrap');
+	gmBgContainer.classList.add('bg-opacity-value');
+}
 </script>

@@ -8,6 +8,7 @@ $i_header_stitle_setting = sanitize_option_value($_POST['header-display-sitetitl
 $i_header_sdisc_setting = sanitize_option_value($_POST['header-display-sitedisc']);
 $i_header_bgcolor = sanitize_option_value($_POST['header-bg-color']);
 $i_header_textcolor_setting = sanitize_option_value($_POST['header-text-color']);
+$animetion_type = sanitize_option_value($_POST['ladinganime-type']);
 ?>
 <?php
 //ヘッダー表示切り替え
@@ -56,3 +57,19 @@ if($i_header_bgcolor === ''){
 		</div>
 	</div>
 </div>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+	var headerAnimationStyle = '<?php echo $animetion_type; ?>';
+	if(headerAnimationStyle === 'loading-anime-not-use'){
+		
+	}else{
+		headerBgPreviewOpacty();
+	}
+});
+//bg透明度コントロール
+function headerBgPreviewOpacty(){
+	var headerBgContainer = document.querySelector('.header-back-wrap');
+	console.log(headerBgContainer)
+	headerBgContainer.classList.add('bg-opacity-value');
+}
+</script>
