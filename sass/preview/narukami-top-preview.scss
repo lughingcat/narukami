@@ -3,28 +3,31 @@
 
 //グローバルメニュープレビュースタイル
 .globalmenu-content-all-wrap{
-	position: relative;
+	position: fixed;
+	top: 0;
+	left: 0;
 	overflow: hidden;
 	width: 100%;
-	height: 300px;
+	height: 100%;
 	display: flex;
 	.humberger-button-wrap{//humbergerBtnWrap
 		width: 45px;
 		height: 45px;
 		position: absolute;
-		top: 5%;
+		top: 10%;
 		left: 2%;
 		z-index: 999;
 		display: inline-block;
 		cursor: pointer;
 		transition: 0.4s;
 		border-radius: 3px;
+		transition: transform 0.2s ease-out;//左に飛ばすアニメーション
 		&.wrap-change{
 			border-radius: 50%;
 			width: 35px;
 			height: 35px;
-			top: 2%;
-			left: 1%;
+			top: 10%;
+			left: 2%;
 		}
 		.span-wrap{
 			width: 80%;
@@ -39,6 +42,8 @@
 				transition: 0.4s;
 				opacity: 1;
 				transition: opacity 0.4s;
+				position: absolute;
+				left: -13%;
 					&.opacity-change{
 						opacity: 0;
 					}
@@ -84,21 +89,27 @@
   			opacity: 1; // 表示
 		}
 		.globalmenu-flex-setting{//slide wrap
-			width: 100%;
+			width: 80%;
 			height: 100%;
 			position: relative;
-			margin: 0;
+			margin: 0 auto;
 			.globalmenu-title-wrap{//ul
 				width: 100%;
 				height: 100%;
 				text-align: center;
 				position: relative;
 				overflow: scroll;
+				margin: 0 auto;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
 				li{
-					width: 90%;
-					margin: 0 auto;
+					width: 80%;
 					padding: 16px;
 					transition: 0.2s;
+					list-style: none;
+					margin: 3% auto;
 					a{
 						text-decoration: none;
 					}

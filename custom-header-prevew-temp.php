@@ -24,6 +24,7 @@
 		include(get_template_directory() . '/front-inc-header/inc-globalHeader-part.php');
 	}
     ?>
+	<div style="height: 2000px; background-color: black;"></div>
     <?php wp_footer(); ?>
 </body>
 </html>

@@ -62,3 +62,35 @@ if (is_array($i_global_title_array)) {
 		</div>
 	</div><!--globalmenu-back-wrap-end-->
 </div><!--globalmenu-content-all-wrap-end-->
+<script>
+//グローバルメニュー動作制御
+document.addEventListener('DOMContentLoaded', function() {
+  var globalmenuToggle = document.querySelector('.span-wrap');
+	console.log('ロード完了')
+  if(globalmenuToggle){
+  		globalmenuToggle.addEventListener('click', function() {
+			console.log('クリック完了')
+    		globalmenuToggle.classList.toggle('global-open');
+			document.querySelector('.humberger-button-wrap').classList.toggle('wrap-change');
+			document.querySelector('.globalmenu-back-wrap').classList.toggle('slide-change');
+			document.querySelector('.span-text').classList.toggle('opacity-change');
+  		});
+  }
+});
+//スクロール中ハンバーガーメニューを左に飛ばす
+document.addEventListener('scroll', function() {
+  const element = document.querySelector('.humberger-button-wrap');
+  
+  // 要素が左に飛んでいく距離を決める（例: 100px）
+  const distance = 100;
+
+  // スクロール量に応じて要素を左に移動させる
+  element.style.transform = `translateX(-${distance}px)`;
+  
+  // 一定時間後に元の位置に戻す
+  setTimeout(() => {
+    element.style.transform = 'translateX(0)';
+  }, 500); // 500ms後に戻す
+});
+
+</script>
