@@ -20,6 +20,7 @@
 		}elseif($headerformData['heorheader-type'] === 'slider'){
 			include(get_template_directory() . '/front-inc-header/inc-HH-slider-part.php');
 		}
+		include(get_template_directory() . '/front-inc-header/inc-globalHeader-part.php');
 	}
     ?>
     <?php wp_footer(); ?>
