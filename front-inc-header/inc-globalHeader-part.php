@@ -69,11 +69,16 @@ document.addEventListener('DOMContentLoaded', function() {
   var globalmenuToggle = document.querySelector('.span-wrap');
   if(globalmenuToggle){
   		globalmenuToggle.addEventListener('click', function() {
-			console.log('クリック完了')
     		globalmenuToggle.classList.toggle('global-open');
 			document.querySelector('.humberger-button-wrap').classList.toggle('wrap-change');
 			document.querySelector('.globalmenu-back-wrap').classList.toggle('slide-change');
 			document.querySelector('.span-text').classList.toggle('opacity-change');
+			var scrollSwitchItem = document.querySelector('.slide-change')
+			if(scrollSwitchItem){
+				document.body.style.overflow = 'hidden';
+			}else{
+				document.body.style.overflow = '';
+			}
   		});
   }
 });

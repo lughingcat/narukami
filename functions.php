@@ -230,7 +230,7 @@ function my_custom_editor_enqueue() {
 add_action('admin_enqueue_scripts', 'my_custom_editor_enqueue');
 
 /**
- * フロントサイトのcss,js,エンキュー
+ * プレビューページのcss,js,エンキュー
  */
 function enqueue_narukami_top_preview_assets() {
     // プレビュー表示中かどうかをチェック

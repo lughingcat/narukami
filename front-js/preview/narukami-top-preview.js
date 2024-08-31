@@ -152,3 +152,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
         observers.observe(container);
     });
 });
+
+//bodyのスクロールコントロール
+document.addEventListener('DOMContentLoaded',function(){
+	var animationEl = document.querySelector('.bg-opacity-value');
+	if(animationEl){
+		document.body.style.overflow = 'hidden';
+		animationEl.addEventListener('animationend',function(){
+			document.body.style.overflow = '';
+		});
+	}
+});
