@@ -9,7 +9,6 @@
 				  'add_custom_menu_page', 
 				  'dashicons-admin-generic',
 				  4);
-	add_action('admin_init', 'register_custom_setting');
   }
   function add_custom_menu_page()
   {
@@ -58,10 +57,10 @@ function add_custom_submenu_page()
 					 'custom_submenu_page_4', 
 					 'add_custom_menu_page_4',
 					 4);
-	//サブフッダー設定
+	//鳴雷サブフッダー設定
 	add_submenu_page('custom_menu_page', 
-					 'サブフッター設定', 
-					 'サブフッター設定', 
+					 '鳴雷サブフッター設定', 
+					 '鳴雷サブフッター設定', 
 					 'manage_options', 
 					 'custom_submenu_page_5', 
 					 'add_custom_menu_page_5',
@@ -128,26 +127,12 @@ function add_custom_menu_page_5()
 {
     ?>
 <div class="wrap">
-    <h2>サブフッター設定</h2>
+    <h2>鳴雷サブフッター設定</h2>
 <?php include('narukami-subfooter/subfooter_adm.php'); ?>
 </div>
 
 <?php
 }
-function register_custom_setting()
-{
-//サブフッターの表示、非表示をoptions.phpに登録
-	register_setting('custom-menu-group', 'subfSwich');
-//サブフッターの入力項目をoptions.phpに登録
-    register_setting('custom-menu-group', 'sub_footer_text');
-    register_setting('custom-menu-group', 'sub_footer_url');
-    
-//サブフッターでのカラーピッカー選択色をoptions.phpに登録
-    register_setting('custom-menu-group', 'bgcolor');
-    register_setting('custom-menu-group', 'textcolor');
-}
-
-
 
 //フッター設定
 function add_custom_menu_page_6()

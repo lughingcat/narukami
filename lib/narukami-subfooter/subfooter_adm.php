@@ -5,7 +5,7 @@
 
 	<div class="metabox-holder">
     	<div class="postbox bg">
-        	<h4>サブフッター設定</h4>
+        	<h3 class='hndle'><span class="title">サブフッター[NarukamiSubfooterSetting]</span></h3>
         	<div class="inside">
 			<?php
 			$subfooter_bg_color = sanitize_option_value(get_option('subfooter-bg-color'));
