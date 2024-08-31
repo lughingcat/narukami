@@ -11,6 +11,7 @@
 	height: 100%;
 	display: flex;
 	z-index: 100;
+	pointer-events: none;
 	&.bg-opacity-value{
 			@include bg-opacty-animation;
 		}
@@ -26,6 +27,7 @@
 		transition: 0.4s;
 		border-radius: 3px;
 		transition: transform 0.2s ease-out;//左に飛ばすアニメーション
+		pointer-events: auto;
 		&.wrap-change{
 			border-radius: 50%;
 			width: 35px;

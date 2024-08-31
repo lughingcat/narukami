@@ -16,7 +16,7 @@
 				 	<button class="tablinks" onclick="openTab(this, 'header-tab4')">サイトアニメーション設定</button>
 				</div>
 				<form id="narukami-header-form" method="post" name="narukami-header-form" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
-					<input type="hidden" name="action" value="update_custom_option" /><!--アクション名(フック用)-->
+					<input type="hidden" name="action" value="update_custom_option" /><!--post_nonce_check.phpへ送信(ヘッダー用)-->
 					<div class="tab-content-wrap">
 						<div id="header-tab1" class="tabcontent" style="display: none;">
 					  		<h3>ヘッダープレビュー</h3>

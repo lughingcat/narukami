@@ -99,4 +99,26 @@ function update_custom_option() {
     }
 }
 add_action('admin_post_update_custom_option', 'update_custom_option');
+
+//サブフッター設定
+function update_custom_option_subfooter() {
+    if (isset($_POST['subfooter-bg-color'])) {
+        // ノンスのチェック
+        if (!isset($_POST['update_subfooter_nonce']) || !wp_verify_nonce($_POST['update_subfooter_nonce'], 'update_subfooter_action')) {
+            die('不正なリクエストです。');
+        }
+		
+        //update_option サブフッター
+		
+        $subfooter_bgcolor = sanitize_option_value($_POST['subfooter-bg-color']);
+        $subfooter_textcolor = sanitize_option_value($_POST['subfooter-textcolor']);
+        update_option('subfooter-bg-color', $subfooter_bgcolor);
+        update_option('subfooter-textcolor', $subfooter_textcolor);
+		
+		
+        wp_redirect(add_query_arg('updated_subfooter', 'true', wp_get_referer()));
+        exit;
+    }
+}
+add_action('admin_post_update_custom_option_subfooter', 'update_custom_option_subfooter');
 ?>
