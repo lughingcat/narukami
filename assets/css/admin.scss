@@ -2809,7 +2809,29 @@
 /*#################################
 	subooterスタイル
 #################################*/
-
+.subfooter-preview-all-wrap{//back wrap
+	width: 100%;
+	height: 50px;
+	box-shadow: 4px 8px 25px -9px #777777;
+	margin: 5% auto;
+	.subfooter-wrap{
+		position: relative;
+		width: 100%;
+		.subfooter-ul-wrap{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			li{
+				margin: 16px auto;
+				list-style: none;
+				a{
+					text-decoration: none;
+				}
+			}
+		}
+	}
+	
+}
 
 
 

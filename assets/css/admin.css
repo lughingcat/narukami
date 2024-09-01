@@ -2425,6 +2425,24 @@
 /*#################################
 	subooterスタイル
 #################################*/
+.subfooter-preview-all-wrap {
+  width: 100%;
+  height: 50px;
+  box-shadow: 4px 8px 25px -9px #777777;
+  margin: 5% auto; }
+  .subfooter-preview-all-wrap .subfooter-wrap {
+    position: relative;
+    width: 100%; }
+    .subfooter-preview-all-wrap .subfooter-wrap .subfooter-ul-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .subfooter-preview-all-wrap .subfooter-wrap .subfooter-ul-wrap li {
+        margin: 16px auto;
+        list-style: none; }
+        .subfooter-preview-all-wrap .subfooter-wrap .subfooter-ul-wrap li a {
+          text-decoration: none; }
+
 /*#################################
 	subooterスタイル--END--
 #################################*/

@@ -110,8 +110,14 @@ function update_custom_option_subfooter() {
 		
         //update_option サブフッター
 		
+        $subfooter_use_notuse = sanitize_option_value($_POST['subfooter-use-notuse']);
+        $subfooter_item_title = sanitize_option_value($_POST['subfooter_item_title']);
+        $subfooter_item_link = sanitize_option_value($_POST['subfooter_item_link']);
         $subfooter_bgcolor = sanitize_option_value($_POST['subfooter-bg-color']);
         $subfooter_textcolor = sanitize_option_value($_POST['subfooter-textcolor']);
+        update_option('subfooter-use-notuse', $subfooter_use_notuse);
+        update_option('subfooter_item_title', $subfooter_item_title);
+        update_option('subfooter_item_link', $subfooter_item_link);
         update_option('subfooter-bg-color', $subfooter_bgcolor);
         update_option('subfooter-textcolor', $subfooter_textcolor);
 		
