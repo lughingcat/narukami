@@ -81,7 +81,7 @@
 				  		genelate_color_picker_tag_demo(
                     	'subfooter-bg-color', 
 						$subfooter_bg_color, 
-						'サブフッターの背景色を選択してください。'
+						'サブフッターの背景色を選択してください。(クリアで透過)'
                   		);
                   		?>
 					</div>
@@ -118,8 +118,10 @@
 			?>
 		</div>
 			</div><!--inputForm end-->
+			<div class="control-setting-btn">
 				<button id="subfooter-add-btn" type="button" class="reproduction-btn">フォームを追加する</button>
-				<button type="submit">保存する</button>
+				<button class="top-page-maker-save-btn" type="submit">保存する</button>
+			</div>
 				<?php wp_nonce_field('update_subfooter_action', 'update_subfooter_nonce'); ?>
 			</form>
           </div><!--inside end-->
