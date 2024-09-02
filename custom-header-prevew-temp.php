@@ -23,7 +23,16 @@
 		}
 		include(get_template_directory() . '/front-inc-header/inc-globalHeader-part.php');
 	}
+	$i_subfooter_use_notuse = sanitize_option_value(get_option('subfooter-use-notuse'));
+	if(isset($i_subfooter_use_notuse)){
+		if($i_subfooter_use_notuse === "subfooter-use"){
+			include(get_template_directory() . '/lib/narukami-subfooter/subfooter.php');
+		}else{
+			
+		}
+	}
     ?>
+	<div style="height: 2000px; background-color: black;"></div>
     <?php wp_footer(); ?>
 </body>
 </html>

@@ -1,6 +1,33 @@
 //全体設定
 @import '../../assets/css/animate_mixin';
 
+//サブフッタースタイル
+.subfooter-preview-all-wrap{//back wrap
+	width: 100%;
+	height: 50px;
+	margin: 0 auto;
+	position: fixed;
+	bottom: 0;
+	transition: transform 0.2s ease-out;//下に飛ばすアニメーション
+	.subfooter-wrap{
+		position: relative;
+		width: 100%;
+		.subfooter-ul-wrap{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			li{
+				margin: 16px auto;
+				list-style: none;
+				a{
+					text-decoration: none;
+				}
+			}
+		}
+	}
+	
+}
+
 //グローバルメニュープレビュースタイル
 .globalmenu-content-all-wrap{
 	position: fixed;
