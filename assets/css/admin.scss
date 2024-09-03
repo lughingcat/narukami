@@ -2839,6 +2839,63 @@
 /*#################################
 	フッタースタイル
 #################################*/
-
+.footer-all-wrap{//全体wrap
+	
+	.footer-back-wrap{//flex wrap
+		width: 100%;
+		padding: 2%;
+		position: relative;
+		display: flex;
+		.footer-left-wrap{//left wrap
+			width: 50%;
+			.footer-rogo-wrap{//rogo wrap
+				text-align: center;
+				img{
+					width: 100px;
+				}
+			}
+			.footer-sns-wrap{
+				text-align: center;
+				font-size: 1.5em;
+				.fa-brands.fa-square-x-twitter{//twitter
+				
+				}
+				.fa-brands.fa-square-facebook{//facebook
+					color: #3b5598;
+				}
+				.fa-brands.fa-square-instagram{//instagram
+					
+				}
+				.fa-brands.fa-youtube{//youtube
+					
+				}
+				.fa-brands.fa-line{//line
+					
+				}
+				.follow-text{//follow text
+					
+				}
+			}
+			
+		}
+		.footer-right-wrap{//right wrap
+			width: 100%;
+			.footer-link-wrap{
+				.footer-right-title{//title
+					
+				}
+				.subfooter-ul-wrap{//ul
+					li{
+						a{
+							
+						}
+					}
+					
+				}
+			}
+		}
+	}
+	
+}
 
 

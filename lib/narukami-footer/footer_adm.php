@@ -46,15 +46,13 @@
 						<div class="footer-left-wrap">
 							<div class="footer-rogo-wrap">
 								<img src="https://nousondiner.com/wp-content/uploads/2022/03/rogomainver.5.0.0-2.png" alt="ROGO">
-								<p class="footer-title">サイト名</p>
-								<p class="footer-subtitle">サブタイトル</p>
 							</div>
 							<div class="footer-sns-wrap">
 								<i class="fa-brands fa-square-x-twitter"></i>
 								<i class="fa-brands fa-square-facebook"></i>
 								<i class="fa-brands fa-square-instagram"></i>
-								<i class="fa-brands fa-youtube"></i>
 								<i class="fa-brands fa-line"></i>
+								<i class="fa-brands fa-youtube"></i>
 								<p class="follow-text">Follow Us!</p>
 							</div>
 						</div>

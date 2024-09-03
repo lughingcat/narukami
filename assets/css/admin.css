@@ -2446,3 +2446,21 @@
 /*#################################
 	フッタースタイル
 #################################*/
+.footer-all-wrap .footer-back-wrap {
+  width: 100%;
+  padding: 2%;
+  position: relative;
+  display: flex; }
+  .footer-all-wrap .footer-back-wrap .footer-left-wrap {
+    width: 50%; }
+    .footer-all-wrap .footer-back-wrap .footer-left-wrap .footer-rogo-wrap {
+      text-align: center; }
+      .footer-all-wrap .footer-back-wrap .footer-left-wrap .footer-rogo-wrap img {
+        width: 100px; }
+    .footer-all-wrap .footer-back-wrap .footer-left-wrap .footer-sns-wrap {
+      text-align: center;
+      font-size: 1.5em; }
+      .footer-all-wrap .footer-back-wrap .footer-left-wrap .footer-sns-wrap .fa-brands.fa-square-facebook {
+        color: #3b5598; }
+  .footer-all-wrap .footer-back-wrap .footer-right-wrap {
+    width: 100%; }
