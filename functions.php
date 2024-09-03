@@ -176,7 +176,7 @@ function add_cdns(){
 	wp_enqueue_script('sortable','https://cdn.jsdelivr.net/npm/sortablejs@1.10.2/Sortable.min.js');
 	wp_enqueue_script('draggable','https://cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.24.3/vuedraggable.umd.js');
 	wp_enqueue_script('bootstrapJs','https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js');
-	wp_enqueue_style('fontawesome','https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css');
+	wp_enqueue_style('fontawesome','https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css');
 	wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css?family=Noto+Serif+JP', array(), null);
 	wp_enqueue_style('slick-css', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
     wp_enqueue_style('slick-theme-css', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css');
@@ -211,7 +211,7 @@ function add_admin_style(){
 	}
   wp_enqueue_script('jquery');
   $path_css = get_template_directory_uri().'/assets/css/admin.css';
-  wp_enqueue_style('admin_style', $path_css);
+  wp_enqueue_style('admin_style', $path_css, array(), time());
   $path_js = get_template_directory_uri().'/assets/js/admin.js';
   wp_enqueue_script('admin_script', $path_js, array('jquery'), null, true);
   // admin_scriptにローカライズを追加
@@ -238,6 +238,7 @@ function enqueue_narukami_top_preview_assets() {
         // CSSファイルをエンキュー
         wp_enqueue_style('narukami-top-preview', get_template_directory_uri() . '/sass/preview/narukami-top-preview.css', array(), time());
 		wp_enqueue_script('narukami-top-js-preview', get_template_directory_uri() . '/front-js/preview/narukami-top-preview.js', array('jquery'), null, true);
+		wp_enqueue_style('fontawesome','https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css');
 		wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css?family=Noto+Serif+JP', array(), null);
 		//jquery
 		wp_enqueue_script('jquery');

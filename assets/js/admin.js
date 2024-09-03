@@ -1608,4 +1608,51 @@ function subfooterMenuDeleteElement(button) {
 	}
 }
 
+/*==================================
+フッターCRUDシステムjs
+==================================*/
+//サブフッター追加処理
+document.addEventListener('DOMContentLoaded', function(){
+	var footerMenuAddBtn = document.getElementById('footer-add-btn');
+	if(footerMenuAddBtn){
+		footerMenuAddBtn.addEventListener('click', function(){
+			var parentElementAll = document.querySelectorAll('.globalmenu-flex-wrap');
+			if (parentElementAll.length > 0) {
+				if (parentElementAll.length >= 10) {
+        			alert('フォームが最大数に達しました。(最大数:10)');
+        			return; 
+    			}
+                // 最後の要素を取得
+                var lastElement = parentElementAll[parentElementAll.length - 1];
+                // 複製
+                var clone = lastElement.cloneNode(true);
+                // 必要に応じてIDや名前の変更
+                clone.id = 'footer-flex-wrap_' + parentElementAll.length;
+                clone.querySelectorAll('input').forEach(function(input) {
+                    input.value = ''; // 複製後に入力値をリセット
+                });
+                // 親要素に追加
+                lastElement.parentNode.appendChild(clone);
+            }
+		});
+	}
+});
+//グローバルメニュー削除処理
+function footerMenuDeleteElement(button) {
+    var parentElementAll = document.querySelectorAll('.globalmenu-flex-wrap');
+    
+    if (parentElementAll.length > 1) { // 要素が1つ以上ある場合のみ削除可能
+        var parentEl = button.parentElement;
+        parentEl.remove();
+
+        parentElementAll = document.querySelectorAll('.globalmenu-flex-wrap'); // 更新
+        parentElementAll.forEach(function(parent, index) {
+            parent.id = 'global-flex-wrap_' + index;
+			console.log(parent.id);
+        });
+    }else{
+		alert('最後の１つは削除出来ません。');
+	}
+}
+
 

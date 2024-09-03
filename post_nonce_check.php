@@ -138,8 +138,12 @@ function update_custom_option_footer() {
 		
         //update_option サブフッター
 		
+        $footer_item_title = sanitize_option_value($_POST['footer_item_title']);
+        $footer_item_link = sanitize_option_value($_POST['footer_item_link']);
         $footer_bg_color = sanitize_option_value($_POST['footer-bg-color']);
         $footer_textcolor = sanitize_option_value($_POST['footer-textcolor']);
+        update_option('footer-item-title', $footer_item_title);
+        update_option('footer-item-link', $footer_item_link);
         update_option('footer-bg-color', $footer_bg_color);
         update_option('footer-textcolor', $footer_textcolor);
 		
