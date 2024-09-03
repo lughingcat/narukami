@@ -65,10 +65,10 @@ function add_custom_submenu_page()
 					 'custom_submenu_page_5', 
 					 'add_custom_menu_page_5',
 					 5);
-	//フッダー設定
+	//鳴雷フッダー設定
 	add_submenu_page('custom_menu_page', 
-					 'フッター設定', 
-					 'フッター設定', 
+					 '鳴雷フッター設定', 
+					 '鳴雷フッター設定', 
 					 'manage_options', 
 					 'custom_submenu_page_6', 
 					 'add_custom_menu_page_6',
@@ -139,7 +139,8 @@ function add_custom_menu_page_6()
 {
     ?>
 <div class="wrap">
-    <h2>フッター設定</h2>
+    <h2>鳴雷フッター設定</h2>
+<?php include('narukami-footer/footer_adm.php'); ?>
 </div>
 <?php
 }

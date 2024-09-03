@@ -5,7 +5,7 @@
 
 	<div class="metabox-holder">
     	<div class="postbox bg">
-        	<h3 class='hndle'><span class="title">サブフッター[NarukamiSubfooterSetting]</span></h3>
+        	<h3 class='hndle'><span class="title">サブフッター設定[NarukamiSubfooterSetting]</span></h3>
         	<div class="inside">
 			<?php
 			$i_subfooter_use_notuse = sanitize_option_value(get_option('subfooter-use-notuse'));

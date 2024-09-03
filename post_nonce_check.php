@@ -102,7 +102,7 @@ add_action('admin_post_update_custom_option', 'update_custom_option');
 
 //サブフッター設定
 function update_custom_option_subfooter() {
-    if (isset($_POST['subfooter-bg-color'])) {
+    if (isset($_POST['subfooter_item_title'])) {
         // ノンスのチェック
         if (!isset($_POST['update_subfooter_nonce']) || !wp_verify_nonce($_POST['update_subfooter_nonce'], 'update_subfooter_action')) {
             die('不正なリクエストです。');
@@ -127,4 +127,27 @@ function update_custom_option_subfooter() {
     }
 }
 add_action('admin_post_update_custom_option_subfooter', 'update_custom_option_subfooter');
+
+//サブフッター設定
+function update_custom_option_footer() {
+    if (isset($_POST['footer-bg-color'])) {
+        // ノンスのチェック
+        if (!isset($_POST['update_footer_nonce']) || !wp_verify_nonce($_POST['update_footer_nonce'], 'update_footer_action')) {
+            die('不正なリクエストです。');
+        }
+		
+        //update_option サブフッター
+		
+        $footer_bg_color = sanitize_option_value($_POST['footer-bg-color']);
+        $footer_textcolor = sanitize_option_value($_POST['footer-textcolor']);
+        update_option('footer-bg-color', $footer_bg_color);
+        update_option('footer-textcolor', $footer_textcolor);
+		
+		
+        wp_redirect(add_query_arg('updated_footer', 'true', wp_get_referer()));
+        exit;
+    }
+}
+add_action('admin_post_update_custom_option_footer', 'update_custom_option_footer');
 ?>
+
