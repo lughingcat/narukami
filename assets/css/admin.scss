@@ -2839,15 +2839,19 @@
 /*#################################
 	フッタースタイル
 #################################*/
+
 .footer-all-wrap{//全体wrap
-	
+	position: relative;
+	padding: 30px 30px 10px 0;
+	box-shadow: 0px 3px 16px -1px #777777;
 	.footer-back-wrap{//flex wrap
 		width: 100%;
-		padding: 2%;
 		position: relative;
 		display: flex;
 		.footer-left-wrap{//left wrap
-			width: 50%;
+			text-align: center;
+			width: 40%;
+			box-sizing: border-box;
 			.footer-rogo-wrap{//rogo wrap
 				text-align: center;
 				img{
@@ -2856,46 +2860,74 @@
 			}
 			.footer-sns-wrap{
 				text-align: center;
-				font-size: 1.5em;
+				font-size: 25px;
 				.fa-brands.fa-square-x-twitter{//twitter
 				
 				}
 				.fa-brands.fa-square-facebook{//facebook
 					color: #3b5598;
 				}
-				.fa-brands.fa-square-instagram{//instagram
-					
+				.fa-brands.fa-square-instagram.instagram-icon{//instagram
+					background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+    				-webkit-background-clip: text;
+    				-webkit-text-fill-color: transparent;
 				}
 				.fa-brands.fa-youtube{//youtube
-					
+					color: #DA1725;
 				}
 				.fa-brands.fa-line{//line
-					
-				}
-				.follow-text{//follow text
-					
+					color: #25b625;
 				}
 			}
+			.follow-text{//follow text
+					font-size: 19px;
+					font-family: 'Damion', cursive;
+					transform: rotate(-5deg);
+					transform-origin: center;
+					letter-spacing: 2px;
+					margin: 10px auto 0;
+					border-bottom: 3px solid;
+					border-radius: 5px;
+					display: inline-block;
+					border-bottom-right-radius: 14px;
+					border-bottom-left-radius: 3px;
+				}
 			
 		}
 		.footer-right-wrap{//right wrap
 			width: 100%;
+			box-sizing: border-box;
 			.footer-link-wrap{
+				position: relative;
 				.footer-right-title{//title
-					
+					width: 100%;
+					border-bottom: 1px solid;
+					padding-bottom: 7px;
 				}
 				.subfooter-ul-wrap{//ul
+					display: flex;
+					flex-wrap: wrap;
+					justify-content: flex-start;
+					gap: 10px;
 					li{
+						flex: 1 1  calc(22% - 20px);
+						margin: 2% auto;
+						text-decoration: none;
+						border-left: 1px solid;
+						padding: 0 20px;
 						a{
-							
+							text-decoration: none;
 						}
-					}
-					
+					}	
 				}
 			}
 		}
 	}
-	
+	.copy-right-text{
+		width: 100%;
+		text-align: center;
+		margin: 40px auto 0;
+	}
 }
 
 

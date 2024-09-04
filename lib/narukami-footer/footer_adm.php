@@ -50,11 +50,11 @@
 							<div class="footer-sns-wrap">
 								<i class="fa-brands fa-square-x-twitter"></i>
 								<i class="fa-brands fa-square-facebook"></i>
-								<i class="fa-brands fa-square-instagram"></i>
+								<i class="fa-brands fa-square-instagram instagram-icon"></i>
 								<i class="fa-brands fa-line"></i>
 								<i class="fa-brands fa-youtube"></i>
-								<p class="follow-text">Follow Us!</p>
 							</div>
+							<p class="follow-text">Follow Us!</p>
 						</div>
 						<div class="footer-right-wrap">
 							<div class="footer-link-wrap">
@@ -77,7 +77,7 @@
 							</div>
 						</div>
 					</div><!--footer-back-wrap end-->
-					<p class="copy-right-text">copy right text</p>
+					<p class="copy-right-text">Copyright(c) 2015 - 2024 農村ダイナー All rights reserved.</p>
 				</div><!--footer-all-wrap end-->
 		<div class="inputForm">
 			<h4>各種配色を選択してください。</h4>

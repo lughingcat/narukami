@@ -178,6 +178,7 @@ function add_cdns(){
 	wp_enqueue_script('bootstrapJs','https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js');
 	wp_enqueue_style('fontawesome','https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css');
 	wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css?family=Noto+Serif+JP', array(), null);
+	wp_enqueue_style('damion-font', 'https://fonts.googleapis.com/css2?family=Damion&display=swap', false, null);
 	wp_enqueue_style('slick-css', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
     wp_enqueue_style('slick-theme-css', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css');
 	// Slick SliderのJavaScriptをエンキュー
@@ -240,6 +241,7 @@ function enqueue_narukami_top_preview_assets() {
 		wp_enqueue_script('narukami-top-js-preview', get_template_directory_uri() . '/front-js/preview/narukami-top-preview.js', array('jquery'), null, true);
 		wp_enqueue_style('fontawesome','https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css');
 		wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css?family=Noto+Serif+JP', array(), null);
+		wp_enqueue_style('damion-font', 'https://fonts.googleapis.com/css2?family=Damion&display=swap', false, null);
 		//jquery
 		wp_enqueue_script('jquery');
 		// Slick CSS
