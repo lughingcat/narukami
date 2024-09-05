@@ -82,8 +82,9 @@
 		<div class="inputForm">
 			<h4>各種SNSの表示とリンク設定を行ってください</h4>
 			<div class="sns-item-wrap">
+				<i class="fa-brands fa-square-x-twitter"></i>
 				<label class="sns-input-label">
-					<input type="checkbox" name="twitter-switch" value="twitter-on"><i class="fa-brands fa-square-x-twitter"></i>
+					<input type="checkbox" name="twitter-switch" value="twitter-on">
 					表示する。
 				</label>
 				<input type="text" placeholder="お店のエックスのアカウントURLを入力してください。" name="twitter-linkurl" class="img-setect-url" value="">

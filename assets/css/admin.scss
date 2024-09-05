@@ -2890,7 +2890,7 @@
 					border-bottom: 3px solid;
 					border-radius: 5px;
 					display: inline-block;
-					border-bottom-right-radius: 14px;
+					border-bottom-right-radius: 5px;
 					border-bottom-left-radius: 3px;
 				}
 			
@@ -2911,7 +2911,7 @@
 					justify-content: flex-start;
 					gap: 10px;
 					li{
-						flex: 1 1  calc(22% - 20px);
+						flex: 1 1  calc(20% - 20px);
 						margin: 2% auto;
 						text-decoration: none;
 						border-left: 1px solid;
@@ -2934,16 +2934,19 @@
 //inputFormスタイル
 .inputForm{
 	.sns-item-wrap{
+		display: flex;
 		.sns-input-label{
 			display: flex;
 			flex-direction: column;
 			align-items: flex-start;
-			.fa-brands.fa-square-x-twitter{
-				font-size: 25px;
-			}
+			margin: 7px;
+		}
+		.fa-brands.fa-square-x-twitter{//twitter
+				font-size: 40px;
 		}
 		.img-setect-url{
 			width: 80%;
+			height: 36px;
 		}
 	}
 }
