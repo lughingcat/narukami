@@ -80,6 +80,14 @@
 					<p class="copy-right-text">Copyright(c) 2015 - 2024 農村ダイナー All rights reserved.</p>
 				</div><!--footer-all-wrap end-->
 		<div class="inputForm">
+			<h4>各種SNSの表示とリンク設定を行ってください</h4>
+			<div class="sns-item-wrap">
+				<label class="sns-input-label">
+					<input type="checkbox" name="twitter-switch" value="twitter-on"><i class="fa-brands fa-square-x-twitter"></i>
+					表示する。
+				</label>
+				<input type="text" placeholder="お店のエックスのアカウントURLを入力してください。" name="twitter-linkurl" class="img-setect-url" value="">
+			</div>
 			<h4>各種配色を選択してください。</h4>
 				<div class="color-bg-box">
 					<div class="color-box-child">

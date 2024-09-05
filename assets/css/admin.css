@@ -2449,7 +2449,8 @@
 .footer-all-wrap {
   position: relative;
   padding: 30px 30px 10px 0;
-  box-shadow: 0px 3px 16px -1px #777777; }
+  box-shadow: 0px 3px 16px -1px #777777;
+  margin: 10% auto; }
   .footer-all-wrap .footer-back-wrap {
     width: 100%;
     position: relative;
@@ -2513,3 +2514,12 @@
     width: 100%;
     text-align: center;
     margin: 40px auto 0; }
+
+.inputForm .sns-item-wrap .sns-input-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; }
+  .inputForm .sns-item-wrap .sns-input-label .fa-brands.fa-square-x-twitter {
+    font-size: 25px; }
+.inputForm .sns-item-wrap .img-setect-url {
+  width: 80%; }

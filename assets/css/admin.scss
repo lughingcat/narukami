@@ -2839,11 +2839,12 @@
 /*#################################
 	フッタースタイル
 #################################*/
-
+//プレビュースタイル
 .footer-all-wrap{//全体wrap
 	position: relative;
 	padding: 30px 30px 10px 0;
 	box-shadow: 0px 3px 16px -1px #777777;
+	margin: 10% auto;
 	.footer-back-wrap{//flex wrap
 		width: 100%;
 		position: relative;
@@ -2930,4 +2931,19 @@
 	}
 }
 
-
+//inputFormスタイル
+.inputForm{
+	.sns-item-wrap{
+		.sns-input-label{
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			.fa-brands.fa-square-x-twitter{
+				font-size: 25px;
+			}
+		}
+		.img-setect-url{
+			width: 80%;
+		}
+	}
+}
