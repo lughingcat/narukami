@@ -128,7 +128,7 @@ function update_custom_option_subfooter() {
 }
 add_action('admin_post_update_custom_option_subfooter', 'update_custom_option_subfooter');
 
-//サブフッター設定
+//フッター設定
 function update_custom_option_footer() {
     if (isset($_POST['footer-bg-color'])) {
         // ノンスのチェック
@@ -136,17 +136,41 @@ function update_custom_option_footer() {
             die('不正なリクエストです。');
         }
 		
-        //update_option サブフッター
+        //update_option フッター
 		
         $footer_item_title = sanitize_option_value($_POST['footer_item_title']);
         $footer_item_link = sanitize_option_value($_POST['footer_item_link']);
         $footer_bg_color = sanitize_option_value($_POST['footer-bg-color']);
         $footer_textcolor = sanitize_option_value($_POST['footer-textcolor']);
+		//sns
+		$twitter_switch = sanitize_option_value($_POST['twitter-switch']);//twitter
+		$instagram_switch = sanitize_option_value($_POST['instagram-switch']);//instagram
+		$facebook_switch = sanitize_option_value($_POST['facebook-switch']);//facebook
+		$line_switch = sanitize_option_value($_POST['line-switch']);//twitter
+		$youtube_switch = sanitize_option_value($_POST['youtube-switch']);//twitter
+		//sns-link
+		$twitter_linkurl = sanitize_option_value($_POST['twitter-linkurl']);//twitter
+		$instagram_linkurl = sanitize_option_value($_POST['instagram-linkurl']);//instagram
+		$facebook_linkurl = sanitize_option_value($_POST['facebook-linkurl']);//facebook
+		$line_linkurl = sanitize_option_value($_POST['line-linkurl']);//twitter
+		$youtube_linkurl = sanitize_option_value($_POST['youtube-linkurl']);//twitter
+		
         update_option('footer-item-title', $footer_item_title);
         update_option('footer-item-link', $footer_item_link);
         update_option('footer-bg-color', $footer_bg_color);
         update_option('footer-textcolor', $footer_textcolor);
-		
+		//sns
+		update_option('twitter-switch', $twitter_switch);//twitter(get_option)
+		update_option('instagram-switch', $instagram_switch);//instagram(get_option)
+		update_option('facebook-switch', $facebook_switch);//facebook(get_option)
+		update_option('line-switch', $line_switch);//line(get_option)
+		update_option('youtube-switch', $youtube_switch);//youtube(get_option)
+		//sns-link
+		update_option('twitter-linkurl', $twitter_linkurl);//twitter(get_option)
+		update_option('instagram-linkurl', $instagram_linkurl);//instagram(get_option)
+		update_option('facebook-linkurl', $facebook_linkurl);//facebook(get_option)
+		update_option('line-linkurl', $line_linkurl);//line(get_option)
+		update_option('youtube-linkurl', $youtube_linkurl);//youtube(get_option)
 		
         wp_redirect(add_query_arg('updated_footer', 'true', wp_get_referer()));
         exit;

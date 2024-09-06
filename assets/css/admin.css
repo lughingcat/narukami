@@ -2464,8 +2464,24 @@
         .footer-all-wrap .footer-back-wrap .footer-left-wrap .footer-rogo-wrap img {
           width: 100px; }
       .footer-all-wrap .footer-back-wrap .footer-left-wrap .footer-sns-wrap {
+        display: flex;
         text-align: center;
-        font-size: 25px; }
+        justify-content: center;
+        margin: 7px auto; }
+        .footer-all-wrap .footer-back-wrap .footer-left-wrap .footer-sns-wrap i {
+          width: 30px;
+          /* アイコンの幅 */
+          height: 30px;
+          /* アイコンの高さ */
+          display: inline-flex;
+          align-items: center;
+          /* 垂直中央揃え */
+          justify-content: center;
+          /* 水平方向中央揃え */
+          font-size: 25px;
+          /* アイコンのフォントサイズ */
+          border-radius: 5px;
+          /* アイコンの角丸（任意） */ }
         .footer-all-wrap .footer-back-wrap .footer-left-wrap .footer-sns-wrap .fa-brands.fa-square-facebook {
           color: #3b5598; }
         .footer-all-wrap .footer-back-wrap .footer-left-wrap .footer-sns-wrap .fa-brands.fa-square-instagram.instagram-icon {
@@ -2475,7 +2491,8 @@
         .footer-all-wrap .footer-back-wrap .footer-left-wrap .footer-sns-wrap .fa-brands.fa-youtube {
           color: #DA1725; }
         .footer-all-wrap .footer-back-wrap .footer-left-wrap .footer-sns-wrap .fa-brands.fa-line {
-          color: #25b625; }
+          color: #25b625;
+          font-size: 22px; }
       .footer-all-wrap .footer-back-wrap .footer-left-wrap .follow-text {
         font-size: 19px;
         font-family: 'Damion', cursive;
@@ -2516,7 +2533,8 @@
     margin: 40px auto 0; }
 
 .inputForm .sns-item-wrap {
-  display: flex; }
+  display: flex;
+  margin: 16px auto; }
   .inputForm .sns-item-wrap .sns-input-label {
     display: flex;
     flex-direction: column;
@@ -2524,6 +2542,20 @@
     margin: 7px; }
   .inputForm .sns-item-wrap .fa-brands.fa-square-x-twitter {
     font-size: 40px; }
+  .inputForm .sns-item-wrap .fa-brands.fa-square-facebook {
+    font-size: 40px;
+    color: #3b5598; }
+  .inputForm .sns-item-wrap .fa-brands.fa-line {
+    font-size: 35px;
+    color: #25b625; }
+  .inputForm .sns-item-wrap .fa-brands.fa-youtube {
+    font-size: 31px;
+    color: #DA1725; }
+  .inputForm .sns-item-wrap .fa-brands.fa-square-instagram.instagram-icon {
+    font-size: 40px;
+    background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; }
   .inputForm .sns-item-wrap .img-setect-url {
     width: 80%;
     height: 36px; }

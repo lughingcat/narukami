@@ -1,4 +1,5 @@
 <?php
+//サニタイズ関数
 function sanitize_option_value($value) {
     if (is_array($value)) {
         foreach ($value as $key => $item) {
@@ -13,5 +14,19 @@ function sanitize_option_value($value) {
         }
     }
     return $value;
+}
+
+//snsチェックボタン関数
+function sns_checkbox_value($sns, $value){
+	$switch = "";
+	
+	if(isset($sns)){
+		if($sns === $value){
+			$switch = "checked";
+		}else{
+			$switch = "";
+		}
+	}
+	return $switch;
 }
 ?>

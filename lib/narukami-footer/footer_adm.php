@@ -12,8 +12,26 @@
 			$i_footer_url_array = sanitize_option_value(get_option('footer-item-link', ['']));
 			$footer_bg_color = sanitize_option_value(get_option('footer-bg-color'));
 			$footer_textcolor = sanitize_option_value(get_option('footer-textcolor'));
+			//sns
+			$twitter_sns_switch = sanitize_option_value(get_option('twitter-switch'));
+			$instagram_sns_switch = sanitize_option_value(get_option('instagram-switch'));
+			$facebook_sns_switch = sanitize_option_value(get_option('facebook-switch'));
+			$line_sns_switch = sanitize_option_value(get_option('line-switch'));
+			$youtube_sns_switch = sanitize_option_value(get_option('youtube-switch'));
+			//sns-switchの値を保持する
+			$twitter_switch_value = sns_checkbox_value($twitter_sns_switch, "twitter-on");
+			$instagram_switch_value = sns_checkbox_value($instagram_sns_switch, "instagram-on");
+			$facebook_switch_value = sns_checkbox_value($facebook_sns_switch, "facebook-on");
+			$line_switch_value = sns_checkbox_value($line_sns_switch, "line-on");
+			$youtube_switch_value = sns_checkbox_value($youtube_sns_switch, "youtube-on");
 				
-				// 連想配列を作成
+			//sns-link
+			$twitter_sns_link = sanitize_option_value(get_option('twitter-linkurl'));
+			$instagram_sns_link = sanitize_option_value(get_option('instagram-linkurl'));
+			$facebook_sns_link = sanitize_option_value(get_option('facebook-linkurl'));
+			$line_sns_link = sanitize_option_value(get_option('line-linkurl'));
+			$youtube_sns_link = sanitize_option_value(get_option('youtube-linkurl'));
+			// 連想配列を作成
 			$footer_items_Array = array();
 			
 			// $i_footer_title_arrayが配列であるかを確認
@@ -48,11 +66,22 @@
 								<img src="https://nousondiner.com/wp-content/uploads/2022/03/rogomainver.5.0.0-2.png" alt="ROGO">
 							</div>
 							<div class="footer-sns-wrap">
-								<i class="fa-brands fa-square-x-twitter"></i>
-								<i class="fa-brands fa-square-facebook"></i>
-								<i class="fa-brands fa-square-instagram instagram-icon"></i>
-								<i class="fa-brands fa-line"></i>
-								<i class="fa-brands fa-youtube"></i>
+								<a href="#" style="display: ;">
+   									<i class="fa-brands fa-square-x-twitter"></i>
+								</a>
+								<a href="#" style="display: ;">
+								    <i class="fa-brands fa-square-facebook"></i>
+								</a>
+								<a href="#" style="display: ;">
+								    <i class="fa-brands fa-square-instagram instagram-icon"></i>
+								</a>
+								<a href="#" style="display: ;">
+								    <i class="fa-brands fa-line"></i>
+								</a>
+								<a href="#" style="display: ;">
+								    <i class="fa-brands fa-youtube"></i>
+								</a>
+
 							</div>
 							<p class="follow-text">Follow Us!</p>
 						</div>
@@ -84,10 +113,42 @@
 			<div class="sns-item-wrap">
 				<i class="fa-brands fa-square-x-twitter"></i>
 				<label class="sns-input-label">
-					<input type="checkbox" name="twitter-switch" value="twitter-on">
+					<input type="checkbox" name="twitter-switch" value="twitter-on" <?php echo $twitter_switch_value; ?>>
 					表示する。
 				</label>
-				<input type="text" placeholder="お店のエックスのアカウントURLを入力してください。" name="twitter-linkurl" class="img-setect-url" value="">
+				<input type="text" placeholder="お店のエックスのアカウントURLを入力してください。" name="twitter-linkurl" class="img-setect-url" value="<?php echo $twitter_sns_link; ?>">
+			</div>
+			<div class="sns-item-wrap">
+				<i class="fa-brands fa-square-instagram instagram-icon"></i>
+				<label class="sns-input-label">
+					<input type="checkbox" name="instagram-switch" value="instagram-on" <?php echo $instagram_switch_value; ?>>
+					表示する。
+				</label>
+				<input type="text" placeholder="お店のインスタグラムのアカウントURLを入力してください。" name="instagram-linkurl" class="img-setect-url" value="<?php echo $instagram_sns_link; ?>">
+			</div>
+			<div class="sns-item-wrap">
+				<i class="fa-brands fa-square-facebook"></i>
+				<label class="sns-input-label">
+					<input type="checkbox" name="facebook-switch" value="facebook-on" <?php echo $facebook_switch_value; ?>>
+					表示する。
+				</label>
+				<input type="text" placeholder="お店のフェイスブックのアカウントURLを入力してください。" name="facebook-linkurl" class="img-setect-url" value="<?php echo $facebook_sns_link; ?>">
+			</div>
+			<div class="sns-item-wrap">
+				<i class="fa-brands fa-line"></i>
+				<label class="sns-input-label">
+					<input type="checkbox" name="line-switch" value="line-on" <?php echo $line_switch_value; ?>>
+					表示する。
+				</label>
+				<input type="text" placeholder="お店のラインのアカウントURLを入力してください。" name="line-linkurl" class="img-setect-url" value="<?php echo $line_sns_link; ?>">
+			</div>
+			<div class="sns-item-wrap">
+				<i class="fa-brands fa-youtube"></i>
+				<label class="sns-input-label">
+					<input type="checkbox" name="youtube-switch" value="youtube-on" <?php echo $youtube_switch_value; ?>>
+					表示する。
+				</label>
+				<input type="text" placeholder="お店のYouTubeのアカウントURLを入力してください。" name="youtube-linkurl" class="img-setect-url" value="<?php echo $youtube_sns_link; ?>">
 			</div>
 			<h4>各種配色を選択してください。</h4>
 				<div class="color-bg-box">
