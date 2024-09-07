@@ -1,6 +1,114 @@
 //全体設定
 @import '../../assets/css/animate_mixin';
 
+//フッタースタイル
+.footer-all-wrap{//全体wrap
+	width: 100vw;
+	padding: 30px 30px 10px 0;
+	box-shadow: 0px 3px 16px -1px #777777;
+	margin: 0 auto;
+	.footer-back-wrap{//flex wrap
+		width: 100%;
+		position: relative;
+		display: flex;
+		padding: 4%;
+		.footer-left-wrap{//left wrap
+			text-align: center;
+			width: 40%;
+			box-sizing: border-box;
+			.footer-rogo-wrap{//rogo wrap
+				text-align: center;
+				img{
+					width: 100px;
+				}
+			}
+			.footer-sns-wrap{
+				display: flex;
+				text-align: center;
+				justify-content: center;
+				margin: 7px auto;
+				i{
+					width: 30px;  /* アイコンの幅 */
+            		height: 30px; /* アイコンの高さ */
+            		display: inline-flex;
+            		align-items: center; /* 垂直中央揃え */
+            		justify-content: center; /* 水平方向中央揃え */
+            		font-size: 25px; /* アイコンのフォントサイズ */
+            		border-radius: 5px; /* アイコンの角丸（任意） */
+				}
+				.fa-brands.fa-square-x-twitter{//twitter
+					color: #3c434a;
+				}
+				.fa-brands.fa-square-facebook{//facebook
+					color: #3b5598;
+				}
+				.fa-brands.fa-square-instagram.instagram-icon{//instagram
+					background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+    				-webkit-background-clip: text;
+    				-webkit-text-fill-color: transparent;
+				}
+				.fa-brands.fa-youtube{//youtube
+					color: #DA1725;
+				}
+				.fa-brands.fa-line{//line
+					color: #25b625;
+					font-size: 22px;
+				}
+			}
+			.follow-text{//follow text
+					font-size: 19px;
+					font-family: 'Damion', cursive;
+					transform: rotate(-5deg);
+					transform-origin: center;
+					letter-spacing: 2px;
+					margin: 10px auto 0;
+					border-bottom: 3px solid;
+					border-radius: 5px;
+					display: inline-block;
+					border-bottom-right-radius: 5px;
+					border-bottom-left-radius: 3px;
+				}
+			
+		}
+		.footer-right-wrap{//right wrap
+			width: 100%;
+			box-sizing: border-box;
+			.footer-link-wrap{
+				position: relative;
+				.footer-right-title{//title
+					width: 100%;
+					border-bottom: 1px solid;
+					padding-bottom: 7px;
+					margin-top: 0;
+				}
+				.subfooter-ul-wrap{//ul
+					display: flex;
+					flex-wrap: wrap;
+					justify-content: flex-start;
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					li{
+						flex: 1 1  calc(20% - 20px);
+						margin: 2% auto;
+						text-decoration: none;
+						border-left: 1px solid;
+						padding: 0 0 0 10px;
+						a{
+							text-decoration: none;
+						}
+					}	
+				}
+			}
+		}
+	}
+	.copy-right-text{
+		width: 100%;
+		text-align: center;
+		margin: 40px auto;
+	}
+}
+
 //サブフッタースタイル
 .subfooter-preview-all-wrap{//back wrap
 	width: 100%;
@@ -8,6 +116,7 @@
 	margin: 0 auto;
 	position: fixed;
 	bottom: 0;
+	z-index: 999;
 	transition: transform 0.2s ease-out;//下に飛ばすアニメーション
 	.subfooter-wrap{
 		position: relative;
@@ -16,6 +125,8 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			margin: 0;
+			padding: 0;
 			li{
 				margin: 16px auto;
 				list-style: none;

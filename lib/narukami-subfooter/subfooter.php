@@ -49,14 +49,13 @@ if (is_array($i_subfooter_title_array)) {
 	</div>
 </div><!--subfooter-preview-all-wrap end-->
 <script>
-//スクロール中ハンバーガーメニューを左に飛ばす
+//スクロール中ハンバーガーメニューを下に飛ばす
 document.addEventListener('scroll', function() {
   const element = document.querySelector('.subfooter-preview-all-wrap');
   
-  // 要素が左に飛んでいく距離を決める（例: 100px）
+  // 要素が下に飛んでいく距離を決める（例: 100px）
   const distance = 100;
-
-  // スクロール量に応じて要素を左に移動させる
+	
   element.style.transform = `translateY(${distance}px)`;
   
   // 一定時間後に元の位置に戻す
