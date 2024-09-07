@@ -2482,6 +2482,8 @@
           /* アイコンのフォントサイズ */
           border-radius: 5px;
           /* アイコンの角丸（任意） */ }
+        .footer-all-wrap .footer-back-wrap .footer-left-wrap .footer-sns-wrap .fa-brands.fa-square-x-twitter {
+          color: #3c434a; }
         .footer-all-wrap .footer-back-wrap .footer-left-wrap .footer-sns-wrap .fa-brands.fa-square-facebook {
           color: #3b5598; }
         .footer-all-wrap .footer-back-wrap .footer-left-wrap .footer-sns-wrap .fa-brands.fa-square-instagram.instagram-icon {
@@ -2513,7 +2515,8 @@
         .footer-all-wrap .footer-back-wrap .footer-right-wrap .footer-link-wrap .footer-right-title {
           width: 100%;
           border-bottom: 1px solid;
-          padding-bottom: 7px; }
+          padding-bottom: 7px;
+          margin-top: 0; }
         .footer-all-wrap .footer-back-wrap .footer-right-wrap .footer-link-wrap .subfooter-ul-wrap {
           display: flex;
           flex-wrap: wrap;

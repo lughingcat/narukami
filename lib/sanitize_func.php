@@ -19,14 +19,17 @@ function sanitize_option_value($value) {
 //snsチェックボタン関数
 function sns_checkbox_value($sns, $value){
 	$switch = "";
+	$display = "";
 	
 	if(isset($sns)){
 		if($sns === $value){
 			$switch = "checked";
+			$display = "";
 		}else{
 			$switch = "";
+			$display = "none";
 		}
 	}
-	return $switch;
+	return ['switch' => $switch, 'display' => $display];
 }
 ?>

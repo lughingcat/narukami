@@ -12,6 +12,7 @@
 			$i_footer_url_array = sanitize_option_value(get_option('footer-item-link', ['']));
 			$footer_bg_color = sanitize_option_value(get_option('footer-bg-color'));
 			$footer_textcolor = sanitize_option_value(get_option('footer-textcolor'));
+			$follow_us_color = sanitize_option_value(get_option('follow-us-color'));
 			//sns
 			$twitter_sns_switch = sanitize_option_value(get_option('twitter-switch'));
 			$instagram_sns_switch = sanitize_option_value(get_option('instagram-switch'));
@@ -59,31 +60,33 @@
 			<form id="narukami-footer-form" method="post" name="narukami-footer-form" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
 				<input type="hidden" name="action" value="update_custom_option_footer" /><!--post_nonce_check.phpへ送信(フッター用)-->
 				<h3>フッタープレビュー</h3>
-				<div class="footer-all-wrap">
-					<div class="footer-back-wrap">
+				<div class="footer-all-wrap"
+					 style="background-color: <?php echo $footer_bg_color; ?>;">
+					<div class="footer-back-wrap" 
+						 style="color: <?php echo $footer_textcolor; ?>">
 						<div class="footer-left-wrap">
 							<div class="footer-rogo-wrap">
 								<img src="https://nousondiner.com/wp-content/uploads/2022/03/rogomainver.5.0.0-2.png" alt="ROGO">
 							</div>
 							<div class="footer-sns-wrap">
-								<a href="#" style="display: ;">
+								<a href="<?php echo $twitter_sns_link; ?>" style="display: <?php echo $twitter_switch_value['display']; ?>;">
    									<i class="fa-brands fa-square-x-twitter"></i>
 								</a>
-								<a href="#" style="display: ;">
+								<a href="<?php echo $facebook_sns_link; ?>" style="display: <?php echo $facebook_switch_value['display']; ?>;">
 								    <i class="fa-brands fa-square-facebook"></i>
 								</a>
-								<a href="#" style="display: ;">
+								<a href="<?php echo $instagram_sns_link; ?>" style="display: <?php echo $instagram_switch_value['display']; ?>;">
 								    <i class="fa-brands fa-square-instagram instagram-icon"></i>
 								</a>
-								<a href="#" style="display: ;">
+								<a href="<?php echo $line_sns_link; ?>" style="display: <?php echo $line_switch_value['display']; ?>;">
 								    <i class="fa-brands fa-line"></i>
 								</a>
-								<a href="#" style="display: ;">
+								<a href="<?php echo $youtube_sns_link; ?>" style="display: <?php echo $youtube_switch_value['display']; ?>;">
 								    <i class="fa-brands fa-youtube"></i>
 								</a>
 
 							</div>
-							<p class="follow-text">Follow Us!</p>
+							<p class="follow-text" style="color: <?php echo $follow_us_color; ?>">Follow Us!</p>
 						</div>
 						<div class="footer-right-wrap">
 							<div class="footer-link-wrap">
@@ -106,14 +109,15 @@
 							</div>
 						</div>
 					</div><!--footer-back-wrap end-->
-					<p class="copy-right-text">Copyright(c) 2015 - 2024 農村ダイナー All rights reserved.</p>
+					<p class="copy-right-text" 
+					   style="color: <?php echo $footer_textcolor; ?>;"> <?php echo '&copy; ' . date('Y') . ' ' . get_bloginfo('name') . '. All rights reserved.'; ?></p>
 				</div><!--footer-all-wrap end-->
 		<div class="inputForm">
 			<h4>各種SNSの表示とリンク設定を行ってください</h4>
 			<div class="sns-item-wrap">
 				<i class="fa-brands fa-square-x-twitter"></i>
 				<label class="sns-input-label">
-					<input type="checkbox" name="twitter-switch" value="twitter-on" <?php echo $twitter_switch_value; ?>>
+					<input type="checkbox" name="twitter-switch" value="twitter-on" <?php echo $twitter_switch_value['switch']; ?>>
 					表示する。
 				</label>
 				<input type="text" placeholder="お店のエックスのアカウントURLを入力してください。" name="twitter-linkurl" class="img-setect-url" value="<?php echo $twitter_sns_link; ?>">
@@ -121,7 +125,7 @@
 			<div class="sns-item-wrap">
 				<i class="fa-brands fa-square-instagram instagram-icon"></i>
 				<label class="sns-input-label">
-					<input type="checkbox" name="instagram-switch" value="instagram-on" <?php echo $instagram_switch_value; ?>>
+					<input type="checkbox" name="instagram-switch" value="instagram-on" <?php echo $instagram_switch_value['switch']; ?>>
 					表示する。
 				</label>
 				<input type="text" placeholder="お店のインスタグラムのアカウントURLを入力してください。" name="instagram-linkurl" class="img-setect-url" value="<?php echo $instagram_sns_link; ?>">
@@ -129,7 +133,7 @@
 			<div class="sns-item-wrap">
 				<i class="fa-brands fa-square-facebook"></i>
 				<label class="sns-input-label">
-					<input type="checkbox" name="facebook-switch" value="facebook-on" <?php echo $facebook_switch_value; ?>>
+					<input type="checkbox" name="facebook-switch" value="facebook-on" <?php echo $facebook_switch_value['switch']; ?>>
 					表示する。
 				</label>
 				<input type="text" placeholder="お店のフェイスブックのアカウントURLを入力してください。" name="facebook-linkurl" class="img-setect-url" value="<?php echo $facebook_sns_link; ?>">
@@ -137,7 +141,7 @@
 			<div class="sns-item-wrap">
 				<i class="fa-brands fa-line"></i>
 				<label class="sns-input-label">
-					<input type="checkbox" name="line-switch" value="line-on" <?php echo $line_switch_value; ?>>
+					<input type="checkbox" name="line-switch" value="line-on" <?php echo $line_switch_value['switch']; ?>>
 					表示する。
 				</label>
 				<input type="text" placeholder="お店のラインのアカウントURLを入力してください。" name="line-linkurl" class="img-setect-url" value="<?php echo $line_sns_link; ?>">
@@ -145,7 +149,7 @@
 			<div class="sns-item-wrap">
 				<i class="fa-brands fa-youtube"></i>
 				<label class="sns-input-label">
-					<input type="checkbox" name="youtube-switch" value="youtube-on" <?php echo $youtube_switch_value; ?>>
+					<input type="checkbox" name="youtube-switch" value="youtube-on" <?php echo $youtube_switch_value['switch']; ?>>
 					表示する。
 				</label>
 				<input type="text" placeholder="お店のYouTubeのアカウントURLを入力してください。" name="youtube-linkurl" class="img-setect-url" value="<?php echo $youtube_sns_link; ?>">
@@ -167,6 +171,15 @@
                     	'footer-textcolor', 
                     	$footer_textcolor, 
                     	'テキストの文字色を選択してください。'
+                  		);
+                  		?> 
+					</div>
+					<div class="color-box-child">
+					  	<?php 
+				  		genelate_color_picker_tag_demo(
+                    	'follow-us-color', 
+                    	$follow_us_color, 
+                    	'「Follow Us! 」の文字色を選択してください。'
                   		);
                   		?> 
 					</div>

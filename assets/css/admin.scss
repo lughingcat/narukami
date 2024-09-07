@@ -2874,7 +2874,7 @@
             		border-radius: 5px; /* アイコンの角丸（任意） */
 				}
 				.fa-brands.fa-square-x-twitter{//twitter
-				
+					color: #3c434a;
 				}
 				.fa-brands.fa-square-facebook{//facebook
 					color: #3b5598;
@@ -2916,6 +2916,7 @@
 					width: 100%;
 					border-bottom: 1px solid;
 					padding-bottom: 7px;
+					margin-top: 0;
 				}
 				.subfooter-ul-wrap{//ul
 					display: flex;

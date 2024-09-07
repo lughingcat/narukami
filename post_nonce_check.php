@@ -142,6 +142,7 @@ function update_custom_option_footer() {
         $footer_item_link = sanitize_option_value($_POST['footer_item_link']);
         $footer_bg_color = sanitize_option_value($_POST['footer-bg-color']);
         $footer_textcolor = sanitize_option_value($_POST['footer-textcolor']);
+        $follow_us_color = sanitize_option_value($_POST['follow-us-color']);
 		//sns
 		$twitter_switch = sanitize_option_value($_POST['twitter-switch']);//twitter
 		$instagram_switch = sanitize_option_value($_POST['instagram-switch']);//instagram
@@ -159,6 +160,7 @@ function update_custom_option_footer() {
         update_option('footer-item-link', $footer_item_link);
         update_option('footer-bg-color', $footer_bg_color);
         update_option('footer-textcolor', $footer_textcolor);
+        update_option('follow-us-color', $follow_us_color);
 		//sns
 		update_option('twitter-switch', $twitter_switch);//twitter(get_option)
 		update_option('instagram-switch', $instagram_switch);//instagram(get_option)

@@ -33,6 +33,7 @@
 	}
     ?>
 	<div style="height: 2000px; background-color: black;"></div>
+	<?php include(get_template_directory() . '/lib/narukami-footer/footer.php');?>
     <?php wp_footer(); ?>
 </body>
 </html>
