@@ -10,30 +10,17 @@
 	//ヘッダー,ヒーローヘッダー,グローバルメニュー読み込み
 	$i_header_display_setting = sanitize_text_field(get_option('header-disp-set'));//ヘッダー表示設定
 	$i_heorheader_type = sanitize_option_value(get_option('heorheader_type'));//ヒーローヘッダータイプ
-	echo $i_header_display_setting;
-	echo $i_heorheader_type;
 	if($i_header_display_setting === 'display_on'){
-			include(get_template_directory() . '/front-inc-header/inc-header-part.php');
+			include(get_template_directory() . '/TOP_PAGE_FILES/top_header_part.php');
 		}
 		if($i_heorheader_type === 'still_img'){
-			include(get_template_directory() . '/front-inc-header/inc-HH-still-img-part.php');
+			include(get_template_directory() . '/TOP_PAGE_FILES/top_still_img_part.php');
 		}elseif($i_heorheader_type === 'move'){
-			include(get_template_directory() . '/front-inc-header/inc-HH-move-part.php');
+			include(get_template_directory() . '/TOP_PAGE_FILES/top_move_part.php');
 		}elseif($i_heorheader_type === 'slider'){
-			include(get_template_directory() . '/front-inc-header/inc-HH-slider-part.php');
+			include(get_template_directory() . '/TOP_PAGE_FILES/top_slider_part.php');
 		}
-		include(get_template_directory() . '/front-inc-header/inc-globalHeader-part.php');
-	?>
-	<?php
-	//サブフッター読み込み
-	$i_subfooter_use_notuse = sanitize_option_value(get_option('subfooter-use-notuse'));
-	if(isset($i_subfooter_use_notuse)){
-		if($i_subfooter_use_notuse === "subfooter-use"){
-			include(get_template_directory() . '/lib/narukami-subfooter/subfooter.php');
-		}else{
-			
-		}
-	}
+		include(get_template_directory() . '/TOP_PAGE_FILES/top_globalheader_part.php');
 	?>
 	<?php
 	//トップページメーカーPOST
