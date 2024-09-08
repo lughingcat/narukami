@@ -33,7 +33,7 @@ if (is_array($i_global_title_array)) {
 	//全体arrayに対するエラーハンドリング
 }
 ?>
-<div class="globalmenu-content-all-wrap">
+<div class="globalmenu-content-all-wrap pointer-event">
 	<div class="humberger-button-wrap" style="background-color: <?php echo $i_humberger_btn_bg; ?>">
 		<div class="span-wrap">
 			<span style="background-color: <?php echo $i_humberger_arrowcolor; ?>"></span>
@@ -73,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			document.querySelector('.humberger-button-wrap').classList.toggle('wrap-change');
 			document.querySelector('.globalmenu-back-wrap').classList.toggle('slide-change');
 			document.querySelector('.span-text').classList.toggle('opacity-change');
+			document.querySelector('.globalmenu-content-all-wrap').classList.toggle('pointer-event');
 			var scrollSwitchItem = document.querySelector('.slide-change')
 			if(scrollSwitchItem){
 				document.body.style.overflow = 'hidden';

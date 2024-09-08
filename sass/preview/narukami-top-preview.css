@@ -122,8 +122,9 @@
   width: 100%;
   height: 100%;
   display: flex;
-  z-index: 1000;
-  pointer-events: none; }
+  z-index: 1000; }
+  .globalmenu-content-all-wrap.pointer-event {
+    pointer-events: none; }
   .globalmenu-content-all-wrap.bg-opacity-value {
     animation: bgOpacityAnime 4.3s ease-out; }
 @keyframes bgOpacityAnime {

@@ -149,7 +149,9 @@
 	height: 100%;
 	display: flex;
 	z-index: 1000;
-	pointer-events: none;
+	&.pointer-event{
+		pointer-events: none;
+	}
 	&.bg-opacity-value{
 			@include bg-opacty-animation;
 		}
