@@ -17,7 +17,6 @@ function update_custom_option() {
         $header_stitle_set = sanitize_text_field($_POST['header-display-sitetitle']);//サイトタイトルの表示設定
         $header_sdisc_set = sanitize_text_field($_POST['header-display-sitedisc']);//説明文表示設定
         $header_bgcolor_set = sanitize_text_field($_POST['header-bg-color']);//ヘッダー背景色
-        $header_sort_set = sanitize_text_field($_POST['header-display-sort']);//並べ替え
         $header_textcolor_set = sanitize_text_field($_POST['header-text-color']);//ヘッダーテキストカラー
         update_option('header-rogo-url', $header_rogo_url_value);
         update_option('header-tite', $header_title_value);
@@ -27,7 +26,6 @@ function update_custom_option() {
         update_option('header-stitle-set', $header_stitle_set);
         update_option('header-sdisc-set', $header_sdisc_set);
         update_option('header-bg-color', $header_bgcolor_set);
-        update_option('header-sort-set', $header_sort_set);
         update_option('header-text-color', $header_textcolor_set);
 		
 		//update_option グローバルメニュー
