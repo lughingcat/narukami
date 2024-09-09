@@ -23,16 +23,14 @@
 		}
 		include(get_template_directory() . '/front-inc-header/inc-globalHeader-part.php');
 	}
-	$i_subfooter_use_notuse = sanitize_option_value(get_option('subfooter-use-notuse'));
-	if(isset($i_subfooter_use_notuse)){
-		if($i_subfooter_use_notuse === "subfooter-use"){
-			include(get_template_directory() . '/lib/narukami-subfooter/subfooter.php');
-		}else{
-			
-		}
-	}
     ?>
-	ここにトップページビルダーが入ります
+	<?php
+	//トップページビルダー
+	global $wpdb;
+	$sql = "SELECT insert_ids FROM {$wpdb->prefix}narukami_content_maker";
+	$id_result = $wpdb->get_results($sql);
+	var_dump($id_result);
+	?>
 	<div style="height: 200px; background-color: black;"></div>
 	<?php include(get_template_directory() . '/lib/narukami-footer/footer.php');?>
     <?php wp_footer(); ?>
