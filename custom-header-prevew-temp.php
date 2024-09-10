@@ -27,9 +27,10 @@
 	<?php
 	//トップページビルダー
 	global $wpdb;
-	$sql = "SELECT insert_ids FROM {$wpdb->prefix}narukami_content_maker";
-	$id_result = $wpdb->get_results($sql);
-	var_dump($id_result);
+	$sql_s_cmaker = $wpdb->get_col( "SELECT s_cmaker FROM {$wpdb->prefix}narukami_content_maker LIMIT 18446744073709551615 OFFSET 1" );
+	foreach($sql_s_cmaker as $cmaker){
+		echo $cmaker;
+	}
 	?>
 	<div style="height: 200px; background-color: black;"></div>
 	<?php include(get_template_directory() . '/lib/narukami-footer/footer.php');?>
