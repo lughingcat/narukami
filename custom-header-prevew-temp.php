@@ -78,12 +78,11 @@
 			include(get_template_directory() . '/front-inc/front_grandmenu.php');
 		}
 		if($cmaker === 'column_right_1'){
-			if($cmaker === 'conceptcolumn_right_1'){
 			$row = $wpdb->get_row(
     			$wpdb->prepare(
         			"SELECT 
 					insert_ids, 
-					column_right_bg_img_url, 
+					column_right_1_bg_img_url, 
 					column_right_1_title,
 					column_right_1_content
          			FROM $content_maker_table 
@@ -92,19 +91,18 @@
     				),
     			ARRAY_A
 				);
-			$insert_ids = $$row['insert_ids'];
-			$column_right_bg_img_url = $row['column_right_bg_img_url'];
+			$insert_ids = $row['insert_ids'];
+			$column_right_bg_img_url = $row['column_right_1_bg_img_url'];
 			$column_right_1_title = $row['column_right_1_title'];
 			$column_right_1_content = $row['column_right_1_content'];
 			include(get_template_directory() . '/front-inc/front_column_right_1.php');
 		}
 		if($cmaker === 'column_left_1'){
-			if($cmaker === 'column_left_1'){
 			$row = $wpdb->get_row(
     			$wpdb->prepare(
         			"SELECT 
 					insert_ids, 
-					column_left_bg_img_url, 
+					column_left_1_bg_img_url, 
 					column_left_1_title,
 					column_left_1_content
          			FROM $content_maker_table 
@@ -114,21 +112,20 @@
     			ARRAY_A
 				);
 			$insert_ids = $row['insert_ids'];
-			$column_left_bg_img_url = $row['column_left_bg_img_url'];
+			$column_left_bg_img_url = $row['column_left_1_bg_img_url'];
 			$column_left_1_title = $row['column_left_1_title'];
 			$column_left_1_content = $row['column_left_1_content'];
 			include(get_template_directory() . '/front-inc/front_column_left_1.php');
 		}
 		if($cmaker === 'column_2'){
-			if($cmaker === 'column_2'){
 			$row = $wpdb->get_row(
     			$wpdb->prepare(
         			"SELECT 
 					insert_ids, 
-					column_two_bg_img_url, 
+					column_2_bg_img_url, 
 					column_2_title,
 					column_2_content,
-					column_two_sec_bg_img_url,
+					column_2_sec_bg_img_url,
 					column_2_sec_title,
 					column_2_sec_content
          			FROM $content_maker_table 
@@ -138,27 +135,26 @@
     			ARRAY_A
 				);
 			$insert_ids = $row['insert_ids'];
-			$column_two_bg_img_url = $row['column_two_bg_img_url'];
+			$column_two_bg_img_url = $row['column_2_bg_img_url'];
 			$column_2_title = $row['column_2_title'];
 			$column_2_content = $row['column_2_content'];
-			$column_two_sec_bg_img_url = $row['column_two_sec_bg_img_url'];
+			$column_two_sec_bg_img_url = $row['column_2_sec_bg_img_url'];
 			$column_2_sec_title = $row['column_2_sec_title'];
 			$column_2_sec_content = $row['column_2_sec_content'];
 			include(get_template_directory() . '/front-inc/front_column2.php');
 		}
 		if($cmaker === 'column_3'){
-			if($cmaker === 'column_3'){
 			$row = $wpdb->get_row(
     			$wpdb->prepare(
         			"SELECT 
 					insert_ids, 
-					column_three_bg_img_url, 
+					column_3_bg_img_url, 
 					column_3_title,
 					column_3_content,
-					column_three_sec_bg_img_url,
+					column_3_sec_bg_img_url,
 					column_3_sec_title,
-					column_2_sec_content,
-					column_three_third_bg_img_url,
+					column_3_sec_content,
+					column_3_third_bg_img_url,
 					column_3_third_title,
 					column_3_third_content
          			FROM $content_maker_table 
@@ -168,19 +164,18 @@
     			ARRAY_A
 				);
 			$insert_ids = $row['insert_ids'];
-			$column_three_bg_img_url = $row['column_three_bg_img_url'];
+			$column_three_bg_img_url = $row['column_3_bg_img_url'];
 			$column_3_title = $row['column_3_title'];
 			$column_3_content = $row['column_3_content'];
-			$column_three_sec_bg_img_url = $row['column_three_sec_bg_img_url'];
+			$column_three_sec_bg_img_url = $row['column_3_sec_bg_img_url'];
 			$column_3_sec_title = $row['column_3_sec_title'];
 			$column_3_sec_content = $row['column_3_sec_content'];
-			$column_three_third_bg_img_url = $row['column_three_third_bg_img_url'];
+			$column_three_third_bg_img_url = $row['column_3_third_bg_img_url'];
 			$column_3_third_title = $row['column_3_third_title'];
 			$column_3_third_content = $row['column_3_third_content'];
 			include(get_template_directory() . '/front-inc/front_column3.php');
 		}
 		if($cmaker === 'ranking'){
-			if($cmaker === 'ranking'){
 			$row = $wpdb->get_row(
     			$wpdb->prepare(
         			"SELECT 
@@ -189,32 +184,32 @@
 					rank_pop,
 					rank_style,
 					item_img_url,
-					item_title,
+					item_name,
 					item_price,
 					item_page_link,
 					rank_on,
 					item_img_url_2,
-					item_title_2,
+					item_name_2,
 					item_price_2,
 					item_page_link_2,
 					rank_on_2,
 					item_img_url_3,
-					item_title_3,
+					item_name_3,
 					item_price_3,
 					item_page_link_3,
 					rank_on_3,
 					item_img_url_4,
-					item_title_4,
+					item_name_4,
 					item_price_4,
 					item_page_link_4,
 					rank_on_4,
 					item_img_url_5,
-					item_title_5,
+					item_name_5,
 					item_price_5,
 					item_page_link_5,
 					rank_on_5,
 					item_img_url_6,
-					item_title_6,
+					item_name_6,
 					item_price_6,
 					item_page_link_6,
 					rank_on_6
@@ -229,39 +224,38 @@
 			$rank_pop = $row['rank_pop'];
 			$rank_style = $row['rank_style'];
 			$item_img_url = $row['item_img_url'];
-			$item_title = $row['item_title'];
+			$item_title = $row['item_name'];
 			$item_price = $row['item_price'];
 			$item_page_link = $row['item_page_link'];
 			$rank_on = $row['rank_on'];
 			$item_img_url_2 = $row['item_img_url_2'];
-			$item_title_2 = $row['item_title_2'];
+			$item_title_2 = $row['item_name_2'];
 			$item_price_2 = $row['item_price_2'];
 			$item_page_link_2 = $row['item_page_link_2'];
 			$rank_on_2 = $row['rank_on_2'];
 			$item_img_url_3 = $row['item_img_url_3'];
-			$item_title_3 = $row['item_title_3'];
+			$item_title_3 = $row['item_name_3'];
 			$item_price_3 = $row['item_price_3'];
 			$item_page_link_3 = $row['item_page_link_3'];
 			$rank_on_3 = $row['rank_on_3'];
 			$item_img_url_4 = $row['item_img_url_4'];
-			$item_title_4 = $row['item_title_4'];
+			$item_title_4 = $row['item_name_4'];
 			$item_price_4 = $row['item_price_4'];
 			$item_page_link_4 = $row['item_page_link_4'];
 			$rank_on_4 = $row['rank_on_4'];
 			$item_img_url_5 = $row['item_img_url_5'];
-			$item_title_5 = $row['item_title_5'];
+			$item_title_5 = $row['item_name_5'];
 			$item_price_5 = $row['item_price_5'];
 			$item_page_link_5 = $row['item_page_link_5'];
 			$rank_on_5 = $row['rank_on_5'];
 			$item_img_url_6 = $row['item_img_url_6'];
-			$item_title_6 = $row['item_title_6'];
+			$item_title_6 = $row['item_name_6'];
 			$item_price_6 = $row['item_price_6'];
 			$item_page_link_6 = $row['item_page_link_6'];
 			$rank_on_6 = $row['rank_on_6'];
 			include(get_template_directory() . '/front-inc/front_ranking.php');
 		}
 		if($cmaker === 'text_content'){
-			if($cmaker === 'text_content'){
 			$row = $wpdb->get_row(
     			$wpdb->prepare(
         			"SELECT 
@@ -280,7 +274,6 @@
 			include(get_template_directory() . '/front-inc/front_text_content.php');
 		}
 		if($cmaker === 'store_info'){
-			if($cmaker === 'text_content'){
 			$row = $wpdb->get_row(
     			$wpdb->prepare(
         			"SELECT 
