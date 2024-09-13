@@ -15,6 +15,9 @@
 ?>
 <div class="wrap">
   <h2>鳴雷全体設定</h2>
+	<p>ファビコン設定</p>
+	<p>フォントファミリー設定</p>
+	<p>LIMIT BREAK</p>
 </div>
 <?php
 }
@@ -41,10 +44,10 @@ function add_custom_submenu_page()
 					 'custom_submenu_page_2', 
 					 'add_custom_menu_page_2',
 					 2);
-	//サイトロゴ設定
+	//鳴雷404ページ設定
 	add_submenu_page('custom_menu_page', 
-					 'サイトロゴ設定', 
-					 'サイトロゴ設定', 
+					 '鳴雷404ページ設定', 
+					 '鳴雷404ページ設定', 
 					 'manage_options', 
 					 'custom_submenu_page_3', 
 					 'add_custom_menu_page_3',
@@ -75,7 +78,7 @@ function add_custom_submenu_page()
 					 6);
 }
 
-//コンテンツビルダーコード
+//トップページビルダー
 function add_custom_menu_page_1(){
 ?>
 
@@ -107,7 +110,8 @@ function add_custom_menu_page_3()
 {
     ?>
 <div class="wrap">
-    <h2>サイトロゴ設定</h2>
+    <h2>鳴雷404ページ設定</h2>
+	<?php include('narukami-404/404_setting.php'); ?>
 </div>
 <?php
 }
