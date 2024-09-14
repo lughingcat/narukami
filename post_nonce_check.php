@@ -177,5 +177,25 @@ function update_custom_option_footer() {
     }
 }
 add_action('admin_post_update_custom_option_footer', 'update_custom_option_footer');
+
+//404設定
+function update_custom_option_404page() {
+    if (isset($_POST['page404-title'])) {
+        // ノンスのチェック
+        if (!isset($_POST['update_404page_nonce']) || !wp_verify_nonce($_POST['update_404page_nonce'], 'update_404page_action')) {
+            die('不正なリクエストです。');
+        }
+		
+        //update_option 404page
+		
+        $page404_title = sanitize_option_value($_POST['page404-title']);
+		
+        update_option('page404-title', $page404_title);
+		
+        wp_redirect(add_query_arg('updated_404page', 'true', wp_get_referer()));
+        exit;
+    }
+}
+add_action('admin_post_update_custom_option_404page', 'update_custom_option_404page');
 ?>
 
