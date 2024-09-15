@@ -13,8 +13,16 @@
 			<form id="narukami-404page-form" method="post" name="narukami-404page-form" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
 				<input type="hidden" name="action" value="update_custom_option_404page" /><!--post_nonce_check.phpへ送信(フッター用)-->
 			<div class="inputForm">
+				<h4 class="h-admin-4-bg">404ページの背景画像を選択してください</h4>
+					<label><input type="radio" name="page404bg-type" value="main-bg-img">サイトで設定している背景を使う。</label>
+					<label><input type="radio" name="page404bg-type" value="original404-bg-img">専用背景を設定する。</label>
+					
+					<?php
+  					generate_upload_image_single_tag('notfoundpage-bg-img', $i_page404_bg_img);
+					?>
+					
 				<h4>404ページの見出しタイトルを入力してください。</h4>
-				<input type="text" name="page404-title" class="img-setect-url" value="" placeholder="404 NOT FOUND">
+				<input type="text" name="page404-title" class="img-setect-url" value="<?php echo $i_page404_title; ?>" placeholder="404 NOT FOUND">
 				<div class="control-setting-btn">
 					<button class="top-page-maker-save-btn" type="submit">保存する</button>
 					<?php 

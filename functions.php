@@ -448,7 +448,7 @@ function delete_keep_update(){
 //動画アップロード用のタグを出力する(single配列なし)
 function generate_upload_video_single_tag($name, $value){?>
 <div class="img-wrap-function">
-<p class="subf-prev-title">選択画像PREVEW</p>
+<p class="subf-prev-title">選択画像PREVIEW</p>
 <div id="<?php echo $name; ?>_thumbnail" class="uploded-thumbnail">
 	<video width="320" height="200" controls autoplay loop muted>
 		<source src="<?php echo $value; ?>" type="video/mp4">
@@ -465,7 +465,7 @@ function generate_upload_video_single_tag($name, $value){?>
 //画像アップロード用のタグを出力する(single配列なし)
 function generate_upload_image_single_tag($name, $value){?>
 <div class="img-wrap-function">
-<p class="subf-prev-title">選択画像PREVEW</p>
+<p class="subf-prev-title">選択画像PREVIEW</p>
 <div id="<?php echo $name; ?>_thumbnail" class="uploded-thumbnail">
     <?php if ($value): ?>
       <img src="<?php echo $value; ?>" alt="選択中の画像">
@@ -482,7 +482,7 @@ function generate_upload_image_single_tag($name, $value){?>
 //画像アップロード用のタグを出力する(single配列)
 function generate_upload_image_single_array_tag($name, $value, $number){?>
 <div class="img-wrap-function">
-<p class="subf-prev-title">選択画像PREVEW</p>
+<p class="subf-prev-title">選択画像PREVIEW</p>
 <div id="<?php echo $name; ?>_thumbnail" class="uploded-thumbnail" data-index="<?php echo $number; ?>">
     <?php if ($value): ?>
       <img src="<?php echo $value; ?>" alt="選択中の画像">
@@ -499,7 +499,7 @@ function generate_upload_image_single_array_tag($name, $value, $number){?>
 //画像アップロード用のタグを出力する(single配列)
 function generate_upload_image_tag($name, $value, $insert, $gm_numbers){?>
 <div class="img-wrap-function">
-<p class="subf-prev-title">選択画像PREVEW</p>
+<p class="subf-prev-title">選択画像PREVIEW</p>
 <div id="<?php echo $name; ?>_thumbnail" class="uploded-thumbnail" data-insert-id="<?php echo $insert; ?>">
     <?php if ($value): ?>
       <img src="<?php echo $value; ?>" alt="選択中の画像">

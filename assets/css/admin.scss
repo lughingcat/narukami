@@ -1213,7 +1213,36 @@
 //画像アップローダー関数スタイル
 
 .img-wrap-function{
+	position: relative;
 	margin: 4% 0 4% 0;
+	.subf-prev-title{
+		position: absolute;
+		top: 0;
+		width: 50%;
+		background-color: red;
+		height: 40px;
+		margin-top: 0;
+	}
+	.uploded-thumbnail{
+		width: 50%;
+		margin: 0 0 25px 0;
+		img{
+			text-align: center;
+			width: 100%;
+			height: 100%;
+			box-sizing: border-box;
+			padding-top: 25px;
+			object-fit: cover;
+		}
+		video{
+			text-align: center;
+			width: 100%;
+			height: 100%;
+			box-sizing: border-box;
+			padding-top: 25px;
+			object-fit: cover;
+		}
+	}
 }
 //モーダルを閉じるボタンスタイル
 #column_left_1CloseBtn,
@@ -1305,20 +1334,8 @@
 	.h-admin-4-bg{
 		margin-bottom: 40px;
 	}
-	}
-	.uploded-thumbnail{
-		box-shadow: 1px 3px 11px -4px #c9c9c9;
-		border-radius: 8px;
-		width: 30%;
-		margin: 0 0 25px 0;
-		img{
-			text-align: center;
-			width: 100%;
-			height: 100%;
-			box-sizing: border-box;
-			padding-top: 25px;
-		}
-	}
+}
+	
 	
 	.inputWrap{
 		.inputItem{
