@@ -188,9 +188,13 @@ function update_custom_option_404page() {
 		
         //update_option 404page
 		
+        $page404bg_type = sanitize_option_value($_POST['page404bg-type']);
         $page404_title = sanitize_option_value($_POST['page404-title']);
+        $notfoundpage_bg_img = sanitize_option_value($_POST['notfoundpage-bg-img']);
 		
+        update_option('page404bg-type', $page404bg_type);
         update_option('page404-title', $page404_title);
+        update_option('notfoundpage-bg-img', $notfoundpage_bg_img);
 		
         wp_redirect(add_query_arg('updated_404page', 'true', wp_get_referer()));
         exit;

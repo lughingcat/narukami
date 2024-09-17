@@ -724,6 +724,10 @@
 	
 }
 /*================================
+	404設定スタイル
+=================================*/
+
+/*================================
 	top-page-makerホップアッププレビュースタイル
 =================================*/
 
@@ -1216,30 +1220,40 @@
 	position: relative;
 	margin: 4% 0 4% 0;
 	.subf-prev-title{
-		position: absolute;
-		top: 0;
-		width: 50%;
-		background-color: red;
-		height: 40px;
-		margin-top: 0;
+		position: relative;
+		width: 47%;
+		margin: 0;
+		font-weight: bold;
+		padding-left: 24px;
+		&::before{
+			content: '';
+			width: 15px;
+			height: 15px;
+			position: absolute;
+			top: 50%;
+			left: 0;
+			background-color: #0086AD;
+			transform: translateY(-50%);
+		}
 	}
 	.uploded-thumbnail{
+		position: relative;
 		width: 50%;
 		margin: 0 0 25px 0;
 		img{
 			text-align: center;
 			width: 100%;
-			height: 100%;
+			height: 250px;
 			box-sizing: border-box;
-			padding-top: 25px;
+			padding-top: 17px;
 			object-fit: cover;
 		}
 		video{
 			text-align: center;
 			width: 100%;
-			height: 100%;
+			height: 250px;
 			box-sizing: border-box;
-			padding-top: 25px;
+			padding-top: 17px;
 			object-fit: cover;
 		}
 	}

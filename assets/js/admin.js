@@ -1,4 +1,45 @@
 /*==================================
+404設定js
+==================================*/
+// ページロード時の処理
+  document.addEventListener('DOMContentLoaded', function() {
+	  var notFoundPage = document.getElementById('narukami-404page-form');
+	  if(notFoundPage){
+		  checkSelectedOption();
+	  }
+  });
+
+  // ラジオボタンがクリックされたときの処理
+  document.querySelectorAll('input[name="page404bg-type"]').forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      toggleBackgroundOptions();
+    });
+  });
+
+  // ラジオボタンの選択に応じてクラスを付与/削除する関数
+  function toggleBackgroundOptions() {
+    const selectedValue = document.querySelector('input[name="page404bg-type"]:checked').value;
+    const wrapElement = document.querySelector('.notfound-img-select-wrap');
+
+    if (selectedValue === 'original404-bg-img') {
+      wrapElement.classList.remove('notshow'); // 表示
+    } else {
+      wrapElement.classList.add('notshow'); // 非表示
+    }
+  }
+
+  // ページロード時にチェックされているラジオボタンを確認し、クラスを適切に設定する関数
+  function checkSelectedOption() {
+    const selectedValue = document.querySelector('input[name="page404bg-type"]:checked').value;
+    const wrapElement = document.querySelector('.notfound-img-select-wrap');
+
+    if (selectedValue === 'original404-bg-img') {
+      wrapElement.classList.remove('notshow'); // 表示
+    } else {
+      wrapElement.classList.add('notshow'); // 非表示
+    }
+  }
+/*==================================
 ヘッダー設定js
 ==================================*/
 //ヘッダー設定表示切り替え

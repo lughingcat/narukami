@@ -8,19 +8,30 @@
         	<h3 class='hndle'><span class="title">404ページ設定[Narukami404Setting]</span></h3>
         	<div class="inside">
 			<?php
+				$i_page404bg_type = sanitize_option_value(get_option('page404bg-type', 'main-bg-img'));
 				$i_page404_title = sanitize_option_value(get_option('page404-title'));
+				$i_notfoundpage_bg_img = sanitize_option_value(get_option('notfoundpage-bg-img'));
+				
+				//check if
+				if($i_page404bg_type === "main-bg-img"){
+					$mainBg = "checked";
+					$originBg = "";
+				}else{
+					$mainBg = "";
+					$originBg = "checked";
+				}
 			?>
 			<form id="narukami-404page-form" method="post" name="narukami-404page-form" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
 				<input type="hidden" name="action" value="update_custom_option_404page" /><!--post_nonce_check.phpへ送信(フッター用)-->
 			<div class="inputForm">
 				<h4 class="h-admin-4-bg">404ページの背景画像を選択してください</h4>
-					<label><input type="radio" name="page404bg-type" value="main-bg-img">サイトで設定している背景を使う。</label>
-					<label><input type="radio" name="page404bg-type" value="original404-bg-img">専用背景を設定する。</label>
-					
+					<label><input type="radio" name="page404bg-type" value="main-bg-img" <?php echo $mainBg; ?>>サイトで設定している背景を使う。</label>
+					<label><input type="radio" name="page404bg-type" value="original404-bg-img" <?php echo $originBg; ?>>専用背景を設定する。</label>
+					<div class="notfound-img-select-wrap">
 					<?php
-  					generate_upload_image_single_tag('notfoundpage-bg-img', $i_page404_bg_img);
+  					generate_upload_image_single_tag('notfoundpage-bg-img', $i_notfoundpage_bg_img);
 					?>
-					
+					</div>
 				<h4>404ページの見出しタイトルを入力してください。</h4>
 				<input type="text" name="page404-title" class="img-setect-url" value="<?php echo $i_page404_title; ?>" placeholder="404 NOT FOUND">
 				<div class="control-setting-btn">
