@@ -10,9 +10,11 @@
 			<?php
 				$i_page404bg_type = sanitize_option_value(get_option('page404bg-type', 'main-bg-img'));
 				$i_page404_title = sanitize_option_value(get_option('page404-title'));
+				$i_page404_title_color = sanitize_option_value(get_option('notfound-text-color'));
+				$i_page404_titleshadow_color = sanitize_option_value(get_option('notfound-text-shadow'));
 				$i_notfoundpage_bg_img = sanitize_option_value(get_option('notfoundpage-bg-img'));
 				
-				//check if
+				//check is　bg type
 				if($i_page404bg_type === "main-bg-img"){
 					$mainBg = "checked";
 					$originBg = "";
@@ -23,7 +25,7 @@
 			?>
 			<form id="narukami-404page-form" method="post" name="narukami-404page-form" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
 				<input type="hidden" name="action" value="update_custom_option_404page" /><!--post_nonce_check.phpへ送信(フッター用)-->
-			<div class="inputForm">
+			<div class="inputForm notfound-page-wrap">
 				<h4 class="h-admin-4-bg">404ページの背景画像を選択してください</h4>
 					<label><input type="radio" name="page404bg-type" value="main-bg-img" <?php echo $mainBg; ?>>サイトで設定している背景を使う。</label>
 					<label><input type="radio" name="page404bg-type" value="original404-bg-img" <?php echo $originBg; ?>>専用背景を設定する。</label>
@@ -34,6 +36,27 @@
 					</div>
 				<h4>404ページの見出しタイトルを入力してください。</h4>
 				<input type="text" name="page404-title" class="img-setect-url" value="<?php echo $i_page404_title; ?>" placeholder="404 NOT FOUND">
+				
+				<div class="color-box-child">
+				<?php 
+				genelate_color_picker_tag_demo(
+				'notfound-text-color', 
+        	  	$i_page404_title_color,
+        	  	'404テキスト色選択'
+        		);
+				?> 
+				</div>
+				
+				<div class="color-box-child">
+				<?php 
+				genelate_color_picker_tag_demo(
+				'notfound-text-shadow', 
+        	  	$i_page404_titleshadow_color,
+        	  	'404テキストシャドウ色選択'
+        		);
+				?> 
+				</div>
+				
 				<div class="control-setting-btn">
 					<button class="top-page-maker-save-btn" type="submit">保存する</button>
 					<?php 
@@ -45,7 +68,7 @@
     			   		 ),
     			   		 home_url('/')
     					);
-						echo '<button type="button" class="narukami-prevew-btn" onclick="page404PreviewBtn()">PREVEW</button>';
+						echo '<button type="button" class="narukami-prevew-btn" onclick="page404PreviewBtn()">PREVIEW</button>';
 						echo '
 						<script type="text/javascript">
 							function page404PreviewBtn() {

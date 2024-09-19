@@ -1576,3 +1576,83 @@
 }
 }
 
+//404ページスタイル
+.notfound_all_wrap{
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	.notfound-title{
+		width: 100%;
+		text-align: center;
+		font-size: 3em;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		&.notfound-linktext{
+			font-size: 1.5em;
+			top: 70%;
+			text-decoration: none;
+		}
+	}
+}
+
+//告知バナースタイル
+.banner-all-wrap{//全体wrap
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.8);
+	z-index: 1001;
+	transition: opacity .5s ease;
+	opacity: 1;
+	&.remove-banner{
+		opacity: 0;
+	}
+	.banner-content-wrap{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -60%);
+		width: 50%;
+		height: 70%;
+		.banner-title{
+			text-align: center;
+			font-weight: bold;
+			color: #ffffff;
+		}
+		a{
+			width: 100%;
+			height: 100%;
+			text-decoration: none;
+			img{
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+		.banner-close-button{
+			width: 30px;
+  			height: 30px;
+  			background-color: #FFFFFF;
+  			color: #000; 
+  			border: none;
+  			border-radius: 50%; 
+  			font-size: 16px;
+			font-weight: bold;
+  			display: flex;
+  			align-items: center;
+  			justify-content: center;
+  			cursor: pointer; 
+  			outline: none;
+			padding: 0;
+			margin-top: 12px;
+			&::before{
+				content: '×';
+  				display: block;
+			}
+		}
+	}
+}

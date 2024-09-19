@@ -584,6 +584,16 @@ function custom_404page_preview_handler() {
     }
 }
 
+//告知ページのプレビュー関数
+add_action('template_redirect', 'custom_banner_preview_handler');
+function custom_banner_preview_handler() {
+    if (isset($_GET['preview']) && $_GET['preview'] === 'true' && isset($_GET['page']) && $_GET['page'] === 'banner_preview') {
+        // トップページビルダーのプレビュー用テンプレート
+        include(get_template_directory() . '/custom-banner-preview-temp.php');
+        exit;
+    }
+}
+
 
 /**
  * Implement the Custom Header feature.

@@ -52,10 +52,10 @@ function add_custom_submenu_page()
 					 'custom_submenu_page_3', 
 					 'add_custom_menu_page_3',
 					 3);
-	//ヘッダー設定
+	//ホップアップバナー設定
 	add_submenu_page('custom_menu_page', 
-					 'ヘッダー設定', 
-					 'ヘッダー設定', 
+					 'ホップアップバナー設定', 
+					 'ホップアップバナー設定', 
 					 'manage_options', 
 					 'custom_submenu_page_4', 
 					 'add_custom_menu_page_4',
@@ -121,7 +121,8 @@ function add_custom_menu_page_4()
 {
     ?>
 <div class="wrap">
-    <h2>ヘッダー設定</h2>
+    <h2>ホップアップバナー設定</h2>
+	<?php include('narukami-banner/banner-setting.php'); ?>
 </div>
 <?php
 }

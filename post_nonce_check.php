@@ -191,15 +191,44 @@ function update_custom_option_404page() {
         $page404bg_type = sanitize_option_value($_POST['page404bg-type']);
         $page404_title = sanitize_option_value($_POST['page404-title']);
         $notfoundpage_bg_img = sanitize_option_value($_POST['notfoundpage-bg-img']);
+        $notfound_text_color = sanitize_option_value($_POST['notfound-text-color']);
+        $notfound_text_shadow = sanitize_option_value($_POST['notfound-text-shadow']);
 		
         update_option('page404bg-type', $page404bg_type);
         update_option('page404-title', $page404_title);
         update_option('notfoundpage-bg-img', $notfoundpage_bg_img);
+        update_option('notfound-text-color', $notfound_text_color);
+        update_option('notfound-text-shadow', $notfound_text_shadow);
 		
         wp_redirect(add_query_arg('updated_404page', 'true', wp_get_referer()));
         exit;
     }
 }
-add_action('admin_post_update_custom_option_404page', 'update_custom_option_404page');
+
+//バナー設定
+function update_custom_option_banner() {
+    if (isset($_POST['banner-img'])) {
+        // ノンスのチェック
+        if (!isset($_POST['update_banner_nonce']) || !wp_verify_nonce($_POST['update_banner_nonce'], 'update_banner_action')) {
+            die('不正なリクエストです。');
+        }
+		
+        //update_option 404page
+		
+        $banner_use_control = sanitize_option_value($_POST['banner-use-control']);
+        $banner_title = sanitize_option_value($_POST['banner-title']);
+        $banner_img = sanitize_option_value($_POST['banner-img']);
+        $banner_link = sanitize_option_value($_POST['banner-link']);
+    
+        update_option('banner-use-control', $banner_use_control);
+        update_option('banner-title', $banner_title);
+        update_option('banner-img', $banner_img);
+        update_option('banner-link', $banner_link);
+		
+        wp_redirect(add_query_arg('updated_banner', 'true', wp_get_referer()));
+        exit;
+    }
+}
+add_action('admin_post_update_custom_option_banner', 'update_custom_option_banner');
 ?>
 

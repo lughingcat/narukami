@@ -5,6 +5,27 @@
     <title><?php echo get_bloginfo('name'); ?></title>
     <?php wp_head(); ?>
 </head>
+	<?php 
+	//背景
+	$notfound_default_bg = sanitize_option_value(get_theme_mod('background_image'));
+	$notfound_original_bg = sanitize_option_value($_POST['notfoundpage-bg-img']);
+	$notfound_bg_type = sanitize_option_value($_POST['page404bg-type']);
+	
+	if($notfound_bg_type === "main-bg-img"){
+		$main_img = $notfound_default_bg;
+	}else{
+		$main_img = $notfound_original_bg;
+	}
+	?>
+<style>
+	body{
+		background-image: url('<?php echo esc_url($main_img); ?>');
+		background-repeat: no-repeat;
+		background-position: center;
+		background-attachment: fixed;
+		background-size: cover;
+	}
+</style>
 <body style="position: relative;">
 	<?php
 	//ヘッダー読み込み
