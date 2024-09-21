@@ -15,9 +15,7 @@
 ?>
 <div class="wrap">
   <h2>鳴雷全体設定</h2>
-	<p>ファビコン設定</p>
-	<p>フォントファミリー設定</p>
-	<p>LIMIT BREAK</p>
+	<?php include('narukami-overall/over-all-setting.php'); ?>
 </div>
 <?php
 }
