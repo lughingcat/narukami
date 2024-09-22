@@ -12,13 +12,19 @@
 				<input type="hidden" name="action" value="update_custom_option_overall" /><!--post_nonce_check.phpへ送信(フッター用)-->
 			<div class="inputForm notfound-page-wrap">
 				<h4>背景画像設定</h4>
-				<input type="text" name="banner-title" class="img-setect-url" value="<?php echo $i_banner_title; ?>" placeholder="告知タイトルを入力してください">
+				
 				<h4>ファビコン設定</h4>
-				<?php
-  				generate_upload_image_single_tag('favicon-img', $i_favicon_img);
-				?>
-				<h4>バナーのリンク先ページのURLを入力してください。</h4>
-				<input type="text" name="banner-link" class="img-setect-url" value="<?php echo $i_banner_link; ?>" placeholder="URLを入力してください">
+				
+				<h4>スクロールトップボタン設定</h4>
+				ボタンの表示/非表示
+				ボタンの背景色
+				ボタンの矢印色
+				
+				<h4>電話ボタン設定</h4>
+				電話ボタンの表示/非表示
+				電話ボタンの背景色
+				電話ボタンの文字色
+				
 			
 				<div class="control-setting-btn">
 					<button class="top-page-maker-save-btn" type="submit">保存する</button>

@@ -188,12 +188,13 @@ function add_cdns(){
         jQuery(document).ready(function($) {
             $(".heroheader-slider-wrap").slick({
 				lazyLoad: "ondemand",
-                autoplaySpeed: 3000,
+				autoplay: true,
+                autoplaySpeed: 2000,
                 dots: true,
                 infinite: true,
-                speed: 500,
+                speed: 1000,
 				arrows: true,
-                cssEase: "linear"
+                cssEase: "ease-in-out"
             });
         });
     ');
@@ -255,12 +256,12 @@ function enqueue_narukami_top_preview_assets() {
             $(".heroheader-slider-wrap").slick({
 				autoplay: true,
 				lazyLoad: "ondemand",
-                autoplaySpeed: 3000,
+                autoplaySpeed: 2000,
                 dots: true,
                 infinite: true,
-                speed: 500,
+                speed: 1000,
 				arrows: true,
-                cssEase: "linear"
+                cssEase: "ease-in-out"
             });
         });
     ');
@@ -568,7 +569,7 @@ function custom_preview_handler() {
 add_action('template_redirect', 'custom_header_preview_handler');
 function custom_header_preview_handler() {
     if (isset($_GET['preview']) && $_GET['preview'] === 'true' && isset($_GET['page']) && $_GET['page'] === 'toppage_header_preview') {
-        // トップページビルダーのプレビュー用テンプレート
+        // トップページヘッダーのプレビュー用テンプレート
         include(get_template_directory() . '/custom-header-prevew-temp.php');
         exit;
     }
@@ -578,7 +579,7 @@ function custom_header_preview_handler() {
 add_action('template_redirect', 'custom_404page_preview_handler');
 function custom_404page_preview_handler() {
     if (isset($_GET['preview']) && $_GET['preview'] === 'true' && isset($_GET['page']) && $_GET['page'] === 'page404_preview') {
-        // トップページビルダーのプレビュー用テンプレート
+        // 404のプレビュー用テンプレート
         include(get_template_directory() . '/custom-404-preview-temp.php');
         exit;
     }
