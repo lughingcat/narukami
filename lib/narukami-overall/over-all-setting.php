@@ -43,7 +43,7 @@
 <script>
 document.getElementById('font-f-select').addEventListener('change', function() {
         var selectedFont = this.value;
-        var previewElement = document.querySelector('.font-family-preview');
-		previewElement.style.fontFamily = selectedFont;
+        var previewElement = document.querySelector('.font-family-preview').style.fontFamily;
+	console.log(previewElement);
     });
 </script>
