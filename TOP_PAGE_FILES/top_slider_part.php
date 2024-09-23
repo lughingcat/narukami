@@ -1,15 +1,9 @@
 <?php
 $slider_img_link = sanitize_option_value(get_option('slider_img_link_array'));
 $slider_item_title = sanitize_option_value(get_option('slider_item_title_array'));
-$slider_item_shadow = isset(get_option('slider_item_shadow')) 
-    ? sanitize_option_value(get_option('slider_item_shadow')) 
-    : 'shadow-off';
-$slider_item_shadow_volume = isset(get_option('slider_item_shadow_volume')) 
-    ? sanitize_option_value(get_option('slider_item_shadow_volume')) 
-    : '';
-$animetion_type = isset(get_option('loading-anime-type'))
-    ? sanitize_option_value(get_option('loading-anime-type')) 
-    : 'still-img';
+$slider_item_shadow = sanitize_option_value(get_option('slider_item_shadow', 'shadow-off'));
+$slider_item_shadow_volume = sanitize_option_value(get_option('slider_item_shadow_volume', ''));
+$animetion_type = sanitize_option_value(get_option('loading-anime-type', 'still-img'));
 $i_open_bgimgurl = sanitize_option_value(get_option('open-bg-imgurl'));
 $i_open_rogoimgurl = sanitize_option_value(get_option('open-rogo-imgurl'));
 $i_loadingtext_color = sanitize_option_value(get_option('loadingtext-color'));
