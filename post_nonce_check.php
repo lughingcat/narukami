@@ -232,7 +232,7 @@ function update_custom_option_banner() {
 add_action('admin_post_update_custom_option_banner', 'update_custom_option_banner');
 
 //バナー設定
-function update_custom_option_over_all() {
+function update_custom_option_overall() {
     if (isset($_POST['narukami-font-family'])) {
         // ノンスのチェック
         if (!isset($_POST['update_overall_nonce']) || !wp_verify_nonce($_POST['update_overall_nonce'], 'update_overall_action')) {
@@ -242,8 +242,7 @@ function update_custom_option_over_all() {
         //update_option 全体設定
 		
         $narukami_font_family = sanitize_option_value($_POST['narukami-font-family']);
-        
-    
+		
         update_option('narukami-font-family', $narukami_font_family);
        
 		
@@ -251,6 +250,6 @@ function update_custom_option_over_all() {
         exit;
     }
 }
-add_action('admin_post_update_custom_option_over_all', 'update_custom_option_over_all');
+add_action('admin_post_update_custom_option_overall', 'update_custom_option_overall');
 ?>
 

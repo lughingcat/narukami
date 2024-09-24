@@ -25,6 +25,7 @@
 add_action('admin_menu', 'add_custom_submenu_page');
 function add_custom_submenu_page()
 {
+	
 	//トップページビルダー
     add_submenu_page('custom_menu_page',
 					 '鳴雷トップページビルダー', 
