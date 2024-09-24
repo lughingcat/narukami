@@ -176,9 +176,26 @@ function add_cdns(){
 	wp_enqueue_script('sortable','https://cdn.jsdelivr.net/npm/sortablejs@1.10.2/Sortable.min.js');
 	wp_enqueue_script('draggable','https://cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.24.3/vuedraggable.umd.js');
 	wp_enqueue_script('bootstrapJs','https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js');
+	//font
 	wp_enqueue_style('fontawesome','https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css');
-	wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css?family=Noto+Serif+JP', array(), null);
+	//noto-sans-jp
+	wp_enqueue_style('noto-sans-jp', 'https://fonts.googleapis.com/css?family=Noto+Serif+JP', array(), null);
+	//damion-font
 	wp_enqueue_style('damion-font', 'https://fonts.googleapis.com/css2?family=Damion&display=swap', false, null);
+	// Sawarabi Gothic
+    wp_enqueue_style('sawarabi-gothic', 'https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap', false, null);
+    // M PLUS Rounded 1c
+    wp_enqueue_style('m-plus-rounded', 'https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap', false, null);
+    // Sawarabi Mincho
+    wp_enqueue_style('sawarabi-mincho', 'https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap', false, null);
+    // Kosugi Maru
+    wp_enqueue_style('kosugi-maru', 'https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap', false, null);
+    // Toppan Bunkyu Mincho (このフォントはまだGoogle Fontsにない可能性があるため、代替としてM PLUS 1pをエンキューします)
+    wp_enqueue_style('m-plus-1p', 'https://fonts.googleapis.com/css2?family=M+PLUS+1p&display=swap', false, null);
+    // Roboto
+    wp_enqueue_style('roboto', 'https://fonts.googleapis.com/css2?family=Roboto&display=swap', false, null);
+	
+	//slick-js
 	wp_enqueue_style('slick-css', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
     wp_enqueue_style('slick-theme-css', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css');
 	// Slick SliderのJavaScriptをエンキュー
@@ -240,9 +257,24 @@ function enqueue_narukami_top_preview_assets() {
         // CSSファイルをエンキュー
         wp_enqueue_style('narukami-top-preview', get_template_directory_uri() . '/sass/preview/narukami-top-preview.css', array(), time());
 		wp_enqueue_script('narukami-top-js-preview', get_template_directory_uri() . '/front-js/preview/narukami-top-preview.js', array('jquery'), null, true);
+		//font
 		wp_enqueue_style('fontawesome','https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css');
-		wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css?family=Noto+Serif+JP', array(), null);
+		//noto-sans-jp
+		wp_enqueue_style('noto-sans-jp', 'https://fonts.googleapis.com/css?family=Noto+Serif+JP', array(), null);
+		//damion-font
 		wp_enqueue_style('damion-font', 'https://fonts.googleapis.com/css2?family=Damion&display=swap', false, null);
+		// Sawarabi Gothic
+    	wp_enqueue_style('sawarabi-gothic', 'https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap', false, null);
+    	// M PLUS Rounded 1c
+    	wp_enqueue_style('m-plus-rounded', 'https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap', false, null);
+    	// Sawarabi Mincho
+    	wp_enqueue_style('sawarabi-mincho', 'https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap', false, null);
+    	// Kosugi Maru
+    	wp_enqueue_style('kosugi-maru', 'https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap', false, null);
+    	// Toppan Bunkyu Mincho (このフォントはまだGoogle Fontsにない可能性があるため、代替としてM PLUS 1pをエンキューします)
+    	wp_enqueue_style('m-plus-1p', 'https://fonts.googleapis.com/css2?family=M+PLUS+1p&display=swap', false, null);
+    	// Roboto
+    	wp_enqueue_style('roboto', 'https://fonts.googleapis.com/css2?family=Roboto&display=swap', false, null);
 		//jquery
 		wp_enqueue_script('jquery');
 		// Slick CSS
