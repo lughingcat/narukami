@@ -2593,3 +2593,37 @@
   .inputForm .sns-item-wrap .img-setect-url {
     width: 80%;
     height: 36px; }
+
+/*#################################
+	全体設定
+#################################*/
+.scroll-btn-design {
+  position: relative; }
+  .scroll-btn-design .preview-text {
+    position: relative;
+    width: 47%;
+    margin: 0;
+    font-weight: bold;
+    padding-left: 24px;
+    margin-top: 20px; }
+    .scroll-btn-design .preview-text::before {
+      content: '';
+      width: 15px;
+      height: 15px;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      background-color: #0086AD;
+      transform: translateY(-50%); }
+  .scroll-btn-design .scroll-icon-preview {
+    font-size: 24px;
+    margin: 20px 0; }
+    .scroll-btn-design .scroll-icon-preview .fas.fa-chevron-up {
+      padding: 10px;
+      border-radius: 3px; }
+    .scroll-btn-design .scroll-icon-preview .fas.fa-arrow-up {
+      padding: 10px 13px;
+      border-radius: 3px; }
+    .scroll-btn-design .scroll-icon-preview .fas.fa-caret-up {
+      padding: 10px 13px;
+      border-radius: 3px; }

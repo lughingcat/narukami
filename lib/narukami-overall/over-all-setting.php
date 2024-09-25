@@ -10,6 +10,19 @@
 				$i_narukami_font_family = sanitize_option_value(get_option('narukami-font-family', "Sawarabi Gothic"));
 				$i_narukami_favicon_image = sanitize_option_value(get_option('narukami-favicon-image'));
 				$i_background_image = sanitize_option_value(get_theme_mod('background_image'));
+				$i_scroll_btn_bg_color = sanitize_option_value(get_option('scroll-btn-bg-color', ''));
+				$i_scroll_btn_arrow_color = sanitize_option_value(get_option('scroll-btn-arrow-color', ''));
+				$i_scroll_btn_active = sanitize_option_value(get_option('scroll-btn-active', 'scroll-on'));
+				if($i_scroll_btn_active){
+					if($i_scroll_btn_active === "scroll-on"){
+						$scroll_on = "checked";
+						$scroll_off = "";
+					}else{
+						$scroll_on = "";
+						$scroll_off = "checked";
+					}
+				}
+				
 				function is_selected($option_value, $selected_font_family) {
     			// オプションの値と選択されたフォントが一致していれば 'selected' を返す
     				return $option_value === $selected_font_family ? 'selected' : '';
@@ -46,10 +59,15 @@
   				generate_upload_image_single_tag('narukami-favicon-image', $i_narukami_favicon_image);
 				?>
 				<h4>スクロールトップボタン設定</h4>
-				<label><input class="scroll-btn-active" type="radio" name="scroll-btn-active">スクロールボタンを表示する。</label>
-				<label><input class="scroll-btn-active" type="radio" name="scroll-btn-active">スクロールボタンを非表示にする。</label>
-				<div class="scroll-btn-design">
-					<div id="icon-preview" style="font-size: 24px; margin-bottom: 10px;"></div>
+				<label><input class="scroll-btn-active" type="radio" name="scroll-btn-active" value="scroll-on" <?php echo $scroll_on; ?>>スクロールボタンを表示する。</label>
+				<label><input class="scroll-btn-active" type="radio" name="scroll-btn-active" value="scroll-off" <?php echo $scroll_off; ?>>スクロールボタンを非表示にする。</label>
+				
+				<div class="scroll-btn-design notshow">
+					<h4>アイコンの種類を選択してください</h4>
+					<p class="preview-text">スクロールアイコン PREVIEW</p>
+					<div id="icon-preview" class="scroll-icon-preview" 
+						 style="color: <?php echo $i_scroll_btn_arrow_color; ?>;">
+					</div>
 					<select id="icon-select">
 					    <option value="fas fa-chevron-up">Chevron Up</option>
 					    <option value="fas fa-arrow-up">Arrow Up</option>
@@ -60,7 +78,7 @@
 					<?php 
 					genelate_color_picker_tag_demo(
         	  		'scroll-btn-bg-color', 
-        	  		get_option('scroll-btn-bg-color'),
+        	  		$i_scroll_btn_bg_color,
         	  		'ボタンの背景色'
         			);
 					?> 
@@ -70,7 +88,7 @@
 					<?php 
 					genelate_color_picker_tag_demo(
         	  		'scroll-btn-arrow-color', 
-        	  		get_option('scroll-btn-arrow-color'),
+        	  		$i_scroll_btn_arrow_color,
         	  		'ボタンの矢印色'
         			);
 					?> 
@@ -120,10 +138,59 @@ window.addEventListener('DOMContentLoaded', function() {
 //font-awesome preview
 document.getElementById('icon-select').addEventListener('change', function() {
     var selectedIconClass = this.value;
-    document.getElementById('icon-preview').innerHTML = '<i class="' + selectedIconClass + '"></i>';
+	var bgColor = 'background-color: <?php echo esc_attr($i_scroll_btn_bg_color); ?>;';
+    document.getElementById('icon-preview').innerHTML = '<i class="' + selectedIconClass + '"style="' + bgColor + ';"></i>';
+	localStorage.setItem('scrollIconFont', selectedIconClass)
+});
+	
+window.addEventListener('DOMContentLoaded', function() {
+    var previewIconContainer = document.getElementById('icon-preview');
+    var selectedFont = localStorage.getItem('scrollIconFont');
+	var bgColor = 'background-color: <?php echo esc_attr($i_scroll_btn_bg_color); ?>;';
+	
+    if (selectedFont) {
+        previewIconContainer.innerHTML = '<i class="' + escapeHTML(selectedFont) + '"style="' + bgColor + ';"></i>';
+		document.getElementById('icon-select').value = escapeHTML(selectedFont);
+    } else {
+        previewIconContainer.innerHTML = '<i class="fas fa-chevron-up" style="' + bgColor + ';"></i>';
+		document.getElementById('icon-select').value = 'fas fa-chevron-up';
+    }
 });
 
-document.getElementById('icon-preview').innerHTML = '<i class="fas fa-chevron-up"></i>';
-</script>
+// HTMLエスケープ関数を追加して、XSS 攻撃を防ぐ
+function escapeHTML(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+}
+	
+// ページロード時に表示/非表示を設定する関数
+  function initializeScrollButtonVisibility() {
+    var selectedValue = document.querySelector('input[name="scroll-btn-active"]:checked').value;
+    toggleScrollButton(selectedValue);
+  }
+
+  // スクロールボタンの表示・非表示を切り替える関数
+  function toggleScrollButton(value) {
+    var scrollBtnDesign = document.querySelector('.scroll-btn-design');
+    if (value === 'scroll-on') {
+      scrollBtnDesign.classList.remove('notshow');
+    } else {
+      scrollBtnDesign.classList.add('notshow');
+    }
+  }
+
+  // DOMが完全に読み込まれたら実行
+  window.addEventListener('DOMContentLoaded', function() {
+    initializeScrollButtonVisibility(); // ページロード時に表示を設定
+
+    // ラジオボタンの変更を監視して表示を切り替え
+    var radioButtons = document.querySelectorAll('input[name="scroll-btn-active"]');
+    radioButtons.forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        toggleScrollButton(this.value);
+      });
+    });
+  });
 
 </script>

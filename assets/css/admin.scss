@@ -3021,3 +3021,45 @@
 		}
 	}
 }
+
+/*#################################
+	全体設定
+#################################*/
+
+.scroll-btn-design{
+	position: relative;
+	.preview-text{
+		position: relative;
+    	width: 47%;
+    	margin: 0;
+    	font-weight: bold;
+    	padding-left: 24px;
+		margin-top: 20px;
+		&::before{
+			content: '';
+    		width: 15px;
+    		height: 15px;
+    		position: absolute;
+    		top: 50%;
+    		left: 0;
+    		background-color: #0086AD;
+    		transform: translateY(-50%);
+		}
+	}
+	.scroll-icon-preview{
+		font-size: 24px;
+		margin: 20px 0;
+		.fas.fa-chevron-up{//1
+			padding: 10px;
+			border-radius: 3px;
+		}
+		.fas.fa-arrow-up{//2
+			padding: 10px 13px;
+			border-radius: 3px;
+		}
+		.fas.fa-caret-up{//3
+			padding: 10px 13px;
+			border-radius: 3px;
+		}
+	}
+}

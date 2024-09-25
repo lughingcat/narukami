@@ -244,10 +244,16 @@ function update_custom_option_overall() {
         $narukami_font_family = sanitize_option_value($_POST['narukami-font-family']);
         $background_image = sanitize_option_value($_POST['background_image']);
         $narukami_favicon_image = sanitize_option_value($_POST['narukami-favicon-image']);
+        $scroll_btn_bg_color = sanitize_option_value($_POST['scroll-btn-bg-color']);
+        $scroll_btn_arrow_color = sanitize_option_value($_POST['scroll-btn-arrow-color']);
+        $scroll_btn_active = sanitize_option_value($_POST['scroll-btn-active']);
 		
         update_option('narukami-font-family', $narukami_font_family);
         update_option('background_image', $background_image);
         update_option('narukami-favicon-image', $narukami_favicon_image);
+        update_option('scroll-btn-bg-color', $scroll_btn_bg_color);
+        update_option('scroll-btn-arrow-color', $scroll_btn_arrow_color);
+        update_option('scroll-btn-active', $scroll_btn_active);
        
 		
         wp_redirect(add_query_arg('updated_overall', 'true', wp_get_referer()));
