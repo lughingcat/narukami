@@ -231,7 +231,7 @@ function update_custom_option_banner() {
 }
 add_action('admin_post_update_custom_option_banner', 'update_custom_option_banner');
 
-//バナー設定
+//全体設定
 function update_custom_option_overall() {
     if (isset($_POST['narukami-font-family'])) {
         // ノンスのチェック
@@ -242,8 +242,12 @@ function update_custom_option_overall() {
         //update_option 全体設定
 		
         $narukami_font_family = sanitize_option_value($_POST['narukami-font-family']);
+        $background_image = sanitize_option_value($_POST['background_image']);
+        $narukami_favicon_image = sanitize_option_value($_POST['narukami-favicon-image']);
 		
         update_option('narukami-font-family', $narukami_font_family);
+        update_option('background_image', $background_image);
+        update_option('narukami-favicon-image', $narukami_favicon_image);
        
 		
         wp_redirect(add_query_arg('updated_overall', 'true', wp_get_referer()));
@@ -251,5 +255,15 @@ function update_custom_option_overall() {
     }
 }
 add_action('admin_post_update_custom_option_overall', 'update_custom_option_overall');
+
+//ファビコン登録
+function narukami_output_favicon() {
+    $favicon_url = get_option('narukami-favicon-image', '');
+    if ($favicon_url) {
+        echo '<link rel="icon" href="' . esc_url($favicon_url) . '" sizes="32x32" />';
+    }
+}
+add_action('wp_head', 'narukami_output_favicon');
+
 ?>
 

@@ -8,6 +8,8 @@
         	<div class="inside">
 			<?php
 				$i_narukami_font_family = sanitize_option_value(get_option('narukami-font-family', "Sawarabi Gothic"));
+				$i_narukami_favicon_image = sanitize_option_value(get_option('narukami-favicon-image'));
+				$i_background_image = sanitize_option_value(get_theme_mod('background_image'));
 				function is_selected($option_value, $selected_font_family) {
     			// オプションの値と選択されたフォントが一致していれば 'selected' を返す
     				return $option_value === $selected_font_family ? 'selected' : '';
@@ -34,15 +36,46 @@
     				<option value="M PLUS 1p" <?php echo is_selected("M PLUS 1p", $i_narukami_font_family); ?>>「高級感」 M PLUS 1p</option>
     				<option value="Roboto" <?php echo is_selected("Roboto", $i_narukami_font_family); ?>>「シンプル」 Roboto</option>
 				</select>
-
+				
 				<h4>背景画像設定</h4>
-				
+				<?php
+  				generate_upload_image_single_tag('background_image', $i_background_image);
+				?>
 				<h4>ファビコン設定</h4>
-				
+				<?php
+  				generate_upload_image_single_tag('narukami-favicon-image', $i_narukami_favicon_image);
+				?>
 				<h4>スクロールトップボタン設定</h4>
-				ボタンの表示/非表示
-				ボタンの背景色
-				ボタンの矢印色
+				<label><input class="scroll-btn-active" type="radio" name="scroll-btn-active">スクロールボタンを表示する。</label>
+				<label><input class="scroll-btn-active" type="radio" name="scroll-btn-active">スクロールボタンを非表示にする。</label>
+				<div class="scroll-btn-design">
+					<div id="icon-preview" style="font-size: 24px; margin-bottom: 10px;"></div>
+					<select id="icon-select">
+					    <option value="fas fa-chevron-up">Chevron Up</option>
+					    <option value="fas fa-arrow-up">Arrow Up</option>
+					    <option value="fas fa-caret-up">Caret Up</option>
+					</select>
+
+					<div class="color-box-child">
+					<?php 
+					genelate_color_picker_tag_demo(
+        	  		'scroll-btn-bg-color', 
+        	  		get_option('scroll-btn-bg-color'),
+        	  		'ボタンの背景色'
+        			);
+					?> 
+					</div>
+					
+					<div class="color-box-child">
+					<?php 
+					genelate_color_picker_tag_demo(
+        	  		'scroll-btn-arrow-color', 
+        	  		get_option('scroll-btn-arrow-color'),
+        	  		'ボタンの矢印色'
+        			);
+					?> 
+					</div>
+				</div>
 				
 				<h4>電話ボタン設定</h4>
 				電話ボタンの表示/非表示
@@ -62,6 +95,7 @@
       </div><!--metabox-holder end-->
 </div><!--back_wrap end-->
 <script>
+//font-family
 document.getElementById('font-family-select').addEventListener('change', function() {
     var selectedFont = this.value;
 	var fontChangeEl = document.querySelector('.font-change-preview');
@@ -83,6 +117,13 @@ window.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+//font-awesome preview
+document.getElementById('icon-select').addEventListener('change', function() {
+    var selectedIconClass = this.value;
+    document.getElementById('icon-preview').innerHTML = '<i class="' + selectedIconClass + '"></i>';
+});
+
+document.getElementById('icon-preview').innerHTML = '<i class="fas fa-chevron-up"></i>';
 </script>
 
 </script>
