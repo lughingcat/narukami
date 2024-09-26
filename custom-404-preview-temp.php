@@ -17,6 +17,14 @@
 		$main_img = $notfound_original_bg;
 	}
 	?>
+	<?php
+	$narukami_font_family = sanitize_option_value(get_option('narukami-font-family'));
+	?>
+	<style>
+		body{
+			font-family: <?php echo $narukami_font_family; ?>
+		}
+	</style>
 <style>
 	body{
 		background-image: url('<?php echo esc_url($main_img); ?>');

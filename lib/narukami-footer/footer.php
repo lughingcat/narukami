@@ -49,7 +49,7 @@ if (is_array($i_footer_title_array)) {
 }
 ?>
 <div class="footer-all-wrap"
-	　style="background-color: <?php echo $footer_bg_color; ?>;">
+	 style="background-color: <?php echo $footer_bg_color; ?>;">
 	<div class="footer-back-wrap" 
 		 style="color: <?php echo $footer_textcolor; ?>">
 		<div class="footer-left-wrap">

@@ -43,7 +43,7 @@
 					<span style="background-color: <?php echo $i_humberger_arrowcolor; ?>"></span>
 					<span style="background-color: <?php echo $i_humberger_arrowcolor; ?>"></span>
 					<span style="background-color: <?php echo $i_humberger_arrowcolor; ?>"></span>
-					<p class="span-text" style="color: <?php echo $i_global_text_menucolor; ?>">MENU</p>
+					<p class="span-text" style="color: <?php echo $i_global_text_menucolor; ?>; font-family: Roboto">MENU</p>
 				</div>
 			</div>
 			<div class="globalmenu-back-wrap"

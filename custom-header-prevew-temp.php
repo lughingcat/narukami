@@ -5,6 +5,14 @@
     <title><?php echo get_bloginfo('name'); ?></title>
     <?php wp_head(); ?>
 </head>
+	<?php
+	$narukami_font_family = sanitize_option_value(get_option('narukami-font-family'));
+	?>
+	<style>
+		body{
+			font-family: <?php echo $narukami_font_family; ?>
+		}
+	</style>
 <body style="position: relative;">
 	 <?php
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {

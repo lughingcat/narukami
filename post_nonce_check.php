@@ -204,6 +204,7 @@ function update_custom_option_404page() {
         exit;
     }
 }
+add_action('admin_post_update_custom_option_404page', 'update_custom_option_404page');
 
 //バナー設定
 function update_custom_option_banner() {
