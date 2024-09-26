@@ -13,6 +13,9 @@
 				$i_scroll_btn_bg_color = sanitize_option_value(get_option('scroll-btn-bg-color', ''));
 				$i_scroll_btn_arrow_color = sanitize_option_value(get_option('scroll-btn-arrow-color', ''));
 				$i_scroll_btn_active = sanitize_option_value(get_option('scroll-btn-active', 'scroll-on'));
+				$i_call_btn_active = sanitize_option_value(get_option('call-btn-active', 'call-btn-on'));
+				$i_call_btn_bg_color = sanitize_option_value(get_option('call-btn-bg-color'));
+				//scroll btn
 				if($i_scroll_btn_active){
 					if($i_scroll_btn_active === "scroll-on"){
 						$scroll_on = "checked";
@@ -20,6 +23,16 @@
 					}else{
 						$scroll_on = "";
 						$scroll_off = "checked";
+					}
+				}
+				//call btn
+				if($i_call_btn_active){
+					if($i_call_btn_active === "call-btn-on"){
+						$callBtn_on = "checked";
+						$callBtn_off = "";
+					}else{
+						$callBtn_on = "";
+						$callBtn_off = "checked";
 					}
 				}
 				
@@ -96,9 +109,30 @@
 				</div>
 				
 				<h4>電話ボタン設定</h4>
-				電話ボタンの表示/非表示
-				電話ボタンの背景色
-				電話ボタンの文字色
+				<p>
+				スマホでサイトが表示された時に出現します。<br>
+				ボタンをタップするとお店に電話をかける事ができ、ご予約までの流れがスムーズになります。<br>
+				</p>
+				<label><input class="call-btn-active" type="radio" name="call-btn-active" value="call-btn-on" <?php echo $callBtn_on; ?>>電話ボタンを表示する。</label>
+				<label><input class="call-btn-active" type="radio" name="call-btn-active" value="call-btn-off" <?php echo $callBtn_off; ?>>電話ボタンを非表示にする。</label>
+				
+				<div class="call-btn-design">
+					<p class="preview-text">電話アイコン PREVIEW</p>
+					<div id="call-icon-preview" class="call-icon-preview" 
+						 style="color: <?php echo $i_call_btn_bg_color; ?>;">
+						<i class="fas fa-phone-square"></i>
+					</div>
+
+					<div class="color-box-child">
+					<?php 
+					genelate_color_picker_tag_demo(
+        	  		'call-btn-bg-color', 
+        	  		$i_call_btn_bg_color,
+        	  		'ボタンの背景色'
+        			);
+					?> 
+					</div>
+				</div>
 				
 			
 				<div class="control-setting-btn">
@@ -192,5 +226,24 @@ function escapeHTML(str) {
       });
     });
   });
+	
+//電話ボタンプレビューの表示/非表示切り替え
+document.addEventListener('DOMContentLoaded', function () {
+    const callBtnDesign = document.querySelector('.call-btn-design');
+    const radioButtons = document.querySelectorAll('.call-btn-active');
 
+    // ラジオボタンの状態に応じて表示・非表示を切り替える関数
+    function toggleCallBtnDesign() {
+        const isCallBtnOn = document.querySelector('input[name="call-btn-active"]:checked').value === 'call-btn-on';
+        callBtnDesign.classList.toggle('notshow', !isCallBtnOn);
+    }
+
+    // 初期状態の設定
+    toggleCallBtnDesign();
+
+    // ラジオボタンの切り替え時に表示・非表示を更新
+    radioButtons.forEach(radio => {
+        radio.addEventListener('change', toggleCallBtnDesign);
+    });
+});
 </script>

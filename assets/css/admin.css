@@ -2627,3 +2627,27 @@
     .scroll-btn-design .scroll-icon-preview .fas.fa-caret-up {
       padding: 10px 13px;
       border-radius: 3px; }
+
+.call-btn-design {
+  position: relative; }
+  .call-btn-design .preview-text {
+    position: relative;
+    width: 47%;
+    margin: 0;
+    font-weight: bold;
+    padding-left: 24px;
+    margin-top: 20px; }
+    .call-btn-design .preview-text::before {
+      content: '';
+      width: 15px;
+      height: 15px;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      background-color: #0086AD;
+      transform: translateY(-50%); }
+  .call-btn-design .call-icon-preview {
+    font-size: 50px;
+    margin: 20px 0; }
+    .call-btn-design .call-icon-preview .fas.fa-phone-square {
+      border-radius: 3px; }
