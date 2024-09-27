@@ -668,6 +668,10 @@ require get_template_directory() . '/lib/function-setting.php';
  * nonceによるセキュリティーチェック関数
  */
 require get_template_directory() . '/post_nonce_check.php';
+/**
+ * カスタムページ作成関数読み込み
+ */
+require get_template_directory() . '/custom_page/custom_page_func_setting.php';
 
 
 /**
