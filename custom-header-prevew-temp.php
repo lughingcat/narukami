@@ -338,7 +338,7 @@
 		
 	}//foreach end
 	?>
-	<?php include(get_template_directory() . '/lib/narukami-footer/footer.php');?>
+	<?php include(get_template_directory() . '/lib/narukami-footer/narukami_footer.php');?>
     <?php wp_footer(); ?>
 </body>
 </html>

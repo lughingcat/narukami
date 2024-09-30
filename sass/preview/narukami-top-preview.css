@@ -866,10 +866,7 @@
   text-align: center;
   padding: 1% 0;
   width: 100%;
-  margin: 0 auto;
-  position: absolute;
-  top: 0;
-  z-index: 99; }
+  margin: 0 auto; }
   .header-back-wrap.bg-opacity-value {
     animation: bgOpacityAnime 4.3s ease-out; }
 @keyframes bgOpacityAnime {

@@ -10,7 +10,7 @@
 	?>
 	<style>
 		body{
-			font-family: <?php echo $narukami_font_family; ?>
+			font-family: <?php echo $narukami_font_family; ?>;
 		}
 	</style>
 <body style="position: relative;">
@@ -167,7 +167,7 @@
     ?>
 	<?php 
 	//フッター読み込み
-	include(get_template_directory() . '/lib/narukami-footer/footer.php');
+	include(get_template_directory() . '/lib/narukami-footer/narukami_footer.php');
 	?>
     <?php wp_footer(); ?>
 </body>

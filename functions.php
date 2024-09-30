@@ -253,9 +253,10 @@ add_action('admin_enqueue_scripts', 'my_custom_editor_enqueue');
  */
 function enqueue_narukami_top_preview_assets() {
     // プレビュー表示中かどうかをチェック
-    if (is_preview()) {
+    if (is_preview() || is_singular()) {
         // CSSファイルをエンキュー
         wp_enqueue_style('narukami-top-preview', get_template_directory_uri() . '/sass/preview/narukami-top-preview.css', array(), time());
+        wp_enqueue_style('narukami-product-list', get_template_directory_uri() . '/sass/product-list-style.css', array(), time());
 		wp_enqueue_script('narukami-top-js-preview', get_template_directory_uri() . '/front-js/preview/narukami-top-preview.js', array('jquery'), null, true);
 		//font
 		wp_enqueue_style('fontawesome','https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css');

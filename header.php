@@ -19,41 +19,40 @@
     <script src="https://unpkg.com/vue@next"></script>
 	<?php wp_head(); ?>
 </head>
-
-<body <?php body_class(); ?>>
+	
+<?php
+$narukami_font_family = sanitize_option_value(get_option('narukami-font-family'));
+$i_background_image = sanitize_option_value(get_option('background_image'));
+$i_background_image_custom_option = get_background_image();
+	//bg select
+	if($i_background_image){
+		$bg_img_url = $i_background_image;
+	}else{
+		$bg_img_url = $i_background_image_custom_option;
+	}
+?>
+	
+<style>
+	body{
+		font-family: <?php echo $narukami_font_family; ?>;
+		position: relative;
+		background-image: url(<?php echo $bg_img_url; ?>);
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		height: 100vh;
+	}
+</style>
+<body>
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'narukami_all_theme_item' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$narukami_all_theme_item_description = get_bloginfo( 'description', 'display' );
-			if ( $narukami_all_theme_item_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $narukami_all_theme_item_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'narukami_all_theme_item' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
+		<?php 
+		$i_header_display_setting = sanitize_text_field(get_option('header-disp-set'));//ヘッダー表示設定
+		if($i_header_display_setting === 'display_on'){
+			include(get_template_directory() . '/TOP_PAGE_FILES/top_header_part.php');
+		}
+		?>
 	</header><!-- #masthead -->
