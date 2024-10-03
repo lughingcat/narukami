@@ -163,7 +163,6 @@ document.addEventListener('DOMContentLoaded', function() {
     		globalmenuToggle.classList.toggle('global-open');
 			document.querySelector('.humberger-button-wrap').classList.toggle('wrap-change');
 			document.querySelector('.globalmenu-back-wrap').classList.toggle('slide-change');
-			document.querySelector('.span-text').classList.toggle('opacity-change');
   		});
   }
 });

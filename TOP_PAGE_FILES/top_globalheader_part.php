@@ -6,7 +6,6 @@ $i_gloalmenu_textcolor = sanitize_option_value(get_option('gloalmenu_textcolor')
 $i_humberger_btn_bg = sanitize_option_value(get_option('humberger_btn_bg'));
 $i_humberger_arrowcolor = sanitize_option_value(get_option('humberger-arrowcolor'));
 $i_global_textunderlinecolor = sanitize_option_value(get_option('global-textunderlinecolor'));
-$i_global_text_menucolor = sanitize_option_value(get_option('global-text-menucolor'));
 $animetion_type = sanitize_option_value(get_option('loading-anime-type'));
 // 連想配列を作成
 $global_items_Array = array();
@@ -39,7 +38,6 @@ if (is_array($i_global_title_array)) {
 			<span style="background-color: <?php echo $i_humberger_arrowcolor; ?>"></span>
 			<span style="background-color: <?php echo $i_humberger_arrowcolor; ?>"></span>
 			<span style="background-color: <?php echo $i_humberger_arrowcolor; ?>"></span>
-			<p class="span-text" style="color: <?php echo $i_global_text_menucolor; ?>;font-family: Roboto">MENU</p>
 		</div>
 	</div>
 	<div class="globalmenu-back-wrap"
@@ -72,7 +70,6 @@ document.addEventListener('DOMContentLoaded', function() {
     		globalmenuToggle.classList.toggle('global-open');
 			document.querySelector('.humberger-button-wrap').classList.toggle('wrap-change');
 			document.querySelector('.globalmenu-back-wrap').classList.toggle('slide-change');
-			document.querySelector('.span-text').classList.toggle('opacity-change');
 			document.querySelector('.globalmenu-content-all-wrap').classList.toggle('pointer-event');
 			var scrollSwitchItem = document.querySelector('.slide-change')
 			if(scrollSwitchItem){

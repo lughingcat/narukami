@@ -166,7 +166,7 @@ function narukami_all_theme_item_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'narukami_all_theme_item_scripts' );
 /**
- * 管理画面のcss/jsの読み込み
+ * 管理画面用(admin)css/jsのcdnエンキュー
  */
 function add_cdns(){
 	
@@ -218,6 +218,9 @@ function add_cdns(){
 }
 add_action( 'admin_enqueue_scripts', 'add_cdns' );
 
+/**
+ * 管理画面用(admin)css/jsのファイルエンキュー
+ */
 function add_admin_style(){
 	add_filter('script_loader_tag', 'add_defer', 10, 2);
 
@@ -242,11 +245,29 @@ function add_admin_style(){
 }
 add_action('admin_enqueue_scripts', 'add_admin_style');
 
+//カスタムエディターエンキュー
 function my_custom_editor_enqueue() {
 	wp_enqueue_editor();
     wp_enqueue_script('my_custom_editor_script', get_template_directory_uri() . '/assets/js/custom-editor.js', array('jquery', 'wp-editor'), null, true);
 }
 add_action('admin_enqueue_scripts', 'my_custom_editor_enqueue');
+
+//ブロックエディターエンキュー(React: wp-elementへ依存)
+function narukami_block_editor_enqueue() {
+   wp_enqueue_script('narukami_block_editor_script', get_template_directory_uri() . '/assets/js/custom-block-editor.js',
+					 array(
+						 'wp-blocks', 
+						 'wp-element', 
+						 'wp-editor', 
+						 'wp-components',
+						 'wp-compose'
+					 ),
+					 time(),
+					 true
+					);
+	wp_enqueue_style('narukami_custom_editor_style', get_template_directory_uri() . '/assets/css/custom-block-editor.css', array(), time(), true);
+}
+add_action('enqueue_block_editor_assets', 'narukami_block_editor_enqueue');
 
 /**
  * プレビューページのcss,js,エンキュー

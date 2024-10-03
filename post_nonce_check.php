@@ -36,7 +36,6 @@ function update_custom_option() {
 		$humberger_btn_bg = sanitize_option_value($_POST['humberger-btn-bg']);
 		$humberger_arrowcolor = sanitize_option_value($_POST['humberger-arrowcolor']);
 		$global_textunderlinecolor = sanitize_option_value($_POST['global-textunderlinecolor']);
-		$global_text_menucolor = sanitize_option_value($_POST['global-text-menucolor']);
 		update_option('global_title_array', $gloalmenu_title_array);
 		update_option('global_url_array', $gloalmenu_link_array);
 		update_option('gloalmenu_bgcolor', $gloalmenu_bgcolor);
@@ -44,7 +43,6 @@ function update_custom_option() {
 		update_option('humberger_btn_bg', $humberger_btn_bg);
 		update_option('humberger-arrowcolor', $humberger_arrowcolor);
 		update_option('global-textunderlinecolor', $global_textunderlinecolor);
-		update_option('global-text-menucolor', $global_text_menucolor);
 		
 		//ヒーローヘッダー
 		//設定

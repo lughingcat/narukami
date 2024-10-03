@@ -138,7 +138,7 @@
     width: 45px;
     height: 45px;
     position: absolute;
-    top: 10%;
+    top: 8%;
     left: 2%;
     z-index: 1000;
     display: inline-block;
@@ -151,7 +151,7 @@
       border-radius: 50%;
       width: 35px;
       height: 35px;
-      top: 10%;
+      top: 8%;
       left: 2%; }
     .globalmenu-content-all-wrap .humberger-button-wrap .span-wrap {
       width: 80%;
@@ -176,7 +176,7 @@
         height: 4px;
         margin: 3px auto;
         background-color: #ffffff;
-        border-radius: 10px;
+        border-radius: 2px;
         transition: transform 0.4s; }
       .globalmenu-content-all-wrap .humberger-button-wrap .span-wrap.global-open span {
         margin: 2px auto; }

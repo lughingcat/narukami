@@ -40,6 +40,7 @@ $i_background_image_custom_option = get_background_image();
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: center;
+		background-attachment: fixed;
 		height: 100vh;
 	}
 </style>
@@ -54,5 +55,6 @@ $i_background_image_custom_option = get_background_image();
 		if($i_header_display_setting === 'display_on'){
 			include(get_template_directory() . '/TOP_PAGE_FILES/top_header_part.php');
 		}
+		include(get_template_directory() . '/TOP_PAGE_FILES/top_globalheader_part.php');
 		?>
 	</header><!-- #masthead -->

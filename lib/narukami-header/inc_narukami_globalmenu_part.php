@@ -11,7 +11,6 @@
 			$i_humberger_btn_bg = sanitize_option_value(get_option('humberger_btn_bg'));
 			$i_humberger_arrowcolor = sanitize_option_value(get_option('humberger-arrowcolor'));
 			$i_global_textunderlinecolor = sanitize_option_value(get_option('global-textunderlinecolor'));
-			$i_global_text_menucolor = sanitize_option_value(get_option('global-text-menucolor'));
 			// 連想配列を作成
 			$global_items_Array = array();
 			
@@ -43,7 +42,6 @@
 					<span style="background-color: <?php echo $i_humberger_arrowcolor; ?>"></span>
 					<span style="background-color: <?php echo $i_humberger_arrowcolor; ?>"></span>
 					<span style="background-color: <?php echo $i_humberger_arrowcolor; ?>"></span>
-					<p class="span-text" style="color: <?php echo $i_global_text_menucolor; ?>; font-family: Roboto">MENU</p>
 				</div>
 			</div>
 			<div class="globalmenu-back-wrap"
@@ -110,15 +108,6 @@
           		'global-textunderlinecolor', 
           		get_option('global-textunderlinecolor'),
           		'テキストアンダーライン色'
-        		);
-			?> 
-			</div>
-			<div class="color-box-child">
-			<?php 
-				genelate_color_picker_tag_demo(
-          		'global-text-menucolor', 
-          		get_option('global-text-menucolor'),
-          		'「MUNE」文字色'
         		);
 			?> 
 			</div>

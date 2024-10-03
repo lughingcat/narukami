@@ -12,8 +12,7 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-		</div><!-- .site-info -->
+		<?php include(get_template_directory() . '/lib/narukami-footer/narukami_footer.php'); ?>
 	</footer><!-- #colophon -->
 
 </div><!-- #page -->
