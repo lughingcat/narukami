@@ -8,12 +8,11 @@ const { createHigherOrderComponent } = wp.compose;
 function addPostTitleAttributes( settings, name ) {
     if ( name === 'core/heading' ) {
         settings.attributes = Object.assign( settings.attributes, {
-            underline: {
+            narukami_underline: {
                 type: 'boolean',
                 default: false,
             },
         });
-		console.log(settings.attributes);
     }
     return settings;
 }
@@ -39,10 +38,10 @@ const withPostTitleInspectorControls = createHigherOrderComponent( function( Blo
                     PanelBody,
                     { title: 'Heading Settings' },
                     createElement(ToggleControl, {
-                        label: 'Underline',
-                        checked: !!attributes.underline,
+                        label: 'narukami_underline',
+                        checked: !!attributes.narukami_underline,
                         onChange: function( value ) {
-                            setAttributes({ underline: value });
+                            setAttributes({ narukami_underline: value });
                         }
                     })
                 )
@@ -53,9 +52,9 @@ const withPostTitleInspectorControls = createHigherOrderComponent( function( Blo
 
 // アンダーラインを見出しに反映
 function addPostTitleUnderlineClass( extraProps, blockType, attributes ) {
-
-    if ( blockType.name === 'core/heading' && attributes.underline ) {
-        extraProps.className = ( extraProps.className || '' ) + ' underline';
+    if ( blockType.name === 'core/heading' && attributes.narukami_underline ) {
+        extraProps.className = ( extraProps.className || '' ) + ' narukami_underline';
+		console.log(extraProps)
     }
     return extraProps;
 }
@@ -63,18 +62,20 @@ function addPostTitleUnderlineClass( extraProps, blockType, attributes ) {
 // フィルターフックを使って機能追加
 addFilter(
     'blocks.registerBlockType',
-    'my-plugin/add-post-title-attributes',
+    'underline-sys/add-post-title-attributes',
     addPostTitleAttributes
 );
 
 addFilter(
     'editor.BlockEdit',
-    'my-plugin/with-post-title-inspector-controls',
+    'underline-sys/with-post-title-inspector-controls',
     withPostTitleInspectorControls
 );
 
 addFilter(
     'blocks.getSaveContent.extraProps',
-    'my-plugin/add-post-title-underline-class',
+    'underline-sys/add-post-title-underline-class',
     addPostTitleUnderlineClass
 );
+
+

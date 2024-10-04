@@ -257,15 +257,17 @@ function narukami_block_editor_enqueue() {
    wp_enqueue_script('narukami_block_editor_script', get_template_directory_uri() . '/assets/js/custom-block-editor.js',
 					 array(
 						 'wp-blocks', 
-						 'wp-element', 
-						 'wp-editor', 
-						 'wp-components',
-						 'wp-compose'
+						 'wp-dom-ready', 
+						 'wp-edit-post', 
+						 'wp-block-editor', 
+						 'wp-compose', 
+						 'wp-components', 
+						 'wp-hooks'
 					 ),
 					 time(),
 					 true
 					);
-	wp_enqueue_style('narukami_custom_editor_style', get_template_directory_uri() . '/assets/css/custom-block-editor.css', array(), time(), true);
+	wp_enqueue_style('narukami_custom_editor_style', get_template_directory_uri() . '/assets/css/custom-block-editor.css', array(), time());
 }
 add_action('enqueue_block_editor_assets', 'narukami_block_editor_enqueue');
 
