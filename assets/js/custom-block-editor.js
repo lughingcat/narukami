@@ -20,12 +20,15 @@ function addPostTitleAttributes( settings, name ) {
 // インスペクターコントロールにトグルスイッチを追加
 const withPostTitleInspectorControls = createHigherOrderComponent( function( BlockEdit ) {
     return function( props ) {
-        const { name, attributes, setAttributes } = props;
+        const { name, attributes, setAttributes, isSelected } = props;
 
-        // 見出しブロックが選択された場合のみインスペクターパネルに表示
         if ( name !== 'core/heading' ) {
             return createElement( BlockEdit, props );
         }
+
+        // 現在のクラス名を取得し、アンダーラインを管理
+        const className = attributes.className || '';
+        const hasUnderlineClass = className.includes('narukami_underline');
 
         return createElement(
             Fragment,
@@ -36,12 +39,25 @@ const withPostTitleInspectorControls = createHigherOrderComponent( function( Blo
                 null,
                 createElement(
                     PanelBody,
-                    { title: 'Heading Settings' },
+                    { title: 'Post Title Settings' },
                     createElement(ToggleControl, {
-                        label: 'narukami_underline',
+                        label: 'Underline',
                         checked: !!attributes.narukami_underline,
                         onChange: function( value ) {
                             setAttributes({ narukami_underline: value });
+                            
+                            // クラス名を動的に更新
+                            let updatedClassName = className;
+
+                            if (value && !hasUnderlineClass) {
+                                updatedClassName += ' narukami_underline'; // クラスを追加
+                            } else if (!value && hasUnderlineClass) {
+                                 updatedClassName = updatedClassName
+                                    .replace(/\bnarukami_underline\b/g, '') // クラスを正確に削除
+                                    .trim(); // 前後の空白を削除
+                            }
+
+                            setAttributes({ className: updatedClassName.trim() }); // クラス名を更新
                         }
                     })
                 )
@@ -50,11 +66,11 @@ const withPostTitleInspectorControls = createHigherOrderComponent( function( Blo
     };
 }, 'withPostTitleInspectorControls' );
 
+
 // アンダーラインを見出しに反映
 function addPostTitleUnderlineClass( extraProps, blockType, attributes ) {
     if ( blockType.name === 'core/heading' && attributes.narukami_underline ) {
         extraProps.className = ( extraProps.className || '' ) + ' narukami_underline';
-		console.log(extraProps)
     }
     return extraProps;
 }

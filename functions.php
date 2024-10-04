@@ -117,6 +117,12 @@ function narukami_all_theme_item_content_width() {
 }
 add_action( 'after_setup_theme', 'narukami_all_theme_item_content_width', 0 );
 
+function narukami_block_editor_style_setup() {
+    add_theme_support('editor-styles'); // エディタースタイルを有効化
+    add_editor_style('assets/css/custom-block-editor.css'); // カスタムエディタースタイルシートを追加
+}
+add_action('after_setup_theme', 'narukami_block_editor_style_setup');
+
 /**
  * Register widget area.
  *
