@@ -1,7 +1,7 @@
 const { addFilter } = wp.hooks;
 const { createElement, Fragment } = wp.element;
 const { InspectorControls } = wp.blockEditor;
-const { PanelBody, RadioControl } = wp.components;
+const { PanelBody, RadioControl, TextControl } = wp.components;
 const { createHigherOrderComponent } = wp.compose;
 
 // 見出しにカスタム属性を追加
@@ -12,12 +12,20 @@ function addPostTitleAttributes( settings, name ) {
                 type: 'string',
                 default: '', // クラスなしがデフォルト
             },
+            narukami_subtitle: {
+                type: 'string',
+                default: '', // 空のサブタイトルがデフォルト
+            },
+			 narukami_subtitleAlignment: {
+                type: 'string',
+                default: 'left', // デフォルトは左揃え
+            },
         });
     }
     return settings;
 }
 
-// インスペクターコントロールにラジオボタンを追加
+// インスペクターコントロールにラジオボタンとテキスト入力を追加
 const withPostTitleInspectorControls = createHigherOrderComponent( function( BlockEdit ) {
     return function( props ) {
         const { name, attributes, setAttributes } = props;
@@ -26,14 +34,24 @@ const withPostTitleInspectorControls = createHigherOrderComponent( function( Blo
             return createElement( BlockEdit, props );
         }
 
-        // 現在のクラス名を取得し、スタイルを管理
         const className = attributes.className || '';
         const selectedStyle = attributes.narukami_headingStyle || '';
-
+		const subtitle = attributes.narukami_subtitle || '';
+		const textAlignment = attributes.narukami_subtitleAlignment || '';
+		
         return createElement(
             Fragment,
             null,
-            createElement( BlockEdit, props ),
+            createElement(
+                'div',
+                null,
+                createElement( BlockEdit, props ),
+                subtitle && createElement(
+    			'p',
+    			{ className: 'narukami-subtitle', style: { textAlign: textAlignment } },
+				subtitle
+				)
+            ),
             createElement(
                 InspectorControls,
                 null,
@@ -50,35 +68,80 @@ const withPostTitleInspectorControls = createHigherOrderComponent( function( Blo
                             { label: 'スタイル3', value: 'narukami-hedding-style3' },
                         ],
                         onChange: function( value ) {
-                            // クラス名を動的に更新
                             let updatedClassName = className
-                                .replace(/\bnarukami-hedding-style1\b|\bnarukami-hedding-style2\b|\bnarukami-hedding-style3\b/g, '') // 既存のスタイルクラスを削除
-                                .trim(); // 空白を削除
+                                .replace(/\bnarukami-hedding-style1\b|\bnarukami-hedding-style2\b|\bnarukami-hedding-style3\b/g, '')
+                                .trim();
 
                             if ( value ) {
-                                updatedClassName += ' ' + value; // 新しいスタイルを追加
+                                updatedClassName += ' ' + value;
+                            } else {
+                                // デフォルトを選択した場合、サブタイトルを空にする
+                                setAttributes({ narukami_subtitle: '' });
                             }
 
                             setAttributes({
                                 narukami_headingStyle: value,
-                                className: updatedClassName.trim(), // クラス名を更新
+                                className: updatedClassName.trim(),
                             });
                         },
-						style: { marginTop: '5px', marginBottom: '5px' } 
-                    })
+                    }),
+                    createElement(TextControl, {
+                        label: 'サブタイトル',
+                        value: attributes.narukami_subtitle,
+                        onChange: function( value ) {
+                            setAttributes({ narukami_subtitle: value });
+                        },
+                    }),
+					createElement(
+                        RadioControl,
+                        {
+                            label: 'サブタイトルの配置',
+                            selected: attributes.narukami_subtitleAlignment,
+                            options: [
+                                { label: '左揃え', value: 'left' },
+                                { label: '中央揃え', value: 'center' },
+                                { label: '右揃え', value: 'right' },
+                            ],
+                            onChange: function( value ) {
+                                setAttributes({ narukami_subtitleAlignment: value });
+                            },
+                        }
+                    )
                 )
             )
         );
     };
 }, 'withPostTitleInspectorControls' );
 
-// クラスを見出しに反映
+
+// クラスとサブタイトルを見出しに反映
 function addPostTitleStyleClass( extraProps, blockType, attributes ) {
     if ( blockType.name === 'core/heading' && attributes.narukami_headingStyle ) {
-        extraProps.className = ( extraProps.className || '' ) + ' ' + attributes.narukami_headingStyle;
+        // 既に追加されていない場合のみクラスを追加
+        const currentClassName = extraProps.className || '';
+        const styleClass = attributes.narukami_headingStyle;
+        
+        if (!currentClassName.includes(styleClass)) {
+            extraProps.className = currentClassName + ' ' + styleClass;
+        }
     }
     return extraProps;
 }
+
+
+function saveHeadingBlock( props ) {
+    const { attributes } = props;
+    const { narukami_headingStyle, narukami_subtitle, narukami_subtitleAlignment } = attributes;
+	console.log('保存時のサブタイトル配置:', narukami_subtitleAlignment);
+    return (
+        createElement('div', {},
+            createElement('h2', { className: narukami_headingStyle }, props.children),
+            narukami_subtitle && createElement('p', { className: 'narukami-subtitle', style: { textAlign: narukami_subtitleAlignment } }, narukami_subtitle)
+        )
+    );
+}
+
+
 
 // フィルターフックを使って機能追加
 addFilter(
