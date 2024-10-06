@@ -1,3 +1,4 @@
-.narukami_underline {
-  text-decoration: underline;
-  color: red; }
+.narukami-hedding-style1 {
+  border-bottom: 1px solid;
+  padding-bottom: 10px;
+  display: block; }
