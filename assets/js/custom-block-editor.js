@@ -18,7 +18,7 @@ function addPostTitleAttributes( settings, name ) {
             },
 			 narukami_subtitleAlignment: {
                 type: 'string',
-                default: 'left', // デフォルトは左揃え
+                default: '', // デフォルトは左揃え
             },
         });
     }
@@ -44,7 +44,9 @@ const withPostTitleInspectorControls = createHigherOrderComponent( function( Blo
             null,
             createElement(
                 'div',
-                null,
+                {
+        			className: `${className}` // ここで動的にクラスを追加
+    			},
                 createElement( BlockEdit, props ),
                 subtitle && createElement(
     			'p',
@@ -132,7 +134,6 @@ function addPostTitleStyleClass( extraProps, blockType, attributes ) {
 function saveHeadingBlock( props ) {
     const { attributes } = props;
     const { narukami_headingStyle, narukami_subtitle, narukami_subtitleAlignment } = attributes;
-	console.log('保存時のサブタイトル配置:', narukami_subtitleAlignment);
     return (
         createElement('div', {},
             createElement('h2', { className: narukami_headingStyle }, props.children),
