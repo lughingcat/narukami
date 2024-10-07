@@ -45,12 +45,12 @@ const withPostTitleInspectorControls = createHigherOrderComponent( function( Blo
             createElement(
                 'div',
                 {
-        			className: `${className}` // ここで動的にクラスを追加
+        			className: `${className}1` // ここで動的にクラスを追加
     			},
                 createElement( BlockEdit, props ),
                 subtitle && createElement(
     			'p',
-    			{ className: 'narukami-subtitle', style: { textAlign: textAlignment } },
+    			{ className: 'wp-block-heading narukami-subtitle', style: { textAlign: textAlignment } },
 				subtitle
 				)
             ),
