@@ -1,3 +1,6 @@
+//鳴雷見出し機能追加
+
+//見出し宣言
 const { addFilter } = wp.hooks;
 const { createElement, Fragment } = wp.element;
 const { InspectorControls } = wp.blockEditor;
@@ -162,3 +165,5 @@ addFilter(
     'narukami/add-post-title-style-class',
     addPostTitleStyleClass
 );
+
+

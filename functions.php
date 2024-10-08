@@ -268,7 +268,9 @@ function narukami_block_editor_enqueue() {
 						 'wp-block-editor', 
 						 'wp-compose', 
 						 'wp-components', 
-						 'wp-hooks'
+						 'wp-hooks',
+						 'wp-element',
+						 'wp-i18n'
 					 ),
 					 time(),
 					 true
