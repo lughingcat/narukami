@@ -4,35 +4,6 @@
   margin-left: 0;
   margin-right: 0; }
 
-.product-block-editor {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; }
-
-.product-block-editor img {
-  max-width: 100%;
-  height: auto; }
-
-.product-title, .product-price {
-  margin: 0.5rem 0; }
-
-.product-block {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; }
-
-.product-block img {
-  max-width: 100%;
-  height: auto; }
-
-.product-title {
-  font-size: 1.5rem;
-  font-weight: bold; }
-
-.product-price {
-  font-size: 1.2rem;
-  color: #333; }
-
 .narukami-hedding-style11 {
   max-width: 950px;
   height: 120px;

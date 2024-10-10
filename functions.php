@@ -275,9 +275,52 @@ function narukami_block_editor_enqueue() {
 					 time(),
 					 true
 					);
+	wp_enqueue_script('narukami_block_category_add_script', get_template_directory_uri() . '/assets/js/block-category-add.js',
+					 array(
+						 'wp-blocks', 
+						 'wp-dom-ready', 
+						 'wp-edit-post', 
+						 'wp-block-editor', 
+						 'wp-compose', 
+						 'wp-components', 
+						 'wp-hooks',
+						 'wp-element',
+						 'wp-i18n'
+					 ),
+					 time(),
+					 true
+					);
 	wp_enqueue_style('narukami_custom_editor_style', get_template_directory_uri() . '/assets/css/custom-block-editor.css', array(), time());
 }
 add_action('enqueue_block_editor_assets', 'narukami_block_editor_enqueue');
+
+//オリジナルブロック登録
+function narukami_itemlist_block_register() {
+	
+    wp_register_script(
+        'itemlist-custom-block',
+        get_template_directory_uri() . '/assets/js/original-block-editor.js', 
+        array(
+			'wp-blocks', 
+			'wp-editor', 
+			'wp-element', 
+			'wp-components', 
+			'wp-i18n',
+			'wp-hooks',
+			'wp-data'
+		),
+        time(),
+		true
+    );
+
+    // ブロック登録
+    register_block_type('itemlist-custom-block/item-list-block', array(
+        'editor_script' => 'itemlist-custom-block',
+    ));
+}
+add_action('init', 'narukami_itemlist_block_register');
+
+
 
 /**
  * プレビューページのcss,js,エンキュー
