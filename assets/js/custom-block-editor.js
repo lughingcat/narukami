@@ -133,20 +133,17 @@ function addPostTitleStyleClass( extraProps, blockType, attributes ) {
 }
 
 
-function saveHeadingBlock( props ) {
-    const { attributes } = props;
+function saveHeadingBlock( saveContent, blockType, attributes ) {
     const { narukami_headingStyle, narukami_subtitle, narukami_subtitleAlignment } = attributes;
-    return (
-        createElement('div', {},
-            createElement('h2', { className: narukami_headingStyle }, props.children),
-            narukami_subtitle && createElement('p', { className: 'narukami-subtitle', style: { textAlign: narukami_subtitleAlignment } }, narukami_subtitle)
-        )
+    console.log('Attributes:', attributes); // 属性を確認
+
+    return createElement('div', {},
+        createElement('h2', { className: narukami_headingStyle }, saveContent), // `saveContent` を使用
+        narukami_subtitle && createElement('p', { className: 'narukami-subtitle', style: { textAlign: narukami_subtitleAlignment } }, narukami_subtitle)
     );
 }
 
 
-
-// フィルターフックを使って機能追加
 addFilter(
     'blocks.registerBlockType',
     'narukami/add-post-title-attributes',
@@ -164,6 +161,5 @@ addFilter(
     'narukami/add-post-title-style-class',
     addPostTitleStyleClass
 );
-
 
 

@@ -8,7 +8,55 @@
     margin-right: 0;
 }
 //商品一覧ブロックスタイル
-
+.item-add-btn{
+	position: relative;
+    display: inline-block;
+    width: 15%;
+    height: 50px;
+    background-color: #d16407;
+    color: #FFFFFF;
+    text-align: center;
+    border: 0;
+    margin: 0 2% 8%;
+    border-radius: 3px;
+	&:hover{
+			background-color: #ffffff;
+			color: #d16407;
+			font-weight: bold;
+			border: 2px solid #d16407;
+			transition: 0.2s;
+		}
+	}
+.item-list-block-editor{//grid wrap
+	position: relative;
+	width: 100%;
+	margin: 2%;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);;
+    gap: 20px;
+	.item-list-editor{//個別ブロックwrap
+		.item-list-img-btn{
+			padding: 0;
+		}
+		.item-remove-btn{
+			width: 100%;
+    		height: 25px;
+    		background-color: #9D3B3B;
+    		border-radius: 0;
+    		border: 0;
+    		margin: 0;
+    		color: #FFFFFF;
+    		font-size: 10px;
+			&:hover{
+				background-color: #CC7979;
+				color: #782D2D;
+			}
+		}
+		.item-list-img-btn{//画像追加ボタン
+		
+		}
+	}
+}
 
 //見出しデザイン1
 .narukami-hedding-style11{
