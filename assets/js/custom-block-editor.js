@@ -9,6 +9,7 @@ const { createHigherOrderComponent } = wp.compose;
 // 見出しにカスタム属性を追加
 function addPostTitleAttributes( settings, name ) {
     if ( name === 'core/heading' ) {
+		console.log('保存しました:カスタム属性セット')
         settings.attributes = Object.assign( settings.attributes, {
             narukami_headingStyle: {
                 type: 'string',
@@ -40,7 +41,7 @@ const withPostTitleInspectorControls = createHigherOrderComponent( function( Blo
         const selectedStyle = attributes.narukami_headingStyle || '';
 		const subtitle = attributes.narukami_subtitle || '';
 		const textAlignment = attributes.narukami_subtitleAlignment || '';
-		
+		console.log('保存しました:インスペクターパネル')
         return createElement(
             Fragment,
             null,
@@ -124,7 +125,7 @@ function addPostTitleStyleClass( extraProps, blockType, attributes ) {
         // 既に追加されていない場合のみクラスを追加
         const currentClassName = extraProps.className || '';
         const styleClass = attributes.narukami_headingStyle;
-        
+        console.log('保存しました:リアルタイム描画')
         if (!currentClassName.includes(styleClass)) {
             extraProps.className = currentClassName + ' ' + styleClass;
         }
@@ -132,7 +133,21 @@ function addPostTitleStyleClass( extraProps, blockType, attributes ) {
     return extraProps;
 }
 
-
+//サブタイトルの保存と出力
+function addPostTitleSaveContent( content, blockType, attributes ) {
+    if ( blockType.name === 'core/heading' ) {
+        const { narukami_subtitle, narukami_subtitleAlignment } = attributes;
+        console.log('保存しました:htmlの保存と出力')
+        // サブタイトルが存在する場合
+        if ( narukami_subtitle ) {
+            // サブタイトルのHTMLを作成
+            const subtitleHtml = '<p class="wp-block-heading narukami-subtitle" style="text-align: ' + narukami_subtitleAlignment + ';">' + narukami_subtitle + '</p>';
+            // 元のコンテンツにサブタイトルを追加
+            content += subtitleHtml;
+        }
+    }
+    return content;
+}
 
 addFilter(
     'blocks.registerBlockType',
@@ -152,7 +167,11 @@ addFilter(
     addPostTitleStyleClass
 );
 
-// Subtitlesとスタイルのカスタマイズを blocks.getSaveContent.extraProps で追加
+addFilter(
+    'blocks.getSaveContent',
+    'narukami/add-post-title-save-content',
+    addPostTitleSaveContent
+);
 
 
 
