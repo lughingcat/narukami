@@ -663,6 +663,31 @@ function my_wp_get_attachment_metadata( $data, $id ) {
     return $data;
 }
 
+/*
+*ブロックエディタ拡張
+*/
+
+//hタグに見出しを出力
+function render_narukami_heading_block( $block_content, $block ) {
+    // 'core/heading' ブロックのみ対象にする
+    if ( 'core/heading' === $block['blockName'] ) {
+        // 属性を確認してサブタイトルを取得
+        if ( isset( $block['attrs']['narukami_subtitle'] ) && ! empty( $block['attrs']['narukami_subtitle'] ) ) {
+            // サブタイトルのHTMLを作成
+            $subtitle = '<p class="wp-block-heading narukami-subtitle" style="text-align: ' . esc_attr( $block['attrs']['narukami_subtitleAlignment'] ) . ';">' . esc_html( $block['attrs']['narukami_subtitle'] ) . '</p>';
+
+            // 見出しの後ろにサブタイトルを追加
+            $block_content .= $subtitle;
+        }
+    }
+    return $block_content;
+}
+add_filter( 'render_block', 'render_narukami_heading_block', 10, 2 );
+
+/*
+*プレビューページ設定
+*/
+
 //トップページのプレビュー関数
 add_action('template_redirect', 'custom_preview_handler');
 function custom_preview_handler() {

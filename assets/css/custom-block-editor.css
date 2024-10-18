@@ -43,6 +43,9 @@
     .item-list-block-editor .item-list-editor .item-remove-btn:hover {
       background-color: #CC7979;
       color: #782D2D; }
+  .item-list-block-editor .item-list-editor img {
+    height: 160px;
+    object-fit: cover; }
 
 .narukami-hedding-style11 {
   max-width: 950px;
