@@ -113,9 +113,16 @@ h1 {
       grid-template-columns: repeat(4, 1fr);
       gap: 20px; }
       .product-list-page-content .content .item-list-block .item-list {
-        color: inherit; }
+        color: inherit;
+        max-width: 230px;
+        position: relative; }
         .product-list-page-content .content .item-list-block .item-list img {
           width: 100%;
           height: 160px;
           object-fit: cover;
           object-position: center; }
+        .product-list-page-content .content .item-list-block .item-list .product-title {
+          width: 100%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis; }
