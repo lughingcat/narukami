@@ -672,13 +672,32 @@ function render_narukami_heading_block( $block_content, $block ) {
     // 'core/heading' ブロックのみ対象にする
     if ( 'core/heading' === $block['blockName'] ) {
         // 属性を確認してサブタイトルを取得
-        if ( isset( $block['attrs']['narukami_subtitle'] ) && ! empty( $block['attrs']['narukami_subtitle'] ) ) {
+        if ( isset( $block['attrs']['narukami_subtitle'] ) 
+    		&& ! empty( $block['attrs']['narukami_subtitle'] ) 
+    		&& isset( $block['attrs']['className'] ) 
+    		&& strpos( $block['attrs']['className'], 'narukami-hedding-style1' ) !== false ) {
             // サブタイトルのHTMLを作成
             $subtitle = '<p class="wp-block-heading narukami-subtitle" style="text-align: ' . esc_attr( $block['attrs']['narukami_subtitleAlignment'] ) . ';">' . esc_html( $block['attrs']['narukami_subtitle'] ) . '</p>';
 
             // 見出しの後ろにサブタイトルを追加
             $block_content .= $subtitle;
-        }
+			
+        }elseif( isset( $block['attrs']['narukami_subtitle'] ) 
+    		&& ! empty( $block['attrs']['narukami_subtitle'] ) 
+    		&& isset( $block['attrs']['className'] ) 
+    		&& strpos( $block['attrs']['className'], 'narukami-hedding-style2' ) !== false){
+			
+			$subtitle = '<p class="wp-block-heading narukami-subtitle2" style="text-align: ' . esc_attr( $block['attrs']['narukami_subtitleAlignment'] ) . ';">' . esc_html( $block['attrs']['narukami_subtitle'] ) . '</p>';
+			$block_content .= $subtitle;
+			
+		}elseif( isset( $block['attrs']['narukami_subtitle'] ) 
+    		&& ! empty( $block['attrs']['narukami_subtitle'] ) 
+    		&& isset( $block['attrs']['className'] ) 
+    		&& strpos( $block['attrs']['className'], 'narukami-hedding-style3' ) !== false){
+			
+			$subtitle = '<p class="wp-block-heading narukami-subtitle3" style="text-align: ' . esc_attr( $block['attrs']['narukami_subtitleAlignment'] ) . ';">' . esc_html( $block['attrs']['narukami_subtitle'] ) . '</p>';
+			$block_content .= $subtitle;
+		}
     }
     return $block_content;
 }

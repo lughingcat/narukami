@@ -111,23 +111,30 @@ wp.domReady(function() {
     );
 },
 
-    save: function (props) {
-        const { attributes } = props;
-        const { itemList } = attributes;
+save: function (props) {
+    const { attributes } = props;
+    const { itemList } = attributes;
 
-        return el('div', { className: 'item-list-block' },
-            itemList.length > 0 ? 
-                itemList.map((item, index) => 
-                    el('div', { className: 'item-list', key: index, style: { display: 'inline-block' } },
-                        item.productImage && el('img', { src: item.productImage, alt: __('Product Image', 'narukami') }),
-                        el('h2', { className: 'product-title' }, item.productTitle),
-                        el('p', { className: 'product-price' }, item.productPrice),
-                        item.productLink && el('a', { className: 'product-link', href: item.productLink, target: '_blank', rel: 'noopener noreferrer' }, __('Visit Product', 'narukami'))
-                    )
-                ) 
-            : el('p', __('商品はありません。', 'narukami'))
-        );
-    }
+    return el('div', { className: 'item-list-block' },
+        itemList.length > 0 ? 
+            itemList.map((item, index) => 
+                el('a', { 
+                    className: 'item-list', 
+                    key: index, 
+                    href: item.productLink || '#', // リンクがない場合は `#` に飛ぶ
+                    target: '_blank', 
+                    rel: 'noopener noreferrer', 
+                    style: { display: 'inline-block', textDecoration: 'none' } // デフォルトのリンク装飾を削除
+                },
+                    item.productImage && el('img', { src: item.productImage, alt: __('Product Image', 'narukami') }),
+                    el('h2', { className: 'product-title' }, item.productTitle),
+                    el('p', { className: 'product-price' }, item.productPrice + ' 円')
+                )
+            ) 
+        : el('p', __('商品はありません。', 'narukami'))
+    );
+}
+
 });
 
 });

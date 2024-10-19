@@ -44,8 +44,10 @@
       background-color: #CC7979;
       color: #782D2D; }
   .item-list-block-editor .item-list-editor img {
+    width: 200px;
     height: 160px;
-    object-fit: cover; }
+    object-fit: cover;
+    object-position: center; }
 
 .narukami-hedding-style11 {
   max-width: 950px;

@@ -53,8 +53,10 @@
 			}
 		}
 		img{
+			width: 200px;
 			height: 160px;
 			object-fit: cover;
+			object-position: center;
 		}
 		.item-list-img-btn{//画像追加ボタン
 		

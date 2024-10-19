@@ -1,36 +1,147 @@
-
+h1{
+	display: none;
+}
 .product-list-page-content{
 	position: relative;
 	max-width: 90%;
 	margin: 2% auto;
 	background-color: #FFFFFF;
 	padding: 10px;
-	.narukami-hedding-style1{
-		width: 100%;
-		display: block;
-		text-align: center;
-		margin:  0 auto 5px auto;
-	&::before{
-		content: '';
-		position: absolute;
-    	bottom: -10px;
-    	display: inline-block;
-    	width: 30px;
-    	height: 2px;
-    	left: 50%;
-    	-webkit-transform: translateX(-50%);
-    	transform: translateX(-50%);
-    	background-color: #4e4d4d;
-    	border-radius: 10px;
-	}
-	}
-	.narukami-subtitle{
-		width: 100%;
-		margin: 0 auto auto auto;
-		padding-top: 15px;
-		text-align: center;
-		box-shadow: 0px 4px 2px -3px #b6b4b4;
-		padding-bottom: 10px;
-	}
+	.content{
+		padding: 5%;
+		.narukami-hedding-style1{//見出し１
+			position: relative;
+			width: 100%;
+			display: block;
+			text-align: center;
+			margin:  0 auto 5px auto;
+			&::before{
+				content: '';
+				position: absolute;
+    			top: 45px;
+    			display: inline-block;
+    			width: 30px;
+    			height: 2px;
+    			left: 50%;
+    			-webkit-transform: translateX(-50%);
+    			transform: translateX(-50%);
+    			background-color: #4e4d4d;
+    			border-radius: 10px;
+			}
+		}
+		.narukami-subtitle{
+			width: 100%;
+			margin: 0 auto 20px;
+			padding-top: 15px;
+			text-align: center;
+			box-shadow: 0px 4px 2px -3px #b6b4b4;
+			padding-bottom: 10px;
+		}
+		.narukami-hedding-style2{//見出し２
+			position: relative;
+			width: 100%;
+			display: block;
+			margin:  0 auto 5px auto;
+			text-align: left;
+			padding-left: 25px;
+			box-sizing: border-box;
+			&::before{
+				content: '';
+				position: absolute;
+    			bottom: -10px;
+    			display: inline-block;
+    			width: 100%;
+    			height: 2px;
+    			left: 50%;
+    			-webkit-transform: translateX(-50%);
+    			transform: translateX(-50%);
+    			background-color: #b6b4b4;
+    			border-radius: 10px;
+			}
+			&::after{
+				content: '';
+				position: absolute;
+    			display: inline-block;
+    			width: 10px;
+    			height: 37px;
+    			left: 0;
+				top: 0;
+    			background-color: #d16407;	
+			}
+		}
+		.narukami-subtitle2{
+			width: 100%;
+			margin: 0 auto 20px;
+			text-align: left;
+			padding: 8px 0 10px 14px;
+			box-sizing: border-box;
+		}
+		.narukami-hedding-style3{//見出し3
+			position: relative;
+			width: 100%;
+			display: block;
+			margin:  0 auto 5px auto;
+			text-align: left;
+			padding-left: 45px;
+			box-sizing: border-box;
+			&::before{
+				content: '';
+				position: absolute;
+    			bottom: -10px;
+    			display: inline-block;
+    			width: 100%;
+    			height: 2px;
+    			left: 50%;
+    			-webkit-transform: translateX(-50%);
+    			transform: translateX(-50%);
+    			background-color: #b6b4b4;
+    			border-radius: 10px;
+			}
+			&::after{
+				content: '';
+				position: absolute;
+    			display: inline-block;
+    			width: 30px;
+    			height: 30px;
+    			left: 0;
+				top: 5px;
+    			background-color: #0086ad;	
+				border-radius: 50%;
+			}
+		}
+		.narukami-subtitle3{
+			width: 100%;
+			margin: 0 auto 20px;
+			text-align: right;
+			padding: 8px 14px 10px 0;
+		}
+		.item-list-block{//商品リストwrap
+			position: relative;
+			width: 100%;
+			padding: 2%;
+			margin-top: 6%;
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);;
+    		gap: 20px;
+			.item-list{//個別商品wrap
+				color: inherit;
+				img{
+					width: 100%;
+					height: 160px;
+					object-fit: cover;
+					object-position: center;
+				}
+				.product-title{
+					
+				}
+				.product-price{
+					
+				}
+				
+			}
+			
+		}
+	}//content end
+	
 }
 
