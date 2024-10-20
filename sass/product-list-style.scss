@@ -18,7 +18,7 @@ h1{
 			&::before{
 				content: '';
 				position: absolute;
-    			top: 45px;
+    			bottom: -10px;
     			display: inline-block;
     			width: 30px;
     			height: 2px;
@@ -134,13 +134,19 @@ h1{
 					object-position: center;
 				}
 				.product-title{
+					position: relative;
 					width: 100%;
 					white-space: nowrap;
     				overflow: hidden;
     				text-overflow: ellipsis;
+					font-size: 1.2em;
+					margin-bottom: 0;
+					border-bottom: 1px solid;
+					padding-bottom: 9px;
+					
 				}
 				.product-price{
-					
+					margin-top: 0.6em
 				}
 				
 			}

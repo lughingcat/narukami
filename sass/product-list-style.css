@@ -18,7 +18,7 @@ h1 {
       .product-list-page-content .content .narukami-hedding-style1::before {
         content: '';
         position: absolute;
-        top: 45px;
+        bottom: -10px;
         display: inline-block;
         width: 30px;
         height: 2px;
@@ -122,7 +122,14 @@ h1 {
           object-fit: cover;
           object-position: center; }
         .product-list-page-content .content .item-list-block .item-list .product-title {
+          position: relative;
           width: 100%;
           white-space: nowrap;
           overflow: hidden;
-          text-overflow: ellipsis; }
+          text-overflow: ellipsis;
+          font-size: 1.2em;
+          margin-bottom: 0;
+          border-bottom: 1px solid;
+          padding-bottom: 9px; }
+        .product-list-page-content .content .item-list-block .item-list .product-price {
+          margin-top: 0.6em; }
