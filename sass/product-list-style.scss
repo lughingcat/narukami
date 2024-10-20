@@ -115,11 +115,12 @@ h1{
 			text-align: right;
 			padding: 8px 14px 10px 0;
 		}
+		
 		.item-list-block{//商品リストwrap
 			position: relative;
 			width: 100%;
 			padding: 2%;
-			margin-top: 6%;
+			margin-top: 3%;
 			display: grid;
 			grid-template-columns: repeat(4, 1fr);;
     		gap: 20px;
@@ -127,10 +128,15 @@ h1{
 				color: inherit;
 				max-width: 230px;
 				position: relative;
+				padding: 5%;
+				transition: all 0.1s ease-in-out;
+				border-radius: 5px;
+				&:hover{
+					box-shadow: .1px .1px 3px;
+				}
 				img{
 					width: 100%;
-					height: 160px;
-					object-fit: cover;
+					object-fit: contain;
 					object-position: center;
 				}
 				.product-title{
@@ -139,14 +145,24 @@ h1{
 					white-space: nowrap;
     				overflow: hidden;
     				text-overflow: ellipsis;
-					font-size: 1.2em;
+					font-size: 1.1em;
 					margin-bottom: 0;
 					border-bottom: 1px solid;
-					padding-bottom: 9px;
-					
+					padding-bottom: 4px;
+					padding-left: 10px;
+					&::before{
+						content: '';
+						position: absolute;
+						top: 5px;
+						left: 0;
+						width: 5px;
+						height: 15px;
+						background-color: #c44545;
+					}
 				}
 				.product-price{
-					margin-top: 0.6em
+					margin-top: 0.6em;
+					margin-bottom: 0;
 				}
 				
 			}

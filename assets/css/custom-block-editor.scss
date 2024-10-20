@@ -32,13 +32,9 @@
 	width: 100%;
 	margin: 2%;
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);;
-    gap: 20px;
+	grid-template-columns: repeat(4, 1fr);
+    gap: 90px 20px;
 	.item-list-editor{//個別ブロックwrap
-		.item-list-img-btn{
-			padding: 0;
-			margin-bottom: 70px;
-		}
 		.item-remove-btn{
 			width: 100%;
     		height: 25px;
@@ -56,11 +52,14 @@
 		img{
 			width: 200px;
 			height: 160px;
-			object-fit: cover;
+			object-fit: contain;
 			object-position: center;
 		}
 		.item-list-img-btn{//画像追加ボタン
-		
+			width: 100%;
+			height: 160px;
+			border: 1px solid #0086ad;
+			padding: 20px;
 		}
 	}
 }
