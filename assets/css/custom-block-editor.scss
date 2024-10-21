@@ -8,7 +8,8 @@
     margin-right: 0;
 }
 //商品一覧ブロックスタイル
-.item-add-btn{
+.item-add-btn,
+.slide-add-btn{
 	position: relative;
     display: inline-block;
     width: 15%;
@@ -27,15 +28,18 @@
 			transition: 0.2s;
 		}
 	}
-.item-list-block-editor{//grid wrap
+.item-list-block-editor,
+.slide-list{//grid wrap
 	position: relative;
 	width: 100%;
 	margin: 2%;
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
     gap: 90px 20px;
-	.item-list-editor{//個別ブロックwrap
-		.item-remove-btn{
+	.item-list-editor,
+	.slide-item{//個別ブロックwrap
+		.item-remove-btn,
+		.slide-remove-btn{
 			width: 100%;
     		height: 25px;
     		background-color: #9D3B3B;
@@ -55,10 +59,11 @@
 			object-fit: contain;
 			object-position: center;
 		}
-		.item-list-img-btn{//画像追加ボタン
+		.item-list-img-btn,
+		.slide-image-btn{//画像追加ボタン
 			width: 100%;
 			height: 160px;
-			border: 1px solid #0086ad;
+			box-shadow: .1px .1px 2px;
 			padding: 20px;
 		}
 	}

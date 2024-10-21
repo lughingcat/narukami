@@ -16,6 +16,8 @@ wp.domReady(function() {
     ]);
 });
 
+//アイテムリストブロック
+
 wp.domReady(function() {
 	registerBlockType('itemlist-custom-block/item-list-block', {
     title: __('商品リスト', 'narukami'),
@@ -137,4 +139,120 @@ save: function (props) {
 
 });
 
+});
+
+//スライドショーブロック
+wp.domReady(function() {
+	registerBlockType('itemlist-custom-block/image-slider-block', {
+    title: __('商品スライドショー', 'narukami'),
+    icon: 'images-alt2',
+    category: 'narukami-categorys',
+    attributes: {
+        slides: {
+            type: 'array',
+            default: [],
+        },
+		sliderTitle: {
+            type: 'string',
+            default: '',
+        },
+    },
+    
+    edit: function (props) {
+        const { attributes, setAttributes } = props;
+        const { slides, sliderTitle } = attributes;
+
+        const addSlide = () => {
+            setAttributes({
+                slides: [
+                    ...slides,
+                    {
+                        productImage: '',
+                        productTitle: '',
+                        productPrice: '',
+                    },
+                ],
+            });
+        };
+
+        const updateSlide = (index, updatedSlide) => {
+            const updatedSlides = slides.slice();
+            updatedSlides[index] = updatedSlide;
+            setAttributes({ slides: updatedSlides });
+        };
+
+        const removeSlide = (index) => {
+            const updatedSlides = slides.filter((_, i) => i !== index);
+            setAttributes({ slides: updatedSlides });
+        };
+
+        return el('div', {},
+			el(TextControl, {
+                label: __('スライダーのタイトル', 'narukami'),
+				className: 'narukami-slider-title',
+                value: sliderTitle,
+                onChange: function (value) {
+                    setAttributes({ sliderTitle: value });
+                }
+            }),
+            el(Button, { onClick: addSlide, className: 'slide-add-btn' }, __('スライドを追加', 'narukami')),
+            el('div', { className: 'slide-list' },
+                slides.map((slide, index) =>
+                    el('div', { key: index, className: 'slide-item' },
+                        el(MediaUpload, {
+                            onSelect: (media) => {
+                                const updatedSlides = [...slides];
+                                updatedSlides[index].productImage = media.url;
+                                setAttributes({ slides: updatedSlides });
+                            },
+                            allowedTypes: ['image'],
+                            render: (obj) => (
+                                el(Button, { onClick: obj.open, className: 'slide-image-btn' },
+                                    slide.productImage ?
+                                        el('img', { src: slide.productImage, alt: __('Product Image', 'narukami') }) :
+                                        __('画像を選択してください', 'narukami')
+                                )
+                            )
+                        }),
+                        el(TextControl, {
+                            label: __('商品名', 'narukami'),
+                            value: slide.productTitle,
+                            onChange: (value) => {
+                                const updatedSlides = [...slides];
+                                updatedSlides[index].productTitle = value;
+                                setAttributes({ slides: updatedSlides });
+                            },
+                        }),
+                        el(TextControl, {
+                            label: __('商品価格', 'narukami'),
+                            value: slide.productPrice,
+                            onChange: (value) => {
+                                const updatedSlides = [...slides];
+                                updatedSlides[index].productPrice = value;
+                                setAttributes({ slides: updatedSlides });
+                            },
+                        }),
+                        el(Button, { onClick: () => removeSlide(index), className: 'slide-remove-btn' }, __('削除', 'narukami'))
+                    )
+                )
+            )
+        );
+    },
+
+    save: function (props) {
+        const { attributes } = props;
+        const { slides } = attributes;
+
+        return el('div', { className: 'narukami-product-slider' },
+			sliderTitle && el('h2', { className: 'slider-title' }, sliderTitle),
+            slides.map((slide, index) => 
+                el('div', { key: index, className: 'slide-items' },
+                    el('img', { src: slide.productImage, alt: __('Product Image', 'narukami') }),
+                    el('h2', { className: 'product-title' }, slide.productTitle),
+                    el('p', { className: 'product-price' }, slide.productPrice + ' 円')
+                )
+            )
+        );
+    },
+});
 });
