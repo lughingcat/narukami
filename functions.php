@@ -378,7 +378,9 @@ function enqueue_narukami_top_preview_assets() {
     	$(".narukami-product-slider").slick({
         	slidesToShow: 1,
         	slidesToScroll: 1,
-        	autoplaySpeed: 3000,
+			autoplay: true,
+        	autoplaySpeed: 2000,
+			cssEase: "ease-in-out",
         	dots: true
     });
 });

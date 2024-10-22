@@ -7,6 +7,11 @@
     margin-left: 0;
     margin-right: 0;
 }
+.narukami-slider-title{
+	width: 100%;
+    padding-left: 17px;
+    margin-bottom: 20px;
+}
 //商品一覧ブロックスタイル
 .item-add-btn,
 .slide-add-btn{
@@ -18,7 +23,7 @@
     color: #FFFFFF;
     text-align: center;
     border: 0;
-    margin: 0 2% 8%;
+    margin: 0 2% 2%;
     border-radius: 3px;
 	&:hover{
 			background-color: #ffffff;
