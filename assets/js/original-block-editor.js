@@ -8,12 +8,21 @@ const el = wp.element.createElement;
 wp.domReady(function() {
     wp.blocks.setCategories([
         { slug: 'text', title: 'テキスト', icon: 'editor-paragraph' },
-        { slug: 'media', title: 'メディア', icon: 'format-image' },
         { slug: 'design', title: 'デザイン', icon: 'admin-customizer' },
-        { slug: 'widgets', title: 'ウィジェット', icon: 'screenoptions' },
-        { slug: 'embeds', title: '埋め込み', icon: 'embed-generic' },
         { slug: 'narukami-categorys', title: '鳴雷カテゴリー', icon: 'admin-plugins' }
     ]);
+
+	//除外項目ブロック
+	wp.blocks.unregisterBlockType('core/paragraph');      // 段落
+    wp.blocks.unregisterBlockType('core/list');           // リスト
+    wp.blocks.unregisterBlockType('core/quote');          // 引用
+    wp.blocks.unregisterBlockType('core/code');           // コード
+    wp.blocks.unregisterBlockType('core/details');        // 詳細
+    wp.blocks.unregisterBlockType('core/preformatted');   // 整形済みテキスト
+    wp.blocks.unregisterBlockType('core/pullquote');      // プルクオート
+    wp.blocks.unregisterBlockType('core/table');          // テーブル
+    wp.blocks.unregisterBlockType('core/verse');          // 詩
+    wp.blocks.unregisterBlockType('core/freeform');       // クラシック (クラシックエディタ)
 });
 
 //アイテムリストブロック
