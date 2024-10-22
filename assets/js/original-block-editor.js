@@ -241,18 +241,30 @@ wp.domReady(function() {
 
     save: function (props) {
         const { attributes } = props;
-        const { slides } = attributes;
+        const { slides, sliderTitle } = attributes;
 
-        return el('div', { className: 'narukami-product-slider' },
-			sliderTitle && el('h2', { className: 'slider-title' }, sliderTitle),
-            slides.map((slide, index) => 
-                el('div', { key: index, className: 'slide-items' },
-                    el('img', { src: slide.productImage, alt: __('Product Image', 'narukami') }),
-                    el('h2', { className: 'product-title' }, slide.productTitle),
-                    el('p', { className: 'product-price' }, slide.productPrice + ' 円')
-                )
-            )
-        );
+        return el(
+    		'div',
+    		{ className: 'slider-container' }, // 2つのコンテンツを囲む div
+			// スライダーのタイトルを表示
+    		sliderTitle ? el('h2', { className: 'slider-title' }, sliderTitle) : null,
+
+    		// スライダーコンテンツを表示
+			el(
+        	'div',
+        	{ className: 'narukami-product-slider' },
+        		slides.map((slide, index) =>
+            		el(
+                		'div',
+                		{ key: index, className: 'slide-items' },
+                		el('img', { src: slide.productImage, alt: __('Product Image', 'narukami') }),
+                		el('h2', { className: 'product-title' }, slide.productTitle),
+                		el('p', { className: 'product-price' }, slide.productPrice + ' 円')
+            		)
+        		)
+			)
+		);
+
     },
 });
 });

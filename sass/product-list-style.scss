@@ -116,6 +116,8 @@ h1{
 			padding: 8px 14px 10px 0;
 		}
 		
+		//商品リストブロック
+		
 		.item-list-block{//商品リストwrap
 			position: relative;
 			width: 100%;
@@ -167,6 +169,36 @@ h1{
 				
 			}
 			
+		}
+		
+		//スライダーブロック
+		.slider-container{//slider all wrap
+			width: 100%;
+			position: relative;
+			padding: 5%;
+			.slider-title{//slider title
+						
+			}
+			.narukami-product-slider{//スライダ-wrap
+				width: 100%;
+				height: 400px;
+				position: relative;
+				margin: 0 auto;
+				background-color: red;
+				.slide-items{
+					img{
+						object-fit: contain;
+						object-position: center;		
+					}
+					.product-title{
+						
+					}
+					.product-price{
+						
+					}
+					
+				}
+			}
 		}
 	}//content end
 	
