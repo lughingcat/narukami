@@ -710,6 +710,10 @@ function render_narukami_heading_block( $block_content, $block ) {
 			
 			$subtitle = '<p class="wp-block-heading narukami-subtitle3" style="text-align: ' . esc_attr( $block['attrs']['narukami_subtitleAlignment'] ) . ';">' . esc_html( $block['attrs']['narukami_subtitle'] ) . '</p>';
 			$block_content .= $subtitle;
+			
+		}elseif( ! isset( $block['attrs']['narukami_subtitle'] )){
+			$subtitle = '<p class="wp-block-heading narukami-subtitle3" style="text-align: ' . esc_attr( $block['attrs']['narukami_subtitleAlignment'] ) . ';">' . "サブタイトルの値がありません" . '</p>';
+			$block_content .= $subtitle;
 		}
     }
     return $block_content;
