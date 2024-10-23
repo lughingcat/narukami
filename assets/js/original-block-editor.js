@@ -23,6 +23,19 @@ wp.domReady(function() {
     wp.blocks.unregisterBlockType('core/table');          // テーブル
     wp.blocks.unregisterBlockType('core/verse');          // 詩
     wp.blocks.unregisterBlockType('core/freeform');       // クラシック (クラシックエディタ)
+	wp.blocks.unregisterBlockType('core/button');     // ボタンブロックを除外
+    wp.blocks.unregisterBlockType('core/buttons');    // ボタン複数
+    wp.blocks.unregisterBlockType('core/columns');    // カラムブロックを除外
+    wp.blocks.unregisterBlockType('core/group');      // グループブロックを除外
+    wp.blocks.unregisterBlockType('core/more');       // 続きブロックを除外
+    wp.blocks.unregisterBlockType('core/nextpage'); // ページ区切りを除外
+    wp.blocks.unregisterBlockType('core/separator');  // 区切りブロックを除外
+	//メディア
+	wp.blocks.unregisterBlockType('core/image');    // 画像ブロック
+    wp.blocks.unregisterBlockType('core/gallery');  // ギャラリーブロック
+    wp.blocks.unregisterBlockType('core/audio');    // オーディオブロック
+    wp.blocks.unregisterBlockType('core/video');    // ビデオブロック
+    wp.blocks.unregisterBlockType('core/file');     // ファイルブロック
 });
 
 //アイテムリストブロック
@@ -137,7 +150,7 @@ save: function (props) {
                     rel: 'noopener noreferrer', 
                     style: { display: 'inline-block', textDecoration: 'none' } // デフォルトのリンク装飾を削除
                 },
-                    item.productImage && el('img', { src: item.productImage, alt: __('Product Image', 'narukami') }),
+                    el('img', { src: item.productImage, alt: __('Product Image', 'narukami') }),
                     el('h2', { className: 'product-title' }, item.productTitle),
                     el('p', { className: 'product-price' }, item.productPrice + ' 円')
                 )

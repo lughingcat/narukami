@@ -1,8 +1,17 @@
+@charset "UTF-8";
 .wp-block-heading,
 .wp-block-paragraph {
   width: 100%;
   margin-left: 0;
   margin-right: 0; }
+
+/* パターンタブを非表示 */
+.block-editor-inserter__panel-patterns {
+  display: none; }
+
+/* メディアタブを非表示 */
+.block-editor-inserter__tabs button[aria-label="メディア"] {
+  display: none; }
 
 .narukami-slider-title {
   width: 100%;

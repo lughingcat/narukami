@@ -759,6 +759,59 @@ function custom_banner_preview_handler() {
     }
 }
 
+//エディタパターン削除
+remove_theme_support('core-block-patterns');
+
+//product-lsit-page投稿ページにブロックをデフォルト挿入する
+
+function insert_default_blocks_on_post_create($post_id, $post, $update) {
+    // 新規投稿であることを確認（既存の投稿を更新している場合は無視）
+    if ($update || $post->post_type !== 'product_list_page') {
+        return;
+    }
+    
+    // デフォルトのブロック構成を作成
+    $default_blocks = '
+	<!-- wp:heading {"level":2,"className":"narukami-hedding-style1"} -->
+	<h2 class="narukami-hedding-style1">ここにデフォルトの見出しブロックが挿入されます</h2>
+	<!-- /wp:heading -->
+	
+	<!-- wp:itemlist-custom-block/image-slider-block {"sliderTitle":"デフォルトスライダー","slides":[{"productImage":"","productTitle":"","productPrice":""}]} -->
+           <div class="wp-block-itemlist-custom-block-image-slider-block slider-container">
+           <h2 class="slider-title">デフォルトスライダー</h2>
+           <div class="narukami-product-slider">
+           <div class="slide-items">
+           <img src="" alt="Product Image"/>
+           <h2 class="product-title"></h2>
+           <p class="product-price"> 円</p>
+           </div>
+           </div>
+           </div>
+    <!-- /wp:itemlist-custom-block/image-slider-block -->
+	
+	<!-- wp:heading {"level":2,"className":"narukami-hedding-style2"} -->
+	<h2 class="narukami-hedding-style2">ここにデフォルトの見出しブロックが挿入されます</h2>
+	<!-- /wp:heading -->
+	
+	<!-- wp:itemlist-custom-block/item-list-block {"itemList":[{"productImage":"","productTitle":"","productPrice":"","productLink":""}]} -->
+            <div class="wp-block-itemlist-custom-block-item-list-block item-list-block">
+                <a class="item-list" href="#" target="_blank" rel="noopener noreferrer" style="display:inline-block;text-decoration:none;">
+                    <img src="" alt="Product Image"/>
+                    <h2 class="product-title"></h2>
+                    <p class="product-price"> 円</p>
+                </a>
+            </div>
+    <!-- /wp:itemlist-custom-block/item-list-block -->
+	';
+
+    
+    // 投稿の内容を更新
+    wp_update_post(array(
+        'ID'           => $post_id,
+        'post_content' => $default_blocks,
+    ));
+}
+add_action('wp_insert_post', 'insert_default_blocks_on_post_create', 10, 3);
 
 /**
  * Implement the Custom Header feature.

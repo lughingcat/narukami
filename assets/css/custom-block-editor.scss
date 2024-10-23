@@ -7,6 +7,15 @@
     margin-left: 0;
     margin-right: 0;
 }
+/* パターンタブを非表示 */
+.block-editor-inserter__panel-patterns {
+    display: none;
+}
+
+/* メディアタブを非表示 */
+.block-editor-inserter__tabs button[aria-label="メディア"] {
+    display: none;
+}
 .narukami-slider-title{
 	width: 100%;
     padding-left: 17px;

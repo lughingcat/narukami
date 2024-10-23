@@ -16,7 +16,7 @@ function addPostTitleAttributes( settings, name ) {
             },
             narukami_subtitle: {
                 type: 'string',
-                default: '', // 空のサブタイトルがデフォルト
+                default: 'subtitle', // 空のサブタイトルがデフォルト
             },
 			 narukami_subtitleAlignment: {
                 type: 'string',
