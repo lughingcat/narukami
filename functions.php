@@ -776,7 +776,7 @@ function insert_default_blocks_on_post_create($post_id, $post, $update) {
     
     // デフォルトのブロック構成を作成
     $default_blocks = '
-	<!-- wp:heading {"level":2,"className":"narukami-hedding-style1"} -->
+	<!-- wp:heading {"level":2,"className":"narukami-hedding-style1","narukami_headingStyle":"narukami-hedding-style1","narukami_subtitle":"ここにサブタイトルを入力してください。"} -->
 	<h2 class="narukami-hedding-style1">ここにデフォルトの見出しブロックが挿入されます</h2>
 	<!-- /wp:heading -->
 	
@@ -793,7 +793,7 @@ function insert_default_blocks_on_post_create($post_id, $post, $update) {
            </div>
     <!-- /wp:itemlist-custom-block/image-slider-block -->
 	
-	<!-- wp:heading {"level":2,"className":"narukami-hedding-style2"} -->
+	<!-- wp:heading {"level":2,"className":"narukami-hedding-style2","narukami_headingStyle":"narukami-hedding-style2","narukami_subtitle":"ここにサブタイトルを入力してください。"} -->
 	<h2 class="narukami-hedding-style2">ここにデフォルトの見出しブロックが挿入されます</h2>
 	<!-- /wp:heading -->
 	
