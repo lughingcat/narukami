@@ -122,8 +122,9 @@ h1 {
         .product-list-page-content .content .item-list-block .item-list:hover {
           box-shadow: .1px .1px 3px; }
         .product-list-page-content .content .item-list-block .item-list img {
-          width: 100%;
-          object-fit: contain;
+          width: 200px;
+          height: 200px;
+          object-fit: cover;
           object-position: center; }
         .product-list-page-content .content .item-list-block .item-list .product-title {
           position: relative;

@@ -120,7 +120,7 @@ wp.domReady(function() {
                         }
                     }),
                     el(TextControl, {
-                        label: __('商品単体ページリンク', 'narukami'),
+                        label: __('商品紹介ページリンク', 'narukami'),
                         value: item.productLink,
                         onChange: function (value) {
                             const updatedItems = [...itemList];

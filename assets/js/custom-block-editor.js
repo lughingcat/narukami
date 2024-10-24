@@ -20,7 +20,7 @@ function addPostTitleAttributes( settings, name ) {
             },
 			 narukami_subtitleAlignment: {
                 type: 'string',
-                default: '', // デフォルトは左揃え
+                default: '',
             },
         });
     }
@@ -101,6 +101,7 @@ const withPostTitleInspectorControls = createHigherOrderComponent( function( Blo
                             label: 'サブタイトルの配置',
                             selected: attributes.narukami_subtitleAlignment,
                             options: [
+                                { label: 'デフォルト', value: '' },
                                 { label: '左揃え', value: 'left' },
                                 { label: '中央揃え', value: 'center' },
                                 { label: '右揃え', value: 'right' },
