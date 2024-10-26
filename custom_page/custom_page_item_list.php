@@ -1,20 +1,20 @@
 <?php
 function create_product_list_page_type() {
     $labels = array(
-        'name'               => '販売アイテム一覧ページ',
-        'singular_name'      => '販売アイテム一覧ページ',
-        'menu_name'          => '販売アイテム一覧ページ',
-        'name_admin_bar'     => '販売アイテム一覧ページを追加',
+        'name'               => '商品リストページ',
+        'singular_name'      => '商品リストページ',
+        'menu_name'          => '商品リストページ',
+        'name_admin_bar'     => '商品リストページを追加',
         'add_new'            => '新規追加',
-        'add_new_item'       => '新しい販売アイテム一覧ページを追加',
-        'new_item'           => '新しい販売アイテム一覧ページ',
-        'edit_item'          => '販売アイテム一覧ページを編集',
-        'view_item'          => '販売アイテム一覧ページを見る',
-        'all_items'          => '全ての販売アイテム一覧ページ',
-        'search_items'       => '販売アイテム一覧ページを検索',
-        'parent_item_colon'  => '親販売アイテム一覧ページ:',
-        'not_found'          => '販売アイテム一覧ページが見つかりません',
-        'not_found_in_trash' => 'ゴミ箱に販売アイテム一覧ページが見つかりません',
+        'add_new_item'       => '新しい商品リストページを追加',
+        'new_item'           => '新しい商品リストページ',
+        'edit_item'          => '商品リストページを編集',
+        'view_item'          => '商品リストページを見る',
+        'all_items'          => '全ての商品リストページ',
+        'search_items'       => '商品リストページを検索',
+        'parent_item_colon'  => '親商品リストページ:',
+        'not_found'          => '商品リストページが見つかりません',
+        'not_found_in_trash' => 'ゴミ箱に商品リストページが見つかりません',
     );
 
     $args = array(

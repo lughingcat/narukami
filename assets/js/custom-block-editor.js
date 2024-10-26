@@ -1,9 +1,8 @@
 //鳴雷見出し機能追加
 
 //見出し宣言
-const { createElement, Fragment } = wp.element;
+
 const { InspectorControls } = wp.blockEditor;
-const { PanelBody, RadioControl, TextControl } = wp.components;
 const { createHigherOrderComponent } = wp.compose;
 
 // 見出しにカスタム属性を追加

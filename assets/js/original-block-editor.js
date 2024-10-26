@@ -4,6 +4,8 @@ const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
 const { Button } = wp.components;
 const { __ } = wp.i18n;
 const el = wp.element.createElement;
+const { createElement, Fragment } = wp.element;
+const { PanelBody, RadioControl, TextControl } = wp.components;
 
 wp.domReady(function() {
     wp.blocks.setCategories([

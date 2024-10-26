@@ -258,8 +258,73 @@ function my_custom_editor_enqueue() {
 }
 add_action('admin_enqueue_scripts', 'my_custom_editor_enqueue');
 
-//ブロックエディターエンキュー(React: wp-elementへ依存)
+//オリジナルブロック登録--優先順位１位
+function narukami_itemlist_block_register() {
+	$screen = get_current_screen();
+    
+    // 商品リストページ専用ブロック登録
+    if ( 'product_list_page' === $screen->post_type ) {
+        // オリジナルブロックのスクリプトを登録
+        wp_register_script(
+            'itemlist-custom-block',
+            get_template_directory_uri() . '/assets/js/original-block-editor.js',
+            array(
+                'wp-blocks',
+                'wp-editor',
+                'wp-element',
+                'wp-components',
+                'wp-i18n',
+                'wp-hooks',
+                'wp-data'
+            ),
+            time(),
+            true
+        );
+
+        // ブロックを登録
+        register_block_type('itemlist-custom-block/item-list-block', array(
+            'editor_script' => 'itemlist-custom-block',
+        ));
+    }
+	
+	//商品紹介ページ専用ブロック登録
+	if ( 'product_item_page' === $screen->post_type ) {
+        // オリジナルブロックのスクリプトを登録
+        wp_register_script(
+            'item-introduction-block',
+            get_template_directory_uri() . '/assets/js/custom-block-single.js',
+            array(
+                'wp-blocks',
+                'wp-editor',
+                'wp-element',
+                'wp-components',
+                'wp-i18n',
+                'wp-hooks',
+                'wp-data'
+            ),
+            time(),
+            true
+        );
+
+        // ブロックを登録
+        register_block_type('item-introduction-block/introduction-block', array(
+            'editor_script' => 'item-introduction-block',
+        ));
+    }
+}
+add_action('enqueue_block_editor_assets', 'narukami_itemlist_block_register', 10);
+
+
+//ブロックエディターエンキュー --優先順位2位(既存ブロックの拡張)
 function narukami_block_editor_enqueue() {
+	
+		//登録している依存jsファイルの分岐
+		if ( wp_script_is('itemlist-custom-block', 'registered') ) {
+			$dependencies = 'itemlist-custom-block';
+		}
+		if ( wp_script_is('item-introduction-block', 'registered') ) {
+			$dependencies = 'item-introduction-block';
+		}
    wp_enqueue_script('narukami_block_editor_script', get_template_directory_uri() . '/assets/js/custom-block-editor.js',
 					 array(
 						 'wp-blocks', 
@@ -270,63 +335,36 @@ function narukami_block_editor_enqueue() {
 						 'wp-components', 
 						 'wp-hooks',
 						 'wp-element',
-						 'wp-i18n'
+						 'wp-i18n',
+						 $dependencies
 					 ),
 					 time(),
 					 true
 					);
-	wp_enqueue_script('narukami_block_category_add_script', get_template_directory_uri() . '/assets/js/block-category-add.js',
-					 array(
-						 'wp-blocks', 
-						 'wp-dom-ready', 
-						 'wp-edit-post', 
-						 'wp-block-editor', 
-						 'wp-compose', 
-						 'wp-components', 
-						 'wp-hooks',
-						 'wp-element',
-						 'wp-i18n'
-					 ),
-					 time(),
-					 true
-					);
-	wp_enqueue_style('narukami_custom_editor_style', get_template_directory_uri() . '/assets/css/custom-block-editor.css', array(), time());
-}
-add_action('enqueue_block_editor_assets', 'narukami_block_editor_enqueue');
-
-//オリジナルブロック登録
-function narukami_itemlist_block_register() {
 	
-    wp_register_script(
-        'itemlist-custom-block',
-        get_template_directory_uri() . '/assets/js/original-block-editor.js', 
-        array(
-			'wp-blocks', 
-			'wp-editor', 
-			'wp-element', 
-			'wp-components', 
-			'wp-i18n',
-			'wp-hooks',
-			'wp-data'
-		),
-        time(),
-		true
-    );
-
-    // ブロック登録
-    register_block_type('itemlist-custom-block/item-list-block', array(
-        'editor_script' => 'itemlist-custom-block',
-    ));
 }
-add_action('init', 'narukami_itemlist_block_register');
+add_action('enqueue_block_editor_assets', 'narukami_block_editor_enqueue', 11);
+
+//ブロックエディタcssエンキュー
+function narukami_enqueue_block_editor_styles() {
+    if (is_admin()) {
+        wp_enqueue_style(
+            'narukami_custom_editor_style', 
+            get_template_directory_uri() . '/assets/css/custom-block-editor.css', 
+            array(), 
+            time()
+        );
+    }
+}
+add_action('enqueue_block_assets', 'narukami_enqueue_block_editor_styles');
 
 
 
 /**
- * プレビューページのcss,js,エンキュー
+ * プレビューページ又はシングルページ,カスタム投稿ページのcss,js,エンキュー
  */
 function enqueue_narukami_top_preview_assets() {
-    // プレビュー表示中かどうかをチェック
+    // プレビューページ又はシングルページ,カスタム投稿ページかどうかをチェック
     if (is_preview() || is_singular()) {
         // CSSファイルをエンキュー
         wp_enqueue_style('narukami-top-preview', get_template_directory_uri() . '/sass/preview/narukami-top-preview.css', array(), time());
@@ -762,7 +800,8 @@ require get_template_directory() . '/post_nonce_check.php';
 /**
  * カスタムページ作成関数読み込み
  */
-require get_template_directory() . '/custom_page/custom_page_func_setting.php';
+require get_template_directory() . '/custom_page/custom_page_item_list.php';
+require get_template_directory() . '/custom_page/custom_page_item_one.php';
 /**
  * カスタム投稿ページデフォルトブロック差し込み関数
  */
