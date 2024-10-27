@@ -221,6 +221,21 @@ function add_cdns(){
             });
         });
     ');
+	wp_add_inline_script('slick-js', '
+    	jQuery(document).ready(function($) {
+        	setTimeout(function() {
+            	$(".selected-images").slick({
+                	lazyLoad: "ondemand",
+                	autoplaySpeed: 2000,
+                	dots: true,
+                	infinite: true,
+                	speed: 1000,
+                	arrows: true,
+                	cssEase: "ease-in-out"
+            	});
+        	}, 500); // 0.5秒待機して初期化
+    	});
+	');
 }
 add_action( 'admin_enqueue_scripts', 'add_cdns' );
 

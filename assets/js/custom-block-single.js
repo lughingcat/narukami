@@ -41,31 +41,31 @@ wp.domReady(function() {
 });
 
 registerBlockType('item-introduction-block/introduction-block', {
-	title: __('商品紹介(画像,価格,解説)', 'narukami'),
+    title: __('商品紹介(画像,価格,解説)', 'narukami'),
     icon: 'cart',
     category: 'narukami-categorys',
     attributes: {
-        sliderImage: {
+        sliderImages: {
+            type: 'array',
+            default: []
+        },
+        productDescription: {
             type: 'string',
             default: ''
         },
-		productDescription: {
+        productPrice: {
             type: 'string',
             default: ''
         },
-		productPrice: {
-            type: 'string',
-            default: ''
-        },
-		subPrices: {
+        subPrices: {
             type: 'array',
             default: []
         },
     },
-	
+    
     edit: function(props) {
         const { attributes, setAttributes } = props;
-        const { productDescription, productPrice, subPrices, sliderImage } = attributes;
+        const { productDescription, productPrice, subPrices, sliderImages } = attributes;
 
         const addSubPrice = () => {
             const newSubPrices = [...subPrices, ''];
@@ -78,60 +78,93 @@ registerBlockType('item-introduction-block/introduction-block', {
             setAttributes({ subPrices: newSubPrices });
         };
 
-        return wp.element.createElement(Fragment, null,
-            wp.element.createElement("div", { className: "product-slider-block" },
-                wp.element.createElement("div", { className: "slider-container" },
-                        wp.element.createElement(MediaUpload, {
-                            onSelect: (media) => setAttributes({ sliderImage: media.url }),
+        const removeSubPrice = (index) => {
+            const newSubPrices = subPrices.filter((_, i) => i !== index);
+            setAttributes({ subPrices: newSubPrices });
+        };
+
+        const onSelectImages = (media) => {
+            const newImages = media.map((img) => ({
+                id: img.id,
+                url: img.url
+            }));
+            setAttributes({ sliderImages: newImages });
+        };
+
+        return createElement(Fragment, null,
+            createElement("div", { className: "product-slider-block" },
+                createElement("div", { className: "slider-container" },
+                    createElement(MediaUploadCheck, null,
+                        createElement(MediaUpload, {
+                            onSelect: onSelectImages,
                             allowedTypes: ['image'],
+                            multiple: true,
                             render: ({ open }) =>
-                                wp.element.createElement(Button, { onClick: open }, "画像を選択")
-                        }),
-						attributes.sliderImage &&
-    					wp.element.createElement("img", {
-    					    src: attributes.sliderImage,
-    					    alt: "選択した画像",
-    					    className: "slider-image"
-    					})
+                                createElement(Button, { onClick: open }, "画像を選択(shift+クリックで複数選択可能)")
+                        })
+                    ),
+                    createElement("div", { className: "selected-images" },
+                        sliderImages.map((img, index) =>
+                            createElement("div", { key: index, className: "image-wrapper" },
+                                createElement("img", {
+                                    src: img.url,
+                                    alt: `選択した画像 ${index + 1}`,
+                                    className: "slider-image"
+                                })
+                            )
+                        )
+                    )
                 ),
-                wp.element.createElement("div", { className: "content-container" },
-                    wp.element.createElement(TextControl, {
+                createElement("div", { className: "content-container" },
+                    createElement(TextControl, {
                         label: "商品説明",
                         value: productDescription,
                         onChange: (value) => setAttributes({ productDescription: value })
                     }),
-                    wp.element.createElement(TextControl, {
+                    createElement(TextControl, {
                         label: "商品価格",
                         value: productPrice,
                         onChange: (value) => setAttributes({ productPrice: value })
                     }),
                     subPrices.map((subPrice, index) =>
-                        wp.element.createElement(TextControl, {
-                            key: index,
-                            label: `サブプライス ${index + 1}`,
-                            value: subPrice,
-                            onChange: (value) => updateSubPrice(value, index)
-                        })
+                        createElement("div", { key: index, className: "sub-price-item" },
+                            createElement(TextControl, {
+                                label: `サブプライス ${index + 1}`,
+                                value: subPrice,
+                                onChange: (value) => updateSubPrice(value, index)
+                            }),
+                            createElement(Button, {
+                                isDestructive: true,
+                                onClick: () => removeSubPrice(index)
+                            }, "削除")
+                        )
                     ),
-                    wp.element.createElement(Button, { onClick: addSubPrice }, "サブプライスを追加")
+                    createElement(Button, { onClick: addSubPrice }, "サブプライスを追加")
                 )
             )
         );
     },
+
     save: function(props) {
         const { attributes } = props;
-        const { productDescription, productPrice, subPrices, sliderImage } = attributes;
+        const { productDescription, productPrice, subPrices, sliderImages } = attributes;
 
-        return wp.element.createElement("div", { className: "product-slider-block" },
-            wp.element.createElement("div", { className: "slider-container" },
-                wp.element.createElement("img", { src: sliderImage, alt: productDescription })
+        return createElement("div", { className: "product-slider-block" },
+            createElement("div", { className: "slider-container" },
+                sliderImages.map((img, index) =>
+                    createElement("img", {
+                        key: index,
+                        src: img.url,
+                        alt: `ギャラリー画像 ${index + 1}`
+                    })
+                )
             ),
-            wp.element.createElement("div", { className: "content-container" },
-                wp.element.createElement("div", { className: "product-description" }, productDescription),
-                wp.element.createElement("div", { className: "product-price" }, productPrice),
-                wp.element.createElement("ul", { className: "sub-prices" },
+            createElement("div", { className: "content-container" },
+                createElement("div", { className: "product-description" }, productDescription),
+                createElement("div", { className: "product-price" }, productPrice),
+                createElement("ul", { className: "sub-prices" },
                     subPrices.map((subPrice, index) =>
-                        wp.element.createElement("li", { key: index }, subPrice)
+                        createElement("li", { key: index }, subPrice)
                     )
                 )
             )
