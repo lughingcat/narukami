@@ -8,6 +8,7 @@
 function render_narukami_heading_block( $block_content, $block ) {
     // 'core/heading' ブロックのみ対象にする
     if ( 'core/heading' === $block['blockName'] ) {
+		error_log(print_r($block, true));
 		if ( isset( $block['attrs']['narukami_subtitleAlignment'] ) && ! empty( $block['attrs']['narukami_subtitleAlignment'] ) ) {
         	$alignment = esc_attr( $block['attrs']['narukami_subtitleAlignment'] );
 		} else {

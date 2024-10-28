@@ -1,20 +1,24 @@
 h1 {
   display: none; }
 
+.product-item-page-content,
 .product-list-page-content {
   position: relative;
   max-width: 90%;
   margin: 2% auto;
   background-color: #FFFFFF;
   padding: 10px; }
+  .product-item-page-content .content,
   .product-list-page-content .content {
     padding: 5%; }
+    .product-item-page-content .content .narukami-hedding-style1,
     .product-list-page-content .content .narukami-hedding-style1 {
       position: relative;
       width: 100%;
       display: block;
       text-align: center;
       margin: 0 auto 5px auto; }
+      .product-item-page-content .content .narukami-hedding-style1::before,
       .product-list-page-content .content .narukami-hedding-style1::before {
         content: '';
         position: absolute;
@@ -27,6 +31,7 @@ h1 {
         transform: translateX(-50%);
         background-color: #4e4d4d;
         border-radius: 10px; }
+    .product-item-page-content .content .narukami-subtitle,
     .product-list-page-content .content .narukami-subtitle {
       width: 100%;
       margin: 0 auto 20px;
@@ -34,6 +39,7 @@ h1 {
       text-align: center;
       box-shadow: 0px 4px 2px -3px #b6b4b4;
       padding-bottom: 10px; }
+    .product-item-page-content .content .narukami-hedding-style2,
     .product-list-page-content .content .narukami-hedding-style2 {
       position: relative;
       width: 100%;
@@ -42,6 +48,7 @@ h1 {
       text-align: left;
       padding-left: 25px;
       box-sizing: border-box; }
+      .product-item-page-content .content .narukami-hedding-style2::before,
       .product-list-page-content .content .narukami-hedding-style2::before {
         content: '';
         position: absolute;
@@ -54,6 +61,7 @@ h1 {
         transform: translateX(-50%);
         background-color: #b6b4b4;
         border-radius: 10px; }
+      .product-item-page-content .content .narukami-hedding-style2::after,
       .product-list-page-content .content .narukami-hedding-style2::after {
         content: '';
         position: absolute;
@@ -63,12 +71,14 @@ h1 {
         left: 0;
         top: 0;
         background-color: #d16407; }
+    .product-item-page-content .content .narukami-subtitle2,
     .product-list-page-content .content .narukami-subtitle2 {
       width: 100%;
       margin: 0 auto 20px;
       text-align: left;
       padding: 8px 0 10px 14px;
       box-sizing: border-box; }
+    .product-item-page-content .content .narukami-hedding-style3,
     .product-list-page-content .content .narukami-hedding-style3 {
       position: relative;
       width: 100%;
@@ -77,6 +87,7 @@ h1 {
       text-align: left;
       padding-left: 45px;
       box-sizing: border-box; }
+      .product-item-page-content .content .narukami-hedding-style3::before,
       .product-list-page-content .content .narukami-hedding-style3::before {
         content: '';
         position: absolute;
@@ -89,6 +100,7 @@ h1 {
         transform: translateX(-50%);
         background-color: #b6b4b4;
         border-radius: 10px; }
+      .product-item-page-content .content .narukami-hedding-style3::after,
       .product-list-page-content .content .narukami-hedding-style3::after {
         content: '';
         position: absolute;
@@ -99,11 +111,13 @@ h1 {
         top: 5px;
         background-color: #0086ad;
         border-radius: 50%; }
+    .product-item-page-content .content .narukami-subtitle3,
     .product-list-page-content .content .narukami-subtitle3 {
       width: 100%;
       margin: 0 auto 20px;
       text-align: right;
       padding: 8px 14px 10px 0; }
+    .product-item-page-content .content .item-list-block,
     .product-list-page-content .content .item-list-block {
       position: relative;
       width: 100%;
@@ -112,6 +126,7 @@ h1 {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 20px; }
+      .product-item-page-content .content .item-list-block .item-list,
       .product-list-page-content .content .item-list-block .item-list {
         color: inherit;
         max-width: 230px;
@@ -119,13 +134,16 @@ h1 {
         padding: 5%;
         transition: all 0.1s ease-in-out;
         border-radius: 5px; }
+        .product-item-page-content .content .item-list-block .item-list:hover,
         .product-list-page-content .content .item-list-block .item-list:hover {
           box-shadow: .1px .1px 3px; }
+        .product-item-page-content .content .item-list-block .item-list img,
         .product-list-page-content .content .item-list-block .item-list img {
           width: 200px;
           height: 200px;
           object-fit: cover;
           object-position: center; }
+        .product-item-page-content .content .item-list-block .item-list .product-title,
         .product-list-page-content .content .item-list-block .item-list .product-title {
           position: relative;
           width: 100%;
@@ -137,6 +155,7 @@ h1 {
           border-bottom: 1px solid;
           padding-bottom: 4px;
           padding-left: 10px; }
+          .product-item-page-content .content .item-list-block .item-list .product-title::before,
           .product-list-page-content .content .item-list-block .item-list .product-title::before {
             content: '';
             position: absolute;
@@ -145,25 +164,31 @@ h1 {
             width: 5px;
             height: 15px;
             background-color: #c44545; }
+        .product-item-page-content .content .item-list-block .item-list .product-price,
         .product-list-page-content .content .item-list-block .item-list .product-price {
           margin-top: 0.6em;
           margin-bottom: 0; }
+    .product-item-page-content .content .slider-container,
     .product-list-page-content .content .slider-container {
       width: 100%;
       position: relative;
       padding: 5%; }
+      .product-item-page-content .content .slider-container .slider-title,
       .product-list-page-content .content .slider-container .slider-title {
         width: 100%;
         padding-bottom: 5px; }
+      .product-item-page-content .content .slider-container .narukami-product-slider .slide-items,
       .product-list-page-content .content .slider-container .narukami-product-slider .slide-items {
         width: 767px;
         height: 600px;
         position: relative; }
+        .product-item-page-content .content .slider-container .narukami-product-slider .slide-items img,
         .product-list-page-content .content .slider-container .narukami-product-slider .slide-items img {
           width: 100%;
           height: 80%;
           object-fit: cover;
           object-position: center; }
+        .product-item-page-content .content .slider-container .narukami-product-slider .slide-items .product-title,
         .product-list-page-content .content .slider-container .narukami-product-slider .slide-items .product-title {
           position: relative;
           width: 100%;
@@ -173,6 +198,7 @@ h1 {
           text-overflow: ellipsis;
           padding-left: 10px;
           margin-bottom: 5px; }
+          .product-item-page-content .content .slider-container .narukami-product-slider .slide-items .product-title::before,
           .product-list-page-content .content .slider-container .narukami-product-slider .slide-items .product-title::before {
             content: '';
             position: absolute;
@@ -181,6 +207,7 @@ h1 {
             width: 5px;
             height: 30px;
             background-color: #c44545; }
+        .product-item-page-content .content .slider-container .narukami-product-slider .slide-items .product-price,
         .product-list-page-content .content .slider-container .narukami-product-slider .slide-items .product-price {
           width: 100%;
           margin-top: 0; }
