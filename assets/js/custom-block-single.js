@@ -4,7 +4,7 @@ const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
 const { Button } = wp.components;
 const { __ } = wp.i18n;
 const el = wp.element.createElement;
-const { PanelBody, RadioControl, TextControl } = wp.components;
+const { PanelBody, RadioControl, TextControl, TextareaControl } = wp.components;
 const { createElement, Fragment } = wp.element;
 
 wp.domReady(function() {
@@ -100,7 +100,7 @@ registerBlockType('item-introduction-block/introduction-block', {
                             allowedTypes: ['image'],
                             multiple: true,
                             render: ({ open }) =>
-                                createElement(Button, { onClick: open }, "画像を選択(shift+クリックで複数選択可能)")
+                                createElement(Button, { onClick: open, className: "maltiple-img-btn" }, "画像を選択(shift+クリックで複数選択可能)")
                         })
                     ),
                     createElement("div", { className: "selected-images" },
@@ -116,14 +116,17 @@ registerBlockType('item-introduction-block/introduction-block', {
                     )
                 ),
                 createElement("div", { className: "content-container" },
-                    createElement(TextControl, {
+                    createElement(TextareaControl, {
                         label: "商品説明",
                         value: productDescription,
+						className: "item-information",
+						style: { height: '200px' },
                         onChange: (value) => setAttributes({ productDescription: value })
                     }),
                     createElement(TextControl, {
                         label: "商品価格",
                         value: productPrice,
+						className: "product-item-price",
                         onChange: (value) => setAttributes({ productPrice: value })
                     }),
                     subPrices.map((subPrice, index) =>
@@ -131,15 +134,16 @@ registerBlockType('item-introduction-block/introduction-block', {
                             createElement(TextControl, {
                                 label: `サブプライス ${index + 1}`,
                                 value: subPrice,
+								className: "product-subprice",
                                 onChange: (value) => updateSubPrice(value, index)
                             }),
                             createElement(Button, {
-                                isDestructive: true,
+								className: "subprice-del-btn",
                                 onClick: () => removeSubPrice(index)
                             }, "削除")
                         )
                     ),
-                    createElement(Button, { onClick: addSubPrice }, "サブプライスを追加")
+                    createElement(Button, { onClick: addSubPrice, className: "subprice-add-btn" }, "サブプライスを追加")
                 )
             )
         );
