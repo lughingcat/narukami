@@ -6,6 +6,7 @@ const { __ } = wp.i18n;
 const el = wp.element.createElement;
 const { PanelBody, RadioControl, TextControl, TextareaControl } = wp.components;
 const { createElement, Fragment } = wp.element;
+const { useState } = wp.element;
 
 wp.domReady(function() {
     wp.blocks.setCategories([
@@ -184,6 +185,118 @@ registerBlockType('item-introduction-block/introduction-block', {
 );
 
 },
-
+	
 });//registerBlockType() end
 });//wp.domReady(function() end
+
+//原材料表記ブロック
+wp.domReady(function() {
+    registerBlockType('item-ingredients-description-block/ingredients-description-block', {
+        title: __('原材料表記', 'narukami'),
+        icon: 'cart',
+        category: 'narukami-categorys',
+
+        attributes: {
+            ingredientsList: {
+                type: 'array',
+                default: []
+            }
+        },
+
+        edit: function(props) {
+            const { attributes, setAttributes } = props;
+            const { ingredientsList } = attributes;
+
+            // 原材料リストに新しい行を追加する
+            const addIngredient = () => {
+                const newIngredients = [...ingredientsList, { item: '', origin: '', country: '' }];
+                setAttributes({ ingredientsList: newIngredients });
+            };
+
+            // 原材料リストから指定の行を削除する
+            const removeIngredient = (index) => {
+                const newIngredients = ingredientsList.filter((_, i) => i !== index);
+                setAttributes({ ingredientsList: newIngredients });
+            };
+
+            // 入力フィールドの内容を更新する
+            const updateIngredient = (index, key, value) => {
+                const newIngredients = ingredientsList.map((ingredient, i) =>
+                    i === index ? { ...ingredient, [key]: value } : ingredient
+                );
+                setAttributes({ ingredientsList: newIngredients });
+            };
+
+            return el(
+                'div',
+                { className: 'ingredients-description-block' },
+                el('h2', null, '主な調理品原産国'),
+                el(
+                    'div',
+                    { className: 'ingredients-list' },
+                    ingredientsList.map((ingredient, index) =>
+                        el(
+                            'div',
+                            { key: index, className: 'ingredient-item' },
+                            el(TextControl, {
+                                label: '調理品',
+                                value: ingredient.item,
+                                onChange: (value) => updateIngredient(index, 'item', value)
+                            }),
+                            el(TextControl, {
+                                label: '原材料(材料名間にスペースを入れず,で区切ってください。)',
+                                value: ingredient.origin,
+                                onChange: (value) => updateIngredient(index, 'origin', value)
+                            }),
+                            el(TextControl, {
+                                label: '原産国(原産国間にスペースを入れず,で区切ってください。)',
+                                value: ingredient.country,
+                                onChange: (value) => updateIngredient(index, 'country', value)
+                            }),
+                            el(Button, {
+                                className: 'subprice-del-btn',
+                                isDestructive: true,
+                                onClick: () => removeIngredient(index)
+                            }, '削除')
+                        )
+                    ),
+                    el(Button, {
+                        className: 'subprice-add-btn',
+                        isPrimary: true,
+                        onClick: addIngredient
+                    }, '項目を追加')
+                )
+            );
+        },
+
+        save: function(props) {
+    const { attributes } = props;
+    const { ingredientsList } = attributes;
+
+    return el(
+        'div',
+        { className: 'ingredients-description-block' },
+        el('h2', null, '主な調理品原産国'),
+        el(
+            'div',
+            { className: 'ingredients-list' },
+            el(
+                'div',
+                { className: 'ingredient-headers' },
+                el('p', null, '調理品', '/', '原材料', '/', '原産国')
+            ),
+            ingredientsList.map((ingredient, index) =>
+                el(
+                    'div',
+                    { key: index, className: 'ingredient-item' },
+                    el('p', null, ingredient.item, '/', ingredient.origin, '/', ingredient.country)
+                )
+            )
+        )
+    );
+}
+
+    });
+});
+
+

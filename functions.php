@@ -300,6 +300,9 @@ function narukami_itemlist_block_register() {
         register_block_type('itemlist-custom-block/item-list-block', array(
             'editor_script' => 'itemlist-custom-block',
         ));
+		register_block_type('item-ingredients-description-block/ingredients-description-block', array(
+            'editor_script' => 'itemlist-custom-block',
+        ));
     }
 	
 	//商品紹介ページ専用ブロック登録
@@ -444,6 +447,8 @@ function enqueue_narukami_top_preview_assets() {
     	$(".slider-container").slick({
         	slidesToShow: 1,
         	slidesToScroll: 1,
+			variableWidth: true,
+			adaptiveHeight: true,
         	autoplaySpeed: 2000,
 			cssEase: "ease-in-out",
         	dots: true
