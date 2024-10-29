@@ -152,30 +152,38 @@ registerBlockType('item-introduction-block/introduction-block', {
     },
 
     save: function(props) {
-        const { attributes } = props;
-        const { productDescription, productPrice, subPrices, sliderImages } = attributes;
+    const { attributes } = props;
+    const { productDescription, productPrice, subPrices, sliderImages } = attributes;
 
-        return createElement("div", { className: "product-slider-block" },
-    		   		createElement("div", { className: "slider-container" },
-        				sliderImages.map((img, index) =>
-            				createElement("div", { key: index, className: "slide-wrapper" }, // 画像を囲むdiv
-                				createElement("img", {
-                    				src: img.url,
-                    				alt: `ギャラリー画像 ${index + 1}`
-                				})
-            				)
-        				)
-    				)
-				);
-            createElement("div", { className: "content-container" },
-                createElement("div", { className: "product-description" }, productDescription),
-                createElement("div", { className: "product-price" }, productPrice),
-                createElement("ul", { className: "sub-prices" },
-                    subPrices.map((subPrice, index) =>
-                        createElement("li", { key: index }, subPrice)
+    return createElement(
+    Fragment,
+    null,
+    createElement("div", { className: "flex-container" }, // 新しいflex-containerで要素を囲む
+        createElement("div", { className: "product-slider-block" },
+            createElement("div", { className: "slider-container" },
+                sliderImages.map((img, index) =>
+                    createElement("div", { key: index, className: "slide-wrapper" },
+                        createElement("img", {
+                            src: img.url,
+                            alt: `ギャラリー画像 ${index + 1}`
+                        })
                     )
                 )
             )
-    },
-});
+        ),
+        createElement("div", { className: "content-container" },
+            createElement("div", { className: "product-description" }, productDescription),
+            createElement("div", { className: "product-price" }, productPrice),
+            createElement("ul", { className: "sub-prices" },
+                subPrices.map((subPrice, index) =>
+                    createElement("li", { key: index }, subPrice)
+                )
+            )
+        )
+    )
+);
+
+},
+
+});//registerBlockType() end
 });//wp.domReady(function() end

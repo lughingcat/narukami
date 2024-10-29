@@ -233,7 +233,7 @@ function add_cdns(){
                 	arrows: true,
                 	cssEase: "ease-in-out"
             	});
-        	}, 1000);
+        	}, 500);
     	});
 	');
 }
@@ -435,9 +435,22 @@ function enqueue_narukami_top_preview_assets() {
         	autoplaySpeed: 2000,
 			cssEase: "ease-in-out",
         	dots: true
-    });
-});
+    	});
+		});
     ');
+		//Slick Sliderの商品紹介ページ用初期化スクリプトをエンキュー
+		wp_add_inline_script('slick-js', '
+        jQuery(document).ready(function($) {
+    	$(".slider-container").slick({
+        	slidesToShow: 1,
+        	slidesToScroll: 1,
+        	autoplaySpeed: 2000,
+			cssEase: "ease-in-out",
+        	dots: true
+    	});
+		});
+    ');
+		
     }
 }
 // wp_enqueue_scripts アクションにフック
