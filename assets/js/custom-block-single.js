@@ -40,6 +40,8 @@ wp.domReady(function() {
     wp.blocks.unregisterBlockType('core/file');     // ファイルブロック
 });
 
+
+wp.domReady(function() {
 registerBlockType('item-introduction-block/introduction-block', {
     title: __('商品紹介(画像,価格,解説)', 'narukami'),
     icon: 'cart',
@@ -154,15 +156,17 @@ registerBlockType('item-introduction-block/introduction-block', {
         const { productDescription, productPrice, subPrices, sliderImages } = attributes;
 
         return createElement("div", { className: "product-slider-block" },
-            createElement("div", { className: "slider-container" },
-                sliderImages.map((img, index) =>
-                    createElement("img", {
-                        key: index,
-                        src: img.url,
-                        alt: `ギャラリー画像 ${index + 1}`
-                    })
-                )
-            ),
+    		   		createElement("div", { className: "slider-container" },
+        				sliderImages.map((img, index) =>
+            				createElement("div", { key: index, className: "slide-wrapper" }, // 画像を囲むdiv
+                				createElement("img", {
+                    				src: img.url,
+                    				alt: `ギャラリー画像 ${index + 1}`
+                				})
+            				)
+        				)
+    				)
+				);
             createElement("div", { className: "content-container" },
                 createElement("div", { className: "product-description" }, productDescription),
                 createElement("div", { className: "product-price" }, productPrice),
@@ -172,6 +176,6 @@ registerBlockType('item-introduction-block/introduction-block', {
                     )
                 )
             )
-        );
     },
 });
+});//wp.domReady(function() end

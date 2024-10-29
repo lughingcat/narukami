@@ -233,7 +233,7 @@ function add_cdns(){
                 	arrows: true,
                 	cssEase: "ease-in-out"
             	});
-        	}, 500); // 0.5秒待機して初期化
+        	}, 1000);
     	});
 	');
 }
