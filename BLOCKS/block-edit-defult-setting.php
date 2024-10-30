@@ -52,9 +52,10 @@ add_filter( 'render_block', 'render_narukami_heading_block', 10, 2 );
 //エディタパターン削除
 remove_theme_support('core-block-patterns');
 
-//product-lsit-page投稿ページにブロックをデフォルト挿入する
+
 
 function insert_default_blocks_on_post_create($post_id, $post, $update) {
+	//product-lsit-page投稿ページにブロックをデフォルト挿入する
     // 新規投稿であることを確認（既存の投稿を更新している場合は無視）
     if ($update || $post->post_type !== 'product_list_page') {
         return;
@@ -102,4 +103,63 @@ function insert_default_blocks_on_post_create($post_id, $post, $update) {
     ));
 }
 add_action('wp_insert_post', 'insert_default_blocks_on_post_create', 10, 3);
+
+function insert_default_blocks_product_item_page_create($post_id, $post, $update) {
+    // 投稿が新規作成された場合のみ実行
+    if ($update || $post->post_type !== 'product_item_page') {
+        return;
+    }
+
+    // ブロックの初期データを設定
+    $default_content = '
+        <!-- wp:heading {
+        "level":2,
+        "className":"narukami-hedding-style1",
+        "narukami_headingStyle":"narukami-hedding-style1",
+        "narukami_subtitle":"サブタイトル - 右の設定パネルから入力できます。 -",
+        "narukami_subtitleAlignment":""} 
+        -->
+		<h2 class="narukami-hedding-style1">ページタイトルを入力してください。</h2>
+		<!-- /wp:heading -->
+        
+        <!-- wp:item-introduction-block/introduction-block {
+        "sliderImages":[],
+        "productDescription":"",
+        "productPrice":"",
+        "subPrices":[]
+        } -->
+		<div class="flex-container">
+    		<div class="product-slider-block">
+        		<div class="slider-container">
+        		</div>
+    	</div>
+    	<div class="content-container">
+        	<div class="product-description">
+        	</div>
+        	<div class="product-price">
+        	</div>
+        	<ul class="sub-prices">
+        	</ul>
+    	</div>
+		</div>
+		<!-- /wp:item-introduction-block/introduction-block -->
+    ';
+
+    // 既存のコンテンツを取得
+    $current_content = $post->post_content;
+
+    // デフォルトのコンテンツを追加
+    $new_content = $current_content . $default_content;
+
+    // 投稿を更新
+    wp_update_post(array(
+        'ID'           => $post_id,
+        'post_content' => $new_content,
+    ));
+}
+
+// 正しいフック名を使用
+add_action('wp_insert_post', 'insert_default_blocks_product_item_page_create', 10, 3);
+
+
 ?>

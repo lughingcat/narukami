@@ -271,5 +271,29 @@
       border-radius: 3px;
       margin-top: 10px; }
 
+.ingredients-list {
+  position: relative; }
+  .ingredients-list .subprice-del-btn {
+    width: 100%;
+    display: block;
+    height: 32px;
+    background-color: #9D3B3B;
+    border-radius: 2px;
+    border: 0;
+    color: #FFFFFF;
+    margin: 10px auto 20px; }
+
+.allergy-input {
+  position: relative; }
+  .allergy-input .remove-allergy-btn {
+    width: 10%;
+    display: block;
+    height: 30px;
+    background-color: #9D3B3B;
+    border-radius: 2px;
+    border: 0;
+    color: #FFFFFF;
+    margin-bottom: 15px; }
+
 .components-radio-control__option {
   margin-bottom: 10px; }

@@ -226,7 +226,7 @@ h1 {
         .product-list-page-content .content .flex-container .product-slider-block .slider-container,
         .product-list-page-content .content .flex-container .product-slider-block .slick-slide {
           position: relative;
-          width: 400px;
+          width: 440px;
           height: 350px;
           display: block;
           margin: 0 auto 10%; }
@@ -292,3 +292,39 @@ h1 {
           line-height: 30px;
           font-size: .8em;
           border-bottom: 1px solid; }
+    .product-item-page-content .content .ingredients-description-block,
+    .product-list-page-content .content .ingredients-description-block {
+      width: 100%;
+      padding: 20px;
+      position: relative; }
+      .product-item-page-content .content .ingredients-description-block .ingredients-list .ingredient-headers,
+      .product-list-page-content .content .ingredients-description-block .ingredients-list .ingredient-headers {
+        display: inline-block;
+        border-bottom: 1px solid;
+        height: 43px;
+        margin-bottom: 12px; }
+      .product-item-page-content .content .ingredients-description-block .ingredients-list .ingredient-item,
+      .product-list-page-content .content .ingredients-description-block .ingredients-list .ingredient-item {
+        border-bottom: 1px solid;
+        height: 30px; }
+    .product-item-page-content .content .allergy-info-block,
+    .product-list-page-content .content .allergy-info-block {
+      width: 100%;
+      padding: 20px;
+      position: relative; }
+      .product-item-page-content .content .allergy-info-block p,
+      .product-list-page-content .content .allergy-info-block p {
+        border-bottom: 1px solid; }
+        .product-item-page-content .content .allergy-info-block p .allergy-item,
+        .product-list-page-content .content .allergy-info-block p .allergy-item {
+          position: relative;
+          margin: 0 13px; }
+          .product-item-page-content .content .allergy-info-block p .allergy-item::before,
+          .product-list-page-content .content .allergy-info-block p .allergy-item::before {
+            content: '';
+            width: 5px;
+            height: 15px;
+            background-color: #9d3b3b;
+            position: absolute;
+            left: -10px;
+            top: 4px; }

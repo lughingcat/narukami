@@ -103,7 +103,7 @@ registerBlockType('item-introduction-block/introduction-block', {
                             allowedTypes: ['image'],
                             multiple: true,
                             render: ({ open }) =>
-                                createElement(Button, { onClick: open, className: "maltiple-img-btn" }, "画像を選択(shift+クリックで複数選択可能)")
+                                createElement(Button, { onClick: open, className: "maltiple-img-btn" }, "画像を選択(Ctrl (Win),Command (Mac)+クリックで複数選択可能 )")
                         })
                     ),
                     createElement("div", { className: "selected-images" },
@@ -244,18 +244,17 @@ wp.domReady(function() {
                                 onChange: (value) => updateIngredient(index, 'item', value)
                             }),
                             el(TextControl, {
-                                label: '原材料(材料名間にスペースを入れず,で区切ってください。)',
+                                label: '原材料(材料名間にスペースを入れず、読点またはカンマで区切ってください。)',
                                 value: ingredient.origin,
                                 onChange: (value) => updateIngredient(index, 'origin', value)
                             }),
                             el(TextControl, {
-                                label: '原産国(原産国間にスペースを入れず,で区切ってください。)',
+                                label: '原産国(原産国間にスペースを入れず、読点またはカンマで区切ってください。)',
                                 value: ingredient.country,
                                 onChange: (value) => updateIngredient(index, 'country', value)
                             }),
                             el(Button, {
                                 className: 'subprice-del-btn',
-                                isDestructive: true,
                                 onClick: () => removeIngredient(index)
                             }, '削除')
                         )
@@ -299,4 +298,83 @@ wp.domReady(function() {
     });
 });
 
+//アレルギー表記ブロック
+wp.domReady(function() {
+    registerBlockType('allergy-information-block/allergy-info-block', {
+        title: __('アレルギー表記', 'narukami'),
+        icon: 'cart',
+        category: 'narukami-categorys',
+        attributes: {
+            allergies: {
+                type: 'array',
+                default: [],
+            },
+        },
+
+        edit: function(props) {
+            const { attributes, setAttributes } = props;
+            const { allergies } = attributes;
+
+            // アレルギー情報を追加する
+            const addAllergy = () => {
+                const newAllergies = [...allergies, ''];
+                setAttributes({ allergies: newAllergies });
+            };
+
+            // 各アレルギー情報の更新
+            const updateAllergy = (value, index) => {
+                const newAllergies = [...allergies];
+                newAllergies[index] = value;
+                setAttributes({ allergies: newAllergies });
+            };
+
+            // アレルギー情報を削除
+            const removeAllergy = (index) => {
+                const newAllergies = allergies.filter((_, i) => i !== index);
+                setAttributes({ allergies: newAllergies });
+            };
+
+            return wp.element.createElement(
+                'div',
+                { className: 'allergy-info-block' },
+				el('h3', null, 'アレルギー表記'),
+                allergies.map((allergy, index) => 
+                    wp.element.createElement('div', { key: index, className: 'allergy-input' },
+                        wp.element.createElement(TextControl, {
+							label: 'アレルギー情報を一つ入力してください(2つ以上ある場合は入力枠を増やして入力してください。)',
+                            value: allergy,
+                            onChange: (value) => updateAllergy(value, index),
+                            placeholder: 'ここへ入力　(例: 小麦)。',
+                        }),
+                        wp.element.createElement(Button, {
+                            onClick: () => removeAllergy(index),
+                            className: 'remove-allergy-btn',
+                        }, "削除")
+                    )
+                ),
+                wp.element.createElement(Button, {
+                    onClick: addAllergy,
+					isPrimary: true,
+                    className: 'add-allergy-btn',
+                }, "アレルギー情報を追加")
+            );
+        },
+
+        save: function(props) {
+            const { attributes } = props;
+            const { allergies } = attributes;
+
+            return wp.element.createElement('div', { className: 'allergy-info-block' },
+                wp.element.createElement('h3', null, 'アレルギーについて'),
+                wp.element.createElement('p', null,
+                    allergies.map((allergy, index) =>
+                        wp.element.createElement('span', { key: index, className: 'allergy-item' }, allergy, 
+                            index < allergies.length - 1 ? ', ' : ''
+                        )
+                    )
+                )
+            );
+        },
+    });
+});
 

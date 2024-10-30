@@ -300,9 +300,6 @@ function narukami_itemlist_block_register() {
         register_block_type('itemlist-custom-block/item-list-block', array(
             'editor_script' => 'itemlist-custom-block',
         ));
-		register_block_type('item-ingredients-description-block/ingredients-description-block', array(
-            'editor_script' => 'itemlist-custom-block',
-        ));
     }
 	
 	//商品紹介ページ専用ブロック登録
@@ -326,6 +323,12 @@ function narukami_itemlist_block_register() {
 
         // ブロックを登録
         register_block_type('item-introduction-block/introduction-block', array(
+            'editor_script' => 'item-introduction-block',
+        ));
+		register_block_type('item-ingredients-description-block/ingredients-description-block', array(
+            'editor_script' => 'item-introduction-block',
+        ));
+		register_block_type('allergy-information-block/allergy-info-block', array(
             'editor_script' => 'item-introduction-block',
         ));
     }
