@@ -144,6 +144,7 @@ function insert_default_blocks_product_item_page_create($post_id, $post, $update
 		</div>
 		<!-- /wp:item-introduction-block/introduction-block -->
 		
+		
 		<!-- wp:item-ingredients-description-block/ingredients-description-block {
         "ingredientsList":[{ item: "", origin: "", country: "" }]
         } -->
@@ -158,6 +159,16 @@ function insert_default_blocks_product_item_page_create($post_id, $post, $update
 		</div>
 		
 		<!-- /wp:item-ingredients-description-block/ingredients-description-block -->
+	
+	
+		<!-- wp:allergy-information-block/allergy-info-block {
+        "allergies":[]
+        } -->
+		<div class="wp-block-allergy-information-block-allergy-info-block allergy-info-block">
+		<h3>アレルギーについて</h3>
+			<p></p>
+		</div>
+		<!-- /wp:allergy-information-block/allergy-info-block -->
     ';
 
     // 既存のコンテンツを取得
