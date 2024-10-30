@@ -143,6 +143,21 @@ function insert_default_blocks_product_item_page_create($post_id, $post, $update
     	</div>
 		</div>
 		<!-- /wp:item-introduction-block/introduction-block -->
+		
+		<!-- wp:item-ingredients-description-block/ingredients-description-block {
+        "ingredientsList":[{ item: "", origin: "", country: "" }]
+        } -->
+		
+		<div class="wp-block-item-ingredients-description-block-ingredients-description-block ingredients-description-block">
+    		<h2>主な調理品原産国</h2>
+    		<div class="ingredients-list">
+    		    <div class="ingredient-headers">
+    		        <p>調理品/原材料/原産国</p>
+    		    </div>
+    		</div>
+		</div>
+		
+		<!-- /wp:item-ingredients-description-block/ingredients-description-block -->
     ';
 
     // 既存のコンテンツを取得

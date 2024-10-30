@@ -268,7 +268,7 @@ wp.domReady(function() {
             );
         },
 
-        save: function(props) {
+    save: function(props) {
     const { attributes } = props;
     const { ingredientsList } = attributes;
 
