@@ -28,7 +28,8 @@ function create_product_list_page_type() {
         'capability_type'    => 'page',
         'has_archive'        => true,
         'hierarchical'       => true,
-        'menu_position'      => 20,
+        'menu_position'      => 5,
+		'menu_icon' => 'dashicons-admin-page',
         'supports'           => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'page-attributes'),
         'show_in_rest'       => true, // ブロックエディターで使う場合は必要
     );

@@ -843,6 +843,10 @@ require get_template_directory() . '/custom_page/custom_page_item_one.php';
  */
 require get_template_directory() . '/BLOCKS/block-edit-defult-setting.php';
 /**
+ * ダッシュボードメニュー管理
+ */
+require get_template_directory() . '/INC_FUNCTIONS/remove-menu.php';
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
