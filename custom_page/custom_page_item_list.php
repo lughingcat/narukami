@@ -39,10 +39,10 @@ function create_product_list_page_type() {
 add_action('init', 'create_product_list_page_type');
 
 // テーマがアクティベートされたときに実行する
-function mytheme_flush_rewrite_rules() {
+function narukami_listpage_flush_rewrite_rules() {
     // カスタム投稿タイプを先に登録する必要がある
     create_product_list_page_type(); // カスタム投稿タイプの関数を呼び出す
     flush_rewrite_rules(); // パーマリンクを更新
 }
-add_action('after_switch_theme', 'mytheme_flush_rewrite_rules');
+add_action('after_switch_theme', 'narukami_listpage_flush_rewrite_rules');
 ?>

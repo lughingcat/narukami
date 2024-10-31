@@ -332,7 +332,27 @@ function narukami_itemlist_block_register() {
             'editor_script' => 'item-introduction-block',
         ));
     }
-}
+	
+	// lpページ専用ブロック登録
+    if ( 'product_lp_page' === $screen->post_type ) {
+        // オリジナルブロックのスクリプトを登録
+        wp_register_script(
+            'custom-lp-block',
+            get_template_directory_uri() . '/assets/js/narukami-lp-block.js',
+            array(
+                'wp-blocks',
+                'wp-editor',
+                'wp-element',
+                'wp-components',
+                'wp-i18n',
+                'wp-hooks',
+                'wp-data'
+            ),
+            time(),
+            true
+        );
+    }
+}//function end
 add_action('enqueue_block_editor_assets', 'narukami_itemlist_block_register', 10);
 
 
@@ -345,6 +365,9 @@ function narukami_block_editor_enqueue() {
 		}
 		if ( wp_script_is('item-introduction-block', 'registered') ) {
 			$dependencies = 'item-introduction-block';
+		}
+		if ( wp_script_is('custom-lp-block', 'registered') ) {
+			$dependencies = 'custom-lp-block';
 		}
    wp_enqueue_script('narukami_block_editor_script', get_template_directory_uri() . '/assets/js/custom-block-editor.js',
 					 array(
@@ -838,6 +861,7 @@ require get_template_directory() . '/post_nonce_check.php';
  */
 require get_template_directory() . '/custom_page/custom_page_item_list.php';
 require get_template_directory() . '/custom_page/custom_page_item_one.php';
+require get_template_directory() . '/custom_page/custom_page_lp.php';
 /**
  * カスタム投稿ページデフォルトブロック差し込み関数
  */

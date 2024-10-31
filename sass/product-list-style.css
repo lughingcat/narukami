@@ -2,6 +2,7 @@ h1 {
   display: none; }
 
 .product-item-page-content,
+.product-lp-page-content,
 .product-list-page-content {
   position: relative;
   max-width: 90%;
@@ -9,9 +10,11 @@ h1 {
   background-color: #FFFFFF;
   padding: 10px; }
   .product-item-page-content .content,
+  .product-lp-page-content .content,
   .product-list-page-content .content {
     padding: 5%; }
     .product-item-page-content .content .narukami-hedding-style1,
+    .product-lp-page-content .content .narukami-hedding-style1,
     .product-list-page-content .content .narukami-hedding-style1 {
       position: relative;
       width: 100%;
@@ -19,6 +22,7 @@ h1 {
       text-align: center;
       margin: 0 auto 5px auto; }
       .product-item-page-content .content .narukami-hedding-style1::before,
+      .product-lp-page-content .content .narukami-hedding-style1::before,
       .product-list-page-content .content .narukami-hedding-style1::before {
         content: '';
         position: absolute;
@@ -32,6 +36,7 @@ h1 {
         background-color: #4e4d4d;
         border-radius: 10px; }
     .product-item-page-content .content .narukami-subtitle,
+    .product-lp-page-content .content .narukami-subtitle,
     .product-list-page-content .content .narukami-subtitle {
       width: 100%;
       margin: 0 auto 20px;
@@ -40,6 +45,7 @@ h1 {
       box-shadow: 0px 4px 2px -3px #b6b4b4;
       padding-bottom: 10px; }
     .product-item-page-content .content .narukami-hedding-style2,
+    .product-lp-page-content .content .narukami-hedding-style2,
     .product-list-page-content .content .narukami-hedding-style2 {
       position: relative;
       width: 100%;
@@ -49,6 +55,7 @@ h1 {
       padding-left: 25px;
       box-sizing: border-box; }
       .product-item-page-content .content .narukami-hedding-style2::before,
+      .product-lp-page-content .content .narukami-hedding-style2::before,
       .product-list-page-content .content .narukami-hedding-style2::before {
         content: '';
         position: absolute;
@@ -62,6 +69,7 @@ h1 {
         background-color: #b6b4b4;
         border-radius: 10px; }
       .product-item-page-content .content .narukami-hedding-style2::after,
+      .product-lp-page-content .content .narukami-hedding-style2::after,
       .product-list-page-content .content .narukami-hedding-style2::after {
         content: '';
         position: absolute;
@@ -72,6 +80,7 @@ h1 {
         top: 0;
         background-color: #d16407; }
     .product-item-page-content .content .narukami-subtitle2,
+    .product-lp-page-content .content .narukami-subtitle2,
     .product-list-page-content .content .narukami-subtitle2 {
       width: 100%;
       margin: 0 auto 20px;
@@ -79,6 +88,7 @@ h1 {
       padding: 8px 0 10px 14px;
       box-sizing: border-box; }
     .product-item-page-content .content .narukami-hedding-style3,
+    .product-lp-page-content .content .narukami-hedding-style3,
     .product-list-page-content .content .narukami-hedding-style3 {
       position: relative;
       width: 100%;
@@ -88,6 +98,7 @@ h1 {
       padding-left: 45px;
       box-sizing: border-box; }
       .product-item-page-content .content .narukami-hedding-style3::before,
+      .product-lp-page-content .content .narukami-hedding-style3::before,
       .product-list-page-content .content .narukami-hedding-style3::before {
         content: '';
         position: absolute;
@@ -101,6 +112,7 @@ h1 {
         background-color: #b6b4b4;
         border-radius: 10px; }
       .product-item-page-content .content .narukami-hedding-style3::after,
+      .product-lp-page-content .content .narukami-hedding-style3::after,
       .product-list-page-content .content .narukami-hedding-style3::after {
         content: '';
         position: absolute;
@@ -112,12 +124,14 @@ h1 {
         background-color: #0086ad;
         border-radius: 50%; }
     .product-item-page-content .content .narukami-subtitle3,
+    .product-lp-page-content .content .narukami-subtitle3,
     .product-list-page-content .content .narukami-subtitle3 {
       width: 100%;
       margin: 0 auto 20px;
       text-align: right;
       padding: 8px 14px 10px 0; }
     .product-item-page-content .content .item-list-block,
+    .product-lp-page-content .content .item-list-block,
     .product-list-page-content .content .item-list-block {
       position: relative;
       width: 100%;
@@ -127,6 +141,7 @@ h1 {
       grid-template-columns: repeat(4, 1fr);
       gap: 20px; }
       .product-item-page-content .content .item-list-block .item-list,
+      .product-lp-page-content .content .item-list-block .item-list,
       .product-list-page-content .content .item-list-block .item-list {
         color: inherit;
         max-width: 230px;
@@ -135,15 +150,18 @@ h1 {
         transition: all 0.1s ease-in-out;
         border-radius: 5px; }
         .product-item-page-content .content .item-list-block .item-list:hover,
+        .product-lp-page-content .content .item-list-block .item-list:hover,
         .product-list-page-content .content .item-list-block .item-list:hover {
           box-shadow: .1px .1px 3px; }
         .product-item-page-content .content .item-list-block .item-list img,
+        .product-lp-page-content .content .item-list-block .item-list img,
         .product-list-page-content .content .item-list-block .item-list img {
           width: 200px;
           height: 200px;
           object-fit: cover;
           object-position: center; }
         .product-item-page-content .content .item-list-block .item-list .product-title,
+        .product-lp-page-content .content .item-list-block .item-list .product-title,
         .product-list-page-content .content .item-list-block .item-list .product-title {
           position: relative;
           width: 100%;
@@ -156,6 +174,7 @@ h1 {
           padding-bottom: 4px;
           padding-left: 10px; }
           .product-item-page-content .content .item-list-block .item-list .product-title::before,
+          .product-lp-page-content .content .item-list-block .item-list .product-title::before,
           .product-list-page-content .content .item-list-block .item-list .product-title::before {
             content: '';
             position: absolute;
@@ -165,30 +184,36 @@ h1 {
             height: 15px;
             background-color: #c44545; }
         .product-item-page-content .content .item-list-block .item-list .product-price,
+        .product-lp-page-content .content .item-list-block .item-list .product-price,
         .product-list-page-content .content .item-list-block .item-list .product-price {
           margin-top: 0.6em;
           margin-bottom: 0; }
     .product-item-page-content .content .slider-container,
+    .product-lp-page-content .content .slider-container,
     .product-list-page-content .content .slider-container {
       width: 100%;
       position: relative;
       padding: 5%; }
       .product-item-page-content .content .slider-container .slider-title,
+      .product-lp-page-content .content .slider-container .slider-title,
       .product-list-page-content .content .slider-container .slider-title {
         width: 100%;
         padding-bottom: 5px; }
       .product-item-page-content .content .slider-container .narukami-product-slider .slide-items,
+      .product-lp-page-content .content .slider-container .narukami-product-slider .slide-items,
       .product-list-page-content .content .slider-container .narukami-product-slider .slide-items {
         width: 767px;
         height: 600px;
         position: relative; }
         .product-item-page-content .content .slider-container .narukami-product-slider .slide-items img,
+        .product-lp-page-content .content .slider-container .narukami-product-slider .slide-items img,
         .product-list-page-content .content .slider-container .narukami-product-slider .slide-items img {
           width: 100%;
           height: 80%;
           object-fit: cover;
           object-position: center; }
         .product-item-page-content .content .slider-container .narukami-product-slider .slide-items .product-title,
+        .product-lp-page-content .content .slider-container .narukami-product-slider .slide-items .product-title,
         .product-list-page-content .content .slider-container .narukami-product-slider .slide-items .product-title {
           position: relative;
           width: 100%;
@@ -199,6 +224,7 @@ h1 {
           padding-left: 10px;
           margin-bottom: 5px; }
           .product-item-page-content .content .slider-container .narukami-product-slider .slide-items .product-title::before,
+          .product-lp-page-content .content .slider-container .narukami-product-slider .slide-items .product-title::before,
           .product-list-page-content .content .slider-container .narukami-product-slider .slide-items .product-title::before {
             content: '';
             position: absolute;
@@ -208,21 +234,26 @@ h1 {
             height: 30px;
             background-color: #c44545; }
         .product-item-page-content .content .slider-container .narukami-product-slider .slide-items .product-price,
+        .product-lp-page-content .content .slider-container .narukami-product-slider .slide-items .product-price,
         .product-list-page-content .content .slider-container .narukami-product-slider .slide-items .product-price {
           width: 100%;
           margin-top: 0; }
     .product-item-page-content .content .flex-container,
+    .product-lp-page-content .content .flex-container,
     .product-list-page-content .content .flex-container {
       width: 100%;
       position: relative;
       display: flex;
       margin: 2% auto 5%; }
       .product-item-page-content .content .flex-container .product-slider-block,
+      .product-lp-page-content .content .flex-container .product-slider-block,
       .product-list-page-content .content .flex-container .product-slider-block {
         width: 100%;
         padding: 20px; }
         .product-item-page-content .content .flex-container .product-slider-block .slider-container,
         .product-item-page-content .content .flex-container .product-slider-block .slick-slide,
+        .product-lp-page-content .content .flex-container .product-slider-block .slider-container,
+        .product-lp-page-content .content .flex-container .product-slider-block .slick-slide,
         .product-list-page-content .content .flex-container .product-slider-block .slider-container,
         .product-list-page-content .content .flex-container .product-slider-block .slick-slide {
           position: relative;
@@ -232,12 +263,16 @@ h1 {
           margin: 0 auto 10%; }
           .product-item-page-content .content .flex-container .product-slider-block .slider-container .slide-wrapper,
           .product-item-page-content .content .flex-container .product-slider-block .slick-slide .slide-wrapper,
+          .product-lp-page-content .content .flex-container .product-slider-block .slider-container .slide-wrapper,
+          .product-lp-page-content .content .flex-container .product-slider-block .slick-slide .slide-wrapper,
           .product-list-page-content .content .flex-container .product-slider-block .slider-container .slide-wrapper,
           .product-list-page-content .content .flex-container .product-slider-block .slick-slide .slide-wrapper {
             width: 400px;
             height: 320px; }
             .product-item-page-content .content .flex-container .product-slider-block .slider-container .slide-wrapper img,
             .product-item-page-content .content .flex-container .product-slider-block .slick-slide .slide-wrapper img,
+            .product-lp-page-content .content .flex-container .product-slider-block .slider-container .slide-wrapper img,
+            .product-lp-page-content .content .flex-container .product-slider-block .slick-slide .slide-wrapper img,
             .product-list-page-content .content .flex-container .product-slider-block .slider-container .slide-wrapper img,
             .product-list-page-content .content .flex-container .product-slider-block .slick-slide .slide-wrapper img {
               width: 100%;
@@ -245,39 +280,52 @@ h1 {
               object-fit: cover; }
           .product-item-page-content .content .flex-container .product-slider-block .slider-container .slick-dots,
           .product-item-page-content .content .flex-container .product-slider-block .slick-slide .slick-dots,
+          .product-lp-page-content .content .flex-container .product-slider-block .slider-container .slick-dots,
+          .product-lp-page-content .content .flex-container .product-slider-block .slick-slide .slick-dots,
           .product-list-page-content .content .flex-container .product-slider-block .slider-container .slick-dots,
           .product-list-page-content .content .flex-container .product-slider-block .slick-slide .slick-dots {
             padding-right: 50px; }
           .product-item-page-content .content .flex-container .product-slider-block .slider-container .slick-prev,
           .product-item-page-content .content .flex-container .product-slider-block .slick-slide .slick-prev,
+          .product-lp-page-content .content .flex-container .product-slider-block .slider-container .slick-prev,
+          .product-lp-page-content .content .flex-container .product-slider-block .slick-slide .slick-prev,
           .product-list-page-content .content .flex-container .product-slider-block .slider-container .slick-prev,
           .product-list-page-content .content .flex-container .product-slider-block .slick-slide .slick-prev {
             left: -25px; }
             .product-item-page-content .content .flex-container .product-slider-block .slider-container .slick-prev::before,
             .product-item-page-content .content .flex-container .product-slider-block .slick-slide .slick-prev::before,
+            .product-lp-page-content .content .flex-container .product-slider-block .slider-container .slick-prev::before,
+            .product-lp-page-content .content .flex-container .product-slider-block .slick-slide .slick-prev::before,
             .product-list-page-content .content .flex-container .product-slider-block .slider-container .slick-prev::before,
             .product-list-page-content .content .flex-container .product-slider-block .slick-slide .slick-prev::before {
               color: #000; }
           .product-item-page-content .content .flex-container .product-slider-block .slider-container .slick-next,
           .product-item-page-content .content .flex-container .product-slider-block .slick-slide .slick-next,
+          .product-lp-page-content .content .flex-container .product-slider-block .slider-container .slick-next,
+          .product-lp-page-content .content .flex-container .product-slider-block .slick-slide .slick-next,
           .product-list-page-content .content .flex-container .product-slider-block .slider-container .slick-next,
           .product-list-page-content .content .flex-container .product-slider-block .slick-slide .slick-next {
             right: -25px; }
             .product-item-page-content .content .flex-container .product-slider-block .slider-container .slick-next::before,
             .product-item-page-content .content .flex-container .product-slider-block .slick-slide .slick-next::before,
+            .product-lp-page-content .content .flex-container .product-slider-block .slider-container .slick-next::before,
+            .product-lp-page-content .content .flex-container .product-slider-block .slick-slide .slick-next::before,
             .product-list-page-content .content .flex-container .product-slider-block .slider-container .slick-next::before,
             .product-list-page-content .content .flex-container .product-slider-block .slick-slide .slick-next::before {
               color: #000; }
       .product-item-page-content .content .flex-container .content-container,
+      .product-lp-page-content .content .flex-container .content-container,
       .product-list-page-content .content .flex-container .content-container {
         position: relative;
         width: 100%;
         padding: 20px; }
         .product-item-page-content .content .flex-container .content-container .product-description,
+        .product-lp-page-content .content .flex-container .content-container .product-description,
         .product-list-page-content .content .flex-container .content-container .product-description {
           margin: 10px auto 20px;
           padding: 10px; }
         .product-item-page-content .content .flex-container .content-container .product-price,
+        .product-lp-page-content .content .flex-container .content-container .product-price,
         .product-list-page-content .content .flex-container .content-container .product-price {
           margin: 10px auto;
           padding: 10px 0 5px 5px;
@@ -285,6 +333,7 @@ h1 {
           font-size: 1.2em;
           font-weight: bold; }
         .product-item-page-content .content .flex-container .content-container .sub-prices,
+        .product-lp-page-content .content .flex-container .content-container .sub-prices,
         .product-list-page-content .content .flex-container .content-container .sub-prices {
           margin: 10px auto;
           padding: 10px 10px 20px;
@@ -293,33 +342,40 @@ h1 {
           font-size: .8em;
           border-bottom: 1px solid; }
     .product-item-page-content .content .ingredients-description-block,
+    .product-lp-page-content .content .ingredients-description-block,
     .product-list-page-content .content .ingredients-description-block {
       width: 100%;
       padding: 20px;
       position: relative; }
       .product-item-page-content .content .ingredients-description-block .ingredients-list .ingredient-headers,
+      .product-lp-page-content .content .ingredients-description-block .ingredients-list .ingredient-headers,
       .product-list-page-content .content .ingredients-description-block .ingredients-list .ingredient-headers {
         display: inline-block;
         border-bottom: 1px solid;
         height: 43px;
         margin-bottom: 12px; }
       .product-item-page-content .content .ingredients-description-block .ingredients-list .ingredient-item,
+      .product-lp-page-content .content .ingredients-description-block .ingredients-list .ingredient-item,
       .product-list-page-content .content .ingredients-description-block .ingredients-list .ingredient-item {
         border-bottom: 1px solid;
         height: 30px; }
     .product-item-page-content .content .allergy-info-block,
+    .product-lp-page-content .content .allergy-info-block,
     .product-list-page-content .content .allergy-info-block {
       width: 100%;
       padding: 20px;
       position: relative; }
       .product-item-page-content .content .allergy-info-block p,
+      .product-lp-page-content .content .allergy-info-block p,
       .product-list-page-content .content .allergy-info-block p {
         border-bottom: 1px solid; }
         .product-item-page-content .content .allergy-info-block p .allergy-item,
+        .product-lp-page-content .content .allergy-info-block p .allergy-item,
         .product-list-page-content .content .allergy-info-block p .allergy-item {
           position: relative;
           margin: 0 13px; }
           .product-item-page-content .content .allergy-info-block p .allergy-item::before,
+          .product-lp-page-content .content .allergy-info-block p .allergy-item::before,
           .product-list-page-content .content .allergy-info-block p .allergy-item::before {
             content: '';
             width: 5px;

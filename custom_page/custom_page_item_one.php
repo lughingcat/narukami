@@ -38,10 +38,10 @@ function create_product_item_page_type() {
 add_action('init', 'create_product_item_page_type');
 
 // テーマがアクティベートされたときに実行する
-function narukami_flush_rewrite_rules() {
+function narukami_itemone_flush_rewrite_rules() {
     // カスタム投稿タイプを先に登録する必要がある
     create_product_item_page_type(); // カスタム投稿タイプの関数を呼び出す
     flush_rewrite_rules(); // パーマリンクを更新
 }
-add_action('after_switch_theme', 'narukami_flush_rewrite_rules');
+add_action('after_switch_theme', 'narukami_itemone_flush_rewrite_rules');
 ?>
