@@ -1,8 +1,6 @@
 //鳴雷見出し機能追加
 
 //見出し宣言
-
-const { InspectorControls } = wp.blockEditor;
 const { createHigherOrderComponent } = wp.compose;
 
 // 見出しにカスタム属性を追加

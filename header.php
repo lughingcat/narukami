@@ -25,7 +25,9 @@ $narukami_font_family = sanitize_option_value(get_option('narukami-font-family')
 $i_background_image = sanitize_option_value(get_option('background_image'));
 $i_background_image_custom_option = get_background_image();
 	//bg select
-	if($i_background_image){
+	if(is_singular('product_lp_page')){
+		$bg_img_url = "";
+	}elseif($i_background_image){
 		$bg_img_url = $i_background_image;
 	}else{
 		$bg_img_url = $i_background_image_custom_option;
@@ -52,7 +54,9 @@ $i_background_image_custom_option = get_background_image();
 	<header id="masthead" class="site-header">
 		<?php 
 		$i_header_display_setting = sanitize_text_field(get_option('header-disp-set'));//ヘッダー表示設定
-		if($i_header_display_setting === 'display_on'){
+		if($i_header_display_setting === 'display_off' || is_singular('product_lp_page')){
+			
+		}elseif($i_header_display_setting === 'display_on'){
 			include(get_template_directory() . '/TOP_PAGE_FILES/top_header_part.php');
 		}
 		include(get_template_directory() . '/TOP_PAGE_FILES/top_globalheader_part.php');

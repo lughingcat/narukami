@@ -295,5 +295,24 @@
     color: #FFFFFF;
     margin-bottom: 15px; }
 
+.hero-header-block {
+  width: 100%;
+  display: block;
+  position: relative; }
+  .hero-header-block .hero-header-image {
+    width: 100%; }
+  .hero-header-block .hero-header-image-preview {
+    position: relative;
+    margin-top: 5%; }
+    .hero-header-block .hero-header-image-preview img {
+      width: 100%; }
+    .hero-header-block .hero-header-image-preview .hero-header-title {
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center !important; }
+
 .components-radio-control__option {
   margin-bottom: 10px; }
