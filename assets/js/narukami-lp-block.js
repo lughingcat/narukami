@@ -1,6 +1,6 @@
 const { addFilter } = wp.hooks;
 const { registerBlockType } = wp.blocks;
-const { MediaUpload, MediaUploadCheck, PlainText, InspectorControls, PanelColorSettings, RichText } = wp.blockEditor;
+const { MediaUpload, MediaUploadCheck, PlainText, InspectorControls, PanelColorSettings, RichText, } = wp.blockEditor;
 const { Button } = wp.components;
 const { __ } = wp.i18n;
 const el = wp.element.createElement;
@@ -206,105 +206,117 @@ wp.domReady(function() {
     });
 });
 
+
 //3カラム画像テキストブロック
 wp.domReady(function() {
-	registerBlockType('item-three-column-img-block/three-column-img-block', {
+    registerBlockType('item-three-column-img-block/three-column-img-block', {
         title: __('3カラム画像テキスト', 'narukami'),
         icon: 'images-alt2',
         category: 'narukami-categorys',
         attributes: {
             images: {
                 type: 'array',
-                default: [{ url: '', title: '', text1: '', text2: '' }, { url: '', title: '', text1: '', text2: '' }, { url: '', title: '', text1: '', text2: '' }],
+                default: [null, null, null],
+            },
+            titles: {
+                type: 'array',
+                default: ['', '', ''],
+            },
+            subtitles: {
+                type: 'array',
+                default: ['', '', ''],
+            },
+            contents: {
+                type: 'array',
+                default: ['', '', ''],
             },
         },
         edit: function(props) {
-            const { attributes: { images }, setAttributes } = props;
+            const { attributes, setAttributes } = props;
+            const { images, titles, subtitles, contents } = attributes;
 
-            function onSelectImage(index, media) {
-                const newImages = [...images];
-                newImages[index].url = media.url;
-                setAttributes({ images: newImages });
-            }
+            const onSelectImage = (index, newImage) => {
+                const updatedImages = [...images];
+                updatedImages[index] = newImage;
+                setAttributes({ images: updatedImages });
+            };
 
-            function onChangeTitle(index, value) {
-                const newImages = [...images];
-                newImages[index].title = value;
-                setAttributes({ images: newImages });
-            }
+            const onChangeTitle = (index, newTitle) => {
+                const updatedTitles = [...titles];
+                updatedTitles[index] = newTitle;
+                setAttributes({ titles: updatedTitles });
+            };
 
-            function onChangeText1(index, value) {
-                const newImages = [...images];
-                newImages[index].text1 = value;
-                setAttributes({ images: newImages });
-            }
+            const onChangeSubtitle = (index, newSubtitle) => {
+                const updatedSubtitles = [...subtitles];
+                updatedSubtitles[index] = newSubtitle;
+                setAttributes({ subtitles: updatedSubtitles });
+            };
 
-            function onChangeText2(index, value) {
-                const newImages = [...images];
-                newImages[index].text2 = value;
-                setAttributes({ images: newImages });
-            }
+            const onChangeContent = (index, newContent) => {
+                const updatedContents = [...contents];
+                updatedContents[index] = newContent;
+                setAttributes({ contents: updatedContents });
+            };
 
-            return [
-                wp.element.createElement(InspectorControls, {}, 
-                    wp.element.createElement(PanelBody, { title: __('画像とテキスト設定', 'narukami'), initialOpen: true },
-                        images.map((image, index) => 
-                            wp.element.createElement('div', { key: index, style: { marginBottom: '20px' } },
-                                wp.element.createElement(MediaUpload, {
-                                    onSelect: (media) => onSelectImage(index, media),
-                                    allowedTypes: ['image'],
-                                    render: ({ open }) => 
-                                        wp.element.createElement(Button, { onClick: open, isPrimary: true }, __('画像を選択', 'narukami'))
-                                }),
-                                wp.element.createElement(RichText, {
-                                    tagName: 'h2',
-                                    placeholder: __('見出しを入力', 'narukami'),
-                                    value: image.title,
-                                    onChange: (value) => onChangeTitle(index, value)
-                                }),
-                                wp.element.createElement(RichText, {
-                                    tagName: 'p',
-                                    placeholder: __('テキスト1を入力', 'narukami'),
-                                    value: image.text1,
-                                    onChange: (value) => onChangeText1(index, value)
-                                }),
-                                wp.element.createElement(RichText, {
-                                    tagName: 'p',
-                                    placeholder: __('テキスト2を入力', 'narukami'),
-                                    value: image.text2,
-                                    onChange: (value) => onChangeText2(index, value)
-                                })
-                            )
-                        )
+            const columns = [];
+            for (let i = 0; i < 3; i++) {
+                columns.push(
+                    wp.element.createElement('div', { key: i, className: 'three-column-block' },
+                        wp.element.createElement(MediaUploadCheck, {},
+                            wp.element.createElement(MediaUpload, {
+                                onSelect: (newImage) => onSelectImage(i, newImage),
+                                allowedTypes: ['image'],
+                                value: images[i] ? images[i].id : '',
+                                render: ({ open }) => wp.element.createElement(Button, {
+                                    onClick: open,
+                                    className: images[i] ? 'image-button' : 'button button-large'
+                                }, images[i] ? wp.element.createElement('img', { src: images[i].sizes.thumbnail.url, alt: images[i].alt }) : __('画像を選択', 'narukami'))
+                            })
+                        ),
+                        wp.element.createElement(TextControl, {
+                            label: __('見出し', 'narukami'),
+                            value: titles[i],
+                            onChange: (newTitle) => onChangeTitle(i, newTitle)
+                        }),
+                        wp.element.createElement(TextControl, {
+                            label: __('サブタイトル', 'narukami'),
+                            value: subtitles[i],
+                            onChange: (newSubtitle) => onChangeSubtitle(i, newSubtitle)
+                        }),
+                        wp.element.createElement(TextControl, {
+                            label: __('コンテンツ', 'narukami'),
+                            value: contents[i],
+                            onChange: (newContent) => onChangeContent(i, newContent)
+                        })
                     )
-                ),
-                wp.element.createElement('div', { className: 'three-column-img-block' },
-                    images.map((image, index) => 
-                        wp.element.createElement('div', { key: index, className: 'column' },
-                            image.url && wp.element.createElement('img', { src: image.url, alt: image.title }),
-                            wp.element.createElement('h2', {}, image.title),
-                            wp.element.createElement('p', {}, image.text1),
-                            wp.element.createElement('p', {}, image.text2)
-                        )
-                    )
-                )
-            ];
+                );
+            }
+
+            return wp.element.createElement(Fragment, {}, columns);
         },
         save: function(props) {
-            const { attributes: { images } } = props;
+            const { attributes } = props;
+            const { images, titles, subtitles, contents } = attributes;
 
-            return wp.element.createElement('div', { className: 'three-column-img-block' },
-                images.map((image, index) => 
-                    wp.element.createElement('div', { key: index, className: 'column' },
-                        image.url && wp.element.createElement('img', { src: image.url, alt: image.title }),
-                        wp.element.createElement('h2', {}, image.title),
-                        wp.element.createElement('p', {}, image.text1),
-                        wp.element.createElement('p', {}, image.text2)
+            const columns = [];
+            for (let i = 0; i < 3; i++) {
+                columns.push(
+                    wp.element.createElement('div', { key: i, className: 'column' },
+                        images[i] && wp.element.createElement('img', { src: images[i].url, alt: images[i].alt }),
+                        wp.element.createElement('h2', {}, titles[i]),
+                        wp.element.createElement('p', {}, subtitles[i]),
+                        wp.element.createElement('p', {}, contents[i])
                     )
-                )
-            );
-        }
+                );
+            }
+
+            return wp.element.createElement('div', { className: 'three-column-img-block' }, columns);
+        },
     });
 });
+
+
+
 
 

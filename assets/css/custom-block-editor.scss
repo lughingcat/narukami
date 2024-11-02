@@ -321,6 +321,8 @@
 	}
 }
 
+//lpページブロックスタイル
+
 .hero-header-block{//ヒーローヘッダーwrap
 	width: 100%;
 	display: block;
@@ -341,6 +343,25 @@
 			left: 50%;
 			transform: translate(-50%, -50%);
 			text-align: center !important;
+		}
+	}
+}
+
+.three-column-img-block{//3カラム画像見出しwrap
+	position: relative;
+	display: flex;
+	column{
+		img{
+			
+		}
+		.three-column-hed{
+			
+		}
+		.three-column-subhed{
+			
+		}
+		.three-column-content{
+			
 		}
 	}
 }

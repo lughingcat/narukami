@@ -314,5 +314,9 @@
       transform: translate(-50%, -50%);
       text-align: center !important; }
 
+.three-column-img-block {
+  position: relative;
+  display: flex; }
+
 .components-radio-control__option {
   margin-bottom: 10px; }
