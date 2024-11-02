@@ -209,31 +209,27 @@ wp.domReady(function() {
 
 //3カラム画像テキストブロック
 wp.domReady(function() {
+    const { registerBlockType } = wp.blocks;
+    const { __ } = wp.i18n;
+    const { MediaUpload, MediaUploadCheck, InspectorControls, PanelColorSettings } = wp.blockEditor;
+    const { Fragment } = wp.element;
+    const { Button, TextControl, PanelBody } = wp.components;
+
     registerBlockType('item-three-column-img-block/three-column-img-block', {
         title: __('3カラム画像テキスト', 'narukami'),
         icon: 'images-alt2',
         category: 'narukami-categorys',
         attributes: {
-            images: {
-                type: 'array',
-                default: [null, null, null],
-            },
-            titles: {
-                type: 'array',
-                default: ['', '', ''],
-            },
-            subtitles: {
-                type: 'array',
-                default: ['', '', ''],
-            },
-            contents: {
-                type: 'array',
-                default: ['', '', ''],
-            },
+            images: { type: 'array', default: [null, null, null] },
+            titles: { type: 'array', default: ['', '', ''] },
+            subtitles: { type: 'array', default: ['', '', ''] },
+            contents: { type: 'array', default: ['', '', ''] },
+            backgroundColor: { type: 'string', default: '' },
+            textColor: { type: 'string', default: '' },
         },
         edit: function(props) {
             const { attributes, setAttributes } = props;
-            const { images, titles, subtitles, contents } = attributes;
+            const { images, titles, subtitles, contents, backgroundColor, textColor } = attributes;
 
             const onSelectImage = (index, newImage) => {
                 const updatedImages = [...images];
@@ -277,44 +273,72 @@ wp.domReady(function() {
                         wp.element.createElement(TextControl, {
                             label: __('見出し', 'narukami'),
                             value: titles[i],
+                            className: 'three-column-hed',
                             onChange: (newTitle) => onChangeTitle(i, newTitle)
                         }),
                         wp.element.createElement(TextControl, {
                             label: __('サブタイトル', 'narukami'),
                             value: subtitles[i],
+                            className: 'three-column-subhed',
                             onChange: (newSubtitle) => onChangeSubtitle(i, newSubtitle)
                         }),
                         wp.element.createElement(TextControl, {
                             label: __('コンテンツ', 'narukami'),
                             value: contents[i],
+                            className: 'three-column-content',
                             onChange: (newContent) => onChangeContent(i, newContent)
                         })
                     )
                 );
             }
 
-            return wp.element.createElement(Fragment, {}, columns);
+            return wp.element.createElement(Fragment, {},
+                wp.element.createElement(InspectorControls, {},
+                    wp.element.createElement(PanelBody, { title: __('背景色と文字色の設定', 'narukami'), initialOpen: true },
+                        wp.element.createElement(PanelColorSettings, {
+                            title: __('色設定', 'narukami'),
+                            colorSettings: [
+                                {
+                                    value: backgroundColor,
+                                    onChange: (newColor) => setAttributes({ backgroundColor: newColor }),
+                                    label: __('背景色', 'narukami')
+                                },
+                                {
+                                    value: textColor,
+                                    onChange: (newColor) => setAttributes({ textColor: newColor }),
+                                    label: __('文字色', 'narukami')
+                                },
+                            ]
+                        })
+                    )
+                ),
+                wp.element.createElement('div', { className: 'three-column-container' }, columns) // 親要素を追加
+            );
         },
         save: function(props) {
             const { attributes } = props;
-            const { images, titles, subtitles, contents } = attributes;
+            const { images, titles, subtitles, contents, backgroundColor, textColor } = attributes;
 
             const columns = [];
             for (let i = 0; i < 3; i++) {
                 columns.push(
                     wp.element.createElement('div', { key: i, className: 'column' },
                         images[i] && wp.element.createElement('img', { src: images[i].url, alt: images[i].alt }),
-                        wp.element.createElement('h2', {}, titles[i]),
-                        wp.element.createElement('p', {}, subtitles[i]),
-                        wp.element.createElement('p', {}, contents[i])
+                        wp.element.createElement('h2', { style: { color: textColor } }, titles[i]),
+                        wp.element.createElement('p', { style: { color: textColor } }, subtitles[i]),
+                        wp.element.createElement('p', { style: { color: textColor } }, contents[i])
                     )
                 );
             }
 
-            return wp.element.createElement('div', { className: 'three-column-img-block' }, columns);
+            return wp.element.createElement('div', { className: 'three-column-img-block', style: { backgroundColor: backgroundColor } },
+                wp.element.createElement('div', { className: 'three-column-container' }, columns) // 親要素を追加
+            );
         },
     });
 });
+
+
 
 
 

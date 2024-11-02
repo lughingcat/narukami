@@ -314,7 +314,7 @@
       transform: translate(-50%, -50%);
       text-align: center !important; }
 
-.three-column-img-block {
+.three-column-container {
   position: relative;
   display: flex; }
 

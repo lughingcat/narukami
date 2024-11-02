@@ -346,24 +346,29 @@
 		}
 	}
 }
-
-.three-column-img-block{//3カラム画像見出しwrap
+.three-column-container{//flex wrap
 	position: relative;
 	display: flex;
-	column{
+	.three-column-block{//3カラム画像見出しwrap
+	
+	.image-button{
 		img{
 			
 		}
-		.three-column-hed{
-			
-		}
-		.three-column-subhed{
-			
-		}
-		.three-column-content{
-			
-		}
 	}
+		
+	.three-column-hed{
+		
+	}
+	.three-column-subhed{
+		
+	}
+	.three-column-content{
+		
+	}
+	
+}
+	
 }
 //インスペクターパネル
 .components-radio-control__option {//ラジオボタン上下マージン
