@@ -1,6 +1,6 @@
 const { addFilter } = wp.hooks;
 const { registerBlockType } = wp.blocks;
-const { MediaUpload, MediaUploadCheck, PlainText, InspectorControls, PanelColorSettings } = wp.blockEditor;
+const { MediaUpload, MediaUploadCheck, PlainText, InspectorControls, PanelColorSettings, RichText } = wp.blockEditor;
 const { Button } = wp.components;
 const { __ } = wp.i18n;
 const el = wp.element.createElement;
@@ -199,6 +199,107 @@ wp.domReady(function() {
                         } 
                     },
                         el('h2', {}, attributes.titleText)
+                    )
+                )
+            );
+        }
+    });
+});
+
+//3カラム画像テキストブロック
+wp.domReady(function() {
+	registerBlockType('item-three-column-img-block/three-column-img-block', {
+        title: __('3カラム画像テキスト', 'narukami'),
+        icon: 'images-alt2',
+        category: 'narukami-categorys',
+        attributes: {
+            images: {
+                type: 'array',
+                default: [{ url: '', title: '', text1: '', text2: '' }, { url: '', title: '', text1: '', text2: '' }, { url: '', title: '', text1: '', text2: '' }],
+            },
+        },
+        edit: function(props) {
+            const { attributes: { images }, setAttributes } = props;
+
+            function onSelectImage(index, media) {
+                const newImages = [...images];
+                newImages[index].url = media.url;
+                setAttributes({ images: newImages });
+            }
+
+            function onChangeTitle(index, value) {
+                const newImages = [...images];
+                newImages[index].title = value;
+                setAttributes({ images: newImages });
+            }
+
+            function onChangeText1(index, value) {
+                const newImages = [...images];
+                newImages[index].text1 = value;
+                setAttributes({ images: newImages });
+            }
+
+            function onChangeText2(index, value) {
+                const newImages = [...images];
+                newImages[index].text2 = value;
+                setAttributes({ images: newImages });
+            }
+
+            return [
+                wp.element.createElement(InspectorControls, {}, 
+                    wp.element.createElement(PanelBody, { title: __('画像とテキスト設定', 'narukami'), initialOpen: true },
+                        images.map((image, index) => 
+                            wp.element.createElement('div', { key: index, style: { marginBottom: '20px' } },
+                                wp.element.createElement(MediaUpload, {
+                                    onSelect: (media) => onSelectImage(index, media),
+                                    allowedTypes: ['image'],
+                                    render: ({ open }) => 
+                                        wp.element.createElement(Button, { onClick: open, isPrimary: true }, __('画像を選択', 'narukami'))
+                                }),
+                                wp.element.createElement(RichText, {
+                                    tagName: 'h2',
+                                    placeholder: __('見出しを入力', 'narukami'),
+                                    value: image.title,
+                                    onChange: (value) => onChangeTitle(index, value)
+                                }),
+                                wp.element.createElement(RichText, {
+                                    tagName: 'p',
+                                    placeholder: __('テキスト1を入力', 'narukami'),
+                                    value: image.text1,
+                                    onChange: (value) => onChangeText1(index, value)
+                                }),
+                                wp.element.createElement(RichText, {
+                                    tagName: 'p',
+                                    placeholder: __('テキスト2を入力', 'narukami'),
+                                    value: image.text2,
+                                    onChange: (value) => onChangeText2(index, value)
+                                })
+                            )
+                        )
+                    )
+                ),
+                wp.element.createElement('div', { className: 'three-column-img-block' },
+                    images.map((image, index) => 
+                        wp.element.createElement('div', { key: index, className: 'column' },
+                            image.url && wp.element.createElement('img', { src: image.url, alt: image.title }),
+                            wp.element.createElement('h2', {}, image.title),
+                            wp.element.createElement('p', {}, image.text1),
+                            wp.element.createElement('p', {}, image.text2)
+                        )
+                    )
+                )
+            ];
+        },
+        save: function(props) {
+            const { attributes: { images } } = props;
+
+            return wp.element.createElement('div', { className: 'three-column-img-block' },
+                images.map((image, index) => 
+                    wp.element.createElement('div', { key: index, className: 'column' },
+                        image.url && wp.element.createElement('img', { src: image.url, alt: image.title }),
+                        wp.element.createElement('h2', {}, image.title),
+                        wp.element.createElement('p', {}, image.text1),
+                        wp.element.createElement('p', {}, image.text2)
                     )
                 )
             );

@@ -354,6 +354,9 @@ function narukami_itemlist_block_register() {
 		register_block_type('hero-header-block/hero-header-linetitle-block', array(
             'editor_script' => 'custom-lp-block',
         ));
+		register_block_type('item-three-column-img-block/three-column-img-block', array(
+            'editor_script' => 'custom-lp-block',
+        ));
     }
 }//function end
 add_action('enqueue_block_editor_assets', 'narukami_itemlist_block_register', 10);

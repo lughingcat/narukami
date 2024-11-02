@@ -1,6 +1,6 @@
 const { addFilter } = wp.hooks;
 const { registerBlockType } = wp.blocks;
-const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
+const { MediaUpload, MediaUploadCheck, InspectorControls } = wp.blockEditor;
 const { Button } = wp.components;
 const { __ } = wp.i18n;
 const el = wp.element.createElement;
