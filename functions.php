@@ -335,7 +335,7 @@ function narukami_itemlist_block_register() {
 	
 	// lpページ専用ブロック登録
     if ( 'product_lp_page' === $screen->post_type ) {
-        // オリジナルブロックのスクリプトを登録
+        // オリジナルブロックのスクリプトを登録 
         wp_register_script(
             'custom-lp-block',
             get_template_directory_uri() . '/assets/js/narukami-lp-block.js',
@@ -355,6 +355,9 @@ function narukami_itemlist_block_register() {
             'editor_script' => 'custom-lp-block',
         ));
 		register_block_type('item-three-column-img-block/three-column-img-block', array(
+            'editor_script' => 'custom-lp-block',
+        ));
+		register_block_type('item-bg-title-content-block/bg-title-content-block', array(
             'editor_script' => 'custom-lp-block',
         ));
     }

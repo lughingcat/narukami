@@ -441,3 +441,35 @@ h1 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); }
+.product-lp-page-content .content .three-column-img-block {
+  width: 100%;
+  padding: 20px;
+  margin: 5% auto;
+  position: relative; }
+  .product-lp-page-content .content .three-column-img-block .three-column-container {
+    width: 90%;
+    display: flex;
+    position: relative;
+    margin: 0 auto; }
+    .product-lp-page-content .content .three-column-img-block .three-column-container .column {
+      width: 100%;
+      position: relative;
+      padding: 15px; }
+      .product-lp-page-content .content .three-column-img-block .three-column-container .column img {
+        width: 450px;
+        height: 250px;
+        object-fit: cover; }
+      .product-lp-page-content .content .three-column-img-block .three-column-container .column h2 {
+        border-bottom: 1px solid;
+        padding-left: 15px;
+        padding-bottom: 10px;
+        font-size: 1.2em;
+        position: relative; }
+        .product-lp-page-content .content .three-column-img-block .three-column-container .column h2::before {
+          content: '';
+          width: 5px;
+          height: 21px;
+          background-color: firebrick;
+          position: absolute;
+          top: 5px;
+          left: 0; }

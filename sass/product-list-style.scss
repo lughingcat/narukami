@@ -467,5 +467,44 @@ h1{
 				}
 			}
 		}
+		//3カラム画像見出しブロック
+		.three-column-img-block{//全体wrap
+			width: 100%;
+			padding: 20px;
+			margin: 5% auto;
+			position: relative;
+			.three-column-container{
+				width: 90%;
+				display: flex;
+				position: relative;
+				margin: 0 auto;
+				.column{
+					width: 100%;
+					position: relative;
+					padding: 15px;
+					img{
+						width: 450px;
+						height: 250px;
+						object-fit: cover;
+					}
+					h2{
+						border-bottom: 1px solid;
+						padding-left: 15px;
+						padding-bottom: 10px;
+						font-size: 1.2em;
+						position: relative;
+						&::before{
+							content: '';
+							width: 5px;
+							height: 21px;
+							background-color: firebrick;
+							position: absolute;
+							top: 5px;
+							left: 0;
+						}
+					}
+				}
+			}
+		}
 	}//content end
 }//product-lp-page-content end

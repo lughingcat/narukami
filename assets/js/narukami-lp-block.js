@@ -5,7 +5,7 @@ const { Button } = wp.components;
 const { __ } = wp.i18n;
 const el = wp.element.createElement;
 const { createElement, Fragment } = wp.element;
-const { PanelBody, RangeControl, RadioControl, TextControl } = wp.components;
+const { PanelBody, RangeControl, RadioControl, TextControl, ColorPalette, } = wp.components;
 
 wp.domReady(function() {
     wp.blocks.setCategories([
@@ -338,6 +338,202 @@ wp.domReady(function() {
     });
 });
 
+//背景画像つきコンテンツ
+wp.domReady(function() {
+    registerBlockType('item-bg-title-content-block/bg-title-content-block', {
+        title: __('背景とコンテンツ', 'narukami'),
+        icon: 'images-alt2',
+        category: 'narukami-categorys',
+
+        attributes: {
+            title: { type: 'string', default: '' },
+            subtitle: { type: 'string', default: '' },
+            content: { type: 'string', default: '' },
+            titleColor: { type: 'string', default: '#000000' },
+            subtitleColor: { type: 'string', default: '#000000' },
+            contentColor: { type: 'string', default: '#000000' },
+            backgroundImage: { type: 'string', default: null },
+            maskOpacity: { type: 'number', default: 0.5 }
+        },
+
+        edit: function(props) {
+            const { attributes, setAttributes } = props;
+            const { title, subtitle, content, titleColor, subtitleColor, contentColor, backgroundImage, maskOpacity } = attributes;
+
+            const onSelectImage = function(media) {
+                setAttributes({ backgroundImage: media.url });
+            };
+
+            const titleStyle = { color: titleColor };
+            const subtitleStyle = { color: subtitleColor };
+            const contentStyle = { color: contentColor };
+
+            return createElement(
+                Fragment,
+                {},
+                createElement(
+                    InspectorControls,
+                    {},
+                    createElement(
+                        PanelBody,
+                        { title: __('テキスト設定', 'narukami'), initialOpen: true },
+                        createElement('p', {}, '見出しの色'),
+                        createElement(ColorPalette, {
+                            value: titleColor,
+                            onChange: function(color) { setAttributes({ titleColor: color }); }
+                        }),
+                        createElement('p', {}, 'サブタイトルの色'),
+                        createElement(ColorPalette, {
+                            value: subtitleColor,
+                            onChange: function(color) { setAttributes({ subtitleColor: color }); }
+                        }),
+                        createElement('p', {}, 'コンテンツの色'),
+                        createElement(ColorPalette, {
+                            value: contentColor,
+                            onChange: function(color) { setAttributes({ contentColor: color }); }
+                        })
+                    ),
+                    createElement(
+                        PanelBody,
+                        { title: __('背景設定', 'narukami'), initialOpen: false },
+                        createElement(MediaUpload, {
+                            onSelect: onSelectImage,
+                            type: 'image',
+                            render: function(obj) {
+                                return createElement(
+                                    Button,
+                                    { onClick: obj.open, isDefault: true, isLarge: true },
+                                    backgroundImage ? __('画像変更', 'narukami') : __('画像選択', 'narukami')
+                                );
+                            }
+                        }),
+                        createElement(RangeControl, {
+                            label: __('黒の透過マスク', 'narukami'),
+                            value: maskOpacity,
+                            onChange: function(value) { setAttributes({ maskOpacity: value }); },
+                            min: 0,
+                            max: 1,
+                            step: 0.1
+                        })
+                    )
+                ),
+                createElement(
+                    'div',
+                    {
+                        className: 'bg-title-content-block',
+                        style: {
+                            backgroundImage: backgroundImage ? 'url(' + backgroundImage + ')' : 'none',
+							backgroundRepeat: 'no-repeat',
+							backgroundSize: 'cover',
+							backgroundPosition: 'center',
+                            position: 'relative',
+                            padding: '20px',
+                            display: 'flex',
+                            flexDirection: 'row',
+                            alignItems: 'center',
+							width: '100%',
+							height: '400px'
+                        }
+                    },
+                    createElement('div', {
+                        style: {
+                            backgroundColor: 'rgba(0, 0, 0, ' + maskOpacity + ')',
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            zIndex: 1
+                        }
+                    }),
+                    createElement(
+                        'div',
+                        { style: { 
+							zIndex: 2, 
+							padding: '10px',
+							width: '50%',
+							height: '200px'
+						} },
+                        createElement('h2', { style: { ...titleStyle, marginTop: '0' } },
+                            createElement('input', {
+                                type: 'text',
+                                placeholder: __('見出しを入力...', 'narukami'),
+                                value: title,
+                                onChange: function(e) { setAttributes({ title: e.target.value }); },
+                                style: { width: '100%', height: '50px' }
+                            })
+                        ),
+                        createElement('p', { style: subtitleStyle },
+                            createElement('input', {
+                                type: 'text',
+                                placeholder: __('サブタイトルを入力...', 'narukami'),
+                                value: subtitle,
+                                onChange: function(e) { setAttributes({ subtitle: e.target.value }); },
+                                style: { width: '100%' }
+                            })
+                        )
+                    ),
+                    createElement(
+                        'div',
+                        { style: { 
+							zIndex: 2, 
+							padding: '10px',
+							width: '50%'
+						} },
+                        createElement('textarea', {
+                            placeholder: __('コンテンツを入力...', 'narukami'),
+                            value: content,
+                            onChange: function(e) { setAttributes({ content: e.target.value }); },
+                            style: { width: '100%', height: '200px', color: contentColor }
+                        })
+                    )
+                )
+            );
+        },
+
+        save: function(props) {
+            const { attributes } = props;
+            const { title, subtitle, content, titleColor, subtitleColor, contentColor, backgroundImage, maskOpacity } = attributes;
+
+            return createElement(
+                'div',
+                {
+                    className: 'bg-title-content-block',
+                    style: {
+                        backgroundImage: backgroundImage ? 'url(' + backgroundImage + ')' : 'none',
+                        position: 'relative',
+                        padding: '20px',
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center'
+                    }
+                },
+                createElement('div', {
+                    style: {
+                        backgroundColor: 'rgba(0, 0, 0, ' + maskOpacity + ')',
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        zIndex: 1
+                    }
+                }),
+                createElement(
+                    'div',
+                    { style: { zIndex: 2, padding: '10px', color: titleColor } },
+                    createElement('h2', {}, title),
+                    createElement('p', { style: { color: subtitleColor } }, subtitle)
+                ),
+                createElement(
+                    'div',
+                    { style: { zIndex: 2, padding: '10px', color: contentColor } },
+                    createElement('p', {}, content)
+                )
+            );
+        }
+    });
+});
 
 
 
