@@ -484,7 +484,7 @@ wp.domReady(function() {
                             placeholder: __('コンテンツを入力...', 'narukami'),
                             value: content,
                             onChange: function(e) { setAttributes({ content: e.target.value }); },
-                            style: { width: '100%', height: '200px', color: contentColor }
+                            style: { width: '100%', height: '200px' }
                         })
                     )
                 )
@@ -521,13 +521,25 @@ wp.domReady(function() {
                 }),
                 createElement(
                     'div',
-                    { style: { zIndex: 2, padding: '10px', color: titleColor } },
+                    { 
+						className: 'bg-title-heding-left',
+						style: { 
+							zIndex: 2, 
+							padding: '10px', 
+							color: titleColor }
+					},
                     createElement('h2', {}, title),
                     createElement('p', { style: { color: subtitleColor } }, subtitle)
                 ),
                 createElement(
                     'div',
-                    { style: { zIndex: 2, padding: '10px', color: contentColor } },
+                    { 
+						className: 'bg-title-heding-right',
+						style: { 
+							zIndex: 2, 
+							padding: '10px', 
+							color: contentColor }
+					},
                     createElement('p', {}, content)
                 )
             );

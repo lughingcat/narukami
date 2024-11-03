@@ -506,5 +506,29 @@ h1{
 				}
 			}
 		}
+		//背景画像付きコンテンツ
+		.bg-title-content-block{
+			width: 100%;
+			height: 100vh;
+			.bg-title-heding-left{
+				width: 50%;
+				text-align: center;
+				h2{
+					font-size: 2em;
+					font-weight: bold;
+					margin-bottom: 10px;
+				}
+				p{
+					font-size: 1.2em;
+				}
+			}
+			.bg-title-heding-right{
+				position: relative;
+				width: 50%;
+				p{
+					width: 80%;
+				}
+			}
+		}
 	}//content end
 }//product-lp-page-content end

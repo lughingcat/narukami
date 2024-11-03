@@ -473,3 +473,20 @@ h1 {
           position: absolute;
           top: 5px;
           left: 0; }
+.product-lp-page-content .content .bg-title-content-block {
+  width: 100%;
+  height: 100vh; }
+  .product-lp-page-content .content .bg-title-content-block .bg-title-heding-left {
+    width: 50%;
+    text-align: center; }
+    .product-lp-page-content .content .bg-title-content-block .bg-title-heding-left h2 {
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: 10px; }
+    .product-lp-page-content .content .bg-title-content-block .bg-title-heding-left p {
+      font-size: 1.2em; }
+  .product-lp-page-content .content .bg-title-content-block .bg-title-heding-right {
+    position: relative;
+    width: 50%; }
+    .product-lp-page-content .content .bg-title-content-block .bg-title-heding-right p {
+      width: 80%; }
