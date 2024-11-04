@@ -493,3 +493,11 @@ h1 {
     width: 50%; }
     .product-lp-page-content .content .bg-title-content-block .bg-title-heding-right p {
       width: 80%; }
+.product-lp-page-content .content .two-columns-allwrap {
+  width: 100%;
+  margin: 0 auto;
+  padding: 5%; }
+  .product-lp-page-content .content .two-columns-allwrap h2 {
+    margin-top: 0;
+    border-bottom: 1px solid;
+    margin-bottom: 8px; }

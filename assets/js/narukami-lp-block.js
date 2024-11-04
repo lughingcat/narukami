@@ -4,8 +4,8 @@ const { MediaUpload, MediaUploadCheck, PlainText, InspectorControls, PanelColorS
 const { Button } = wp.components;
 const { __ } = wp.i18n;
 const el = wp.element.createElement;
-const { createElement, Fragment } = wp.element;
-const { PanelBody, RangeControl, RadioControl, TextControl, ColorPalette, } = wp.components;
+const { createElement, Fragment, useState } = wp.element;
+const { PanelBody, RangeControl, RadioControl, TextControl, ColorPalette, ColorPicker } = wp.components;
 
 wp.domReady(function() {
     wp.blocks.setCategories([
@@ -546,6 +546,380 @@ wp.domReady(function() {
         }
     });
 });
+
+//2カラム画像付きコンテンツ
+wp.domReady(function() {
+    registerBlockType('item-two-column-content/two-column-content-block', {
+        title: '2カラム画像付きコンテンツ',
+        icon: 'images-alt2',
+        category: 'narukami-categorys',
+        attributes: {
+            imageUrl1: { type: 'string', default: '' },
+            heading1: { type: 'string', default: '見出し' },
+            subtitle1: { type: 'string', default: 'サブタイトル' },
+            content1: { type: 'string', default: 'コンテンツ' },
+            imageUrl2: { type: 'string', default: '' },
+            heading2: { type: 'string', default: '見出し' },
+            subtitle2: { type: 'string', default: 'サブタイトル' },
+            content2: { type: 'string', default: 'コンテンツ' },
+            textColor: { type: 'string', default: '#000000' },
+            backgroundColor: { type: 'string', default: '#ffffff' },
+        },
+        edit: function(props) {
+            const { attributes, setAttributes } = props;
+            const { imageUrl1, heading1, subtitle1, content1, imageUrl2, heading2, subtitle2, content2, textColor, backgroundColor } = attributes;
+
+            const renderColumn = (imageUrl, heading, subtitle, content, onSelectImage, setHeading, setSubtitle, setContent) => (
+                el('div', {
+                    style: {
+                        display: 'flex',
+                        width: '50%',
+                        justifyContent: 'space-between',
+                        backgroundColor: backgroundColor,
+                        padding: '20px'
+                    }
+                },
+                    el('div', {
+                        style: {
+                            height: '300px',
+                            width: '50%',
+                            backgroundImage: `url(${imageUrl})`,
+                            backgroundRepeat: 'no-repeat',
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center'
+                        }
+                    },
+                        el(MediaUpload, {
+                            onSelect: onSelectImage,
+                            allowedTypes: ['image'],
+                            render: (openEvent) => el(Button, { onClick: openEvent.open, isPrimary: true }, '画像選択')
+                        })
+                    ),
+                    el('div', { style: { width: '50%', padding: '10px' } },
+                        el(RichText, {
+                            tagName: 'h2',
+                            style: { color: textColor },
+                            value: heading,
+                            onChange: setHeading,
+                            placeholder: '見出しを入力'
+                        }),
+                        el(RichText, {
+                            tagName: 'p',
+                            className: 'narukami-subtitle',
+                            style: { color: textColor },
+                            value: subtitle,
+                            onChange: setSubtitle,
+                            placeholder: 'サブタイトルを入力'
+                        }),
+                        el(RichText, {
+                            tagName: 'p',
+                            className: 'narukami-content',
+                            style: { color: textColor },
+                            value: content,
+                            onChange: setContent,
+                            placeholder: 'コンテンツを入力'
+                        })
+                    )
+                )
+            );
+
+            return (
+                el(Fragment, {},
+                    el(InspectorControls, {},
+                        el(PanelBody, { title: '設定' },
+                            el('div', {},
+                                el('p', {}, 'テキストカラー'),
+                                el(ColorPalette, {
+                                    value: textColor,
+                                    onChange: (color) => setAttributes({ textColor: color })
+                                })
+                            ),
+                            el('div', {},
+                                el('p', {}, '背景色'),
+                                el(ColorPalette, {
+                                    value: backgroundColor,
+                                    onChange: (color) => setAttributes({ backgroundColor: color })
+                                })
+                            )
+                        )
+                    ),
+                    el('div', { style: { display: 'flex', backgroundColor: backgroundColor } },
+                        renderColumn(
+                            imageUrl1, heading1, subtitle1, content1,
+                            (media) => setAttributes({ imageUrl1: media.url }),
+                            (text) => setAttributes({ heading1: text }),
+                            (text) => setAttributes({ subtitle1: text }),
+                            (text) => setAttributes({ content1: text })
+                        ),
+                        renderColumn(
+                            imageUrl2, heading2, subtitle2, content2,
+                            (media) => setAttributes({ imageUrl2: media.url }),
+                            (text) => setAttributes({ heading2: text }),
+                            (text) => setAttributes({ subtitle2: text }),
+                            (text) => setAttributes({ content2: text })
+                        )
+                    )
+                )
+            );
+        },
+        save: function(props) {
+            const { attributes } = props;
+            const { imageUrl1, heading1, subtitle1, content1, imageUrl2, heading2, subtitle2, content2, textColor, backgroundColor } = attributes;
+
+            const renderSavedColumn = (imageUrl, heading, subtitle, content) => (
+                el('div', {
+                    style: {
+                        display: 'flex',
+                        width: '50%',
+                        justifyContent: 'space-between',
+                        backgroundColor: backgroundColor,
+                        padding: '20px'
+                    }
+                },
+                    el('div', {
+                        style: {
+                            height: '250px',
+                            width: '50%',
+                            backgroundImage: `url(${imageUrl})`,
+                            backgroundRepeat: 'no-repeat',
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center'
+                        }
+                    }),
+                    el('div', { style: { width: '50%', padding: '0 10px 0 20px' } },
+                        el('h2', { style: { color: textColor } }, heading),
+                        el('p', { className: 'two-columns-subtitle', style: { color: textColor } }, subtitle),
+                        el('p', { className: 'two-columns-content', style: { color: textColor } }, content)
+                    )
+                )
+            );
+
+            return el('div', { 
+				style: { display: 'flex', backgroundColor: backgroundColor },
+				className: 'two-columns-allwrap'
+			},
+                renderSavedColumn(imageUrl1, heading1, subtitle1, content1),
+                renderSavedColumn(imageUrl2, heading2, subtitle2, content2)
+            );
+        }
+    });
+});
+
+//背景画像つき縦書き見出し
+wp.domReady(function() {
+      registerBlockType('item-img-vertical-writing/img-vertical-writing-block', {
+        title: __('背景画像縦書き見出し', 'text-domain'),
+        icon: 'images-alt2',
+        category: 'narukami-categorys',
+        attributes: {
+            backgroundImage: { type: 'string', default: null },
+            headingText: { type: 'string', default: __('見出しを入力', 'text-domain') },
+            backgroundColor: { type: 'string', default: '#ffffff' },
+            textColor: { type: 'string', default: '#000000' },
+            horizontalPosition: { type: 'number', default: 50 },
+            verticalPosition: { type: 'number', default: 50 },
+            paddingTop: { type: 'number', default: 10 },    // 上部の余白
+            paddingRight: { type: 'number', default: 10 },  // 右側の余白
+            paddingBottom: { type: 'number', default: 10 }, // 下部の余白
+            paddingLeft: { type: 'number', default: 10 }    // 左側の余白
+        },
+        edit: function(props) {
+            const { attributes, setAttributes } = props;
+            const {
+                backgroundImage,
+                headingText,
+                backgroundColor,
+                textColor,
+                horizontalPosition,
+                verticalPosition,
+                paddingTop,
+                paddingRight,
+                paddingBottom,
+                paddingLeft
+            } = attributes;
+
+            return wp.element.createElement(
+                wp.element.Fragment,
+                null,
+                wp.element.createElement(
+                    InspectorControls,
+                    null,
+                    wp.element.createElement(
+                        PanelBody,
+                        { title: __('設定', 'text-domain'), initialOpen: true },
+                        wp.element.createElement(MediaUpload, {
+                            onSelect: function(media) { setAttributes({ backgroundImage: media.url }); },
+                            type: "image",
+                            value: backgroundImage,
+                            render: function(obj) {
+                                return wp.element.createElement(
+                                    Button,
+                                    {
+                                        onClick: obj.open,
+                                        isPrimary: true
+                                    },
+                                    __('背景画像を選択', 'text-domain')
+                                );
+                            }
+                        })
+                    ),
+                    wp.element.createElement(
+                        PanelColorSettings,
+                        {
+                            title: __('色設定', 'text-domain'),
+                            colorSettings: [
+                                {
+                                    value: backgroundColor,
+                                    onChange: function(color) { setAttributes({ backgroundColor: color }); },
+                                    label: __('背景色', 'text-domain')
+                                },
+                                {
+                                    value: textColor,
+                                    onChange: function(color) { setAttributes({ textColor: color }); },
+                                    label: __('文字色', 'text-domain')
+                                }
+                            ]
+                        }
+                    ),
+                    wp.element.createElement(
+                        PanelBody,
+                        { title: __('位置設定', 'text-domain'), initialOpen: false },
+                        wp.element.createElement(RangeControl, {
+                            label: __('横位置', 'text-domain'),
+                            value: horizontalPosition,
+                            onChange: function(value) { setAttributes({ horizontalPosition: value }); },
+                            min: 0,
+                            max: 100
+                        }),
+                        wp.element.createElement(RangeControl, {
+                            label: __('縦位置', 'text-domain'),
+                            value: verticalPosition,
+                            onChange: function(value) { setAttributes({ verticalPosition: value }); },
+                            min: 0,
+                            max: 100
+                        })
+                    ),
+                    wp.element.createElement(
+                        PanelBody,
+                        { title: __('見出しの余白設定', 'text-domain'), initialOpen: false },
+                        wp.element.createElement(RangeControl, {
+                            label: __('上余白 (px)', 'text-domain'),
+                            value: paddingTop,
+                            onChange: function(value) { setAttributes({ paddingTop: value }); },
+                            min: 0,
+                            max: 100
+                        }),
+                        wp.element.createElement(RangeControl, {
+                            label: __('右余白 (px)', 'text-domain'),
+                            value: paddingRight,
+                            onChange: function(value) { setAttributes({ paddingRight: value }); },
+                            min: 0,
+                            max: 100
+                        }),
+                        wp.element.createElement(RangeControl, {
+                            label: __('下余白 (px)', 'text-domain'),
+                            value: paddingBottom,
+                            onChange: function(value) { setAttributes({ paddingBottom: value }); },
+                            min: 0,
+                            max: 100
+                        }),
+                        wp.element.createElement(RangeControl, {
+                            label: __('左余白 (px)', 'text-domain'),
+                            value: paddingLeft,
+                            onChange: function(value) { setAttributes({ paddingLeft: value }); },
+                            min: 0,
+                            max: 100
+                        })
+                    )
+                ),
+                wp.element.createElement(
+                    'div',
+                    {
+                        style: {
+                            width: '100%',
+                            height: '400px',
+                            backgroundImage: backgroundImage ? `url(${backgroundImage})` : 'none',
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            position: 'relative'
+                        }
+                    },
+                    wp.element.createElement(RichText, {
+                        tagName: "h2",
+                        value: headingText,
+                        onChange: function(text) { setAttributes({ headingText: text }); },
+                        placeholder: __('見出しを入力', 'text-domain'),
+                        style: {
+                            color: textColor,
+                            backgroundColor: backgroundColor,
+                            writingMode: 'vertical-rl',
+                            position: 'absolute',
+                            left: horizontalPosition + '%',
+                            top: verticalPosition + '%',
+                            transform: 'translate(-50%, -50%)',
+                            paddingTop: paddingTop + 'px',
+                            paddingRight: paddingRight + 'px',
+                            paddingBottom: paddingBottom + 'px',
+                            paddingLeft: paddingLeft + 'px'
+                        }
+                    })
+                )
+            );
+        },
+        save: function(props) {
+            const { attributes } = props;
+            const {
+                backgroundImage,
+                headingText,
+                backgroundColor,
+                textColor,
+                horizontalPosition,
+                verticalPosition,
+                paddingTop,
+                paddingRight,
+                paddingBottom,
+                paddingLeft
+            } = attributes;
+
+            return wp.element.createElement(
+                'div',
+                {
+                    style: {
+                        width: '100%',
+                        height: '100vh',
+                        backgroundImage: backgroundImage ? `url(${backgroundImage})` : 'none',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        position: 'relative'
+                    }
+                },
+                wp.element.createElement(RichText.Content, {
+                    tagName: "h2",
+                    value: headingText,
+                    style: {
+                        color: textColor,
+                        backgroundColor: backgroundColor,
+                        writingMode: 'vertical-rl',
+                        position: 'absolute',
+                        left: horizontalPosition + '%',
+                        top: verticalPosition + '%',
+                        transform: 'translate(-50%, -50%)',
+                        paddingTop: paddingTop + 'px',
+                        paddingRight: paddingRight + 'px',
+                        paddingBottom: paddingBottom + 'px',
+                        paddingLeft: paddingLeft + 'px'
+                    }
+                })
+            );
+        }
+    });
+});
+
+
+
+
+
+
 
 
 
