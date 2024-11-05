@@ -714,7 +714,7 @@ wp.domReady(function() {
         attributes: {
             backgroundImage: { type: 'string', default: null },
             headingText: { type: 'string', default: __('見出しを入力', 'text-domain') },
-            backgroundColor: { type: 'string', default: '#ffffff' },
+            backgroundColor: { type: 'string', default: 'transparent' },
             textColor: { type: 'string', default: '#000000' },
             horizontalPosition: { type: 'number', default: 50 },
             verticalPosition: { type: 'number', default: 50 },
@@ -837,7 +837,7 @@ wp.domReady(function() {
                     {
                         style: {
                             width: '100%',
-                            height: '400px',
+                            height: '600px',
                             backgroundImage: backgroundImage ? `url(${backgroundImage})` : 'none',
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
@@ -851,8 +851,10 @@ wp.domReady(function() {
                         placeholder: __('見出しを入力', 'text-domain'),
                         style: {
                             color: textColor,
-                            backgroundColor: backgroundColor,
+                            backgroundColor: backgroundColor || 'transparent',
+							fontFamily: 'Noto Sans JP, sans-serif',
                             writingMode: 'vertical-rl',
+							height: '250px',
                             position: 'absolute',
                             left: horizontalPosition + '%',
                             top: verticalPosition + '%',
@@ -898,8 +900,10 @@ wp.domReady(function() {
                     value: headingText,
                     style: {
                         color: textColor,
-                        backgroundColor: backgroundColor,
+                        backgroundColor: backgroundColor || 'transparent',
+						fontFamily: 'Noto Sans JP, sans-serif',
                         writingMode: 'vertical-rl',
+						height: '300px',
                         position: 'absolute',
                         left: horizontalPosition + '%',
                         top: verticalPosition + '%',
