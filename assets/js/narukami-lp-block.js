@@ -1,11 +1,11 @@
 const { addFilter } = wp.hooks;
 const { registerBlockType } = wp.blocks;
-const { MediaUpload, MediaUploadCheck, PlainText, InspectorControls, PanelColorSettings, RichText, } = wp.blockEditor;
+const { MediaUpload, MediaUploadCheck, PlainText, InspectorControls, PanelColorSettings, RichText, PanelRow } = wp.blockEditor;
 const { Button } = wp.components;
 const { __ } = wp.i18n;
 const el = wp.element.createElement;
-const { createElement, Fragment, useState } = wp.element;
-const { PanelBody, RangeControl, RadioControl, TextControl, ColorPalette, ColorPicker } = wp.components;
+const { createElement, Fragment, useState, useEffect } = wp.element;
+const { PanelBody, RangeControl, RadioControl, TextControl, ColorPalette, ColorPicker, TextareaControl } = wp.components;
 
 wp.domReady(function() {
     wp.blocks.setCategories([
@@ -205,7 +205,6 @@ wp.domReady(function() {
         }
     });
 });
-
 
 //3カラム画像テキストブロック
 wp.domReady(function() {
@@ -550,7 +549,7 @@ wp.domReady(function() {
 //2カラム画像付きコンテンツ
 wp.domReady(function() {
     registerBlockType('item-two-column-content/two-column-content-block', {
-        title: '2カラム画像付きコンテンツ',
+        title: __('2カラム画像付きコンテンツ' , 'narukami'),
         icon: 'images-alt2',
         category: 'narukami-categorys',
         attributes: {
@@ -707,21 +706,22 @@ wp.domReady(function() {
 
 //背景画像つき縦書き見出し
 wp.domReady(function() {
-      registerBlockType('item-img-vertical-writing/img-vertical-writing-block', {
-        title: __('背景画像縦書き見出し', 'text-domain'),
+    registerBlockType('item-img-vertical-writing/img-vertical-writing-block', {
+        title: __('背景画像縦書き見出し', 'narukami'),
         icon: 'images-alt2',
         category: 'narukami-categorys',
         attributes: {
             backgroundImage: { type: 'string', default: null },
-            headingText: { type: 'string', default: __('見出しを入力', 'text-domain') },
+            headingText: { type: 'string', default: __('見出しを入力', 'narukami') },
             backgroundColor: { type: 'string', default: 'transparent' },
             textColor: { type: 'string', default: '#000000' },
             horizontalPosition: { type: 'number', default: 50 },
             verticalPosition: { type: 'number', default: 50 },
-            paddingTop: { type: 'number', default: 10 },    // 上部の余白
-            paddingRight: { type: 'number', default: 10 },  // 右側の余白
-            paddingBottom: { type: 'number', default: 10 }, // 下部の余白
-            paddingLeft: { type: 'number', default: 10 }    // 左側の余白
+            paddingTop: { type: 'number', default: 10 },
+            paddingRight: { type: 'number', default: 10 },
+            paddingBottom: { type: 'number', default: 10 },
+            paddingLeft: { type: 'number', default: 10 },
+            headingHeight: { type: 'number', default: 300 } // h2の高さ
         },
         edit: function(props) {
             const { attributes, setAttributes } = props;
@@ -735,7 +735,8 @@ wp.domReady(function() {
                 paddingTop,
                 paddingRight,
                 paddingBottom,
-                paddingLeft
+                paddingLeft,
+                headingHeight
             } = attributes;
 
             return wp.element.createElement(
@@ -830,6 +831,17 @@ wp.domReady(function() {
                             min: 0,
                             max: 100
                         })
+                    ),
+                    wp.element.createElement(
+                        PanelBody,
+                        { title: __('見出しの高さ設定', 'text-domain'), initialOpen: false },
+                        wp.element.createElement(RangeControl, {
+                            label: __('見出し高さ (px)', 'text-domain'),
+                            value: headingHeight,
+                            onChange: function(value) { setAttributes({ headingHeight: value }); },
+                            min: 100,
+                            max: 600
+                        })
                     )
                 ),
                 wp.element.createElement(
@@ -852,9 +864,9 @@ wp.domReady(function() {
                         style: {
                             color: textColor,
                             backgroundColor: backgroundColor || 'transparent',
-							fontFamily: 'Noto Sans JP, sans-serif',
+                            fontFamily: 'Noto Sans JP, sans-serif',
                             writingMode: 'vertical-rl',
-							height: '250px',
+                            height: headingHeight + 'px',
                             position: 'absolute',
                             left: horizontalPosition + '%',
                             top: verticalPosition + '%',
@@ -880,7 +892,8 @@ wp.domReady(function() {
                 paddingTop,
                 paddingRight,
                 paddingBottom,
-                paddingLeft
+                paddingLeft,
+                headingHeight
             } = attributes;
 
             return wp.element.createElement(
@@ -901,9 +914,9 @@ wp.domReady(function() {
                     style: {
                         color: textColor,
                         backgroundColor: backgroundColor || 'transparent',
-						fontFamily: 'Noto Sans JP, sans-serif',
+                        fontFamily: 'Noto Sans JP, sans-serif',
                         writingMode: 'vertical-rl',
-						height: '300px',
+                        height: headingHeight + 'px',
                         position: 'absolute',
                         left: horizontalPosition + '%',
                         top: verticalPosition + '%',
@@ -918,6 +931,17 @@ wp.domReady(function() {
         }
     });
 });
+
+//ボトム可変コンテンツ
+
+
+
+
+
+
+
+
+
 
 
 
