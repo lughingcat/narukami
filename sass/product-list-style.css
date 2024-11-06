@@ -501,3 +501,16 @@ h1 {
     margin-top: 0;
     border-bottom: 1px solid;
     margin-bottom: 8px; }
+.product-lp-page-content .content .rogo-content-wrap .rogo-content-text {
+  width: 80%;
+  padding: 5%; }
+.product-lp-page-content .content .img-content-variable-wrap {
+  padding: 5%; }
+  .product-lp-page-content .content .img-content-variable-wrap img {
+    height: 300px;
+    object-fit: cover;
+    object-position: center; }
+  .product-lp-page-content .content .img-content-variable-wrap h2 {
+    padding: 0 20px; }
+  .product-lp-page-content .content .img-content-variable-wrap p {
+    padding: 20px; }

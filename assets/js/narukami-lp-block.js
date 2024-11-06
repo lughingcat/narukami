@@ -5,7 +5,7 @@ const { Button } = wp.components;
 const { __ } = wp.i18n;
 const el = wp.element.createElement;
 const { createElement, Fragment, useState, useEffect } = wp.element;
-const { PanelBody, RangeControl, RadioControl, TextControl, ColorPalette, ColorPicker, TextareaControl } = wp.components;
+const { PanelBody, RangeControl, RadioControl, TextControl, ColorPalette, ColorPicker, TextareaControl, FontSizePicker } = wp.components;
 
 wp.domReady(function() {
     wp.blocks.setCategories([
@@ -932,7 +932,336 @@ wp.domReady(function() {
     });
 });
 
-//ボトム可変コンテンツ
+//ロゴとコンテンツ
+wp.domReady(function () {
+    registerBlockType('item-rogo-content/rogo-content-block', {
+        title: __('ロゴとコンテンツ', 'narukami'),
+        icon: 'images-alt2',
+        category: 'narukami-categorys',
+        attributes: {
+            logoImage: { type: 'string', default: '' },
+            content: { type: 'string', source: 'html', selector: '.rogo-content-text' },
+            backgroundImage: { type: 'string', default: '' },
+            fontSize: { type: 'number', default: 16 },
+            textColor: { type: 'string', default: '#000000' }
+        },
+
+        edit: function (props) {
+            const { attributes, setAttributes } = props;
+            const { logoImage, content, backgroundImage, fontSize, textColor } = attributes;
+
+            return createElement(
+                'div',
+                {},
+                createElement(
+                    InspectorControls,
+                    {},
+                    createElement(
+                        PanelBody,
+                        { title: __('背景設定', 'narukami'), initialOpen: true },
+                        createElement(MediaUpload, {
+                            onSelect: (media) => setAttributes({ backgroundImage: media.url }),
+                            allowedTypes: ['image'],
+                            render: ({ open }) =>
+                                createElement(
+                                    Button,
+                                    { onClick: open, isPrimary: true },
+                                    __('背景画像を選択', 'narukami')
+                                )
+                        })
+                    ),
+                    createElement(
+                        PanelBody,
+                        { title: __('テキスト設定', 'narukami'), initialOpen: false },
+                        createElement('p', {}, __('文字色', 'narukami')),
+                        createElement(ColorPalette, {
+                            value: textColor,
+                            onChange: (newColor) => setAttributes({ textColor: newColor })
+                        }),
+                        createElement('p', {}, __('フォントサイズ', 'narukami')),
+                        createElement(FontSizePicker, {
+                            value: fontSize,
+                            onChange: (newFontSize) => setAttributes({ fontSize: newFontSize })
+                        })
+                    )
+                ),
+                createElement(
+                    'div',
+                    {
+                        style: {
+                            backgroundImage: backgroundImage ? `url(${backgroundImage})` : 'none',
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            height: '500px',
+                            textAlign: 'center',
+                            padding: '20px',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+							position: 'relative',
+							width: '100%'
+                        }
+                    },
+                    createElement(MediaUpload, {
+                        onSelect: (media) => setAttributes({ logoImage: media.url }),
+                        allowedTypes: ['image'],
+                        render: ({ open }) =>
+                            createElement(
+                                Button,
+                                { onClick: open, isPrimary: true },
+                                __('ロゴ画像を選択', 'narukami')
+                            )
+                    }),
+                    logoImage &&
+                        createElement('img', {
+                            src: logoImage,
+                            alt: '',
+                            style: { maxWidth: '120px', marginTop: '10px' }
+                        }),
+                    createElement(RichText, {
+                        tagName: 'div',
+                        className: 'rogo-content-text',
+                        value: content,
+                        onChange: (newContent) => setAttributes({ content: newContent }),
+                        placeholder: __('コンテンツを入力してください', 'narukami'),
+                        style: {
+                            color: textColor,
+                            fontSize: fontSize,
+                            marginTop: '10px',
+							width: '80%',
+							padding: '5%'
+                        }
+                    })
+                )
+            );
+        },
+
+        save: function (props) {
+            const { attributes } = props;
+            const { logoImage, content, backgroundImage, fontSize, textColor } = attributes;
+
+            return createElement(
+                'div',
+                {
+					className: 'rogo-content-wrap',
+                    style: {
+                        backgroundImage: backgroundImage ? `url(${backgroundImage})` : 'none',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        height: '100vh',
+                        textAlign: 'center',
+                        padding: '20px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }
+                },
+                logoImage &&
+                    createElement('img', {
+                        src: logoImage,
+                        alt: '',
+                        style: { maxWidth: '130px', marginTop: '10px' }
+                    }),
+                createElement('div', {
+                    className: 'rogo-content-text',
+                    style: {
+                        color: textColor,
+                        fontSize: fontSize,
+                        marginTop: '10px'
+                    },
+                    dangerouslySetInnerHTML: { __html: content }
+                })
+            );
+        }
+    });
+});
+
+//可変式画像とコンテンツ
+wp.domReady(function () {
+registerBlockType('item-img-content-variable/img-content-variable-block', {
+        title: __('可変式画像とコンテンツ', 'narukami'),
+        icon: 'images-alt2',
+        category: 'narukami-categorys',
+        attributes: {
+            imgURL: { type: 'string', default: '' },
+            headingText: { type: 'string', default: '' },
+            contentText: { type: 'string', default: '' },
+            bgColor: { type: 'string', default: '#ffffff' },
+            headingColor: { type: 'string', default: '#000000' },
+            contentColor: { type: 'string', default: '#000000' },
+            fontSize: { type: 'number', default: 16 },
+            containerOrder: { type: 'string', default: 'left' }
+        },
+
+        edit: function (props) {
+            const {
+                attributes: {
+                    imgURL,
+                    headingText,
+                    contentText,
+                    bgColor,
+                    headingColor,
+                    contentColor,
+                    fontSize,
+                    containerOrder
+                },
+                setAttributes
+            } = props;
+
+            return createElement(
+                Fragment,
+                {},
+                createElement(
+                    InspectorControls,
+                    {},
+                    createElement(
+                        PanelBody,
+                        { title: __('全体設定', 'narukami') },
+                        createElement(ColorPalette, {
+                            label: __('背景色', 'narukami'),
+                            value: bgColor,
+                            onChange: (newColor) => setAttributes({ bgColor: newColor })
+                        })
+                    ),
+                    createElement(
+                        PanelBody,
+                        { title: __('H2の設定', 'narukami') },
+                        createElement(ColorPalette, {
+                            label: __('文字色', 'narukami'),
+                            value: headingColor,
+                            onChange: (newColor) => setAttributes({ headingColor: newColor })
+                        }),
+                        createElement(RangeControl, {
+                            label: __('フォントサイズ', 'narukami'),
+                            value: fontSize,
+                            onChange: (newSize) => setAttributes({ fontSize: newSize }),
+                            min: 10,
+                            max: 40
+                        })
+                    ),
+                    createElement(
+                        PanelBody,
+                        { title: __('コンテンツ設定', 'narukami') },
+                        createElement(ColorPalette, {
+                            label: __('文字色', 'narukami'),
+                            value: contentColor,
+                            onChange: (newColor) => setAttributes({ contentColor: newColor })
+                        })
+                    ),
+                    createElement(
+                        PanelBody,
+                        { title: __('コンテナ配置', 'narukami') },
+                        createElement(RadioControl, {
+                            label: __('コンテナ配置', 'narukami'),
+                            selected: containerOrder,
+                            options: [
+                                { label: __('左：画像 / 右：コンテンツ', 'narukami'), value: 'left' },
+                                { label: __('左：コンテンツ / 右：画像', 'narukami'), value: 'right' }
+                            ],
+                            onChange: (newOrder) => setAttributes({ containerOrder: newOrder })
+                        })
+                    )
+                ),
+                createElement(
+                    'div',
+                    {
+                        style: {
+                            display: 'flex',
+                            flexDirection: containerOrder === 'left' ? 'row' : 'row-reverse',
+                            height: '500px',
+                            width: '100%',
+                            backgroundColor: bgColor
+                        }
+                    },
+                    createElement(
+                        'div',
+                        { style: { flex: 1, padding: '10px' } },
+                        createElement(MediaUpload, {
+                            onSelect: (media) => setAttributes({ imgURL: media.url }),
+                            allowedTypes: ['image'],
+                            render: ({ open }) =>
+                                createElement(
+                                    Button,
+                                    { onClick: open, isPrimary: true },
+                                    __('画像を選択', 'narukami')
+                                )
+                        }),
+                        imgURL &&
+                            createElement('img', {
+                                src: imgURL,
+                                alt: '',
+                                style: { width: '100%', marginTop: '10px' }
+                            })
+                    ),
+                    createElement(
+                        'div',
+                        { style: { flex: 1, padding: '10px' } },
+                        createElement(RichText, {
+                            tagName: 'h2',
+                            value: headingText,
+                            onChange: (newText) => setAttributes({ headingText: newText }),
+                            placeholder: __('見出しを入力', 'narukami'),
+                            style: { color: headingColor, fontSize: fontSize + 'px' }
+                        }),
+                        createElement(RichText, {
+                            tagName: 'p',
+                            value: contentText,
+                            onChange: (newText) => setAttributes({ contentText: newText }),
+                            placeholder: __('コンテンツを入力', 'narukami'),
+                            style: { color: contentColor }
+                        })
+                    )
+                )
+            );
+        },
+
+        save: function (props) {
+            const {
+                attributes: { imgURL, headingText, contentText, bgColor, headingColor, contentColor, fontSize, containerOrder }
+            } = props;
+
+            return createElement(
+                'div',
+                {
+					className: 'img-content-variable-wrap',
+                    style: {
+                        display: 'flex',
+                        flexDirection: containerOrder === 'left' ? 'row' : 'row-reverse',
+                        height: '500px',
+                        width: '100%',
+                        backgroundColor: bgColor
+                    }
+                },
+                createElement(
+                    'div',
+                    { style: { flex: 1, padding: '10px' } },
+                    imgURL &&
+                        createElement('img', {
+                            src: imgURL,
+                            alt: '',
+                            style: { width: '100%' }
+                        })
+                ),
+                createElement(
+                    'div',
+                    { style: { flex: 1, padding: '10px' } },
+                    createElement(RichText.Content, {
+                        tagName: 'h2',
+                        value: headingText,
+                        style: { color: headingColor, fontSize: fontSize + 'px' }
+                    }),
+                    createElement(RichText.Content, {
+                        tagName: 'p',
+                        value: contentText,
+                        style: { color: contentColor }
+                    })
+                )
+            );
+        }
+    });
+});
 
 
 

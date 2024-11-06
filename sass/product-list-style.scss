@@ -544,6 +544,31 @@ h1{
 				margin-bottom: 8px;
 			}
 		}
-		
+		//ロゴコンテンツブロック
+		.rogo-content-wrap{
+			img{
+				
+			}
+			.rogo-content-text{
+				width: 80%;
+				padding: 5%;
+			}
+		}
+		//可変式画像とコンテンツ
+		.img-content-variable-wrap{
+			padding: 5%;
+
+			img{
+				height: 300px;
+    			object-fit: cover;
+    			object-position: center;
+			}
+			h2{
+				padding: 0 20px;
+			}
+			p{
+				padding: 20px;
+			}
+		}
 	}//content end
 }//product-lp-page-content end
