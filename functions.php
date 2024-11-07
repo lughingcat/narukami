@@ -372,6 +372,9 @@ function narukami_itemlist_block_register() {
 		register_block_type('item-img-content-variable/img-content-variable-block', array(
             'editor_script' => 'custom-lp-block',
         ));
+		register_block_type('item-bigimg-content/bigimg-content-block', array(
+            'editor_script' => 'custom-lp-block',
+        ));
     }
 }//function end
 add_action('enqueue_block_editor_assets', 'narukami_itemlist_block_register', 10);

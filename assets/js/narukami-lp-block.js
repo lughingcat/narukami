@@ -5,7 +5,7 @@ const { Button } = wp.components;
 const { __ } = wp.i18n;
 const el = wp.element.createElement;
 const { createElement, Fragment, useState, useEffect } = wp.element;
-const { PanelBody, RangeControl, RadioControl, TextControl, ColorPalette, ColorPicker, TextareaControl, FontSizePicker } = wp.components;
+const { PanelBody, RangeControl, RadioControl, TextControl, ColorPalette, ColorPicker, TextareaControl, FontSizePicker, ToggleControl } = wp.components;
 
 wp.domReady(function() {
     wp.blocks.setCategories([
@@ -1257,6 +1257,157 @@ registerBlockType('item-img-content-variable/img-content-variable-block', {
                         value: contentText,
                         style: { color: contentColor }
                     })
+                )
+            );
+        }
+    });
+});
+
+//大きな画像とコンテンツ
+wp.domReady(function () {
+    const { registerBlockType } = wp.blocks;
+    const { __ } = wp.i18n;
+    const { RichText, MediaUpload, InspectorControls } = wp.blockEditor;
+    const { PanelBody, Button, ColorPalette, RadioControl, RangeControl } = wp.components;
+
+    registerBlockType('item-bigimg-content/bigimg-content-block', {
+        title: __('大きな画像とコンテンツ', 'narukami'),
+        icon: 'images-alt2',
+        category: 'narukami-categorys',
+
+        attributes: {
+            content: { type: 'string', source: 'html', selector: '.content-text', default: '' },
+            imgUrl: { type: 'string', default: '' },
+            fontSize: { type: 'number', default: 16 },
+            textColor: { type: 'string', default: '#000000' },
+            backgroundColor: { type: 'string', default: 'transparent' },
+            layoutOrder: { type: 'string', default: 'normal' }
+        },
+
+        edit: function (props) {
+            const { attributes, setAttributes } = props;
+            const { content, imgUrl, fontSize, textColor, backgroundColor, layoutOrder } = attributes;
+
+            return [
+                // Inspector Controls
+                wp.element.createElement(
+                    InspectorControls,
+                    null,
+                    wp.element.createElement(
+                        PanelBody,
+                        { title: __('コンテンツ設定', 'narukami'), initialOpen: true },
+                        wp.element.createElement(RangeControl, {
+                            label: __('フォントサイズ', 'narukami'),
+                            value: fontSize,
+                            onChange: (value) => setAttributes({ fontSize: value }),
+                            min: 10,
+                            max: 50
+                        }),
+                        wp.element.createElement('label', null, __('文字色', 'narukami')),
+                        wp.element.createElement(ColorPalette, {
+                            value: textColor,
+                            onChange: (color) => setAttributes({ textColor: color || '#000000' })
+                        }),
+                        wp.element.createElement('label', null, __('背景色', 'narukami')),
+                        wp.element.createElement(ColorPalette, {
+                            value: backgroundColor,
+                            onChange: (color) => setAttributes({ backgroundColor: color || 'transparent' })
+                        }),
+                        wp.element.createElement(RadioControl, {
+                            label: __('コンテナ配置', 'narukami'),
+                            selected: layoutOrder,
+                            options: [
+                                { label: '通常', value: 'normal' },
+                                { label: '逆順', value: 'reverse' }
+                            ],
+                            onChange: (value) => setAttributes({ layoutOrder: value })
+                        })
+                    )
+                ),
+
+                // Block layout
+                wp.element.createElement(
+                    'div',
+                    {
+                        style: {
+                            backgroundColor: backgroundColor,
+                            height: '500px',
+                            width: '100%',
+                            display: 'flex',
+                            flexDirection: layoutOrder === 'reverse' ? 'column-reverse' : 'column',
+                        }
+                    },
+                    wp.element.createElement(
+                        'div',
+                        { className: 'content-container', style: { flex: 1, padding: '10px' } },
+                        wp.element.createElement(RichText, {
+                            tagName: 'div',
+                            placeholder: __('コンテンツを入力してください...', 'narukami'),
+                            value: content,
+                            onChange: (value) => setAttributes({ content: value }),
+                            style: { color: textColor, fontSize: fontSize + 'px' }
+                        })
+                    ),
+                    wp.element.createElement(
+                        'div',
+                        { className: 'image-container', style: { flex: 1, padding: '10px' } },
+                        wp.element.createElement(MediaUpload, {
+                            onSelect: (media) => setAttributes({ imgUrl: media.url }),
+                            allowedTypes: ['image'],
+                            render: (obj) =>
+                                wp.element.createElement(
+                                    Button,
+                                    {
+                                        className: 'button is-primary',
+                                        onClick: obj.open
+                                    },
+                                    !imgUrl ? __('画像を選択', 'narukami') : __('画像を変更', 'narukami')
+                                )
+                        }),
+                        imgUrl &&
+                            wp.element.createElement('img', {
+                                src: imgUrl,
+                                style: { marginTop: '10px', maxWidth: '100%', height: 'auto' }
+                            })
+                    )
+                )
+            ];
+        },
+
+        save: function (props) {
+            const { attributes } = props;
+            const { content, imgUrl, fontSize, textColor, backgroundColor, layoutOrder } = attributes;
+
+            return wp.element.createElement(
+                'div',
+                {
+					className: 'big-img-all-contaoner',
+                    style: {
+                        backgroundColor: backgroundColor,
+                        width: '100%',
+						padding: '5%',
+                        display: 'flex',
+                        flexDirection: layoutOrder === 'reverse' ? 'column-reverse' : 'column',
+                    }
+                },
+                wp.element.createElement(
+                    'div',
+                    { className: 'content-container', style: { flex: 1, padding: '10px' } },
+                    wp.element.createElement(RichText.Content, {
+                        tagName: 'div',
+						className: 'content-text',
+                        value: content,
+                        style: { color: textColor, fontSize: fontSize + 'px' }
+                    })
+                ),
+                wp.element.createElement(
+                    'div',
+                    { className: 'image-container', style: { flex: 1, padding: '10px' } },
+                    imgUrl &&
+                        wp.element.createElement('img', {
+                            src: imgUrl,
+                            style: { marginTop: '10px', maxWidth: '100%', }
+                        })
                 )
             );
         }

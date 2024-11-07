@@ -514,3 +514,20 @@ h1 {
     padding: 0 20px; }
   .product-lp-page-content .content .img-content-variable-wrap p {
     padding: 20px; }
+.product-lp-page-content .content .big-img-all-contaoner {
+  position: relative;
+  text-align: center; }
+  .product-lp-page-content .content .big-img-all-contaoner .content-container {
+    width: 80%;
+    margin: 0 auto; }
+    .product-lp-page-content .content .big-img-all-contaoner .content-container .content-text {
+      padding: 20px; }
+  .product-lp-page-content .content .big-img-all-contaoner .image-container {
+    width: 80%;
+    position: relative;
+    margin: 0 auto; }
+    .product-lp-page-content .content .big-img-all-contaoner .image-container img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      object-position: center; }

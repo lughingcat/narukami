@@ -570,5 +570,28 @@ h1{
 				padding: 20px;
 			}
 		}
+		//大きな画像とコンテンツブロック
+		.big-img-all-contaoner{
+			position: relative;
+			text-align: center;
+			.content-container{
+				width: 80%;
+				margin: 0 auto;
+				.content-text{
+					padding: 20px;
+				}
+			}
+			.image-container{
+				width: 80%;
+				position: relative;
+				margin: 0 auto;
+				img{
+					width: 100%;
+					height: 500px;
+					object-fit: cover;
+					object-position: center;
+				}
+			}
+		}
 	}//content end
 }//product-lp-page-content end
