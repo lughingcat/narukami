@@ -26,7 +26,7 @@ $i_background_image = sanitize_option_value(get_option('background_image'));
 $i_background_image_custom_option = get_background_image();
 	//bg select
 	if(is_singular('product_lp_page')){
-		$bg_img_url = "";
+		$bg_img_url = get_post_meta(get_the_ID(), 'background_image', true);
 	}elseif($i_background_image){
 		$bg_img_url = $i_background_image;
 	}else{

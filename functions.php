@@ -426,6 +426,30 @@ function narukami_enqueue_block_editor_styles() {
 }
 add_action('enqueue_block_assets', 'narukami_enqueue_block_editor_styles');
 
+// ブロックエディタにカスタム背景画像を適用
+function apply_custom_background_in_block_editor() {
+    global $post;
+    
+    // 投稿が存在し、カスタム投稿タイプの場合のみ実行
+    if ($post && $post->post_type === 'product_lp_page') {
+        // カスタムフィールドから背景画像のURLを取得
+        $background_image = get_post_meta($post->ID, 'background_image', true);
+
+        if ($background_image) {
+            // CSSを出力してブロックエディタに反映
+            echo '<style>
+                .editor-styles-wrapper {
+                    background-image: url("' . esc_url($background_image) . '") !important;
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                }
+            </style>';
+        }
+    }
+}
+add_action('enqueue_block_editor_assets', 'apply_custom_background_in_block_editor');
+
 
 
 /**
@@ -839,6 +863,56 @@ function custom_banner_preview_handler() {
         exit;
     }
 }
+
+// メタボックスを登録
+function add_background_meta_box() {
+    add_meta_box(
+        'background_meta_box',
+        '背景画像設定',
+        'show_background_meta_box',
+        'product_lp_page', // カスタム投稿タイプのスラッグに置き換え
+        'side',
+        'default'
+    );
+}
+add_action('add_meta_boxes', 'add_background_meta_box');
+
+// メタボックスの表示
+function show_background_meta_box($post) {
+    $background = get_post_meta($post->ID, 'background_image', true);
+    ?>
+    <div>
+        <input type="text" id="background_image" name="background_image" value="<?php echo esc_url($background); ?>" style="width:100%; margin: 20px auto;" />
+        <button type="button" class="button" id="upload_background_button">画像を選択</button>
+    </div>
+    <p style="margin: 10px auto;">背景画像のURLを入力するか、ボタンから選択してください。</p>
+
+    <script>
+    jQuery(document).ready(function($) {
+        $('#upload_background_button').click(function(e) {
+            e.preventDefault();
+            var image = wp.media({
+                title: '背景画像を選択',
+                multiple: false
+            }).open()
+            .on('select', function() {
+                var uploaded_image = image.state().get('selection').first();
+                var image_url = uploaded_image.toJSON().url;
+                $('#background_image').val(image_url);
+            });
+        });
+    });
+    </script>
+    <?php
+}
+
+// メタボックスの保存処理
+function save_background_meta_box($post_id) {
+    if (isset($_POST['background_image'])) {
+        update_post_meta($post_id, 'background_image', esc_url($_POST['background_image']));
+    }
+}
+add_action('save_post', 'save_background_meta_box');
 
 /**
  * Implement the Custom Header feature.

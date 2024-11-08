@@ -44,7 +44,7 @@ wp.domReady(function() {
 wp.domReady(function() {
     registerBlockType('hero-header-block/hero-header-linetitle-block', {
         title: __('ヒーローヘッダーとタイトル(横文字)', 'narukami'),
-        icon: 'images-alt2',
+        icon: 'align-full-width',
         category: 'narukami-categorys',
         attributes: {
             imageUrl: { type: 'string', default: '' },
@@ -216,7 +216,7 @@ wp.domReady(function() {
 
     registerBlockType('item-three-column-img-block/three-column-img-block', {
         title: __('3カラム画像テキスト', 'narukami'),
-        icon: 'images-alt2',
+        icon: 'columns',
         category: 'narukami-categorys',
         attributes: {
             images: { type: 'array', default: [null, null, null] },
@@ -341,7 +341,7 @@ wp.domReady(function() {
 wp.domReady(function() {
     registerBlockType('item-bg-title-content-block/bg-title-content-block', {
         title: __('背景とコンテンツ', 'narukami'),
-        icon: 'images-alt2',
+        icon: 'cover-image',
         category: 'narukami-categorys',
 
         attributes: {
@@ -550,7 +550,7 @@ wp.domReady(function() {
 wp.domReady(function() {
     registerBlockType('item-two-column-content/two-column-content-block', {
         title: __('2カラム画像付きコンテンツ' , 'narukami'),
-        icon: 'images-alt2',
+        icon: 'columns',
         category: 'narukami-categorys',
         attributes: {
             imageUrl1: { type: 'string', default: '' },
@@ -708,7 +708,7 @@ wp.domReady(function() {
 wp.domReady(function() {
     registerBlockType('item-img-vertical-writing/img-vertical-writing-block', {
         title: __('背景画像縦書き見出し', 'narukami'),
-        icon: 'images-alt2',
+        icon: 'cover-image',
         category: 'narukami-categorys',
         attributes: {
             backgroundImage: { type: 'string', default: null },
@@ -936,7 +936,7 @@ wp.domReady(function() {
 wp.domReady(function () {
     registerBlockType('item-rogo-content/rogo-content-block', {
         title: __('ロゴとコンテンツ', 'narukami'),
-        icon: 'images-alt2',
+        icon: 'shield',
         category: 'narukami-categorys',
         attributes: {
             logoImage: { type: 'string', default: '' },
@@ -1080,15 +1080,15 @@ wp.domReady(function () {
 
 //可変式画像とコンテンツ
 wp.domReady(function () {
-registerBlockType('item-img-content-variable/img-content-variable-block', {
+    registerBlockType('item-img-content-variable/img-content-variable-block', {
         title: __('可変式画像とコンテンツ', 'narukami'),
-        icon: 'images-alt2',
+        icon: 'media-document',
         category: 'narukami-categorys',
         attributes: {
             imgURL: { type: 'string', default: '' },
             headingText: { type: 'string', default: '' },
             contentText: { type: 'string', default: '' },
-            bgColor: { type: 'string', default: '#ffffff' },
+            bgColor: { type: 'string', default: 'rgba(255, 255, 255, 1)' },
             headingColor: { type: 'string', default: '#000000' },
             contentColor: { type: 'string', default: '#000000' },
             fontSize: { type: 'number', default: 16 },
@@ -1122,7 +1122,8 @@ registerBlockType('item-img-content-variable/img-content-variable-block', {
                         createElement(ColorPalette, {
                             label: __('背景色', 'narukami'),
                             value: bgColor,
-                            onChange: (newColor) => setAttributes({ bgColor: newColor })
+                            onChange: (newColor) => setAttributes({ bgColor: newColor || 'rgba(0, 0, 0, 0)' }),
+                            disableAlpha: false // 透明度設定を有効化
                         })
                     ),
                     createElement(
@@ -1272,7 +1273,7 @@ wp.domReady(function () {
 
     registerBlockType('item-bigimg-content/bigimg-content-block', {
         title: __('大きな画像とコンテンツ', 'narukami'),
-        icon: 'images-alt2',
+        icon: 'format-image',
         category: 'narukami-categorys',
 
         attributes: {
