@@ -11,7 +11,7 @@ wp.domReady(function() {
     wp.blocks.setCategories([
         { slug: 'text', title: 'テキスト', icon: 'editor-paragraph' },
         { slug: 'design', title: 'デザイン', icon: 'admin-customizer' },
-        { slug: 'narukami-categorys', title: '鳴雷カテゴリー', icon: 'admin-plugins' }
+        { slug: 'narukami-categorys', title: '鳴雷専用ブロック', icon: 'media-text' }
     ]);
 
 	//除外項目ブロック

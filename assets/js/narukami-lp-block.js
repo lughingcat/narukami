@@ -10,8 +10,11 @@ const { PanelBody, RangeControl, RadioControl, TextControl, ColorPalette, ColorP
 wp.domReady(function() {
     wp.blocks.setCategories([
         { slug: 'text', title: 'テキスト', icon: 'editor-paragraph' },
+        { slug: 'narukami-header', title: 'ヘッダー', icon: 'align-full-width' },
+		{ slug: 'narukami-columns-design', title: 'カラムデザイン', icon: 'columns' },
+		{ slug: 'narukami-gbimg-design', title: '背景つきデザイン', icon: 'cover-image' },
         { slug: 'design', title: 'デザイン', icon: 'admin-customizer' },
-        { slug: 'narukami-categorys', title: '鳴雷カテゴリー', icon: 'admin-plugins' }
+        { slug: 'narukami-categorys', title: '画像とコンテンツ', icon: 'format-image' }
     ]);
 
 	//除外項目ブロック
@@ -45,7 +48,7 @@ wp.domReady(function() {
     registerBlockType('hero-header-block/hero-header-linetitle-block', {
         title: __('ヒーローヘッダーとタイトル(横文字)', 'narukami'),
         icon: 'align-full-width',
-        category: 'narukami-categorys',
+        category: 'narukami-header',
         attributes: {
             imageUrl: { type: 'string', default: '' },
             titleText: { type: 'string', default: '' },
@@ -217,7 +220,7 @@ wp.domReady(function() {
     registerBlockType('item-three-column-img-block/three-column-img-block', {
         title: __('3カラム画像テキスト', 'narukami'),
         icon: 'columns',
-        category: 'narukami-categorys',
+        category: 'narukami-columns-design',
         attributes: {
             images: { type: 'array', default: [null, null, null] },
             titles: { type: 'array', default: ['', '', ''] },
@@ -342,7 +345,7 @@ wp.domReady(function() {
     registerBlockType('item-bg-title-content-block/bg-title-content-block', {
         title: __('背景とコンテンツ', 'narukami'),
         icon: 'cover-image',
-        category: 'narukami-categorys',
+        category: 'narukami-gbimg-design',
 
         attributes: {
             title: { type: 'string', default: '' },
@@ -551,7 +554,7 @@ wp.domReady(function() {
     registerBlockType('item-two-column-content/two-column-content-block', {
         title: __('2カラム画像付きコンテンツ' , 'narukami'),
         icon: 'columns',
-        category: 'narukami-categorys',
+        category: 'narukami-columns-design',
         attributes: {
             imageUrl1: { type: 'string', default: '' },
             heading1: { type: 'string', default: '見出し' },
@@ -709,7 +712,7 @@ wp.domReady(function() {
     registerBlockType('item-img-vertical-writing/img-vertical-writing-block', {
         title: __('背景画像縦書き見出し', 'narukami'),
         icon: 'cover-image',
-        category: 'narukami-categorys',
+        category: 'narukami-gbimg-design',
         attributes: {
             backgroundImage: { type: 'string', default: null },
             headingText: { type: 'string', default: __('見出しを入力', 'narukami') },
@@ -937,7 +940,7 @@ wp.domReady(function () {
     registerBlockType('item-rogo-content/rogo-content-block', {
         title: __('ロゴとコンテンツ', 'narukami'),
         icon: 'shield',
-        category: 'narukami-categorys',
+        category: 'text',
         attributes: {
             logoImage: { type: 'string', default: '' },
             content: { type: 'string', source: 'html', selector: '.rogo-content-text' },

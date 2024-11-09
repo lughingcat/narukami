@@ -334,3 +334,30 @@
 
 .components-radio-control__option {
   margin-bottom: 10px; }
+
+.editor-block-list-item-item-bg-title-content-block-bg-title-content-block::before,
+.editor-block-list-item-item-three-column-img-block-three-column-img-block::before,
+.editor-block-list-item-hero-header-block-hero-header-linetitle-block::before,
+.editor-block-list-item-item-rogo-content-rogo-content-block::before,
+.editor-block-list-item-item-img-vertical-writing-img-vertical-writing-block::before,
+.editor-block-list-item-item-two-column-content-two-column-content-block::before,
+.editor-block-list-item-item-bigimg-content-bigimg-content-block::before,
+.editor-block-list-item-item-img-content-variable-img-content-variable-block::before,
+.editor-block-list-item-item-introduction-block-introduction-block::before,
+.editor-block-list-item-item-ingredients-description-block-ingredients-description-block::before,
+.editor-block-list-item-allergy-information-block-allergy-info-block::before,
+.editor-block-list-item-heading::before,
+.editor-block-list-item-itemlist-custom-block-item-list-block::before,
+.editor-block-list-item-itemlist-custom-block-image-slider-block::before {
+  content: '鳴雷';
+  display: inline-block;
+  background-color: #0086ad;
+  /* ラベルの背景色 */
+  color: #fff;
+  font-size: 8px;
+  padding: 2px 2px;
+  border-radius: 1px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1; }

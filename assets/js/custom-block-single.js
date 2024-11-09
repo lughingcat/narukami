@@ -12,7 +12,7 @@ wp.domReady(function() {
     wp.blocks.setCategories([
         { slug: 'text', title: 'テキスト', icon: 'editor-paragraph' },
         { slug: 'design', title: 'デザイン', icon: 'admin-customizer' },
-        { slug: 'narukami-categorys', title: '鳴雷カテゴリー', icon: 'admin-plugins' }
+        { slug: 'narukami-categorys', title: '鳴雷専用ブロック', icon: 'media-text' }
     ]);
 
 	//除外項目ブロック
@@ -45,7 +45,7 @@ wp.domReady(function() {
 wp.domReady(function() {
 registerBlockType('item-introduction-block/introduction-block', {
     title: __('商品紹介(画像,価格,解説)', 'narukami'),
-    icon: 'cart',
+    icon: 'media-text',
     category: 'narukami-categorys',
     attributes: {
         sliderImages: {
@@ -193,7 +193,7 @@ registerBlockType('item-introduction-block/introduction-block', {
 wp.domReady(function() {
     registerBlockType('item-ingredients-description-block/ingredients-description-block', {
         title: __('原材料表記', 'narukami'),
-        icon: 'cart',
+        icon: 'list-view',
         category: 'narukami-categorys',
 
         attributes: {
@@ -302,7 +302,7 @@ wp.domReady(function() {
 wp.domReady(function() {
     registerBlockType('allergy-information-block/allergy-info-block', {
         title: __('アレルギー表記', 'narukami'),
-        icon: 'cart',
+        icon: 'clipboard',
         category: 'narukami-categorys',
         attributes: {
             allergies: {
