@@ -239,7 +239,7 @@ h1{
 					margin: 0 auto 10%;
 					.slide-wrapper{//img wrap
 						width: 400px;
-						height: 320px;
+						height: 360px;
 						img{
 							width: 100%;
 							height: 100%;
@@ -254,11 +254,15 @@ h1{
 						&::before{
 							color: #000;
 						}
-					}.slick-next{
+					}
+					.slick-next{
 						right: -25px;
 						&::before{
 							color: #000;
 						}
+					}
+					.slick-dots{
+						bottom: -60px;
 					}
 				}
 			

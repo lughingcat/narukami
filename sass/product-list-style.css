@@ -235,7 +235,7 @@ h1 {
           .product-list-page-content .content .flex-container .product-slider-block .slider-container .slide-wrapper,
           .product-list-page-content .content .flex-container .product-slider-block .slick-slide .slide-wrapper {
             width: 400px;
-            height: 320px; }
+            height: 360px; }
             .product-item-page-content .content .flex-container .product-slider-block .slider-container .slide-wrapper img,
             .product-item-page-content .content .flex-container .product-slider-block .slick-slide .slide-wrapper img,
             .product-list-page-content .content .flex-container .product-slider-block .slider-container .slide-wrapper img,
@@ -268,6 +268,11 @@ h1 {
             .product-list-page-content .content .flex-container .product-slider-block .slider-container .slick-next::before,
             .product-list-page-content .content .flex-container .product-slider-block .slick-slide .slick-next::before {
               color: #000; }
+          .product-item-page-content .content .flex-container .product-slider-block .slider-container .slick-dots,
+          .product-item-page-content .content .flex-container .product-slider-block .slick-slide .slick-dots,
+          .product-list-page-content .content .flex-container .product-slider-block .slider-container .slick-dots,
+          .product-list-page-content .content .flex-container .product-slider-block .slick-slide .slick-dots {
+            bottom: -60px; }
       .product-item-page-content .content .flex-container .content-container,
       .product-list-page-content .content .flex-container .content-container {
         position: relative;

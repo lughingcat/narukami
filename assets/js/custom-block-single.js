@@ -7,7 +7,26 @@ const el = wp.element.createElement;
 const { PanelBody, RadioControl, TextControl, TextareaControl } = wp.components;
 const { createElement, Fragment } = wp.element;
 const { useState } = wp.element;
+// Slick初期化関数
+const initializeSlickSlider = () => {
+    const $slider = jQuery(".selected-images");
 
+    // すでに初期化されている場合は破棄
+    if ($slider.hasClass("slick-initialized")) {
+        $slider.slick("unslick");
+    }
+
+    // Slickの再初期化
+    $slider.slick({
+        lazyLoad: "ondemand",
+        autoplaySpeed: 2000,
+        dots: true,
+        infinite: true,
+        speed: 1000,
+        arrows: true,
+        cssEase: "ease-in-out"
+    });
+};
 wp.domReady(function() {
     wp.blocks.setCategories([
         { slug: 'text', title: 'テキスト', icon: 'editor-paragraph' },
@@ -92,6 +111,10 @@ registerBlockType('item-introduction-block/introduction-block', {
                 url: img.url
             }));
             setAttributes({ sliderImages: newImages });
+			
+			setTimeout(() => {
+        		initializeSlickSlider();
+    		}, 500); 
         };
 
         return createElement(Fragment, null,
