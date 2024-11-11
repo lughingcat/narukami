@@ -243,6 +243,7 @@ add_action( 'admin_enqueue_scripts', 'add_cdns' );
  * 管理画面用(admin)css/jsのファイルエンキュー
  */
 function add_admin_style(){
+	wp_enqueue_media();
 	add_filter('script_loader_tag', 'add_defer', 10, 2);
 
 	function add_defer($tag, $handle) {
@@ -265,6 +266,21 @@ function add_admin_style(){
   ));
 }
 add_action('admin_enqueue_scripts', 'add_admin_style');
+
+//カスタム投稿タイプでのメディアエンキュー
+function enqueue_media_for_custom_post_types($hook) {
+    // 投稿タイプを取得
+    global $post;
+    
+    // 投稿編集画面のみで実行
+    if ( $hook === 'post.php' || $hook === 'post-new.php' ) {
+        // カスタム投稿タイプの条件をチェック
+        if ( in_array( get_post_type($post), ['product_list_page', 'product_item_page', 'product_lp_page'] ) ) {
+            wp_enqueue_media();
+        }
+    }
+}
+add_action('admin_enqueue_scripts', 'enqueue_media_for_custom_post_types');
 
 //カスタムエディターエンキュー
 function my_custom_editor_enqueue() {
@@ -796,10 +812,7 @@ function generate_upload_multipleimage_tag($name, $value, $index, $insert, $gm_n
 
 <?php
 }
-function my_admin_scripts() {
-    wp_enqueue_media();
-}
-add_action('admin_enqueue_scripts', 'my_admin_scripts');
+
 /*
 *メディアのキャプションを設定する
 */
