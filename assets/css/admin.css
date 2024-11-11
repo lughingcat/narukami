@@ -273,6 +273,10 @@
   .header-back-wrap .header-title-wrap .header-site-discription {
     margin: 0 auto; }
 
+.header-height-wrap label {
+  display: block;
+  margin-bottom: 10px; }
+
 .header-radio-wrap {
   margin-top: 15px; }
   .header-radio-wrap .display-sort-wrap {

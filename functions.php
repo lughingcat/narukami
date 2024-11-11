@@ -291,6 +291,7 @@ add_action('admin_enqueue_scripts', 'my_custom_editor_enqueue');
 
 //オリジナルブロック登録--優先順位１位
 function narukami_itemlist_block_register() {
+	wp_enqueue_media();
 	$screen = get_current_screen();
     
     // 商品リストページ専用ブロック登録
@@ -398,7 +399,7 @@ add_action('enqueue_block_editor_assets', 'narukami_itemlist_block_register', 10
 
 //ブロックエディターエンキュー --優先順位2位(既存ブロックの拡張)
 function narukami_block_editor_enqueue() {
-	
+	wp_enqueue_media();
 		//登録している依存jsファイルの分岐
 		if ( wp_script_is('itemlist-custom-block', 'registered') ) {
 			$dependencies = 'itemlist-custom-block';

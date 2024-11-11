@@ -14,6 +14,8 @@
 			$i_header_bgcolor = sanitize_text_field(get_option('header-bg-color'));
 			$i_header_sort_setting = sanitize_text_field(get_option('header-sort-set'));
 			$i_header_textcolor_setting = sanitize_text_field(get_option('header-text-color'));
+			$i_header_height_value = sanitize_text_field(get_option('header-height', 150));
+			echo $i_header_height_value;
 		?>
 		<?php
 			//ヘッダー表示切り替え
@@ -88,6 +90,12 @@
 			<label><input type="radio" name="header-display-setting" value="display_on" <?php echo $display_on; ?>>ヘッダーを表示する</label>
 			<label><input type="radio" name="header-display-setting" value="display_off" <?php echo $display_off; ?>>ヘッダーを非表示にする</label>
 		</div>
+	<h4>ヘッダーの高さを調整</h4>
+		<div class="header-height-wrap">
+			<label for="heightRange">高さを調整 (0 - 300px):</label>
+			<input name="header-height" type="range" class="heigt-range" id="heightRange" min="0" max="300" value="<?php echo $i_header_height_value; ?>">
+			<div class="height-value"><?php echo $i_header_height_value; ?>px</div>
+		</div>
 	<h4>ヘッダー背景色設定。</h4>
 		<div class="header-radio-wrap">
 			<div class="color-box-child">
@@ -133,3 +141,14 @@
 		</div>
 	</div><!--inputform-end-->
 </div><!--all-wrap-end-->
+<script>
+	const heightRange = document.getElementById('heightRange');
+    const heightValue = document.querySelector('.height-value');
+    const header = document.querySelector('.header-back-wrap');
+
+    heightRange.addEventListener('input', function() {
+        const height = heightRange.value;
+        header.style.height = height + 'px';
+        heightValue.textContent = height + 'px';
+    });
+</script>
