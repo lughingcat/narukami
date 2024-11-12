@@ -243,7 +243,6 @@ add_action( 'admin_enqueue_scripts', 'add_cdns' );
  * 管理画面用(admin)css/jsのファイルエンキュー
  */
 function add_admin_style(){
-	wp_enqueue_media();
 	add_filter('script_loader_tag', 'add_defer', 10, 2);
 
 	function add_defer($tag, $handle) {
@@ -971,9 +970,9 @@ require get_template_directory() . '/post_nonce_check.php';
 /**
  * カスタムページ作成関数読み込み
  */
-require get_template_directory() . '/custom_page/custom_page_item_list.php';
-require get_template_directory() . '/custom_page/custom_page_item_one.php';
-require get_template_directory() . '/custom_page/custom_page_lp.php';
+//require get_template_directory() . '/custom_page/custom_page_item_list.php';
+//require get_template_directory() . '/custom_page/custom_page_item_one.php';
+//require get_template_directory() . '/custom_page/custom_page_lp.php';
 /**
  * カスタム投稿ページデフォルトブロック差し込み関数
  */
