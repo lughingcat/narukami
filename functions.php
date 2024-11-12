@@ -970,9 +970,9 @@ require get_template_directory() . '/post_nonce_check.php';
 /**
  * カスタムページ作成関数読み込み
  */
-//require get_template_directory() . '/custom_page/custom_page_item_list.php';
-//require get_template_directory() . '/custom_page/custom_page_item_one.php';
-//require get_template_directory() . '/custom_page/custom_page_lp.php';
+require get_template_directory() . '/custom_page/custom_page_item_list.php';
+require get_template_directory() . '/custom_page/custom_page_item_one.php';
+require get_template_directory() . '/custom_page/custom_page_lp.php';
 /**
  * カスタム投稿ページデフォルトブロック差し込み関数
  */
