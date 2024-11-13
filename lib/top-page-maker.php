@@ -184,10 +184,12 @@
    				"テキストエリア" => 'text_content',
    				"パララックス" => 'parallax',
 			  );
-			  ?>
 			  
+			  ?>
 			  <div id="insert-id-reload-value">
-			  	<?php include('insert-id-reload-ajax.php');?>
+			  	<?php 
+				  include('insert-id-reload-ajax.php');
+				  ?>
 			  </div>
 			  
 			  <?php $i = 0; foreach($selectboxitem_summarize as $entry) : ?>

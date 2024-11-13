@@ -2,6 +2,7 @@
 //s_cmaker分岐
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'notify_top_page') {
 	$selectbox_item = get_option('scmaker_array_values');
+	
 }else{
 	if(isset($_POST['s_cmaker'])){
 		$selectbox_item = $_POST['s_cmaker'];

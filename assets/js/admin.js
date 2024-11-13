@@ -494,7 +494,6 @@ function hopupDeleteElment(button){
             },
 		onEnd: function (evt) { // ドラッグ終了時に実行
            	updateIndices();
-			indicesfunc();
 			initCustomEditor();
         }
     });
@@ -581,58 +580,6 @@ function deleteSelectboxItem(button){
 	}
 }
 
-function indicesfunc(){
-	const scmakerValue = document.getElementsByName('s_cmaker[]');
-	const scmakerValues = [];
-	for(var i = 0; i < scmakerValue.length; i++){
-		scmakerValues.push(scmakerValue[i].value);
-	}
-	const selectBoxes = document.querySelectorAll('.clone-wrap-parent input[name="insert_ids[]"]');
-    const data = Array.from(selectBoxes).map(input => input.value);
-	const postData = {
-        action: 'custom_ajax_action',
-        dataArray: data,
-		scmakerArray: scmakerValues
-    };
-	const url = `${my_ajax_obj.ajaxurl}?action=custom_ajax_action&nonce=${my_ajax_obj.nonce}`;
-    fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-			'X-Requested-With': 'XMLHttpRequest',
-        },
-        body: JSON.stringify(postData)
-    })
-    .then(response => response.json()) // JSON形式でレスポンスをパース
-    .then(response => {
-        if (response.success) {
-            const insertIdReloadContainer = document.getElementById('insert-id-reload-value');
-            fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: new URLSearchParams({ action: 'notify_top_page' }).toString()
-            })
-            .then(response => response.json())
-            .then(data => {
-				if(data.success){
-					//ここにレスポンスのDOMを操作するコードを入れる。現段階では何もしない。
-				}else{
-					console.error('Error:', data.data);
-				}
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        } else {
-            console.error('AJAX request failed:', response.message);
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-}
 
 
 //selectbox追加動作

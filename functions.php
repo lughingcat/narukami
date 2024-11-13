@@ -123,37 +123,6 @@ function narukami_block_editor_style_setup() {
 }
 add_action('after_setup_theme', 'narukami_block_editor_style_setup');
 
-/**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function narukami_all_theme_item_widgets_init() {
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Sidebar', 'narukami_all_theme_item' ),
-			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'narukami_all_theme_item' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'サブフッターリスト', 'narukami_all_theme_item' ),
-			'id'            => 'subfooter_elem',
-			'description'   => esc_html__( 'サブフッター挿入リスト', 'narukami_all_theme_item' ),
-			'before_widget' => '<section id="subfooter_list_elem" class="subfooter_2">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-	
-}
-add_action( 'widgets_init', 'narukami_all_theme_item_widgets_init' );
 
 /**
  * サイトのcss/jsの読み込み
@@ -257,12 +226,6 @@ function add_admin_style(){
   wp_enqueue_style('admin_style', $path_css, array(), time());
   $path_js = get_template_directory_uri().'/assets/js/admin.js';
   wp_enqueue_script('admin_script', $path_js, array('jquery'), null, true);
-  // admin_scriptにローカライズを追加
-  wp_localize_script('admin_script', 'my_ajax_obj', array(
-      'ajaxurl' => admin_url('admin-ajax.php'),
-      'nonce' => wp_create_nonce('my_ajax_nonce'),
-	  'topPageMakerUrl' => home_url('/wp-content/themes/narukami/lib/top-page-maker.php')
-  ));
 }
 add_action('admin_enqueue_scripts', 'add_admin_style');
 
@@ -597,44 +560,6 @@ function getContentBasedOnValue($value) {
 }
 
 
-//セレクトボックス移動によるajaxの処理（nonce）
-
-function handle_custom_ajax_request() {
-    check_ajax_referer('my_ajax_nonce', 'nonce');
-    // JSONのペイロードを取得
-    $json = file_get_contents('php://input');
-    $data = json_decode($json, true);
-	
-    if (!empty($data['dataArray']) && !empty($data['scmakerArray'])) {
-		// 受け取ったデータを変数にセット
-        $insert_id = $data['dataArray'];
-        $scmaker_array = $data['scmakerArray'];
-        // レスポンスを作成
-        $response = array(
-            'status' => 'success',
-            'message' => 'Indices updated successfully',
-            'data' => $insert_id,
-            'scmaker' => $scmaker_array
-        );// JSONレスポンスを返す
-		update_option('insert_id_indices', $insert_id );
-		update_option('scmaker_array_values', $scmaker_array );
-		wp_send_json_success($response);
-    } else {
-        // エラーレスポンスの作成
-        $response = array(
-            'status' => 'error',
-            'message' => 'No indices received'
-        );
-
-        // JSONレスポンスを返す
-        wp_send_json_error($response);
-    }
-
-    // WordPressの終了処理を実行
-    wp_die();
-}
-add_action('wp_ajax_custom_ajax_action', 'handle_custom_ajax_request');
-add_action('wp_ajax_nopriv_custom_ajax_action', 'handle_custom_ajax_request');
 
 //top-page-maker.phpへの通知
 
