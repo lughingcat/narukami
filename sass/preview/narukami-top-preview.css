@@ -380,7 +380,9 @@
   background-repeat: no-repeat;
   z-index: 999; }
   .heroheader-back-wrap .animetion-prewrap img {
-    width: 13%; }
+    width: 100px;
+    height: 100px;
+    object-fit: contain; }
   .heroheader-back-wrap .animetion-prewrap.stretch-shrink-right {
     height: 100%;
     animation: stretchShrinkRight 4s ease-in-out; }
@@ -500,12 +502,12 @@
   .heroheader-back-wrap .animetion-prewrap .loading-text {
     width: 100%;
     position: absolute;
-    bottom: 3%;
+    bottom: 5%;
+    font-size: .6em;
     left: 50%;
     transform: translateX(-50%);
     color: #000;
     text-align: center;
-    font-weight: bold;
     font-family: 'Noto Serif JP', sans-serif;
     letter-spacing: 1px; }
     .heroheader-back-wrap .animetion-prewrap .loading-text.loading-anime {
@@ -548,7 +550,9 @@
   background-repeat: no-repeat;
   z-index: 999; }
   .heroheader-video-back-wrap .animetion-prewrap img {
-    width: 13%; }
+    width: 100px;
+    height: 100px;
+    object-fit: contain; }
   .heroheader-video-back-wrap .animetion-prewrap.stretch-shrink-right {
     height: 100%;
     animation: stretchShrinkRight 4s ease-in-out; }
@@ -668,12 +672,12 @@
   .heroheader-video-back-wrap .animetion-prewrap .loading-text {
     width: 100%;
     position: absolute;
-    bottom: 3%;
+    bottom: 5%;
+    font-size: .6em;
     left: 50%;
     transform: translateX(-50%);
     color: #000;
     text-align: center;
-    font-weight: bold;
     font-family: 'Noto Serif JP', sans-serif;
     letter-spacing: 1px; }
     .heroheader-video-back-wrap .animetion-prewrap .loading-text.loading-anime {
@@ -716,7 +720,9 @@
   background-repeat: no-repeat;
   z-index: 999; }
   .heroheader-prevew-slider-all-wrap .animetion-prewrap img {
-    width: 13%; }
+    width: 100px;
+    height: 100px;
+    object-fit: contain; }
   .heroheader-prevew-slider-all-wrap .animetion-prewrap.stretch-shrink-right {
     height: 100%;
     animation: stretchShrinkRight 4s ease-in-out; }
@@ -836,12 +842,12 @@
   .heroheader-prevew-slider-all-wrap .animetion-prewrap .loading-text {
     width: 100%;
     position: absolute;
-    bottom: 3%;
+    bottom: 5%;
     left: 50%;
+    font-size: .6em;
     transform: translateX(-50%);
     color: #000;
     text-align: center;
-    font-weight: bold;
     font-family: 'Noto Serif JP', sans-serif;
     letter-spacing: 1px; }
     .heroheader-prevew-slider-all-wrap .animetion-prewrap .loading-text.loading-anime {
@@ -866,7 +872,16 @@
   text-align: center;
   padding: 1% 0;
   width: 100%;
-  margin: 0 auto; }
+  height: 150px;
+  margin: 0 auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: transform 0.3s ease;
+  /* スムーズな表示/非表示のためのアニメーション */
+  z-index: 1000;
+  /* 他の要素の上に表示 */ }
   .header-back-wrap.bg-opacity-value {
     animation: bgOpacityAnime 4.3s ease-out; }
 @keyframes bgOpacityAnime {
@@ -876,20 +891,30 @@
     opacity: 0; }
   100% {
     opacity: 1; } }
-  .header-back-wrap .header-rogo-wrap {
-    width: 7%;
-    margin: 0 auto; }
-  .header-back-wrap .header-title-wrap .header-site-title {
-    font-weight: bold;
-    display: inline-block;
-    border-bottom: 1px solid;
-    padding-bottom: 7px;
-    margin: 5px auto;
-    font-size: .6em; }
-  .header-back-wrap .header-title-wrap .header-site-discription {
-    margin: 0 auto;
-    font-weight: bold;
-    font-size: .6em; }
+  .header-back-wrap .header-flex-setting {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); }
+    .header-back-wrap .header-flex-setting .header-rogo-wrap {
+      text-align: center;
+      margin: 0 auto; }
+      .header-back-wrap .header-flex-setting .header-rogo-wrap img {
+        height: 100%;
+        object-fit: contain; }
+    .header-back-wrap .header-flex-setting .header-title-wrap {
+      margin-top: -10px; }
+      .header-back-wrap .header-flex-setting .header-title-wrap .header-site-title {
+        font-weight: bold;
+        display: inline-block;
+        border-bottom: 1px solid;
+        padding-bottom: 7px;
+        margin: 5px auto;
+        font-size: .6em; }
+      .header-back-wrap .header-flex-setting .header-title-wrap .header-site-discription {
+        margin: 0 auto;
+        font-weight: bold;
+        font-size: .6em; }
 
 .n-section-block {
   margin: 7% 0; }

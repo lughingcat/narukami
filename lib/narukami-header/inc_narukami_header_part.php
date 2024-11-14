@@ -14,8 +14,8 @@
 			$i_header_bgcolor = sanitize_text_field(get_option('header-bg-color'));
 			$i_header_sort_setting = sanitize_text_field(get_option('header-sort-set'));
 			$i_header_textcolor_setting = sanitize_text_field(get_option('header-text-color'));
-			$i_header_height_value = sanitize_text_field(get_option('header-height', 150));
-			echo $i_header_height_value;
+			$i_header_height_value = sanitize_text_field(get_option('header-height', 100));
+			$i_header_rogo_width_value = sanitize_text_field(get_option('header-rogo-width', 100));
 		?>
 		<?php
 			//ヘッダー表示切り替え
@@ -69,11 +69,16 @@
 			}
 		?>
 		<div class="header-back-wrap"
-			 style="background-color: <?php echo $i_header_bgcolor; ?>; display: <?php echo $disp_switch; ?>;">
+			 style="background-color: <?php echo $i_header_bgcolor; ?>; display: <?php echo $disp_switch; ?>; height: <?php echo $i_header_height_value;?>px">
 			<div class="header-flex-setting">
-				<div class="header-rogo-wrap"
-					 style="background-image: url('<?php echo $i_site_rogo_img_url; ?>'); display: <?php echo $disp_img_switch; ?>;"
-></div>
+				<div class="header-rogo-wrap" style="display: <?php echo $disp_img_switch; ?>;">
+    				<a href="<?php echo home_url(); ?>">
+        				<img
+							 style="width: <?php echo $i_header_rogo_width_value?>px; height: <?php echo $i_header_rogo_width_value; ?>px"
+							 src="<?php echo $i_site_rogo_img_url; ?>" 
+							 alt="Site Logo">
+    				</a>
+				</div>
 				<div class="header-title-wrap">
 					<p class="header-site-title" 
 					   style="color: <?php echo $i_header_textcolor_setting; ?>; display: <?php echo $disp_title_switch; ?>;"><?php echo $i_site_title_value; ?></p>
@@ -92,9 +97,15 @@
 		</div>
 	<h4>ヘッダーの高さを調整</h4>
 		<div class="header-height-wrap">
-			<label for="heightRange">高さを調整 (0 - 300px):</label>
-			<input name="header-height" type="range" class="heigt-range" id="heightRange" min="0" max="300" value="<?php echo $i_header_height_value; ?>">
+			<label for="heightRange">高さを調整 (100px - 300px):</label>
+			<input name="header-height" type="range" class="heigt-range" id="heightRange" min="100" max="300" value="<?php echo $i_header_height_value; ?>">
 			<div class="height-value"><?php echo $i_header_height_value; ?>px</div>
+		</div>
+	<h4>ヘッダーロゴの大きさを調整</h4>
+		<div class="header-rogo-width-wrap">
+			<label for="widthRogoRange">大きさを調整 (80px - 200px):</label>
+			<input name="header-rogo-width" type="range" class="rogo-width-range" id="widthRange" min="80" max="200" value="<?php echo $i_header_rogo_width_value;?>">
+			<div class="width-rogo-value"><?php echo $i_header_rogo_width_value;?>px</div>
 		</div>
 	<h4>ヘッダー背景色設定。</h4>
 		<div class="header-radio-wrap">
@@ -142,6 +153,7 @@
 	</div><!--inputform-end-->
 </div><!--all-wrap-end-->
 <script>
+	//ヘッダー高さ調整
 	const heightRange = document.getElementById('heightRange');
     const heightValue = document.querySelector('.height-value');
     const header = document.querySelector('.header-back-wrap');
@@ -151,4 +163,18 @@
         header.style.height = height + 'px';
         heightValue.textContent = height + 'px';
     });
+	
+	//ロゴ大きさ調整
+	const widthHeightRange = document.getElementById('widthRange');
+    const widthHeightValue = document.querySelector('.width-rogo-value');
+    const headerRogoWrap = document.querySelector('.header-rogo-wrap');
+	const img = headerRogoWrap.querySelector('img');
+
+    widthRange.addEventListener('input', function() {
+    	const widthHeight = widthHeightRange.value;
+    	img.style.width = widthHeight + 'px';
+		img.style.height = widthHeight + 'px';
+    	widthHeightValue.textContent = widthHeight + 'px';  // 計算後の値を表示
+	});
+
 </script>

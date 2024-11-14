@@ -81,7 +81,9 @@
 		background-position: center;
 		background-repeat: no-repeat;
 		img{
-			width: 15%;
+			width: 100px;
+			height: 100px;
+			object-fit: contain;
 		}
 		&.stretch-shrink-right {
   			height: 100%;
@@ -120,12 +122,12 @@
 		.loading-text{
 			width: 100%;
 			position: absolute;
-			bottom: 3%;
+			bottom: 5%;
+			font-size: .6em;
 			left: 50%;
 			transform: translateX(-50%);
 			color: #000;
 			text-align: center;
-			font-weight: bold;
 			font-family: 'Noto Serif JP', sans-serif;
 			letter-spacing: 1px;
 			&.loading-anime{
@@ -178,27 +180,36 @@
 //ヘッダープレビュースタイル
 .header-back-wrap{
 	text-align: center;
-	padding: 5% 0;
 	width: 100%;
+	height: 100px;
 	box-shadow: 0px 0px 15px -5px #777777;
 	margin: 5% auto;
-	.header-rogo-wrap{
-		width: 100px;
-		height: 80px;
-		background-size: contain;
-		background-repeat: no-repeat;
-		margin: 0 auto;
-	}
-	.header-title-wrap{
-		.header-site-title{
-			font-weight: bold;
-			display: inline-block;
-			border-bottom: 1px solid;
-			padding-bottom: 7px;
-			margin: 5px auto;
-		}
-		.header-site-discription{
+	position: relative;
+	.header-flex-setting{
+		width: 100%;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		.header-rogo-wrap{
+			text-align: center;
 			margin: 0 auto;
+			img{
+				width: 100px;
+				height: 100px;
+				object-fit: contain;
+			}
+		}
+		.header-title-wrap{
+			.header-site-title{
+				font-weight: bold;
+				display: inline-block;
+				border-bottom: 1px solid;
+				padding-bottom: 7px;
+				margin: 5px auto;
+			}
+			.header-site-discription{
+				margin: 0 auto;
+			}
 		}
 	}
 }
@@ -213,6 +224,12 @@
 	}
 	.height-value{
 		
+	}
+}
+.header-rogo-width-wrap{
+	label{
+		display: block;
+		margin-bottom: 10px;
 	}
 }
 //ラジオボタンスタイル

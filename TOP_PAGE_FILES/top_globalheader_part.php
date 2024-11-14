@@ -6,7 +6,11 @@ $i_gloalmenu_textcolor = sanitize_option_value(get_option('gloalmenu_textcolor')
 $i_humberger_btn_bg = sanitize_option_value(get_option('humberger_btn_bg'));
 $i_humberger_arrowcolor = sanitize_option_value(get_option('humberger-arrowcolor'));
 $i_global_textunderlinecolor = sanitize_option_value(get_option('global-textunderlinecolor'));
-$animetion_type = sanitize_option_value(get_option('loading-anime-type'));
+if(is_singular()){
+	$animetion_type = "loading-anime-not-use";
+}else{
+	$animetion_type = sanitize_option_value(get_option('loading-anime-type'));
+}
 // 連想配列を作成
 $global_items_Array = array();
 			

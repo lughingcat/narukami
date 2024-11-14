@@ -144,7 +144,7 @@ add_action( 'wp_enqueue_scripts', 'narukami_all_theme_item_scripts' );
  * 管理画面用(admin)css/jsのcdnエンキュー
  */
 function add_cdns(){
-	
+	wp_enqueue_media();
 	wp_enqueue_script('vue','https://cdn.jsdelivr.net/npm/vue@2.7.11/dist/vue.js');
 	wp_enqueue_script('twinMax','https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js');
 	wp_enqueue_script('sprintf','https://cdnjs.cloudflare.com/ajax/libs/sprintf/1.1.2/sprintf.min.js');
@@ -190,21 +190,6 @@ function add_cdns(){
             });
         });
     ');
-	wp_add_inline_script('slick-js', '
-    	jQuery(document).ready(function($) {
-        	setTimeout(function() {
-            	$(".selected-images").slick({
-                	lazyLoad: "ondemand",
-                	autoplaySpeed: 2000,
-                	dots: true,
-                	infinite: true,
-                	speed: 1000,
-                	arrows: true,
-                	cssEase: "ease-in-out"
-            	});
-        	}, 500);
-    	});
-	');
 }
 add_action( 'admin_enqueue_scripts', 'add_cdns' );
 
@@ -229,21 +214,6 @@ function add_admin_style(){
 }
 add_action('admin_enqueue_scripts', 'add_admin_style');
 
-//カスタム投稿タイプでのメディアエンキュー
-function enqueue_media_for_custom_post_types($hook) {
-    // 投稿タイプを取得
-    global $post;
-    
-    // 投稿編集画面のみで実行
-    if ( $hook === 'post.php' || $hook === 'post-new.php' ) {
-        // カスタム投稿タイプの条件をチェック
-        if ( in_array( get_post_type($post), ['product_list_page', 'product_item_page', 'product_lp_page'] ) ) {
-            wp_enqueue_media();
-        }
-    }
-}
-add_action('admin_enqueue_scripts', 'enqueue_media_for_custom_post_types');
-
 //カスタムエディターエンキュー
 function my_custom_editor_enqueue() {
 	wp_enqueue_editor();
@@ -253,7 +223,6 @@ add_action('admin_enqueue_scripts', 'my_custom_editor_enqueue');
 
 //オリジナルブロック登録--優先順位１位
 function narukami_itemlist_block_register() {
-	wp_enqueue_media();
 	$screen = get_current_screen();
     
     // 商品リストページ専用ブロック登録
@@ -361,7 +330,6 @@ add_action('enqueue_block_editor_assets', 'narukami_itemlist_block_register', 10
 
 //ブロックエディターエンキュー --優先順位2位(既存ブロックの拡張)
 function narukami_block_editor_enqueue() {
-	wp_enqueue_media();
 		//登録している依存jsファイルの分岐
 		if ( wp_script_is('itemlist-custom-block', 'registered') ) {
 			$dependencies = 'itemlist-custom-block';
@@ -483,17 +451,17 @@ function enqueue_narukami_top_preview_assets() {
     ');
 		// Slick Sliderの商品リストページ用初期化スクリプトをエンキュー
     	wp_add_inline_script('slick-js', '
-        jQuery(document).ready(function($) {
-    	$(".narukami-product-slider").slick({
-        	slidesToShow: 1,
-        	slidesToScroll: 1,
-			autoplay: true,
-        	autoplaySpeed: 2000,
-			cssEase: "ease-in-out",
-        	dots: true
+    	jQuery(document).ready(function($) {
+        	$(".narukami-product-slider").slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            cssEase: "ease-in-out",
+            dots: true
+        	});
     	});
-		});
-    ');
+		');
 		//Slick Sliderの商品紹介ページ用初期化スクリプトをエンキュー
 		wp_add_inline_script('slick-js', '
         jQuery(document).ready(function($) {

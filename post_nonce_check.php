@@ -19,6 +19,7 @@ function update_custom_option() {
         $header_bgcolor_set = sanitize_text_field($_POST['header-bg-color']);//ヘッダー背景色
         $header_textcolor_set = sanitize_text_field($_POST['header-text-color']);//ヘッダーテキストカラー
         $header_height_value = sanitize_text_field($_POST['header-height']);//ヘッダーの高さ調整
+        $header_rogo_width_value = sanitize_text_field($_POST['header-rogo-width']);//ヘッダーロゴの大きさ調整
         update_option('header-rogo-url', $header_rogo_url_value);
         update_option('header-tite', $header_title_value);
         update_option('header-discription', $header_discription_value);
@@ -29,6 +30,7 @@ function update_custom_option() {
         update_option('header-bg-color', $header_bgcolor_set);
         update_option('header-text-color', $header_textcolor_set);
         update_option('header-height', $header_height_value);
+        update_option('header-rogo-width', $header_rogo_width_value);
 		
 		//update_option グローバルメニュー
 		$gloalmenu_title_array = sanitize_option_value($_POST['global_item_title']);

@@ -425,7 +425,9 @@
 		background-repeat: no-repeat;
 		z-index: 999;
 		img{
-			width: 13%;
+			width: 100px;
+			height: 100px;
+			object-fit: contain;
 		}
 		&.stretch-shrink-right {
   			height: 100%;
@@ -464,12 +466,12 @@
 		.loading-text{
 			width: 100%;
 			position: absolute;
-			bottom: 3%;
+			bottom: 5%;
+			font-size: .6em;
 			left: 50%;
 			transform: translateX(-50%);
 			color: #000;
 			text-align: center;
-			font-weight: bold;
 			font-family: 'Noto Serif JP', sans-serif;
 			letter-spacing: 1px;
 			&.loading-anime{
@@ -498,7 +500,9 @@
 		background-repeat: no-repeat;
 		z-index: 999;
 		img{
-			width: 13%;
+			width: 100px;
+			height: 100px;
+			object-fit: contain;
 		}
 		&.stretch-shrink-right {
   			height: 100%;
@@ -537,12 +541,12 @@
 		.loading-text{
 			width: 100%;
 			position: absolute;
-			bottom: 3%;
+			bottom: 5%;
+			font-size: .6em;
 			left: 50%;
 			transform: translateX(-50%);
 			color: #000;
 			text-align: center;
-			font-weight: bold;
 			font-family: 'Noto Serif JP', sans-serif;
 			letter-spacing: 1px;
 			&.loading-anime{
@@ -572,7 +576,9 @@
 		background-repeat: no-repeat;
 		z-index: 999;
 		img{
-			width: 13%;
+			width: 100px;
+			height: 100px;
+			object-fit: contain;
 		}
 		&.stretch-shrink-right {
   			height: 100%;
@@ -611,12 +617,12 @@
 		.loading-text{
 			width: 100%;
 			position: absolute;
-			bottom: 3%;
+			bottom: 5%;
 			left: 50%;
+			font-size: .6em;
 			transform: translateX(-50%);
 			color: #000;
 			text-align: center;
-			font-weight: bold;
 			font-family: 'Noto Serif JP', sans-serif;
 			letter-spacing: 1px;
 			&.loading-anime{
@@ -630,27 +636,45 @@
 	text-align: center;
 	padding: 1% 0;
 	width: 100%;
+	height: 150px;
 	margin: 0 auto;
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: transform 0.3s ease; /* スムーズな表示/非表示のためのアニメーション */
+    z-index: 1000; /* 他の要素の上に表示 */
 	&.bg-opacity-value{
 			@include bg-opacty-animation;
 		}
-	.header-rogo-wrap{
-		width: 7%;
-		margin: 0 auto;
-	}
-	.header-title-wrap{
-		.header-site-title{
-			font-weight: bold;
-			display: inline-block;
-			border-bottom: 1px solid;
-			padding-bottom: 7px;
-			margin: 5px auto;
-			font-size: .6em;
-		}
-		.header-site-discription{
+	.header-flex-setting{
+		width: 100%;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		.header-rogo-wrap{
+			text-align: center;
 			margin: 0 auto;
-			font-weight: bold;
-			font-size: .6em;
+			img{
+				height: 100%;
+				object-fit: contain;
+			}
+		}
+		.header-title-wrap{
+			margin-top: -10px;
+			.header-site-title{
+				font-weight: bold;
+				display: inline-block;
+				border-bottom: 1px solid;
+				padding-bottom: 7px;
+				margin: 5px auto;
+				font-size: .6em;
+			}
+			.header-site-discription{
+				margin: 0 auto;
+				font-weight: bold;
+				font-size: .6em;
+			}
 		}
 	}
 }

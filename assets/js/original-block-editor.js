@@ -269,9 +269,9 @@ wp.domReady(function() {
 
         return el(
     		'div',
-    		{ className: 'slider-container' }, // 2つのコンテンツを囲む div
+    		{ className: 'slider-container-list-page' }, // 2つのコンテンツを囲む div
 			// スライダーのタイトルを表示
-    		sliderTitle ? el('h2', { className: 'slider-title' }, sliderTitle) : null,
+    		sliderTitle ? el('h2', { className: 'slider-title-list-page' }, sliderTitle) : null,
 
     		// スライダーコンテンツを表示
 			el(
@@ -292,3 +292,5 @@ wp.domReady(function() {
     },
 });
 });
+
+
