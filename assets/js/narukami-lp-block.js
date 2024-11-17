@@ -5,6 +5,7 @@ const { Button } = wp.components;
 const { __ } = wp.i18n;
 const el = wp.element.createElement;
 const { createElement, Fragment, useState, useEffect } = wp.element;
+const { createHigherOrderComponent } = wp.compose;
 const { PanelBody, RangeControl, RadioControl, TextControl, ColorPalette, ColorPicker, TextareaControl, FontSizePicker, ToggleControl } = wp.components;
 
 wp.domReady(function() {

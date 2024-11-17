@@ -5,8 +5,10 @@ const { Button } = wp.components;
 const { __ } = wp.i18n;
 const el = wp.element.createElement;
 const { PanelBody, RadioControl, TextControl, TextareaControl } = wp.components;
+const { createHigherOrderComponent } = wp.compose;
 const { createElement, Fragment } = wp.element;
 const { useState } = wp.element;
+const { select } = wp.data;
 // Slick初期化関数
 const initializeSlickSlider = () => {
     const $slider = jQuery(".selected-images");
@@ -27,6 +29,15 @@ const initializeSlickSlider = () => {
         cssEase: "ease-in-out"
     });
 };
+
+jQuery(document).ready(() => {
+    // 少し遅延させてスライダーを初期化
+    setTimeout(() => {
+        initializeSlickSlider();
+    }, 500);
+});
+
+
 wp.domReady(function() {
     wp.blocks.setCategories([
         { slug: 'text', title: 'テキスト', icon: 'editor-paragraph' },
@@ -63,7 +74,7 @@ wp.domReady(function() {
 
 wp.domReady(function() {
 registerBlockType('item-introduction-block/introduction-block', {
-    title: __('商品紹介(画像,価格,解説)', 'narukami'),
+    title: __('商品紹介(画像,価格,解説)使用回数１回', 'narukami'),
     icon: 'media-text',
     category: 'narukami-categorys',
     attributes: {
@@ -400,4 +411,31 @@ wp.domReady(function() {
         },
     });
 });
+
+wp.domReady(function() {
+	const BLOCK_NAME = 'item-introduction-block/introduction-block';
+
+    // ラップするHOCを作成
+    const withSingleBlockLimit = createHigherOrderComponent((BlockEdit) => {
+        return (props) => {
+            const existingBlocks = select('core/block-editor')
+                .getBlocks()
+                .filter((block) => block.name === BLOCK_NAME);
+
+            if (props.name === BLOCK_NAME && existingBlocks.length > 1) {
+                return wp.element.createElement('p', null, 'このブロックの使用回数は１ページ１回までです。');
+            }
+
+            return wp.element.createElement(BlockEdit, props);
+        };
+    }, 'withSingleBlockLimit');
+
+    // フィルターを適用
+    addFilter(
+        'editor.BlockEdit',
+        'narukami/with-single-block-limit',
+        withSingleBlockLimit
+    );
+});
+
 

@@ -4,6 +4,7 @@ const { MediaUpload, MediaUploadCheck, InspectorControls } = wp.blockEditor;
 const { Button } = wp.components;
 const { __ } = wp.i18n;
 const el = wp.element.createElement;
+const { createHigherOrderComponent } = wp.compose;
 const { createElement, Fragment } = wp.element;
 const { PanelBody, RadioControl, TextControl } = wp.components;
 

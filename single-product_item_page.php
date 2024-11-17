@@ -1,5 +1,11 @@
 <?php
 get_header(); ?>
+<?php
+$i_subfooter_use_notuse = sanitize_option_value(get_option('subfooter-use-notuse'));
+if($i_subfooter_use_notuse === "subfooter-use"){
+	include('lib/narukami-subfooter/subfooter.php');
+}
+?>
 <div class="product-item-page-content">
     <?php
     if ( have_posts() ) :

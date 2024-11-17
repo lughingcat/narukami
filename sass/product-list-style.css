@@ -1,13 +1,17 @@
 h1 {
   display: none; }
 
+.site {
+  min-height: 1700px; }
+
 .product-item-page-content,
 .product-list-page-content {
   position: relative;
   max-width: 90%;
-  margin: 2% auto;
+  margin: 12% auto 1%;
   background-color: #FFFFFF;
-  padding: 10px; }
+  padding: 10px;
+  min-height: 1650px; }
   .product-item-page-content .content,
   .product-list-page-content .content {
     padding: 5%; }
@@ -17,7 +21,7 @@ h1 {
       width: 100%;
       display: block;
       text-align: center;
-      margin: 0 auto 5px auto; }
+      margin: 20px auto 5px auto; }
       .product-item-page-content .content .narukami-hedding-style1::before,
       .product-list-page-content .content .narukami-hedding-style1::before {
         content: '';
@@ -44,7 +48,7 @@ h1 {
       position: relative;
       width: 100%;
       display: block;
-      margin: 0 auto 5px auto;
+      margin: 20px auto 5px auto;
       text-align: left;
       padding-left: 25px;
       box-sizing: border-box; }
@@ -83,7 +87,7 @@ h1 {
       position: relative;
       width: 100%;
       display: block;
-      margin: 0 auto 5px auto;
+      margin: 20px auto 5px auto;
       text-align: left;
       padding-left: 45px;
       box-sizing: border-box; }
@@ -187,7 +191,7 @@ h1 {
         .product-list-page-content .content .slider-container-list-page .narukami-product-slider .slide-items img {
           width: 100%;
           height: 80%;
-          object-fit: cover;
+          object-fit: contain;
           object-position: center; }
         .product-item-page-content .content .slider-container-list-page .narukami-product-slider .slide-items .product-title,
         .product-list-page-content .content .slider-container-list-page .narukami-product-slider .slide-items .product-title {
@@ -217,7 +221,7 @@ h1 {
       width: 100%;
       position: relative;
       display: flex;
-      margin: 2% auto 5%; }
+      margin: 8% auto; }
       .product-item-page-content .content .flex-container .product-slider-block,
       .product-list-page-content .content .flex-container .product-slider-block {
         width: 100%;
@@ -243,7 +247,7 @@ h1 {
             .product-list-page-content .content .flex-container .product-slider-block .slick-slide .slide-wrapper img {
               width: 100%;
               height: 100%;
-              object-fit: cover; }
+              object-fit: contain; }
           .product-item-page-content .content .flex-container .product-slider-block .slider-container .slick-dots,
           .product-item-page-content .content .flex-container .product-slider-block .slick-slide .slick-dots,
           .product-list-page-content .content .flex-container .product-slider-block .slider-container .slick-dots,
@@ -302,7 +306,8 @@ h1 {
     .product-list-page-content .content .ingredients-description-block {
       width: 100%;
       padding: 20px;
-      position: relative; }
+      position: relative;
+      margin: 10% auto; }
       .product-item-page-content .content .ingredients-description-block .ingredients-list .ingredient-headers,
       .product-list-page-content .content .ingredients-description-block .ingredients-list .ingredient-headers {
         display: inline-block;
@@ -317,7 +322,8 @@ h1 {
     .product-list-page-content .content .allergy-info-block {
       width: 100%;
       padding: 20px;
-      position: relative; }
+      position: relative;
+      margin: 10% auto; }
       .product-item-page-content .content .allergy-info-block p,
       .product-list-page-content .content .allergy-info-block p {
         border-bottom: 1px solid; }

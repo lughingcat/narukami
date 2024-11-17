@@ -43,7 +43,6 @@ $i_background_image_custom_option = get_background_image();
 		background-repeat: no-repeat;
 		background-position: center;
 		background-attachment: fixed;
-		height: 100vh;
 	}
 </style>
 <body>
