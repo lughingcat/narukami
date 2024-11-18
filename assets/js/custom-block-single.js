@@ -423,7 +423,7 @@ wp.domReady(function() {
                 .filter((block) => block.name === BLOCK_NAME);
 
             if (props.name === BLOCK_NAME && existingBlocks.length > 1) {
-                return wp.element.createElement('p', null, 'このブロックの使用回数は１ページ１回までです。');
+                return wp.element.createElement('p', null, 'このブロックの使用回数は１ページ１回までです。このブロックを削除してください。');
             }
 
             return wp.element.createElement(BlockEdit, props);

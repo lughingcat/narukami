@@ -7,6 +7,8 @@ const el = wp.element.createElement;
 const { createHigherOrderComponent } = wp.compose;
 const { createElement, Fragment } = wp.element;
 const { PanelBody, RadioControl, TextControl } = wp.components;
+const { useState } = wp.element;
+const { select } = wp.data;
 
 wp.domReady(function() {
     wp.blocks.setCategories([
@@ -169,7 +171,7 @@ save: function (props) {
 //スライドショーブロック
 wp.domReady(function() {
 	registerBlockType('itemlist-custom-block/image-slider-block', {
-    title: __('商品スライドショー', 'narukami'),
+    title: __('商品スライドショー(使用回数１回)', 'narukami'),
     icon: 'images-alt2',
     category: 'narukami-categorys',
     attributes: {
@@ -292,6 +294,33 @@ wp.domReady(function() {
 
     },
 });
+});
+
+//スライドショーを１回しか使えないようにする
+wp.domReady(function() {
+	const BLOCK_NAME = 'itemlist-custom-block/image-slider-block';
+
+    // ラップするHOCを作成
+    const withListSliderBlockLimit = createHigherOrderComponent((BlockEdit) => {
+        return (props) => {
+            const existingBlocks = select('core/block-editor')
+                .getBlocks()
+                .filter((block) => block.name === BLOCK_NAME);
+
+            if (props.name === BLOCK_NAME && existingBlocks.length > 1) {
+                return wp.element.createElement('p', null, 'このブロックの使用回数は１ページ１回までです。このブロックを削除してください。');
+            }
+
+            return wp.element.createElement(BlockEdit, props);
+        };
+    }, 'withListSliderBlockLimit');
+
+    // フィルターを適用
+    addFilter(
+        'editor.BlockEdit',
+        'narukami/with-list-slider-block-limit',
+        withListSliderBlockLimit
+    );
 });
 
 

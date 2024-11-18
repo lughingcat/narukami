@@ -191,7 +191,7 @@ h1 {
         .product-list-page-content .content .slider-container-list-page .narukami-product-slider .slide-items img {
           width: 100%;
           height: 80%;
-          object-fit: contain;
+          object-fit: cover;
           object-position: center; }
         .product-item-page-content .content .slider-container-list-page .narukami-product-slider .slide-items .product-title,
         .product-list-page-content .content .slider-container-list-page .narukami-product-slider .slide-items .product-title {
@@ -201,8 +201,7 @@ h1 {
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
-          padding-left: 10px;
-          margin-bottom: 5px; }
+          padding-left: 10px; }
           .product-item-page-content .content .slider-container-list-page .narukami-product-slider .slide-items .product-title::before,
           .product-list-page-content .content .slider-container-list-page .narukami-product-slider .slide-items .product-title::before {
             content: '';
@@ -214,8 +213,7 @@ h1 {
             background-color: #c44545; }
         .product-item-page-content .content .slider-container-list-page .narukami-product-slider .slide-items .product-price,
         .product-list-page-content .content .slider-container-list-page .narukami-product-slider .slide-items .product-price {
-          width: 100%;
-          margin-top: 0; }
+          width: 100%; }
     .product-item-page-content .content .flex-container,
     .product-list-page-content .content .flex-container {
       width: 100%;

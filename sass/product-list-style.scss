@@ -195,7 +195,7 @@ h1{
 					img{
 						width: 100%;
 						height: 80%;
-						object-fit: contain;
+						object-fit: cover;
 						object-position: center;		
 					}
 					.product-title{
@@ -206,7 +206,6 @@ h1{
     					overflow: hidden;
     					text-overflow: ellipsis;
 						padding-left: 10px;
-						margin-bottom: 5px;
 						&::before{
 							content: '';
 							position: absolute;
@@ -220,7 +219,7 @@ h1{
 					}
 					.product-price{
 						width: 100%;
-						margin-top: 0;
+						
 					}
 					
 				}
