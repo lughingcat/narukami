@@ -1,107 +1,105 @@
 <?php
 require_once( dirname(dirname(dirname(dirname(dirname( __FILE__ ))))) . '/wp-load.php' );
-//ランキングpopスタイル
-$rank_pop = isset($_POST['rank_pop']) ? $_POST['rank_pop'] : array();
-//ランキング背景スタイル
-$rank_style = isset($_POST['rank_style']) ? $_POST['rank_style'] : array();
-//ランキングメインタイトル
-$rank_primary_title = isset($_POST['rank_primary_title']) ? $_POST['rank_primary_title'] : array();
+// ランキングpopスタイルをサニタイズ
+$rank_pop = isset($_POST['rank_pop']) ? sanitize_option_value($_POST['rank_pop']) : array();
+// ランキング背景スタイルをサニタイズ
+$rank_style = isset($_POST['rank_style']) ? sanitize_option_value($_POST['rank_style']) : array();
+// ランキングメインタイトルをサニタイズ
+$rank_primary_title = isset($_POST['rank_primary_title']) ? sanitize_option_value($_POST['rank_primary_title']) : array();
 //ランキング
 //1
-$i_title = isset($_POST['item_title']) ? $_POST['item_title'] : array();
-$i_price = isset($_POST['item_price']) ? $_POST['item_price'] : array();
-$i_item_url = isset($_POST['item_img_url']) ? $_POST['item_img_url'] : array();
-$i_item_page_link = isset($_POST['item_page_link']) ? $_POST['item_page_link'] : array();
-$i_rank_on = isset($_POST['rank_on']) ? $_POST['rank_on'] : array();
+$i_title = isset($_POST['item_title']) ? sanitize_option_value($_POST['item_title']) : array();
+$i_price = isset($_POST['item_price']) ? sanitize_option_value($_POST['item_price']) : array();
+$i_item_url = isset($_POST['item_img_url']) ? sanitize_option_value($_POST['item_img_url']) : array();
+$i_item_page_link = isset($_POST['item_page_link']) ? sanitize_option_value($_POST['item_page_link']) : array();
+$i_rank_on = isset($_POST['rank_on']) ? sanitize_option_value($_POST['rank_on']) : array();
 //2
-$i_title_2 = isset($_POST['item_title_2']) ? $_POST['item_title_2'] : array();
-$i_price_2 = isset($_POST['item_price_2']) ? $_POST['item_price_2'] : array();
-$i_item_url_2 = isset($_POST['item_img_url_2']) ? $_POST['item_img_url_2'] : array();
-$i_item_page_link_2 = isset($_POST['item_page_link_2']) ? $_POST['item_page_link_2'] : array();
-$i_rank_on_2 = isset($_POST['rank_on_2']) ? $_POST['rank_on_2'] : array();
+$i_title_2 = isset($_POST['item_title_2']) ? sanitize_option_value($_POST['item_title_2']) : array();
+$i_price_2 = isset($_POST['item_price_2']) ? sanitize_option_value($_POST['item_price_2']) : array();
+$i_item_url_2 = isset($_POST['item_img_url_2']) ? sanitize_option_value($_POST['item_img_url_2']) : array();
+$i_item_page_link_2 = isset($_POST['item_page_link_2']) ? sanitize_option_value($_POST['item_page_link_2']) : array();
+$i_rank_on_2 = isset($_POST['rank_on_2']) ? sanitize_option_value($_POST['rank_on_2']) : array();
 //3
-$i_title_3 = isset($_POST['item_title_3']) ? $_POST['item_title_3'] : array();
-$i_price_3 = isset($_POST['item_price_3']) ? $_POST['item_price_3'] : array();
-$i_item_url_3 = isset($_POST['item_img_url_3']) ? $_POST['item_img_url_3'] : array();
-$i_item_page_link_3 = isset($_POST['item_page_link_3']) ? $_POST['item_page_link_3'] : array();
-$i_rank_on_3 = isset($_POST['rank_on_3']) ? $_POST['rank_on_3'] : array();
+$i_title_3 = isset($_POST['item_title_3']) ? sanitize_option_value($_POST['item_title_3']) : array();
+$i_price_3 = isset($_POST['item_price_3']) ? sanitize_option_value($_POST['item_price_3']) : array();
+$i_item_url_3 = isset($_POST['item_img_url_3']) ? sanitize_option_value($_POST['item_img_url_3']) : array();
+$i_item_page_link_3 = isset($_POST['item_page_link_3']) ? sanitize_option_value($_POST['item_page_link_3']) : array();
+$i_rank_on_3 = isset($_POST['rank_on_3']) ? sanitize_option_value($_POST['rank_on_3']) : array();
 //4
-$i_title_4 = isset($_POST['item_title_4']) ? $_POST['item_title_4'] : array();
-$i_price_4 = isset($_POST['item_price_4']) ? $_POST['item_price_4'] : array();
-$i_item_url_4 = isset($_POST['item_img_url_4']) ? $_POST['item_img_url_4'] : array();
-$i_item_page_link_4 = isset($_POST['item_page_link_4']) ? $_POST['item_page_link_4'] : array();
-$i_rank_on_4 = isset($_POST['rank_on_4']) ? $_POST['rank_on_4'] : array();
+$i_title_4 = isset($_POST['item_title_4']) ? sanitize_option_value($_POST['item_title_4']) : array();
+$i_price_4 = isset($_POST['item_price_4']) ? sanitize_option_value($_POST['item_price_4']) : array();
+$i_item_url_4 = isset($_POST['item_img_url_4']) ? sanitize_option_value($_POST['item_img_url_4']) : array();
+$i_item_page_link_4 = isset($_POST['item_page_link_4']) ? sanitize_option_value($_POST['item_page_link_4']) : array();
+$i_rank_on_4 = isset($_POST['rank_on_4']) ? sanitize_option_value($_POST['rank_on_4']) : array();
 //5
-$i_title_5 = isset($_POST['item_title_5']) ? $_POST['item_title_5'] : array();
-$i_price_5 = isset($_POST['item_price_5']) ? $_POST['item_price_5'] : array();
-$i_item_url_5 = isset($_POST['item_img_url_5']) ? $_POST['item_img_url_5']: array();
-$i_item_page_link_5 = isset($_POST['item_page_link_5']) ? $_POST['item_page_link_5']: array();
-$i_rank_on_5 = isset($_POST['rank_on_5']) ? $_POST['rank_on_5']: array();
+$i_title_5 = isset($_POST['item_title_5']) ? sanitize_option_value($_POST['item_title_5']) : array();
+$i_price_5 = isset($_POST['item_price_5']) ? sanitize_option_value($_POST['item_price_5']) : array();
+$i_item_url_5 = isset($_POST['item_img_url_5']) ? sanitize_option_value($_POST['item_img_url_5']) : array();
+$i_item_page_link_5 = isset($_POST['item_page_link_5']) ? sanitize_option_value($_POST['item_page_link_5']) : array();
+$i_rank_on_5 = isset($_POST['rank_on_5']) ? sanitize_option_value($_POST['rank_on_5']) : array();
 //6
-$i_title_6 = isset($_POST['item_title_6']) ? $_POST['item_title_6']: array();
-$i_price_6 = isset($_POST['item_price_6']) ? $_POST['item_price_6']: array();
-$i_item_url_6 = isset($_POST['item_img_url_6']) ? $_POST['item_img_url_6']: array();
-$i_item_page_link_6 = isset($_POST['item_page_link_6']) ? $_POST['item_page_link_6']: array();
-$i_rank_on_6 = isset($_POST['rank_on_6']) ? $_POST['rank_on_6']: array();
+$i_title_6 = isset($_POST['item_title_6']) ? sanitize_option_value($_POST['item_title_6']) : array();
+$i_price_6 = isset($_POST['item_price_6']) ? sanitize_option_value($_POST['item_price_6']) : array();
+$i_item_url_6 = isset($_POST['item_img_url_6']) ? sanitize_option_value($_POST['item_img_url_6']) : array();
+$i_item_page_link_6 = isset($_POST['item_page_link_6']) ? sanitize_option_value($_POST['item_page_link_6']) : array();
+$i_rank_on_6 = isset($_POST['rank_on_6']) ? sanitize_option_value($_POST['rank_on_6']) : array();
 //セレクトボックス
-$select_contents = isset($_POST['s_cmaker']) ? $_POST['s_cmaker'] : array();
-$i_insert_ids = isset($_POST['insert_ids']) ? $_POST['insert_ids'] : array();
+$select_contents = isset($_POST['s_cmaker']) ? sanitize_option_value($_POST['s_cmaker']) : array();
+$i_insert_ids = isset($_POST['insert_ids']) ? sanitize_option_value($_POST['insert_ids']) : array();
 //コンセプト
-$i_concept_bgImg_url = isset($_POST['concept_bg_img_url']) ? $_POST['concept_bg_img_url'] : array();
-$i_concept_title = isset($_POST['concept_title']) ? $_POST['concept_title'] : array();
-$i_concept_content = isset($_POST['concept_content']) ? $_POST['concept_content'] : array();
+$i_concept_bgImg_url = isset($_POST['concept_bg_img_url']) ? sanitize_option_value($_POST['concept_bg_img_url']) : array();
+$i_concept_title = isset($_POST['concept_title']) ? sanitize_option_value($_POST['concept_title']) : array();
+$i_concept_content = isset($_POST['concept_content']) ? sanitize_option_value($_POST['concept_content']) : array();
 //グランドメニュー
-$i_grandmenu_img_url = isset($_POST['grandmenu_img_url']) ? $_POST['grandmenu_img_url'] : array();
-$i_grandmenu_title = isset($_POST['grandmenu_title']) ? $_POST['grandmenu_title'] : array();
-$i_grandmenu_pagelink = isset($_POST['grandmenu_pagelink']) ? $_POST['grandmenu_pagelink'] : array();
-$i_gm_primary_title = isset($_POST['gm_primary_title']) ? $_POST['gm_primary_title'] : array();
+$i_grandmenu_img_url = isset($_POST['grandmenu_img_url']) ? sanitize_option_value($_POST['grandmenu_img_url']) : array();
+$i_grandmenu_title = isset($_POST['grandmenu_title']) ? sanitize_option_value($_POST['grandmenu_title']) : array();
+$i_grandmenu_pagelink = isset($_POST['grandmenu_pagelink']) ? sanitize_option_value($_POST['grandmenu_pagelink']) : array();
+$i_gm_primary_title = isset($_POST['gm_primary_title']) ? sanitize_option_value($_POST['gm_primary_title']) : array();
 //パララックス
-$i_parallax_bg_img_url = isset($_POST['parallax_bg_img_url']) ? $_POST['parallax_bg_img_url'] : array();
-$i_parallax_title = isset($_POST['parallax_title']) ? $_POST['parallax_title'] : array();
-$i_parallax_content = isset($_POST['parallax_content']) ? $_POST['parallax_content'] : array();
-$i_parallax_primary_title = isset($_POST['parallax_primary_title']) ? $_POST['parallax_primary_title'] : array();
-
+$i_parallax_bg_img_url = isset($_POST['parallax_bg_img_url']) ? sanitize_option_value($_POST['parallax_bg_img_url']) : array();
+$i_parallax_title = isset($_POST['parallax_title']) ? sanitize_option_value($_POST['parallax_title']) : array();
+$i_parallax_content = isset($_POST['parallax_content']) ? sanitize_option_value($_POST['parallax_content']) : array();
+$i_parallax_primary_title = isset($_POST['parallax_primary_title']) ? sanitize_option_value($_POST['parallax_primary_title']) : array();
 //右画像１カラム
-$i_column_right_img_url = isset($_POST['column_right_bg_img_url']) ? $_POST['column_right_bg_img_url'] : array();
-$i_column_right_1_title = isset($_POST['column_right_1_title']) ? $_POST['column_right_1_title'] : array();
-$i_column_right_1_content = isset($_POST['column_right_1_content']) ? $_POST['column_right_1_content'] : array();
+$i_column_right_img_url = isset($_POST['column_right_bg_img_url']) ? sanitize_option_value($_POST['column_right_bg_img_url']) : array();
+$i_column_right_1_title = isset($_POST['column_right_1_title']) ? sanitize_option_value($_POST['column_right_1_title']) : array();
+$i_column_right_1_content = isset($_POST['column_right_1_content']) ? sanitize_option_value($_POST['column_right_1_content']) : array();
 
 //左画像１カラム
-$i_column_left_img_url = isset($_POST['column_left_bg_img_url']) ? $_POST['column_left_bg_img_url'] : array();
-$i_column_left_1_title = isset($_POST['column_left_1_title']) ? $_POST['column_left_1_title'] : array();
-$i_column_left_1_content = isset($_POST['column_left_1_content']) ? $_POST['column_left_1_content'] : array();
+$i_column_left_img_url = isset($_POST['column_left_bg_img_url']) ? sanitize_option_value($_POST['column_left_bg_img_url']) : array();
+$i_column_left_1_title = isset($_POST['column_left_1_title']) ? sanitize_option_value($_POST['column_left_1_title']) : array();
+$i_column_left_1_content = isset($_POST['column_left_1_content']) ? sanitize_option_value($_POST['column_left_1_content']) : array();
 
 //2カラム
-$i_column_2_bgImg_url = isset($_POST['column_two_bg_img_url']) ? $_POST['column_two_bg_img_url'] : array();
-$i_column_2_title = isset($_POST['column_2_title']) ? $_POST['column_2_title'] : array();
-$i_column_2_content = isset($_POST['column_2_content']) ? $_POST['column_2_content'] : array();
-$i_column_2_sec_bgImg_url = isset($_POST['column_two_sec_bg_img_url']) ? $_POST['column_two_sec_bg_img_url'] : array();
-$i_column_2_sec_title = isset($_POST['column_2_sec_title']) ? $_POST['column_2_sec_title'] : array();
-$i_column_2_sec_content = isset($_POST['column_2_sec_content']) ? $_POST['column_2_sec_content'] : array();
-
+$i_column_2_bgImg_url = isset($_POST['column_two_bg_img_url']) ? sanitize_option_value($_POST['column_two_bg_img_url']) : array();
+$i_column_2_title = isset($_POST['column_2_title']) ? sanitize_option_value($_POST['column_2_title']) : array();
+$i_column_2_content = isset($_POST['column_2_content']) ? sanitize_option_value($_POST['column_2_content']) : array();
+$i_column_2_sec_bgImg_url = isset($_POST['column_two_sec_bg_img_url']) ? sanitize_option_value($_POST['column_two_sec_bg_img_url']) : array();
+$i_column_2_sec_title = isset($_POST['column_2_sec_title']) ? sanitize_option_value($_POST['column_2_sec_title']) : array();
+$i_column_2_sec_content = isset($_POST['column_2_sec_content']) ? sanitize_option_value($_POST['column_2_sec_content']) : array();
 //3カラム
-$i_column_3_bgImg_url = isset($_POST['column_three_bg_img_url']) ? $_POST['column_three_bg_img_url'] : array();
-$i_column_3_title = isset($_POST['column_3_title']) ? $_POST['column_3_title'] : array();
-$i_column_3_content = isset($_POST['column_3_content']) ? $_POST['column_3_content'] : array();
-$i_column_3_sec_bgImg_url = isset($_POST['column_three_sec_bg_img_url']) ? $_POST['column_three_sec_bg_img_url'] : array();
-$i_column_3_sec_title = isset($_POST['column_3_sec_title']) ? $_POST['column_3_sec_title'] : array();
-$i_column_3_sec_content = isset($_POST['column_3_sec_content']) ? $_POST['column_3_sec_content'] : array();
-$i_column_3_third_bgImg_url = isset($_POST['column_three_third_bg_img_url']) ? $_POST['column_three_third_bg_img_url'] : array();
-$i_column_3_third_title = isset($_POST['column_3_third_title']) ? $_POST['column_3_third_title'] : array();
-$i_column_3_third_content = isset($_POST['column_3_third_content']) ? $_POST['column_3_third_content'] : array();
+$i_column_3_bgImg_url = isset($_POST['column_three_bg_img_url']) ? sanitize_option_value($_POST['column_three_bg_img_url']) : array();
+$i_column_3_title = isset($_POST['column_3_title']) ? sanitize_option_value($_POST['column_3_title']) : array();
+$i_column_3_content = isset($_POST['column_3_content']) ? sanitize_option_value($_POST['column_3_content']) : array();
+$i_column_3_sec_bgImg_url = isset($_POST['column_three_sec_bg_img_url']) ? sanitize_option_value($_POST['column_three_sec_bg_img_url']) : array();
+$i_column_3_sec_title = isset($_POST['column_3_sec_title']) ? sanitize_option_value($_POST['column_3_sec_title']) : array();
+$i_column_3_sec_content = isset($_POST['column_3_sec_content']) ? sanitize_option_value($_POST['column_3_sec_content']) : array();
+$i_column_3_third_bgImg_url = isset($_POST['column_three_third_bg_img_url']) ? sanitize_option_value($_POST['column_three_third_bg_img_url']) : array();
+$i_column_3_third_title = isset($_POST['column_3_third_title']) ? sanitize_option_value($_POST['column_3_third_title']) : array();
+$i_column_3_third_content = isset($_POST['column_3_third_content']) ? sanitize_option_value($_POST['column_3_third_content']) : array();
 
 //店舗情報
-$i_store_info_title = isset($_POST['store_info_title']) ? $_POST['store_info_title'] : array();
-$i_store_name = isset($_POST['store_name']) ? $_POST['store_name'] : array();
-$i_store_info_bg_img_url = isset($_POST['store_info_bg_img_url']) ? $_POST['store_info_bg_img_url'] : array();
-$i_store_post_number = isset($_POST['store_post_number']) ? $_POST['store_post_number'] : array();
-$i_store_adress = isset($_POST['store_adress']) ? $_POST['store_adress'] : array();
-$i_store_phone_num = isset($_POST['store_phone_num']) ? $_POST['store_phone_num'] : array();
-$i_store_rg_holiday = isset($_POST['store_rg_holiday']) ? $_POST['store_rg_holiday'] : array();
+$i_store_info_title = isset($_POST['store_info_title']) ? sanitize_option_value($_POST['store_info_title']) : array();
+$i_store_name = isset($_POST['store_name']) ? sanitize_option_value($_POST['store_name']) : array();
+$i_store_info_bg_img_url = isset($_POST['store_info_bg_img_url']) ? sanitize_option_value($_POST['store_info_bg_img_url']) : array();
+$i_store_post_number = isset($_POST['store_post_number']) ? sanitize_option_value($_POST['store_post_number']) : array();
+$i_store_adress = isset($_POST['store_adress']) ? sanitize_option_value($_POST['store_adress']) : array();
+$i_store_phone_num = isset($_POST['store_phone_num']) ? sanitize_option_value($_POST['store_phone_num']) : array();
+$i_store_rg_holiday = isset($_POST['store_rg_holiday']) ? sanitize_option_value($_POST['store_rg_holiday']) : array();
 
 //テキストエリア
-$i_text_content_title = isset($_POST['text_content_title']) ? $_POST['text_content_title'] : array();
-$i_text_content_content = isset($_POST['text_content_content']) ? $_POST['text_content_content'] : array();
+$i_text_content_title = isset($_POST['text_content_title']) ? sanitize_option_value($_POST['text_content_title']) : array();
+$i_text_content_content = isset($_POST['text_content_content']) ? sanitize_option_value($_POST['text_content_content']) : array();
 
 //dbの初期化
 $i_delete_iniz = $_POST['delete_iniz'];
