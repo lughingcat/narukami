@@ -279,4 +279,3 @@ function narukami_output_favicon() {
 add_action('wp_head', 'narukami_output_favicon');
 
 ?>
-
