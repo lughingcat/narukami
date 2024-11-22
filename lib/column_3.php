@@ -68,8 +68,8 @@
 			//1
 			
 			$column_3_Img_url_check = isset($_POST['column_three_bg_img_url']) ? $_POST['column_three_bg_img_url'] : "";
-			$column_3_title_check = isset($_POST['column_2_title']) ? $_POST['column_2_title'] : "";
-			$column_3_content_check = isset($_POST['column_2_content']) ? $_POST['column_2_content'] : "";
+			$column_3_title_check = isset($_POST['column_3_title']) ? $_POST['column_3_title'] : "";
+			$column_3_content_check = isset($_POST['column_3_content']) ? $_POST['column_3_content'] : "";
 			
 			//2
 			$column_3_sec_Img_url_check = isset($_POST['column_three_sec_bg_img_url']) ? $_POST['column_three_sec_bg_img_url'] : "";

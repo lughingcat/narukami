@@ -62,7 +62,7 @@
 			//array-check
 			$store_info_title_check = isset($_POST['store_info_title']) ? $_POST['store_info_title'] : "";
 			$store_name_check = isset($_POST['store_name']) ? $_POST['store_name'] : "";
-			$store_info_bg_img_url_check = isset($_POST['column_right_1_content']) ? $_POST['column_right_1_content'] : "";
+			$store_info_bg_img_url_check = isset($_POST['store_info_bg_img_url']) ? $_POST['store_info_bg_img_url'] : "";
 			$store_post_number_check = isset($_POST['store_post_number']) ? $_POST['store_post_number'] : "";
 			$store_adress_check = isset($_POST['store_adress']) ? $_POST['store_adress'] : "";
 			$store_phone_num_check = isset($_POST['store_phone_num']) ? $_POST['store_phone_num'] : "";
