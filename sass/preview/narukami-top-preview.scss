@@ -1040,6 +1040,9 @@
 		transform: translate(-50%,-50%);
 		border-radius: 5px;
 		overflow-y: scroll;
+		@include media(medium) {
+    		width: 75%;
+  		}
 		.concept-main-title{
 			position: relative;
 			display: block;
@@ -1086,6 +1089,9 @@
 			line-height: 25px;
 			background-color: rgba(255,255,255,0.4);
 			letter-spacing: 2px;
+			@include media(medium) {
+    			width: 70%;
+  			}
 		}
 	}
   }
