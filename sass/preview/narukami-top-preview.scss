@@ -697,6 +697,9 @@
   		margin-bottom: 3em;
 		font-weight: bold;
 		letter-spacing: 5px;
+		@include media(medium) {
+    		font-size: .8em;
+  		}
 		span {
        		display: inline-block;
        		transition: 1s;
@@ -730,14 +733,22 @@
 		width: 90%;
 		overflow: scroll;
 	.ranking-all-wrap{
-	width: 144%;
-	position: relative;
-    display: flex;
-    overflow: scroll;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: center;
-	
+		width: 144%;
+		position: relative;
+    	display: flex;
+    	overflow: scroll;
+    	flex-wrap: nowrap;
+    	justify-content: flex-start;
+    	align-items: center;
+		@include media(large) {
+    		width: 160%;
+  		}
+		@include media(large) {
+    		width: 240%;
+  		}
+		@include media(small) {
+    		width: 410%;
+  		}
 	//デザインなし
 	.rank-pop{
 		display: none;
@@ -856,6 +867,12 @@
 		box-shadow: 2px 8px 13px -4px #b6b4b4;
 	    width: 192px;
 		position: relative;
+		@include media(large) {
+    		margin: 10px;
+  		}
+		@include media(large) {
+    		margin: 5px;
+  		}
 		a{
 			display: block;
 			position: absolute;
@@ -886,6 +903,9 @@
 			white-space: nowrap;
 			text-overflow: ellipsis;
 			overflow: hidden;
+			@include media(large) {
+    			font-size: .8em;
+  			}
 	    }
 	    .ranking-item-title::before{
 	    	content: '';
@@ -897,6 +917,9 @@
 			margin-left: 10px;
 			font-weight: bold;
 			line-height: 15px;
+			@include media(large) {
+    			font-size: .8em;
+  			}
 		}
 	}
 	
@@ -909,6 +932,12 @@
 		box-shadow: 2px 8px 13px -4px #b6b4b4;
 	    width: 192px;
 		position: relative;
+		@include media(large) {
+    		margin: 10px;
+  		}
+		@include media(large) {
+    		margin: 5px;
+  		}
 		a{
 			display: block;
 			position: absolute;
@@ -939,6 +968,9 @@
 			white-space: nowrap;
 			text-overflow: ellipsis;
 			overflow: hidden;
+			@include media(large) {
+    			font-size: .8em;
+  			}
 	    }
 	    .ranking-item-title::before{
 	    	content: '';
@@ -950,6 +982,9 @@
 			margin-left: 10px;
 			font-weight: bold;
 			line-height: 15px;
+			@include media(large) {
+    			font-size: .8em;
+  			}
 		}
 	 
 	}
@@ -963,6 +998,12 @@
 		box-shadow: 2px 8px 13px -4px #b6b4b4;
 	    width: 192px;
 		background-size: cover;
+		@include media(large) {
+    		margin: 10px;
+  		}
+		@include media(large) {
+    		margin: 5px;
+  		}
 		a{
 			display: block;
 			position: absolute;
@@ -1000,6 +1041,9 @@
 			white-space: nowrap;
 			text-overflow: ellipsis;
 			overflow: hidden;
+			@include media(large) {
+    			font-size: .8em;
+  			}
 	    }
 	    .ranking-item-title::before{
 	    	content: '';
@@ -1012,6 +1056,9 @@
 			font-weight: bold;
 			line-height: 15px;
 			color: #FFFFFF;
+			@include media(large) {
+    			font-size: .8em;
+  			}
 		}
 		}
 	  }
@@ -1040,8 +1087,14 @@
 		transform: translate(-50%,-50%);
 		border-radius: 5px;
 		overflow-y: scroll;
-		@include media(medium) {
+		@include media(xlarge) {
     		width: 75%;
+  		}
+		@include media(medium) {
+    		
+  		}
+		@include media(small) {
+    		width: 90%;
   		}
 		.concept-main-title{
 			position: relative;
@@ -1053,6 +1106,15 @@
 			margin: 40px 0;
 			padding: 40px 0;
 			letter-spacing: 5px;
+			@include media(large) {
+    			font-size: 1em;
+  			}
+			@include media(medium) {
+    			font-size: .8em;
+  			}
+			@include media(small) {
+    			
+  			}
 			span {
        			display: inline-block;
        			transition: 1s;
@@ -1089,8 +1151,16 @@
 			line-height: 25px;
 			background-color: rgba(255,255,255,0.4);
 			letter-spacing: 2px;
+			@include media(large) {
+    			font-size: 1em;
+				width: 90%;
+  			}
 			@include media(medium) {
-    			width: 70%;
+    			font-size: .8em;
+
+  			}
+			@include media(small) {
+   
   			}
 		}
 	}
@@ -1111,6 +1181,9 @@
   		margin-bottom: 3em;
 		font-weight: bold;
 		letter-spacing: 5px;
+		@include media(medium) {
+    		font-size: .8em;
+  		}
 		span {
        		display: inline-block;
        		transition: 1s;
@@ -1178,6 +1251,10 @@
 				text-shadow: 1px 1px 10px #000;
 				background-color: rgba(0,0,0,0.17);
 				letter-spacing: 1px;
+				@include media(large) {
+    				font-size: .8em;
+					border: 2px solid;
+  				}
 			}
 			
 			&.show{
@@ -1204,22 +1281,39 @@
 	display: flex;
 	margin: 100px 0;
 	padding: 0 5%;
+	@include media(small) {
+    	flex-direction: column;
+  	}
 	.column_right_1-back-wrap{
 		width: 100%;
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
+		@include media(small) {
+    		height: 200px;
+  		}
 	}
 	.column_right_1-text-wrap{
 		width: 40%;
 		padding: 10px;
 		margin: 0 10px;
+		@include media(small) {
+    		width: 100%;
+			margin: 0;
+			padding: 10px 10px 10px 0;
+  		}
 		.column_right_1-main-title{
 			letter-spacing: 5px;
 			position: relative;
 			width: 100%;
 			font-size: 1.2em;
 			font-weight: bold;
+			@include media(large) {
+    			font-size: 1em;
+  			}
+			@include media(medium) {
+    			font-size: .8em;
+  			}
 		}
 		.column_right_1-main-title::after{
 			content: '';
@@ -1237,6 +1331,16 @@
 		.column_right_1-main-content{
 			padding: 20px 5px;
 			letter-spacing: 2px;
+			@include media(large) {
+    			font-size: 1em;
+  			}
+			@include media(medium) {
+    			font-size: .8em;
+  			}
+			@include media(small) {
+    			margin-bottom: 0;
+				padding: 20px 5px 20px 0;
+  			}
 		}
 	}
 }
