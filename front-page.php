@@ -17,7 +17,6 @@ get_header();
 	}elseif($i_heorheader_type === 'slider'){
 		include(get_template_directory() . '/TOP_PAGE_FILES/top_slider_part.php');
 	}
-	include(get_template_directory() . '/TOP_PAGE_FILES/top_globalheader_part.php');
 ?>
 <?php
 	//告知バナー

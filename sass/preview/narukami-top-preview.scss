@@ -1289,6 +1289,9 @@
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
+		@include media(medium) {
+    			height: 400px;
+  		}
 		@include media(small) {
     		height: 200px;
   		}
@@ -1355,26 +1358,43 @@
 		display: flex;
 		margin: 100px 0;
 		padding: 0 5%;
-
+		@include media(small) {
+    		flex-direction: column;
+  		}
 		.column_left_1-back-wrap {
 			width: 100%;
 			background-size: cover;
 			background-position: center;
 			background-repeat: no-repeat;
+			@include media(medium) {
+    			height: 400px;
+  			}
+			@include media(small) {
+    			height: 200px;
+  			}
 		}
 
 		.column_left_1-text-wrap {
 			width: 40%;
 			padding: 10px;
 			margin: 0 10px;
-
+			@include media(small) {
+    			width: 100%;
+				margin: 0;
+				padding: 10px 10px 10px 0;
+  			}
 			.column_left_1-main-title {
 				position: relative;
 				width: 100%;
 				font-size: 1.2em;
 				font-weight: bold;
 				letter-spacing: 5px;
-
+				@include media(large) {
+    				font-size: 1em;
+  				}
+				@include media(medium) {
+    				font-size: .8em;
+  				}
 				&::after {
 					content: '';
 					position: absolute;
@@ -1388,10 +1408,19 @@
 					border-radius: 2px;
 				}
 			}
-
 			.column_left_1-main-content {
 				padding: 20px 5px;
 				letter-spacing: 2px;
+				@include media(large) {
+    				font-size: 1em;
+  				}
+				@include media(medium) {
+    				font-size: .8em;
+  				}
+				@include media(small) {
+    				margin-bottom: 0;
+					padding: 20px 5px 20px 0;
+  				}
 			}
 		}
 	}
@@ -1405,14 +1434,26 @@
 	display: flex;
 	margin: 100px 0;
 	padding: 0 3%;
+	@include media(small) {
+    	flex-direction: column;
+  	}
 	.column_2_item_wrap{
 		width: 50%;
 		padding: 20px;
+		@include media(small) {
+    		width: 100%;
+  		}
 		.column_2-back-wrap{
 			width: 100%;
 			height: 300px;
 			background-size: cover;
 			background-repeat: no-repeat;
+			@include media(medium) {
+    			font-size: .8em;
+  			}
+			@include media(small) {
+    			height: 200px;
+  			}
 		}
 		.column_2-text-wrap{
 			.column_2-main-title{
@@ -1422,6 +1463,12 @@
 				font-weight: bold;
 				margin: 30px 0 10px;
 				letter-spacing: 5px;
+				@include media(large) {
+    				font-size: .9em;
+  				}
+				@include media(medium) {
+    				font-size: .8em;
+  				}
 			}
 			.column_2-main-title::after{
 				content: '';
@@ -1439,6 +1486,12 @@
 			.column_2-main-content{
 				padding: 20px 0;
 				letter-spacing: 2px;
+				@include media(large) {
+    				font-size: .9em;
+  				}
+				@include media(medium) {
+    				font-size: .8em;
+  				}
 			}
 		}
 	}
@@ -1454,26 +1507,45 @@
 		justify-content: space-evenly;
 		margin: 100px 0;
 		padding: 0 3%;
+		@include media(medium) {
+    		flex-direction: column;
+  		}
 		.column_3_item_wrap {
-			width: 30%;
+			width: 40%;
 			padding: 20px;
-
+			@include media(xlarge) {
+    			width: 30%;
+  			}
+			@include media(medium) {
+    			width: 100%;
+  			}
 			.column_3-back-wrap {
 				width: 100%;
 				height: 300px;
 				background-size: cover;
 				background-repeat: no-repeat;
+				@include media(xlarge) {
+    				height: 250px;
+  				}
+				@include media(small) {
+    				height: 200px;
+  				}
 			}
 
 			.column_3-text-wrap {
 				.column_3-main-title {
 					position: relative;
 					width: 100%;
-					font-size: 1.2em;
+					font-size: 1em;
 					font-weight: bold;
 					margin: 30px 0 10px;
 					letter-spacing: 5px;
-
+					@include media(xlarge) {
+    					font-size: .9em;
+  					}
+					@include media(large) {
+    					font-size: .8em;
+  					}
 					&::after {
 						content: '';
 						position: absolute;
@@ -1491,6 +1563,13 @@
 				.column_3-main-content {
 					padding: 20px 0;
 					letter-spacing: 2px;
+					font-size: 1em;
+					@include media(xlarge) {
+    					font-size: .9em;
+  					}
+					@include media(large) {
+    					font-size: .8em;
+  					}
 				}
 			}
 		}
@@ -1511,6 +1590,12 @@
 			text-align: center;
 			margin: 8% auto;
 			letter-spacing: 5px;
+			@include media(large) {
+    			font-size: 1em;
+  			}
+			@include media(medium) {
+    			font-size: .8em;
+  			}
 		}
 		.text_content-main-content{
 			width: 80%;
@@ -1519,6 +1604,12 @@
 			line-height: 35px;
 			font-size: 1em;
 			letter-spacing: 1px;
+			@include media(large) {
+    			font-size: 1em;
+  			}
+			@include media(medium) {
+    			font-size: .8em;
+  			}
 		}
 	}
 }
@@ -1539,6 +1630,12 @@
   		margin-bottom: 3em;
 		font-weight: bold;
 		letter-spacing: 5px;
+		@include media(xlarge) {
+    			font-size: 1em;
+  		}
+		@include media(medium) {
+    			font-size: .8em;
+  		}
 		span {
        		display: inline-block;
        		transition: 1s;
@@ -1570,14 +1667,26 @@
 	position: relative;
 	display: flex;
 	margin: 0 auto;
+	@include media(medium) {
+    	flex-direction: column-reverse;
+  	}
 	.store_info-text-wrap{
 		width: 30%;
 		padding: 20px;
 		background-color: #000000;
+		@include media(medium) {
+    		width: 100%;
+  		}
 		.adress-detail-title{
 			font-weight: bold;
 			position: relative;
 			color: #ffffff;
+			@include media(xlarge) {
+    			font-size: 1em;
+  			}
+			@include media(medium) {
+    			font-size: .8em;
+  			}
 		}
 		.adress-detail-title::after{
 			content: '';
@@ -1594,6 +1703,12 @@
 		.store_info-main-title{
 			color: #ffffff;
 			font-weight: bold;
+			@include media(xlarge) {
+    			font-size: 1em;
+  			}
+			@include media(medium) {
+    			font-size: .8em;
+  			}
 		}
 	}
 	.store_info-back-wrap{
@@ -1603,6 +1718,10 @@
 			height: 100%;
 			box-sizing: border-box;
 		}
+		@include media(medium) {
+			width: 100%;
+			height: 400px;
+  		}
 	}
 }
 }
@@ -1643,6 +1762,9 @@
 				margin: 0 auto 5%;
 				text-align: center;
 				box-shadow: 0px 4px 2px -3px #b6b4b4;
+				@include media(medium) {
+    				width: 90%;
+  				}
             .parallax-title {
                 position: relative;
                 display: block;
@@ -1653,7 +1775,9 @@
                 margin: 40px 0;
                 padding: 40px 0;
                 letter-spacing: 5px;
-
+				@include media(medium) {
+    				font-size: .8em;
+  				}
                 span {
                     display: inline-block;
                     transition: 1s;
@@ -1692,6 +1816,18 @@
                 letter-spacing: 5px;
 				color: #ffffff;
 				text-shadow: 1px 1px 10px #000;
+				@include media(xlarge) {
+    				font-size: 1.8em;
+  				}
+				@include media(large) {
+    				font-size: 1.4em;
+  				}
+				@include media(medium) {
+    				font-size: 1.2em;
+  				}
+				@include media(small) {
+    				font-size: 1em;
+  				}
 			}
 			.parallax-content{
 				position: absolute;

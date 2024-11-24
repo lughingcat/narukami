@@ -39,6 +39,7 @@ const gmPrimaryTitle = document.querySelectorAll('.gm-primary-title');
 const conceptMainTitle = document.querySelectorAll('.concept-main-title');
 const rankPrimaryTitle = document.querySelectorAll('.r-p-t-prev');
 const storeInfoTitle = document.querySelectorAll('.store-info-p_title');
+const parallaxPrimaryTitle = document.querySelectorAll('.parallax-title');
 // IntersectionObserverのコールバック関数
 const callback = (entries, observer) => {
   entries.forEach(entry => {
@@ -63,6 +64,10 @@ const callback = (entries, observer) => {
 	  if (entry.target.classList.contains('store-info-p_title')) {
 		animateTextWithSpans(entry.target);
 	  }
+		
+	  if (entry.target.classList.contains('parallax-title')) {
+		animateTextWithSpans(entry.target);
+	  }
 		observer.unobserve(entry.target);
     }
   });
@@ -84,6 +89,7 @@ gmPrimaryTitle.forEach(element => observer.observe(element));
 conceptMainTitle.forEach(element => observer.observe(element));
 rankPrimaryTitle.forEach(element => observer.observe(element));
 storeInfoTitle.forEach(element => observer.observe(element));
+parallaxPrimaryTitle.forEach(element => observer.observe(element));
 
 
 //パララックス動作制御

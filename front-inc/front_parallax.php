@@ -30,9 +30,9 @@ if (is_array($parallax_title)) {
 		<div class='parallax-section'>
 			<div class='parallax-layer'>
 				<div class='parallax-title-wrap'>
-					<p class='parallax-title'><?php echo $parallax_primary_title ;?></P>
+					<p class='parallax-title'><?php echo $parallax_primary_title ;?></p>
 				</div>
-				</div>
+			</div>
 		</div>
 		<?php
 		if(isset($pallx_item_Array) && is_array($pallx_item_Array)){
