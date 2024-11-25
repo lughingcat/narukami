@@ -1,3 +1,6 @@
+//ブレイクポイントミックスイン
+@import '../assets/css/media-break';
+
 h1{
 	display: none;
 }
@@ -20,6 +23,9 @@ h1{
 			display: block;
 			text-align: center;
 			margin:  20px auto 5px auto;
+			@include media(large) {
+    			font-size: 1em;
+  			}
 			&::before{
 				content: '';
 				position: absolute;
@@ -41,6 +47,9 @@ h1{
 			text-align: center;
 			box-shadow: 0px 4px 2px -3px #b6b4b4;
 			padding-bottom: 10px;
+			@include media(large) {
+    			font-size: .8em;
+  			}
 		}
 		.narukami-hedding-style2{//見出し２
 			position: relative;
@@ -50,6 +59,10 @@ h1{
 			text-align: left;
 			padding-left: 25px;
 			box-sizing: border-box;
+			@include media(large) {
+    			font-size: 1em;
+				padding-left: 15px;
+  			}
 			&::before{
 				content: '';
 				position: absolute;
@@ -71,7 +84,11 @@ h1{
     			height: 37px;
     			left: 0;
 				top: 0;
-    			background-color: #d16407;	
+    			background-color: #d16407;
+				@include media(large) {
+    				height: 27px;
+					width: 7px;
+  				}
 			}
 		}
 		.narukami-subtitle2{
@@ -80,6 +97,9 @@ h1{
 			text-align: left;
 			padding: 8px 0 10px 14px;
 			box-sizing: border-box;
+			@include media(large) {
+    			font-size: .8em;
+  			}
 		}
 		.narukami-hedding-style3{//見出し3
 			position: relative;
@@ -89,6 +109,10 @@ h1{
 			text-align: left;
 			padding-left: 45px;
 			box-sizing: border-box;
+			@include media(large) {
+    			font-size: 1em;
+				padding-left: 27px;
+  			}
 			&::before{
 				content: '';
 				position: absolute;
@@ -112,6 +136,11 @@ h1{
 				top: 5px;
     			background-color: #0086ad;	
 				border-radius: 50%;
+				@include media(large) {
+    				width: 20px;
+					height: 20px;
+					top: 2px;
+  				}
 			}
 		}
 		.narukami-subtitle3{
@@ -119,6 +148,9 @@ h1{
 			margin: 0 auto 20px;
 			text-align: right;
 			padding: 8px 14px 10px 0;
+			@include media(large) {
+    			font-size: .8em;
+  			}
 		}
 		
 		//商品リストブロック
@@ -129,8 +161,18 @@ h1{
 			padding: 2%;
 			margin-top: 3%;
 			display: grid;
-			grid-template-columns: repeat(4, 1fr);;
-    		gap: 20px;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 20px;
+			@include media(xlarge) {
+    			grid-template-columns: repeat(3, 1fr);
+  			}
+			@include media(medium) {
+    			grid-template-columns: repeat(2, 1fr);
+  			}
+			@include media(small) {
+    			gap: 5px;
+  			}
+    		
 			.item-list{//個別商品wrap
 				color: inherit;
 				max-width: 230px;
@@ -138,14 +180,20 @@ h1{
 				padding: 5%;
 				transition: all 0.1s ease-in-out;
 				border-radius: 5px;
+				@include media(small) {
+    				padding: 8%;
+  				}
 				&:hover{
 					box-shadow: .1px .1px 3px;
 				}
 				img{
 					width: 200px;
 					height: 200px;
-					object-fit: cover;
+					object-fit: contain;
 					object-position: center;
+					@include media(small) {
+    					height: 150px;
+  					}
 				}
 				.product-title{
 					position: relative;
@@ -158,6 +206,12 @@ h1{
 					border-bottom: 1px solid;
 					padding-bottom: 4px;
 					padding-left: 10px;
+					@include media(xlarge) {
+    					font-size: 1em;
+  					}
+					@include media(xlarge) {
+    					font-size: .8em;
+  					}
 					&::before{
 						content: '';
 						position: absolute;
@@ -166,11 +220,21 @@ h1{
 						width: 5px;
 						height: 15px;
 						background-color: #c44545;
+						@include media(small) {
+    						top: 3px;
+							width: 3px;
+  						}
 					}
 				}
 				.product-price{
 					margin-top: 0.6em;
 					margin-bottom: 0;
+					@include media(xlarge) {
+    					font-size: 1em;
+  					}
+					@include media(xlarge) {
+    					font-size: .8em;
+  					}
 				}
 				
 			}
@@ -185,6 +249,9 @@ h1{
 			.slider-title-list-page{//slider title
 				width: 100%;
 				padding-bottom: 5px;
+				@include media(large) {
+    				font-size: 1em;
+  				}
 			}
 			.narukami-product-slider{//スライダ-wrap
 				.slide-items{
@@ -196,7 +263,7 @@ h1{
 						width: 100%;
 						height: 80%;
 						object-fit: cover;
-						object-position: center;		
+						object-position: center;
 					}
 					.product-title{
 						position: relative;
@@ -206,6 +273,9 @@ h1{
     					overflow: hidden;
     					text-overflow: ellipsis;
 						padding-left: 10px;
+						@include media(large) {
+    						font-size: 1em;
+  						}
 						&::before{
 							content: '';
 							position: absolute;
@@ -219,6 +289,9 @@ h1{
 					}
 					.product-price{
 						width: 100%;
+						@include media(large) {
+    						font-size: 1em;
+  						}
 						
 					}
 					

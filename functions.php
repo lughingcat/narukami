@@ -458,6 +458,8 @@ function enqueue_narukami_top_preview_assets() {
             autoplay: true,
             autoplaySpeed: 2000,
             cssEase: "ease-in-out",
+			accessibility: true,
+  			focusOnChange: false,
             dots: true
         	});
     	});

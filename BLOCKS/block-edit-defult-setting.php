@@ -38,7 +38,6 @@ function render_narukami_heading_block( $block_content, $block ) {
 		}elseif( isset( $block['attrs']['narukami_subtitle'] ) 
     		&& ! empty( $block['attrs']['narukami_subtitle'] ) 
     		&& isset( $block['attrs']['className'] )
-			&& isset( $block['attrs']['narukami_subtitleAlignment'] )
     		&& strpos( $block['attrs']['className'], 'narukami-hedding-style3' ) !== false){
 			
 			$subtitle = '<p class="wp-block-heading narukami-subtitle3" style="text-align: ' . $alignment . ';">' . esc_html( $block['attrs']['narukami_subtitle'] ) . '</p>';
