@@ -68,8 +68,8 @@ function insert_default_blocks_on_post_create($post_id, $post, $update) {
 	<!-- /wp:heading -->
 	
 	<!-- wp:itemlist-custom-block/image-slider-block {"sliderTitle":"期間限定商品、おすすめ商品など入力してください。","slides":[{"productImage":"","productTitle":"","productPrice":""}]} -->
-           <div class="wp-block-itemlist-custom-block-image-slider-block slider-container">
-           <h2 class="slider-title">期間限定商品、おすすめ商品など入力してください。</h2>
+           <div class="wp-block-itemlist-custom-block-image-slider-block slider-container-list-page">
+           <h2 class="slider-title-list-page">期間限定商品、おすすめ商品など入力してください。</h2>
            <div class="narukami-product-slider">
            <div class="slide-items">
            <img src="" alt="Product Image"/>

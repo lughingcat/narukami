@@ -2,6 +2,10 @@
 @import '../../assets/css/animate_mixin';
 @import '../../assets/css/media-break';
 
+//開発段階エレメント操作
+#wpadminbar{
+	display: none;
+}
 //フッタースタイル
 .footer-all-wrap{//全体wrap
 	width: 100vw;
@@ -13,10 +17,16 @@
 		position: relative;
 		display: flex;
 		padding: 4%;
+		@include media(medium) {
+    		flex-direction: column;
+  		}
 		.footer-left-wrap{//left wrap
 			text-align: center;
 			width: 40%;
 			box-sizing: border-box;
+			@include media(medium) {
+    			width: 100%;
+  			}
 			.footer-rogo-wrap{//rogo wrap
 				text-align: center;
 				img{
@@ -74,6 +84,10 @@
 		.footer-right-wrap{//right wrap
 			width: 100%;
 			box-sizing: border-box;
+			@include media(medium) {
+    			width: 100%;
+				margin: 20px auto 0;
+  			}
 			.footer-link-wrap{
 				position: relative;
 				.footer-right-title{//title
@@ -89,12 +103,19 @@
 					list-style: none;
 					margin: 0;
 					padding: 0;
+					@include media(medium) {
+    					flex-direction: column;
+  					}
 					li{
 						flex: 1 1  calc(20% - 20px);
 						margin: 2% auto;
 						text-decoration: none;
 						border-left: 1px solid;
 						padding: 0 0 0 10px;
+						@include media(medium) {
+    						margin: 2%;
+							border-left: 3px solid;
+  						}
 						a{
 							text-decoration: none;
 						}

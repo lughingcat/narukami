@@ -1,4 +1,7 @@
 @charset "UTF-8";
+#wpadminbar {
+  display: none; }
+
 .footer-all-wrap {
   width: 100vw;
   padding: 30px 30px 10px 0;
@@ -9,10 +12,16 @@
     position: relative;
     display: flex;
     padding: 4%; }
+    @media (max-width: 768px) {
+      .footer-all-wrap .footer-back-wrap {
+        flex-direction: column; } }
     .footer-all-wrap .footer-back-wrap .footer-left-wrap {
       text-align: center;
       width: 40%;
       box-sizing: border-box; }
+      @media (max-width: 768px) {
+        .footer-all-wrap .footer-back-wrap .footer-left-wrap {
+          width: 100%; } }
       .footer-all-wrap .footer-back-wrap .footer-left-wrap .footer-rogo-wrap {
         text-align: center; }
         .footer-all-wrap .footer-back-wrap .footer-left-wrap .footer-rogo-wrap img {
@@ -64,6 +73,10 @@
     .footer-all-wrap .footer-back-wrap .footer-right-wrap {
       width: 100%;
       box-sizing: border-box; }
+      @media (max-width: 768px) {
+        .footer-all-wrap .footer-back-wrap .footer-right-wrap {
+          width: 100%;
+          margin: 20px auto 0; } }
       .footer-all-wrap .footer-back-wrap .footer-right-wrap .footer-link-wrap {
         position: relative; }
         .footer-all-wrap .footer-back-wrap .footer-right-wrap .footer-link-wrap .footer-right-title {
@@ -78,12 +91,19 @@
           list-style: none;
           margin: 0;
           padding: 0; }
+          @media (max-width: 768px) {
+            .footer-all-wrap .footer-back-wrap .footer-right-wrap .footer-link-wrap .subfooter-ul-wrap {
+              flex-direction: column; } }
           .footer-all-wrap .footer-back-wrap .footer-right-wrap .footer-link-wrap .subfooter-ul-wrap li {
             flex: 1 1 calc(20% - 20px);
             margin: 2% auto;
             text-decoration: none;
             border-left: 1px solid;
             padding: 0 0 0 10px; }
+            @media (max-width: 768px) {
+              .footer-all-wrap .footer-back-wrap .footer-right-wrap .footer-link-wrap .subfooter-ul-wrap li {
+                margin: 2%;
+                border-left: 3px solid; } }
             .footer-all-wrap .footer-back-wrap .footer-right-wrap .footer-link-wrap .subfooter-ul-wrap li a {
               text-decoration: none; }
   .footer-all-wrap .copy-right-text {
