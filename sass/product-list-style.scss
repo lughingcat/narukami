@@ -304,19 +304,48 @@ h1{
 			position: relative;
 			display: flex;
 			margin: 8% auto;
+			@include media(large) {
+    			flex-direction: column;
+  			}
 			.product-slider-block{//left all wrap
 				width: 100%;
 				padding: 20px;
+				@include media(large) {
+    				padding: 0;
+					margin-bottom: 20px;
+  				}
 				.slider-container,
 				.slick-slide{
 					position: relative;
-					width: 440px;
+					width: 500px;
 					height: 350px;
 					display: block;
-					margin: 0 auto 10%;
+					margin: 0 auto 10% auto;
+					@include media(large) {
+    					width: 500px;
+  					}
+					@include media(medium) {
+    					width: 400px;
+						height: 300px;
+  					}
+					@include media(small) {
+    					width: 280px;
+						height: 250px;
+  					}
 					.slide-wrapper{//img wrap
 						width: 500px;
 						height: 350px;
+						@include media(large) {
+    						width: 500px;
+  						}
+						@include media(medium) {
+    						width: 400px;
+							height: 300px;
+  						}
+						@include media(small) {
+    						width: 280px;
+							height: 250px;
+  						}
 						img{
 							width: 100%;
 							height: 100%;
@@ -324,7 +353,7 @@ h1{
 						}
 					}
 					.slick-dots{
-						padding-right: 50px;
+						
 					}
 					.slick-prev{
 						left: -25px;
@@ -358,6 +387,9 @@ h1{
 					border-bottom: 1px solid;
 					font-size: 1.2em;
 					font-weight: bold;
+					@include media(large) {
+    					font-size: 1em;
+  					}
 				}
 				.sub-prices{
 					margin: 10px auto;
@@ -377,16 +409,27 @@ h1{
 			padding: 20px;
 			position: relative;
 			margin: 10% auto;
+			h2{
+				@include media(medium) {
+    				font-size: 1.2em;
+  				}
+			}
 			.ingredients-list{//原材料見出しwrap
 				.ingredient-headers{//.../.../
 					display: inline-block;
 					border-bottom: 1px solid;
 					height: 43px;
 					margin-bottom: 12px;
+					@include media(medium) {
+    					font-size: 1em;
+  					}
 				}
 				.ingredient-item{//border付与
 					border-bottom: 1px solid;
 					height: 30px;
+					@include media(medium) {
+    					font-size: .8em;
+  					}
 				}
 			}
 		}
@@ -396,8 +439,16 @@ h1{
 			padding: 20px;
 			position: relative;
 			margin: 10% auto;
+			h2{
+				@include media(medium) {
+    				font-size: 1.2em;
+  				}
+			}
 			p{
 				border-bottom: 1px solid;
+				@include media(medium) {
+    					font-size: .8em;
+  				}
 				.allergy-item{
 					position: relative;
 					margin: 0 13px;
@@ -409,6 +460,10 @@ h1{
 						position: absolute;
 						left: -10px;
 						top: 4px;
+						@include media(medium) {
+    						top: 3px;
+							height: 11px;
+  						}
 					}
 				}
 			}
