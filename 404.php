@@ -11,49 +11,29 @@ get_header();
 ?>
 
 	<main id="primary" class="site-main">
+		<?php
+		//コンテンツ
+		$i_page404_title = sanitize_option_value(get_option('page404-title'));
+		$i_page404_title_color = sanitize_option_value(get_option('notfound-text-color'));
+		$i_page404_title_shadow = sanitize_option_value(get_option('notfound-text-shadow'));
 
-		<section class="error-404 not-found">
-			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'narukami_all_theme_item' ); ?></h1>
-			</header><!-- .page-header -->
-
-			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'narukami_all_theme_item' ); ?></p>
-
-					<?php
-					get_search_form();
-
-					the_widget( 'WP_Widget_Recent_Posts' );
-					?>
-
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'narukami_all_theme_item' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories(
-								array(
-									'orderby'    => 'count',
-									'order'      => 'DESC',
-									'show_count' => 1,
-									'title_li'   => '',
-									'number'     => 10,
-								)
-							);
-							?>
-						</ul>
-					</div><!-- .widget -->
-
-					<?php
-					/* translators: %1$s: smiley */
-					$narukami_all_theme_item_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'narukami_all_theme_item' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$narukami_all_theme_item_archive_content" );
-
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
-
-			</div><!-- .page-content -->
-		</section><!-- .error-404 -->
-
+		//check is shadow type
+		if(empty($i_page404_title_shadow)){
+			$notfound_text_shadow_value = "";
+		}else{
+			$notfound_text_shadow_value = "1px 1px 35px" . $i_page404_title_shadow;
+		}
+		?>
+		<style>
+		.notfound-title{
+			color: <?php echo $i_page404_title_color; ?>;
+			text-shadow: <?php echo $notfound_text_shadow_value; ?>;
+		}
+		</style>
+		<div class="notfound_all_wrap">
+			<p class="notfound-title"><?php echo $i_page404_title?></p>
+			<a class="notfound-title notfound-linktext" href="<?php echo home_url(); ?>">ホームに戻る。</a>
+		</div>
 	</main><!-- #main -->
 
 <?php

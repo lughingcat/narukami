@@ -404,7 +404,7 @@ add_action('enqueue_block_editor_assets', 'apply_custom_background_in_block_edit
  */
 function enqueue_narukami_top_preview_assets() {
     // プレビューページ又はシングルページ,カスタム投稿ページかどうかをチェック
-    if (is_preview() || is_singular() || is_front_page()) {
+    if (is_preview() || is_singular() || is_front_page() || is_404()) {
         // CSSファイルをエンキュー
         wp_enqueue_style('narukami-top-preview', get_template_directory_uri() . '/sass/preview/narukami-top-preview.css', array(), time());
         wp_enqueue_style('narukami-product-list', get_template_directory_uri() . '/sass/product-list-style.css', array(), time());

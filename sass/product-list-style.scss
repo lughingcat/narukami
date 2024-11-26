@@ -4,8 +4,10 @@
 h1{
 	display: none;
 }
-.site{
-	min-height: 1700px;
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 .product-item-page-content,
 .product-list-page-content{
@@ -582,8 +584,8 @@ h1{
 		}
 		//ヒーローヘッダースタイル
 		.hero-header-block{
-			width: 100%;
-			height: 100%;
+			width: 100vw;
+			height: 100vh;
 			position: relative;
 			.hero-header-image{
 				width: 100%;
@@ -600,8 +602,19 @@ h1{
 				top: 50%;
 				left: 50%;
 				transform: translate(-50%,-50%);
+				width: 100% !important;
+				text-align: center;
 				h2{
-					
+					@include media(xlarge) {
+						width: 100%;
+    					font-size: 1.5em !important;
+  					}
+					@include media(large) {
+    					font-size: 1.2em !important;
+  					}
+					@include media(medium) {
+    					font-size: 1em !important;
+  					}
 				}
 			}
 		}
@@ -616,6 +629,9 @@ h1{
 				display: flex;
 				position: relative;
 				margin: 0 auto;
+				@include media(large) {
+    				flex-direction: column;
+  				}
 				.column{
 					width: 100%;
 					position: relative;
@@ -624,6 +640,9 @@ h1{
 						width: 450px;
 						height: 250px;
 						object-fit: cover;
+						@include media(large) {
+    						width: 100%;
+  						}
 					}
 					h2{
 						border-bottom: 1px solid;
@@ -631,6 +650,9 @@ h1{
 						padding-bottom: 10px;
 						font-size: 1.2em;
 						position: relative;
+						@include media(medium) {
+    						font-size: 1em;
+  						}
 						&::before{
 							content: '';
 							width: 5px;
@@ -639,7 +661,16 @@ h1{
 							position: absolute;
 							top: 5px;
 							left: 0;
+							@include media(medium) {
+    							top: 3px;
+								height: 19px;
+  							}
 						}
+					}
+					p{
+						@include media(medium) {
+    						font-size: .8em;
+  						}
 					}
 				}
 			}
@@ -651,23 +682,40 @@ h1{
 			background-position: center;
 			background-repeat: no-repeat;
 			background-size: cover;
+			@include media(large) {
+    			flex-direction: column !important;
+  			}
 			.bg-title-heding-left{
 				width: 50%;
 				text-align: center;
+				@include media(large) {
+    				width: 100%;
+					margin-top: 10%;
+  				}
 				h2{
 					font-size: 2em;
 					font-weight: bold;
 					margin-bottom: 10px;
+					@include media(large) {
+    					font-size: 1.3em;
+  					}
 				}
 				p{
 					font-size: 1.2em;
+					@include media(large) {
+    					font-size: 1em;
+  					}
 				}
 			}
 			.bg-title-heding-right{
 				position: relative;
 				width: 50%;
-				p{
+				@include media(large) {
+    				font-size: .8em;
 					width: 80%;
+  				}
+				p{
+					text-align: left !important;
 				}
 			}
 		}
@@ -676,36 +724,84 @@ h1{
 			width: 100%;
 			margin: 0 auto;
 			padding: 5%;
+			@include media(medium) {
+    			flex-direction: column !important;
+  			}
+			div{
+				@include media(medium) {
+    				flex-direction: column !important;
+					width: 100% !important;
+					padding-left: 0 !important;
+  				}	
+			}
 			h2{
 				margin-top: 0;
 				border-bottom: 1px solid;
 				margin-bottom: 8px;
+				font-size: 1.2em;
+				@include media(xlarge) {
+    				font-size: 1.1em;
+  				}
+				@include media(medium) {
+    				font-size: 1em;
+					margin-top: 20px;
+					padding: 0 !important;
+  				}
+			}
+			p{
+				@include media(medium) {
+    				font-size: .8em;
+  				}
 			}
 		}
 		//ロゴコンテンツブロック
 		.rogo-content-wrap{
 			img{
-				
+				@include media(large) {
+    				max-width: 100px !important;
+  				}
 			}
 			.rogo-content-text{
 				width: 80%;
 				padding: 5%;
+				width: 60%;
+				@include media(large) {
+    				font-size: .8em !important;
+					width: 80%;
+  				}
 			}
 		}
 		//可変式画像とコンテンツ
 		.img-content-variable-wrap{
 			padding: 5%;
-
+			@include media(medium) {
+    			flex-direction: column !important;
+				margin: 20px auto;
+  			}
 			img{
 				height: 300px;
     			object-fit: cover;
     			object-position: center;
+				
 			}
-			h2{
-				padding: 0 20px;
-			}
-			p{
-				padding: 20px;
+			div{
+				@include media(medium) {
+    				padding: 0 !important;
+  				}
+				h2{
+					padding: 0 20px;
+					@include media(medium) {
+    					font-size: .8em !important;
+						padding: 0 !important;
+  					}
+				}
+				p{
+					padding: 20px;
+					@include media(medium) {
+    					font-size: .7em !important;
+						padding: 0 !important;
+  					}
+				}
 			}
 		}
 		//大きな画像とコンテンツブロック
@@ -715,6 +811,12 @@ h1{
 			.content-container{
 				width: 80%;
 				margin: 0 auto;
+				@include media(large) {
+    				font-size: 1em;
+  				}
+				@include media(medium) {
+    				font-size: .8em;
+  				}
 				.content-text{
 					padding: 20px;
 				}
@@ -723,6 +825,9 @@ h1{
 				width: 80%;
 				position: relative;
 				margin: 0 auto;
+				@include media(medium) {
+    				width: 100% !important;
+  				}
 				img{
 					width: 100%;
 					height: 500px;
