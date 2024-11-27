@@ -225,12 +225,24 @@
 		border-radius: 3px;
 		transition: transform 0.2s ease-out;//左に飛ばすアニメーション
 		pointer-events: auto;
+		@include media(small) {
+			width: 35px;
+			height: 35px;
+			top: 4%;
+			left: 4%;
+  		}
 		&.wrap-change{
 			border-radius: 50%;
 			width: 35px;
 			height: 35px;
 			top: 8%;
 			left: 2%;
+			@include media(small) {
+				width: 35px;
+				height: 35px;
+				top: 4%;
+				left: 4%;
+  			}
 		}
 		.span-wrap{
 			width: 80%;
@@ -240,6 +252,9 @@
     		top: 50%;
     		left: 50%;
     		transform: translate(-50%, -50%);
+			@include media(small) {
+				top: 43%;
+  			}
 			.span-text{
 				font-weight: bold;
 				transition: 0.4s;
@@ -261,6 +276,9 @@
 				transition: transform 0.4s;
 			}
 			&.global-open {
+				@include media(small) {
+					top: 48%;
+  				}
     			span {
 					margin: 2px auto;
      				&:nth-child(1) {
@@ -1934,13 +1952,16 @@
 	.notfound-title{
 		width: 100%;
 		text-align: center;
-		font-size: 3em;
+		font-size: 2em;
 		position: absolute;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
+		@include media(large) {
+    		font-size: 1.5em;
+  		}
 		&.notfound-linktext{
-			font-size: 1.5em;
+			font-size: 1em;
 			top: 70%;
 			text-decoration: none;
 		}
@@ -2004,5 +2025,27 @@
   				display: block;
 			}
 		}
+	}
+}
+//スクロールトップボタンスタイル
+.scroll-top-btn{
+	width: 40px;
+	height: 40px;
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	border: none;
+	border-radius: 3px;
+	@include media(small) {
+    	width: 30px;
+		height: 30px;
+  	}
+	.fas.fa-chevron-up,
+	.fas.fa-arrow-up,
+	.fas.fa-caret-up{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
 	}
 }

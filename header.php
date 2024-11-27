@@ -20,18 +20,29 @@
 	<?php wp_head(); ?>
 </head>
 	
-<?php
+<?php  
+$notfoundpage_bg_type = sanitize_option_value(get_option('page404bg-type'));
+$notfound_original_img = sanitize_option_value(get_option('notfoundpage-bg-img'));
 $narukami_font_family = sanitize_option_value(get_option('narukami-font-family'));
 $i_background_image = sanitize_option_value(get_option('background_image'));
 $i_background_image_custom_option = get_background_image();
-	//bg select
+	//404ページBG分岐
+	if($notfoundpage_bg_type === "main-bg-img"){
+		$notfound_img = $i_background_image;
+	}elseif($notfoundpage_bg_type === "original404-bg-img"){
+		$notfound_img = $notfound_original_img;
+	}
+	//bg select トップページとシングルページと404
 	if(is_singular('product_lp_page')){
 		$bg_img_url = get_post_meta(get_the_ID(), 'background_image', true);
+	}elseif(is_404()){
+		$bg_img_url = $notfound_img;
 	}elseif($i_background_image){
 		$bg_img_url = $i_background_image;
 	}else{
 		$bg_img_url = $i_background_image_custom_option;
 	}
+	
 ?>
 	
 <style>

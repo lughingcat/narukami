@@ -169,3 +169,34 @@ document.addEventListener('DOMContentLoaded',function(){
 		});
 	}
 });
+
+//スクロールトップボタン制御
+
+document.addEventListener('DOMContentLoaded', function () {
+    const scrollTopBtn = document.querySelector('.scroll-top-btn');
+
+    if (!scrollTopBtn) {
+        return;
+    }
+
+    
+    scrollTopBtn.addEventListener('click', function () {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // スクロール位置に応じてボタンを表示/非表示
+    window.addEventListener('scroll', function () {
+        if (window.scrollY > 300) { // 300px以上スクロールしたら表示
+            scrollTopBtn.style.display = 'block';
+        } else {
+            scrollTopBtn.style.display = 'none';
+        }
+    });
+
+    // 初期状態で非表示
+    scrollTopBtn.style.display = 'none';
+});
+

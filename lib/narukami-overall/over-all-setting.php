@@ -88,7 +88,7 @@
 					<div id="icon-preview" class="scroll-icon-preview" 
 						 style="color: <?php echo $i_scroll_btn_arrow_color; ?>;">
 					</div>
-					<select id="icon-select">
+					<select id="icon-select" name="arrow-type">
 					    <option value="fas fa-chevron-up">Chevron Up</option>
 					    <option value="fas fa-arrow-up">Arrow Up</option>
 					    <option value="fas fa-caret-up">Caret Up</option>

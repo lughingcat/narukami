@@ -200,12 +200,24 @@
     border-radius: 3px;
     transition: transform 0.2s ease-out;
     pointer-events: auto; }
+    @media (max-width: 576px) {
+      .globalmenu-content-all-wrap .humberger-button-wrap {
+        width: 35px;
+        height: 35px;
+        top: 4%;
+        left: 4%; } }
     .globalmenu-content-all-wrap .humberger-button-wrap.wrap-change {
       border-radius: 50%;
       width: 35px;
       height: 35px;
       top: 8%;
       left: 2%; }
+      @media (max-width: 576px) {
+        .globalmenu-content-all-wrap .humberger-button-wrap.wrap-change {
+          width: 35px;
+          height: 35px;
+          top: 4%;
+          left: 4%; } }
     .globalmenu-content-all-wrap .humberger-button-wrap .span-wrap {
       width: 80%;
       height: 55%;
@@ -214,6 +226,9 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%); }
+      @media (max-width: 576px) {
+        .globalmenu-content-all-wrap .humberger-button-wrap .span-wrap {
+          top: 43%; } }
       .globalmenu-content-all-wrap .humberger-button-wrap .span-wrap .span-text {
         font-weight: bold;
         transition: 0.4s;
@@ -231,6 +246,9 @@
         background-color: #ffffff;
         border-radius: 2px;
         transition: transform 0.4s; }
+      @media (max-width: 576px) {
+        .globalmenu-content-all-wrap .humberger-button-wrap .span-wrap.global-open {
+          top: 48%; } }
       .globalmenu-content-all-wrap .humberger-button-wrap .span-wrap.global-open span {
         margin: 2px auto; }
         .globalmenu-content-all-wrap .humberger-button-wrap .span-wrap.global-open span:nth-child(1) {
@@ -1980,13 +1998,16 @@
   .notfound_all_wrap .notfound-title {
     width: 100%;
     text-align: center;
-    font-size: 3em;
+    font-size: 2em;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); }
+    @media (max-width: 992px) {
+      .notfound_all_wrap .notfound-title {
+        font-size: 1.5em; } }
     .notfound_all_wrap .notfound-title.notfound-linktext {
-      font-size: 1.5em;
+      font-size: 1em;
       top: 70%;
       text-decoration: none; }
 
@@ -2040,3 +2061,23 @@
       .banner-all-wrap .banner-content-wrap .banner-close-button::before {
         content: '×';
         display: block; }
+
+.scroll-top-btn {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  border: none;
+  border-radius: 3px; }
+  @media (max-width: 576px) {
+    .scroll-top-btn {
+      width: 30px;
+      height: 30px; } }
+  .scroll-top-btn .fas.fa-chevron-up,
+  .scroll-top-btn .fas.fa-arrow-up,
+  .scroll-top-btn .fas.fa-caret-up {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }

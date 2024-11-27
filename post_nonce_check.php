@@ -250,6 +250,7 @@ function update_custom_option_overall() {
         $scroll_btn_bg_color = sanitize_option_value($_POST['scroll-btn-bg-color']);
         $scroll_btn_arrow_color = sanitize_option_value($_POST['scroll-btn-arrow-color']);
         $scroll_btn_active = sanitize_option_value($_POST['scroll-btn-active']);
+        $scroll_btn_arrow_type = sanitize_option_value($_POST['arrow-type']);
         $call_btn_active = sanitize_option_value($_POST['call-btn-active']);
         $call_btn_bg_color = sanitize_option_value($_POST['call-btn-bg-color']);
 		
@@ -258,6 +259,7 @@ function update_custom_option_overall() {
         update_option('narukami-favicon-image', $narukami_favicon_image);
         update_option('scroll-btn-bg-color', $scroll_btn_bg_color);
         update_option('scroll-btn-arrow-color', $scroll_btn_arrow_color);
+        update_option('arrow-type', $scroll_btn_arrow_type);
         update_option('scroll-btn-active', $scroll_btn_active);
         update_option('call-btn-active', $call_btn_active);
         update_option('call-btn-bg-color', $call_btn_bg_color);
