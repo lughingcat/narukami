@@ -16,6 +16,7 @@
 				$i_scroll_btn_active = sanitize_option_value(get_option('scroll-btn-active', 'scroll-on'));
 				$i_call_btn_active = sanitize_option_value(get_option('call-btn-active', 'call-btn-on'));
 				$i_call_btn_bg_color = sanitize_option_value(get_option('call-btn-bg-color'));
+				$i_store_smartphone_number = filter_var(get_option('store-smartphone-number'), FILTER_SANITIZE_NUMBER_INT);
 				//bg select
 				if($i_background_image){
 					$bg_img_url = $i_background_image;
@@ -138,8 +139,10 @@
         	  		'ボタンの背景色'
         			);
 					?> 
+					</div
+					<p>お店の電話番号を入力してください。</p>
+					<input type="text" name="store-smartphone-number" class="img-setect-url" value=<?php echo $i_store_smartphone_number; ?> placeholder="半角数字で入力してください。例: 09077778888">
 					</div>
-				</div>
 				
 			
 				<div class="control-setting-btn">

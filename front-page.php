@@ -368,5 +368,15 @@ get_header();
      '</button>';
 	}
 ?>
+<?php 
+	$call_btn_value = sanitize_option_value(get_option('call-btn-active'));
+	$call_btn_bgcolor = sanitize_option_value(get_option('call-btn-bg-color'));
+	$store_smartphone_number = filter_var(get_option('store-smartphone-number'), FILTER_SANITIZE_NUMBER_INT);
+	if($call_btn_value === "call-btn-on"){
+		echo '<a href="tel:' . $store_smartphone_number . '" class="store-call-btn">' .
+     '<i style="color: ' . $call_btn_bgcolor . ';" class="fas fa-phone-square"></i>' .
+     '</a>';
+	}
+?>
 <?php
 get_footer();

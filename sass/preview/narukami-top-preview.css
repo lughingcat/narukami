@@ -2066,10 +2066,11 @@
   width: 40px;
   height: 40px;
   position: fixed;
-  bottom: 10px;
+  bottom: 60px;
   right: 10px;
   border: none;
-  border-radius: 3px; }
+  border-radius: 3px;
+  z-index: 100; }
   @media (max-width: 576px) {
     .scroll-top-btn {
       width: 30px;
@@ -2081,3 +2082,23 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); }
+
+.store-call-btn {
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  bottom: 60px;
+  left: 10px;
+  border: none;
+  display: none;
+  background-color: transparent; }
+  @media (max-width: 576px) {
+    .store-call-btn {
+      display: block; } }
+  .store-call-btn .fas.fa-phone-square {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+    .store-call-btn .fas.fa-phone-square::before {
+      font-size: 35px; }
