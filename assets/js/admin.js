@@ -1451,6 +1451,10 @@ function uploaderOpenClick(button) {
 	var singleName = buttonId.replace(/_btn|\d/g, '');
 	var insertIdName = button.getAttribute('data-insert-id');
 	var insertLastNumber = parseInt(insertIdName.match(/\d+$/)[0]);
+	console.log(buttonId);
+	console.log(singleName);
+	console.log(insertIdName);
+	console.log(insertLastNumber);
     initializeUploader(jQuery, singleName, insertIdName, insertLastNumber);
   }
 
