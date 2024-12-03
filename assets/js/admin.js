@@ -1448,7 +1448,7 @@ function singleUploderVideo($, name){
 //idをクリックしたボタンから抜き出し、アップローダ関数を実行(single)
 function uploaderOpenClick(button) {
     var buttonId = button.id;
-	var singleName = buttonId.replace(/_btn|\d/g, '');
+	var singleName = buttonId.replace(/_btn/g, '');
 	var insertIdName = button.getAttribute('data-insert-id');
 	var insertLastNumber = parseInt(insertIdName.match(/\d+$/)[0]);
 	console.log(buttonId);
@@ -1461,7 +1461,7 @@ function uploaderOpenClick(button) {
 //削除ボタンの実装(single)
 function uploaderdeleteClick(button) {
     var buttonIdDel = button.id;
-	var singleNameDel = buttonIdDel.replace(/_clear|\d/g, '');
+	var singleNameDel = buttonIdDel.replace(/_clear/g, '');
 	var insertIdName = button.getAttribute('data-insert-id');
 	var insertLastNumber = parseInt(insertIdName.match(/\d+$/)[0]);
     deleteImgUploader(jQuery, singleNameDel, insertIdName, insertLastNumber); 

@@ -1183,6 +1183,7 @@
           .n-section-block .ranking-all-back-wrap .ranking-all-wrap .circle .ranking-img img {
             max-width: 100%;
             object-fit: cover;
+            object-position: center;
             border-radius: 50%;
             width: 180px;
             height: 180px;
@@ -1239,6 +1240,7 @@
             width: 200px;
             height: 200px;
             object-fit: cover;
+            object-position: center;
             box-sizing: border-box;
             border-radius: 5px; }
         .n-section-block .ranking-all-back-wrap .ranking-all-wrap .clipping .ranking-item-title {
@@ -1271,7 +1273,8 @@
         background-color: #ffffff;
         box-shadow: 2px 8px 13px -4px #b6b4b4;
         width: 192px;
-        background-size: cover; }
+        background-size: cover;
+        background-position: center; }
         @media (max-width: 992px) {
           .n-section-block .ranking-all-back-wrap .ranking-all-wrap .overlay {
             margin: 10px; } }

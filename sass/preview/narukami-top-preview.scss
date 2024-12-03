@@ -979,6 +979,7 @@
 			img{
 				max-width: 100%;
 				object-fit: cover;
+				object-position: center;
 				border-radius: 50%;
 				width: 180px;
 				height: 180px;
@@ -1046,6 +1047,7 @@
 				width: 200px;
 				height: 200px;
 				object-fit: cover;
+				object-position: center;
 				box-sizing: border-box;
 				border-radius: 5px;
 			}
@@ -1089,6 +1091,7 @@
 		box-shadow: 2px 8px 13px -4px #b6b4b4;
 	    width: 192px;
 		background-size: cover;
+		background-position: center;
 		@include media(large) {
     		margin: 10px;
   		}
