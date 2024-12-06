@@ -12,7 +12,12 @@ const { select } = wp.data;
 // Slick初期化関数
 const initializeSlickSlider = () => {
     const $slider = jQuery(".selected-images");
-
+	console.log("Slider element found:", $slider.length);
+	
+	if ($slider.length === 0) {
+        console.warn("Slider element not found, skipping initialization.");
+        return;
+    }
     // すでに初期化されている場合は破棄
     if ($slider.hasClass("slick-initialized")) {
         $slider.slick("unslick");
@@ -117,16 +122,22 @@ registerBlockType('item-introduction-block/introduction-block', {
         };
 
         const onSelectImages = (media) => {
-            const newImages = media.map((img) => ({
-                id: img.id,
-                url: img.url
-            }));
-            setAttributes({ sliderImages: newImages });
+			// 単一選択の場合は配列に変換
+   		const selectedImages = Array.isArray(media) ? media : [media];
 			
-			setTimeout(() => {
-        		initializeSlickSlider();
-    		}, 500); 
-        };
+   		const newImages = selectedImages.map((img) => ({
+   		    id: img.id,
+   		    url: img.url
+   		}));
+			
+    	setAttributes({ sliderImages: newImages });
+
+
+   		// Slickスライダー初期化の遅延処理
+   		setTimeout(() => {
+   		    initializeSlickSlider();
+   		}, 500);
+		};
 
         return createElement(Fragment, null,
             createElement("div", { className: "product-slider-block" },

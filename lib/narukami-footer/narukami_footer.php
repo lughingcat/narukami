@@ -23,6 +23,10 @@ $instagram_sns_link = sanitize_option_value(get_option('instagram-linkurl'));
 $facebook_sns_link = sanitize_option_value(get_option('facebook-linkurl'));
 $line_sns_link = sanitize_option_value(get_option('line-linkurl'));
 $youtube_sns_link = sanitize_option_value(get_option('youtube-linkurl'));
+
+//フッターロゴ画像
+$i_site_rogo_img_url_footer = esc_url(get_option('header-rogo-url'));
+
 // 連想配列を作成
 $footer_items_Array = array();
 			
@@ -54,7 +58,7 @@ if (is_array($i_footer_title_array)) {
 		 style="color: <?php echo $footer_textcolor; ?>">
 		<div class="footer-left-wrap">
 			<div class="footer-rogo-wrap">
-				<img src="https://nousondiner.com/wp-content/uploads/2022/03/rogomainver.5.0.0-2.png" alt="ROGO">
+				<img src="<?php echo $i_site_rogo_img_url_footer; ?>" alt="ROGO">
 			</div>
 				<div class="footer-sns-wrap">
 					<a href="<?php echo $twitter_sns_link; ?>" style="display: <?php echo $twitter_switch_value['display']; ?>;">

@@ -506,7 +506,7 @@
 		}
 	}
 	.animetion-prewrap{
-		position: absolute;
+		position: fixed;
     	top: 0;
     	left: 0;
     	height: 100%;
@@ -581,7 +581,7 @@
 		}
 	}
 	.animetion-prewrap{
-		position: absolute;
+		position: fixed;
     	top: 0;
     	left: 0;
     	height: 100%;
@@ -657,7 +657,7 @@
 		}
 	}
 	.animetion-prewrap{
-		position: absolute;
+		position: fixed;
     	top: 0;
     	left: 0;
     	height: 100%;
@@ -1546,6 +1546,7 @@
 			height: 300px;
 			background-size: cover;
 			background-repeat: no-repeat;
+			background-position: center;
 			@include media(medium) {
     			font-size: .8em;
   			}
@@ -1624,6 +1625,7 @@
 				height: 300px;
 				background-size: cover;
 				background-repeat: no-repeat;
+				background-position: center;
 				@include media(xlarge) {
     				height: 250px;
   				}

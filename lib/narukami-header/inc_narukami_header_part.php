@@ -119,7 +119,7 @@
 			?> 
 			</div>
 		</div>
-	<h4 class="h-admin-4-bg">店舗ロゴ画像を選択してください。</h4>
+	<h4 class="h-admin-4-bg">店舗ロゴ画像を選択してください。(縦330px 横330px以上推奨)</h4>
 		<?php
   		generate_upload_image_single_tag('site-rogo-img-url', $i_site_rogo_img_url);
 		?>

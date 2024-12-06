@@ -8,6 +8,7 @@
         	<h3 class='hndle'><span class="title">フッター設定[NarukamiFooterSetting]</span></h3>
         	<div class="inside">
 			<?php
+			$i_site_rogo_img_url_footer = esc_url(get_option('header-rogo-url'));
 			$i_footer_title_array = sanitize_option_value(get_option('footer-item-title', ['']));
 			$i_footer_url_array = sanitize_option_value(get_option('footer-item-link', ['']));
 			$footer_bg_color = sanitize_option_value(get_option('footer-bg-color'));
@@ -66,7 +67,7 @@
 						 style="color: <?php echo $footer_textcolor; ?>">
 						<div class="footer-left-wrap">
 							<div class="footer-rogo-wrap">
-								<img src="https://nousondiner.com/wp-content/uploads/2022/03/rogomainver.5.0.0-2.png" alt="ROGO">
+								<img src="<?php echo $i_site_rogo_img_url_footer; ?>" alt="ROGO">
 							</div>
 							<div class="footer-sns-wrap">
 								<a href="<?php echo $twitter_sns_link; ?>" style="display: <?php echo $twitter_switch_value['display']; ?>;">
@@ -113,6 +114,8 @@
 					   style="color: <?php echo $footer_textcolor; ?>;"> <?php echo '&copy; ' . date('Y') . ' ' . get_bloginfo('name') . '. All rights reserved.'; ?></p>
 				</div><!--footer-all-wrap end-->
 		<div class="inputForm">
+			<h4>フッターロゴについて</h4>
+			<p>フッターのロゴはヘッダーロゴと連動しています。新規追加、変更は、<br>「鳴雷ヘッダー設定」へ行き、「ヘッダー設定」をクリックしてロゴの変更を行なってください</p>
 			<h4>各種SNSの表示とリンク設定を行ってください</h4>
 			<div class="sns-item-wrap">
 				<i class="fa-brands fa-square-x-twitter"></i>

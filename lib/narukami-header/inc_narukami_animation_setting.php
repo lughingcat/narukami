@@ -80,7 +80,7 @@ if(isset($i_loading_anime_type)){
 			<?php
   			generate_upload_image_single_tag('open-bg-img-url', $i_open_bgimgurl);
 			?>
-			<p>オープニングロゴを選択してください。</p>
+			<p>オープニングロゴを選択してください。(縦330px 横330px以上を推奨。)</p>
 			<?php
   			generate_upload_image_single_tag('open-rogo-img-url', $i_open_rogoimgurl);
 			?>
