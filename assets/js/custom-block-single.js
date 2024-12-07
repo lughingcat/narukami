@@ -12,7 +12,6 @@ const { select } = wp.data;
 // Slick初期化関数
 const initializeSlickSlider = () => {
     const $slider = jQuery(".selected-images");
-	console.log("Slider element found:", $slider.length);
 	
 	if ($slider.length === 0) {
         console.warn("Slider element not found, skipping initialization.");
@@ -131,12 +130,10 @@ registerBlockType('item-introduction-block/introduction-block', {
    		}));
 			
     	setAttributes({ sliderImages: newImages });
-
-
-   		// Slickスライダー初期化の遅延処理
-   		setTimeout(() => {
-   		    initializeSlickSlider();
-   		}, 500);
+			
+		setTimeout(() => {
+        	initializeSlickSlider();
+    	}, 500);
 		};
 
         return createElement(Fragment, null,
