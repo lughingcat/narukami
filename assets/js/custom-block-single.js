@@ -19,13 +19,12 @@ const initializeSlickSlider = () => {
     }
     // すでに初期化されている場合は破棄
     if ($slider.hasClass("slick-initialized")) {
-        $slider.slick("unslick");
+        $slider.slick("destroy");
     }
 
     // Slickの再初期化
     $slider.slick({
         lazyLoad: "ondemand",
-        autoplaySpeed: 2000,
         dots: true,
         infinite: true,
         speed: 1000,
@@ -34,12 +33,6 @@ const initializeSlickSlider = () => {
     });
 };
 
-jQuery(document).ready(() => {
-    // 少し遅延させてスライダーを初期化
-    setTimeout(() => {
-        initializeSlickSlider();
-    }, 500);
-});
 
 
 wp.domReady(function() {
@@ -119,7 +112,8 @@ registerBlockType('item-introduction-block/introduction-block', {
             const newSubPrices = subPrices.filter((_, i) => i !== index);
             setAttributes({ subPrices: newSubPrices });
         };
-
+		
+		
         const onSelectImages = (media) => {
 			// 単一選択の場合は配列に変換
    		const selectedImages = Array.isArray(media) ? media : [media];
@@ -130,10 +124,6 @@ registerBlockType('item-introduction-block/introduction-block', {
    		}));
 			
     	setAttributes({ sliderImages: newImages });
-			
-		setTimeout(() => {
-        	initializeSlickSlider();
-    	}, 500);
 		};
 
         return createElement(Fragment, null,
@@ -148,17 +138,32 @@ registerBlockType('item-introduction-block/introduction-block', {
                                 createElement(Button, { onClick: open, className: "maltiple-img-btn" }, "画像を選択(Ctrl (Win),Command (Mac)+クリックで複数選択可能 )")
                         })
                     ),
-                    createElement("div", { className: "selected-images" },
-                        sliderImages.map((img, index) =>
-                            createElement("div", { key: index, className: "image-wrapper" },
-                                createElement("img", {
-                                    src: img.url,
-                                    alt: `選択した画像 ${index + 1}`,
-                                    className: "slider-image"
-                                })
-                            )
-                        )
-                    )
+                   createElement("div", { 
+    					className: "selected-images",
+    					style: {
+    					    display: "flex",  // 親要素にflexを設定
+    					    flexWrap: "wrap"  // 子要素が折り返すようにする
+    					}
+					},
+    				sliderImages.map((img, index) =>
+        			createElement("div", { 
+					key: index, 
+					className: "image-wrapper",
+					style: {
+						flexBasis: sliderImages.length === 1 ? "100%" : "40%",  // 1枚の時は100%、それ以外は30%
+						margin: "10px",
+						boxSizing: "border-box"
+					}
+        			},
+            		createElement("img", {
+                		src: img.url,
+                		alt: `選択した画像 ${index + 1}`,
+                		className: "slider-image"
+					})
+        		)
+    			)
+				)
+
                 ),
                 createElement("div", { className: "content-container" },
                     createElement(TextareaControl, {
