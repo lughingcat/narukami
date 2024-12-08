@@ -138,15 +138,15 @@ registerBlockType('item-introduction-block/introduction-block', {
                                 createElement(Button, { onClick: open, className: "maltiple-img-btn" }, "画像を選択(Ctrl (Win),Command (Mac)+クリックで複数選択可能 )")
                         })
                     ),
-                   createElement("div", { 
-    					className: "selected-images",
-    					style: {
-    					    display: "flex",  // 親要素にflexを設定
-    					    flexWrap: "wrap"  // 子要素が折り返すようにする
-    					}
-					},
-    				sliderImages.map((img, index) =>
-        			createElement("div", { 
+           	createElement("div", { 
+    			className: "selected-images",
+    			style: {
+    			    display: "flex",  // 親要素にflexを設定
+    			    flexWrap: "wrap"  // 子要素が折り返すようにする
+    			}
+			},
+    		sliderImages.map((img, index) =>
+        		createElement("div", { 
 					key: index, 
 					className: "image-wrapper",
 					style: {
@@ -154,17 +154,23 @@ registerBlockType('item-introduction-block/introduction-block', {
 						margin: "10px",
 						boxSizing: "border-box"
 					}
-        			},
-            		createElement("img", {
-                		src: img.url,
-                		alt: `選択した画像 ${index + 1}`,
-                		className: "slider-image"
-					})
+        		},
+            	createElement("img", {
+                	src: img.url,
+                	alt: `選択した画像 ${index + 1}`,
+                	className: "slider-image"
+				})
         		)
-    			)
-				)
+    			),
+				createElement("p", {
+    			style: {
+    			    textAlign: "center",
+					margin: " 0 auto"
+    			},
+				}, "横875px 縦875px以上推奨"),
+			)
 
-                ),
+     		),
                 createElement("div", { className: "content-container" },
                     createElement(TextareaControl, {
                         label: "商品説明",

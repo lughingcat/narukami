@@ -152,17 +152,42 @@ wp.domReady(function() {
                         )
                     ),
                     el('div', { className: 'hero-header-block' },
-                        el('div', { className: 'hero-header-image' },
-                            el(MediaUpload, {
-                                onSelect: onSelectImage,
-                                allowedTypes: ['image'],
-                                render: (obj) => el(Button, {
-                                    className: attributes.imageUrl ? 'image-button' : 'button',
-									isPrimary: true,
-                                    onClick: obj.open
-                                }, __('画像を選択', 'narukami'))
-                            })
-                        ),
+                        el(
+    						'div',
+    						{
+    						    className: 'hero-header-image',
+    						    style: {
+    						        display: 'flex', 
+    						        alignItems: 'center',
+    						        gap: '10px',
+    						    },
+    						},
+    						[
+    						    el(
+    						        'p',
+    						        {
+    						            style: {
+    						                margin: '0 auto',
+    						            },
+    						        },
+    						        '横2400px 縦1400px以上を推奨'
+    						    ),
+    						    el(MediaUpload, {
+    						        onSelect: onSelectImage,
+    						        allowedTypes: ['image'],
+    						        render: (obj) =>
+    						            el(
+    						                Button,
+    						                {
+    						                    className: attributes.imageUrl ? 'image-button' : 'button',
+    						                    isPrimary: true,
+    						                    onClick: obj.open,
+    						                },
+    						                __('画像を選択', 'narukami')
+    						            ),
+    						    }),
+    						]
+						),
                         attributes.imageUrl && el('div', { className: 'hero-header-image-preview' },
                             el('img', { src: attributes.imageUrl, alt: __('Selected Image', 'narukami') }),
 							el('div', { 
@@ -267,10 +292,31 @@ wp.domReady(function() {
                                 onSelect: (newImage) => onSelectImage(i, newImage),
                                 allowedTypes: ['image'],
                                 value: images[i] ? images[i].id : '',
-                                render: ({ open }) => wp.element.createElement(Button, {
-                                    onClick: open,
-                                    className: images[i] ? 'image-button' : 'button button-large'
-                                }, images[i] ? wp.element.createElement('img', { src: images[i].sizes.thumbnail.url, alt: images[i].alt }) : __('画像を選択', 'narukami'))
+                                render: ({ open }) =>
+    								wp.element.createElement(
+    								    'div',
+    								    null, // ラップする親要素
+    								    [
+    								        wp.element.createElement(
+    								            'p',
+												{style:{ textAlign: 'center', fontSize: '.8em'},},
+    								            '横875px 縦875px以上'
+    								        ),
+    								        wp.element.createElement(
+    								            Button,
+    								            {
+    								                onClick: open,
+    								                className: images[i] ? 'image-button' : 'button button-large',
+    								            },
+    								            images[i]
+    								                ? wp.element.createElement('img', {
+    								                      src: images[i].sizes.thumbnail.url,
+    								                      alt: images[i].alt,
+    								                  })
+    								                : __('画像を選択', 'narukami')
+    								        ),
+    								    ]
+    								),
                             })
                         ),
                         wp.element.createElement(TextControl, {
@@ -406,10 +452,11 @@ wp.domReady(function() {
                                 return createElement(
                                     Button,
                                     { onClick: obj.open, isDefault: true, isLarge: true },
-                                    backgroundImage ? __('画像変更', 'narukami') : __('画像選択', 'narukami')
+                                    backgroundImage ? __('画像選択', 'narukami') : __('画像選択', 'narukami')
                                 );
                             }
                         }),
+						createElement('p',{ style:{margin:'10px auto'},},'横2400px 縦1400px以上の画像を推奨。'),
                         createElement(RangeControl, {
                             label: __('黒の透過マスク', 'narukami'),
                             value: maskOpacity,
@@ -596,9 +643,10 @@ wp.domReady(function() {
                             onSelect: onSelectImage,
                             allowedTypes: ['image'],
                             render: (openEvent) => el(Button, { onClick: openEvent.open, isPrimary: true }, '画像選択')
-                        })
+                        }),
                     ),
-                    el('div', { style: { width: '50%', padding: '10px' } },
+                    el('div', { style: { width: '50%', padding: '0 10px' } },
+					   el('p',{style:{marginTop: '0', fontSize: '.7em'},},'推奨画像サイズ:1600px×1600px'),
                         el(RichText, {
                             tagName: 'h2',
                             style: { color: textColor },
@@ -766,7 +814,8 @@ wp.domReady(function() {
                                     __('背景画像を選択', 'text-domain')
                                 );
                             }
-                        })
+                        }),
+						wp.element.createElement('p',{style:{margin: '10px auto'},},'横2400px 縦1400px以上の画像を推奨。'),
                     ),
                     wp.element.createElement(
                         PanelColorSettings,
@@ -967,11 +1016,22 @@ wp.domReady(function () {
                             onSelect: (media) => setAttributes({ backgroundImage: media.url }),
                             allowedTypes: ['image'],
                             render: ({ open }) =>
-                                createElement(
-                                    Button,
-                                    { onClick: open, isPrimary: true },
-                                    __('背景画像を選択', 'narukami')
-                                )
+    							createElement(
+    							    "div", // 親要素でラップ
+    							    null,
+    							    [
+    							        createElement(
+    							            Button,
+    							            { onClick: open, isPrimary: true },
+    							            __('背景画像を選択', 'narukami')
+    							        ),
+    							        createElement(
+    							            "p",
+											{ style:{margin: "20px auto"},},
+    							            "横2400px 縦1400px以上を推奨。"
+    							        )
+    							    ]
+    							)
                         })
                     ),
                     createElement(
@@ -1011,11 +1071,22 @@ wp.domReady(function () {
                         onSelect: (media) => setAttributes({ logoImage: media.url }),
                         allowedTypes: ['image'],
                         render: ({ open }) =>
-                            createElement(
-                                Button,
-                                { onClick: open, isPrimary: true },
-                                __('ロゴ画像を選択', 'narukami')
-                            )
+    						createElement(
+    						    "div", // 親要素でラップ
+    						    null,
+    						    [
+    						        createElement(
+    						            "p",
+    						            null,
+    						            "横330px 縦330px以上を推奨。"
+    						        ),
+    						        createElement(
+    						            Button,
+    						            { onClick: open, isPrimary: true },
+    						            __('ロゴ画像を選択', 'narukami')
+    						        )
+    						    ]
+    						)
                     }),
                     logoImage &&
                         createElement('img', {
@@ -1184,15 +1255,26 @@ wp.domReady(function () {
                         'div',
                         { style: { flex: 1, padding: '10px' } },
                         createElement(MediaUpload, {
-                            onSelect: (media) => setAttributes({ imgURL: media.url }),
-                            allowedTypes: ['image'],
-                            render: ({ open }) =>
-                                createElement(
-                                    Button,
-                                    { onClick: open, isPrimary: true },
-                                    __('画像を選択', 'narukami')
-                                )
-                        }),
+   						onSelect: (media) => setAttributes({ imgURL: media.url }),
+   						allowedTypes: ['image'],
+   						render: ({ open }) =>
+   						    createElement(
+   						        "div",
+								{style: {display: 'flex'},},
+   						        [
+   						            createElement(
+   						                Button,
+   						                { onClick: open, isPrimary: true },
+   						                __('画像を選択', 'narukami')
+   						            ),
+   						            createElement(
+   						                "p",
+										{style:{margin: '0 auto'},},
+   						                "横1600px 縦1600px以上の画像を推奨。"
+   						            )
+   						        ]
+   						    )
+						}),
                         imgURL &&
                             createElement('img', {
                                 src: imgURL,
@@ -1360,14 +1442,38 @@ wp.domReady(function () {
                             onSelect: (media) => setAttributes({ imgUrl: media.url }),
                             allowedTypes: ['image'],
                             render: (obj) =>
-                                wp.element.createElement(
-                                    Button,
-                                    {
-                                        className: 'button is-primary',
-                                        onClick: obj.open
-                                    },
-                                    !imgUrl ? __('画像を選択', 'narukami') : __('画像を変更', 'narukami')
-                                )
+    							wp.element.createElement(
+    							    'div', // フレックスで要素を横並びにする親要素
+    							    {
+    							        style: {
+    							            display: 'flex', // 横並びにする
+    							            alignItems: 'center', // 縦方向で中央揃え
+    							            gap: '10px', // ボタンとpタグの間隔を調整
+    							        },
+    							    },
+    							    [
+    							        wp.element.createElement(
+    							            'p',
+    							            {
+    							                style: {
+    							                    margin: '0 auto', // 上下左右の余白を適用
+    							                },
+    							            },
+    							            '縦1600px 横1600px以上の画像を推奨。'
+    							        ),
+    							        wp.element.createElement(
+    							            Button,
+    							            {
+    							                isPrimary: true,
+    							                onClick: obj.open,
+    							            },
+    							            !imgUrl
+    							                ? __('画像を選択', 'narukami')
+    							                : __('画像を変更', 'narukami')
+    							        ),
+    							    ]
+    							),
+
                         }),
                         imgUrl &&
                             wp.element.createElement('img', {

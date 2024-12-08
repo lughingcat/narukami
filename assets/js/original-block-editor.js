@@ -88,6 +88,7 @@ wp.domReady(function() {
 
     return el('div', {}, 
         el(Button, { onClick: addItem, className: 'item-add-btn' }, __('商品を追加', 'narukami')),
+		el('p', { style: {textAlign: 'center'}, }, "横875px　縦875px以上の画像を推奨。",),
         el('div', { className: 'item-list-block-editor' },
             itemList.map((item, index) => 
                 el('div', { key: index, className: 'item-list-editor' },
@@ -223,6 +224,7 @@ wp.domReady(function() {
                 }
             }),
             el(Button, { onClick: addSlide, className: 'slide-add-btn' }, __('スライドを追加', 'narukami')),
+			el('p', { style: {textAlign: 'center'}, }, "横2400px　縦1400px以上の画像を推奨。",),
             el('div', { className: 'slide-list' },
                 slides.map((slide, index) =>
                     el('div', { key: index, className: 'slide-item' },
