@@ -1,7 +1,7 @@
 <?php
 $i_hh_move = sanitize_option_value(get_option('hero-H-move'));
-$i_hh_move_title = sanitize_option_value(get_option('hero-H-moveTitle'));
-$i_hh_move_backshadow = sanitize_option_value(get_option('hero-H-movebackshadow'));
+$i_hh_move_title = sanitize_option_value(get_option('hero-H-moveTitle', 'SITE TITLE'));
+$i_hh_move_backshadow = sanitize_option_value(get_option('hero-H-movebackshadow', 'backshadow-on'));
 $hero_move_backshadow = !empty($i_hh_move_backshadow) ? sanitize_option_value($i_hh_move_backshadow) : 'backshadow-on';
 if(isset($hero_move_backshadow)){
 	if($hero_move_backshadow === 'backshadow-on'){

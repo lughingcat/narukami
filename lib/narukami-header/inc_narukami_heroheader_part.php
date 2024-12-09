@@ -4,7 +4,7 @@
 		<?php
 		    require_once(dirname(dirname(dirname(dirname(dirname(dirname( __FILE__ )))))) . '/wp-load.php' );
 		    global $wpdb;
-			$i_heorheader_type = sanitize_option_value(get_option('heorheader_type'));
+			$i_heorheader_type = sanitize_option_value(get_option('heorheader_type', 'still_img'));
 			if(isset($i_heorheader_type)){
 				if($i_heorheader_type === "still_img"){
 					$still_img_check = "checked";

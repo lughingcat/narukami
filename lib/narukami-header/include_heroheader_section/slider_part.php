@@ -1,8 +1,16 @@
 <?php
+//変数の初期値設定
+$hh_slider_img_1 = get_template_directory_uri() . '/admin-img/samp-2400-1400.jpg';
+$hh_slider_img_2 = get_template_directory_uri() . '/admin-img/samp-2400-1400.jpg';
+$hh_slider_img_3 = get_template_directory_uri() . '/admin-img/samp-2400-1400.jpg';
+//title
+$hh_slider_title_1 = "SLIDER TITLE 1";
+$hh_slider_title_2 = "SLIDER TITLE 2";
+$hh_slider_title_3 = "SLIDER TITLE 3";
 
 //配列として初期化
-$slider_img_array = get_option('slider_img_link_array', array(''));
-$slider_title_array = get_option('slider_item_title_array', array(''));
+$slider_img_array = get_option('slider_img_link_array', array($hh_slider_img_1,$hh_slider_img_2,$hh_slider_img_3));
+$slider_title_array = get_option('slider_item_title_array', array($hh_slider_title_1,$hh_slider_title_2,$hh_slider_title_3));
 //shadowVolumeの数値初期化
 $slider_shadow_val = get_option('slider_item_shadow_volume', '0.50');
 

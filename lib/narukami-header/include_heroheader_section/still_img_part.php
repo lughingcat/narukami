@@ -1,6 +1,9 @@
 <?php
-$i_hh_still_img = sanitize_option_value(get_option('hero-H-stillImg'));
-$i_hh_still_title = sanitize_option_value(get_option('hero-H-stillTitle'));
+//初期設定変数値
+$defult_still_img = get_template_directory_uri() . '/admin-img/samp-2400-1400.jpg';
+
+$i_hh_still_img = sanitize_option_value(get_option('hero-H-stillImg', $defult_still_img));
+$i_hh_still_title = sanitize_option_value(get_option('hero-H-stillTitle', 'SITE TITLE'));
 
 ?>
 <div class="still-img-all-wrap">

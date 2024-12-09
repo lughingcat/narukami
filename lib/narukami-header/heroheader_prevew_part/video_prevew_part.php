@@ -1,10 +1,10 @@
 <?php
 //動画変数
 $i_heroheader_video= sanitize_option_value(get_option('hero-H-move'));
-$i_heroheader_video_title = sanitize_option_value(get_option('hero-H-moveTitle'));
-$i_heroheader_video_textColor = sanitize_option_value(get_option('heroheader-moveTitleTextColor'));
-$i_heroheader_video_textShadow = sanitize_option_value(get_option('heroheader-moveTitleShadowColor'));
-$i_heroheader_video_backShadow = sanitize_option_value(get_option('hero-H-movebackshadow'));
+$i_heroheader_video_title = sanitize_option_value(get_option('hero-H-moveTitle', 'SITE TITLE'));
+$i_heroheader_video_textColor = sanitize_option_value(get_option('heroheader-moveTitleTextColor', '#ffffff'));
+$i_heroheader_video_textShadow = sanitize_option_value(get_option('heroheader-moveTitleShadowColor', '#ffffff'));
+$i_heroheader_video_backShadow = sanitize_option_value(get_option('hero-H-movebackshadow', 'backshadow-on'));
 	if($i_heroheader_video_backShadow === "backshadow-on"){
 		$back_shadow_value = "";
 	}else{

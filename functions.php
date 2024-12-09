@@ -822,6 +822,13 @@ function save_background_meta_box($post_id) {
 }
 add_action('save_post', 'save_background_meta_box');
 
+//オプション値初期化
+//add_action('init', function() {
+//    delete_option('slider_img_link_array');
+//    delete_option('slider_item_title_array');
+//});
+
+
 /**
  * Implement the Custom Header feature.
  */
