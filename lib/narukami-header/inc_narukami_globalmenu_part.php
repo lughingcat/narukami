@@ -4,13 +4,22 @@
 		<?php
 		    require_once(dirname(dirname(dirname(dirname(dirname(dirname( __FILE__ )))))) . '/wp-load.php' );
 		    global $wpdb;
-			$i_global_title_array = sanitize_option_value(get_option('global_title_array'));
-			$i_global_url_array = sanitize_option_value(get_option('global_url_array'));
-			$i_gloalmenu_bgcolor = sanitize_option_value(get_option('gloalmenu_bgcolor'));
-			$i_gloalmenu_textcolor = sanitize_option_value(get_option('gloalmenu_textcolor'));
-			$i_humberger_btn_bg = sanitize_option_value(get_option('humberger_btn_bg'));
-			$i_humberger_arrowcolor = sanitize_option_value(get_option('humberger-arrowcolor'));
-			$i_global_textunderlinecolor = sanitize_option_value(get_option('global-textunderlinecolor'));
+			//変数初期値設定
+			$global_title_value1 = "Samle 1";
+			$global_title_value2 = "Samle 2";
+			$global_title_value3 = "Samle 3";
+			
+			$global_url_value1 = home_url();
+			$global_url_value2 = home_url();
+			$global_url_value3 = home_url();
+			
+			$i_global_title_array = sanitize_option_value(get_option('global_title_array',array($global_title_value1,$global_title_value2,$global_title_value3)));
+			$i_global_url_array = sanitize_option_value(get_option('global_url_array',array($global_url_value1,$global_url_value2,$global_url_value3)));
+			$i_gloalmenu_bgcolor = sanitize_option_value(get_option('gloalmenu_bgcolor', '#000'));
+			$i_gloalmenu_textcolor = sanitize_option_value(get_option('gloalmenu_textcolor', '#ffffff'));
+			$i_humberger_btn_bg = sanitize_option_value(get_option('humberger_btn_bg', '#0086ad'));
+			$i_humberger_arrowcolor = sanitize_option_value(get_option('humberger-arrowcolor', '#ffffff'));
+			$i_global_textunderlinecolor = sanitize_option_value(get_option('global-textunderlinecolor', '#ffffff'));
 			// 連想配列を作成
 			$global_items_Array = array();
 			
@@ -79,7 +88,7 @@
 			<?php 
 				genelate_color_picker_tag_demo(
           		'globalmenu-bg-color', 
-          		get_option('gloalmenu_bgcolor'),
+          		$i_gloalmenu_bgcolor,
           		'グローバルメニュー背景色。'
         		);
 			?> 
@@ -88,7 +97,7 @@
 			<?php 
 				genelate_color_picker_tag_demo(
           		'humberger-btn-bg', 
-          		get_option('humberger_btn_bg'),
+          		$i_humberger_btn_bg,
           		'ハンバーガーメニューボタン背景色。'
         		);
 			?> 
@@ -97,7 +106,7 @@
 			<?php 
 				genelate_color_picker_tag_demo(
           		'humberger-arrowcolor', 
-          		get_option('humberger-arrowcolor'),
+          		$i_humberger_arrowcolor,
           		'ハンバーガーメニュー矢印色。'
         		);
 			?> 
@@ -106,7 +115,7 @@
 			<?php 
 				genelate_color_picker_tag_demo(
           		'global-textunderlinecolor', 
-          		get_option('global-textunderlinecolor'),
+          		$i_global_textunderlinecolor,
           		'テキストアンダーライン色'
         		);
 			?> 
@@ -117,7 +126,7 @@
 		<?php 
 			genelate_color_picker_tag_demo(
           	'globalmenu-text-color', 
-          	get_option('gloalmenu_textcolor'),
+          	$i_gloalmenu_textcolor,
           	'テキスト色変更。'
         	);
 		?> 

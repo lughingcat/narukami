@@ -8,11 +8,14 @@
         	<h3 class='hndle'><span class="title">404ページ設定[Narukami404Setting]</span></h3>
         	<div class="inside">
 			<?php
+				//変数初期設定
+				$defult_notfound_img = get_template_directory_uri() . '/admin-img/samp-2400-1400.jpg';
+				
 				$i_page404bg_type = sanitize_option_value(get_option('page404bg-type', 'main-bg-img'));
-				$i_page404_title = sanitize_option_value(get_option('page404-title'));
-				$i_page404_title_color = sanitize_option_value(get_option('notfound-text-color'));
-				$i_page404_titleshadow_color = sanitize_option_value(get_option('notfound-text-shadow'));
-				$i_notfoundpage_bg_img = sanitize_option_value(get_option('notfoundpage-bg-img'));
+				$i_page404_title = sanitize_option_value(get_option('page404-title', 'お探しのページが見つかりません。'));
+				$i_page404_title_color = sanitize_option_value(get_option('notfound-text-color', '#ffffff'));
+				$i_page404_titleshadow_color = sanitize_option_value(get_option('notfound-text-shadow', '#000'));
+				$i_notfoundpage_bg_img = sanitize_option_value(get_option('notfoundpage-bg-img', $defult_notfound_img));
 				
 				//check is　bg type
 				if($i_page404bg_type === "main-bg-img"){
