@@ -8,11 +8,20 @@
         	<h3 class='hndle'><span class="title">サブフッター設定[NarukamiSubfooterSetting]</span></h3>
         	<div class="inside">
 			<?php
-			$i_subfooter_use_notuse = sanitize_option_value(get_option('subfooter-use-notuse'));
-			$i_subfooter_title_array = sanitize_option_value(get_option('subfooter_item_title', ['']));
-			$i_subfooter_url_array = sanitize_option_value(get_option('subfooter_item_link', ['']));
-			$subfooter_bg_color = sanitize_option_value(get_option('subfooter-bg-color'));
-			$subfooter_textcolor = sanitize_option_value(get_option('subfooter-textcolor'));
+				//変数初期設定
+			$subfooter_title1 = "SAMPLE 1";
+			$subfooter_title2 = "SAMPLE 2";
+			$subfooter_title3 = "SAMPLE 3";
+			
+			$subfooter_url1 = home_url();
+			$subfooter_url2 = home_url();
+			$subfooter_url3 = home_url();
+				
+			$i_subfooter_use_notuse = sanitize_option_value(get_option('subfooter-use-notuse', 'subfooter-use'));
+			$i_subfooter_title_array = sanitize_option_value(get_option('subfooter_item_title', array($subfooter_title1,$subfooter_title2,$subfooter_title3)));
+			$i_subfooter_url_array = sanitize_option_value(get_option('subfooter_item_link', array($subfooter_url1,$subfooter_url2,$subfooter_url3)));
+			$subfooter_bg_color = sanitize_option_value(get_option('subfooter-bg-color', '#ffffff'));
+			$subfooter_textcolor = sanitize_option_value(get_option('subfooter-textcolor', '#333333'));
 			//サブフッターの使用不使用チェック分岐
 			if(isset($i_subfooter_use_notuse)){
 				if($i_subfooter_use_notuse === "subfooter-use"){

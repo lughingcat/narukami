@@ -116,7 +116,7 @@
 			<?php 
 			genelate_color_picker_tag_demo(
         	  'header-bg-color', 
-        	  get_option('header-bg-color'),
+        	  $i_header_bgcolor,
         	  'デフォルトは透明です。変更後再度透明にしたい場合は、クリアを押してください。'
         	);
 			?> 
@@ -148,7 +148,7 @@
 		<?php 
 			genelate_color_picker_tag_demo(
         	  'header-text-color', 
-        	  get_option('header-text-color'), 
+        	  $i_header_textcolor_setting, 
         	  'サイトタイトルと説明文の文字色を選択してください。'
         	);
         ?> 

@@ -1,11 +1,20 @@
 <?php
-$i_global_title_array = sanitize_option_value(get_option('global_title_array'));
-$i_global_url_array = sanitize_option_value(get_option('global_url_array'));
-$i_gloalmenu_bgcolor = sanitize_option_value(get_option('gloalmenu_bgcolor'));
-$i_gloalmenu_textcolor = sanitize_option_value(get_option('gloalmenu_textcolor'));
-$i_humberger_btn_bg = sanitize_option_value(get_option('humberger_btn_bg'));
-$i_humberger_arrowcolor = sanitize_option_value(get_option('humberger-arrowcolor'));
-$i_global_textunderlinecolor = sanitize_option_value(get_option('global-textunderlinecolor'));
+//変数初期値設定
+$global_title_value1 = "Samle 1";
+$global_title_value2 = "Samle 2";
+$global_title_value3 = "Samle 3";
+
+$global_url_value1 = home_url();
+$global_url_value2 = home_url();
+$global_url_value3 = home_url();
+
+$i_global_title_array = sanitize_option_value(get_option('global_title_array',array($global_title_value1,$global_title_value2,$global_title_value3)));
+$i_global_url_array = sanitize_option_value(get_option('global_url_array',array($global_url_value1,$global_url_value2,$global_url_value3)));
+$i_gloalmenu_bgcolor = sanitize_option_value(get_option('gloalmenu_bgcolor', '#000'));
+$i_gloalmenu_textcolor = sanitize_option_value(get_option('gloalmenu_textcolor', '#ffffff'));
+$i_humberger_btn_bg = sanitize_option_value(get_option('humberger_btn_bg', '#0086ad'));
+$i_humberger_arrowcolor = sanitize_option_value(get_option('humberger-arrowcolor', '#ffffff'));
+$i_global_textunderlinecolor = sanitize_option_value(get_option('global-textunderlinecolor', '#ffffff'));
 if(is_singular()){
 	$animetion_type = "loading-anime-not-use";
 }else{

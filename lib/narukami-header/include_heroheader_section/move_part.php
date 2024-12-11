@@ -29,7 +29,7 @@ if(isset($hero_move_backshadow)){
 			<?php 
 			genelate_color_picker_tag_demo(
         	  'hh-moveTitleColor', 
-        	  get_option('heroheader-moveTitleTextColor'),
+        	  get_option('heroheader-moveTitleTextColor', '#ffffff'),
         	  'タイトルのテキスト色'
         	);
 			?> 
@@ -40,7 +40,7 @@ if(isset($hero_move_backshadow)){
 			<?php 
 			genelate_color_picker_tag_demo(
         	  'hh-moveTitleShadowColor', 
-        	  get_option('heroheader-moveTitleShadowColor'),
+        	  get_option('heroheader-moveTitleShadowColor', '#000'),
         	  'タイトルシャドウ色'
         	);
 			?> 

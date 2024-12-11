@@ -6,7 +6,7 @@
     <?php wp_head(); ?>
 </head>
 	<?php
-	$narukami_font_family = sanitize_option_value(get_option('narukami-font-family'));
+	$narukami_font_family = sanitize_option_value(get_option('narukami-font-family', 'Sawarabi Gothic'));
 	?>
 	<style>
 		body{
@@ -16,8 +16,8 @@
 <body style="position: relative;">
     <?php
 	//ヘッダー,ヒーローヘッダー,グローバルメニュー読み込み
-	$i_header_display_setting = sanitize_text_field(get_option('header-disp-set'));//ヘッダー表示設定
-	$i_heorheader_type = sanitize_option_value(get_option('heorheader_type'));//ヒーローヘッダータイプ
+	$i_header_display_setting = sanitize_text_field(get_option('header-disp-set', 'display_on'));//ヘッダー表示設定
+	$i_heorheader_type = sanitize_option_value(get_option('heorheader_type', 'still_img'));//ヒーローヘッダータイプ
 	if($i_header_display_setting === 'display_on'){
 			include(get_template_directory() . '/TOP_PAGE_FILES/top_header_part.php');
 		}

@@ -8,10 +8,14 @@
         	<h3 class='hndle'><span class="title">告知バナー設定[AnnouncementSetting]</span></h3>
         	<div class="inside">
 			<?php
-				$i_banner_control = sanitize_option_value(get_option('banner-use-control', 'banner-notuse'));
-				$i_banner_title = sanitize_option_value(get_option('banner-title'));
-				$i_banner_img = sanitize_option_value(get_option('banner-img'));
-				$i_banner_link = sanitize_option_value(get_option('banner-link'));
+				//変数初期設定
+				$defult_info_img = get_template_directory_uri() . '/admin-img/sump-1600-1600.jpg';
+				$bunner_home_link = home_url();
+				
+				$i_banner_control = sanitize_option_value(get_option('banner-use-control', 'banner-use'));
+				$i_banner_title = sanitize_option_value(get_option('banner-title', '告知タイトル'));
+				$i_banner_img = sanitize_option_value(get_option('banner-img', $defult_info_img));
+				$i_banner_link = sanitize_option_value(get_option('banner-link', $bunner_home_link));
 				
 				if($i_banner_control === "banner-use"){
 					$bunner_on_value = "checked";

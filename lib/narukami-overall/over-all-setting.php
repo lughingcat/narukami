@@ -11,12 +11,12 @@
 				$i_narukami_favicon_image = sanitize_option_value(get_option('narukami-favicon-image'));
 				$i_background_image = sanitize_option_value(get_option('background_image'));
 				$i_background_image_custom_option = get_background_image();
-				$i_scroll_btn_bg_color = sanitize_option_value(get_option('scroll-btn-bg-color', ''));
-				$i_scroll_btn_arrow_color = sanitize_option_value(get_option('scroll-btn-arrow-color', ''));
+				$i_scroll_btn_bg_color = sanitize_option_value(get_option('scroll-btn-bg-color', '#0086ad'));
+				$i_scroll_btn_arrow_color = sanitize_option_value(get_option('scroll-btn-arrow-color', '#ffffff'));
 				$i_scroll_btn_active = sanitize_option_value(get_option('scroll-btn-active', 'scroll-on'));
 				$i_call_btn_active = sanitize_option_value(get_option('call-btn-active', 'call-btn-on'));
 				$i_call_btn_bg_color = sanitize_option_value(get_option('call-btn-bg-color', '#0D6432'));
-				$i_store_smartphone_number = filter_var(get_option('store-smartphone-number'), FILTER_SANITIZE_NUMBER_INT);
+				$i_store_smartphone_number = filter_var(get_option('store-smartphone-number','09012345678'), FILTER_SANITIZE_NUMBER_INT);
 				//bg select
 				if($i_background_image){
 					$bg_img_url = $i_background_image;

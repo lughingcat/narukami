@@ -6,7 +6,7 @@
     <?php wp_head(); ?>
 </head>
 	<?php
-	$narukami_font_family = sanitize_option_value(get_option('narukami-font-family'));
+	$narukami_font_family = sanitize_option_value(get_option('narukami-font-family', 'Sawarabi Gothic'));
 	?>
 	<style>
 		body{

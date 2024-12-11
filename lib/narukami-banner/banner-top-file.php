@@ -1,8 +1,12 @@
 <?php
-$an_banner_title = sanitize_option_value(get_option('banner-title'));
-$an_banner_img = sanitize_option_value(get_option('banner-img'));
-$an_banner_link = sanitize_option_value(get_option('banner-link'));
-$an_banner_control = sanitize_option_value(get_option('banner-use-control'));
+//変数初期設定
+$defult_info_img = get_template_directory_uri() . '/admin-img/sump-1600-1600.jpg';
+$bunner_home_link = home_url();
+
+$an_banner_title = sanitize_option_value(get_option('banner-title', '告知タイトル'));
+$an_banner_img = sanitize_option_value(get_option('banner-img', $defult_info_img));
+$an_banner_link = sanitize_option_value(get_option('banner-link', $bunner_home_link));
+$an_banner_control = sanitize_option_value(get_option('banner-use-control', 'banner-use'));
 ?>
 <div class="banner-all-wrap remove-banner">
 	<div class="banner-content-wrap">

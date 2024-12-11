@@ -1,6 +1,16 @@
 <?php
-$slider_img_link = sanitize_option_value(get_option('slider_img_link_array'));
-$slider_item_title = sanitize_option_value(get_option('slider_item_title_array'));
+
+//変数の初期値設定
+$hh_slider_img_1_prev = get_template_directory_uri() . '/admin-img/samp-2400-1400.jpg';
+$hh_slider_img_2_prev = get_template_directory_uri() . '/admin-img/samp-2400-1400.jpg';
+$hh_slider_img_3_prev = get_template_directory_uri() . '/admin-img/samp-2400-1400.jpg';
+//title
+$hh_slider_title_1_prev = "SLIDER TITLE 1";
+$hh_slider_title_2_prev = "SLIDER TITLE 2";
+$hh_slider_title_3_prev = "SLIDER TITLE 3";
+
+$slider_img_link = sanitize_option_value(get_option('slider_img_link_array',array($hh_slider_img_1_prev,$hh_slider_img_2_prev,$hh_slider_img_3_prev)));
+$slider_item_title = sanitize_option_value(get_option('slider_item_title_array',array($hh_slider_title_1_prev,$hh_slider_title_2_prev,$hh_slider_title_3_prev)));
 $slider_item_shadow = sanitize_option_value(get_option('slider_item_shadow', 'shadow-off'));
 $slider_item_shadow_volume = sanitize_option_value(get_option('slider_item_shadow_volume', ''));
 $animetion_type = sanitize_option_value(get_option('loading-anime-type', 'still-img'));

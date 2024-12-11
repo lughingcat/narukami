@@ -66,7 +66,7 @@ $i_background_image_custom_option = get_background_image();
 
 	<header id="masthead" class="site-header">
 		<?php 
-		$i_header_display_setting = sanitize_text_field(get_option('header-disp-set'));//ヘッダー表示設定
+		$i_header_display_setting = sanitize_text_field(get_option('header-disp-set', 'display_on'));//ヘッダー表示設定
 		if($i_header_display_setting === 'display_off' || is_singular('product_lp_page')){
 			
 		}elseif($i_header_display_setting === 'display_on'){

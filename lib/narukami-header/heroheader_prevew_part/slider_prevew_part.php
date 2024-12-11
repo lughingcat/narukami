@@ -1,5 +1,5 @@
 <?php
-//変数初期値設定
+
 //変数の初期値設定
 $hh_slider_img_1_prev = get_template_directory_uri() . '/admin-img/samp-2400-1400.jpg';
 $hh_slider_img_2_prev = get_template_directory_uri() . '/admin-img/samp-2400-1400.jpg';

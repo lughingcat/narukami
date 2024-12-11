@@ -1,12 +1,15 @@
 <?php
 require_once(dirname(dirname(dirname(dirname(dirname(dirname( __FILE__ )))))) . '/wp-load.php' );
 global $wpdb;
+//変数初期値設定
+$defult_still_img_anime = get_template_directory_uri() . '/admin-img/samp-2400-1400.jpg';
+$defult_rogo_anime = get_template_directory_uri() . '/admin-img/narukami-rogo-var3.1.0.png';
 //sample hero header
-$i_heroheader_stillImg = sanitize_option_value(get_option('hero-H-stillImg'));
-$i_loading_anime_type = sanitize_option_value(get_option('loading-anime-type'));
-$i_open_bgimgurl = sanitize_option_value(get_option('open-bg-imgurl'));
-$i_open_rogoimgurl = sanitize_option_value(get_option('open-rogo-imgurl'));
-$i_loadingtext_color = sanitize_option_value(get_option('loadingtext-color'));
+$i_heroheader_stillImg = sanitize_option_value(get_option('hero-H-stillImg', $defult_still_img_anime));
+$i_loading_anime_type = sanitize_option_value(get_option('loading-anime-type', 'stretch-shrink-right'));
+$i_open_bgimgurl = sanitize_option_value(get_option('open-bg-imgurl', $defult_still_img_anime));
+$i_open_rogoimgurl = sanitize_option_value(get_option('open-rogo-imgurl', $defult_rogo_anime));
+$i_loadingtext_color = sanitize_option_value(get_option('loadingtext-color', '#000'));
 if(isset($i_loading_anime_type)){
 	if($i_loading_anime_type === "stretch-shrink-right"){
 		$stretch_check = "checked";

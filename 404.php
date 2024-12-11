@@ -13,9 +13,9 @@ get_header();
 	<main id="primary" class="site-main">
 		<?php
 		//コンテンツ
-		$i_page404_title = sanitize_option_value(get_option('page404-title'));
-		$i_page404_title_color = sanitize_option_value(get_option('notfound-text-color'));
-		$i_page404_title_shadow = sanitize_option_value(get_option('notfound-text-shadow'));
+		$i_page404_title = sanitize_option_value(get_option('page404-title', 'main-bg-img'));
+		$i_page404_title_color = sanitize_option_value(get_option('notfound-text-color', '#ffffff'));
+		$i_page404_title_shadow = sanitize_option_value(get_option('notfound-text-shadow','#000'));
 
 		//check is shadow type
 		if(empty($i_page404_title_shadow)){

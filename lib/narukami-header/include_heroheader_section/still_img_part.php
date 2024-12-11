@@ -19,7 +19,7 @@ $i_hh_still_title = sanitize_option_value(get_option('hero-H-stillTitle', 'SITE 
 			<?php 
 			genelate_color_picker_tag_demo(
         	  'hh-titleTextColor', 
-        	  get_option('heroheader-titleTextColor'),
+        	  get_option('heroheader-titleTextColor', '#ffffff'),
         	  'タイトルのテキスト色'
         	);
 			?> 
@@ -30,7 +30,7 @@ $i_hh_still_title = sanitize_option_value(get_option('hero-H-stillTitle', 'SITE 
 			<?php 
 			genelate_color_picker_tag_demo(
         	  'hh-titleShadowColor', 
-        	  get_option('heroheader-titleShadowColor'),
+        	  get_option('heroheader-titleShadowColor', '#000'),
         	  'タイトルシャドウ色'
         	);
 			?> 

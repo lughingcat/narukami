@@ -8,18 +8,28 @@
         	<h3 class='hndle'><span class="title">フッター設定[NarukamiFooterSetting]</span></h3>
         	<div class="inside">
 			<?php
-			$i_site_rogo_img_url_footer = esc_url(get_option('header-rogo-url'));
-			$i_footer_title_array = sanitize_option_value(get_option('footer-item-title', ['']));
-			$i_footer_url_array = sanitize_option_value(get_option('footer-item-link', ['']));
-			$footer_bg_color = sanitize_option_value(get_option('footer-bg-color'));
-			$footer_textcolor = sanitize_option_value(get_option('footer-textcolor'));
-			$follow_us_color = sanitize_option_value(get_option('follow-us-color'));
+			//変数初期設定
+			$defult_footer_rogo_img = get_template_directory_uri() . '/admin-img/narukami-rogo-var3.1.0.png';
+			$footer_item_title1 = "SAMPLE 1";
+			$footer_item_title2 = "SAMPLE 2";
+			$footer_item_title3 = "SAMPLE 3";
+			
+			$footer_item_url1 = home_url();
+			$footer_item_url2 = home_url();
+			$footer_item_url3 = home_url();
+				
+			$i_site_rogo_img_url_footer = esc_url(get_option('header-rogo-url', $defult_footer_rogo_img));
+			$i_footer_title_array = sanitize_option_value(get_option('footer-item-title', array($footer_item_title1,$footer_item_title2,$footer_item_title3)));
+			$i_footer_url_array = sanitize_option_value(get_option('footer-item-link',array($footer_item_url1,$footer_item_url2,$footer_item_url3)));
+			$footer_bg_color = sanitize_option_value(get_option('footer-bg-color', '#ffffff'));
+			$footer_textcolor = sanitize_option_value(get_option('footer-textcolor', '#353535'));
+			$follow_us_color = sanitize_option_value(get_option('follow-us-color', '#de309f'));
 			//sns
-			$twitter_sns_switch = sanitize_option_value(get_option('twitter-switch'));
-			$instagram_sns_switch = sanitize_option_value(get_option('instagram-switch'));
-			$facebook_sns_switch = sanitize_option_value(get_option('facebook-switch'));
-			$line_sns_switch = sanitize_option_value(get_option('line-switch'));
-			$youtube_sns_switch = sanitize_option_value(get_option('youtube-switch'));
+			$twitter_sns_switch = sanitize_option_value(get_option('twitter-switch', 'twitter-on'));
+			$instagram_sns_switch = sanitize_option_value(get_option('instagram-switch', 'instagram-on'));
+			$facebook_sns_switch = sanitize_option_value(get_option('facebook-switch', 'facebook-on'));
+			$line_sns_switch = sanitize_option_value(get_option('line-switch', 'line-on'));
+			$youtube_sns_switch = sanitize_option_value(get_option('youtube-switch', 'youtube-on'));
 			//sns-switchの値を保持する
 			$twitter_switch_value = sns_checkbox_value($twitter_sns_switch, "twitter-on");
 			$instagram_switch_value = sns_checkbox_value($instagram_sns_switch, "instagram-on");
@@ -28,11 +38,11 @@
 			$youtube_switch_value = sns_checkbox_value($youtube_sns_switch, "youtube-on");
 				
 			//sns-link
-			$twitter_sns_link = sanitize_option_value(get_option('twitter-linkurl'));
-			$instagram_sns_link = sanitize_option_value(get_option('instagram-linkurl'));
-			$facebook_sns_link = sanitize_option_value(get_option('facebook-linkurl'));
-			$line_sns_link = sanitize_option_value(get_option('line-linkurl'));
-			$youtube_sns_link = sanitize_option_value(get_option('youtube-linkurl'));
+			$twitter_sns_link = sanitize_option_value(get_option('twitter-linkurl', $footer_item_url1));
+			$instagram_sns_link = sanitize_option_value(get_option('instagram-linkurl', $footer_item_url1));
+			$facebook_sns_link = sanitize_option_value(get_option('facebook-linkurl', $footer_item_url1));
+			$line_sns_link = sanitize_option_value(get_option('line-linkurl', $footer_item_url1));
+			$youtube_sns_link = sanitize_option_value(get_option('youtube-linkurl', $footer_item_url1));
 			// 連想配列を作成
 			$footer_items_Array = array();
 			

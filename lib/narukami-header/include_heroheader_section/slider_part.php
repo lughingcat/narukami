@@ -19,7 +19,7 @@ $slider_img_array = !empty($slider_img_array) ? sanitize_option_value($slider_im
 $slider_title_array = !empty($slider_title_array) ? sanitize_option_value($slider_title_array) : array('');
 
 //shadow変数セット
-$slider_shadow_value = sanitize_option_value(get_option('slider_item_shadow'));
+$slider_shadow_value = sanitize_option_value(get_option('slider_item_shadow', 'shadow-on'));
 	if($slider_shadow_value === "shadow-on"){
 		$shadow_value_check = "checked";
 	}else{

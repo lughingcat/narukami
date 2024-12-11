@@ -1,15 +1,18 @@
 <?php
-$i_site_rogo_img_url = sanitize_option_value(get_option('header-rogo-url'));
-$i_site_title_value = sanitize_option_value(get_option('header-tite'));
-$i_site_discription_value = sanitize_option_value(get_option('header-discription'));
-$i_header_display_setting = sanitize_option_value(get_option('header-disp-set'));
-$i_header_rogo_setting = sanitize_option_value(get_option('header-rogo-set'));
-$i_header_stitle_setting = sanitize_option_value(get_option('header-stitle-set'));
-$i_header_sdisc_setting = sanitize_option_value(get_option('header-sdisc-set'));
-$i_header_bgcolor = sanitize_option_value(get_option('header-bg-color'));
+//初期設定変数
+$defult_rogo_img = get_template_directory_uri() . '/admin-img/narukami-rogo-var3.1.0.png';
+
+$i_site_rogo_img_url = sanitize_option_value(get_option('header-rogo-url', $defult_rogo_img));
+$i_site_title_value = sanitize_option_value(get_option('header-tite', 'SITE TITLE'));
+$i_site_discription_value = sanitize_option_value(get_option('header-discription', 'SITE DISCRIPTION'));
+$i_header_display_setting = sanitize_option_value(get_option('header-disp-set', 'display_on'));
+$i_header_rogo_setting = sanitize_option_value(get_option('header-rogo-set', 'display_on'));
+$i_header_stitle_setting = sanitize_option_value(get_option('header-stitle-set', 'display_off'));
+$i_header_sdisc_setting = sanitize_option_value(get_option('header-sdisc-set', 'display_off'));
+$i_header_bgcolor = sanitize_option_value(get_option('header-bg-color', '#ffffff'));
 $i_header_textcolor_setting = sanitize_option_value(get_option('header-text-color'));
-$i_header_height_value = sanitize_option_value(get_option('header-height'));
-$i_header_rogo_width_value = sanitize_option_value(get_option('header-rogo-width'));
+$i_header_height_value = sanitize_option_value(get_option('header-height', 100));
+$i_header_rogo_width_value = sanitize_option_value(get_option('header-rogo-width', 100));
 if(is_singular()){
 	$animetion_type = "loading-anime-not-use";
 }else{
