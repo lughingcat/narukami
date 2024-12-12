@@ -117,20 +117,20 @@ add_action('narukami_theme_activate', 'create_theme_tables');
 
 function ranking_db_farst_insert_data(){
 	$url_path = get_theme_file_uri();
-	$rank1_img = "/admin-img/steak.jpg";
-	$rank2_img = "/admin-img/salmon-3.jpg";
-	$rank3_img = "/admin-img/unadon.jpg";
-	$rank4_img = "/admin-img/chicken.jpg";
-	$rank5_img = "/admin-img/loaf.jpg";
-	$rank6_img = "/admin-img/beef.jpg";
-	$concept_img = "/admin-img/concept-bg.jpg";
-	$column_right_1_img = "/admin-img/restrant.jpg";
-	$column_left_1_img = "/admin-img/restrant.jpg";
-	$column_2_bg_img_url = "/admin-img/restrant.jpg";
-	$column_3_bg_img_url = "/admin-img/restrant.jpg";
-	$column_2_sec_bg_img_url = "/admin-img/restrant.jpg";
-	$column_3_sec_bg_img_url = "/admin-img/restrant.jpg";
-	$column_3_third_bg_img_url = "/admin-img/restrant.jpg";
+	$rank1_img = "/admin-img/sampimg-875_875.jpg";
+	$rank2_img = "/admin-img/sampimg-875_875.jpg";
+	$rank3_img = "/admin-img/sampimg-875_875.jpg";
+	$rank4_img = "/admin-img/sampimg-875_875.jpg";
+	$rank5_img = "/admin-img/sampimg-875_875.jpg";
+	$rank6_img = "/admin-img/sampimg-875_875.jpg";
+	$concept_img = "/admin-img/samp-2400-1400.jpg";
+	$column_right_1_img = "/admin-img/sump-1600-1600.jpg";
+	$column_left_1_img = "/admin-img/sump-1600-1600.jpg";
+	$column_2_bg_img_url = "/admin-img/sump-1600-1600.jpg";
+	$column_3_bg_img_url = "/admin-img/sump-1600-1600.jpg";
+	$column_2_sec_bg_img_url = "/admin-img/sump-1600-1600.jpg";
+	$column_3_sec_bg_img_url = "/admin-img/sump-1600-1600.jpg";
+	$column_3_third_bg_img_url = "/admin-img/sump-1600-1600.jpg";
 	$rank_primary_t = "RECOMMEND&nbsp;MENU";
 	$rank1_img_path = $url_path.$rank1_img;
 	$rank2_img_path = $url_path.$rank2_img;
@@ -237,12 +237,12 @@ function ranking_db_farst_insert_data(){
 		'rank_pop' => 'math_sq_bg',
 		'rank_style' => 'overlay',
 		'rank_primary_title' => $rank_primary_t,
-		'item_name' => '牛フィレのステーキ赤ワインソース',
-		'item_name_2' => 'サーモンのグリル秋野菜のサラダ添え',
-		'item_name_3' => '鰻重',
-		'item_name_4' => 'ローストチキンチーズソース',
-		'item_name_5' => 'エッグベネディクト',
-		'item_name_6' => '牛ももの赤ワイン煮込み',
+		'item_name' => 'Recommended1',
+		'item_name_2' => 'Recommended2',
+		'item_name_3' => 'Recommended3',
+		'item_name_4' => 'Recommended4',
+		'item_name_5' => 'Recommended5',
+		'item_name_6' => 'Recommended6',
 		'item_price' => 2800,
 		'item_price_2' => 2000,
 		'item_price_3' => 3200,
@@ -309,7 +309,7 @@ function ranking_db_farst_insert_data(){
 		'text_content_bg_color' => '#ffffff',
 		'text_content_title_color' => '#000',
 		'text_content_title' => 'ABOUT',
-		'text_content_content' => $concept_content_sample,
+		'text_content_content' => $concept_content_sample
 		),
 		array(
 			//スタイル
@@ -404,7 +404,7 @@ function ranking_db_farst_insert_data(){
 			'%s',
 			'%s',
 			'%s',
-			'%s',
+			'%s'
 			
 		)
 	);

@@ -25,8 +25,6 @@ $slider_shadow_value = sanitize_option_value(get_option('slider_item_shadow', 's
 	}else{
 		$shadow_value_check = "";
 	}
-//shadow数値セット
-$slider_item_shadow_volume = !empty($slider_shadow_val) ? sanitize_option_value(get_option('slider_item_shadow_volume')) : '0.50';
 
 //配列を作成
 $slider_formItem_array = array();
@@ -58,11 +56,11 @@ if (is_array($slider_img_array)) {
 <div class="slider-shadow-range notshow">
 	<div class="shadow-range-prevew-wrap">
 		<div class="shadow-range-bg"></div>
-		<div class="shadow-range-wrap" style="background-color: rgba(0, 0, 0, <?php echo $slider_item_shadow_volume; ?>);"></div>
+		<div class="shadow-range-wrap" style="background-color: rgba(0, 0, 0, <?php echo $slider_shadow_val; ?>);"></div>
 		<p>Darkness of Shadow</p>
 	</div>
-	<input id="precision-slider" type="range" name="slider-shadow-range-value" min="0" max="1" value="<?php echo $slider_item_shadow_volume; ?>" step="0.01">
-	<span id="shaow-rgba-balue"><?php echo $slider_item_shadow_volume; ?></span>
+	<input id="precision-slider" type="range" name="slider-shadow-range-value" min="0" max="1" value="<?php echo $slider_shadow_val; ?>" step="0.01">
+	<span id="shaow-rgba-balue"><?php echo $slider_shadow_val; ?></span>
 </div>
 <h4>ヒーローヘッダースライダーの画像を選択してタイトルを入力してください。</h4>
 <div class="slider-item-all-wrap">

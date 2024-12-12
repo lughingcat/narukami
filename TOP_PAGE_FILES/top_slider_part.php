@@ -4,6 +4,7 @@
 $hh_slider_img_1_prev = get_template_directory_uri() . '/admin-img/samp-2400-1400.jpg';
 $hh_slider_img_2_prev = get_template_directory_uri() . '/admin-img/samp-2400-1400.jpg';
 $hh_slider_img_3_prev = get_template_directory_uri() . '/admin-img/samp-2400-1400.jpg';
+$defult_rogo_img_prev = get_template_directory_uri() . '/admin-img/narukami-rogo-var3.1.0.png';
 //title
 $hh_slider_title_1_prev = "SLIDER TITLE 1";
 $hh_slider_title_2_prev = "SLIDER TITLE 2";
@@ -11,12 +12,12 @@ $hh_slider_title_3_prev = "SLIDER TITLE 3";
 
 $slider_img_link = sanitize_option_value(get_option('slider_img_link_array',array($hh_slider_img_1_prev,$hh_slider_img_2_prev,$hh_slider_img_3_prev)));
 $slider_item_title = sanitize_option_value(get_option('slider_item_title_array',array($hh_slider_title_1_prev,$hh_slider_title_2_prev,$hh_slider_title_3_prev)));
-$slider_item_shadow = sanitize_option_value(get_option('slider_item_shadow', 'shadow-off'));
-$slider_item_shadow_volume = sanitize_option_value(get_option('slider_item_shadow_volume', ''));
-$animetion_type = sanitize_option_value(get_option('loading-anime-type', 'still-img'));
-$i_open_bgimgurl = sanitize_option_value(get_option('open-bg-imgurl'));
-$i_open_rogoimgurl = sanitize_option_value(get_option('open-rogo-imgurl'));
-$i_loadingtext_color = sanitize_option_value(get_option('loadingtext-color'));
+$slider_item_shadow = sanitize_option_value(get_option('slider_item_shadow', 'shadow-on'));
+$slider_item_shadow_volume = sanitize_option_value(get_option('slider_item_shadow_volume', '0.50'));
+$animetion_type = sanitize_option_value(get_option('loading-anime-type', 'stretch-shrink-right'));
+$i_open_bgimgurl = sanitize_option_value(get_option('open-bg-imgurl', $hh_slider_img_1_prev));
+$i_open_rogoimgurl = sanitize_option_value(get_option('open-rogo-imgurl', $defult_rogo_img_prev));
+$i_loadingtext_color = sanitize_option_value(get_option('loadingtext-color', '#000'));
 	if($slider_item_shadow === "shadow-on"){
 		$shadow_value = "background-color: rgba(0, 0, 0, {$slider_item_shadow_volume});";
 	}else{

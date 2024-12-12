@@ -1,14 +1,17 @@
 <?php
+//変数初期設定
+$defult_anime_img_prev = get_template_directory_uri() . '/admin-img/samp-2400-1400.jpg';
+$defult_rogo_img_prev = get_template_directory_uri() . '/admin-img/narukami-rogo-var3.1.0.png';
 //動画変数
 $i_heroheader_video= sanitize_option_value(get_option('hero-H-move'));
 $i_heroheader_video_title = sanitize_option_value(get_option('hero-H-moveTitle', 'SITE TITLE'));
 $i_heroheader_video_textColor = sanitize_option_value(get_option('heroheader-moveTitleTextColor', '#ffffff'));
 $i_heroheader_video_textShadow = sanitize_option_value(get_option('heroheader-moveTitleShadowColor', '#ffffff'));
 $i_heroheader_video_backShadow = sanitize_option_value(get_option('hero-H-movebackshadow', 'backshadow-on'));
-$animetion_type = sanitize_option_value(get_option('loading-anime-type'));
-$i_open_bgimgurl = sanitize_option_value(get_option('open-bg-imgurl'));
-$i_open_rogoimgurl = sanitize_option_value(get_option('open-rogo-imgurl'));
-$i_loadingtext_color = sanitize_option_value(get_option('loadingtext-color'));
+$animetion_type = sanitize_option_value(get_option('loading-anime-type', 'stretch-shrink-right'));
+$i_open_bgimgurl = sanitize_option_value(get_option('open-bg-imgurl', $defult_anime_img_prev));
+$i_open_rogoimgurl = sanitize_option_value(get_option('open-rogo-imgurl', $defult_rogo_img_prev));
+$i_loadingtext_color = sanitize_option_value(get_option('loadingtext-color', '#000'));
 	if($i_heroheader_video_backShadow === "backshadow-on"){
 		$back_shadow_value = "";
 	}else{
