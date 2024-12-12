@@ -16,7 +16,7 @@
 			$i_header_sdisc_setting = sanitize_text_field(get_option('header-sdisc-set', 'display_off'));
 			$i_header_bgcolor = sanitize_text_field(get_option('header-bg-color', '#ffffff'));
 			$i_header_sort_setting = sanitize_text_field(get_option('header-sort-set'));
-			$i_header_textcolor_setting = sanitize_text_field(get_option('header-text-color'));
+			$i_header_textcolor_setting = sanitize_text_field(get_option('header-text-color', '#00081A'));
 			$i_header_height_value = sanitize_text_field(get_option('header-height', 100));
 			$i_header_rogo_width_value = sanitize_text_field(get_option('header-rogo-width', 100));
 		?>
