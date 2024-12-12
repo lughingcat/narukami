@@ -829,6 +829,11 @@ add_action('save_post', 'save_background_meta_box');
 //require get_template_directory() . '/lib/delete-option.php';
 
 /**
+ * ログイン時のロゴ,リンク変更
+ */
+require get_template_directory() . '/lib/narukami-rogin-rogo.php';
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
