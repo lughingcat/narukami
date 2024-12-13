@@ -18,7 +18,7 @@ $i_global_textunderlinecolor = sanitize_option_value(get_option('global-textunde
 if(is_singular()){
 	$animetion_type = "loading-anime-not-use";
 }else{
-	$animetion_type = sanitize_option_value(get_option('loading-anime-type'));
+	$animetion_type = sanitize_option_value(get_option('loading-anime-type', 'loading-anime-not-use'));
 }
 // 連想配列を作成
 $global_items_Array = array();

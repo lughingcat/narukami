@@ -16,7 +16,7 @@ $i_header_rogo_width_value = sanitize_option_value(get_option('header-rogo-width
 if(is_singular()){
 	$animetion_type = "loading-anime-not-use";
 }else{
-	$animetion_type = sanitize_option_value(get_option('loading-anime-type'));
+	$animetion_type = sanitize_option_value(get_option('loading-anime-type', 'loading-anime-not-use'));
 }
 ?>
 <?php
