@@ -15,7 +15,7 @@ $i_gloalmenu_textcolor = sanitize_option_value(get_option('gloalmenu_textcolor',
 $i_humberger_btn_bg = sanitize_option_value(get_option('humberger_btn_bg', '#0086ad'));
 $i_humberger_arrowcolor = sanitize_option_value(get_option('humberger-arrowcolor', '#ffffff'));
 $i_global_textunderlinecolor = sanitize_option_value(get_option('global-textunderlinecolor', '#ffffff'));
-if(is_singular()){
+if(is_singular() || is_404() ){
 	$animetion_type = "loading-anime-not-use";
 }else{
 	$animetion_type = sanitize_option_value(get_option('loading-anime-type', 'loading-anime-not-use'));

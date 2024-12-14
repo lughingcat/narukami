@@ -13,7 +13,8 @@ $i_header_bgcolor = sanitize_option_value(get_option('header-bg-color', '#ffffff
 $i_header_textcolor_setting = sanitize_option_value(get_option('header-text-color'));
 $i_header_height_value = sanitize_option_value(get_option('header-height', 100));
 $i_header_rogo_width_value = sanitize_option_value(get_option('header-rogo-width', 100));
-if(is_singular()){
+
+if(is_singular() || is_404() ){
 	$animetion_type = "loading-anime-not-use";
 }else{
 	$animetion_type = sanitize_option_value(get_option('loading-anime-type', 'loading-anime-not-use'));
