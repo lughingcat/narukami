@@ -779,6 +779,11 @@ add_action('save_post', 'save_background_meta_box');
 require get_template_directory() . '/lib/narukami-rogin-rogo.php';
 
 /**
+ * 鳴雷専用ダッシュボードカスタム
+ */
+require get_template_directory() . '/narukami-dashboad.php';
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';

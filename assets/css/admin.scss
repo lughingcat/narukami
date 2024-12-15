@@ -1,5 +1,57 @@
 // Scss Document
-
+/*================================
+	welcome panel style
+=================================*/
+.custom-welcome-panel{
+	padding: 20px;
+    border-radius: 5px;
+	h2{
+		color: #ffffff;
+		font-size: 38px;
+	}
+	.about-description{
+		color: #ffffff;
+		line-height: 30px;
+	}
+	.narukami-setting-panel-wrap{// ul
+		width: 100%;
+		.panel-item{// li
+			width: 30%;
+			background-color: #2271b1;
+			transition: transform .3s ease-in-out, background-color .3s ease-in-out, color .3s ease-in-out;
+			&:hover{
+				background-color: #FFFFFF;
+				color: #2271b1;
+				 h2 {
+            		color: #2271b1; // h2の色変更
+        		 }
+       			 p {
+           			color: #2271b1; // pの色変更
+        		 }
+				.fa-solid.fa-desktop{
+					color: #2271b1;
+					transition: color 0.3s ease-in-out;
+				}
+			}
+			a{
+				color: #ffffff;
+				.panel-content-wrap{// div
+					h2{
+						font-size: 16px;
+						transition: color 0.3s ease-in-out;
+					}
+					p{
+						transition: color 0.3s ease-in-out;
+					}
+				}
+			}
+		}
+		
+	}
+}
+.fa-solid.fa-desktop{
+	color: #ffffff;
+}
 /*================================
 	鳴雷ヘッダー設定スタイル
 =================================*/

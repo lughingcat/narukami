@@ -1,5 +1,44 @@
 @charset "UTF-8";
 /*================================
+	welcome panel style
+=================================*/
+.custom-welcome-panel {
+  padding: 20px;
+  border-radius: 5px; }
+  .custom-welcome-panel h2 {
+    color: #ffffff;
+    font-size: 38px; }
+  .custom-welcome-panel .about-description {
+    color: #ffffff;
+    line-height: 30px; }
+  .custom-welcome-panel .narukami-setting-panel-wrap {
+    width: 100%; }
+    .custom-welcome-panel .narukami-setting-panel-wrap .panel-item {
+      width: 30%;
+      background-color: #2271b1;
+      transition: transform .3s ease-in-out, background-color .3s ease-in-out, color .3s ease-in-out; }
+      .custom-welcome-panel .narukami-setting-panel-wrap .panel-item:hover {
+        background-color: #FFFFFF;
+        color: #2271b1; }
+        .custom-welcome-panel .narukami-setting-panel-wrap .panel-item:hover h2 {
+          color: #2271b1; }
+        .custom-welcome-panel .narukami-setting-panel-wrap .panel-item:hover p {
+          color: #2271b1; }
+        .custom-welcome-panel .narukami-setting-panel-wrap .panel-item:hover .fa-solid.fa-desktop {
+          color: #2271b1;
+          transition: color 0.3s ease-in-out; }
+      .custom-welcome-panel .narukami-setting-panel-wrap .panel-item a {
+        color: #ffffff; }
+        .custom-welcome-panel .narukami-setting-panel-wrap .panel-item a .panel-content-wrap h2 {
+          font-size: 16px;
+          transition: color 0.3s ease-in-out; }
+        .custom-welcome-panel .narukami-setting-panel-wrap .panel-item a .panel-content-wrap p {
+          transition: color 0.3s ease-in-out; }
+
+.fa-solid.fa-desktop {
+  color: #ffffff; }
+
+/*================================
 	鳴雷ヘッダー設定スタイル
 =================================*/
 .tab-button-wrap {
