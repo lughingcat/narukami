@@ -3,7 +3,7 @@
 	welcome panel style
 =================================*/
 .custom-welcome-panel{
-	padding: 20px;
+	padding: 40px;
     border-radius: 5px;
 	h2{
 		color: #ffffff;
@@ -15,9 +15,13 @@
 	}
 	.narukami-setting-panel-wrap{// ul
 		width: 100%;
+		margin: 70px auto;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+  		gap: 40px;
 		.panel-item{// li
-			width: 30%;
 			background-color: #2271b1;
+			padding: 20px;
 			transition: transform .3s ease-in-out, background-color .3s ease-in-out, color .3s ease-in-out;
 			&:hover{
 				background-color: #FFFFFF;
@@ -28,7 +32,9 @@
        			 p {
            			color: #2271b1; // pの色変更
         		 }
-				.fa-solid.fa-desktop{
+				.fa-solid.fa-desktop,
+				.fa-solid.fa-list-check,
+				.fa-solid.fa-utensils{
 					color: #2271b1;
 					transition: color 0.3s ease-in-out;
 				}
@@ -36,12 +42,22 @@
 			a{
 				color: #ffffff;
 				.panel-content-wrap{// div
+					.panel-icon{
+						text-align: center;
+						font-size: 20px;
+						margin: 8px 0;
+					}
 					h2{
 						font-size: 16px;
+						margin-bottom: 20px;
+						margin-top: 20px;
+						padding-bottom: 10px;
+						text-align: center;
 						transition: color 0.3s ease-in-out;
 					}
 					p{
 						transition: color 0.3s ease-in-out;
+						padding: 10px;
 					}
 				}
 			}
@@ -49,8 +65,31 @@
 		
 	}
 }
-.fa-solid.fa-desktop{
+.panel-btn-flex-wrap{
+	display: flex;
+	.sample-site-btn{
+		width: 50%;
+		display: inline-block;
+  		padding: 10px 10px;
+  		background-color: #007bff;
+  		color: #fff;
+  		text-decoration: none;
+  		text-align: center;
+		font-size: .8em;
+		margin: 5px;
+		&:hover{
+			background-color: #0056b3;
+		}
+	}
+}
+
+.fa-solid.fa-desktop,
+.fa-solid.fa-list-check,
+.fa-solid.fa-utensils{
 	color: #ffffff;
+	border: 3px solid;
+	padding: 20px;
+	border-radius: 5px;
 }
 /*================================
 	鳴雷ヘッダー設定スタイル

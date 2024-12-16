@@ -14,15 +14,56 @@ function add_narukami_welcome_panel() {
 		</p>
         <ul class="narukami-setting-panel-wrap">
             <li class="panel-item">
-				<a href="<?php echo admin_url('edit.php'); ?>">
+				<a href="<?php echo admin_url('admin.php?page=custom_submenu_page_1'); ?>">
 					<div class="panel-content-wrap">
-						<p><i class="fa-solid fa-desktop"></i></p>
+						<p class="panel-icon"><i class="fa-solid fa-desktop"></i></p>
 						<h2>鳴雷トップページビルダー</h2>
-						<p>トップページを作成することができます。</p>
+						<p>
+							ウェブサイトのトップページを作成することができます。<br>
+							使い方はトップページビルダーに記載していますのでそちらを参照してください。<br>
+						</p>
+						<p>トップページビルダーで作成したサイトを確認したい場合はサンプルサイトのボタンをクリックしてください。</p>
 					</div>
 				</a>
+				<div class="panel-btn-flex-wrap">
+					<a class="sample-site-btn" href="<?php echo admin_url('admin.php?page=custom_submenu_page_1'); ?>">作成開始！</a>
+					<a class="sample-site-btn" href="https://nousondiner.com/">サンプルサイト</a>
+				</div>
 			</li>
-            <li class="panel-item"><a href="<?php echo admin_url('options-general.php'); ?>">設定を確認する</a></li>
+            <li class="panel-item">
+				<a href="<?php echo admin_url('admin.php?page=custom_submenu_page_1'); ?>">
+					<div class="panel-content-wrap">
+						<p class="panel-icon"><i class="fa-solid fa-list-check"></i></i></p>
+						<h2>商品リストページ</h2>
+						<p>
+							ウェブサイトのトップページを作成することができます。<br>
+							使い方はトップページビルダーに記載していますのでそちらを参照してください。<br>
+						</p>
+						<p>トップページビルダーで作成したサイトを確認したい場合はサンプルサイトのボタンをクリックしてください。</p>
+					</div>
+				</a>
+				<div class="panel-btn-flex-wrap">
+					<a class="sample-site-btn" href="<?php echo admin_url('admin.php?page=custom_submenu_page_1'); ?>">作成開始！</a>
+					<a class="sample-site-btn" href="https://nousondiner.com/">サンプルサイト</a>
+				</div>
+			</li>
+			<li class="panel-item">
+				<a href="<?php echo admin_url('admin.php?page=custom_submenu_page_1'); ?>">
+					<div class="panel-content-wrap">
+						<p class="panel-icon"><i class="fa-solid fa-utensils"></i></p>
+						<h2>商品紹介ページ</h2>
+						<p>
+							ウェブサイトのトップページを作成することができます。<br>
+							使い方はトップページビルダーに記載していますのでそちらを参照してください。<br>
+						</p>
+						<p>トップページビルダーで作成したサイトを確認したい場合はサンプルサイトのボタンをクリックしてください。</p>
+					</div>
+				</a>
+				<div class="panel-btn-flex-wrap">
+					<a class="sample-site-btn" href="<?php echo admin_url('admin.php?page=custom_submenu_page_1'); ?>">作成開始！</a>
+					<a class="sample-site-btn" href="https://nousondiner.com/">サンプルサイト</a>
+				</div>
+			</li>
         </ul>
     </div>
     <?php
