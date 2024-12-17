@@ -33,7 +33,15 @@
           color: #2271b1; }
         .custom-welcome-panel .narukami-setting-panel-wrap .panel-item:hover .fa-solid.fa-desktop,
         .custom-welcome-panel .narukami-setting-panel-wrap .panel-item:hover .fa-solid.fa-list-check,
-        .custom-welcome-panel .narukami-setting-panel-wrap .panel-item:hover .fa-solid.fa-utensils {
+        .custom-welcome-panel .narukami-setting-panel-wrap .panel-item:hover .fa-solid.fa-utensils,
+        .custom-welcome-panel .narukami-setting-panel-wrap .panel-item:hover .fa-solid.fa-file-pen,
+        .custom-welcome-panel .narukami-setting-panel-wrap .panel-item:hover .fa-solid.fa-heading,
+        .custom-welcome-panel .narukami-setting-panel-wrap .panel-item:hover .fa-solid.fa-table-list,
+        .custom-welcome-panel .narukami-setting-panel-wrap .panel-item:hover .fa-solid.fa-ellipsis,
+        .custom-welcome-panel .narukami-setting-panel-wrap .panel-item:hover .fa-solid.fa-triangle-exclamation,
+        .custom-welcome-panel .narukami-setting-panel-wrap .panel-item:hover .fa-solid.fa-rectangle-ad,
+        .custom-welcome-panel .narukami-setting-panel-wrap .panel-item:hover .fa-solid.fa-gear,
+        .custom-welcome-panel .narukami-setting-panel-wrap .panel-item:hover .fa-regular.fa-image {
           color: #2271b1;
           transition: color 0.3s ease-in-out; }
       .custom-welcome-panel .narukami-setting-panel-wrap .panel-item a {
@@ -52,7 +60,7 @@
         .custom-welcome-panel .narukami-setting-panel-wrap .panel-item a .panel-content-wrap p {
           transition: color 0.3s ease-in-out;
           padding: 10px;
-          line-height: 20px; }
+          line-height: 25px; }
 
 .panel-btn-flex-wrap {
   display: flex; }
@@ -68,10 +76,20 @@
     margin: 5px; }
     .panel-btn-flex-wrap .sample-site-btn:hover {
       background-color: #0056b3; }
+  .panel-btn-flex-wrap .long-btn {
+    width: 100%; }
 
 .fa-solid.fa-desktop,
 .fa-solid.fa-list-check,
-.fa-solid.fa-utensils {
+.fa-solid.fa-utensils,
+.fa-solid.fa-file-pen,
+.fa-solid.fa-heading,
+.fa-solid.fa-table-list,
+.fa-solid.fa-ellipsis,
+.fa-solid.fa-triangle-exclamation,
+.fa-solid.fa-rectangle-ad,
+.fa-solid.fa-gear,
+.fa-regular.fa-image {
   color: #ffffff;
   border: 3px solid;
   padding: 20px;

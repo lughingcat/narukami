@@ -36,7 +36,15 @@
         		 }
 				.fa-solid.fa-desktop,
 				.fa-solid.fa-list-check,
-				.fa-solid.fa-utensils{
+				.fa-solid.fa-utensils,
+				.fa-solid.fa-file-pen,
+				.fa-solid.fa-heading,
+				.fa-solid.fa-table-list,
+				.fa-solid.fa-ellipsis,
+				.fa-solid.fa-triangle-exclamation,
+				.fa-solid.fa-rectangle-ad,
+				.fa-solid.fa-gear,
+				.fa-regular.fa-image{
 					color: #2271b1;
 					transition: color 0.3s ease-in-out;
 				}
@@ -60,7 +68,7 @@
 					p{
 						transition: color 0.3s ease-in-out;
 						padding: 10px;
-						line-height: 20px;
+						line-height: 25px;
 					}
 				}
 			}
@@ -84,11 +92,22 @@
 			background-color: #0056b3;
 		}
 	}
+	.long-btn{
+		width: 100%;
+	}
 }
 
 .fa-solid.fa-desktop,
 .fa-solid.fa-list-check,
-.fa-solid.fa-utensils{
+.fa-solid.fa-utensils,
+.fa-solid.fa-file-pen,
+.fa-solid.fa-heading,
+.fa-solid.fa-table-list,
+.fa-solid.fa-ellipsis,
+.fa-solid.fa-triangle-exclamation,
+.fa-solid.fa-rectangle-ad,
+.fa-solid.fa-gear,
+.fa-regular.fa-image{
 	color: #ffffff;
 	border: 3px solid;
 	padding: 20px;
