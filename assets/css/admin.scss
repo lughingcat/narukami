@@ -22,6 +22,8 @@
 		.panel-item{// li
 			background-color: #2271b1;
 			padding: 20px;
+			display: grid;
+  			grid-template-rows: 11fr 1fr; /* 高さを比率で指定 */
 			transition: transform .3s ease-in-out, background-color .3s ease-in-out, color .3s ease-in-out;
 			&:hover{
 				background-color: #FFFFFF;
@@ -58,6 +60,7 @@
 					p{
 						transition: color 0.3s ease-in-out;
 						padding: 10px;
+						line-height: 20px;
 					}
 				}
 			}

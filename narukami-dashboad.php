@@ -19,27 +19,44 @@ function add_narukami_welcome_panel() {
 						<p class="panel-icon"><i class="fa-solid fa-desktop"></i></p>
 						<h2>鳴雷トップページビルダー</h2>
 						<p>
-							ウェブサイトのトップページを作成することができます。<br>
-							使い方はトップページビルダーに記載していますのでそちらを参照してください。<br>
+							ウェブサイトの顔であるトップページを作成することができます。サイト作成で一番最初に作成するページがこのトップページです。<br>
+							使い方は非常に簡単。各コンテンツを追加、選択、画像とテキストを入れ保存で完了します。各コンテンツの並び替えも自由にできます。<br>
 						</p>
-						<p>トップページビルダーで作成したサイトを確認したい場合はサンプルサイトのボタンをクリックしてください。</p>
+						<p>私がトップページビルダーで作成したデモページを確認することができます。以下のデモページのボタンをクリックしてください。</p>
 					</div>
 				</a>
 				<div class="panel-btn-flex-wrap">
 					<a class="sample-site-btn" href="<?php echo admin_url('admin.php?page=custom_submenu_page_1'); ?>">作成開始！</a>
-					<a class="sample-site-btn" href="https://nousondiner.com/">サンプルサイト</a>
+					<a class="sample-site-btn" href="https://nousondiner.com/">デモページ</a>
 				</div>
 			</li>
             <li class="panel-item">
 				<a href="<?php echo admin_url('admin.php?page=custom_submenu_page_1'); ?>">
 					<div class="panel-content-wrap">
 						<p class="panel-icon"><i class="fa-solid fa-list-check"></i></i></p>
-						<h2>商品リストページ</h2>
+						<h2>商品リストページ機能</h2>
 						<p>
-							ウェブサイトのトップページを作成することができます。<br>
-							使い方はトップページビルダーに記載していますのでそちらを参照してください。<br>
+							アイテムリストを作成、表示することができます。各料理カテゴリーの商品を一覧して表示し商品紹介ページへの誘導を行えます。<br>
+							お弁当リストやサイドメニュー、スペシャリテなどのを一覧表示したい際にご利用ください。<br>
 						</p>
-						<p>トップページビルダーで作成したサイトを確認したい場合はサンプルサイトのボタンをクリックしてください。</p>
+						<p>私が商品リストページで作成したデモページを確認することができます。以下のデモページのボタンをクリックしてください。</p>
+					</div>
+				</a>
+				<div class="panel-btn-flex-wrap">
+					<a class="sample-site-btn" href="<?php echo admin_url('admin.php?page=custom_submenu_page_1'); ?>">作成開始！</a>
+					<a class="sample-site-btn" href="https://nousondiner.com/">デモページ</a>
+				</div>
+			</li>
+			<li class="panel-item">
+				<a href="<?php echo admin_url('admin.php?page=custom_submenu_page_1'); ?>">
+					<div class="panel-content-wrap">
+						<p class="panel-icon"><i class="fa-solid fa-utensils"></i></p>
+						<h2>商品紹介ページ</h2>
+						<p>
+							商品の詳細を解説できるページが作成できます。金額や使用している原材料、アレルギー表示に対応しています。<br>
+							メニュー写真も複数スライド形式で表示させることができますので単品やセット商品などの訴求にも効果的です。<br>
+						</p>
+						<p>私が商品紹介ページで作成したサイトを確認したい場合はデモサイトのボタンをクリックしてください。</p>
 					</div>
 				</a>
 				<div class="panel-btn-flex-wrap">
@@ -51,12 +68,12 @@ function add_narukami_welcome_panel() {
 				<a href="<?php echo admin_url('admin.php?page=custom_submenu_page_1'); ?>">
 					<div class="panel-content-wrap">
 						<p class="panel-icon"><i class="fa-solid fa-utensils"></i></p>
-						<h2>商品紹介ページ</h2>
+						<h2>lpページ</h2>
 						<p>
-							ウェブサイトのトップページを作成することができます。<br>
-							使い方はトップページビルダーに記載していますのでそちらを参照してください。<br>
+							この機能ではランディングページを作成することができます。鳴雷オリジナルの9つのブロックで自由度の高いlpを作成することができます。<br>
+							各ページごとに背景も設定できるようにしていますので、コンセプトページやコース料理、期間限定メニューなどの訴求にお使いください。<br>
 						</p>
-						<p>トップページビルダーで作成したサイトを確認したい場合はサンプルサイトのボタンをクリックしてください。</p>
+						<p>私がlpページで作成したサイトを確認したい場合はデモサイトのボタンをクリックしてください。</p>
 					</div>
 				</a>
 				<div class="panel-btn-flex-wrap">
