@@ -18,15 +18,18 @@ $an_banner_control = sanitize_option_value(get_option('banner-use-control', 'ban
 	</div>
 </div>
 <script>
-function bannerScroll() {
-    var bannerEl = document.querySelector('.banner-all-wrap');
-    if (bannerEl) {
-        bannerEl.classList.remove('remove-banner');
+document.addEventListener('DOMContentLoaded', function () {
+    function bannerScroll() {
+        var bannerEl = document.querySelector('.banner-all-wrap');
+        if (bannerEl) {
+            bannerEl.classList.remove('remove-banner');
+        }
+        window.removeEventListener('scroll', bannerScroll); // 実行後にイベントリスナーを削除
     }
-    window.removeEventListener('scroll', bannerScroll); // 実行後にイベントリスナーを削除
-}
 
-window.addEventListener('scroll', bannerScroll);
+    window.addEventListener('scroll', bannerScroll);
+});
+
 
 
 //deleteBtn 

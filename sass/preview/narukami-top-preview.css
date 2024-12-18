@@ -969,7 +969,7 @@
   width: 100%;
   transition: transform 0.3s ease;
   /* スムーズな表示/非表示のためのアニメーション */
-  z-index: 1000;
+  z-index: 998;
   /* 他の要素の上に表示 */ }
   .header-back-wrap.bg-opacity-value {
     animation: bgOpacityAnime 4.3s ease-out; }
@@ -2023,7 +2023,7 @@
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
-  z-index: 1001;
+  z-index: 998;
   transition: opacity .5s ease;
   opacity: 1; }
   .banner-all-wrap.remove-banner {
@@ -2035,6 +2035,10 @@
     transform: translate(-50%, -60%);
     width: 50%;
     height: 70%; }
+    @media (max-width: 768px) {
+      .banner-all-wrap .banner-content-wrap {
+        width: 80%;
+        height: 63%; } }
     .banner-all-wrap .banner-content-wrap .banner-title {
       text-align: center;
       font-weight: bold;
@@ -2046,7 +2050,10 @@
       .banner-all-wrap .banner-content-wrap a img {
         width: 100%;
         height: 100%;
-        object-fit: cover; }
+        object-fit: contain; }
+        @media (max-width: 768px) {
+          .banner-all-wrap .banner-content-wrap a img {
+            height: 50%; } }
     .banner-all-wrap .banner-content-wrap .banner-close-button {
       width: 30px;
       height: 30px;

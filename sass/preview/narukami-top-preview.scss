@@ -736,7 +736,7 @@
     left: 0;
     width: 100%;
     transition: transform 0.3s ease; /* スムーズな表示/非表示のためのアニメーション */
-    z-index: 1000; /* 他の要素の上に表示 */
+    z-index: 998; /* 他の要素の上に表示 */
 	&.bg-opacity-value{
 			@include bg-opacty-animation;
 		}
@@ -1981,7 +1981,7 @@
 	width: 100vw;
 	height: 100vh;
 	background-color: rgba(0, 0, 0, 0.8);
-	z-index: 1001;
+	z-index: 998;
 	transition: opacity .5s ease;
 	opacity: 1;
 	&.remove-banner{
@@ -1994,6 +1994,10 @@
 		transform: translate(-50%, -60%);
 		width: 50%;
 		height: 70%;
+		@include media(medium){
+			width: 80%;
+    		height: 63%;
+  		}
 		.banner-title{
 			text-align: center;
 			font-weight: bold;
@@ -2006,7 +2010,10 @@
 			img{
 				width: 100%;
 				height: 100%;
-				object-fit: cover;
+				object-fit: contain;
+				@include media(medium) {
+    				height: 50%;
+  				}
 			}
 		}
 		.banner-close-button{
