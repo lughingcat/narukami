@@ -428,10 +428,12 @@ html, body {
 				}
 				.ingredient-item{//border付与
 					border-bottom: 1px solid;
-					height: 30px;
 					@include media(medium) {
     					font-size: .8em;
   					}
+					p{
+						margin-bottom: 8px;
+					}
 				}
 			}
 		}
@@ -448,6 +450,7 @@ html, body {
 			}
 			p{
 				border-bottom: 1px solid;
+				padding-bottom: 8px;
 				@include media(medium) {
     					font-size: .8em;
   				}

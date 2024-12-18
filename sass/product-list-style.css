@@ -462,12 +462,14 @@ html, body {
             font-size: 1em; } }
       .product-item-page-content .content .ingredients-description-block .ingredients-list .ingredient-item,
       .product-list-page-content .content .ingredients-description-block .ingredients-list .ingredient-item {
-        border-bottom: 1px solid;
-        height: 30px; }
+        border-bottom: 1px solid; }
         @media (max-width: 768px) {
           .product-item-page-content .content .ingredients-description-block .ingredients-list .ingredient-item,
           .product-list-page-content .content .ingredients-description-block .ingredients-list .ingredient-item {
             font-size: .8em; } }
+        .product-item-page-content .content .ingredients-description-block .ingredients-list .ingredient-item p,
+        .product-list-page-content .content .ingredients-description-block .ingredients-list .ingredient-item p {
+          margin-bottom: 8px; }
     .product-item-page-content .content .allergy-info-block,
     .product-list-page-content .content .allergy-info-block {
       width: 100%;
@@ -480,7 +482,8 @@ html, body {
           font-size: 1.2em; } }
       .product-item-page-content .content .allergy-info-block p,
       .product-list-page-content .content .allergy-info-block p {
-        border-bottom: 1px solid; }
+        border-bottom: 1px solid;
+        padding-bottom: 8px; }
         @media (max-width: 768px) {
           .product-item-page-content .content .allergy-info-block p,
           .product-list-page-content .content .allergy-info-block p {

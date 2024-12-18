@@ -20,7 +20,7 @@ function custom_login_logo() {
 
 function custom_login_message($message) {
     if (empty($message)) {
-        $message = '<p class="custom-login-text">飲食店専用WordPressTheme鳴雷の<br>ご購入ありがとうございます。<br>一緒に素敵なウェブサイトを作りましょう！</p>';
+        $message = '<p class="custom-login-text">飲食店専用WordPressTheme鳴雷の<br>ご購入ありがとうございます。';
     }
     return $message;
 }

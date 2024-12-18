@@ -2051,9 +2051,6 @@
         width: 100%;
         height: 100%;
         object-fit: contain; }
-        @media (max-width: 768px) {
-          .banner-all-wrap .banner-content-wrap a img {
-            height: 50%; } }
     .banner-all-wrap .banner-content-wrap .banner-close-button {
       width: 30px;
       height: 30px;
