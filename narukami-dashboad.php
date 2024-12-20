@@ -179,7 +179,7 @@ function add_narukami_welcome_panel() {
 				</div>
 			</li>
 			<li class="panel-item">
-				<a href="">
+				<a>
 					<div class="panel-content-wrap">
 						<p class="panel-icon"><i class="fa-regular fa-image"></i></p>
 						<h2>鳴雷の画像サイズについて</h2>
