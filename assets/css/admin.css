@@ -41,7 +41,7 @@
         .custom-welcome-panel .narukami-setting-panel-wrap .panel-item:hover .fa-solid.fa-triangle-exclamation,
         .custom-welcome-panel .narukami-setting-panel-wrap .panel-item:hover .fa-solid.fa-rectangle-ad,
         .custom-welcome-panel .narukami-setting-panel-wrap .panel-item:hover .fa-solid.fa-gear,
-        .custom-welcome-panel .narukami-setting-panel-wrap .panel-item:hover .fa-regular.fa-image {
+        .custom-welcome-panel .narukami-setting-panel-wrap .panel-item:hover .fa-solid.fa-images {
           color: #2271b1;
           transition: color 0.3s ease-in-out; }
       .custom-welcome-panel .narukami-setting-panel-wrap .panel-item a {
@@ -89,7 +89,7 @@
 .fa-solid.fa-triangle-exclamation,
 .fa-solid.fa-rectangle-ad,
 .fa-solid.fa-gear,
-.fa-regular.fa-image {
+.fa-solid.fa-images {
   color: #ffffff;
   border: 3px solid;
   padding: 20px;

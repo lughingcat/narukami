@@ -79,12 +79,12 @@
 								var formData = new FormData(form);
 								var xhr = new XMLHttpRequest();
 								var preview_link = "' . $preview_link . '";
+								var previewWindow = window.open(preview_link, "_blank");
 								xhr.open("POST", preview_link, true);
 								xhr.onreadystatechange = function () {
 									if (xhr.readyState == 4) {
 										console.log("XHR Status:", xhr.status);
 									if (xhr.status == 200) {
-										var previewWindow = window.open(preview_link, "_blank");
 										previewWindow.document.open();
 										previewWindow.document.write(xhr.responseText);
 										previewWindow.document.close();
