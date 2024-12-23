@@ -679,42 +679,102 @@ function my_wp_get_attachment_metadata( $data, $id ) {
 */
 
 //トップページのプレビュー関数
-add_action('template_redirect', 'custom_preview_handler');
+add_action('template_redirect', 'custom_preview_handler', 10);
 function custom_preview_handler() {
     if (isset($_GET['preview']) && $_GET['preview'] === 'true' && isset($_GET['page']) && $_GET['page'] === 'toppage_builder_preview') {
         // トップページビルダーのプレビュー用テンプレート
+		status_header(200);
+		ob_start();
         include(get_template_directory() . '/custom-preview-template.php');
+		echo ob_get_clean();
         exit;
     }
 }
+
+//トップページリダイレクト拒否
+add_filter('redirect_canonical', 'toppage_disable_preview_redirect', 10, 2);
+function toppage_disable_preview_redirect($redirect_url, $requested_url) {
+    if (
+        isset($_GET['preview']) && $_GET['preview'] === 'true' &&
+        isset($_GET['page']) && $_GET['page'] === 'toppage_builder_preview'
+    ) {
+        return false; // リダイレクトを無効化
+    }
+    return $redirect_url;
+}
+
 //トップページヘッダーのプレビュー関数
-add_action('template_redirect', 'custom_header_preview_handler');
+add_action('template_redirect', 'custom_header_preview_handler', 10);
 function custom_header_preview_handler() {
     if (isset($_GET['preview']) && $_GET['preview'] === 'true' && isset($_GET['page']) && $_GET['page'] === 'toppage_header_preview') {
         // トップページヘッダーのプレビュー用テンプレート
+		status_header(200);
+		ob_start();
         include(get_template_directory() . '/custom-header-prevew-temp.php');
+		echo ob_get_clean();
         exit;
     }
+}
+//ヘッダーリダイレクト拒否
+add_filter('redirect_canonical', 'header_disable_preview_redirect', 10, 2);
+function header_disable_preview_redirect($redirect_url, $requested_url) {
+    if (
+        isset($_GET['preview']) && $_GET['preview'] === 'true' &&
+        isset($_GET['page']) && $_GET['page'] === 'toppage_header_preview'
+    ) {
+        return false; // リダイレクトを無効化
+    }
+    return $redirect_url;
 }
 
 //404ページのプレビュー関数
-add_action('template_redirect', 'custom_404page_preview_handler');
+add_action('template_redirect', 'custom_404page_preview_handler', 10);
 function custom_404page_preview_handler() {
     if (isset($_GET['preview']) && $_GET['preview'] === 'true' && isset($_GET['page']) && $_GET['page'] === 'page404_preview') {
         // 404のプレビュー用テンプレート
+		status_header(200);
+		ob_start();
         include(get_template_directory() . '/custom-404-preview-temp.php');
+		echo ob_get_clean();
         exit;
     }
 }
 
+//404リダイレクト拒否
+add_filter('redirect_canonical', 'notfound_disable_preview_redirect', 10, 2);
+function notfound_disable_preview_redirect($redirect_url, $requested_url) {
+    if (
+        isset($_GET['preview']) && $_GET['preview'] === 'true' &&
+        isset($_GET['page']) && $_GET['page'] === 'page404_preview'
+    ) {
+        return false; // リダイレクトを無効化
+    }
+    return $redirect_url;
+}
+
 //告知ページのプレビュー関数
-add_action('template_redirect', 'custom_banner_preview_handler');
+add_action('template_redirect', 'custom_banner_preview_handler', 10);
 function custom_banner_preview_handler() {
     if (isset($_GET['preview']) && $_GET['preview'] === 'true' && isset($_GET['page']) && $_GET['page'] === 'banner_preview') {
         // トップページビルダーのプレビュー用テンプレート
+		status_header(200);
+		ob_start();
         include(get_template_directory() . '/custom-banner-preview-temp.php');
+		echo ob_get_clean();
         exit;
     }
+}
+
+//告知ページリダイレクト拒否
+add_filter('redirect_canonical', 'bunner_disable_preview_redirect', 10, 2);
+function bunner_disable_preview_redirect($redirect_url, $requested_url) {
+    if (
+        isset($_GET['preview']) && $_GET['preview'] === 'true' &&
+        isset($_GET['page']) && $_GET['page'] === 'banner_preview'
+    ) {
+        return false; // リダイレクトを無効化
+    }
+    return $redirect_url;
 }
 
 // メタボックスを登録
