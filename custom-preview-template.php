@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+	<title>トップページビルダープレビューページ</title>
     <?php wp_head(); ?>
 </head>
 	<?php
@@ -34,15 +35,20 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
        // フォームデータを取得して表示
        $formData = $_POST;
-	foreach ($formData['array-num'] as $index) {
-		$result = array();
-		foreach ($formData as $key => $value) {
-			if (is_array($value) && isset($value[$index])) {
-				$result[$key] = $value[$index];
+		//配列を初期化
+	   $results = array();
+		if (isset($formData['array-num']) && is_array($formData['array-num'])) {
+			foreach ($formData['array-num'] as $index) {
+				$result = array();
+				foreach ($formData as $key => $value) {
+					// $value が配列であり、該当インデックスが存在する場合のみ追加
+					if (is_array($value) && isset($value[$index])) {
+						$result[$key] = $value[$index];
+					}
+				}
+				$results[] = $result; // 生成した結果を結果配列に追加
 			}
 		}
-		$results[] = $result;
-	}
 	foreach($results as $key=> $value){
 		if($value['array-num'] == $key && $value['s_cmaker'] === 'concept'){
 			$insert_ids = $value['insert_ids'];

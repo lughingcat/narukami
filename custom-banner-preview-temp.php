@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+	<title>告知バナープレビューページ</title>
     <?php wp_head(); ?>
 </head>
 	<?php

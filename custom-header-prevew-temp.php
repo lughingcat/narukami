@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+	<title>ヘッダープレビューページ</title>
     <?php wp_head(); ?>
 </head>
 	<?php
