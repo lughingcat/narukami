@@ -6,7 +6,6 @@ $i_gloalmenu_textcolor = sanitize_option_value($_POST['globalmenu-text-color']);
 $i_humberger_btn_bg = sanitize_option_value($_POST['humberger-btn-bg']);
 $i_humberger_arrowcolor = sanitize_option_value($_POST['humberger-arrowcolor']);
 $i_global_textunderlinecolor = sanitize_option_value($_POST['global-textunderlinecolor']);
-$i_global_text_menucolor = sanitize_option_value($_POST['global-text-menucolor']);
 $animetion_type = sanitize_option_value($_POST['ladinganime-type']);
 // 連想配列を作成
 $global_items_Array = array();
