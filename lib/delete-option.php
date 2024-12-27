@@ -100,5 +100,6 @@
         delete_option('call-btn-active');
         delete_option('call-btn-bg-color');
         delete_option('store-smartphone-number');
+        delete_option('site_icon');
 		
 ?>

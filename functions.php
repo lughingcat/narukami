@@ -282,35 +282,41 @@ add_action('enqueue_block_editor_assets', 'narukami_itemlist_block_register', 10
 
 //ブロックエディターエンキュー --優先順位2位(既存ブロックの拡張)
 function narukami_block_editor_enqueue() {
-		//登録している依存jsファイルの分岐
-		if ( wp_script_is('itemlist-custom-block', 'registered') ) {
-			$dependencies = 'itemlist-custom-block';
-		}
-		if ( wp_script_is('item-introduction-block', 'registered') ) {
-			$dependencies = 'item-introduction-block';
-		}
-		if ( wp_script_is('custom-lp-block', 'registered') ) {
-			$dependencies = 'custom-lp-block';
-		}
-   wp_enqueue_script('narukami_block_editor_script', get_template_directory_uri() . '/assets/js/custom-block-editor.js',
-					 array(
-						 'wp-blocks', 
-						 'wp-dom-ready', 
-						 'wp-edit-post', 
-						 'wp-block-editor', 
-						 'wp-compose', 
-						 'wp-components', 
-						 'wp-hooks',
-						 'wp-element',
-						 'wp-i18n',
-						 $dependencies
-					 ),
-					 time(),
-					 true
-					);
-	
+    // 基本の依存関係
+    $dependencies = array(
+        'wp-blocks', 
+        'wp-dom-ready', 
+        'wp-edit-post', 
+        'wp-block-editor', 
+        'wp-compose', 
+        'wp-components', 
+        'wp-hooks',
+        'wp-element',
+        'wp-i18n'
+    );
+
+    // 条件に応じて依存関係を追加
+    if (wp_script_is('itemlist-custom-block', 'registered')) {
+        $dependencies[] = 'itemlist-custom-block';
+    }
+    if (wp_script_is('item-introduction-block', 'registered')) {
+        $dependencies[] = 'item-introduction-block';
+    }
+    if (wp_script_is('custom-lp-block', 'registered')) {
+        $dependencies[] = 'custom-lp-block';
+    }
+
+    // スクリプトを登録・読み込み
+    wp_enqueue_script(
+        'narukami_block_editor_script',
+        get_template_directory_uri() . '/assets/js/custom-block-editor.js',
+        $dependencies,
+        time(),
+        true
+    );
 }
 add_action('enqueue_block_editor_assets', 'narukami_block_editor_enqueue', 11);
+
 
 //ブロックエディタcssエンキュー
 function narukami_enqueue_block_editor_styles() {
