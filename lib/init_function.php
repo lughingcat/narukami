@@ -228,7 +228,16 @@ function ranking_db_farst_insert_data(){
 	
 	global $wpdb;
 	$tablename = $wpdb->prefix.'narukami_content_maker';
+	// 挿入するデータのユニークキー
+	$unique_id = 'insert_id_first';
+	
+	$existing_id = $wpdb->get_var($wpdb->prepare(
+    	"SELECT insert_ids FROM {$tablename} WHERE insert_ids = %s",
+    	$unique_id
+	));
+	
 	// 各種データの保存
+	if ($existing_id !== $unique_id) {
 	$wpdb->insert(
 		$tablename,
 		array(
@@ -408,7 +417,7 @@ function ranking_db_farst_insert_data(){
 			
 		)
 	);
+	}
 }
-
 add_action('narukami_theme_activate', 'ranking_db_farst_insert_data');
 ?>
