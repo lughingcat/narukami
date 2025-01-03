@@ -418,6 +418,7 @@ function enqueue_narukami_top_preview_assets() {
             cssEase: "ease-in-out",
 			accessibility: true,
   			focusOnChange: false,
+			arrows: true,
             dots: true
         	});
     	});
