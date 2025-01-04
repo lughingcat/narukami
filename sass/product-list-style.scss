@@ -175,7 +175,7 @@ html, body {
     			grid-template-columns: repeat(2, 1fr);
   			}
 			@include media(small) {
-    			gap: 5px;
+    			gap: 20px;
   			}
     		
 			.item-list{//個別商品wrap
@@ -197,7 +197,8 @@ html, body {
 					object-fit: contain;
 					object-position: center;
 					@include media(small) {
-    					height: 150px;
+						width: 100px;
+    					height: 100px;
   					}
 				}
 				.product-title{
@@ -214,8 +215,11 @@ html, body {
 					@include media(xlarge) {
     					font-size: 1em;
   					}
-					@include media(xlarge) {
+					@include media(large) {
     					font-size: .8em;
+  					}
+					@include media(small) {
+    					font-size: .6em;
   					}
 					&::before{
 						content: '';
@@ -226,7 +230,7 @@ html, body {
 						height: 15px;
 						background-color: #c44545;
 						@include media(small) {
-    						top: 3px;
+    						top: 0;
 							width: 3px;
   						}
 					}
@@ -237,8 +241,11 @@ html, body {
 					@include media(xlarge) {
     					font-size: 1em;
   					}
-					@include media(xlarge) {
+					@include media(large) {
     					font-size: .8em;
+  					}
+					@include media(small) {
+    					font-size: .6em;
   					}
 				}
 				
