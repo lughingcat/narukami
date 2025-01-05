@@ -10,7 +10,7 @@ $hh_slider_title_1_prev = "SLIDER TITLE 1";
 $hh_slider_title_2_prev = "SLIDER TITLE 2";
 $hh_slider_title_3_prev = "SLIDER TITLE 3";
 
-$slider_img_link = sanitize_option_value(get_option('slider_img_link_array',array($hh_slider_img_1_prev,$hh_slider_img_2_prev,$hh_slider_img_3_prev)));
+$slider_img_link = get_optimized_image_url(sanitize_option_value(get_option('slider_img_link_array',array($hh_slider_img_1_prev,$hh_slider_img_2_prev,$hh_slider_img_3_prev))));
 $slider_item_title = sanitize_option_value(get_option('slider_item_title_array',array($hh_slider_title_1_prev,$hh_slider_title_2_prev,$hh_slider_title_3_prev)));
 $slider_item_shadow = sanitize_option_value(get_option('slider_item_shadow', 'shadow-on'));
 $slider_item_shadow_volume = sanitize_option_value(get_option('slider_item_shadow_volume', '0.50'));

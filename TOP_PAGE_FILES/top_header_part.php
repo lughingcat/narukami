@@ -2,7 +2,7 @@
 //初期設定変数
 $defult_rogo_img = get_template_directory_uri() . '/admin-img/narukami-rogo-var3.1.0.png';
 
-$i_site_rogo_img_url = sanitize_option_value(get_option('header-rogo-url', $defult_rogo_img));
+$i_site_rogo_img_url = get_optimized_image_url(sanitize_option_value(get_option('header-rogo-url', $defult_rogo_img)));
 $i_site_title_value = sanitize_option_value(get_option('header-tite', 'SITE TITLE'));
 $i_site_discription_value = sanitize_option_value(get_option('header-discription', 'SITE DISCRIPTION'));
 $i_header_display_setting = sanitize_option_value(get_option('header-disp-set', 'display_on'));

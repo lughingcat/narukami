@@ -834,6 +834,26 @@ function save_background_meta_box($post_id) {
 }
 add_action('save_post', 'save_background_meta_box');
 
+//トップページビルダーの画像をjetpackのcdn経由かオリジナルかを分岐させる関数
+
+function get_optimized_image_url( $image_urls ) {
+    // Jetpackがインストールされ、有効でPhotonモジュールがアクティブかをチェック
+    if ( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'photon' ) ) {
+        // Jetpackが有効で、Photonモジュールがアクティブな場合
+        if ( is_array( $image_urls ) ) {
+            // 画像URLが配列の場合、各URLに対してCDN経由のURLを取得
+            return array_map( 'jetpack_photon_url', $image_urls );
+        } else {
+            // 単体の画像URLの場合、そのままCDN経由でURLを取得
+            return jetpack_photon_url( $image_urls );
+        }
+    } else {
+        // Jetpackが無効な場合、そのままオリジナルの画像URLを返す
+        return $image_urls;
+    }
+}
+
+
 
 /**
  * option値初期化ファイル(通常時コメントアウト)

@@ -25,9 +25,9 @@
 $defult_notfound_img_head = get_template_directory_uri() . '/admin-img/samp-2400-1400.jpg';
 	
 $notfoundpage_bg_type = sanitize_option_value(get_option('page404bg-type', 'main-bg-img'));
-$notfound_original_img = sanitize_option_value(get_option('notfoundpage-bg-img', $defult_notfound_img_head));
+$notfound_original_img = get_optimized_image_url(sanitize_option_value(get_option('notfoundpage-bg-img', $defult_notfound_img_head)));
 $narukami_font_family = sanitize_option_value(get_option('narukami-font-family', 'Sawarabi Gothic'));
-$i_background_image = sanitize_option_value(get_option('background_image'));
+$i_background_image = get_optimized_image_url(sanitize_option_value(get_option('background_image')));
 $i_background_image_custom_option = get_background_image();
 	//404ページBG分岐
 	if($notfoundpage_bg_type === "main-bg-img"){

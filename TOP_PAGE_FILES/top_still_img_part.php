@@ -3,7 +3,7 @@
 $defult_still_img_prev = get_template_directory_uri() . '/admin-img/samp-2400-1400.jpg';
 $defult_rogo_img_prev = get_template_directory_uri() . '/admin-img/narukami-rogo-var3.1.0.png';
 //静止画変数
-$i_heroheader_stillImg = sanitize_option_value(get_option('hero-H-stillImg', $defult_still_img_prev));
+$i_heroheader_stillImg = get_optimized_image_url(sanitize_option_value(get_option('hero-H-stillImg', $defult_still_img_prev)));
 $i_heroheader_stillTitle = sanitize_option_value(get_option('hero-H-stillTitle','SITE TITLE'));
 $i_hh_still_title_color = sanitize_option_value(get_option('heroheader-titleTextColor', '#ffffff'));
 $i_hh_still_shadow_color = sanitize_option_value(get_option('heroheader-titleShadowColor', '#000'));

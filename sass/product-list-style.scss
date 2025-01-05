@@ -17,10 +17,15 @@ html, body {
 	background-color: #FFFFFF;
 	padding: 10px;
 	min-height: 1650px;
+	@include media(small) {
+    	max-width: 100%;
+		padding: 0;
+  	}
 	.content{
 		padding: 5%;
 		@include media(small) {
     		margin-top: 15px;
+			padding: 5% 1%;
   		}
 		.narukami-hedding-style1{//見出し１
 			position: relative;
@@ -186,7 +191,7 @@ html, body {
 				transition: all 0.1s ease-in-out;
 				border-radius: 5px;
 				@include media(small) {
-    				padding: 8%;
+    				padding: 3%;
   				}
 				&:hover{
 					box-shadow: .1px .1px 3px;
@@ -197,8 +202,8 @@ html, body {
 					object-fit: contain;
 					object-position: center;
 					@include media(small) {
-						width: 100px;
-    					height: 100px;
+						width: 150px;
+    					height: 150px;
   					}
 				}
 				.product-title{
@@ -219,7 +224,7 @@ html, body {
     					font-size: .8em;
   					}
 					@include media(small) {
-    					font-size: .6em;
+    					font-size: .7em;
   					}
 					&::before{
 						content: '';
@@ -245,7 +250,7 @@ html, body {
     					font-size: .8em;
   					}
 					@include media(small) {
-    					font-size: .6em;
+    					font-size: .7em;
   					}
 				}
 				
@@ -664,7 +669,6 @@ html, body {
 		.three-column-img-block{//全体wrap
 			width: 100%;
 			padding: 20px;
-			margin: 5% auto;
 			position: relative;
 			.three-column-container{
 				width: 90%;
@@ -681,7 +685,7 @@ html, body {
 					img{
 						width: 450px;
 						height: 250px;
-						object-fit: cover;
+						object-fit: contain;
 						@include media(large) {
     						width: 100%;
   						}
@@ -818,11 +822,10 @@ html, body {
 			padding: 5%;
 			@include media(medium) {
     			flex-direction: column !important;
-				margin: 20px auto;
   			}
 			img{
 				height: 300px;
-    			object-fit: cover;
+    			object-fit: contain;
     			object-position: center;
 				
 			}
