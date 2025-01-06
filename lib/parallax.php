@@ -50,7 +50,7 @@
 			  ?>
 			<?php
 		  	//array-check
-		  	$pallx_primary_title_check = isset($_POST['pallx_primary_title']) ? $_POST['pallx_primary_title'] : "";
+		  	$pallx_primary_title_check = isset($_POST['parallax_primary_title']) ? $_POST['parallax_primary_title'] : "";
 		  	$parallax_title_dec_check = isset($_POST['parallax_title']) ? $_POST['parallax_title'] : "";
 		  	$parallax_bg_img_url_dec_check = isset($_POST['parallax_bg_img_url']) ? $_POST['parallax_bg_img_url'] : "";
 		  	$parallax_content_dec_check = isset($_POST['parallax_content']) ? $_POST['parallax_content'] : "";

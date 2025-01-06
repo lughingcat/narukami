@@ -397,13 +397,22 @@ function enqueue_narukami_top_preview_assets() {
         jQuery(document).ready(function($) {
             $(".heroheader-slider-wrap").slick({
 				autoplay: true,
-				lazyLoad: "ondemand",
-                autoplaySpeed: 2000,
-                dots: true,
+                autoplaySpeed: 3000,
+                dots: false,
                 infinite: true,
                 speed: 1000,
-				arrows: true,
-                cssEase: "ease-in-out"
+				arrows: false,
+				infinite: true,
+				slidesToShow: 1,
+    			slidesToScroll: 1,
+                cssEase: "linear"
+            });
+			 $(".heroheader-slider-wrap").on("beforeChange", function(event, slick, currentSlide, nextSlide) {
+                $(".slick-slide").removeClass("slick-current");
+            });
+
+            $(".heroheader-slider-wrap").on("afterChange", function(event, slick, currentSlide) {
+                $(".slick-slide").eq(currentSlide).addClass("slick-current");
             });
         });
     ');

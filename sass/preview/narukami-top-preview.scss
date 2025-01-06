@@ -463,11 +463,21 @@
 			width: 100%;
 			height: 100vh;
 			img{
-				width: 100%;
-				height: 100%;
-    			object-fit: cover;
-    			display: block;
+				position: absolute; /* 必須: 親要素に相対配置させる */
+    			top: 0;
+    			bottom: 0;
+    			right: 0; /* 右端からスタート */
+    			height: 100%; /* 高さを100%に固定 */
+    			width: 0; /* 初期状態は幅0 */
+    			object-fit: cover; /* アスペクト比を維持 */
+    			transition: width 1s ease-in-out; /* 横幅のアニメーション */
 			}
+			
+			&.slick-current img {
+    			width: 100%; /* アクティブスライドの幅を100%に */
+    			left: 0; /* 左端に広げる */
+  			}
+			
 			p{
 				position: absolute;
 				top: 50%;
@@ -1320,7 +1330,7 @@
 			height: 230px;
 			box-sizing: border-box;
 			background-position: center;
-			background-size: 100%;
+			background-size: cover;
 			background-repeat: no-repeat;
 			transition: all .6s ease-in-out;
 			box-shadow: 2px 8px 13px -4px #b6b4b4;
@@ -1356,11 +1366,6 @@
             	transform: translateY(0);
 			}
 			
-		}
-
-		.gm-item-wrap:hover{
-			background-size: 110%;
-			opacity: .8;
 		}
 	}
 }

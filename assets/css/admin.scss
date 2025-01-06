@@ -2492,7 +2492,7 @@
 			height: 250px;
 			box-sizing: border-box;
 			background-position: center;
-			background-size: 100%;
+			background-size: cover;
 			background-repeat: no-repeat;
 			transition: all .6s ease-in-out;
 			box-shadow: 2px 8px 13px -4px #b6b4b4;
@@ -2524,11 +2524,6 @@
             	transform: translateY(0);
 			}
 			
-		}
-
-		.gm-item-wrap:hover{
-			background-size: 110%;
-			opacity: .8;
 		}
 	}
 }

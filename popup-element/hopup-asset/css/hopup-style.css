@@ -226,7 +226,7 @@
       height: 150px;
       box-sizing: border-box;
       background-position: center;
-      background-size: 190%;
+      background-size: cover;
       background-repeat: no-repeat;
       transition: all .6s ease-in-out;
       box-shadow: 2px 8px 13px -4px #b6b4b4;
@@ -254,9 +254,6 @@
       .popup-element-all-wrap .popup-discription .grandmenu-wrap .grandmenu-title-wrap .gm-item-wrap.show {
         opacity: 1;
         transform: translateY(0); }
-    .popup-element-all-wrap .popup-discription .grandmenu-wrap .grandmenu-title-wrap .gm-item-wrap:hover {
-      background-size: 168%;
-      opacity: .8; }
 
 .popup-element-all-wrap .popup-discription .column_right_1-all-wrap {
   width: 100%;
