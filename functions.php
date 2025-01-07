@@ -402,17 +402,9 @@ function enqueue_narukami_top_preview_assets() {
                 infinite: true,
                 speed: 1000,
 				arrows: false,
-				infinite: true,
-				slidesToShow: 1,
-    			slidesToScroll: 1,
-                cssEase: "linear"
-            });
-			 $(".heroheader-slider-wrap").on("beforeChange", function(event, slick, currentSlide, nextSlide) {
-                $(".slick-slide").removeClass("slick-current");
-            });
-
-            $(".heroheader-slider-wrap").on("afterChange", function(event, slick, currentSlide) {
-                $(".slick-slide").eq(currentSlide).addClass("slick-current");
+				fade: false,
+                cssEase: "linear",
+				adaptiveHeight: false
             });
         });
     ');

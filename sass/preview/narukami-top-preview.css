@@ -409,35 +409,27 @@
     left: 0;
     width: 100vw;
     height: 100vh; }
-    .heroheader-prevew-slider-all-wrap .heroheader-slider-wrap .slick-prev.slick-arrow {
-      left: 15px;
-      z-index: 99; }
-    .heroheader-prevew-slider-all-wrap .heroheader-slider-wrap .slick-next.slick-arrow {
-      right: 15px; }
     .heroheader-prevew-slider-all-wrap .heroheader-slider-wrap .slick-slide {
       position: relative;
-      width: 100%;
-      height: 100vh; }
-      .heroheader-prevew-slider-all-wrap .heroheader-slider-wrap .slick-slide img {
-        position: absolute;
-        /* 必須: 親要素に相対配置させる */
-        top: 0;
-        bottom: 0;
-        right: 0;
-        /* 右端からスタート */
-        height: 100%;
-        /* 高さを100%に固定 */
-        width: 0;
-        /* 初期状態は幅0 */
-        object-fit: cover;
-        /* アスペクト比を維持 */
-        transition: width 1s ease-in-out;
-        /* 横幅のアニメーション */ }
-      .heroheader-prevew-slider-all-wrap .heroheader-slider-wrap .slick-slide.slick-current img {
-        width: 100%;
-        /* アクティブスライドの幅を100%に */
-        left: 0;
-        /* 左端に広げる */ }
+      width: 0;
+      height: 100vh;
+      overflow: hidden;
+      transition: width 1s ease-in-out;
+      z-index: 0 img;
+        z-index-position: absolute;
+      /* 必須: 親要素に相対配置させる */
+        z-index-top: 0;
+        z-index-bottom: 0;
+        z-index-right: 0;
+      /* 右端からスタート */
+        z-index-height: 100%;
+      /* 高さを100%に固定 */
+        z-index-width: 100%;
+      /* 初期状態は幅0 */
+        z-index-object-fit: cover;
+      /* アスペクト比を維持 */ }
+      .heroheader-prevew-slider-all-wrap .heroheader-slider-wrap .slick-slide.slick-current {
+        z-index: 2; }
       .heroheader-prevew-slider-all-wrap .heroheader-slider-wrap .slick-slide p {
         position: absolute;
         top: 50%;
