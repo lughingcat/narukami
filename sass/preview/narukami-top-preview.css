@@ -411,25 +411,23 @@
     height: 100vh; }
     .heroheader-prevew-slider-all-wrap .heroheader-slider-wrap .slick-slide {
       position: relative;
-      width: 0;
+      width: 100%;
       height: 100vh;
       overflow: hidden;
-      transition: width 1s ease-in-out;
-      z-index: 0 img;
-        z-index-position: absolute;
-      /* 必須: 親要素に相対配置させる */
-        z-index-top: 0;
-        z-index-bottom: 0;
-        z-index-right: 0;
-      /* 右端からスタート */
-        z-index-height: 100%;
-      /* 高さを100%に固定 */
-        z-index-width: 100%;
-      /* 初期状態は幅0 */
-        z-index-object-fit: cover;
-      /* アスペクト比を維持 */ }
+      background-color: red;
+      opacity: 0; }
+      .heroheader-prevew-slider-all-wrap .heroheader-slider-wrap .slick-slide img {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        opacity: 1;
+        z-index: 1; }
       .heroheader-prevew-slider-all-wrap .heroheader-slider-wrap .slick-slide.slick-current {
-        z-index: 2; }
+        opacity: 1; }
       .heroheader-prevew-slider-all-wrap .heroheader-slider-wrap .slick-slide p {
         position: absolute;
         top: 50%;
@@ -454,6 +452,16 @@
         top: 0;
         left: 0; }
 
+@keyframes clipPathAnimationOpen {
+  0% {
+    clip-path: inset(0 0 0 100%); }
+  100% {
+    clip-path: inset(0 0 0 0); } }
+@keyframes clipPathAnimationClose {
+  0% {
+    clip-path: inset(0 0 0 0); }
+  100% {
+    clip-path: inset(0 100% 0 0); } }
 .heroheader-back-wrap .heroheader-rogo-wrap.bg-opacity-value {
   animation: bgOpacityAnime 4.3s ease-out; }
 @keyframes bgOpacityAnime {

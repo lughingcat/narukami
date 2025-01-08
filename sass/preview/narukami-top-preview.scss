@@ -453,23 +453,26 @@
         height: 100vh;
 		.slick-slide{
 			position: relative;
-			width: 0;
+			width: 100%;
 			height: 100vh;
 			overflow: hidden;
-			transition: width 1s ease-in-out;
-			z-index: 0
+			background-color: red;
+			opacity: 0;
 			img{
-				position: absolute; /* 必須: 親要素に相対配置させる */
+				position: absolute; 
     			top: 0;
     			bottom: 0;
-    			right: 0; /* 右端からスタート */
-    			height: 100%; /* 高さを100%に固定 */
-    			width: 100%; /* 初期状態は幅0 */
-    			object-fit: cover; /* アスペクト比を維持 */
+    			right: 0; 
+    			height: 100%; 
+    			width: 100%; 
+    			object-fit: cover;
+				opacity: 1;
+				z-index: 1;
 			}
-			
 			&.slick-current{
-				z-index: 2
+				opacity: 1;
+			}
+			&.slick-current img{
   			}
 			
 			p{
@@ -501,6 +504,23 @@
 		}		
 	}
 	
+}
+@keyframes clipPathAnimationOpen {
+  0% {
+    clip-path: inset(0 0 0 100%);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes clipPathAnimationClose {
+  0% {
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    clip-path: inset(0 100% 0 0);
+  }
 }
 //アニメーションプレビュースタイル（静止画）
 .heroheader-back-wrap{
