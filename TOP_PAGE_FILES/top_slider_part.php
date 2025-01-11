@@ -51,7 +51,7 @@ $i_loadingtext_color = sanitize_option_value(get_option('loadingtext-color', '#0
 	<div class="heroheader-slider-wrap">
     <?php
     foreach($slider_items_Array as $key => $item){
-        echo '<div>';
+		echo '<div>';
         echo '<img src="' . $item['url'] . '" alt="">';
         echo '<div class="back-shadow" style="' . $shadow_value . '"></div>';
         echo '<p>' . $item['title'] . '</p>';

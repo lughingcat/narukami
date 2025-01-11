@@ -399,13 +399,26 @@ function enqueue_narukami_top_preview_assets() {
 				autoplay: true,
                 autoplaySpeed: 3000,
                 dots: false,
-                infinite: true,
                 speed: 1000,
 				arrows: false,
-				fade: false,
+				fade: true,
                 cssEase: "linear",
 				adaptiveHeight: false
             });
+        	$(".heroheader-slider-wrap").on("beforeChange", function(event, slick, currentSlide, nextSlide) {
+        	    // 一つ前のスライドを計算
+        	    const newPreviousSlide = nextSlide - 1 < 0 ? slick.$slides.length - 1 : nextSlide - 1;
+				
+        	    // すべてのスライドからクラスを確実に削除
+            	$(slick.$slides).removeClass("slick-custom-important");
+				
+        	    // 新しい一つ前のスライドにクラスを追加
+        	    $(slick.$slides[newPreviousSlide]).addClass("slick-custom-important");
+        	    // 現在の一つ前のスライドを記憶
+        	    previousSlide = newPreviousSlide;
+				console.log(previousSlide)
+        	});
+	
         });
     ');
 		// Slick Sliderの商品リストページ用初期化スクリプトをエンキュー
