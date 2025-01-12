@@ -403,7 +403,9 @@ function enqueue_narukami_top_preview_assets() {
 				arrows: false,
 				fade: true,
                 cssEase: "linear",
-				adaptiveHeight: false
+				adaptiveHeight: false,
+				pauseOnHover: false,
+    			pauseOnFocus: false  
             });
         	$(".heroheader-slider-wrap").on("beforeChange", function(event, slick, currentSlide, nextSlide) {
         	    // 一つ前のスライドを計算
