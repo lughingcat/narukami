@@ -3,7 +3,7 @@ $stretch-duration: 4s;
 $circle-duration: 4s;
 $loading-duration: 2s;
 $popup-rogo-duration: 4s;
-$bg-duration: 4.3s;
+$bg-duration: 4.5s;
 $float-text: 4.4s;
 $stretch-easing: ease-in-out;
 $circle-easing: ease-out;
@@ -20,8 +20,8 @@ $circle-easing: ease-out;
 		opacity: 1;
     }
   }
-
-  animation: bgOpacityAnime $bg-duration $circle-easing;
+  opacity: 0;
+  animation: bgOpacityAnime $bg-duration $circle-easing forwards;
 }
 
 @mixin stretch-shrink-right-animation {//ロードアニメーション[right-slide]

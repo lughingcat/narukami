@@ -52,7 +52,7 @@ if($i_header_bgcolor === ''){
 ?>
 
 <div class="header-back-wrap"
-	 style="background-color: <?php echo $i_header_bgcolor; ?>; display: <?php echo $disp_switch; ?>; height: <?php echo $i_header_height_value?>px;">
+	 style="background-color: transparent; display: <?php echo $disp_switch; ?>; height: <?php echo $i_header_height_value?>px;">
 	<div class="header-flex-setting">
 		<div class="header-rogo-wrap" style="display: <?php echo $disp_img_switch; ?>;">
     		<a href="<?php echo home_url(); ?>">
@@ -170,6 +170,7 @@ window.addEventListener('scroll', function () {
 	const title = document.querySelector('.header-site-title');
 	const subtitle = document.querySelector('.header-site-discription');
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+	var headerBackgroundClolor = '<?php echo $i_header_bgcolor; ?>';
 
     // 初回スクロール時に一度だけ実行
     if (!hasScrolledOnce && scrollTop > 0 && title.style.display === 'none' && subtitle.style.display === 'none') {
@@ -178,6 +179,7 @@ window.addEventListener('scroll', function () {
         hasScrolledOnce = true;
 
         setTimeout(() => {
+			header.style.backgroundColor = headerBackgroundClolor;
             changeHeaderSizeOnlyRogo();
         }, 1000); 
     }else if (!hasScrolledOnce && scrollTop > 0 && logoWrap.style.display === '' && title.style.display === '' && subtitle.style.display === 'none'){
@@ -186,6 +188,7 @@ window.addEventListener('scroll', function () {
         hasScrolledOnce = true;
 
         setTimeout(() => {
+			header.style.backgroundColor = headerBackgroundClolor;
             changeHeaderSizeRogoTitle();
         }, 1000); 
 	}else if (!hasScrolledOnce && scrollTop > 0　&& logoWrap.style.display === 'none' && title.style.display === '' && subtitle.style.display === ''){
@@ -194,6 +197,7 @@ window.addEventListener('scroll', function () {
         hasScrolledOnce = true;
 
         setTimeout(() => {
+			header.style.backgroundColor = headerBackgroundClolor;
             changeHeaderSizeTitleSubtitle();
         }, 1000); 
 	}else if (!hasScrolledOnce && scrollTop > 0　&& logoWrap.style.display === 'none' && title.style.display === '' && subtitle.style.display === 'none'){
@@ -202,6 +206,7 @@ window.addEventListener('scroll', function () {
         hasScrolledOnce = true;
 
         setTimeout(() => {
+			header.style.backgroundColor = headerBackgroundClolor;
             changeHeaderSizeTitle();
         }, 1000);
 	}else if (!hasScrolledOnce && scrollTop > 0　&& logoWrap.style.display === 'none' && title.style.display === 'none' && subtitle.style.display === ''){
@@ -210,6 +215,7 @@ window.addEventListener('scroll', function () {
         hasScrolledOnce = true;
 
         setTimeout(() => {
+			header.style.backgroundColor = headerBackgroundClolor;
             changeHeaderSizeSubTitle();
         }, 1000);
 	}else if (!hasScrolledOnce && scrollTop > 0){
@@ -218,6 +224,7 @@ window.addEventListener('scroll', function () {
         hasScrolledOnce = true;
 
         setTimeout(() => {
+			header.style.backgroundColor = headerBackgroundClolor;
             changeHeaderSizeRogoTitleSubtitle();
         }, 1000);
 	}

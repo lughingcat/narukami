@@ -8,8 +8,8 @@ $i_heroheader_stillTitle = sanitize_option_value(get_option('hero-H-stillTitle',
 $i_hh_still_title_color = sanitize_option_value(get_option('heroheader-titleTextColor', '#ffffff'));
 $i_hh_still_shadow_color = sanitize_option_value(get_option('heroheader-titleShadowColor', '#000'));
 $animetion_type = sanitize_option_value(get_option('loading-anime-type', 'stretch-shrink-right'));
-$i_open_bgimgurl = sanitize_option_value(get_option('open-bg-imgurl', $defult_still_img_prev));
-$i_open_rogoimgurl = sanitize_option_value(get_option('open-rogo-imgurl', $defult_rogo_img_prev));
+$i_open_bgimgurl = get_optimized_image_url(sanitize_option_value(get_option('open-bg-imgurl', $defult_still_img_prev)));
+$i_open_rogoimgurl = get_optimized_image_url(sanitize_option_value(get_option('open-rogo-imgurl', $defult_rogo_img_prev)));
 $i_loadingtext_color = sanitize_option_value(get_option('loadingtext-color', '#000'));
 ?>
 <div class="heroheader-prevew-all-wrap">

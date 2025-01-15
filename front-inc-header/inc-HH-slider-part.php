@@ -67,13 +67,19 @@ document.addEventListener('DOMContentLoaded', function(){
 	var animationStyle = '<?php echo $animetion_type; ?>';
 	overWrapElement.classList.add(animationStyle);
 	if(animationStyle === 'loading-anime-not-use'){
-		
+		removeOpacityCntrol();
 	}else{
+		setTimeout(removeOpacityCntrol(),1000);
 		bgPreviewOpacty();
 	}
 	loadingTextControl();
 	popupRogoPreviewControl();
 });
+//透明度初期値コントロール
+function removeOpacityCntrol(){
+	var bgElement = document.querySelector('.heroheader-slider-wrap');
+	bgElement.classList.remove('loadanime-opacity-control');
+}
 //bg透明度コントロール
 function bgPreviewOpacty(){
 	var bgContainer = document.querySelector('.heroheader-slider-wrap');

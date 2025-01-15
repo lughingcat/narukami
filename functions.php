@@ -131,15 +131,31 @@ function add_cdns(){
     wp_add_inline_script('slick-js', '
         jQuery(document).ready(function($) {
             $(".heroheader-slider-wrap").slick({
-				lazyLoad: "ondemand",
 				autoplay: true,
-                autoplaySpeed: 2000,
-                dots: true,
-                infinite: true,
+                autoplaySpeed: 3000,
+                dots: false,
                 speed: 1000,
-				arrows: true,
-                cssEase: "ease-in-out"
+				arrows: false,
+				fade: true,
+                cssEase: "linear",
+				adaptiveHeight: false,
+				pauseOnHover: false,
+    			pauseOnFocus: false  
             });
+        	$(".heroheader-slider-wrap").on("beforeChange", function(event, slick, currentSlide, nextSlide) {
+        	    // 一つ前のスライドを計算
+        	    const newPreviousSlide = nextSlide - 1 < 0 ? slick.$slides.length - 1 : nextSlide - 1;
+				
+        	    // すべてのスライドからクラスを確実に削除
+            	$(slick.$slides).removeClass("slick-custom-important");
+				
+        	    // 新しい一つ前のスライドにクラスを追加
+        	    $(slick.$slides[newPreviousSlide]).addClass("slick-custom-important");
+        	    // 現在の一つ前のスライドを記憶
+        	    previousSlide = newPreviousSlide;
+				console.log(previousSlide)
+        	});
+	
         });
     ');
 }

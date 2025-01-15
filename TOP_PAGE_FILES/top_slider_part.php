@@ -15,8 +15,8 @@ $slider_item_title = sanitize_option_value(get_option('slider_item_title_array',
 $slider_item_shadow = sanitize_option_value(get_option('slider_item_shadow', 'shadow-on'));
 $slider_item_shadow_volume = sanitize_option_value(get_option('slider_item_shadow_volume', '0.50'));
 $animetion_type = sanitize_option_value(get_option('loading-anime-type', 'stretch-shrink-right'));
-$i_open_bgimgurl = sanitize_option_value(get_option('open-bg-imgurl', $hh_slider_img_1_prev));
-$i_open_rogoimgurl = sanitize_option_value(get_option('open-rogo-imgurl', $defult_rogo_img_prev));
+$i_open_bgimgurl = get_optimized_image_url(sanitize_option_value(get_option('open-bg-imgurl', $hh_slider_img_1_prev)));
+$i_open_rogoimgurl = get_optimized_image_url(sanitize_option_value(get_option('open-rogo-imgurl', $defult_rogo_img_prev)));
 $i_loadingtext_color = sanitize_option_value(get_option('loadingtext-color', '#000'));
 	if($slider_item_shadow === "shadow-on"){
 		$shadow_value = "background-color: rgba(0, 0, 0, {$slider_item_shadow_volume});";
@@ -48,7 +48,13 @@ $i_loadingtext_color = sanitize_option_value(get_option('loadingtext-color', '#0
 	}
 ?>
 <div class="heroheader-prevew-slider-all-wrap">
-	<div class="heroheader-slider-wrap">
+	<div class="animetion-prewrap" style="background-image: url('<?php echo $i_open_bgimgurl; ?>');">
+		<p class="loadwrap-rogo">
+			<img src="<?php echo $i_open_rogoimgurl; ?>" alt="ROGO">
+		</p>
+		<p class="loading-text" style="color: <?php echo $i_loadingtext_color; ?>;">Loding...</p>
+	</div>
+	<div class="heroheader-slider-wrap loadanime-opacity-control">
     <?php
     foreach($slider_items_Array as $key => $item){
 		echo '<div>';
@@ -59,12 +65,6 @@ $i_loadingtext_color = sanitize_option_value(get_option('loadingtext-color', '#0
     }
     ?>
 	</div><!--heroheader-slider-wrap-end-->
-	<div class="animetion-prewrap" style="background-image: url('<?php echo $i_open_bgimgurl; ?>');">
-		<p class="loadwrap-rogo">
-			<img src="<?php echo $i_open_rogoimgurl; ?>" alt="ROGO">
-		</p>
-		<p class="loading-text" style="color: <?php echo $i_loadingtext_color; ?>;">Loding...</p>
-	</div>
 </div><!--heroheader-prevew-slider-all-wrap-end-->
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -72,13 +72,19 @@ document.addEventListener('DOMContentLoaded', function(){
 	var animationStyle = '<?php echo $animetion_type; ?>';
 	overWrapElement.classList.add(animationStyle);
 	if(animationStyle === 'loading-anime-not-use'){
-		
+		removeOpacityCntrol();
 	}else{
+		setTimeout(removeOpacityCntrol(),1000);
 		bgPreviewOpacty();
 	}
 	loadingTextControl();
 	popupRogoPreviewControl();
 });
+//透明度初期値コントロール
+function removeOpacityCntrol(){
+	var bgElement = document.querySelector('.heroheader-slider-wrap');
+	bgElement.classList.remove('loadanime-opacity-control');
+}
 //bg透明度コントロール
 function bgPreviewOpacty(){
 	var bgContainer = document.querySelector('.heroheader-slider-wrap');

@@ -474,7 +474,6 @@
 			&.slick-current img{
 				animation: sliderImgscaleDownClearMosaic 3s cubic-bezier(.15,.17,0,1) forwards;
   			}
-			
 			p{
 				position: absolute;
 				top: 50%;
@@ -528,6 +527,7 @@
 	filter: blur(0);
   }
 }
+
 //アニメーションプレビュースタイル（静止画）
 .heroheader-back-wrap{
 	.heroheader-rogo-wrap{
@@ -548,9 +548,17 @@
 		background-repeat: no-repeat;
 		z-index: 999;
 		img{
-			width: 100px;
-			height: 100px;
+			width: 257px;
+			height: 257px;
 			object-fit: contain;
+			@include media(large) {
+				width: 200px;
+				height: 200px;
+  			}
+			@include media(small) {
+				width: 175px;
+				height: 175px;
+  			}
 		}
 		&.stretch-shrink-right {
   			height: 100%;
@@ -623,9 +631,17 @@
 		background-repeat: no-repeat;
 		z-index: 999;
 		img{
-			width: 100px;
-			height: 100px;
+			width: 257px;
+			height: 257px;
 			object-fit: contain;
+			@include media(large) {
+				width: 200px;
+				height: 200px;
+  			}
+			@include media(small) {
+				width: 175px;
+				height: 175px;
+  			}
 		}
 		&.stretch-shrink-right {
   			height: 100%;
@@ -679,6 +695,9 @@
 	}
 }
 
+.loadanime-opacity-control{
+	opacity: 0;
+}
 //アニメーションプレビュースタイル（スライダー）
 .heroheader-prevew-slider-all-wrap{
 	.heroheader-slider-wrap{
@@ -699,9 +718,17 @@
 		background-repeat: no-repeat;
 		z-index: 999;
 		img{
-			width: 100px;
-			height: 100px;
+			width: 257px;
+			height: 257px;
 			object-fit: contain;
+			@include media(large) {
+				width: 200px;
+				height: 200px;
+  			}
+			@include media(small) {
+				width: 175px;
+				height: 175px;
+  			}
 		}
 		&.stretch-shrink-right {
   			height: 100%;
@@ -723,7 +750,7 @@
 		.loadwrap-rogo{
 			width: 100%;
 			position: absolute;
-			top: 45%;
+			top: 50%;
 			left: 50%;
 			transform: translate(-50%,-50%);
 			color: #FFFFFF;

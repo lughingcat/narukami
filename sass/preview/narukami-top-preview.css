@@ -179,7 +179,8 @@
   .globalmenu-content-all-wrap.pointer-event {
     pointer-events: none; }
   .globalmenu-content-all-wrap.bg-opacity-value {
-    animation: bgOpacityAnime 4.3s ease-out; }
+    opacity: 0;
+    animation: bgOpacityAnime 4.5s ease-out forwards; }
 @keyframes bgOpacityAnime {
   0% {
     opacity: 0; }
@@ -469,7 +470,8 @@
     transform: scale(1);
     filter: blur(0); } }
 .heroheader-back-wrap .heroheader-rogo-wrap.bg-opacity-value {
-  animation: bgOpacityAnime 4.3s ease-out; }
+  opacity: 0;
+  animation: bgOpacityAnime 4.5s ease-out forwards; }
 @keyframes bgOpacityAnime {
   0% {
     opacity: 0; }
@@ -490,9 +492,17 @@
   background-repeat: no-repeat;
   z-index: 999; }
   .heroheader-back-wrap .animetion-prewrap img {
-    width: 100px;
-    height: 100px;
+    width: 257px;
+    height: 257px;
     object-fit: contain; }
+    @media (max-width: 992px) {
+      .heroheader-back-wrap .animetion-prewrap img {
+        width: 200px;
+        height: 200px; } }
+    @media (max-width: 576px) {
+      .heroheader-back-wrap .animetion-prewrap img {
+        width: 175px;
+        height: 175px; } }
   .heroheader-back-wrap .animetion-prewrap.stretch-shrink-right {
     height: 100%;
     animation: stretchShrinkRight 4s ease-in-out; }
@@ -639,7 +649,8 @@
   100% {
     opacity: 1; } }
 .heroheader-video-back-wrap .heroheader-video-wrap.bg-opacity-value {
-  animation: bgOpacityAnime 4.3s ease-out; }
+  opacity: 0;
+  animation: bgOpacityAnime 4.5s ease-out forwards; }
 @keyframes bgOpacityAnime {
   0% {
     opacity: 0; }
@@ -660,9 +671,17 @@
   background-repeat: no-repeat;
   z-index: 999; }
   .heroheader-video-back-wrap .animetion-prewrap img {
-    width: 100px;
-    height: 100px;
+    width: 257px;
+    height: 257px;
     object-fit: contain; }
+    @media (max-width: 992px) {
+      .heroheader-video-back-wrap .animetion-prewrap img {
+        width: 200px;
+        height: 200px; } }
+    @media (max-width: 576px) {
+      .heroheader-video-back-wrap .animetion-prewrap img {
+        width: 175px;
+        height: 175px; } }
   .heroheader-video-back-wrap .animetion-prewrap.stretch-shrink-right {
     height: 100%;
     animation: stretchShrinkRight 4s ease-in-out; }
@@ -808,8 +827,12 @@
     opacity: 0; }
   100% {
     opacity: 1; } }
+.loadanime-opacity-control {
+  opacity: 0; }
+
 .heroheader-prevew-slider-all-wrap .heroheader-slider-wrap.bg-opacity-value {
-  animation: bgOpacityAnime 4.3s ease-out; }
+  opacity: 0;
+  animation: bgOpacityAnime 4.5s ease-out forwards; }
 @keyframes bgOpacityAnime {
   0% {
     opacity: 0; }
@@ -830,9 +853,17 @@
   background-repeat: no-repeat;
   z-index: 999; }
   .heroheader-prevew-slider-all-wrap .animetion-prewrap img {
-    width: 100px;
-    height: 100px;
+    width: 257px;
+    height: 257px;
     object-fit: contain; }
+    @media (max-width: 992px) {
+      .heroheader-prevew-slider-all-wrap .animetion-prewrap img {
+        width: 200px;
+        height: 200px; } }
+    @media (max-width: 576px) {
+      .heroheader-prevew-slider-all-wrap .animetion-prewrap img {
+        width: 175px;
+        height: 175px; } }
   .heroheader-prevew-slider-all-wrap .animetion-prewrap.stretch-shrink-right {
     height: 100%;
     animation: stretchShrinkRight 4s ease-in-out; }
@@ -916,7 +947,7 @@
   .heroheader-prevew-slider-all-wrap .animetion-prewrap .loadwrap-rogo {
     width: 100%;
     position: absolute;
-    top: 45%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #FFFFFF;
@@ -993,7 +1024,8 @@
   z-index: 998;
   /* 他の要素の上に表示 */ }
   .header-back-wrap.bg-opacity-value {
-    animation: bgOpacityAnime 4.3s ease-out; }
+    opacity: 0;
+    animation: bgOpacityAnime 4.5s ease-out forwards; }
 @keyframes bgOpacityAnime {
   0% {
     opacity: 0; }
