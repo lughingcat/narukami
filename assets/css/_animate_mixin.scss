@@ -3,7 +3,7 @@ $stretch-duration: 4s;
 $circle-duration: 4s;
 $loading-duration: 2s;
 $popup-rogo-duration: 4s;
-$bg-duration: 4.5s;
+$bg-duration: 4.9s;
 $float-text: 4.4s;
 $stretch-easing: ease-in-out;
 $circle-easing: ease-out;
@@ -28,32 +28,28 @@ $circle-easing: ease-out;
   @keyframes stretchShrinkRight {
     0% {
       	width: 100%;
-      	transform-origin: left;
-	  	transform: translateX(-100%);
+      	clip-path: inset(0 100% 0 0);
 		opacity: 1;
 		
     }
     10% {
       	width: 100%;
-      	transform-origin: left;
-	  	transform: translateX(0);
+      	clip-path: inset(0 0 0 0);
 		opacity: 1;
     }
 	90% {
       	width: 100%;
-      	transform-origin: left;
-	  	transform: translateX(0);
+      	clip-path: inset(0 0 0 0);
 		opacity: 1;
     }
     100% {
       	width: 100%;
-      	transform-origin: right;
-	  	transform: translateX(100%);
+      	clip-path: inset(0 0 0 100%);
 		opacity: 1;
     }
   }
 
-  animation: stretchShrinkRight $stretch-duration $stretch-easing;
+  animation: stretchShrinkRight $stretch-duration $stretch-easing forwards;
 }
 
 @mixin stretch-shrink-curtain-animation {//ロードアニメーション[top-down-top]
@@ -61,30 +57,30 @@ $circle-easing: ease-out;
     0% {
 		width: 100%;
 	  	height: 100%;
-	  	transform: translateY(-100%);
+	  	clip-path: inset(0 0 100% 0);
 		opacity: 1;
     }
     10% {
 		width: 100%;
 	  	height: 100%;
-	  	transform: translateY(0);
+	  	clip-path: inset(0 0 0 0);
 		opacity: 1;
     }
 	90% {
 		width: 100%;
 	  	height: 100%;
-	  	transform: translateY(0);
+	  	clip-path: inset(0 0 0 0);
 		opacity: 1;
     }
     100% {
 		width: 100%;
 	  	height: 100%;
-	  	transform: translateY(-100%);
+	  	clip-path: inset(0 0 100% 0);
 		opacity: 1;
     }
   }
 
-  animation: stretchShrinkCurtain $stretch-duration $stretch-easing;
+  animation: stretchShrinkCurtain $stretch-duration $stretch-easing forwards;
 }
 
 
@@ -97,15 +93,16 @@ $circle-easing: ease-out;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%,-50%);
+		clip-path: ellipse(100% 100% at 50% 50%);
     }
-	90% {
+	99% {
       	width: 100%;
       	height: 100%;
-      	opacity: 0.8;
+      	opacity: 1;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%,-50%);
-		border-radius: 50%;
+		clip-path: ellipse(50% 50% at 50% 50%);
     }
     100% {
       	width: 0;
@@ -114,10 +111,10 @@ $circle-easing: ease-out;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%,-50%);
-		border-radius: 50%;
+		clip-path: circle(0% at 50% 50%);
     }
   }
-	animation: expandCircle $circle-duration $circle-easing;
+	animation: expandCircle $circle-duration $circle-easing forwards;
 }
 
 @mixin circle-text-animation {//circle-text

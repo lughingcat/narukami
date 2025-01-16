@@ -10,9 +10,9 @@
 		'PARALLAX TITLE 3'
 	);
 	$parallax_bg_img_url = array(
-		'https://nousondiner.com/wp-content/uploads/2024/07/steak.jpg',
-		'https://nousondiner.com/wp-content/uploads/2024/07/salmon-3.jpg',
-		'https://nousondiner.com/wp-content/uploads/2024/07/unadon.jpg'
+		'../admin-img/samp-2400-1400.jpg',
+		'../admin-img/samp-2400-1400.jpg',
+		'../admin-img/samp-2400-1400.jpg'
 	);
 	$parallax_content = array(
 		'Content for section 1.',

@@ -6,7 +6,7 @@
 		<div class="column_3-all-wrap">
 			<div class="column_3_item_wrap">
 			<div class="column_3-back-wrap"
-				 style="background-image: url(https://nousondiner.com/wp-content/uploads/2024/07/restrant.jpg)">
+				 style="background-image: url('../admin-img/sampimg-875_875.jpg')">
 			</div>
 			<div class="column_3-text-wrap">
 				<p class="column_3-main-title">Primary Title</p>
@@ -15,7 +15,7 @@
 			</div>
 			<div class="column_3_item_wrap">
 			<div class="column_3-back-wrap"
-				 style="background-image: url(https://nousondiner.com/wp-content/uploads/2024/07/restrant.jpg)">
+				 style="background-image: url('../admin-img/sampimg-875_875.jpg')">
 			</div>
 			<div class="column_3-text-wrap">
 				<p class="column_3-main-title">Secondary Title</p>
@@ -24,7 +24,7 @@
 			</div>
 			<div class="column_3_item_wrap">
 			<div class="column_3-back-wrap"
-				 style="background-image: url(https://nousondiner.com/wp-content/uploads/2024/07/restrant.jpg)">
+				 style="background-image: url('../admin-img/sampimg-875_875.jpg')">
 			</div>
 			<div class="column_3-text-wrap">
 				<p class="column_3-main-title">Tirtiary Title</p>

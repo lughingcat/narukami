@@ -539,10 +539,10 @@
 		position: fixed;
     	top: 0;
     	left: 0;
+		width: 100%;
     	height: 100%;
-		box-sizing: border-box;
-		width: 0;
 		opacity: 0;
+		box-sizing: border-box;
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
@@ -565,7 +565,7 @@
    			@include stretch-shrink-right-animation;
   		}
 	    &.stretch-shrink-curtain {
-  			height: 100%;
+			height: 100%;
    			@include stretch-shrink-curtain-animation;
   		}
 		&.expand-circle {
@@ -622,9 +622,9 @@
 		position: fixed;
     	top: 0;
     	left: 0;
+    	width: 100%;
     	height: 100%;
 		box-sizing: border-box;
-		width: 0;
 		opacity: 0;
 		background-size: cover;
 		background-position: center;
@@ -709,9 +709,9 @@
 		position: fixed;
     	top: 0;
     	left: 0;
+    	width: 100%;
     	height: 100%;
 		box-sizing: border-box;
-		width: 0;
 		opacity: 0;
 		background-size: cover;
 		background-position: center;

@@ -180,7 +180,7 @@
     pointer-events: none; }
   .globalmenu-content-all-wrap.bg-opacity-value {
     opacity: 0;
-    animation: bgOpacityAnime 4.5s ease-out forwards; }
+    animation: bgOpacityAnime 4.9s ease-out forwards; }
 @keyframes bgOpacityAnime {
   0% {
     opacity: 0; }
@@ -471,7 +471,7 @@
     filter: blur(0); } }
 .heroheader-back-wrap .heroheader-rogo-wrap.bg-opacity-value {
   opacity: 0;
-  animation: bgOpacityAnime 4.5s ease-out forwards; }
+  animation: bgOpacityAnime 4.9s ease-out forwards; }
 @keyframes bgOpacityAnime {
   0% {
     opacity: 0; }
@@ -483,10 +483,10 @@
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
   height: 100%;
-  box-sizing: border-box;
-  width: 0;
   opacity: 0;
+  box-sizing: border-box;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -505,51 +505,47 @@
         height: 175px; } }
   .heroheader-back-wrap .animetion-prewrap.stretch-shrink-right {
     height: 100%;
-    animation: stretchShrinkRight 4s ease-in-out; }
+    animation: stretchShrinkRight 4s ease-in-out forwards; }
 @keyframes stretchShrinkRight {
   0% {
     width: 100%;
-    transform-origin: left;
-    transform: translateX(-100%);
+    clip-path: inset(0 100% 0 0);
     opacity: 1; }
   10% {
     width: 100%;
-    transform-origin: left;
-    transform: translateX(0);
+    clip-path: inset(0 0 0 0);
     opacity: 1; }
   90% {
     width: 100%;
-    transform-origin: left;
-    transform: translateX(0);
+    clip-path: inset(0 0 0 0);
     opacity: 1; }
   100% {
     width: 100%;
-    transform-origin: right;
-    transform: translateX(100%);
+    clip-path: inset(0 0 0 100%);
     opacity: 1; } }
   .heroheader-back-wrap .animetion-prewrap.stretch-shrink-curtain {
     height: 100%;
-    animation: stretchShrinkCurtain 4s ease-in-out; }
+    animation: stretchShrinkCurtain 4s ease-in-out forwards; }
 @keyframes stretchShrinkCurtain {
   0% {
     width: 100%;
     height: 100%;
-    transform: translateY(-100%);
+    clip-path: inset(0 0 100% 0);
     opacity: 1; }
   10% {
     width: 100%;
     height: 100%;
-    transform: translateY(0);
+    clip-path: inset(0 0 0 0);
     opacity: 1; }
   90% {
     width: 100%;
     height: 100%;
-    transform: translateY(0);
+    clip-path: inset(0 0 0 0);
     opacity: 1; }
   100% {
     width: 100%;
     height: 100%;
-    transform: translateY(-100%);
+    clip-path: inset(0 0 100% 0);
     opacity: 1; } }
   .heroheader-back-wrap .animetion-prewrap.expand-circle {
     width: 100%;
@@ -558,7 +554,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    animation: expandCircle 4s ease-out; }
+    animation: expandCircle 4s ease-out forwards; }
 @keyframes expandCircle {
   0% {
     width: 100%;
@@ -566,15 +562,16 @@
     opacity: 1;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); }
-  90% {
+    transform: translate(-50%, -50%);
+    clip-path: ellipse(100% 100% at 50% 50%); }
+  99% {
     width: 100%;
     height: 100%;
-    opacity: 0.8;
+    opacity: 1;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 50%; }
+    clip-path: ellipse(50% 50% at 50% 50%); }
   100% {
     width: 0;
     height: 0;
@@ -582,7 +579,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 50%; } }
+    clip-path: circle(0% at 50% 50%); } }
   .heroheader-back-wrap .animetion-prewrap .loadwrap-rogo {
     width: 100%;
     position: absolute;
@@ -650,7 +647,7 @@
     opacity: 1; } }
 .heroheader-video-back-wrap .heroheader-video-wrap.bg-opacity-value {
   opacity: 0;
-  animation: bgOpacityAnime 4.5s ease-out forwards; }
+  animation: bgOpacityAnime 4.9s ease-out forwards; }
 @keyframes bgOpacityAnime {
   0% {
     opacity: 0; }
@@ -662,9 +659,9 @@
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
   height: 100%;
   box-sizing: border-box;
-  width: 0;
   opacity: 0;
   background-size: cover;
   background-position: center;
@@ -684,51 +681,47 @@
         height: 175px; } }
   .heroheader-video-back-wrap .animetion-prewrap.stretch-shrink-right {
     height: 100%;
-    animation: stretchShrinkRight 4s ease-in-out; }
+    animation: stretchShrinkRight 4s ease-in-out forwards; }
 @keyframes stretchShrinkRight {
   0% {
     width: 100%;
-    transform-origin: left;
-    transform: translateX(-100%);
+    clip-path: inset(0 100% 0 0);
     opacity: 1; }
   10% {
     width: 100%;
-    transform-origin: left;
-    transform: translateX(0);
+    clip-path: inset(0 0 0 0);
     opacity: 1; }
   90% {
     width: 100%;
-    transform-origin: left;
-    transform: translateX(0);
+    clip-path: inset(0 0 0 0);
     opacity: 1; }
   100% {
     width: 100%;
-    transform-origin: right;
-    transform: translateX(100%);
+    clip-path: inset(0 0 0 100%);
     opacity: 1; } }
   .heroheader-video-back-wrap .animetion-prewrap.stretch-shrink-curtain {
     height: 100%;
-    animation: stretchShrinkCurtain 4s ease-in-out; }
+    animation: stretchShrinkCurtain 4s ease-in-out forwards; }
 @keyframes stretchShrinkCurtain {
   0% {
     width: 100%;
     height: 100%;
-    transform: translateY(-100%);
+    clip-path: inset(0 0 100% 0);
     opacity: 1; }
   10% {
     width: 100%;
     height: 100%;
-    transform: translateY(0);
+    clip-path: inset(0 0 0 0);
     opacity: 1; }
   90% {
     width: 100%;
     height: 100%;
-    transform: translateY(0);
+    clip-path: inset(0 0 0 0);
     opacity: 1; }
   100% {
     width: 100%;
     height: 100%;
-    transform: translateY(-100%);
+    clip-path: inset(0 0 100% 0);
     opacity: 1; } }
   .heroheader-video-back-wrap .animetion-prewrap.expand-circle {
     width: 100%;
@@ -737,7 +730,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    animation: expandCircle 4s ease-out; }
+    animation: expandCircle 4s ease-out forwards; }
 @keyframes expandCircle {
   0% {
     width: 100%;
@@ -745,15 +738,16 @@
     opacity: 1;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); }
-  90% {
+    transform: translate(-50%, -50%);
+    clip-path: ellipse(100% 100% at 50% 50%); }
+  99% {
     width: 100%;
     height: 100%;
-    opacity: 0.8;
+    opacity: 1;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 50%; }
+    clip-path: ellipse(50% 50% at 50% 50%); }
   100% {
     width: 0;
     height: 0;
@@ -761,7 +755,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 50%; } }
+    clip-path: circle(0% at 50% 50%); } }
   .heroheader-video-back-wrap .animetion-prewrap .loadwrap-rogo {
     width: 100%;
     position: absolute;
@@ -832,7 +826,7 @@
 
 .heroheader-prevew-slider-all-wrap .heroheader-slider-wrap.bg-opacity-value {
   opacity: 0;
-  animation: bgOpacityAnime 4.5s ease-out forwards; }
+  animation: bgOpacityAnime 4.9s ease-out forwards; }
 @keyframes bgOpacityAnime {
   0% {
     opacity: 0; }
@@ -844,9 +838,9 @@
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
   height: 100%;
   box-sizing: border-box;
-  width: 0;
   opacity: 0;
   background-size: cover;
   background-position: center;
@@ -866,51 +860,47 @@
         height: 175px; } }
   .heroheader-prevew-slider-all-wrap .animetion-prewrap.stretch-shrink-right {
     height: 100%;
-    animation: stretchShrinkRight 4s ease-in-out; }
+    animation: stretchShrinkRight 4s ease-in-out forwards; }
 @keyframes stretchShrinkRight {
   0% {
     width: 100%;
-    transform-origin: left;
-    transform: translateX(-100%);
+    clip-path: inset(0 100% 0 0);
     opacity: 1; }
   10% {
     width: 100%;
-    transform-origin: left;
-    transform: translateX(0);
+    clip-path: inset(0 0 0 0);
     opacity: 1; }
   90% {
     width: 100%;
-    transform-origin: left;
-    transform: translateX(0);
+    clip-path: inset(0 0 0 0);
     opacity: 1; }
   100% {
     width: 100%;
-    transform-origin: right;
-    transform: translateX(100%);
+    clip-path: inset(0 0 0 100%);
     opacity: 1; } }
   .heroheader-prevew-slider-all-wrap .animetion-prewrap.stretch-shrink-curtain {
     height: 100%;
-    animation: stretchShrinkCurtain 4s ease-in-out; }
+    animation: stretchShrinkCurtain 4s ease-in-out forwards; }
 @keyframes stretchShrinkCurtain {
   0% {
     width: 100%;
     height: 100%;
-    transform: translateY(-100%);
+    clip-path: inset(0 0 100% 0);
     opacity: 1; }
   10% {
     width: 100%;
     height: 100%;
-    transform: translateY(0);
+    clip-path: inset(0 0 0 0);
     opacity: 1; }
   90% {
     width: 100%;
     height: 100%;
-    transform: translateY(0);
+    clip-path: inset(0 0 0 0);
     opacity: 1; }
   100% {
     width: 100%;
     height: 100%;
-    transform: translateY(-100%);
+    clip-path: inset(0 0 100% 0);
     opacity: 1; } }
   .heroheader-prevew-slider-all-wrap .animetion-prewrap.expand-circle {
     width: 100%;
@@ -919,7 +909,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    animation: expandCircle 4s ease-out; }
+    animation: expandCircle 4s ease-out forwards; }
 @keyframes expandCircle {
   0% {
     width: 100%;
@@ -927,15 +917,16 @@
     opacity: 1;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); }
-  90% {
+    transform: translate(-50%, -50%);
+    clip-path: ellipse(100% 100% at 50% 50%); }
+  99% {
     width: 100%;
     height: 100%;
-    opacity: 0.8;
+    opacity: 1;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 50%; }
+    clip-path: ellipse(50% 50% at 50% 50%); }
   100% {
     width: 0;
     height: 0;
@@ -943,7 +934,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 50%; } }
+    clip-path: circle(0% at 50% 50%); } }
   .heroheader-prevew-slider-all-wrap .animetion-prewrap .loadwrap-rogo {
     width: 100%;
     position: absolute;
@@ -1025,7 +1016,7 @@
   /* 他の要素の上に表示 */ }
   .header-back-wrap.bg-opacity-value {
     opacity: 0;
-    animation: bgOpacityAnime 4.5s ease-out forwards; }
+    animation: bgOpacityAnime 4.9s ease-out forwards; }
 @keyframes bgOpacityAnime {
   0% {
     opacity: 0; }

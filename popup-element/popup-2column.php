@@ -6,7 +6,7 @@
 		<div class="column_2-all-wrap">
 			<div class="column_2_item_wrap">
 			<div class="column_2-back-wrap"
-				 style="background-image: url(https://nousondiner.com/wp-content/uploads/2024/07/restrant.jpg)">
+				 style="background-image: url('../admin-img/sampimg-875_875.jpg')">
 			</div>
 			<div class="column_2-text-wrap">
 				<p class="column_2-main-title">Primary Title</p>
@@ -15,7 +15,7 @@
 			</div>
 			<div class="column_2_item_wrap">
 			<div class="column_2-back-wrap"
-				 style="background-image: url(https://nousondiner.com/wp-content/uploads/2024/07/restrant.jpg)">
+				 style="background-image: url('../admin-img/sampimg-875_875.jpg')">
 			</div>
 			<div class="column_2-text-wrap">
 				<p class="column_2-main-title">Secondary Title</p>

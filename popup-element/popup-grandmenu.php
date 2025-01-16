@@ -12,11 +12,11 @@ $grandmenu_title = array(
 	'Course Meal'
 );
 $grandmenu_img_url = array(
-	'https://nousondiner.com/wp-content/uploads/2024/07/steak.jpg',
-	'https://nousondiner.com/wp-content/uploads/2024/07/salmon-3.jpg',
-	'https://nousondiner.com/wp-content/uploads/2024/07/unadon.jpg',
-	'https://nousondiner.com/wp-content/uploads/2024/07/chicken.jpg',
-	'https://nousondiner.com/wp-content/uploads/2024/07/beef.jpg'
+	'../admin-img/sampimg-875_875.jpg',
+	'../admin-img/sampimg-875_875.jpg',
+	'../admin-img/sampimg-875_875.jpg',
+	'../admin-img/sampimg-875_875.jpg',
+	'../admin-img/sampimg-875_875.jpg'
 );
 // 連想配列を作成
 $gm_item_Array = array();

@@ -9,8 +9,8 @@ $i_heroheader_video_textColor = sanitize_option_value(get_option('heroheader-mov
 $i_heroheader_video_textShadow = sanitize_option_value(get_option('heroheader-moveTitleShadowColor', '#ffffff'));
 $i_heroheader_video_backShadow = sanitize_option_value(get_option('hero-H-movebackshadow', 'backshadow-on'));
 $animetion_type = sanitize_option_value(get_option('loading-anime-type', 'stretch-shrink-right'));
-$i_open_bgimgurl = sanitize_option_value(get_option('open-bg-imgurl', $defult_anime_img_prev));
-$i_open_rogoimgurl = sanitize_option_value(get_option('open-rogo-imgurl', $defult_rogo_img_prev));
+$i_open_bgimgurl = get_optimized_image_url(sanitize_option_value(get_option('open-bg-imgurl', $defult_anime_img_prev)));
+$i_open_rogoimgurl = get_optimized_image_url(sanitize_option_value(get_option('open-rogo-imgurl', $defult_rogo_img_prev)));
 $i_loadingtext_color = sanitize_option_value(get_option('loadingtext-color', '#000'));
 	if($i_heroheader_video_backShadow === "backshadow-on"){
 		$back_shadow_value = "";
@@ -20,7 +20,7 @@ $i_loadingtext_color = sanitize_option_value(get_option('loadingtext-color', '#0
 ?>
 <div class="heroheader-prevew-video-all-wrap">
 	<div class="heroheader-video-back-wrap">
-		<div class="heroheader-video-wrap">
+		<div class="heroheader-video-wrap loadanime-opacity-control">
 			<video autoplay loop muted playsinline>
             	<source src="<?php echo $i_heroheader_video; ?>" type="video/mp4">
 			    Your browser does not support the video tag.
@@ -49,14 +49,20 @@ document.addEventListener('DOMContentLoaded', function(){
 	var animationStyle = '<?php echo $animetion_type; ?>';
 	overWrapElement.classList.add(animationStyle);
 	if(animationStyle === 'loading-anime-not-use'){
-		
+		removeOpacityCntrol();
 	}else{
+		setTimeout(removeOpacityCntrol(),1000);
 		bgPreviewOpacty();
 		bgTitleHopup();
 	}
 	loadingTextControl();
 	popupRogoPreviewControl();
 });
+//透明度初期値コントロール
+function removeOpacityCntrol(){
+	var bgElement = document.querySelector('.heroheader-video-wrap');
+	bgElement.classList.remove('loadanime-opacity-control');
+}
 //bg透明度コントロール
 function bgPreviewOpacty(){
 	var bgContainer = document.querySelector('.heroheader-video-wrap');

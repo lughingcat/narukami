@@ -5,7 +5,7 @@
     <div class="popup-discription">
 		<div class="column_left_1-all-wrap">
 				<div class="column_left_1-back-wrap"
-					 style="background-image: url(https://nousondiner.com/wp-content/uploads/2024/07/restrant.jpg)">
+					 style="background-image: url('../admin-img/sampimg-875_875.jpg')">
 				</div>
 				<div class="column_left_1-text-wrap">
 					<p class="column_left_1-main-title">Sample Title</p>

@@ -14,7 +14,7 @@ $i_loadingtext_color = sanitize_option_value(get_option('loadingtext-color', '#0
 ?>
 <div class="heroheader-prevew-all-wrap">
 	<div class="heroheader-back-wrap">
-		<div class="heroheader-rogo-wrap"
+		<div class="heroheader-rogo-wrap loadanime-opacity-control"
 			 style="background-image: url('<?php echo $i_heroheader_stillImg; ?>');">
 				<div class="heroheader-title-wrap">
 					<p class="heroheader-title" 
@@ -38,14 +38,21 @@ document.addEventListener('DOMContentLoaded', function(){
 	var animationStyle = "<?php echo $animetion_type; ?>";
 	overWrapElement.classList.add(animationStyle);
 	if(animationStyle === 'loading-anime-not-use'){
-		
+		removeOpacityCntrol();
 	}else{
+		setTimeout(removeOpacityCntrol(),1000);
 		bgPreviewOpacty();
 		bgTitleHopup();
 	}
 	loadingTextControl();
 	popupRogoPreviewControl();
 });
+	
+//透明度初期値コントロール
+function removeOpacityCntrol(){
+	var bgElement = document.querySelector('.heroheader-rogo-wrap');
+	bgElement.classList.remove('loadanime-opacity-control');
+}
 //bg透明度コントロール
 function bgPreviewOpacty(){
 	var bgContainer = document.querySelector('.heroheader-rogo-wrap');

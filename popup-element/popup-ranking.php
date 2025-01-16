@@ -8,10 +8,10 @@
 		</div>
 		<div class="ranking-all-wrap">
 		<div class="overlay" 
-			 style="display:; background-image: url(https://nousondiner.com/wp-content/uploads/2024/07/steak.jpg)"><!--ランキング１位-->
+			 style="display:; background-image: url('../admin-img/sampimg-875_875.jpg')"><!--ランキング１位-->
 			<div class="math_sq_bg"><span>1</span></div>
 			<div class="ranking-img">
-				<img src="https://nousondiner.com/wp-content/uploads/2024/07/steak.jpg">
+				<img src="'../admin-img/sampimg-875_875.jpg'">
 			</div>
 			<div class="ranking-discription">
 				<div class="rank-dis-text">
@@ -24,10 +24,10 @@
 		</div><!--ランキング１位end-->
 			
 			<div class="overlay" 
-			 style="display:s; background-image: url(https://nousondiner.com/wp-content/uploads/2024/07/salmon-3.jpg)"><!--ランキング2位-->
+			 style="display:s; background-image: url('../admin-img/sampimg-875_875.jpg')"><!--ランキング2位-->
 			<div class="math_sq_bg"><span>2</span></div>
 			<div class="ranking-img">
-				<img src="https://nousondiner.com/wp-content/uploads/2024/07/salmon-3.jpg">
+				<img src="'../admin-img/sampimg-875_875.jpg'">
 			</div>
 			<div class="ranking-discription">
 				<div class="rank-dis-text">
@@ -40,10 +40,10 @@
 		</div><!--ランキング2位end-->
 			
 			<div class="overlay" 
-			 style="display:; background-image: url(https://nousondiner.com/wp-content/uploads/2024/07/unadon.jpg)"><!--ランキング3位-->
+			 style="display:; background-image: url('../admin-img/sampimg-875_875.jpg')"><!--ランキング3位-->
 			<div class="math_sq_bg"><span>3</span></div>
 			<div class="ranking-img">
-				<img src="https://nousondiner.com/wp-content/uploads/2024/07/unadon.jpg">
+				<img src="'../admin-img/sampimg-875_875.jpg'">
 			</div>
 			<div class="ranking-discription">
 				<div class="rank-dis-text">
@@ -56,10 +56,10 @@
 		</div><!--ランキング3位end-->
 			
 			<div class="overlay" 
-			 style="display:; background-image: url(https://nousondiner.com/wp-content/uploads/2024/07/chicken.jpg)"><!--ランキング4位-->
+			 style="display:; background-image: url('../admin-img/sampimg-875_875.jpg')"><!--ランキング4位-->
 			<div class="math_sq_bg"><span>4</span></div>
 			<div class="ranking-img">
-				<img src="https://nousondiner.com/wp-content/uploads/2024/07/chicken.jpg">
+				<img src="'../admin-img/sampimg-875_875.jpg'">
 			</div>
 			<div class="ranking-discription">
 				<div class="rank-dis-text">
@@ -72,10 +72,10 @@
 		</div><!--ランキング4位end-->
 			
 			<div class="overlay" 
-			 style="display:; background-image: url(https://nousondiner.com/wp-content/uploads/2024/07/loaf.jpg)"><!--ランキング5位-->
+			 style="display:; background-image: url('../admin-img/sampimg-875_875.jpg')"><!--ランキング5位-->
 			<div class="math_sq_bg"><span>5</span></div>
 			<div class="ranking-img">
-				<img src="https://nousondiner.com/wp-content/uploads/2024/07/loaf.jpg">
+				<img src="'../admin-img/sampimg-875_875.jpg'">
 			</div>
 			<div class="ranking-discription">
 				<div class="rank-dis-text">
@@ -88,10 +88,10 @@
 		</div><!--ランキング5位end-->
 			
 			<div class="overlay" 
-			 style="display:; background-image: url(https://nousondiner.com/wp-content/uploads/2024/07/beef.jpg)"><!--ランキング6位-->
+			 style="display:; background-image: url('../admin-img/sampimg-875_875.jpg')"><!--ランキング6位-->
 			<div class="math_sq_bg"><span>6</span></div>
 			<div class="ranking-img">
-				<img src="https://nousondiner.com/wp-content/uploads/2024/07/beef.jpg">
+				<img src="'../admin-img/sampimg-875_875.jpg'">
 			</div>
 			<div class="ranking-discription">
 				<div class="rank-dis-text">

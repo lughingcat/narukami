@@ -11,7 +11,7 @@ $i_hh_still_title = sanitize_option_value(get_option('hero-H-stillTitle', 'SITE 
 		<?php
   		generate_upload_image_single_tag('hh-still-img', $i_hh_still_img);
 		?>
-	<h4>ヒーローヘッダー静止画像タイトルを入力してください。</h4>
+	<h4>ヒーローヘッダー静止画像タイトルを入力してください。(画像サイズ横1740px縦1320px　推奨)</h4>
 		<input type="text" name="hh-still-title" class="img-setect-url" value="<?php echo $i_hh_still_title; ?>">
 	<h4>ヒーローヘッダータイトルの文字色を選択してください。</h4>
 		<div class="heroheader-textcolor-wrap">

@@ -45,7 +45,7 @@ if (is_array($i_global_title_array)) {
 	//全体arrayに対するエラーハンドリング
 }
 ?>
-<div class="globalmenu-content-all-wrap pointer-event">
+<div class="globalmenu-content-all-wrap loadanime-opacity-control pointer-event">
 	<div class="humberger-button-wrap" style="background-color: <?php echo $i_humberger_btn_bg; ?>">
 		<div class="span-wrap">
 			<span style="background-color: <?php echo $i_humberger_arrowcolor; ?>"></span>
@@ -112,11 +112,19 @@ document.addEventListener('scroll', function() {
 document.addEventListener('DOMContentLoaded', function(){
 	var gmAnimationStyle = '<?php echo $animetion_type; ?>';
 	if(gmAnimationStyle === 'loading-anime-not-use'){
-		
+		removeOpacityCntrolgm();
 	}else{
+		setTimeout(removeOpacityCntrol(),1000);
 		gmBgPreviewOpacty();
 	}
 });
+	
+//透明度初期値コントロール
+function removeOpacityCntrolgm(){
+	var gmElement = document.querySelector('.globalmenu-content-all-wrap');
+	gmElement.classList.remove('loadanime-opacity-control');
+}
+	
 //bg透明度コントロール
 function gmBgPreviewOpacty(){
 	var gmBgContainer = document.querySelector('.globalmenu-content-all-wrap');

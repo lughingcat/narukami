@@ -4,7 +4,7 @@
 <div class="popup-element-all-wrap">
     <div class="popup-discription">
         <div class="concept-back-wrap"
-             style="background-image: url(https://nousondiner.com/wp-content/uploads/2022/04/%E3%83%95%E3%82%A1%E3%83%BC%E3%82%B9%E3%83%88%E3%83%92%E3%82%99%E3%83%A5%E3%83%BC%E3%82%AB%E3%83%83%E3%83%88.png)">
+             style="background-image: url('../admin-img/samp-2400-1400.jpg')">
             <div class="concept-text-wrap">
                 <p class="concept-main-title">SAMPLE TITLE</p>
                 <p class="concept-main-content">
