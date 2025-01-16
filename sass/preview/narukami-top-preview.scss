@@ -832,6 +832,9 @@
 //ランキング
 .n-section-block{
 	margin: 7% 0;
+	@include media(small) {
+    	margin: 90px 0;
+  	}
 	.rank-primary-title-prevew{
 	width: 93%;
 	text-align: center;

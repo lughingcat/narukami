@@ -268,6 +268,9 @@ html, body {
     			width: 100%;
 				margin: inherit;
   			}
+			@include media(small) {
+    			padding: 0 30px;
+  			}
 			.slider-title-list-page{//slider title
 				width: 100%;
 				padding-bottom: 5px;
@@ -359,6 +362,9 @@ html, body {
 				@include media(large) {
     				padding: 0;
 					margin-bottom: 20px;
+  				}
+				@include media(small) {
+    				padding: 0 10px;
   				}
 				.slider-container,
 				.slick-slide{

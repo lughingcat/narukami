@@ -1051,6 +1051,9 @@
 
 .n-section-block {
   margin: 7% 0; }
+  @media (max-width: 576px) {
+    .n-section-block {
+      margin: 90px 0; } }
   .n-section-block .rank-primary-title-prevew {
     width: 93%;
     text-align: center;
