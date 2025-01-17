@@ -32,17 +32,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-//deleteBtn 
+//deleteBtn24時間で再表示させる処理込み
 document.addEventListener('DOMContentLoaded', function(){
-	var bannerDlBtn = document.querySelector('.banner-close-button');
-	if(bannerDlBtn){
-		bannerDlBtn.addEventListener('click',function(){
-			var parentEl = document.querySelector('.banner-all-wrap');
-			parentEl.classList.add('remove-banner');
-			parentEl.style.zIndex = "-1";
-			parentEl.style.pointerEvents = "none";
+    var bannerDlBtn = document.querySelector('.banner-close-button');
+    var parentEl = document.querySelector('.banner-all-wrap');
 
-		});
-	}
+    if (!parentEl) return;
+
+    // 24時間後の期限（ミリ秒換算: 24時間 × 60分 × 60秒 × 1000ミリ秒）
+    var expireTime = 24 * 60 * 60 * 1000;
+    var savedTime = localStorage.getItem("bannerDismissedTime");
+    var currentTime = new Date().getTime();
+
+    // 24時間以内ならバナーを非表示
+    if (savedTime && currentTime - parseInt(savedTime) < expireTime) {
+        parentEl.classList.add('remove-banner');
+        parentEl.style.opacity = "0";
+        parentEl.style.pointerEvents = "none";
+    }
+
+    if (bannerDlBtn) {
+        bannerDlBtn.addEventListener('click', function(){
+            localStorage.setItem("bannerDismissedTime", new Date().getTime()); // 現在の時間を保存
+            parentEl.classList.add('remove-banner');
+            parentEl.style.opacity = "0";
+            parentEl.style.pointerEvents = "none";
+        });
+    }
 });
+
 </script>

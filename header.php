@@ -73,5 +73,10 @@ $i_background_image_custom_option = get_background_image();
 			include(get_template_directory() . '/TOP_PAGE_FILES/top_header_part.php');
 		}
 		include(get_template_directory() . '/TOP_PAGE_FILES/top_globalheader_part.php');
+		//告知バナー
+		$i_banner_use_control = sanitize_option_value(get_option('banner-use-control'));
+		if ($i_banner_use_control === 'banner-use') {
+				include(get_template_directory() . '/lib/narukami-banner/banner-top-file.php');
+		}
 		?>
 	</header><!-- #masthead -->

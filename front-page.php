@@ -19,13 +19,6 @@ get_header();
 	}
 ?>
 <?php
-	//告知バナー
-	$i_banner_use_control = sanitize_option_value(get_option('banner-use-control'));
-	if ($i_banner_use_control === 'banner-use') {
-			include(get_template_directory() . '/lib/narukami-banner/banner-top-file.php');
-	}
-    ?>
-<?php
 	//トップページビルダー
 	global $wpdb;
 	$content_maker_table = $wpdb->prefix . 'narukami_content_maker';

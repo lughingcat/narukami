@@ -153,7 +153,6 @@ function add_cdns(){
         	    $(slick.$slides[newPreviousSlide]).addClass("slick-custom-important");
         	    // 現在の一つ前のスライドを記憶
         	    previousSlide = newPreviousSlide;
-				console.log(previousSlide)
         	});
 	
         });
@@ -434,7 +433,6 @@ function enqueue_narukami_top_preview_assets() {
         	    $(slick.$slides[newPreviousSlide]).addClass("slick-custom-important");
         	    // 現在の一つ前のスライドを記憶
         	    previousSlide = newPreviousSlide;
-				console.log(previousSlide)
         	});
 	
         });

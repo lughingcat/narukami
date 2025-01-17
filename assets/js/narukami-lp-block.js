@@ -1418,15 +1418,17 @@ wp.domReady(function () {
                     {
                         style: {
                             backgroundColor: backgroundColor,
-                            height: '500px',
+                            minHeight: '500px',
                             width: '100%',
                             display: 'flex',
                             flexDirection: layoutOrder === 'reverse' ? 'column-reverse' : 'column',
+							alignItems: 'stretch',
+							gap: '10px'
                         }
                     },
                     wp.element.createElement(
                         'div',
-                        { className: 'content-container', style: { flex: 1, padding: '10px' } },
+                        { className: 'content-container', style: { flex: '1 1 0%', padding: '10px' } },
                         wp.element.createElement(RichText, {
                             tagName: 'div',
                             placeholder: __('コンテンツを入力してください...', 'narukami'),
@@ -1437,7 +1439,7 @@ wp.domReady(function () {
                     ),
                     wp.element.createElement(
                         'div',
-                        { className: 'image-container', style: { flex: 1, padding: '10px' } },
+                        { className: 'image-container', style: { flex: '1 1 0%', padding: '10px' } },
                         wp.element.createElement(MediaUpload, {
                             onSelect: (media) => setAttributes({ imgUrl: media.url }),
                             allowedTypes: ['image'],
