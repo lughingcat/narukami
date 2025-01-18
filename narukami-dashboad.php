@@ -9,9 +9,86 @@ function add_narukami_welcome_panel() {
 			一緒に素敵なウェブサイトを作成していきましょう。<br>
 			鳴雷は画像と文章を用意して挿入するだけの作業で、スタイリッシュなウェブサイトを作成することが可能です。<br>
 			以下に主な作成ツールの紹介と設定方法を記載します。<br>
-			
-			
 		</p>
+		<h3>はじめに必ずお読みください。</h3>
+		<ul class="narukami-setting-panel-wrap">
+			<li class="panel-item">
+					<a>
+						<div class="panel-content-wrap">
+							<p class="panel-icon"><i class="fa-solid fa-images"></i></p>
+							<h2>鳴雷の画像サイズについて</h2>
+							<p>
+								鳴雷で使用する画像は以下のサイズを推奨しています。<br>
+								ファビコン系最小単位: 512 x 512px以上 正方形<br>
+								ランキング画像小単位: 875 x 875px以上 正方形<br>
+								カラム系画像中単位: 1600 x 1600px以上 正方形又は、長方形<br>
+								ヒーローヘッダー画像 1740px x　1320px 長方形<br>
+								全画面系最大単位: 2400 x 1400px以上 長方形<br>
+							</p>
+							<p>上記のピクセルで用意していただくと綺麗にデザインできるようにしています。2000px(1MB以上)を超える画像は、サイトが重くなり、css系のアニメーションが正常に動作しなくなる可能性があります。その場合は画像を小さくしたり圧縮したりして調整してください。理想のファイルサイズは50KB〜600KBです。画像のimgタグやdivにはcoverを使用してますので、多少サイズがオーバーしても、センター寄せで表示されるようにcssを調整していまのでご安心ください。</p>
+						</div>
+					</a>
+					<div class="panel-btn-flex-wrap">
+					</div>
+			</li>
+			<li class="panel-item">
+					<a>
+						<div class="panel-content-wrap">
+							<p class="panel-icon"><i class="fa-solid fa-plug-circle-bolt"></i></p>
+							<h2>必須プラグインについて。</h2>
+							<p>
+								鳴雷を使用するにあたり必ずインストールして欲しいプラグインがあります。<br>
+								1, Jetpack(画像をcdn経由で配信)<br>
+								2, MaxUploader(アップロードサイズ変更)<br>
+							</p>
+							<p>
+								1, jetpackについて<br>
+								このプラグインをサイト作成前にインストールしてください。アップロードした画像が全て圧縮されcdn経由で高速配信されるようになります。サイト自体の動きが軽くなりcssアニメーションも綺麗に動きます。<br>
+								<span>インストール方法</span><br>
+								「プラグイン」→「新規プラグインを追加」→「jetpackと入力」→「インストール」→「有効化」<br>
+								これでインストール完了です。<br>
+								<span>設定方法</span><br>
+								「ダッシュボード」→「jetpack」→「設定」→「パフォーマンス」→「パフォーマンスおよびスピード」→「サイトアクセラレーターを有効化」&「画像の読み込みをスピードアップ」&「静的ファイルの読み込みをスピードアップ」これらを全て有効化。<br>
+								これでサイトの画像が全てcdn経由で高速配信されます。<br>
+								1, MaxUploader<br>
+								このプラグインをサイト作成前にインストールしてください。大きな画像や動画がスムーズにアップロードできます。<br>
+								<span>インストール方法</span><br>
+								「プラグイン」→「新規プラグインを追加」→「MaxUploaderと入力」→「インストール」→「有効化」<br>
+								これでインストール完了です。<br>
+								<span>設定方法</span><br>
+								「ダッシュボード」→「プラグイン」→「インストール済みプラグイン」→「MaxUploaderの項目のsetting」→「Choose Maximum Upload File Sizeを1G以上で設定」→「Maximum Execution Timeを1800以上で設定」変更を保存ボタンを押してください。<br>
+							</p>
+						</div>
+					</a>
+					<div class="panel-btn-flex-wrap">
+					</div>
+			</li>
+			<li class="panel-item">
+					<a>
+						<div class="panel-content-wrap">
+							<p class="panel-icon"><i class="fa-solid fa-video"></i></p>
+							<h2>動画について</h2>
+							<p>
+								鳴雷のヘッダー設定に「ヒーローヘッダー設定」があります。ヒーローヘッダーの種類は３種類「静止画」「動画」「スライダー」をご用意しており、動画の注意事項を以下に記載します。
+							</p>
+							<p>
+								１,ヒーローヘッダー動画タイプについて<br>
+								動画のサイズですが、4Kや、フレームレートが高いものはスマホで表示されない可能性があります。<br>
+								pcで問題なく動画再生されていてもスマホで確認すると灰色の背景だけが存在し動画が再生されない場合は、確実に動画のサイズによるエラーです。
+								スマホでも確実に再生されるサイズは<br>
+								解像度　480p(SD画質)<br>
+								フレームレート　24fps(映画の標準フレームレート)<br>
+								です。サイズ変更に関しては無料のブラウザツールやお手持ちのツールでこの規格に変更をお願いします。<br>
+								無料のブラウザツールでは「FlexClip」をおすすめします。<br>
+								操作が簡単で日本語で表示されているので使いやすいです。
+							</p>
+						</div>
+					</a>
+					<div class="panel-btn-flex-wrap">
+					</div>
+			</li>
+		</ul>
+		<h3>鳴雷各種ツール紹介とデモページ。</h3>
         <ul class="narukami-setting-panel-wrap">
             <li class="panel-item">
 				<a href="<?php echo admin_url('admin.php?page=custom_submenu_page_1'); ?>">
@@ -176,24 +253,6 @@ function add_narukami_welcome_panel() {
 				</a>
 				<div class="panel-btn-flex-wrap">
 					<a class="sample-site-btn long-btn" href="<?php echo admin_url('admin.php?page=custom_menu_page'); ?>">設定開始！</a>
-				</div>
-			</li>
-			<li class="panel-item">
-				<a>
-					<div class="panel-content-wrap">
-						<p class="panel-icon"><i class="fa-solid fa-images"></i></p>
-						<h2>鳴雷の画像サイズについて</h2>
-						<p>
-							鳴雷で使用する画像は以下のサイズを推奨しています。<br>
-							ファビコン系最小単位: 512 x 512px以上 正方形<br>
-							ランキング画像小単位: 875 x 875px以上 正方形<br>
-							カラム系画像中単位: 1600 x 1600px以上 正方形又は、長方形<br>
-							全画面系最大単位: 2400 x 1400px以上 長方形<br>
-						</p>
-						<p>絶対ではないですが、上記のピクセルで用意していただくと綺麗にデザインできるようにしています。画像のimgタグやdivにはcoverを使用してますので、多少サイズが足りなくてもセンター寄せで表示されるようにcssを調整していまのでご安心ください。</p>
-					</div>
-				</a>
-				<div class="panel-btn-flex-wrap">
 				</div>
 			</li>
         </ul>

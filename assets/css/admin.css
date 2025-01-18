@@ -8,6 +8,12 @@
   .custom-welcome-panel h2 {
     color: #ffffff;
     font-size: 38px; }
+  .custom-welcome-panel h3 {
+    color: #ffffff;
+    font-size: 24px;
+    border-bottom: 2px solid;
+    padding: 0px 0 10px 0;
+    margin-top: 30px; }
   .custom-welcome-panel .about-description {
     color: #ffffff;
     line-height: 30px; }
@@ -41,7 +47,9 @@
         .custom-welcome-panel .narukami-setting-panel-wrap .panel-item:hover .fa-solid.fa-triangle-exclamation,
         .custom-welcome-panel .narukami-setting-panel-wrap .panel-item:hover .fa-solid.fa-rectangle-ad,
         .custom-welcome-panel .narukami-setting-panel-wrap .panel-item:hover .fa-solid.fa-gear,
-        .custom-welcome-panel .narukami-setting-panel-wrap .panel-item:hover .fa-solid.fa-images {
+        .custom-welcome-panel .narukami-setting-panel-wrap .panel-item:hover .fa-solid.fa-images,
+        .custom-welcome-panel .narukami-setting-panel-wrap .panel-item:hover .fa-solid.fa-plug-circle-bolt,
+        .custom-welcome-panel .narukami-setting-panel-wrap .panel-item:hover .fa-solid.fa-video {
           color: #2271b1;
           transition: color 0.3s ease-in-out; }
       .custom-welcome-panel .narukami-setting-panel-wrap .panel-item a {
@@ -61,6 +69,11 @@
           transition: color 0.3s ease-in-out;
           padding: 10px;
           line-height: 25px; }
+          .custom-welcome-panel .narukami-setting-panel-wrap .panel-item a .panel-content-wrap p span {
+            font-weight: bold;
+            line-height: 80px;
+            border: 1px solid;
+            padding: 10px; }
 
 .panel-btn-flex-wrap {
   display: flex; }
@@ -89,7 +102,9 @@
 .fa-solid.fa-triangle-exclamation,
 .fa-solid.fa-rectangle-ad,
 .fa-solid.fa-gear,
-.fa-solid.fa-images {
+.fa-solid.fa-images,
+.fa-solid.fa-plug-circle-bolt,
+.fa-solid.fa-video {
   color: #ffffff;
   border: 3px solid;
   padding: 20px;

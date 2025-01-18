@@ -8,7 +8,7 @@ $float-text: 4.4s;
 $stretch-easing: ease-in-out;
 $circle-easing: ease-out;
 
-@mixin bg-opacty-animation {//ロードアニメーション[right-slide]
+@mixin bg-opacty-animation {//オープニングアニメーション後の出現アニメーション
   @keyframes bgOpacityAnime {
     0% {
 		opacity: 0;
