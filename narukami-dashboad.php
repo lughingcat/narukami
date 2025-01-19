@@ -25,7 +25,10 @@ function add_narukami_welcome_panel() {
 								ヒーローヘッダー画像 1740px x　1320px 長方形<br>
 								全画面系最大単位: 2400 x 1400px以上 長方形<br>
 							</p>
-							<p>上記のピクセルで用意していただくと綺麗にデザインできるようにしています。2000px(1MB以上)を超える画像は、サイトが重くなり、css系のアニメーションが正常に動作しなくなる可能性があります。その場合は画像を小さくしたり圧縮したりして調整してください。理想のファイルサイズは50KB〜600KBです。画像のimgタグやdivにはcoverを使用してますので、多少サイズがオーバーしても、センター寄せで表示されるようにcssを調整していまのでご安心ください。</p>
+							<p>上記のピクセルで用意していただくと綺麗にデザインできるようにしています。2000px(1MB以上)を超える画像は、サイトが重くなり、css系のアニメーションが正常に動作しなくなる可能性があります。その場合は画像を小さくしたり圧縮したりして調整してください。理想のファイルサイズは50KB〜600KBです。画像のimgタグやdivにはcoverを使用してますので、多少サイズがオーバーしても、センター寄せで表示されるようにcssを調整していますのでご安心ください。<br>
+							<span>注意事項</span><br>
+							ヘッダー設定の中にあるサイトアニメーション設定を有効にしている場合、サイトの背景画像は削除してください。アニメーションが正常に動かない場合が御座います。404ページ設定の背景画像はオリジナルの物を設定しても問題なく動作します。
+							</p>
 						</div>
 					</a>
 					<div class="panel-btn-flex-wrap">
@@ -60,8 +63,6 @@ function add_narukami_welcome_panel() {
 							</p>
 						</div>
 					</a>
-					<div class="panel-btn-flex-wrap">
-					</div>
 			</li>
 			<li class="panel-item">
 					<a>
@@ -121,7 +122,7 @@ function add_narukami_welcome_panel() {
 				</a>
 				<div class="panel-btn-flex-wrap">
 					<a class="sample-site-btn" href="<?php echo admin_url('edit.php?post_type=product_list_page'); ?>">作成開始！</a>
-					<a class="sample-site-btn" href="https://nousondiner.com/obento-list/">デモページ</a>
+					<a class="sample-site-btn" href="https://nousondiner.com/product_list_page/obento-list/">デモページ</a>
 				</div>
 			</li>
 			<li class="panel-item">
@@ -138,7 +139,7 @@ function add_narukami_welcome_panel() {
 				</a>
 				<div class="panel-btn-flex-wrap">
 					<a class="sample-site-btn" href="<?php echo admin_url('edit.php?post_type=product_item_page'); ?>">作成開始！</a>
-					<a class="sample-site-btn" href="https://nousondiner.com/shouyu-karaage/">サンプルサイト</a>
+					<a class="sample-site-btn" href="https://nousondiner.com/product_item_page/chikinkatsu/">サンプルサイト</a>
 				</div>
 			</li>
 			<li class="panel-item">
@@ -155,7 +156,7 @@ function add_narukami_welcome_panel() {
 				</a>
 				<div class="panel-btn-flex-wrap">
 					<a class="sample-site-btn" href="<?php echo admin_url('edit.php?post_type=product_lp_page'); ?>">作成開始！</a>
-					<a class="sample-site-btn" href="https://nousondiner.com/butadon-set/">デモサイト</a>
+					<a class="sample-site-btn" href="https://nousondiner.com/product_lp_page/butadon-set/">デモサイト</a>
 				</div>
 			</li>
 			<li class="panel-item">
@@ -220,7 +221,7 @@ function add_narukami_welcome_panel() {
 				</a>
 				<div class="panel-btn-flex-wrap">
 					<a class="sample-site-btn" href="<?php echo admin_url('admin.php?page=custom_submenu_page_3'); ?>">作成開始！</a>
-					<a class="sample-site-btn" href="https://nousondiner.com/narukami">デモサイト</a>
+					<a class="sample-site-btn" href="https://nousondiner.com/notfound">デモサイト</a>
 				</div>
 			</li>
 			<li class="panel-item">

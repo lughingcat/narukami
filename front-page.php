@@ -18,6 +18,7 @@ get_header();
 		include(get_template_directory() . '/TOP_PAGE_FILES/top_slider_part.php');
 	}
 ?>
+
 <?php
 	//トップページビルダー
 	global $wpdb;

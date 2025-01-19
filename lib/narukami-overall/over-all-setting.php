@@ -72,6 +72,10 @@
 				</select>
 				
 				<h4>背景画像設定</h4>
+				<p>
+				注意※「鳴雷ヘッダー設定」→「サイトアニメーション設定」を有効化している場合、背景画像は設定しないでください。<br>
+				サイトアニメーションが正常に動作しない場合があります。
+				</p>
 				<?php
   				generate_upload_image_single_tag('background_image', $bg_img_url);
 				?>
