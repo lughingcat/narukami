@@ -213,7 +213,6 @@ wp.domReady(function() {
         },
         save: function(props) {
             const { attributes } = props;
-
             return (
                 el('div', { className: 'hero-header-block' },
                     el('div', { className: 'hero-header-image' },

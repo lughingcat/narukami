@@ -883,6 +883,15 @@ function get_optimized_image_url( $image_urls ) {
     }
 }
 
+function disable_jetpack_photon_on_product_lp_page() {
+    if (is_page('product_lp_page')) {
+        remove_filter('jetpack_photon', 'jetpack_photon_url');
+    }
+}
+add_action('wp', 'disable_jetpack_photon_on_product_lp_page');
+
+
+
 
 
 /**
