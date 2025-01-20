@@ -215,9 +215,15 @@ wp.domReady(function() {
             const { attributes } = props;
             return (
                 el('div', { className: 'hero-header-block' },
-                    el('div', { className: 'hero-header-image' },
-                        attributes.imageUrl && el('img', { src: attributes.imageUrl, alt: __('Hero Header Image', 'narukami') })
-                    ),
+                    el('div', { 
+                		className: 'hero-header-image',
+                		style: attributes.imageUrl ? { 
+                		    backgroundImage: `url(${attributes.imageUrl})`, 
+                		    backgroundSize: 'cover',
+                		    backgroundRepeat: 'no-repeat',
+                		    backgroundPosition: 'center'
+                		} : {}
+            		}),
                     el('div', { 
                         className: 'hero-header-title', 
                         style: { 

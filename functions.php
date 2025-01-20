@@ -884,11 +884,13 @@ function get_optimized_image_url( $image_urls ) {
 }
 
 function disable_jetpack_photon_on_product_lp_page() {
-    if (is_page('product_lp_page')) {
-        remove_filter('jetpack_photon', 'jetpack_photon_url');
+    if (is_singular('product_lp_page')) {
+        // フィルターが追加される前に、フィルターを無効化する
+        add_filter('jetpack_photon', '__return_false');
     }
 }
 add_action('wp', 'disable_jetpack_photon_on_product_lp_page');
+
 
 
 
