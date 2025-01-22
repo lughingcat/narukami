@@ -484,7 +484,7 @@ wp.domReady(function() {
                             position: 'relative',
                             padding: '20px',
                             display: 'flex',
-                            flexDirection: 'row',
+                            flexDirection: 'column',
                             alignItems: 'center',
 							width: '100%',
 							height: '400px'
@@ -559,7 +559,7 @@ wp.domReady(function() {
                         position: 'relative',
                         padding: '20px',
                         display: 'flex',
-                        flexDirection: 'row',
+                        flexDirection: 'column',
                         alignItems: 'center'
                     }
                 },
@@ -738,7 +738,7 @@ wp.domReady(function() {
                             width: '50%',
                             backgroundImage: `url(${imageUrl})`,
                             backgroundRepeat: 'no-repeat',
-                            backgroundSize: 'cover',
+                            backgroundSize: 'contain',
                             backgroundPosition: 'center'
                         }
                     }),
@@ -1328,13 +1328,16 @@ wp.domReady(function () {
                 },
                 createElement(
                     'div',
-                    { style: { flex: 1, padding: '10px' } },
-                    imgURL &&
-                        createElement('img', {
-                            src: imgURL,
-                            alt: '',
-                            style: { width: '100%' }
-                        })
+                    { 
+					style: { 
+            		  flex: 1, 
+            		  padding: '10px',
+            		  backgroundImage: imgURL ? `url(${imgURL})` : 'none',
+            		  backgroundSize: 'contain',
+            		  backgroundRepeat: 'no-repeat',
+            		  backgroundPosition: 'center'
+        			} 
+					},
                 ),
                 createElement(
                     'div',
@@ -1519,14 +1522,21 @@ wp.domReady(function () {
                     })
                 ),
                 wp.element.createElement(
-                    'div',
-                    { className: 'image-container', style: { flex: 1, padding: '10px' } },
-                    imgUrl &&
-                        wp.element.createElement('img', {
-                            src: imgUrl,
-                            style: { marginTop: '10px', maxWidth: '100%', }
-                        })
-                )
+            'div',
+            {
+                className: 'image-container',
+                style: {
+                    flex: 1,
+                    padding: '10px',
+                    backgroundImage: imgUrl ? `url(${imgUrl})` : 'none',
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'center',
+                    minHeight: '600px', // 画像が適切に表示されるための最低限の高さを設定
+                    width: '100%', // 横幅を100%に設定
+                }
+            }
+        )
             );
         }
     });
