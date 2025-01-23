@@ -18,7 +18,7 @@ function sanitize_option_value($value) {
             if (filter_var($value, FILTER_VALIDATE_URL)) {
                 $value = esc_url($value);
             } else {
-                $value = sanitize_text_field($value);
+                $value = wp_kses_post($value);
             }
         }
     }
