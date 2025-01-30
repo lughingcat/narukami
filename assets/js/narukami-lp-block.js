@@ -170,7 +170,7 @@ wp.domReady(function() {
     						                margin: '0 auto',
     						            },
     						        },
-    						        '横2400px 縦1400px以上を推奨'
+    						        '横1740px 縦1320pxの画像を推奨'
     						    ),
     						    el(MediaUpload, {
     						        onSelect: onSelectImage,
@@ -305,7 +305,7 @@ wp.domReady(function() {
     								        wp.element.createElement(
     								            'p',
 												{style:{ textAlign: 'center', fontSize: '.8em'},},
-    								            '横875px 縦875px以上'
+    								            '横875px 縦875pxの画像を推奨'
     								        ),
     								        wp.element.createElement(
     								            Button,
@@ -461,7 +461,7 @@ wp.domReady(function() {
                                 );
                             }
                         }),
-						createElement('p',{ style:{margin:'10px auto'},},'横2400px 縦1400px以上の画像を推奨。'),
+						createElement('p',{ style:{margin:'10px auto'},},'横1740px 縦1320pxの画像を推奨。'),
                         createElement(RangeControl, {
                             label: __('黒の透過マスク', 'narukami'),
                             value: maskOpacity,
@@ -651,7 +651,7 @@ wp.domReady(function() {
                         }),
                     ),
                     el('div', { style: { width: '50%', padding: '0 10px' } },
-					   el('p',{style:{marginTop: '0', fontSize: '.7em'},},'推奨画像サイズ:1600px×1600px'),
+					   el('p',{style:{marginTop: '0', fontSize: '.7em'},},'推奨画像サイズ:875px×875px'),
                         el(RichText, {
                             tagName: 'h2',
                             style: { color: textColor },
@@ -820,7 +820,7 @@ wp.domReady(function() {
                                 );
                             }
                         }),
-						wp.element.createElement('p',{style:{margin: '10px auto'},},'横2400px 縦1400px以上の画像を推奨。'),
+						wp.element.createElement('p',{style:{margin: '10px auto'},},'横1740px 縦1320pxの画像を推奨。'),
                     ),
                     wp.element.createElement(
                         PanelColorSettings,
@@ -1033,7 +1033,7 @@ wp.domReady(function () {
     							        createElement(
     							            "p",
 											{ style:{margin: "20px auto"},},
-    							            "横2400px 縦1400px以上を推奨。"
+    							            "横1740px 縦1320pxの画像を推奨。"
     							        )
     							    ]
     							)
@@ -1083,7 +1083,7 @@ wp.domReady(function () {
     						        createElement(
     						            "p",
     						            null,
-    						            "横330px 縦330px以上を推奨。"
+    						            "横330px 縦330pxを推奨。"
     						        ),
     						        createElement(
     						            Button,
@@ -1275,7 +1275,7 @@ wp.domReady(function () {
    						            createElement(
    						                "p",
 										{style:{margin: '0 auto'},},
-   						                "横1600px 縦1600px以上の画像を推奨。"
+   						                "横1720px 縦1320pxの画像を推奨。"
    						            )
    						        ]
    						    )
@@ -1469,7 +1469,7 @@ wp.domReady(function () {
     							                    margin: '0 auto', // 上下左右の余白を適用
     							                },
     							            },
-    							            '縦1600px 横1600px以上の画像を推奨。'
+    							            '縦1720px 横1320pxの画像を推奨。'
     							        ),
     							        wp.element.createElement(
     							            Button,

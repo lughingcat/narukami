@@ -82,6 +82,19 @@
 			box-shadow: .1px .1px 2px;
 			padding: 20px;
 		}
+		.item-list-controls{
+			width: 100%;
+			.move-buttons{
+				width: 100%;
+				position: relative;
+				display: flex;
+				.move-up-btn,
+				.move-down-btn{
+					width: 100%;
+					border-radius: inherit;
+				}
+			}
+		}
 	}
 }
 

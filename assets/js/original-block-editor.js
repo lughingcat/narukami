@@ -80,15 +80,26 @@ wp.domReady(function() {
         updatedItems[index] = newItem;
         setAttributes({ itemList: updatedItems });
     };
-
+	
+		
+	const moveItem = (index, direction) => {
+                const newItems = [...itemList];
+                const targetIndex = index + direction;
+                if (targetIndex < 0 || targetIndex >= newItems.length) return; // 範囲外チェック
+                
+                // アイテムをスワップ
+                [newItems[index], newItems[targetIndex]] = [newItems[targetIndex], newItems[index]];
+                setAttributes({ itemList: newItems });
+            };
+		
     const removeItem = (index) => {
         const updatedItems = itemList.filter((_, i) => i !== index);
         setAttributes({ itemList: updatedItems });
     };
-
+	
     return el('div', {}, 
         el(Button, { onClick: addItem, className: 'item-add-btn' }, __('商品を追加', 'narukami')),
-		el('p', { style: {textAlign: 'center'}, }, "横875px　縦875px以上の画像を推奨。",),
+		el('p', { style: {textAlign: 'center'}, }, "横875px　縦875pxの画像を推奨。",),
         el('div', { className: 'item-list-block-editor' },
             itemList.map((item, index) => 
                 el('div', { key: index, className: 'item-list-editor' },
@@ -134,7 +145,22 @@ wp.domReady(function() {
                             setAttributes({ itemList: updatedItems });
                         }
                     }),
-                    el(Button, { onClick: () => removeItem(index), className: 'item-remove-btn' }, __('削除', 'narukami'))
+                   el('div', { className: 'item-list-controls' },
+                     	el('div', { className: 'move-buttons' },
+    						el(Button, { 
+    						    onClick: () => moveItem(index, -1), 
+    						    disabled: index === 0, 
+    						    className: 'components-button is-primary move-up-btn' 
+    						}, '←　左へ移動'),
+    						
+    						el(Button, { 
+    						    onClick: () => moveItem(index, 1), 
+    						    disabled: index === itemList.length - 1, 
+    						    className: 'components-button is-secondary move-down-btn' 
+    						}, '右へ移動 →')
+						 ),
+                     	el(Button, { onClick: () => removeItem(index), className: 'item-remove-btn' }, __('削除', 'narukami'))
+                    )
                 )
             )
         )
@@ -224,7 +250,7 @@ wp.domReady(function() {
                 }
             }),
             el(Button, { onClick: addSlide, className: 'slide-add-btn' }, __('スライドを追加', 'narukami')),
-			el('p', { style: {textAlign: 'center'}, }, "横2400px　縦1400px以上の画像を推奨。",),
+			el('p', { style: {textAlign: 'center'}, }, "横1740px　縦1320px以上の画像を推奨。",),
             el('div', { className: 'slide-list' },
                 slides.map((slide, index) =>
                     el('div', { key: index, className: 'slide-item' },
