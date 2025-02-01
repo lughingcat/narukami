@@ -54,6 +54,7 @@
 			$insert_ids = $value['insert_ids'];
 			$concept_title = $value['concept_title'];
 			$concept_content = $value['concept_content'];
+			$concept_content_nl2br = nl2br($concept_content);
 			$concept_bg_img_url = $value['concept_bg_img_url'];
 			include(get_template_directory() . '/front-inc/front_concept.php');
 		}
@@ -70,6 +71,7 @@
 			$column_right_bg_img_url = $value['column_right_bg_img_url'];
 			$column_right_1_title = $value['column_right_1_title'];
 			$column_right_1_content = $value['column_right_1_content'];
+			$column_right_1_content_nl2br = nl2br($column_right_1_content);
 			include(get_template_directory() . '/front-inc/front_column_right_1.php');
 		}
 		if($value['array-num'] == $key && $value['s_cmaker'] === 'column_left_1'){
@@ -77,6 +79,7 @@
 			$column_left_bg_img_url = $value['column_left_bg_img_url'];
 			$column_left_1_title = $value['column_left_1_title'];
 			$column_left_1_content = $value['column_left_1_content'];
+			$column_left_1_content_nl2br = nl2br($column_left_1_content);
 			include(get_template_directory() . '/front-inc/front_column_left_1.php');
 		}
 		if($value['array-num'] == $key && $value['s_cmaker'] === 'column_2'){
@@ -84,9 +87,11 @@
 			$column_two_bg_img_url = $value['column_two_bg_img_url'];
 			$column_2_title = $value['column_2_title'];
 			$column_2_content = $value['column_2_content'];
+			$column_2_content_nl2br = nl2br($column_2_content);
 			$column_two_sec_bg_img_url = $value['column_two_sec_bg_img_url'];
 			$column_2_sec_title = $value['column_2_sec_title'];
 			$column_2_sec_content = $value['column_2_sec_content'];
+			$column_2_sec_content_nl2br = nl2br($column_2_sec_content);
 			include(get_template_directory() . '/front-inc/front_column2.php');
 		}
 		if($value['array-num'] == $key && $value['s_cmaker'] === 'column_3'){
@@ -94,12 +99,15 @@
 			$column_three_bg_img_url = $value['column_three_bg_img_url'];
 			$column_3_title = $value['column_3_title'];
 			$column_3_content = $value['column_3_content'];
+			$column_3_content_nl2br = nl2br($column_3_content);
 			$column_three_sec_bg_img_url = $value['column_three_sec_bg_img_url'];
 			$column_3_sec_title = $value['column_3_sec_title'];
 			$column_3_sec_content = $value['column_3_sec_content'];
+			$column_3_sec_content_nl2br = nl2br($column_3_sec_content);
 			$column_three_third_bg_img_url = $value['column_three_third_bg_img_url'];
 			$column_3_third_title = $value['column_3_third_title'];
 			$column_3_third_content = $value['column_3_third_content'];
+			$column_3_third_content_nl2br = nl2br($column_3_third_content);
 			include(get_template_directory() . '/front-inc/front_column3.php');
 		}
 		if($value['array-num'] == $key && $value['s_cmaker'] === 'ranking'){
@@ -143,6 +151,7 @@
 			$insert_ids = $value['insert_ids'];
 			$text_content_title = $value['text_content_title'];
 			$text_content_content = $value['text_content_content'];
+			$text_content_content_nl2br = nl2br($text_content_content);
 			include(get_template_directory() . '/front-inc/front_text_content.php');
 		}
 		if($value['array-num'] == $key && $value['s_cmaker'] === 'store_info'){

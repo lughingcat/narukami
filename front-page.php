@@ -42,6 +42,7 @@ get_header();
 			$insert_ids = $row['insert_ids'];
 			$concept_title = $row['concept_title'];
 			$concept_content = $row['concept_content'];
+			$concept_content_nl2br = nl2br($concept_content);
 			$concept_bg_img_url = get_optimized_image_url($row['concept_bg_img_url']);
 			include(get_template_directory() . '/front-inc/front_concept.php');
 		}
@@ -90,6 +91,7 @@ get_header();
 			$column_right_bg_img_url = get_optimized_image_url($row['column_right_1_bg_img_url']);
 			$column_right_1_title = $row['column_right_1_title'];
 			$column_right_1_content = $row['column_right_1_content'];
+			$column_right_1_content_nl2br = nl2br($column_right_1_content);
 			include(get_template_directory() . '/front-inc/front_column_right_1.php');
 		}
 		if($cmaker === 'column_left_1'){
@@ -110,6 +112,7 @@ get_header();
 			$column_left_bg_img_url = get_optimized_image_url($row['column_left_1_bg_img_url']);
 			$column_left_1_title = $row['column_left_1_title'];
 			$column_left_1_content = $row['column_left_1_content'];
+			$column_left_1_content_nl2br = nl2br($column_left_1_content);
 			include(get_template_directory() . '/front-inc/front_column_left_1.php');
 		}
 		if($cmaker === 'column_2'){
@@ -133,9 +136,11 @@ get_header();
 			$column_two_bg_img_url = get_optimized_image_url($row['column_2_bg_img_url']);
 			$column_2_title = $row['column_2_title'];
 			$column_2_content = $row['column_2_content'];
+			$column_2_content_nl2br = nl2br($column_2_content);
 			$column_two_sec_bg_img_url = get_optimized_image_url($row['column_2_sec_bg_img_url']);
 			$column_2_sec_title = $row['column_2_sec_title'];
 			$column_2_sec_content = $row['column_2_sec_content'];
+			$column_2_sec_content_nl2br = nl2br($column_2_sec_content);
 			include(get_template_directory() . '/front-inc/front_column2.php');
 		}
 		if($cmaker === 'column_3'){
@@ -162,12 +167,15 @@ get_header();
 			$column_three_bg_img_url = get_optimized_image_url($row['column_3_bg_img_url']);
 			$column_3_title = $row['column_3_title'];
 			$column_3_content = $row['column_3_content'];
+			$column_3_content_nl2br = nl2br($column_3_content);
 			$column_three_sec_bg_img_url = get_optimized_image_url($row['column_3_sec_bg_img_url']);
 			$column_3_sec_title = $row['column_3_sec_title'];
 			$column_3_sec_content = $row['column_3_sec_content'];
+			$column_3_sec_content_nl2br = nl2br($column_3_sec_content);
 			$column_three_third_bg_img_url = get_optimized_image_url($row['column_3_third_bg_img_url']);
 			$column_3_third_title = $row['column_3_third_title'];
 			$column_3_third_content = $row['column_3_third_content'];
+			$column_3_third_content_nl2br = nl2br($column_3_third_content);
 			include(get_template_directory() . '/front-inc/front_column3.php');
 		}
 		if($cmaker === 'ranking'){
@@ -266,6 +274,7 @@ get_header();
 			$insert_ids = $row['insert_ids'];
 			$text_content_title = $row['text_content_title'];
 			$text_content_content = $row['text_content_content'];
+			$text_content_content_nl2br = nl2br($text_content_content);
 			include(get_template_directory() . '/front-inc/front_text_content.php');
 		}
 		if($cmaker === 'store_info'){

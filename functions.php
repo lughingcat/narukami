@@ -184,7 +184,7 @@ add_action('admin_enqueue_scripts', 'add_admin_style');
 //カスタムエディターエンキュー
 function my_custom_editor_enqueue() {
 	wp_enqueue_editor();
-    wp_enqueue_script('my_custom_editor_script', get_template_directory_uri() . '/assets/js/custom-editor.js', array('jquery', 'wp-editor'), null, true);
+    wp_enqueue_script('my_custom_editor_script', get_template_directory_uri() . '/assets/js/custom-editor.js', array('jquery', 'wp-editor'), time(), true);
 }
 add_action('admin_enqueue_scripts', 'my_custom_editor_enqueue');
 

@@ -2347,7 +2347,8 @@
       width: 100%;
       height: 300px;
       background-size: cover;
-      background-repeat: no-repeat; }
+      background-repeat: no-repeat;
+      background-position: center; }
     .column_2-all-wrap .column_2_item_wrap .column_2-text-wrap .column_2-main-title {
       position: relative;
       width: 100%;
@@ -2384,7 +2385,8 @@
       width: 100%;
       height: 300px;
       background-size: cover;
-      background-repeat: no-repeat; }
+      background-repeat: no-repeat;
+      background-position: center; }
     .column_3-all-wrap .column_3_item_wrap .column_3-text-wrap .column_3-main-title {
       position: relative;
       width: 100%;
