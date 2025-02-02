@@ -104,7 +104,8 @@ function create_theme_tables() {
 		  `text_content_bg_color` TEXT NOT NULL,
 		  `text_content_title_color` TEXT NOT NULL,
 		  `text_content_title` TEXT NOT NULL,
-		  `text_content_content` TEXT NOT NULL, 
+		  `text_content_content` TEXT NOT NULL,
+		  `code_section` TEXT NOT NULL,
 		  PRIMARY KEY (`id`)
 		) {$charset_collate} AUTO_INCREMENT=1;";
         require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
@@ -318,7 +319,8 @@ function ranking_db_farst_insert_data(){
 		'text_content_bg_color' => '#ffffff',
 		'text_content_title_color' => '#000',
 		'text_content_title' => 'ABOUT',
-		'text_content_content' => $concept_content_sample
+		'text_content_content' => $concept_content_sample,
+		'code_section' => 'コードを入力してください。'
 		),
 		array(
 			//スタイル
@@ -413,6 +415,8 @@ function ranking_db_farst_insert_data(){
 			'%s',
 			'%s',
 			'%s',
+			'%s',
+			//code-section
 			'%s'
 			
 		)

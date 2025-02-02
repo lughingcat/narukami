@@ -101,6 +101,9 @@ $i_store_rg_holiday = isset($_POST['store_rg_holiday']) ? sanitize_option_value(
 $i_text_content_title = isset($_POST['text_content_title']) ? sanitize_option_value($_POST['text_content_title']) : array();
 $i_text_content_content = isset($_POST['text_content_content']) ? sanitize_option_value($_POST['text_content_content']) : array();
 
+//コードエリア
+$i_code_section = isset($_POST['code_section_code']) ? sanitize_option_value($_POST['code_section_code']) : array();
+
 //dbの初期化
 $i_delete_iniz = isset($_POST['delete_iniz']) ? sanitize_text_field($_POST['delete_iniz']) : null;
 //ループ処理で$select_contentの値を振り分けてinsertさせる
@@ -221,6 +224,9 @@ foreach ($select_contents as $key => $select_content) {
 	$parallax_content_roop_json = json_encode($parallax_content_roop, JSON_UNESCAPED_UNICODE);
 	
 	$parallax_primary_title_roop = isset($i_parallax_primary_title[$key]) ? $i_parallax_primary_title[$key] : '';
+	
+	//コードエリア
+	$code_section_roop = isset($i_code_section[$key]) ? $i_code_section[$key] : '';
 	
 	if($select_content === 'ranking'){
 	$wpdb->insert(
@@ -553,6 +559,28 @@ foreach ($select_contents as $key => $select_content) {
 		'%s',
 		//テキストエリア
 		'%s',
+		'%s',
+		)
+		);
+	}
+	
+	if($select_content === 'code_section'){
+	$wpdb->insert(
+		$tablename,
+		array(
+		//セレクトボックス
+		's_cmaker' => $select_content,
+		//インサートid
+		'insert_ids' => $insert_id,
+		//コードエリア
+		'code_section' => $code_section_roop,
+		),
+		array(
+		//セレクトボックス
+		'%s',
+		//インサートid
+		'%s',
+		//コードエリア
 		'%s',
 		)
 		);

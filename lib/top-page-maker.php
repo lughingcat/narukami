@@ -182,6 +182,7 @@
    				"3カラム" => 'column_3',
    				"店舗情報" => 'store_info',
    				"テキストエリア" => 'text_content',
+   				"コードエリア" => 'code_section',
    				"パララックス" => 'parallax',
 			  );
 			  
@@ -245,6 +246,8 @@
                     	  include('text_content.php');
                       }elseif($entry['item'] == "parallax"){
                     	  include('parallax.php');
+                      }elseif($entry['item'] == "code_section"){
+                    	  include('code_section.php');
                       }
                     ?>
 				  </div>

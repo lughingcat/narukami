@@ -1169,6 +1169,7 @@ function openPageElement(button) {
 	let storeInfo = parentEl.querySelector('.cmakerWrapstore_info');
 	let textContent = parentEl.querySelector('.cmakerWraptext_content');
 	let parallax = parentEl.querySelector('.cmakerWrapparallax');
+	let codeSection = parentEl.querySelector('.cmakerWrapCodeSection');
 	let buttonId = parentEl.id;
 	let idNum = buttonId.match(/\d+$/)[0];
     if (grandmenuWrap) {
@@ -1192,7 +1193,9 @@ function openPageElement(button) {
 		textContent.classList.toggle('notshow');
 	} else if (parallax){
 		parallax.classList.toggle('notshow');
-	}
+	} else if (codeSection){
+		codeSection.classList.toggle('notshow');
+	} 
 }
 
 function handleSelectChange(selectName, parentIdNum) {
@@ -1255,6 +1258,9 @@ function handleSelectChange(selectName, parentIdNum) {
 		loadCloseClass(selectedValue, parentIdNum);
 		animateTextWithSpans('.text_content-main-title');
 		initCustomEditor();
+	} else if (selectedValue === "code_section"){
+		
+		loadCloseClass(selectedValue, parentIdNum);
 	}
 }
 function commonInitialization(){

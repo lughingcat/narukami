@@ -173,6 +173,11 @@
 			$parallax_content = $value['parallax_content'];
 			include(get_template_directory() . '/front-inc/front_parallax.php');
 		}
+		if($value['array-num'] == $key && $value['s_cmaker'] === 'code_section'){
+			$insert_ids = $value['insert_ids'];
+			$code_section_value = $value['code_section_code'];
+			include(get_template_directory() . '/front-inc/front_code_section.php');
+		}
 	}//foreach end
 		
 	} else {

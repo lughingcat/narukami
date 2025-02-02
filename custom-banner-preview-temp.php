@@ -354,6 +354,23 @@
 			include(get_template_directory() . '/front-inc/front_parallax.php');
 		}
 		
+		if($cmaker === 'code_section'){
+			$row = $wpdb->get_row(
+    			$wpdb->prepare(
+        			"SELECT 
+					insert_ids, 
+					code_section 
+         			FROM $content_maker_table 
+					WHERE s_cmaker = %s",
+        			$cmaker
+    				),
+    			ARRAY_A
+				);
+			$insert_ids = $row['insert_ids'];
+			$code_section_value = $row['code_section'];
+			include(get_template_directory() . '/front-inc/front_code_section.php');
+		}
+		
 	}//foreach end
 	?>
 	<?php 

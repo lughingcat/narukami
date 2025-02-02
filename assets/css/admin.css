@@ -1203,7 +1203,8 @@
 .cmakerWrapcolumn_left_1,
 .cmakerWrapcolumn_right_1,
 .cmakerWrapcolumn_2,
-.cmakerWrapcolumn_3 {
+.cmakerWrapcolumn_3,
+.cmakerWrapCodeSection {
   background-color: #ffffff;
   margin-top: 2% 0;
   box-sizing: border-box;
@@ -1321,6 +1322,7 @@
 #column_right_1CloseBtn,
 #rankingCloseBtn,
 #conceptCloseBtn,
+#codeSectionCloseBtn,
 #parallaxCloseBtn {
   width: 20%;
   padding: 2%;
