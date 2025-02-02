@@ -491,6 +491,8 @@
   background-position: center;
   background-repeat: no-repeat;
   z-index: 999; }
+  .heroheader-back-wrap .animetion-prewrap.loading-anime-not-use {
+    z-index: -999; }
   .heroheader-back-wrap .animetion-prewrap img {
     width: 257px;
     height: 257px;
@@ -667,6 +669,8 @@
   background-position: center;
   background-repeat: no-repeat;
   z-index: 999; }
+  .heroheader-video-back-wrap .animetion-prewrap.loading-anime-not-use {
+    z-index: -999; }
   .heroheader-video-back-wrap .animetion-prewrap img {
     width: 257px;
     height: 257px;
@@ -846,6 +850,8 @@
   background-position: center;
   background-repeat: no-repeat;
   z-index: 999; }
+  .heroheader-prevew-slider-all-wrap .animetion-prewrap.loading-anime-not-use {
+    z-index: -999; }
   .heroheader-prevew-slider-all-wrap .animetion-prewrap img {
     width: 257px;
     height: 257px;

@@ -6,6 +6,7 @@
 #wpadminbar{
 	display: none;
 }
+
 //フッタースタイル
 .footer-all-wrap{//全体wrap
 	width: 100vw;
@@ -547,6 +548,9 @@
 		background-position: center;
 		background-repeat: no-repeat;
 		z-index: 999;
+		&.loading-anime-not-use {
+    		z-index: -999;
+  		}
 		img{
 			width: 257px;
 			height: 257px;
@@ -630,6 +634,9 @@
 		background-position: center;
 		background-repeat: no-repeat;
 		z-index: 999;
+		&.loading-anime-not-use {
+    		z-index: -999;
+  		}
 		img{
 			width: 257px;
 			height: 257px;
@@ -717,6 +724,9 @@
 		background-position: center;
 		background-repeat: no-repeat;
 		z-index: 999;
+		&.loading-anime-not-use {
+    		z-index: -999;
+  		}
 		img{
 			width: 257px;
 			height: 257px;
