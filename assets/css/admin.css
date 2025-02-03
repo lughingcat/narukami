@@ -111,6 +111,22 @@
   border-radius: 5px; }
 
 /*================================
+	コードミラースタイル
+=================================*/
+.CodeMirror {
+  height: 300px;
+  border: 1px solid #ddd;
+  font-family: monospace;
+  font-size: 14px; }
+  .CodeMirror-gutters {
+    background: #f7f7f7;
+    border-right: 1px solid #ddd; }
+  .CodeMirror-linenumbers {
+    width: 35px !important; }
+  .CodeMirror pre {
+    padding-left: 42px !important; }
+
+/*================================
 	鳴雷ヘッダー設定スタイル
 =================================*/
 .tab-button-wrap {

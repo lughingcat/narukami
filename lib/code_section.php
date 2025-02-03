@@ -56,7 +56,7 @@
 	<div class="inputForm">
 	<input type="hidden" name="array-num[<?php echo $gm_numbers; ?>]" value="<?php echo $gm_numbers; ?>">
 	<h4>差し込むコードを入力してください。</h4>
-	<textarea name="code_section_code[<?php echo $gm_numbers; ?>]" class="narukami-code-editor"><?php echo $code_section_value_result; ?>
+	<textarea name="code_section_code[<?php echo $gm_numbers; ?>]" class="narukami-code-editor"><?php echo esc_textarea( wp_unslash($code_section_value_result) ); ?>
 	</textarea>
 	</div>
 	<button type="button" id="codeSectionCloseBtn" onClick="closeFile(this)">閉じる</button>

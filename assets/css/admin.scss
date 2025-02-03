@@ -130,6 +130,31 @@
 	padding: 20px;
 	border-radius: 5px;
 }
+
+/*================================
+	コードミラースタイル
+=================================*/
+.CodeMirror {
+    height: 300px;
+    border: 1px solid #ddd;
+    font-family: monospace;
+    font-size: 14px;
+
+    &-gutters {
+        background: #f7f7f7; // 背景色
+        border-right: 1px solid #ddd; // 区切り線
+    }
+
+    &-linenumbers {
+        width: 35px !important; // 行番号の幅を適切に確保
+    }
+
+    pre {
+        padding-left: 42px !important; // 左側の余白を確保
+    }
+}
+
+
 /*================================
 	鳴雷ヘッダー設定スタイル
 =================================*/

@@ -102,7 +102,7 @@ $i_text_content_title = isset($_POST['text_content_title']) ? sanitize_option_va
 $i_text_content_content = isset($_POST['text_content_content']) ? sanitize_option_value($_POST['text_content_content']) : array();
 
 //コードエリア
-$i_code_section = isset($_POST['code_section_code']) ? sanitize_option_value($_POST['code_section_code']) : array();
+$i_code_section = isset($_POST['code_section_code']) ? sanitize_code_value($_POST['code_section_code']) : array();
 
 //dbの初期化
 $i_delete_iniz = isset($_POST['delete_iniz']) ? sanitize_text_field($_POST['delete_iniz']) : null;

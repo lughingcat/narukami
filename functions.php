@@ -122,6 +122,25 @@ function add_cdns(){
     // Roboto
     wp_enqueue_style('roboto', 'https://fonts.googleapis.com/css2?family=Roboto&display=swap', false, null);
 	
+	// CodeMirrorのCSSとJSを読み込む
+	wp_enqueue_style('codemirror-css', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css');
+    wp_enqueue_script('codemirror-js', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js', array(), null, true);
+	
+	wp_enqueue_script('codemirror-show-hint', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/hint/show-hint.js', ['codemirror-js'], null, true);
+    wp_enqueue_script('codemirror-anyword-hint', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/hint/anyword-hint.js', ['codemirror-show-hint'], null, true);
+
+    wp_enqueue_style('codemirror-hint-css', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/hint/show-hint.css');
+    
+    // モードを追加（HTML、CSS、JavaScript、PHP）
+     wp_enqueue_script('codemirror-mode-xml', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/mode/xml/xml.min.js', array('codemirror-js'), null, true);
+    wp_enqueue_script('codemirror-mode-javascript', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/mode/javascript/javascript.min.js', array('codemirror-js'), null, true);
+    wp_enqueue_script('codemirror-mode-css', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/mode/css/css.min.js', array('codemirror-js'), null, true);
+    wp_enqueue_script('codemirror-mode-htmlmixed', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/mode/htmlmixed/htmlmixed.min.js', array('codemirror-js', 'codemirror-mode-xml', 'codemirror-mode-javascript', 'codemirror-mode-css'), null, true);
+
+    
+    // CodeMirrorを適用するJS
+    wp_enqueue_script('custom-codemirror-init', get_template_directory_uri() . '/assets/js/codemirror-init.js', array('codemirror-js'), null, true);
+	
 	//slick-js
 	wp_enqueue_style('slick-css', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
     wp_enqueue_style('slick-theme-css', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css');
