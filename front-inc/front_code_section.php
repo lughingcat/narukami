@@ -1,5 +1,5 @@
 <article class="n-section-block">
-<?php 
+<?php
 	echo $code_section_value;
 ?>
 </article>

@@ -126,16 +126,25 @@ function add_cdns(){
 	wp_enqueue_style('codemirror-css', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css');
     wp_enqueue_script('codemirror-js', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js', array(), null, true);
 	
+	//コード補完
 	wp_enqueue_script('codemirror-show-hint', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/hint/show-hint.js', ['codemirror-js'], null, true);
     wp_enqueue_script('codemirror-anyword-hint', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/hint/anyword-hint.js', ['codemirror-show-hint'], null, true);
+	//xml
+	wp_enqueue_script('codemirror-hint-xml', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/hint/xml-hint.js', ['codemirror-show-hint'], null, true);
+	//html
+	wp_enqueue_script('codemirror-html-hint', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/hint/html-hint.js', ['codemirror-show-hint'], null, true);
+	//css
+	wp_enqueue_script('codemirror-css-hint', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/hint/css-hint.js', ['codemirror-show-hint'], null, true);
+	//js
+	wp_enqueue_script('codemirror-javascript-hint', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/hint/javascript-hint.js', ['codemirror-show-hint'], null, true);
 
     wp_enqueue_style('codemirror-hint-css', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/hint/show-hint.css');
     
     // モードを追加（HTML、CSS、JavaScript、PHP）
-     wp_enqueue_script('codemirror-mode-xml', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/mode/xml/xml.min.js', array('codemirror-js'), null, true);
-    wp_enqueue_script('codemirror-mode-javascript', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/mode/javascript/javascript.min.js', array('codemirror-js'), null, true);
-    wp_enqueue_script('codemirror-mode-css', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/mode/css/css.min.js', array('codemirror-js'), null, true);
-    wp_enqueue_script('codemirror-mode-htmlmixed', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/mode/htmlmixed/htmlmixed.min.js', array('codemirror-js', 'codemirror-mode-xml', 'codemirror-mode-javascript', 'codemirror-mode-css'), null, true);
+     wp_enqueue_script('codemirror-mode-xml', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/xml/xml.min.js', array('codemirror-js'), null, true);
+    wp_enqueue_script('codemirror-mode-javascript', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/javascript/javascript.min.js', array('codemirror-js'), null, true);
+    wp_enqueue_script('codemirror-mode-css', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/css/css.min.js', array('codemirror-js'), null, true);
+    wp_enqueue_script('codemirror-mode-htmlmixed', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/htmlmixed/htmlmixed.min.js', array('codemirror-js', 'codemirror-mode-xml', 'codemirror-mode-javascript', 'codemirror-mode-css'), null, true);
 
     
     // CodeMirrorを適用するJS

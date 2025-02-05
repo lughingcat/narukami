@@ -123,8 +123,6 @@
     border-right: 1px solid #ddd; }
   .CodeMirror-linenumbers {
     width: 35px !important; }
-  .CodeMirror pre {
-    padding-left: 42px !important; }
 
 /*================================
 	鳴雷ヘッダー設定スタイル

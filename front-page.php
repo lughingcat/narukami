@@ -23,9 +23,24 @@ get_header();
 	//トップページビルダー
 	global $wpdb;
 	$content_maker_table = $wpdb->prefix . 'narukami_content_maker';
-	$sql_s_cmaker = $wpdb->get_col( "SELECT s_cmaker FROM $content_maker_table LIMIT 18446744073709551615 OFFSET 1" );
-	foreach($sql_s_cmaker as $cmaker){
-		if($cmaker === 'concept'){
+	$sql_s_cmaker = $wpdb->get_results( 
+		"SELECT 
+		insert_ids, 
+		s_cmaker 
+		FROM $content_maker_table 
+		LIMIT 18446744073709551615 OFFSET 1",
+		ARRAY_A
+	);
+	//配列を初期化
+	$data = [];
+	//キーと値で配列化
+	foreach ($sql_s_cmaker as $row) {
+    $data[$row['insert_ids']] = $row['s_cmaker'];
+	}
+
+	//ループ処理
+	foreach ($data as $insert_id => $s_cmaker) {
+		if($s_cmaker === 'concept'){
 			$row = $wpdb->get_row(
     			$wpdb->prepare(
         			"SELECT 
@@ -34,8 +49,8 @@ get_header();
 					concept_content,
 					concept_bg_img_url
          			FROM $content_maker_table 
-					WHERE s_cmaker = %s",
-        			$cmaker
+					WHERE insert_ids = %s",
+        			$insert_id
     				),
     			ARRAY_A
 				);
@@ -46,7 +61,7 @@ get_header();
 			$concept_bg_img_url = get_optimized_image_url($row['concept_bg_img_url']);
 			include(get_template_directory() . '/front-inc/front_concept.php');
 		}
-		if($cmaker === 'grandmenu'){
+		elseif($s_cmaker === 'grandmenu'){
 			$row = $wpdb->get_row(
     			$wpdb->prepare(
         			"SELECT 
@@ -56,8 +71,8 @@ get_header();
 					grandmenu_title,
 					grandmenu_pagelink
          			FROM $content_maker_table 
-					WHERE s_cmaker = %s",
-        			$cmaker
+					WHERE insert_ids = %s",
+        			$insert_id
     				),
     			ARRAY_A
 				);
@@ -73,7 +88,7 @@ get_header();
 			$grandmenu_pagelink = $gm_pagelink_array;
 			include(get_template_directory() . '/front-inc/front_grandmenu.php');
 		}
-		if($cmaker === 'column_right_1'){
+		elseif($s_cmaker === 'column_right_1'){
 			$row = $wpdb->get_row(
     			$wpdb->prepare(
         			"SELECT 
@@ -82,8 +97,8 @@ get_header();
 					column_right_1_title,
 					column_right_1_content
          			FROM $content_maker_table 
-					WHERE s_cmaker = %s",
-        			$cmaker
+					WHERE insert_ids = %s",
+        			$insert_id
     				),
     			ARRAY_A
 				);
@@ -94,7 +109,7 @@ get_header();
 			$column_right_1_content_nl2br = nl2br($column_right_1_content);
 			include(get_template_directory() . '/front-inc/front_column_right_1.php');
 		}
-		if($cmaker === 'column_left_1'){
+		elseif($s_cmaker === 'column_left_1'){
 			$row = $wpdb->get_row(
     			$wpdb->prepare(
         			"SELECT 
@@ -103,8 +118,8 @@ get_header();
 					column_left_1_title,
 					column_left_1_content
          			FROM $content_maker_table 
-					WHERE s_cmaker = %s",
-        			$cmaker
+					WHERE insert_ids = %s",
+        			$insert_id
     				),
     			ARRAY_A
 				);
@@ -115,7 +130,7 @@ get_header();
 			$column_left_1_content_nl2br = nl2br($column_left_1_content);
 			include(get_template_directory() . '/front-inc/front_column_left_1.php');
 		}
-		if($cmaker === 'column_2'){
+		elseif($s_cmaker === 'column_2'){
 			$row = $wpdb->get_row(
     			$wpdb->prepare(
         			"SELECT 
@@ -127,8 +142,8 @@ get_header();
 					column_2_sec_title,
 					column_2_sec_content
          			FROM $content_maker_table 
-					WHERE s_cmaker = %s",
-        			$cmaker
+					WHERE insert_ids = %s",
+        			$insert_id
     				),
     			ARRAY_A
 				);
@@ -143,7 +158,7 @@ get_header();
 			$column_2_sec_content_nl2br = nl2br($column_2_sec_content);
 			include(get_template_directory() . '/front-inc/front_column2.php');
 		}
-		if($cmaker === 'column_3'){
+		elseif($s_cmaker === 'column_3'){
 			$row = $wpdb->get_row(
     			$wpdb->prepare(
         			"SELECT 
@@ -158,8 +173,8 @@ get_header();
 					column_3_third_title,
 					column_3_third_content
          			FROM $content_maker_table 
-					WHERE s_cmaker = %s",
-        			$cmaker
+					WHERE insert_ids = %s",
+        			$insert_id
     				),
     			ARRAY_A
 				);
@@ -178,7 +193,7 @@ get_header();
 			$column_3_third_content_nl2br = nl2br($column_3_third_content);
 			include(get_template_directory() . '/front-inc/front_column3.php');
 		}
-		if($cmaker === 'ranking'){
+		elseif($s_cmaker === 'ranking'){
 			$row = $wpdb->get_row(
     			$wpdb->prepare(
         			"SELECT 
@@ -217,8 +232,8 @@ get_header();
 					item_page_link_6,
 					rank_on_6
          			FROM $content_maker_table 
-					WHERE s_cmaker = %s",
-        			$cmaker
+					WHERE insert_ids = %s",
+        			$insert_id
     				),
     			ARRAY_A
 				);
@@ -258,7 +273,7 @@ get_header();
 			$rank_on_6 = $row['rank_on_6'];
 			include(get_template_directory() . '/front-inc/front_ranking.php');
 		}
-		if($cmaker === 'text_content'){
+		elseif($s_cmaker === 'text_content'){
 			$row = $wpdb->get_row(
     			$wpdb->prepare(
         			"SELECT 
@@ -266,8 +281,8 @@ get_header();
 					text_content_title, 
 					text_content_content
          			FROM $content_maker_table 
-					WHERE s_cmaker = %s",
-        			$cmaker
+					WHERE insert_ids = %s",
+        			$insert_id
     				),
     			ARRAY_A
 				);
@@ -277,7 +292,7 @@ get_header();
 			$text_content_content_nl2br = nl2br($text_content_content);
 			include(get_template_directory() . '/front-inc/front_text_content.php');
 		}
-		if($cmaker === 'store_info'){
+		elseif($s_cmaker === 'store_info'){
 			$row = $wpdb->get_row(
     			$wpdb->prepare(
         			"SELECT 
@@ -290,8 +305,8 @@ get_header();
 					store_phone_num,
 					store_rg_holiday
          			FROM $content_maker_table 
-					WHERE s_cmaker = %s",
-        			$cmaker
+					WHERE insert_ids = %s",
+        			$insert_id
     				),
     			ARRAY_A
 				);
@@ -305,7 +320,7 @@ get_header();
 			$store_rg_holiday = $row['store_rg_holiday'];
 			include(get_template_directory() . '/front-inc/front_store_info.php');
 		}
-		if($cmaker === 'parallax'){
+		elseif($s_cmaker === 'parallax'){
 			$row = $wpdb->get_row(
     			$wpdb->prepare(
         			"SELECT 
@@ -315,8 +330,8 @@ get_header();
 					parallax_title,
 					parallax_content
          			FROM $content_maker_table 
-					WHERE s_cmaker = %s",
-        			$cmaker
+					WHERE insert_ids = %s",
+        			$insert_id
     				),
     			ARRAY_A
 				);
@@ -331,15 +346,15 @@ get_header();
 			$parallax_content = $parallax_pagecontent_array;
 			include(get_template_directory() . '/front-inc/front_parallax.php');
 		}
-		if($cmaker === 'code_section'){
+		elseif($s_cmaker === 'code_section'){
 			$row = $wpdb->get_row(
     			$wpdb->prepare(
         			"SELECT 
 					insert_ids, 
 					code_section 
          			FROM $content_maker_table 
-					WHERE s_cmaker = %s",
-        			$cmaker
+					WHERE insert_ids = %s",
+        			$insert_id
     				),
     			ARRAY_A
 				);
@@ -347,7 +362,6 @@ get_header();
 			$code_section_value = $row['code_section'];
 			include(get_template_directory() . '/front-inc/front_code_section.php');
 		}
-		
 	}//foreach end scroll-btn-active
 	?>
 <?php 

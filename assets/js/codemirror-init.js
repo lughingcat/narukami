@@ -17,11 +17,24 @@ document.addEventListener("DOMContentLoaded", function () {
                 completeSingle: true  // 1つの候補がある場合に自動補完
             },
         });
-
+		//初期化後エディタのスタイルを再適応
+		setTimeout(function() {
+    		cm.refresh();
+		}, 100);
+		
         cm.on("inputRead", function(cm, change) {
             if (change.text[0].match(/[\w</]/)) {  // `<` `/` も許可
                 setTimeout(function() {
-                    CodeMirror.commands.autocomplete(cm, null);
+                    CodeMirror.showHint(cm, function(cm) {
+                        var cur = cm.getCursor(), token = cm.getTokenAt(cur);
+                        if (token.type === "tag" || token.string === "<") {
+                            return CodeMirror.hint.html(cm);  // HTML補完
+                        } else if (token.type === "property" || token.type === "keyword") {
+                            return CodeMirror.hint.css(cm);   // CSS補完
+                        } else {
+                            return CodeMirror.hint.javascript(cm);  // JS補完
+                        }
+                    }, { completeSingle: false });
                 }, 300);
             }
         });
