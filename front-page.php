@@ -351,7 +351,7 @@ get_header();
     			$wpdb->prepare(
         			"SELECT 
 					insert_ids, 
-					code_section 
+					code_section
          			FROM $content_maker_table 
 					WHERE insert_ids = %s",
         			$insert_id

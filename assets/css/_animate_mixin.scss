@@ -225,3 +225,21 @@ $circle-easing: ease-out;
 	animation: floatUp $float-text $circle-easing;
 }
 
+@mixin float-text-animation-notuse{
+	@keyframes floatUpNotuse {
+  	0% {
+    	transform: translateY(100%);
+  	  	opacity: 0;
+  	}
+	80%{
+		transform: translateY(50%);
+  	  	opacity: 0;	
+	}
+  	100% {
+    	transform: translateY(0);
+    	opacity: 1;
+  	}
+	}
+	animation: floatUpNotuse 3.5s $stretch-easing;
+}
+

@@ -1,42 +1,59 @@
-document.addEventListener("DOMContentLoaded", function () {
+function initCodeMirror() {
     document.querySelectorAll(".narukami-code-editor").forEach(textarea => {
+        if (textarea.classList.contains("codemirror-initialized")) {
+            return; // すでに初期化されている場合はスキップ
+        }
+
         var cm = CodeMirror.fromTextArea(textarea, {
-            mode: "htmlmixed",  // HTML, CSS, JavaScript のモード
-            lineNumbers: true,  // 行番号を表示
-            matchBrackets: true,  // 括弧を強調
-            indentUnit: 4,  // インデント幅
-            indentWithTabs: true,  // タブでインデント
-            theme: "default",  // テーマ
-            gutters: ["CodeMirror-linenumbers"],  // 行番号のガターを設定
-            lineWrapping: true,  // 行を折り返す
+            mode: "htmlmixed",
+            lineNumbers: true,
+            matchBrackets: true,
+            indentUnit: 4,
+            indentWithTabs: true,
+            theme: "default",
+            gutters: ["CodeMirror-linenumbers"],
+            lineWrapping: true,
             extraKeys: {
-                "Ctrl-Space": "autocomplete",  // 手動で補完をトリガー
+                "Ctrl-Space": "autocomplete",
             },
             hintOptions: {
-                hint: CodeMirror.hint.anyword,  // 任意の単語を補完候補として表示
-                completeSingle: true  // 1つの候補がある場合に自動補完
+                hint: CodeMirror.hint.anyword,
+                completeSingle: true
             },
         });
-		//初期化後エディタのスタイルを再適応
-		setTimeout(function() {
-    		cm.refresh();
-		}, 100);
-		
+
+        // 初期化済みフラグを設定
+        textarea.classList.add("codemirror-initialized");
+
+        // 初期化後エディタのスタイルを再適応
+        setTimeout(function() {
+            cm.refresh();
+        }, 100);
+
         cm.on("inputRead", function(cm, change) {
-            if (change.text[0].match(/[\w</]/)) {  // `<` `/` も許可
+            if (change.text[0].match(/[\w</]/)) {
                 setTimeout(function() {
                     CodeMirror.showHint(cm, function(cm) {
                         var cur = cm.getCursor(), token = cm.getTokenAt(cur);
                         if (token.type === "tag" || token.string === "<") {
-                            return CodeMirror.hint.html(cm);  // HTML補完
+                            return CodeMirror.hint.html(cm);
                         } else if (token.type === "property" || token.type === "keyword") {
-                            return CodeMirror.hint.css(cm);   // CSS補完
+                            return CodeMirror.hint.css(cm);
                         } else {
-                            return CodeMirror.hint.javascript(cm);  // JS補完
+                            return CodeMirror.hint.javascript(cm);
                         }
                     }, { completeSingle: false });
                 }, 300);
             }
         });
     });
+}
+
+// 初回実行（DOMContentLoaded 時）
+document.addEventListener("DOMContentLoaded", function () {
+    initCodeMirror();
 });
+
+// 手動で再適用したいとき
+// initCodeMirror();
+

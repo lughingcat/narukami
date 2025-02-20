@@ -21,14 +21,13 @@ function initCustomEditor() {
                 'wpgallery', 'wplink', 'wptextpattern', 'wpview',
             ],
             toolbar: 'undo redo | bold italic underline backcolor forecolor | ' +
-                     'alignleft aligncenter alignright alignjustify | ' +
-                     'bullist numlist outdent indent | link charmap | '　+
+                     'link charmap | '　+
 					 'fullscreen | removeformat | help',
             relative_urls: false,
             remove_script_host: false,
             convert_urls: true,
 			setup: function(editor) {
-          　  　editor.on('focus', function() {
+          　		editor.on('focus', function() {
 				  var content = editor.getContent();
 				  var hiddenTextarea = editor.getElement();
 				  var filteredContent = content.replace(/<p>/gi, '').replace(/<\/p>/gi, '');
@@ -38,7 +37,21 @@ function initCustomEditor() {
                       hiddenTextarea.value = filteredContent;
 					  console.log(hiddenTextarea.value)
                   }
-          　  　});
+          　  　	});
+				editor.on('paste', function(event) {
+            		setTimeout(() => {
+                		let content = editor.getContent();
+                		content = content.replace(/<p>/g, '').replace(/<\/p>/g, ''); // <p>タグを削除
+                		editor.setContent(content);
+            		}, 50);
+        		});
+
+        		// `paste_preprocess` を使う場合
+				editor.on('init', function() {
+            		editor.settings.paste_preprocess = function(plugin, args) {
+                	args.content = args.content.replace(/<p>/g, '').replace(/<\/p>/g, '');
+            		};
+        		});
           　}
         });
     } else {

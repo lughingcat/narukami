@@ -39,6 +39,8 @@ document.addEventListener('DOMContentLoaded', function(){
 	overWrapElement.classList.add(animationStyle);
 	if(animationStyle === 'loading-anime-not-use'){
 		removeOpacityCntrol();
+		bgTitleHopupNotUse();
+		bgScaleAnime();
 	}else{
 		setTimeout(removeOpacityCntrol(),1000);
 		bgPreviewOpacty();
@@ -62,6 +64,16 @@ function bgPreviewOpacty(){
 function bgTitleHopup(){
 	var bgTitle = document.querySelector('.heroheader-title');
 	bgTitle.classList.add('hopup-animation');
+}
+//bgタイトルホップアップ(アニメーションなし)
+function bgTitleHopupNotUse(){
+	var bgTitle = document.querySelector('.heroheader-title');
+	bgTitle.classList.add('hopup-animation-notuse');
+}
+//bg画像スケールアニメーション(アニメーションなし)
+function bgScaleAnime(){
+	var scaleBg = document.querySelector('.heroheader-rogo-wrap');
+	scaleBg.classList.add('scale-animation');
 }
 //loading...アニメーション制御
 function loadingTextControl(){

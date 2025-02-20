@@ -1261,6 +1261,7 @@ function handleSelectChange(selectName, parentIdNum) {
 	} else if (selectedValue === "code_section"){
 		
 		loadCloseClass(selectedValue, parentIdNum);
+		initCodeMirror();
 	}
 }
 function commonInitialization(){

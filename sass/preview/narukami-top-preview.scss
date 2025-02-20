@@ -356,6 +356,9 @@
 			height: 100%;
 			background-size: cover;
 			background-position: center;
+			&.scale-animation{
+				animation: stillImgscaleDownClearMosaic 3s cubic-bezier(.15,.17,0,1) forwards;
+			}
 			.heroheader-title-wrap{
 				position: absolute;
 				width: 100%;
@@ -377,13 +380,31 @@
 					&.hopup-animation{
 						@include float-text-animation;
 					}
+					&.hopup-animation-notuse{
+						@include float-text-animation-notuse;
+					}
 				}
 			}
 		}
 	}
 	
 }
-
+@keyframes stillImgscaleDownClearMosaic {
+  0% {
+    transform: scale(1.5);
+	filter: blur(20px) brightness(150%);
+  }
+  40% {
+	filter: blur(0) brightness(150%);
+  }
+  90% {
+	filter: blur(0) brightness(150%);
+  }
+  100% {
+    transform: scale(1);
+	filter: blur(0) brightness(100%);
+  }
+}
 //ヒーローヘッダー動画
 .heroheader-prevew-video-all-wrap{//全体wrap
 	position: relative;
@@ -1769,7 +1790,6 @@
 		.text_content-main-content{
 			width: 80%;
 			margin:  10% auto;
-			text-align: center;
 			line-height: 35px;
 			font-size: 1em;
 			letter-spacing: 1px;

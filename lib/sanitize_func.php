@@ -27,27 +27,25 @@ function sanitize_option_value($value) {
 //サニタイズコード版
 
 function sanitize_code_value($value) {
-    // 配列の場合
+    // 配列の場合（再帰的に処理）
     if (is_array($value)) {
         foreach ($value as $key => $item) {
-            $value[$key] = sanitize_code_value($item); // 再帰的に処理
+            $value[$key] = sanitize_code_value($item);
         }
     } else {
-        // 単一の値の場合
-        // 許可するタグリスト（style と script を許可）
-        $allowed_tags = [
-            'style' => [],  // <style> タグを許可
-            'script' => ['type' => true],  // <script> タグを許可（type 属性も許可）
-            'iframe' => ['src' => true, 'width' => true, 'height' => true, 'frameborder' => true, 'allowfullscreen' => true], // iframeを許可する場合
-            'a' => ['href' => true, 'title' => true, 'target' => true], // リンクを許可
-            'p' => [], 'br' => [], 'strong' => [], 'em' => [], 'span' => [], // その他基本的なタグ
-        ];
+        // WordPress のデフォルト許可タグを取得
+        global $allowedposttags;
+
+        // `<style>` を許可するために追加
+        $allowed_tags = $allowedposttags;
+        $allowed_tags['style'] = ['type' => true, 'media' => true];
 
         // サニタイズ処理
-        $value = wp_kses($value, $allowed_tags);  // 許可リストを適用
+        $value = wp_kses($value, $allowed_tags);
     }
     return $value;
 }
+
 
 //snsチェックボタン関数
 function sns_checkbox_value($sns, $value){
