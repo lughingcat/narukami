@@ -147,7 +147,7 @@
 		   >
 	<h4>文章を入力してください。</h4>
 		<p>※改行せずに入力すると美しく見えます。</p>
-	<textarea name="column_3_content[<?php echo $gm_numbers; ?>]" class="narukami-tinymce-editor"><?php echo stripslashes($column_3_content_nl2br); ?>
+	<textarea name="column_3_content[<?php echo $gm_numbers; ?>]" class="narukami-tinymce-editor"><?php echo stripslashes($column_3_content_result); ?>
 	</textarea>
 	</div>
 	<div class="inputForm">
@@ -161,7 +161,7 @@
 		   >
 	<h4>文章を入力してください。</h4>
 		<p>※改行せずに入力すると美しく見えます。</p>
-	<textarea name="column_3_sec_content[<?php echo $gm_numbers; ?>]" class="narukami-tinymce-editor"><?php echo stripslashes($column_3_sec_content_nl2br); ?>
+	<textarea name="column_3_sec_content[<?php echo $gm_numbers; ?>]" class="narukami-tinymce-editor"><?php echo stripslashes($column_3_sec_content_result); ?>
 		</textarea>
 	</div>
 	<div class="inputForm">
@@ -175,7 +175,7 @@
 		   >
 	<h4>文章を入力してください。</h4>
 		<p>※改行せずに入力すると美しく見えます。</p>
-	<textarea name="column_3_third_content[<?php echo $gm_numbers; ?>]" class="narukami-tinymce-editor"><?php echo stripslashes($column_3_third_content_nl2br); ?>
+	<textarea name="column_3_third_content[<?php echo $gm_numbers; ?>]" class="narukami-tinymce-editor"><?php echo stripslashes($column_3_third_content_result); ?>
 	</textarea>
 	</div>
 	<button type="button" id="column_3CloseBtn" onClick="closeFile(this)">閉じる</button>

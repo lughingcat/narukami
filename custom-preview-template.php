@@ -1,26 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-	<title>トップページビルダープレビューページ</title>
-    <?php wp_head(); ?>
-</head>
-	<?php
-	$narukami_font_family = sanitize_option_value(get_option('narukami-font-family', 'Sawarabi Gothic'));
-	?>
-	<style>
-		body{
-			font-family: <?php echo $narukami_font_family; ?>;
-		}
-	</style>
-<body style="position: relative;">
+<?php
+get_header();
+?>
     <?php
-	//ヘッダー,ヒーローヘッダー,グローバルメニュー読み込み
-	$i_header_display_setting = sanitize_text_field(get_option('header-disp-set', 'display_on'));//ヘッダー表示設定
+	//ヒーローヘッダー,グローバルメニュー読み込み
 	$i_heorheader_type = sanitize_option_value(get_option('heorheader_type', 'still_img'));//ヒーローヘッダータイプ
-	if($i_header_display_setting === 'display_on'){
-			include(get_template_directory() . '/TOP_PAGE_FILES/top_header_part.php');
-		}
 		if($i_heorheader_type === 'still_img'){
 			include(get_template_directory() . '/TOP_PAGE_FILES/top_still_img_part.php');
 		}elseif($i_heorheader_type === 'move'){
@@ -28,7 +11,6 @@
 		}elseif($i_heorheader_type === 'slider'){
 			include(get_template_directory() . '/TOP_PAGE_FILES/top_slider_part.php');
 		}
-		include(get_template_directory() . '/TOP_PAGE_FILES/top_globalheader_part.php');
 	?>
 	<?php
 	//トップページメーカーPOST
@@ -175,7 +157,8 @@
 		}
 		if($value['array-num'] == $key && $value['s_cmaker'] === 'code_section'){
 			$insert_ids = $value['insert_ids'];
-			$code_section_value = $value['code_section_code'];
+			$decode_value = stripslashes($value['code_section_code']);
+			$code_section_value = htmlspecialchars_decode($decode_value, ENT_QUOTES);
 			include(get_template_directory() . '/front-inc/front_code_section.php');
 		}
 	}//foreach end
@@ -184,10 +167,5 @@
 		echo '<p>フォームデータが送信されていません。</p>';
 	}
     ?>
-	<?php 
-	//フッター読み込み
-	include(get_template_directory() . '/lib/narukami-footer/narukami_footer.php');
-	?>
-    <?php wp_footer(); ?>
-</body>
-</html>
+	<?php
+get_footer();

@@ -79,7 +79,7 @@
 		   >
 	<h4>文章を入力してください。</h4>
 		<p>※改行せずに入力すると美しく見えます。</p>
-	<textarea name="column_right_1_content[<?php echo $gm_numbers; ?>]" class="narukami-tinymce-editor"><?php echo stripslashes($column_right_1_content_nl2br);?>
+	<textarea name="column_right_1_content[<?php echo $gm_numbers; ?>]" class="narukami-tinymce-editor"><?php echo stripslashes($column_right_1_content_result);?>
 	</textarea>
 	</div>
 	<button type="button" id="column_right_1CloseBtn" onClick="closeFile(this)">閉じる</button>

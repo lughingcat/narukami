@@ -1862,10 +1862,10 @@
           font-size: 1em; } }
       @media (max-width: 768px) {
         .n-section-block .text_content-back-wrap .text_content-text-wrap .text_content-main-title {
-          font-size: .8em; } }
+          font-size: 1em; } }
     .n-section-block .text_content-back-wrap .text_content-text-wrap .text_content-main-content {
       width: 80%;
-      margin: 10% auto;
+      margin: 10% auto 0;
       line-height: 35px;
       font-size: 1em;
       letter-spacing: 1px; }
