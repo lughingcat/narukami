@@ -61,8 +61,8 @@
 					<p class="column_right_1-main-title"><?php echo $column_right_1_title_result; ?></p>
 					<p class="column_right_1-main-content"><?php echo stripslashes($column_right_1_content_nl2br); ?></p>
 				</div>
-				<div class="column_right_1-back-wrap"
-					 style="background-image: url(<?php echo $column_right_1_bgImg_url_result; ?>)">
+				<div class="column_right_1-back-wrap">
+					<img src="<?php echo $column_right_1_bgImg_url_result; ?>" alt="<?php echo $column_right_1_title_result; ?>">
 				</div>
 			</div>
 		</article>

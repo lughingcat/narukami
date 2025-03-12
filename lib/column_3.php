@@ -106,8 +106,8 @@
 			?>
 			<div class="column_3-all-wrap">
 				<div class="column_3_item_wrap">
-				<div class="column_3-back-wrap"
-					 style="background-image: url(<?php echo $column_3_Img_url_result; ?>)">
+				<div class="column_3-back-wrap">
+					<img src="<?php echo $column_3_Img_url_result; ?>" alt="<?php echo $column_3_title_result; ?>">
 				</div>
 				<div class="column_3-text-wrap">
 					<p class="column_3-main-title"><?php echo $column_3_title_result; ?></p>
@@ -115,8 +115,8 @@
 				</div>
 				</div>
 				<div class="column_3_item_wrap">
-				<div class="column_3-back-wrap"
-					 style="background-image: url(<?php echo $column_3_sec_Img_url_result; ?>)">
+				<div class="column_3-back-wrap">
+					<img src="<?php echo $column_3_sec_Img_url_result; ?>" alt="<?php echo $column_3_sec_title_result; ?>">
 				</div>
 				<div class="column_3-text-wrap">
 					<p class="column_3-main-title"><?php echo $column_3_sec_title_result; ?></p>
@@ -124,8 +124,8 @@
 				</div>
 				</div>
 				<div class="column_3_item_wrap">
-				<div class="column_3-back-wrap"
-					 style="background-image: url(<?php echo $column_3_third_Img_url_result; ?> )">
+				<div class="column_3-back-wrap">
+					<img src="<?php echo $column_3_third_Img_url_result; ?>" alt="<?php echo $column_3_third_title_result; ?>">
 				</div>
 				<div class="column_3-text-wrap">
 					<p class="column_3-main-title"><?php echo $column_3_third_title_result; ?></p>

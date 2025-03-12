@@ -1,8 +1,8 @@
 <article class="n-section-block">
 	<div class="column_2-all-wrap">
 		<div class="column_2_item_wrap">
-		<div class="column_2-back-wrap"
-			 style="background-image: url(<?php echo $column_two_bg_img_url; ?>)">
+		<div class="column_2-back-wrap">
+			<img src="<?php echo $column_two_bg_img_url; ?>" alt="<?php echo $column_2_title; ?>">
 		</div>
 		<div class="column_2-text-wrap">
 			<p class="column_2-main-title"><?php echo $column_2_title; ?></p>
@@ -10,8 +10,8 @@
 		</div>
 		</div>
 		<div class="column_2_item_wrap">
-		<div class="column_2-back-wrap"
-			 style="background-image: url(<?php echo $column_two_sec_bg_img_url; ?> )">
+		<div class="column_2-back-wrap">
+			<img src="<?php echo $column_two_sec_bg_img_url; ?>" alt="<?php echo $column_2_sec_title; ?>">
 		</div>
 		<div class="column_2-text-wrap">
 			<p class="column_2-main-title"><?php echo $column_2_sec_title; ?></p>

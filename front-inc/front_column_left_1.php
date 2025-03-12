@@ -1,7 +1,7 @@
 <article class="n-section-block">
 	<div class="column_left_1-all-wrap">
-		<div class="column_left_1-back-wrap"
-			 style="background-image: url(<?php echo $column_left_bg_img_url; ?> )">
+		<div class="column_left_1-back-wrap">
+			<img src="<?php echo $column_left_bg_img_url; ?>" alt="<?php echo $column_left_1_title; ?>">
 		</div>
 		<div class="column_left_1-text-wrap">
 			<p class="column_left_1-main-title"><?php echo $column_left_1_title; ?></p>

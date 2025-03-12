@@ -57,8 +57,8 @@
 			$column_left_1_content_nl2br = nl2br($column_left_1_content_result);
 			?>
 			<div class="column_left_1-all-wrap">
-				<div class="column_left_1-back-wrap"
-					 style="background-image: url(<?php echo $column_left_1_bgImg_url_result; ?> )">
+				<div class="column_left_1-back-wrap">
+					<img src="<?php echo $column_left_1_bgImg_url_result; ?> " alt="<?php echo $column_left_1_title_result; ?>">
 				</div>
 				<div class="column_left_1-text-wrap">
 					<p class="column_left_1-main-title"><?php echo $column_left_1_title_result; ?></p>

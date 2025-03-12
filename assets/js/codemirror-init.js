@@ -46,6 +46,9 @@ function initCodeMirror() {
                 }, 300);
             }
         });
+		cm.on("change", function(cm) {
+            textarea.value = cm.getValue();
+        });
     });
 }
 

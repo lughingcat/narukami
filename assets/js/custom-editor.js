@@ -35,7 +35,6 @@ function initCustomEditor() {
                   editor.setContent(filteredContent, { format: 'html' });
                   if (hiddenTextarea) {
                       hiddenTextarea.value = filteredContent;
-					  console.log(hiddenTextarea.value)
                   }
           　  　	});
 				editor.on('paste', function(event) {
@@ -52,6 +51,16 @@ function initCustomEditor() {
                 	args.content = args.content.replace(/<p>/g, '').replace(/<\/p>/g, '');
             		};
         		});
+				//変更をリアルタイムでテキストエリアをオーバーライド
+				editor.on('change input keyup', function() {
+					var textareaElement = editor.getElement(); // 元の <textarea> を取得
+                	var textareaName = jQuery(textareaElement).attr('name'); // 最新の name を取得
+	
+                	console.log(editor.getContent()); // デバッグ用
+                	console.log(textareaName); // デバッグ用
+                	
+                	jQuery('textarea[name="' + textareaName + '"]').val(editor.getContent()); // 値を反映
+            	});
           　}
         });
     } else {

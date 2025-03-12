@@ -78,15 +78,15 @@
 			//2
 			
 			$column_2_sec_Img_url_result = data_variable_set($column_2_sec_Img_url_check, $column_2_sec_bgImg_url, $gm_numbers);
-			$column_2_sec_title_result = data_variable_set($column_2_sec_title_check, $column_2_title, $gm_numbers);
+			$column_2_sec_title_result = data_variable_set($column_2_sec_title_check, $column_2_sec_title, $gm_numbers);
 			$column_2_sec_content_result = data_variable_set($column_2_sec_content_check, $column_2_sec_content, $gm_numbers);
 			$column_2_sec_content_nl2br = nl2br($column_2_sec_content_result);
 			
 			?>
 			<div class="column_2-all-wrap">
 				<div class="column_2_item_wrap">
-				<div class="column_2-back-wrap"
-					 style="background-image: url(<?php echo $column_2_Img_url_result; ?>)">
+				<div class="column_2-back-wrap">
+					<img src="<?php echo $column_2_Img_url_result; ?>" alt="<?php echo $column_2_title_result; ?>">
 				</div>
 				<div class="column_2-text-wrap">
 					<p class="column_2-main-title"><?php echo $column_2_title_result; ?></p>
@@ -94,8 +94,8 @@
 				</div>
 				</div>
 				<div class="column_2_item_wrap">
-				<div class="column_2-back-wrap"
-					 style="background-image: url(<?php echo $column_2_sec_Img_url_result; ?> )">
+				<div class="column_2-back-wrap">
+					<img src="<?php echo $column_2_sec_Img_url_result; ?>" alt="<?php echo $column_2_sec_title_result; ?>">
 				</div>
 				<div class="column_2-text-wrap">
 					<p class="column_2-main-title"><?php echo $column_2_sec_title_result; ?></p>
