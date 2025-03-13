@@ -680,7 +680,7 @@ html, body {
     			padding: 20px;
   			}
 			.three-column-container{
-				width: 90%;
+				width: 100%;
 				display: flex;
 				position: relative;
 				margin: 0 auto;
@@ -695,8 +695,6 @@ html, body {
     					padding: 10px;
   					}
 					img{
-						width: 450px;
-						height: 250px;
 						object-fit: contain;
 						@include media(large) {
     						width: 100%;
@@ -786,14 +784,19 @@ html, body {
     			flex-direction: column !important;
   			}
 			div{
+				@include media(mlarge) {
+					width: 100% !important;
+					flex-direction: column;
+					padding: 20px !important;
+					img{
+						position: inherit !important;
+					}
+				}
 				@include media(medium) {
-    				flex-direction: column !important;
-					width: 66% !important;
-					padding-left: 0 !important;
 					margin: 0 auto;
   				}
 				@include media(small) {
-					width: 90% !important;
+					width: 100% !important;
   				}
 			}
 			h2{
@@ -836,7 +839,7 @@ html, body {
 		//可変式画像とコンテンツ
 		.img-content-variable-wrap{
 			padding: 5% 80px;
-			@include media(medium) {
+			@include media(large) {
     			flex-direction: column !important;
 				padding: 5%;
   			}
@@ -846,6 +849,7 @@ html, body {
     				padding: 10px !important;
   				}
 				h2{
+					width: 95%;
 					padding: 0 0 20px 0;
 					font-weight: bold;
 					border-bottom: 1px solid;
@@ -856,7 +860,7 @@ html, body {
   					}
 				}
 				p{
-					width: 90%;
+					width: 100%;
 					padding: 20px 20px 20px 0;
 					margin-top: 0;
 					@include media(medium) {
@@ -870,20 +874,19 @@ html, body {
 		//大きな画像とコンテンツブロック
 		.big-img-all-contaoner{
 			position: relative;
-			text-align: center;
-			.content-container{
-				width: 80%;
-				margin: 0 auto;
-				@include media(large) {
-    				font-size: 1em;
-  				}
-				@include media(medium) {
-    				font-size: .8em;
-  				}
-				.content-text{
-					padding: 20px;
+				.content-container{
+					width: 80%;
+					margin: 0 auto;
+						@include media(large) {
+    						font-size: 1em;
+  						}
+						@include media(medium) {
+    						font-size: .8em;
+							width: 100% !important;
+  						}
+					.content-text{
+					}
 				}
-			}
 			.image-container{
 				width: 80%;
 				position: relative;
