@@ -150,7 +150,7 @@ function globalmenuDeleteElement(button) {
         parentElementAll = document.querySelectorAll('.globalmenu-flex-wrap'); // 更新
         parentElementAll.forEach(function(parent, index) {
             parent.id = 'global-flex-wrap_' + index;
-			console.log(parent.id);
+			//console.log(parent.id);
         });
     }else{
 		alert('最後の１つは削除出来ません。');
@@ -473,7 +473,7 @@ function hopupDeleteElment(button){
 		onChoose: function (evt) {
             var item = evt.item;
 			var notMoveElement = document.getElementsByClassName('not-save-faile');
-			console.log(notMoveElement);
+			//console.log(notMoveElement);
             // 子要素にopen-file-buttonクラスが含まれてない場合
             if (!item.querySelector('.open-file-button') || notMoveElement.length !== 0) {
                 // ドラッグをキャンセルしてアラートを表示
@@ -1150,9 +1150,9 @@ function closeFile(closeEl) {
 //セレクトボックスの選択で.notshowを削除しファイルを表示
 function loadCloseClass(element, parentIdNum){
 	const targetClass = document.querySelectorAll('.content-Container')[parentIdNum];
-	console.log(targetClass)
+	//console.log(targetClass)
 	const childElement = targetClass.getElementsByClassName("show-element")[0]; 
-	console.log(childElement)
+	//console.log(childElement)
 	childElement.classList.remove('notshow');
 }
 
@@ -1459,10 +1459,10 @@ function uploaderOpenClick(button) {
 	var singleName = buttonId.replace(/_btn/g, '');
 	var insertIdName = button.getAttribute('data-insert-id');
 	var insertLastNumber = parseInt(insertIdName.match(/\d+$/)[0]);
-	console.log(buttonId);
-	console.log(singleName);
-	console.log(insertIdName);
-	console.log(insertLastNumber);
+	//console.log(buttonId);
+	//console.log(singleName);
+	//console.log(insertIdName);
+	//console.log(insertLastNumber);
     initializeUploader(jQuery, singleName, insertIdName, insertLastNumber);
   }
 
@@ -1600,7 +1600,7 @@ function subfooterMenuDeleteElement(button) {
         parentElementAll = document.querySelectorAll('.globalmenu-flex-wrap'); // 更新
         parentElementAll.forEach(function(parent, index) {
             parent.id = 'global-flex-wrap_' + index;
-			console.log(parent.id);
+			//console.log(parent.id);
         });
     }else{
 		alert('最後の１つは削除出来ません。');
@@ -1647,7 +1647,7 @@ function footerMenuDeleteElement(button) {
         parentElementAll = document.querySelectorAll('.globalmenu-flex-wrap'); // 更新
         parentElementAll.forEach(function(parent, index) {
             parent.id = 'global-flex-wrap_' + index;
-			console.log(parent.id);
+			//console.log(parent.id);
         });
     }else{
 		alert('最後の１つは削除出来ません。');

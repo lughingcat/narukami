@@ -130,10 +130,10 @@ const observerCallback = (entries, observer) => {
         if (entry.isIntersecting) {
             // parallaxControlを発火させる
             parallaxControl(entry.target);
-			console.log('発火');
+			//console.log('発火');
             // 一度発火したら監視を停止する
             observer.unobserve(entry.target);
-			console.log('停止');
+			//console.log('停止');
         }
     });
 };

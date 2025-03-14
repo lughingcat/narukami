@@ -9,7 +9,7 @@
 				 $insertGlobalId = $_SESSION['insertGlobalId'];
 				 if(preg_match('/([a-zA-Z]+)(\d+)/', $insertGlobalId, $matches)) {
 					 $gm_numbers = $matches[2];
-					 var_dump('セッション送信:'. $gm_numbers);
+					 //var_dump('セッション送信:'. $gm_numbers);
 				 }else{
 					 $gm_numbers = 0;
 				 }
@@ -17,7 +17,7 @@
 				 $insertGlobalId = $insert_id_post;
 				 if(preg_match('/([a-zA-Z]+)(\d+)/', $insertGlobalId, $matches)) {
 					 $gm_numbers = $matches[2];
-					 var_dump('ポスト送信orDB値:'. $gm_numbers);
+					 //var_dump('ポスト送信orDB値:'. $gm_numbers);
 				 }else{
 					 $gm_numbers = 0;
 				 }

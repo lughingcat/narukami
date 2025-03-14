@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // ページ全体が読み込まれた後に実行するコード
     let element = document.getElementById('parallax-popup-wrap');
     if (element) {
-		console.log('値が存在し、関数が発火しました')
+		//console.log('値が存在し、関数が発火しました')
         parallaxControl(); // parallaxControl() を呼び出す
     }
 });

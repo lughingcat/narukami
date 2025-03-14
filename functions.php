@@ -203,7 +203,7 @@ function add_admin_style(){
 	}
   wp_enqueue_script('jquery');
   $path_css = get_template_directory_uri().'/assets/css/admin.css';
-  wp_enqueue_style('admin_style', $path_css, array(), time());
+  wp_enqueue_style('admin_style', $path_css, array(), NARUKAMI_VERSION);
   $path_js = get_template_directory_uri().'/assets/js/admin.js';
   wp_enqueue_script('admin_script', $path_js, array('jquery'), null, true);
 }
@@ -212,7 +212,7 @@ add_action('admin_enqueue_scripts', 'add_admin_style');
 //カスタムエディターエンキュー
 function my_custom_editor_enqueue() {
 	wp_enqueue_editor();
-    wp_enqueue_script('my_custom_editor_script', get_template_directory_uri() . '/assets/js/custom-editor.js', array('jquery', 'wp-editor'), time(), true);
+    wp_enqueue_script('my_custom_editor_script', get_template_directory_uri() . '/assets/js/custom-editor.js', array('jquery', 'wp-editor'), NARUKAMI_VERSION, true);
 }
 add_action('admin_enqueue_scripts', 'my_custom_editor_enqueue');
 
@@ -235,7 +235,7 @@ function narukami_itemlist_block_register() {
                 'wp-hooks',
                 'wp-data'
             ),
-            time(),
+            NARUKAMI_VERSION,
             true
         );
 
@@ -260,7 +260,7 @@ function narukami_itemlist_block_register() {
                 'wp-hooks',
                 'wp-data'
             ),
-            time(),
+            NARUKAMI_VERSION,
             true
         );
 
@@ -291,7 +291,7 @@ function narukami_itemlist_block_register() {
                 'wp-hooks',
                 'wp-data'
             ),
-            time(),
+            NARUKAMI_VERSION,
             true
         );
 		register_block_type('hero-header-block/hero-header-linetitle-block', array(
@@ -354,7 +354,7 @@ function narukami_block_editor_enqueue() {
         'narukami_block_editor_script',
         get_template_directory_uri() . '/assets/js/custom-block-editor.js',
         $dependencies,
-        time(),
+        NARUKAMI_VERSION,
         true
     );
 }
@@ -368,7 +368,7 @@ function narukami_enqueue_block_editor_styles() {
             'narukami_custom_editor_style', 
             get_template_directory_uri() . '/assets/css/custom-block-editor.css', 
             array(), 
-            time()
+            NARUKAMI_VERSION
         );
     }
 }
@@ -407,8 +407,8 @@ function enqueue_narukami_top_preview_assets() {
     // プレビューページ又はシングルページ,カスタム投稿ページかどうかをチェック
     if (is_preview() || is_singular() || is_front_page() || is_404()) {
         // CSSファイルをエンキュー
-        wp_enqueue_style('narukami-top-preview', get_template_directory_uri() . '/sass/preview/narukami-top-preview.css', array(), time());
-        wp_enqueue_style('narukami-product-list', get_template_directory_uri() . '/sass/product-list-style.css', array(), time());
+        wp_enqueue_style('narukami-top-preview', get_template_directory_uri() . '/sass/preview/narukami-top-preview.css', array(), NARUKAMI_VERSION);
+        wp_enqueue_style('narukami-product-list', get_template_directory_uri() . '/sass/product-list-style.css', array(), NARUKAMI_VERSION);
 		wp_enqueue_script('narukami-top-js-preview', get_template_directory_uri() . '/front-js/preview/narukami-top-preview.js', array('jquery'), null, true);
 		//font
 		wp_enqueue_style('fontawesome','https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css');

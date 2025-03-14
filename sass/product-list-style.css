@@ -852,26 +852,26 @@ html, body {
           width: 100%;
           font-size: .8em !important;
           padding: 0 !important; } }
-.product-lp-page-content .content .big-img-all-contaoner {
+.product-lp-page-content .content .big-img-all-container {
   position: relative; }
-  .product-lp-page-content .content .big-img-all-contaoner .content-container {
+  .product-lp-page-content .content .big-img-all-container .content-container {
     width: 80%;
     margin: 0 auto; }
     @media (max-width: 992px) {
-      .product-lp-page-content .content .big-img-all-contaoner .content-container {
+      .product-lp-page-content .content .big-img-all-container .content-container {
         font-size: 1em; } }
     @media (max-width: 768px) {
-      .product-lp-page-content .content .big-img-all-contaoner .content-container {
+      .product-lp-page-content .content .big-img-all-container .content-container {
         font-size: .8em;
         width: 100% !important; } }
-  .product-lp-page-content .content .big-img-all-contaoner .image-container {
+  .product-lp-page-content .content .big-img-all-container .image-container {
     width: 80%;
     position: relative;
     margin: 0 auto; }
     @media (max-width: 768px) {
-      .product-lp-page-content .content .big-img-all-contaoner .image-container {
+      .product-lp-page-content .content .big-img-all-container .image-container {
         width: 100% !important; } }
-    .product-lp-page-content .content .big-img-all-contaoner .image-container img {
+    .product-lp-page-content .content .big-img-all-container .image-container img {
       width: 100%;
       height: 500px;
       object-fit: cover;

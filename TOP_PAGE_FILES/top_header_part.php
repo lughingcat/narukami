@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function(){
 //bg透明度コントロール
 function headerBgPreviewOpacty(){
 	var headerBgContainer = document.querySelector('.header-back-wrap');
-	console.log(headerBgContainer)
+	//console.log(headerBgContainer)
 	headerBgContainer.classList.add('bg-opacity-value');
 }
 

@@ -56,8 +56,8 @@ function initCustomEditor() {
 					var textareaElement = editor.getElement(); // 元の <textarea> を取得
                 	var textareaName = jQuery(textareaElement).attr('name'); // 最新の name を取得
 	
-                	console.log(editor.getContent()); // デバッグ用
-                	console.log(textareaName); // デバッグ用
+                	//console.log(editor.getContent()); // デバッグ用
+                	//console.log(textareaName); // デバッグ用
                 	
                 	jQuery('textarea[name="' + textareaName + '"]').val(editor.getContent()); // 値を反映
             	});
