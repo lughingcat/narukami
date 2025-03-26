@@ -245,32 +245,56 @@ get_header();
 			$item_title = $row['item_name'];
 			$item_price = $row['item_price'];
 			$item_page_link = $row['item_page_link'];
-			$rank_on = $row['rank_on'];
+			if($row['rank_on'] == 'rank_show_1'){
+				$rank_on = '';
+			}else{
+				$rank_on = 'none';
+			}
 			$item_img_url_2 = get_optimized_image_url($row['item_img_url_2']);
 			$item_title_2 = $row['item_name_2'];
 			$item_price_2 = $row['item_price_2'];
 			$item_page_link_2 = $row['item_page_link_2'];
-			$rank_on_2 = $row['rank_on_2'];
+			if($row['rank_on_2'] == 'rank_show_2'){
+				$rank_on_2 = '';
+			}else{
+				$rank_on_2 = 'none';
+			}
 			$item_img_url_3 = get_optimized_image_url($row['item_img_url_3']);
 			$item_title_3 = $row['item_name_3'];
 			$item_price_3 = $row['item_price_3'];
 			$item_page_link_3 = $row['item_page_link_3'];
-			$rank_on_3 = $row['rank_on_3'];
+			if($row['rank_on_3'] == 'rank_show_3'){
+				$rank_on_3 = '';
+			}else{
+				$rank_on_3 = 'none';
+			}
 			$item_img_url_4 = get_optimized_image_url($row['item_img_url_4']);
 			$item_title_4 = $row['item_name_4'];
 			$item_price_4 = $row['item_price_4'];
 			$item_page_link_4 = $row['item_page_link_4'];
-			$rank_on_4 = $row['rank_on_4'];
+			if($row['rank_on_4'] == 'rank_show_4'){
+				$rank_on_4 = '';
+			}else{
+				$rank_on_4 = 'none';
+			}
 			$item_img_url_5 = get_optimized_image_url($row['item_img_url_5']);
 			$item_title_5 = $row['item_name_5'];
 			$item_price_5 = $row['item_price_5'];
 			$item_page_link_5 = $row['item_page_link_5'];
-			$rank_on_5 = $row['rank_on_5'];
+			if($row['rank_on_5'] == 'rank_show_5'){
+				$rank_on_5 = '';
+			}else{
+				$rank_on_5 = 'none';
+			}
 			$item_img_url_6 = get_optimized_image_url($row['item_img_url_6']);
 			$item_title_6 = $row['item_name_6'];
 			$item_price_6 = $row['item_price_6'];
 			$item_page_link_6 = $row['item_page_link_6'];
-			$rank_on_6 = $row['rank_on_6'];
+			if($row['rank_on_6'] == 'rank_show_6'){
+				$rank_on_6 = '';
+			}else{
+				$rank_on_6 = 'none';
+			}
 			include(get_template_directory() . '/front-inc/front_ranking.php');
 		}
 		elseif($s_cmaker === 'text_content'){
@@ -376,7 +400,7 @@ get_header();
 			font-size: 1.2em;
 		}
 		</style>';
-		echo '<button style="background-color: ' . $scroll_btn_bgcolor . ';" type="button" class="scroll-top-btn">' .
+		echo '<button style="background-color: ' . $scroll_btn_bgcolor . ';" type="button" class="scroll-top-btn notshow">' .
      '<i class="' . $arrow_type . '"></i>' .
      '</button>';
 	}elseif( $scroll_btn_value === "scroll-on" && $arrow_type === "fas fa-arrow-up" ){
@@ -386,7 +410,7 @@ get_header();
 			font-size: 1.2em;
 		}
 		</style>';
-		echo '<button style="background-color: ' . $scroll_btn_bgcolor . ';" type="button" class="scroll-top-btn">' .
+		echo '<button style="background-color: ' . $scroll_btn_bgcolor . ';" type="button" class="scroll-top-btn notshow">' .
      '<i class="' . $arrow_type . '"></i>' .
      '</button>';
 	}elseif( $scroll_btn_value === "scroll-on" && $arrow_type === "fas fa-caret-up" ){
@@ -396,7 +420,7 @@ get_header();
 			font-size: 1.5em;
 		}
 		</style>';
-		echo '<button style="background-color: ' . $scroll_btn_bgcolor . ';" type="button" class="scroll-top-btn">' .
+		echo '<button style="background-color: ' . $scroll_btn_bgcolor . ';" type="button" class="scroll-top-btn notshow">' .
      '<i class="' . $arrow_type . '"></i>' .
      '</button>';
 	}
@@ -406,7 +430,7 @@ get_header();
 	$call_btn_bgcolor = sanitize_option_value(get_option('call-btn-bg-color', '#0D6432'));
 	$store_smartphone_number = filter_var(get_option('store-smartphone-number'), FILTER_SANITIZE_NUMBER_INT);
 	if($call_btn_value === "call-btn-on"){
-		echo '<a href="tel:' . $store_smartphone_number . '" class="store-call-btn">' .
+		echo '<a href="tel:' . $store_smartphone_number . '" class="store-call-btn notshow">' .
      '<i style="color: ' . $call_btn_bgcolor . ';" class="fas fa-phone-square"></i>' .
      '</a>';
 	}

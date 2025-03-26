@@ -175,7 +175,7 @@
 			  $selectbox_item_list = array(
 			  	"ランキング※１回のみ使用可" => 'ranking',
    				"コンセプト" => 'concept',
-   				"グランドメニュー" => 'grandmenu',
+   				"グランドメニュー※１回のみ使用可" => 'grandmenu',
    				"右寄せ背景1カラム" => 'column_right_1',
    				"左寄せ背景1カラム" => 'column_left_1',
    				"2カラム" => 'column_2',

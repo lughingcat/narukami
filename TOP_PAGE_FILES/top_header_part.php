@@ -85,7 +85,6 @@ function headerBgPreviewOpacty(){
 	//console.log(headerBgContainer)
 	headerBgContainer.classList.add('bg-opacity-value');
 }
-
 // スクロールイベントを監視
 let lastScrollTop = 0;
 let hasScrolledOnce = false;

@@ -63,11 +63,16 @@ function update_custom_option() {
 		update_option('heroheader-titleShadowColor', $hh_titleShadowColor);
 		
 		//動画
+		$move_type = sanitize_option_value($_POST['move-type']);
+		$youtube_id_url = sanitize_option_value($_POST['youtube-id']);
+		$youtube_id = get_youtube_id($youtube_id_url);
 		$hh_move_img = sanitize_option_value($_POST['hh-move']);
 		$hh_move_title = sanitize_option_value($_POST['hh-move-title']);
 		$hh_move_backshadow = sanitize_option_value($_POST['hh-moveFrontWrap']);
 		$hh_moveTitleColor = sanitize_option_value($_POST['hh-moveTitleColor']);
 		$hh_moveTitleShadowColor = sanitize_option_value($_POST['hh-moveTitleShadowColor']);
+		update_option('move-type', $move_type);
+		update_option('youtube-id', $youtube_id);
 		update_option('hero-H-move', $hh_move_img);
 		update_option('hero-H-moveTitle', $hh_move_title);
 		update_option('hero-H-movebackshadow', $hh_move_backshadow);

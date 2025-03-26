@@ -382,6 +382,8 @@ function popupRogoControl(){
 	});
 }
 
+
+
 /*==================================
 トップページビルダーjs
 ==================================*/
@@ -748,16 +750,20 @@ gmItemDelBtnDataIndex.forEach(function(gmItemDelBtn){
 	 		delBtnNum.innerHTML = plasNam + 1 + "番目の要素を全削除";
     		addField.appendChild(copied);
             plasNam++;
-        }
+ }
     
-        const gmAddBtn = document.getElementById('gm-elment-add');
-        gmAddBtn.addEventListener("click", addGmElement, false);
-
-        
-
-
+	document.querySelectorAll('#gm-elment-add').forEach((gmAddBtn) => {
+    	gmAddBtn.addEventListener("click", function () {
+        	addGmElement.call(this);
+    	});
+	});	
 }//gmControle
-
+document.addEventListener("DOMContentLoaded", function() {
+	const gmAddBtnLoad = document.getElementById('gm-elment-add');
+	if(gmAddBtnLoad){
+		grandMenuControl();
+	}
+});
 //グランドメニューのバリテート
 document.addEventListener("DOMContentLoaded", function() {
 	document.addEventListener('click',function(event){
@@ -1208,7 +1214,6 @@ function handleSelectChange(selectName, parentIdNum) {
         animateTextWithSpans('.parallax-title');
 		
     } else if (selectedValue === "grandmenu") {
-		
         grandMenuControl();
 		gmImgListAnimation();
 		loadCloseClass(selectedValue, parentIdNum);

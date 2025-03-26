@@ -7,10 +7,6 @@ $i_heroheader_stillImg = get_optimized_image_url(sanitize_option_value(get_optio
 $i_heroheader_stillTitle = sanitize_option_value(get_option('hero-H-stillTitle','SITE TITLE'));
 $i_hh_still_title_color = sanitize_option_value(get_option('heroheader-titleTextColor', '#ffffff'));
 $i_hh_still_shadow_color = sanitize_option_value(get_option('heroheader-titleShadowColor', '#000'));
-$animetion_type = sanitize_option_value(get_option('loading-anime-type', 'stretch-shrink-right'));
-$i_open_bgimgurl = get_optimized_image_url(sanitize_option_value(get_option('open-bg-imgurl', $defult_still_img_prev)));
-$i_open_rogoimgurl = get_optimized_image_url(sanitize_option_value(get_option('open-rogo-imgurl', $defult_rogo_img_prev)));
-$i_loadingtext_color = sanitize_option_value(get_option('loadingtext-color', '#000'));
 ?>
 <div class="heroheader-prevew-all-wrap">
 	<div class="heroheader-back-wrap">
@@ -23,19 +19,13 @@ $i_loadingtext_color = sanitize_option_value(get_option('loadingtext-color', '#0
 					</p>
 				</div>
 		</div>
-		<div class="animetion-prewrap" style="background-image: url('<?php echo $i_open_bgimgurl; ?>');">
-			<p class="loadwrap-rogo">
-				<img src="<?php echo $i_open_rogoimgurl; ?>" alt="ROGO">
-			</p>
-			<p class="loading-text" style="color: <?php echo $i_loadingtext_color; ?>;">Loding...</p>
-		</div>
 	</div><!--heroheader-back-wrap-end-->
 </div><!--heroheader-prevew-all-wrap-end-->
 
 <script>
 document.addEventListener('DOMContentLoaded', function(){
 	var overWrapElement = document.querySelector('.animetion-prewrap');
-	var animationStyle = "<?php echo $animetion_type; ?>";
+	var animationStyle = overWrapElement.getAttribute('data-index');
 	overWrapElement.classList.add(animationStyle);
 	if(animationStyle === 'loading-anime-not-use'){
 		removeOpacityCntrol();
@@ -46,43 +36,31 @@ document.addEventListener('DOMContentLoaded', function(){
 		bgPreviewOpacty();
 		bgTitleHopup();
 	}
-	loadingTextControl();
-	popupRogoPreviewControl();
 });
 	
-//透明度初期値コントロール
+//透明度初期値コントロール(残す)
 function removeOpacityCntrol(){
 	var bgElement = document.querySelector('.heroheader-rogo-wrap');
 	bgElement.classList.remove('loadanime-opacity-control');
 }
-//bg透明度コントロール
+//bg透明度コントロール(残す)
 function bgPreviewOpacty(){
 	var bgContainer = document.querySelector('.heroheader-rogo-wrap');
 	bgContainer.classList.add('bg-opacity-value');
 }
-//bgタイトルホップアップ
+//bgタイトルホップアップ(残す)
 function bgTitleHopup(){
 	var bgTitle = document.querySelector('.heroheader-title');
 	bgTitle.classList.add('hopup-animation');
 }
-//bgタイトルホップアップ(アニメーションなし)
+//bgタイトルホップアップ(アニメーションなし)(残す)
 function bgTitleHopupNotUse(){
 	var bgTitle = document.querySelector('.heroheader-title');
 	bgTitle.classList.add('hopup-animation-notuse');
 }
-//bg画像スケールアニメーション(アニメーションなし)
+//bg画像スケールアニメーション(アニメーションなし)(残す)
 function bgScaleAnime(){
 	var scaleBg = document.querySelector('.heroheader-rogo-wrap');
 	scaleBg.classList.add('scale-animation');
-}
-//loading...アニメーション制御
-function loadingTextControl(){
-	var loadingAnimeContainer = document.querySelector('.loading-text');
-	loadingAnimeContainer.classList.add('loading-anime');
-}
-//rogo出現アニメーション制御
-function popupRogoPreviewControl(){
-	var popupRogoContainer = document.querySelector('.loadwrap-rogo');
-	popupRogoContainer.classList.add('popup-rogo');
 }
 </script>

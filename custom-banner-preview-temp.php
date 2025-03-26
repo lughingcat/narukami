@@ -1,27 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>告知バナープレビューページ</title>
-    <?php wp_head(); ?>
-</head>
-	<?php
-	$narukami_font_family = sanitize_option_value(get_option('narukami-font-family', 'Sawarabi Gothic'));
-	?>
-	<style>
-		body{
-			font-family: <?php echo $narukami_font_family; ?>
-		}
-	</style>
-<body style="position: relative;">
+<?php
+get_header();
+?>
     <?php
-	//ヘッダー,ヒーローヘッダー,グローバルメニュー読み込み
-	$i_header_display_setting = sanitize_text_field(get_option('header-disp-set', 'display_on'));//ヘッダー表示設定
+	//ヒーローヘッダー,グローバルメニュー読み込み
 	$i_heorheader_type = sanitize_option_value(get_option('heorheader_type', 'still_img'));//ヒーローヘッダータイプ
-	if($i_header_display_setting === 'display_on'){
-			include(get_template_directory() . '/TOP_PAGE_FILES/top_header_part.php');
-		}
 		if($i_heorheader_type === 'still_img'){
 			include(get_template_directory() . '/TOP_PAGE_FILES/top_still_img_part.php');
 		}elseif($i_heorheader_type === 'move'){
@@ -29,7 +11,6 @@
 		}elseif($i_heorheader_type === 'slider'){
 			include(get_template_directory() . '/TOP_PAGE_FILES/top_slider_part.php');
 		}
-		include(get_template_directory() . '/TOP_PAGE_FILES/top_globalheader_part.php');
 	?>
 	<?php
 	//告知バナー
@@ -268,32 +249,56 @@
 			$item_title = $row['item_name'];
 			$item_price = $row['item_price'];
 			$item_page_link = $row['item_page_link'];
-			$rank_on = $row['rank_on'];
+			if($row['rank_on'] == 'rank_show_1'){
+				$rank_on = '';
+			}else{
+				$rank_on = 'none';
+			}
 			$item_img_url_2 = get_optimized_image_url($row['item_img_url_2']);
 			$item_title_2 = $row['item_name_2'];
 			$item_price_2 = $row['item_price_2'];
 			$item_page_link_2 = $row['item_page_link_2'];
-			$rank_on_2 = $row['rank_on_2'];
+			if($row['rank_on_2'] == 'rank_show_2'){
+				$rank_on_2 = '';
+			}else{
+				$rank_on_2 = 'none';
+			}
 			$item_img_url_3 = get_optimized_image_url($row['item_img_url_3']);
 			$item_title_3 = $row['item_name_3'];
 			$item_price_3 = $row['item_price_3'];
 			$item_page_link_3 = $row['item_page_link_3'];
-			$rank_on_3 = $row['rank_on_3'];
+			if($row['rank_on_3'] == 'rank_show_3'){
+				$rank_on_3 = '';
+			}else{
+				$rank_on_3 = 'none';
+			}
 			$item_img_url_4 = get_optimized_image_url($row['item_img_url_4']);
 			$item_title_4 = $row['item_name_4'];
 			$item_price_4 = $row['item_price_4'];
 			$item_page_link_4 = $row['item_page_link_4'];
-			$rank_on_4 = $row['rank_on_4'];
+			if($row['rank_on_4'] == 'rank_show_4'){
+				$rank_on_4 = '';
+			}else{
+				$rank_on_4 = 'none';
+			}
 			$item_img_url_5 = get_optimized_image_url($row['item_img_url_5']);
 			$item_title_5 = $row['item_name_5'];
 			$item_price_5 = $row['item_price_5'];
 			$item_page_link_5 = $row['item_page_link_5'];
-			$rank_on_5 = $row['rank_on_5'];
+			if($row['rank_on_5'] == 'rank_show_5'){
+				$rank_on_5 = '';
+			}else{
+				$rank_on_5 = 'none';
+			}
 			$item_img_url_6 = get_optimized_image_url($row['item_img_url_6']);
 			$item_title_6 = $row['item_name_6'];
 			$item_price_6 = $row['item_price_6'];
 			$item_page_link_6 = $row['item_page_link_6'];
-			$rank_on_6 = $row['rank_on_6'];
+			if($row['rank_on_6'] == 'rank_show_6'){
+				$rank_on_6 = '';
+			}else{
+				$rank_on_6 = 'none';
+			}
 			include(get_template_directory() . '/front-inc/front_ranking.php');
 		}
 		elseif($s_cmaker === 'text_content'){

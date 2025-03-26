@@ -118,6 +118,7 @@ add_action('narukami_theme_activate', 'create_theme_tables');
 
 function ranking_db_farst_insert_data(){
 	$url_path = get_theme_file_uri();
+	$home_url_path = home_url();
 	$rank1_img = "/admin-img/sampimg-875_875.jpg";
 	$rank2_img = "/admin-img/sampimg-875_875.jpg";
 	$rank3_img = "/admin-img/sampimg-875_875.jpg";
@@ -213,11 +214,11 @@ function ranking_db_farst_insert_data(){
 	$parallax_title_json = json_encode($parallax_title_path,JSON_UNESCAPED_UNICODE );
 	
 	$grandmenu_pagelink_path = [
-		$url_path,
-		$url_path,
-		$url_path,
-		$url_path,
-		$url_path
+		$home_url_path,
+		$home_url_path,
+		$home_url_path,
+		$home_url_path,
+		$home_url_path
 	];
 	$parallax_content_path = [
 		"Content for section 1.",
@@ -265,12 +266,12 @@ function ranking_db_farst_insert_data(){
 		'item_img_url_4' => $rank4_img_path,
 		'item_img_url_5' => $rank5_img_path,
 		'item_img_url_6' => $rank6_img_path,
-		'item_page_link' => $url_path,
-		'item_page_link_2' => $url_path,
-		'item_page_link_3' => $url_path,
-		'item_page_link_4' => $url_path,
-		'item_page_link_5' => $url_path,
-		'item_page_link_6' => $url_path,
+		'item_page_link' => $home_url_path,
+		'item_page_link_2' => $home_url_path,
+		'item_page_link_3' => $home_url_path,
+		'item_page_link_4' => $home_url_path,
+		'item_page_link_5' => $home_url_path,
+		'item_page_link_6' => $home_url_path,
 		'rank_on' => 'rank_show_1',
 		'rank_on_2' => 'rank_show_2',
 		'rank_on_3' => 'rank_show_3',

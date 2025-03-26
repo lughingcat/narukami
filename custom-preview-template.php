@@ -101,32 +101,56 @@ get_header();
 			$item_title = $value['item_title'];
 			$item_price = $value['item_price'];
 			$item_page_link = $value['item_page_link'];
-			$rank_on = $value['rank_on'];
+			if($value['rank_on'] == 'rank_show_1'){
+				$rank_on = '';
+			}else{
+				$rank_on = 'none';
+			}
 			$item_img_url_2 = $value['item_img_url_2'];
 			$item_title_2 = $value['item_title_2'];
 			$item_price_2 = $value['item_price_2'];
 			$item_page_link_2 = $value['item_page_link_2'];
-			$rank_on_2 = $value['rank_on_2'];
+			if($value['rank_on_2'] == 'rank_show_2'){
+				$rank_on_2 = '';
+			}else{
+				$rank_on_2 = 'none';
+			}
 			$item_img_url_3 = $value['item_img_url_3'];
 			$item_title_3 = $value['item_title_3'];
 			$item_price_3 = $value['item_price_3'];
 			$item_page_link_3 = $value['item_page_link_3'];
-			$rank_on_3 = $value['rank_on_3'];
+			if($value['rank_on_3'] == 'rank_show_3'){
+				$rank_on_3 = '';
+			}else{
+				$rank_on_3 = 'none';
+			}
 			$item_img_url_4 = $value['item_img_url_4'];
 			$item_title_4 = $value['item_title_4'];
 			$item_price_4 = $value['item_price_4'];
 			$item_page_link_4 = $value['item_page_link_4'];
-			$rank_on_4 = $value['rank_on_4'];
+			if($value['rank_on_4'] == 'rank_show_4'){
+				$rank_on_4 = '';
+			}else{
+				$rank_on_4 = 'none';
+			}
 			$item_img_url_5 = $value['item_img_url_5'];
 			$item_title_5 = $value['item_title_5'];
 			$item_price_5 = $value['item_price_5'];
 			$item_page_link_5 = $value['item_page_link_5'];
-			$rank_on_5 = $value['rank_on_5'];
+			if($value['rank_on_5'] == 'rank_show_5'){
+				$rank_on_5 = '';
+			}else{
+				$rank_on_5 = 'none';
+			}
 			$item_img_url_6 = $value['item_img_url_6'];
 			$item_title_6 = $value['item_title_6'];
 			$item_price_6 = $value['item_price_6'];
 			$item_page_link_6 = $value['item_page_link_6'];
-			$rank_on_6 = $value['rank_on_6'];
+			if($value['rank_on_6'] == 'rank_show_6'){
+				$rank_on_6 = '';
+			}else{
+				$rank_on_6 = 'none';
+			}
 			include(get_template_directory() . '/front-inc/front_ranking.php');
 		}
 		if($value['array-num'] == $key && $value['s_cmaker'] === 'text_content'){

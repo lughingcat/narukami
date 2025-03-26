@@ -501,7 +501,15 @@ function enqueue_narukami_top_preview_assets() {
 // wp_enqueue_scripts アクションにフック
 add_action('wp_enqueue_scripts', 'enqueue_narukami_top_preview_assets');
 
-
+/**
+ * トップページのみヒーローヘッダーのjs読み込み分岐
+ */
+function narukami_heroheader_js_include(){
+	if (is_front_page() || is_preview() ) {
+			wp_enqueue_script('n-anime-slider-js', get_template_directory_uri() . '/front-js/preview/anime-slider.js', array(), NARUKAMI_VERSION, true);
+	}
+}
+add_action('wp_enqueue_scripts', 'narukami_heroheader_js_include');
 
 //ajax追加
 add_action('admin_enqueue_scripts', 'enqueue_custom_scripts');
@@ -921,7 +929,11 @@ add_action('wp', 'disable_jetpack_photon_on_product_lp_page');
 
 
 
-
+//youtubeの動画リンクのurlを抜き出す
+function get_youtube_id($url) {
+    parse_str(parse_url($url, PHP_URL_QUERY), $query);
+    return isset($query['v']) ? $query['v'] : '';
+}
 
 
 /**

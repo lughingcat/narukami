@@ -6,7 +6,10 @@
 #wpadminbar{
 	display: none;
 }
-
+//表示制御
+.notshow{
+	display: none;
+}
 //フッタースタイル
 .footer-all-wrap{//全体wrap
 	width: 100vw;
@@ -350,6 +353,7 @@
 		position: relative;
 		width: 100vw;
 		height: 100vh;
+		overflow: hidden;
 		.heroheader-rogo-wrap{//背景画像
 			position: relative;
 			width: 100%;
@@ -358,6 +362,7 @@
 			background-position: center;
 			&.scale-animation{
 				animation: stillImgscaleDownClearMosaic 3s cubic-bezier(.15,.17,0,1) forwards;
+				transform-origin: center center;
 			}
 			.heroheader-title-wrap{
 				position: absolute;
@@ -412,6 +417,7 @@
 		position: relative;
 		width: 100vw;
 		height: 100vh;
+		overflow: hidden;
 		.heroheader-video-wrap{//動画のwrap
 			position: absolute;
             top: 0;
@@ -427,6 +433,31 @@
   				top: 0;
   				left: 0;
 			}
+			&.youtube-wrap{
+				position: relative;
+    			width: 100%;
+				height: 100%;
+				padding-top: 56.25%;
+				iframe{
+					position: absolute;
+    				top: 0;
+    				left: 0;
+    				width: 100%;
+    				height: 100%;
+				}
+				@include media(medium){
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100vw;
+					height: 100vh;
+					padding-top: 0;
+					iframe {
+						width: 100vw;
+						height: 100vh;
+					}
+				}
+			}
 		}
 		.heroheader-overlay{
 			width: 100%;
@@ -435,7 +466,6 @@
 			top: 0;
     		left: 0;
     		background: rgba(0, 0, 0, 0.5); /* 黒いオーバーレイ、透明度50% */
-    		pointer-events: none; /* オーバーレイをクリックしてもイベントが発生しないようにする */
 		}
 		.heroheader-video-title-wrap{
 			position: absolute;
@@ -458,6 +488,9 @@
 				&.hopup-animation{
 						@include float-text-animation;
 				}
+			}
+			&.notshow{
+				display: none;
 			}
 		}
 	}
@@ -557,168 +590,12 @@
 			@include bg-opacty-animation;
 		}
 	}
-	.animetion-prewrap{
-		position: fixed;
-    	top: 0;
-    	left: 0;
-		width: 100%;
-    	height: 100%;
-		opacity: 0;
-		box-sizing: border-box;
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
-		z-index: 999;
-		&.loading-anime-not-use {
-    		z-index: -999;
-  		}
-		img{
-			width: 257px;
-			height: 257px;
-			object-fit: contain;
-			@include media(large) {
-				width: 200px;
-				height: 200px;
-  			}
-			@include media(small) {
-				width: 175px;
-				height: 175px;
-  			}
-		}
-		&.stretch-shrink-right {
-  			height: 100%;
-   			@include stretch-shrink-right-animation;
-  		}
-	    &.stretch-shrink-curtain {
-			height: 100%;
-   			@include stretch-shrink-curtain-animation;
-  		}
-		&.expand-circle {
-  			width: 100%;
-  			height: 100%;
-  			position: absolute;
-  			top: 50%;
-  			left: 50%;
-  			transform: translate(-50%, -50%);
-  			@include expand-circle-animation;
-		}
-		.loadwrap-rogo{
-			width: 100%;
-			position: absolute;
-			top: 45%;
-			left: 50%;
-			transform: translate(-50%,-50%);
-			color: #FFFFFF;
-			font-weight: bold;
-			font-size: 1.1em;
-			text-align: center;
-			&.loading-opacity-cont{
-				@include circle-text-animation;
-			}
-			&.popup-rogo{
-				@include popup-rogo-animation;
-			}
-		}
-		.loading-text{
-			width: 100%;
-			position: absolute;
-			bottom: 5%;
-			font-size: .6em;
-			left: 50%;
-			transform: translateX(-50%);
-			color: #000;
-			text-align: center;
-			font-family: 'Noto Serif JP', sans-serif;
-			letter-spacing: 1px;
-			&.loading-anime{
-				@include combined-text-animation;
-			}
-		}
-	}
 }
 //アニメーションプレビュースタイル（動画）
 .heroheader-video-back-wrap{
 	.heroheader-video-wrap{
 		&.bg-opacity-value{
 			@include bg-opacty-animation;
-		}
-	}
-	.animetion-prewrap{
-		position: fixed;
-    	top: 0;
-    	left: 0;
-    	width: 100%;
-    	height: 100%;
-		box-sizing: border-box;
-		opacity: 0;
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
-		z-index: 999;
-		&.loading-anime-not-use {
-    		z-index: -999;
-  		}
-		img{
-			width: 257px;
-			height: 257px;
-			object-fit: contain;
-			@include media(large) {
-				width: 200px;
-				height: 200px;
-  			}
-			@include media(small) {
-				width: 175px;
-				height: 175px;
-  			}
-		}
-		&.stretch-shrink-right {
-  			height: 100%;
-   			@include stretch-shrink-right-animation;
-  		}
-	    &.stretch-shrink-curtain {
-  			height: 100%;
-   			@include stretch-shrink-curtain-animation;
-  		}
-		&.expand-circle {
-  			width: 100%;
-  			height: 100%;
-  			position: absolute;
-  			top: 50%;
-  			left: 50%;
-  			transform: translate(-50%, -50%);
-  			@include expand-circle-animation;
-		}
-		.loadwrap-rogo{
-			width: 100%;
-			position: absolute;
-			top: 45%;
-			left: 50%;
-			transform: translate(-50%,-50%);
-			color: #FFFFFF;
-			font-weight: bold;
-			font-size: 1.1em;
-			text-align: center;
-			&.loading-opacity-cont{
-				@include circle-text-animation;
-			}
-			&.popup-rogo{
-				@include popup-rogo-animation;
-			}
-		}
-		.loading-text{
-			width: 100%;
-			position: absolute;
-			bottom: 5%;
-			font-size: .6em;
-			left: 50%;
-			transform: translateX(-50%);
-			color: #000;
-			text-align: center;
-			font-family: 'Noto Serif JP', sans-serif;
-			letter-spacing: 1px;
-			&.loading-anime{
-				@include combined-text-animation;
-			}
 		}
 	}
 }
@@ -733,7 +610,9 @@
 			@include bg-opacty-animation;
 		}
 	}
-	.animetion-prewrap{
+}
+//ロードアニメーションスタイル
+.animetion-prewrap{
 		position: fixed;
     	top: 0;
     	left: 0;
@@ -811,7 +690,6 @@
 			}
 		}
 	}
-}
 //ヘッダープレビュースタイル
 .header-back-wrap{
 	text-align: center;
@@ -1403,6 +1281,7 @@
 		list-style: none;
 		margin: 0;
 		padding: 0;
+		width: 100%;
 		.gm-item-wrap{
 			flex: 1 0 200px;
 			width: 230px;
@@ -1420,7 +1299,7 @@
 			opacity: 0;
             transform: translateY(20px);
 			p{
-				width: 60%;
+				width: 80%;
 				position: absolute;
 				top: 50%;
 				left: 50%;
@@ -1781,9 +1660,6 @@
 			@include media(large) {
     			font-size: 1em;
   			}
-			@include media(medium) {
-    			font-size: .8em;
-  			}
 		}
 	}
 }
@@ -2044,6 +1920,7 @@
 }
 
 //告知バナースタイル
+.banner-all-wrap-prev,
 .banner-all-wrap{//全体wrap
 	position: fixed;
 	top: 0;
@@ -2083,6 +1960,7 @@
 				object-fit: contain;
 			}
 		}
+		.banner-close-button-prev,
 		.banner-close-button{
 			width: 30px;
   			height: 30px;
@@ -2128,6 +2006,9 @@
 		left: 50%;
 		transform: translate(-50%,-50%);
 	}
+	&.notshow{
+		display: none !important;
+	}
 }
 //電話ボタン
 .store-call-btn{
@@ -2150,5 +2031,8 @@
 		&::before{
 			font-size: 35px;
 		}
+	}
+	&.notshow{
+		display: none !important;
 	}
 }

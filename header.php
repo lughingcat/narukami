@@ -45,7 +45,15 @@ $i_background_image_custom_option = get_background_image();
 	}else{
 		$bg_img_url = $i_background_image_custom_option;
 	}
-	
+//ヒーローヘッダー変数各種
+//静止画
+//動画
+//スライダー
+$animetion_type = sanitize_option_value(get_option('loading-anime-type', 'stretch-shrink-right'));
+$defult_rogo_img_prev = get_template_directory_uri() . '/admin-img/narukami-rogo-var3.1.0.png';
+$i_open_bgimgurl = get_optimized_image_url(sanitize_option_value(get_option('open-bg-imgurl', $defult_notfound_img_head)));
+$i_open_rogoimgurl = get_optimized_image_url(sanitize_option_value(get_option('open-rogo-imgurl', $defult_rogo_img_prev)));
+$i_loadingtext_color = sanitize_option_value(get_option('loadingtext-color', '#000'));
 ?>
 	
 <style>
@@ -58,13 +66,25 @@ $i_background_image_custom_option = get_background_image();
 		background-position: center;
 		background-attachment: fixed;
 	}
+	body.no-bg{
+		background-image: none !important;
+	}
 </style>
-<body>
+<body class="no-bg">
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'narukami_all_theme_item' ); ?></a>
-
-	<header id="masthead" class="site-header">
+	
+	<!--ローディングアニメーション-->
+	<div class="animetion-prewrap" data-index="<?php echo $animetion_type; ?>" style="background-image: url('<?php echo $i_open_bgimgurl; ?>');">
+		<p class="loadwrap-rogo">
+			<img src="<?php echo $i_open_rogoimgurl; ?>" alt="ROGO">
+		</p>
+		<p class="loading-text" style="color: <?php echo $i_loadingtext_color; ?>;">Loding...</p>
+	</div>
+	<!--ヘッダー-->
+	
+	<header id="masthead" data-index="<?php echo $animetion_type; ?>" class="site-header notshow">
 		<?php 
 		$i_header_display_setting = sanitize_text_field(get_option('header-disp-set', 'display_on'));//ヘッダー表示設定
 		if($i_header_display_setting === 'display_off' || is_singular('product_lp_page')){
