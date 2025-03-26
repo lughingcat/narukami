@@ -2,7 +2,7 @@
 
 if ( ! defined( 'NARUKAMI_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'NARUKAMI_VERSION', '1.0.0' );
+	define( 'NARUKAMI_VERSION', '1.0.1' );
 }
 
 
