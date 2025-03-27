@@ -9,7 +9,7 @@
         	<div class="inside">
 			<?php
 				//変数初期設定
-				$defult_info_img = get_template_directory_uri() . '/admin-img/sump-1600-1600.jpg';
+				$defult_info_img = get_template_directory_uri() . '/admin-img/sample900-1600.jpg';
 				$bunner_home_link = home_url();
 				
 				$i_banner_control = sanitize_option_value(get_option('banner-use-control', 'banner-use'));

@@ -76,15 +76,18 @@ $i_loadingtext_color = sanitize_option_value(get_option('loadingtext-color', '#0
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'narukami_all_theme_item' ); ?></a>
 	
 	<!--ローディングアニメーション-->
-	<div class="animetion-prewrap" data-index="<?php echo $animetion_type; ?>" style="background-image: url('<?php echo $i_open_bgimgurl; ?>');">
-		<p class="loadwrap-rogo">
-			<img src="<?php echo $i_open_rogoimgurl; ?>" alt="ROGO">
-		</p>
-		<p class="loading-text" style="color: <?php echo $i_loadingtext_color; ?>;">Loding...</p>
-	</div>
+	<?php if (is_front_page()) : ?>
+    <div class="animetion-prewrap" data-index="<?php echo esc_attr($animetion_type); ?>" style="background-image: url('<?php echo esc_url($i_open_bgimgurl); ?>');">
+        <p class="loadwrap-rogo">
+            <img src="<?php echo esc_url($i_open_rogoimgurl); ?>" alt="ROGO">
+        </p>
+        <p class="loading-text" style="color: <?php echo esc_attr($i_loadingtext_color); ?>;">Loading...</p>
+    </div>
+	<?php endif; ?>
+
 	<!--ヘッダー-->
 	
-	<header id="masthead" data-index="<?php echo $animetion_type; ?>" class="site-header notshow">
+	<header id="masthead" data-index="<?php echo $animetion_type; ?>" class="site-header<?php echo is_front_page() ? ' notshow' : ''; ?>">
 		<?php 
 		$i_header_display_setting = sanitize_text_field(get_option('header-disp-set', 'display_on'));//ヘッダー表示設定
 		if($i_header_display_setting === 'display_off' || is_singular('product_lp_page')){
