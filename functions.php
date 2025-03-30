@@ -934,6 +934,25 @@ function get_youtube_id($url) {
     parse_str(parse_url($url, PHP_URL_QUERY), $query);
     return isset($query['v']) ? $query['v'] : '';
 }
+//画像のサイズをお知らせする
+function narukami_image_guidelines() {
+    echo '<div class="notice notice-info"><p><strong>🔹 鳴雷で使用する画像の推奨フォーマット・サイズ</strong></p>';
+    echo '<table style="border-collapse: collapse; width: 100%; max-width: 700px;">';
+    echo '<tr style="background: #f1f1f1;"><th style="padding: 8px; border: 1px solid #ccc;">用途</th><th style="padding: 8px; border: 1px solid #ccc;">サイズ(px)</th><th style="padding: 8px; border: 1px solid #ccc;">推奨フォーマット</th><th style="padding: 8px; border: 1px solid #ccc;">最大容量</th></tr>';
+    echo '<tr><td style="padding: 8px; border: 1px solid #ccc;">ファビコン</td><td style="padding: 8px; border: 1px solid #ccc;">500×500</td><td style="padding: 8px; border: 1px solid #ccc;">WEBP / PNG</td><td style="padding: 8px; border: 1px solid #ccc;">50KB</td></tr>';
+	echo '<tr><td style="padding: 8px; border: 1px solid #ccc;">サイトロゴ</td><td style="padding: 8px; border: 1px solid #ccc;">500×500</td><td style="padding: 8px; border: 1px solid #ccc;">WEBP / PNG</td><td style="padding: 8px; border: 1px solid #ccc;">50KB</td></tr>';
+	echo '<tr><td style="padding: 8px; border: 1px solid #ccc;">背景画像</td><td style="padding: 8px; border: 1px solid #ccc;">1000×900</td><td style="padding: 8px; border: 1px solid #ccc;">WEBP / JPEG</td><td style="padding: 8px; border: 1px solid #ccc;">50KB</td></tr>';
+    echo '<tr><td style="padding: 8px; border: 1px solid #ccc;">ランキング画像</td><td style="padding: 8px; border: 1px solid #ccc;">875×875</td><td style="padding: 8px; border: 1px solid #ccc;">WEBP / JPEG</td><td style="padding: 8px; border: 1px solid #ccc;">80KB</td></tr>';
+    echo '<tr><td style="padding: 8px; border: 1px solid #ccc;">カラム画像</td><td style="padding: 8px; border: 1px solid #ccc;">1600×1600</td><td style="padding: 8px; border: 1px solid #ccc;">WEBP / JPEG</td><td style="padding: 8px; border: 1px solid #ccc;">150KB</td></tr>';
+    echo '<tr><td style="padding: 8px; border: 1px solid #ccc;">ヒーローヘッダー画像</td><td style="padding: 8px; border: 1px solid #ccc;">1600×900</td><td style="padding: 8px; border: 1px solid #ccc;">WEBP / JPEG</td><td style="padding: 8px; border: 1px solid #ccc;">150KB</td></tr>';
+    echo '<tr><td style="padding: 8px; border: 1px solid #ccc;">全画面画像</td><td style="padding: 8px; border: 1px solid #ccc;">1740×1320</td><td style="padding: 8px; border: 1px solid #ccc;">WEBP / JPEG</td><td style="padding: 8px; border: 1px solid #ccc;">180KB</td></tr>';
+	echo '<tr style="background: #e6f7ff;"><td style="padding: 8px; border: 1px solid #ccc;">ヒーローヘッダーオリジナル動画</td><td style="padding: 8px; border: 1px solid #ccc;">1280×720（HD）</td><td style="padding: 8px; border: 1px solid #ccc;">MP4（H.264） / WEBM</td><td style="padding: 8px; border: 1px solid #ccc;">4MB 以下</td></tr>';
+    echo '</table>';
+    echo '<p style="margin-top: 10px;">⚠️ 一部の古いブラウザ（IEなど）は WEBP に対応していません。その場合は JPEG も併用してください。</p>';
+    echo '</div>';
+}
+add_action('admin_notices', 'narukami_image_guidelines');
+
 
 
 /**

@@ -627,38 +627,19 @@
     clip-path: inset(0 0 100% 0);
     opacity: 1; } }
   .animetion-prewrap.expand-circle {
-    width: 100%;
     height: 100%;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     animation: expandCircle 4s ease-out forwards; }
 @keyframes expandCircle {
   0% {
-    width: 100%;
-    height: 100%;
     opacity: 1;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    clip-path: ellipse(100% 100% at 50% 50%); }
-  99% {
-    width: 100%;
-    height: 100%;
-    opacity: 1;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    clip-path: ellipse(50% 50% at 50% 50%); }
+    clip-path: circle(100% at 50% 50%); }
+  50% {
+    opacity: 1; }
+  80% {
+    opacity: 0.6; }
   100% {
-    width: 0;
-    height: 0;
-    opacity: 0;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    clip-path: circle(0% at 50% 50%); } }
+    clip-path: circle(0% at 50% 50%);
+    opacity: 0; } }
   .animetion-prewrap .loadwrap-rogo {
     width: 100%;
     position: absolute;

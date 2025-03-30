@@ -979,7 +979,8 @@ wp.domReady(function() {
                             paddingTop: paddingTop + 'px',
                             paddingRight: paddingRight + 'px',
                             paddingBottom: paddingBottom + 'px',
-                            paddingLeft: paddingLeft + 'px'
+                            paddingLeft: paddingLeft + 'px',
+							zIndex: 99
                         }
                     })
                 )
@@ -1032,7 +1033,8 @@ wp.domReady(function() {
                         paddingTop: paddingTop + 'px',
                         paddingRight: paddingRight + 'px',
                         paddingBottom: paddingBottom + 'px',
-                        paddingLeft: paddingLeft + 'px'
+                        paddingLeft: paddingLeft + 'px',
+						zIndex: 99
                     }
                 })
             );
