@@ -314,7 +314,7 @@ html, body {
         .product-list-page-content .content .slider-container-list-page .narukami-product-slider .slide-items img {
           width: 100%;
           height: 80%;
-          object-fit: cover;
+          object-fit: contain;
           object-position: center;
           padding: 5px; }
         .product-item-page-content .content .slider-container-list-page .narukami-product-slider .slide-items .product-title,
