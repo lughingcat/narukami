@@ -250,7 +250,7 @@ wp.domReady(function() {
                 }
             }),
             el(Button, { onClick: addSlide, className: 'slide-add-btn' }, __('スライドを追加', 'narukami')),
-			el('p', { style: {textAlign: 'center'}, }, "横1740px　縦1320px以上の画像を推奨。",),
+			el('p', { style: {textAlign: 'center'}, }, "横1600px　縦900px以上の画像を推奨。",),
             el('div', { className: 'slide-list' },
                 slides.map((slide, index) =>
                     el('div', { key: index, className: 'slide-item' },

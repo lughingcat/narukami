@@ -78,7 +78,6 @@
 		   <?php echo $column_right_1_title_result; ?>
 		   >
 	<h4>文章を入力してください。</h4>
-		<p>※改行せずに入力すると美しく見えます。</p>
 	<textarea name="column_right_1_content[<?php echo $gm_numbers; ?>]" class="narukami-tinymce-editor"><?php echo stripslashes($column_right_1_content_result);?>
 	</textarea>
 	</div>

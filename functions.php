@@ -2,7 +2,7 @@
 
 if ( ! defined( 'NARUKAMI_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'NARUKAMI_VERSION', '1.0.1' );
+	define( 'NARUKAMI_VERSION', '1.0.0' );
 }
 
 
@@ -112,7 +112,9 @@ function add_cdns(){
 	// Sawarabi Gothic
     wp_enqueue_style('sawarabi-gothic', 'https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap', false, null);
     // M PLUS Rounded 1c
-    wp_enqueue_style('m-plus-rounded', 'https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap', false, null);
+    wp_enqueue_style('m-plus-rounded', 
+					 'https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=M+PLUS+1p:wght@400;700&display=swap', 
+					 false, null);
     // Sawarabi Mincho
     wp_enqueue_style('sawarabi-mincho', 'https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap', false, null);
     // Kosugi Maru
@@ -941,7 +943,7 @@ function narukami_image_guidelines() {
     echo '<tr style="background: #f1f1f1;"><th style="padding: 8px; border: 1px solid #ccc;">用途</th><th style="padding: 8px; border: 1px solid #ccc;">サイズ(px)</th><th style="padding: 8px; border: 1px solid #ccc;">推奨フォーマット</th><th style="padding: 8px; border: 1px solid #ccc;">最大容量</th></tr>';
     echo '<tr><td style="padding: 8px; border: 1px solid #ccc;">ファビコン</td><td style="padding: 8px; border: 1px solid #ccc;">500×500</td><td style="padding: 8px; border: 1px solid #ccc;">WEBP / PNG</td><td style="padding: 8px; border: 1px solid #ccc;">50KB</td></tr>';
 	echo '<tr><td style="padding: 8px; border: 1px solid #ccc;">サイトロゴ</td><td style="padding: 8px; border: 1px solid #ccc;">500×500</td><td style="padding: 8px; border: 1px solid #ccc;">WEBP / PNG</td><td style="padding: 8px; border: 1px solid #ccc;">50KB</td></tr>';
-	echo '<tr><td style="padding: 8px; border: 1px solid #ccc;">背景画像</td><td style="padding: 8px; border: 1px solid #ccc;">1000×900</td><td style="padding: 8px; border: 1px solid #ccc;">WEBP / JPEG</td><td style="padding: 8px; border: 1px solid #ccc;">50KB</td></tr>';
+	echo '<tr><td style="padding: 8px; border: 1px solid #ccc;">背景画像 / ローディング背景</td><td style="padding: 8px; border: 1px solid #ccc;">1000×900</td><td style="padding: 8px; border: 1px solid #ccc;">WEBP / JPEG</td><td style="padding: 8px; border: 1px solid #ccc;">50KB</td></tr>';
     echo '<tr><td style="padding: 8px; border: 1px solid #ccc;">ランキング画像</td><td style="padding: 8px; border: 1px solid #ccc;">875×875</td><td style="padding: 8px; border: 1px solid #ccc;">WEBP / JPEG</td><td style="padding: 8px; border: 1px solid #ccc;">80KB</td></tr>';
     echo '<tr><td style="padding: 8px; border: 1px solid #ccc;">カラム画像</td><td style="padding: 8px; border: 1px solid #ccc;">1600×1600</td><td style="padding: 8px; border: 1px solid #ccc;">WEBP / JPEG</td><td style="padding: 8px; border: 1px solid #ccc;">150KB</td></tr>';
     echo '<tr><td style="padding: 8px; border: 1px solid #ccc;">ヒーローヘッダー画像</td><td style="padding: 8px; border: 1px solid #ccc;">1600×900</td><td style="padding: 8px; border: 1px solid #ccc;">WEBP / JPEG</td><td style="padding: 8px; border: 1px solid #ccc;">150KB</td></tr>';

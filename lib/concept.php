@@ -79,7 +79,6 @@
 		   <?php echo $concept_title_result; ?>
 		   >
 	<h4>コンセプト文章を入力してください。</h4>
-		<p>※改行せずに入力すると美しく見えます。</p>
 	<textarea name="concept_content[<?php echo $gm_numbers; ?>]" class="narukami-tinymce-editor"><?php echo stripslashes($concept_content_nl2br); ?>
 	</textarea>
 	</div>

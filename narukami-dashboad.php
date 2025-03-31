@@ -220,7 +220,7 @@ function add_narukami_welcome_panel() {
 				<a href="<?php echo admin_url('admin.php?page=custom_submenu_page_4'); ?>">
 					<div class="panel-content-wrap">
 						<p class="panel-icon"><i class="fa-solid fa-rectangle-ad"></i></p>
-						<h2>ホップアップバナー設定</h2>
+						<h2>ポップアップバナー設定</h2>
 						<p>
 							トップページに告知目的で表示されるポップアップバナーを設定できます。トップページのみに限定することでユーザーが迷惑に感じません。<br>
 							これを設定する事でユーザーに強くお知らせしたい情報やイベントなどの告知を確実に伝えることができます。<br>

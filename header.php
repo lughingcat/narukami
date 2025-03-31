@@ -45,6 +45,8 @@ $i_background_image_custom_option = get_background_image();
 	}else{
 		$bg_img_url = $i_background_image_custom_option;
 	}
+	//フォントファミリー分岐
+	$font_family_css = (strpos($narukami_font_family, ' ') !== false) ? '"' . esc_attr($narukami_font_family) . '"' : esc_attr($narukami_font_family);
 //ヒーローヘッダー変数各種
 //静止画
 //動画
@@ -58,7 +60,7 @@ $i_loadingtext_color = sanitize_option_value(get_option('loadingtext-color', '#0
 	
 <style>
 	body{
-		font-family: <?php echo $narukami_font_family; ?>;
+		font-family: <?php echo $font_family_css; ?>;
 		position: relative;
 		background-image: url(<?php echo $bg_img_url; ?>);
 		background-size: cover;

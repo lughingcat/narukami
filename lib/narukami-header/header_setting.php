@@ -49,7 +49,7 @@
     			   		 ),
     			   		 home_url('/')
     					);
-						echo '<button type="button" class="narukami-prevew-btn" onclick="submitHeaderPreviewForm()">PREVEW</button>';
+						echo '<button type="button" class="narukami-prevew-btn" onclick="submitHeaderPreviewForm()">PREVIEW</button>';
 						echo '
 						<script type="text/javascript">
 							function submitHeaderPreviewForm() {

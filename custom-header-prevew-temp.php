@@ -8,10 +8,12 @@
 </head>
 	<?php
 	$narukami_font_family = sanitize_option_value(get_option('narukami-font-family', 'Sawarabi Gothic'));
+	//フォントファミリー分岐
+	$font_family_css = (strpos($narukami_font_family, ' ') !== false) ? '"' . esc_attr($narukami_font_family) . '"' : esc_attr($narukami_font_family);
 	?>
 	<style>
 		body{
-			font-family: <?php echo $narukami_font_family; ?>
+			font-family: <?php echo $font_family_css; ?>
 		}
 	</style>
 <body style="position: relative;">

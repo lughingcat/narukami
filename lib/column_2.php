@@ -116,7 +116,6 @@
 		   <?php echo $column_2_title_result; ?>
 	>
 	<h4>文章を入力してください。</h4>
-		<p>※改行せずに入力すると美しく見えます。</p>
 	<textarea name="column_2_content[<?php echo $gm_numbers; ?>]" class="narukami-tinymce-editor"><?php echo stripslashes($column_2_content_result); ?>
 	</textarea>
 	</div>
@@ -132,7 +131,6 @@
 		   ?>
 	>
 	<h4>文章を入力してください。</h4>
-		<p>※改行せずに入力すると美しく見えます。</p>
 	<textarea name="column_2_sec_content[<?php echo $gm_numbers; ?>]" class="narukami-tinymce-editor"><?php
 		echo stripslashes($column_2_sec_content_result); ?>
 	</textarea>

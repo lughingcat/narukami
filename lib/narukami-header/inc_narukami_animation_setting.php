@@ -56,15 +56,15 @@ if(isset($i_loading_anime_type)){
 		<h4>ローディングアニメーションのパターンを選択してください。</h4>
 		<div class="prevew-btn-wrap">
 			<div class="loading-anime-item-wrap">
-				<button id="right-to-left-btn" class="load-anime-prevew-btn" type="button">Prevew</button>
+				<button id="right-to-left-btn" class="load-anime-prevew-btn" type="button">PREVIEW</button>
 				<label class="loading-anime-label"><input type="radio" name="ladinganime-type" value="stretch-shrink-right" <?php echo $stretch_check; ?>>右スライド</label>
 			</div>
 			<div class="loading-anime-item-wrap">
-				<button id="curtain-btn" class="load-anime-prevew-btn" type="button">Prevew</button>
+				<button id="curtain-btn" class="load-anime-prevew-btn" type="button">PREVIEW</button>
 				<label class="loading-anime-label"><input type="radio" name="ladinganime-type" value="stretch-shrink-curtain" <?php echo $stretch_curtain; ?>>カーテン</label>
 			</div>
 			<div class="loading-anime-item-wrap">
-				<button id="circle-open-btn" class="load-anime-prevew-btn" type="button">Prevew</button>
+				<button id="circle-open-btn" class="load-anime-prevew-btn" type="button">PREVIEW</button>
 				<label class="loading-anime-label"><input type="radio" name="ladinganime-type" value="expand-circle" <?php echo $stretch_circle; ?>>サークル</label>
 			</div>
 			<div class="loading-anime-item-wrap">
@@ -73,17 +73,18 @@ if(isset($i_loading_anime_type)){
 			</div>
 		</div>
 		<h4>オーバーラップデザインを作成します。</h4>
-		<p>上記のprevewボタンをクリックしてください。</p>
+		<p>上記のPREVIEWボタンをクリックしてください。</p>
 		<p>アニメーションが発火し、ローディングアニメーションが始まります。</p>
-		<p>動きのあるオーバーラップのデザインを、下記入力フォームより自由に作成することができます。</p>
-		<p>店舗の雰囲気に合った背景画像と、店舗ロゴなどを配置して独自のローディングアニメーションを作成してください。</p>
-		<p>ユーザーにトップページを早く見せたい場合は</br>上記のローディングアニメーションのパターン選択より「使用しない」を選択し、保存してください。</br>ローディングアニメーションは発火しません。</p>
+		<p>動きのあるオーバーラップデザインを、下記入力フォームより自由に作成することができます。</p>
+		<p>店舗の雰囲気に合った背景画像と、店舗ロゴなどを配置し、独自のローディングアニメーションを作成してください。</p>
+		<p>ユーザーにトップページを早く見せたい場合、<br>上記のローディングアニメーションのパターン選択より「使用しない」を選択し、保存してください。<br>ローディングアニメーションは発火しません。</p>
+
 		<div>
 			<h4>オーバーラップさせる背景画像を選択してください。</h4>
 			<?php
   			generate_upload_image_single_tag('open-bg-img-url', $i_open_bgimgurl);
 			?>
-			<p>オープニングロゴを選択してください。(縦330px 横330px以上を推奨。)</p>
+			<p>オープニングロゴを選択してください。(500×500を推奨。)</p>
 			<?php
   			generate_upload_image_single_tag('open-rogo-img-url', $i_open_rogoimgurl);
 			?>

@@ -120,7 +120,7 @@ function add_custom_menu_page_4()
 {
     ?>
 <div class="wrap">
-    <h2>ホップアップバナー設定</h2>
+    <h2>ポップアップバナー設定</h2>
 	<?php include('narukami-banner/banner-setting.php'); ?>
 </div>
 <?php

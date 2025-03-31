@@ -69,7 +69,7 @@ if (is_array($slider_img_array)) {
 	$slider_lengh = 0;
 		foreach($slider_formItem_array as $key2=>$s_item){
 			echo '<div id="slider-form-wrap_' . $slider_lengh . '" class="slider-form-wrap">';
-			echo '<p>スライダー画像を選択してください。(画像サイズ横1740px縦1320px　推奨)</p>';	
+			echo '<p>スライダー画像を選択してください。(1600×900推奨)</p>';	
 			echo generate_upload_image_single_array_tag('slider-img-link', $s_item['sf-url'], $slider_lengh);
 			echo '<p>スライダータイトルを入力してください。</p>';	
 			echo '<input type="text" name="slider_item_title[]" class="img-setect-url" value="' . $s_item['sf-title'] . '">';

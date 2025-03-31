@@ -56,7 +56,7 @@
 			<div class="inputForm notfound-page-wrap">
 				<h4>サイトフォント設定</h4>
 				<p class="font-change-preview"
-				   style="font-family: <?php echo $font_family_css; ?>">
+				   style="font-family: '<?php echo esc_attr($font_family_css); ?>'">
 					下記のフォントをセレクトするとフォントが変更されます。<br>
 					サイトのジャンルに合うフォントを選択してください。<br>
 					ここで選択したフォントをサイトに反映させる為には設定を保存する必要があります。<br>
@@ -73,8 +73,7 @@
 				
 				<h4>背景画像設定</h4>
 				<p>
-				注意※「鳴雷ヘッダー設定」→「サイトアニメーション設定」を有効化している場合、背景画像は設定しないでください。<br>
-				サイトアニメーションが正常に動作しない場合があります。
+				注意※背景画像はこちらで設定し、カスタマイザーの背景画像の使用はしないでください。
 				</p>
 				<?php
   				generate_upload_image_single_tag('background_image', $bg_img_url);
@@ -122,8 +121,8 @@
 				
 				<h4>電話ボタン設定</h4>
 				<p>
-				スマホでサイトが表示された時に出現します。<br>
-				ボタンをタップするとお店に電話をかける事ができ、ご予約までの流れがスムーズになります。<br>
+				スマホでサイトを表示すると出現します。<br>
+				ボタンをタップするとお店に電話をかけられ、ご予約までスムーズに進めます。<br>
 				</p>
 				<label><input class="call-btn-active" type="radio" name="call-btn-active" value="call-btn-on" <?php echo $callBtn_on; ?>>電話ボタンを表示する。</label>
 				<label><input class="call-btn-active" type="radio" name="call-btn-active" value="call-btn-off" <?php echo $callBtn_off; ?>>電話ボタンを非表示にする。</label>
@@ -164,10 +163,15 @@
 //font-family
 document.getElementById('font-family-select').addEventListener('change', function() {
     var selectedFont = this.value;
-	var fontChangeEl = document.querySelector('.font-change-preview');
-    fontChangeEl.style.fontFamily = selectedFont;
-	 localStorage.setItem('selectedFontFamily', selectedFont);
+    var fontChangeEl = document.querySelector('.font-change-preview');
+
+    // フォント名にスペースがある場合、"" で囲む
+    fontChangeEl.style.fontFamily = `"${selectedFont}"`;
+
+    // 選択したフォントを localStorage に保存
+    localStorage.setItem('selectedFontFamily', selectedFont);
 });
+
 	
 window.addEventListener('DOMContentLoaded', function() {
     var savedFont = localStorage.getItem('selectedFontFamily');

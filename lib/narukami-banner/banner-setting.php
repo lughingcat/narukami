@@ -5,7 +5,7 @@
 
 	<div class="metabox-holder">
     	<div class="postbox bg">
-        	<h3 class='hndle'><span class="title">告知バナー設定[AnnouncementSetting]</span></h3>
+        	<h3 class='hndle'><span class="title">ポップアップバナー設定[AnnouncementSetting]</span></h3>
         	<div class="inside">
 			<?php
 				//変数初期設定
@@ -28,8 +28,8 @@
 			<form id="narukami-banner-form" method="post" name="narukami-banner-form" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
 				<input type="hidden" name="action" value="update_custom_option_banner" /><!--post_nonce_check.phpへ送信(フッター用)-->
 			<div class="inputForm notfound-page-wrap">
-				<h4>告知バナーの使用を選択してください</h4>
-				<p>サイトが最初に表示される時に１回だけ全画面に表示されます</br>新商品の告知や、スタッフの募集などの訴求に効果的です。</br>必要ない場合は「バナーを使用しない。」を選択して保存してください。</p>
+				<h4>ポップアップバナーの使用を選択してください</h4>
+				<p>サイトが最初に表示される時に１回だけ全ページに表示されます</br>新商品の告知や、スタッフの募集などの訴求に効果的です。</br>必要ない場合は「バナーを使用しない。」を選択して保存してください。</p>
 					<label><input type="radio" name="banner-use-control" value="banner-use" <?php echo $bunner_on_value; ?>>バナーを使用する。</label>
 					<label><input type="radio" name="banner-use-control" value="banner-notuse" <?php echo $bunner_off_value; ?>>バナーを使用しない。</label>
 				<h4>バナータイトルを入力してください。</h4>

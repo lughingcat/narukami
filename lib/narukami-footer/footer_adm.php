@@ -197,7 +197,7 @@
                   		?> 
 					</div>
 		     	</div><!--color-bg-box end-->
-			<h4>フッターのサイトマップテキストとリンクURLを入力してください。(最大６個)</h4>
+			<h4>フッターのテキストとリンクURLを入力してください。(最大６個)</h4>
 			<div class="global-form-wrap">
 			<?php
 			if (isset($footer_items_Array) && is_array($footer_items_Array)) {

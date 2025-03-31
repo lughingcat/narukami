@@ -8,6 +8,7 @@
 </head>
 	<?php
 	$narukami_font_family = sanitize_option_value(get_option('narukami-font-family', 'Sawarabi Gothic'));
+	$font_family_css = (strpos($narukami_font_family, ' ') !== false) ? '"' . esc_attr($narukami_font_family) . '"' : esc_attr($narukami_font_family);
 	?>
 	<?php 
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -25,7 +26,7 @@
 	?>
 	<style>
 		body{
-			font-family: <?php echo $narukami_font_family; ?>;
+			font-family: <?php echo $font_family_css; ?>;
 			background-image: url(<?php echo $bg_img; ?>);
 			background-size: cover;
 			background-repeat: no-repeat;
