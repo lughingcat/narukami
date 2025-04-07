@@ -1,5 +1,4 @@
 <?php
-
 function add_narukami_welcome_panel() {
     ?>
     <div class="custom-welcome-panel">

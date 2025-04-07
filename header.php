@@ -72,7 +72,7 @@ $i_loadingtext_color = sanitize_option_value(get_option('loadingtext-color', '#0
 		background-image: none !important;
 	}
 </style>
-<body class="<?php echo is_front_page() ? 'no-bg' : ''; ?>">
+<body <?php body_class(is_front_page() ? 'no-bg' : ''); ?>>
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'narukami_all_theme_item' ); ?></a>
