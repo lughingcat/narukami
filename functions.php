@@ -959,142 +959,6 @@ function narukami_image_guidelines() {
 }
 add_action('admin_notices', 'narukami_image_guidelines');
 
-/*
-//販売サイト用apiキーを含めたライセンス管理関数
-
-// テーマライセンス用のDBテーブルを作成（テーマやプラグインの有効化時に実行）
-function mytheme_create_license_table() {
-    global $wpdb;
-    $table_name = $wpdb->prefix . 'theme_licenses';
-
-    $charset_collate = $wpdb->get_charset_collate();
-
-    $sql = "CREATE TABLE IF NOT EXISTS $table_name (
-        id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-        license_key VARCHAR(255) NOT NULL,
-        domain VARCHAR(255) NOT NULL,
-        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-        PRIMARY KEY (id),
-        UNIQUE KEY license_domain (license_key, domain)
-    ) $charset_collate;";
-
-    require_once ABSPATH . 'wp-admin/includes/upgrade.php';
-    dbDelta($sql);
-}
-add_action('after_switch_theme', 'mytheme_create_license_table');
-
-//エンドポイント作成
-add_action('rest_api_init', function () {
-    register_rest_route('mytheme/v1', '/licenses', [
-        'methods'             => 'POST',
-        'callback'            => 'mytheme_validate_license',
-        'permission_callback' => '__return_true',
-    ]);
-});
-
-
-//ライセンス検証ロジック
-function mytheme_validate_license($request) {
-    global $wpdb;
-    $table_name = $wpdb->prefix . 'theme_licenses';
-
-    $license_key = sanitize_text_field($request['license_key']);
-    $domain      = parse_url(sanitize_text_field($request['domain']), PHP_URL_HOST);
-
-    if (!$license_key || !$domain) {
-        return new WP_REST_Response(['status' => 'error', 'message' => 'パラメータが不足しています'], 400);
-    }
-
-    // WooCommerceライセンスをチェック
-    $response = wp_remote_get('https://narukami-wptheme.com/wp-json/lmfwc/v2/licenses/' . $license_key, [
-        'headers' => [
-            'Authorization' => 'Basic ' . base64_encode('ck_05131837d2f24ddbf66108ac87fa009d45e406fb:cs_9683c3da5fe6bffa22d55307b05a176fb5a3f539'),
-        ],
-        'timeout' => 10,
-    ]);
-
-    if (is_wp_error($response)) {
-        return new WP_REST_Response(['status' => 'error', 'message' => 'ライセンス確認エラー'], 500);
-    }
-
-    $body = wp_remote_retrieve_body($response);
-    if (empty($body)) {
-        return new WP_REST_Response(['status' => 'error', 'message' => 'APIからのレスポンスが空です'], 500);
-    }
-
-    $data = json_decode($body, true);
-    if (json_last_error() !== JSON_ERROR_NONE) {
-        return new WP_REST_Response(['status' => 'error', 'message' => 'レスポンスの解析に失敗しました'], 500);
-    }
-
-    if (!isset($data['data']['status']) || intval($data['data']['status']) !== 2) {
-    	return new WP_REST_Response(['status' => 'error', 'message' => '無効なライセンスキーです'], 403);
-	}
-
-
-
-    // ローカル or サブドメインを許可
-    if (mytheme_is_local_or_subdomain($domain)) {
-        return new WP_REST_Response(['status' => 'success', 'message' => '認証成功（ローカルまたはサブドメイン）']);
-    }
-
-    // 同じライセンスで登録済みのドメインが存在するか確認
-    $registered = $wpdb->get_var($wpdb->prepare(
-        "SELECT COUNT(*) FROM $table_name WHERE license_key = %s AND domain = %s",
-        $license_key, $domain
-    ));
-
-    if ($registered) {
-        return new WP_REST_Response(['status' => 'success', 'message' => '認証成功（既存ドメイン）']);
-    } else {
-        // 同じライセンスで他のドメインが登録されているか？
-        $used = $wpdb->get_var($wpdb->prepare(
-            "SELECT COUNT(*) FROM $table_name WHERE license_key = %s",
-            $license_key
-        ));
-
-        if ($used) {
-            return new WP_REST_Response(['status' => 'error', 'message' => 'このライセンスキーは別ドメインで使用されています'], 403);
-        } else {
-            // 新規登録
-            $insert_result = $wpdb->insert($table_name, [
-                'license_key' => $license_key,
-                'domain'      => $domain,
-            ]);
-
-            if (!$insert_result) {
-                return new WP_REST_Response(['status' => 'error', 'message' => 'データベースへの登録に失敗しました'], 500);
-            }
-
-            return new WP_REST_Response(['status' => 'success', 'message' => 'ライセンス登録＆認証成功']);
-        }
-    }
-}
-
-
-//サブドメインとローカル環境ドメインかを判別する関数
-function mytheme_is_local_or_subdomain($domain) {
-    $local_domains = ['localhost', '127.0.0.1'];
-
-    // URL形式だったらパースしてホストだけ取り出す
-    $host = parse_url($domain, PHP_URL_HOST);
-    if (!$host) {
-        // パースできなければドメインと仮定
-        $host = $domain;
-    }
-
-    if (in_array($host, $local_domains)) {
-        return true;
-    }
-
-    if (substr_count($host, '.') > 1) {
-        return true;
-    }
-
-    return false;
-}
-
-*/
 
 // --------------------------
 // 1. 有効化時にライセンスページへリダイレクト
@@ -1160,7 +1024,6 @@ if (isset($_POST['mytheme_license_key'])) {
     $license_key_time = sanitize_text_field($_POST['mytheme_license_key']);
     update_option('mytheme_license_key', $license_key_time);
 }
-var_dump(get_option('mytheme_license_key'));
 // --------------------------
 // 4. ライセンス送信ロジック（ドメイン付き）
 // --------------------------
@@ -1353,6 +1216,54 @@ function mytheme_check_license_periodically() {
     }
 }
 add_action('mytheme_license_check_event', 'mytheme_check_license_periodically');
+
+//鳴雷の自動アップデート
+
+// アップデート情報を取得し、テーマの更新をチェックする
+add_filter('pre_set_site_transient_update_themes', 'check_for_theme_update');
+function check_for_theme_update($transient) {
+    // サーバー上のアップデート情報URL
+    $theme_update_url = 'https://narukami-wptheme.com/wp-content/uploads/theme-updates/narukami-update.json';
+
+    // サーバーからアップデート情報を取得
+    $response = wp_remote_get($theme_update_url);
+
+    if (is_wp_error($response)) {
+        return $transient; // エラーが発生した場合、そのまま戻す
+    }
+
+    // JSONデータの取得
+    $update_data = json_decode(wp_remote_retrieve_body($response));
+
+    // 新しいバージョンがある場合に更新情報を設定
+    if (isset($update_data->new_version)) {
+		$theme = wp_get_theme();
+        $current_version = $theme->get('Version'); // 現在のテーマバージョンを取得
+        if (version_compare($update_data->new_version, $current_version, '>')) {
+            $theme_slug = get_template();
+			$transient->response[$theme_slug] = array(
+				'theme' => $theme_slug,
+				'new_version' => $update_data->new_version,
+				'url' => $update_data->theme_url,
+				'package' => $update_data->download_url,
+			);
+
+        }
+    }
+
+    return $transient;
+}
+
+// 更新前の処理（オプション）
+add_filter('upgrader_pre_install', 'install_theme_update', 10, 2);
+function install_theme_update($response, $hook_extra) {
+    if (isset($hook_extra['theme']) && $hook_extra['theme'] === 'NARUKAMI') {
+        // 更新時に追加の処理を行いたい場合、ここにコードを追加できます
+    }
+    return $response;
+}
+
+
 
 /**
  * option値初期化ファイル(通常時コメントアウト)
