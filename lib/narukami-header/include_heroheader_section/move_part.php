@@ -1,5 +1,5 @@
 <?php
-$move_type = sanitize_option_value(get_option('move-type','youtube'));
+$move_type = sanitize_option_value(get_option('move-type', ''));
 $youtube_id = sanitize_option_value(get_option('youtube-id',''));
 $youtube_full_path = 'https://www.youtube.com/watch?v=' . $youtube_id;
 $i_hh_move = sanitize_option_value(get_option('hero-H-move'));
@@ -15,14 +15,16 @@ if(isset($hero_move_backshadow)){
 		$shadow_off = "checked";
 	}
 }
-if(isset($move_type)){
-	if($move_type == 'youtube'){
-		$youtube_checked = 'checked';
-		$original_checked = '';
-	}elseif($move_type == 'original'){
-		$youtube_checked = '';
-		$original_checked = 'checked';
-	}
+//checkbox初期値設定
+$youtube_checked = '';
+$original_checked = '';
+
+// original のときのみ original を checked にする
+if ($move_type === 'original') {
+    $original_checked = 'checked';
+} else {
+    // それ以外は全部 youtube を初期値にする
+    $youtube_checked = 'checked';
 }
 ?>
 <div class="heromove-all-wrap">

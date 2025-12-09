@@ -36,6 +36,8 @@
 		delete_option('hero-H-movebackshadow');
 		delete_option('heroheader-moveTitleTextColor');
 		delete_option('heroheader-moveTitleShadowColor');
+		delete_option('move-type');
+		delete_option('youtube-id');
 		
 		//スライダー
 		

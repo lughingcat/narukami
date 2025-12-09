@@ -1268,7 +1268,7 @@ function install_theme_update($response, $hook_extra) {
 /**
  * option値初期化ファイル(通常時コメントアウト)
  */
-//require get_template_directory() . '/lib/delete-option.php';
+require get_template_directory() . '/lib/delete-option.php';
 
 /**
  * ログイン時のロゴ,リンク変更
